@@ -7,6 +7,7 @@ description = "Re-write of ASTInterpreter for julia 0.6+"
 stargazers_count = "42"
 url = "https://github.com/Keno/ASTInterpreter2.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

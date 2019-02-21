@@ -7,6 +7,7 @@ description = "Abstract operators for large scale optimization in Julia"
 stargazers_count = "15"
 url = "https://github.com/kul-forbes/AbstractOperators.jl.git"
 installs = true
+tags = ["derivatives", "back-propagation", "automatic-differentiation", "optimization", "large-scale", "julia-language"]
 license = "Other"
 
 [[contributors]]

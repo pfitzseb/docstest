@@ -7,6 +7,7 @@ description = "AGL & AGLFN"
 stargazers_count = "0"
 url = "https://github.com/sambitdash/AdobeGlyphList.jl.git"
 installs = true
+tags = []
 license = "BSD 3-Clause \"New\" or \"Revised\" License"
 
 [[contributors]]

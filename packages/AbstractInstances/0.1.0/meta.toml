@@ -7,6 +7,7 @@ description = "A package for making concrete instances of abstract types"
 stargazers_count = "0"
 url = "https://github.com/dalum/AbstractInstances.jl.git"
 installs = true
+tags = []
 license = "MIT License"
 
 [[contributors]]

@@ -7,6 +7,7 @@ description = "result type calculations for algebraic operations"
 stargazers_count = "0"
 url = "https://github.com/tpapp/AlgebraResultTypes.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

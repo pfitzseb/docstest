@@ -7,6 +7,7 @@ description = "Julia package for function approximation"
 stargazers_count = "182"
 url = "https://github.com/JuliaApproximation/ApproxFun.jl.git"
 installs = true
+tags = ["julia", "partial-differential-equations", "approximation"]
 license = "Other"
 
 [[contributors]]

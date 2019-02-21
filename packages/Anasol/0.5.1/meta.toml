@@ -7,6 +7,7 @@ description = "Analytical solutions for groundwater contaminant transport"
 stargazers_count = "5"
 url = "https://github.com/madsjulia/Anasol.jl.git"
 installs = true
+tags = ["mads", "julia", "analyses", "analytical-solution", "decision-support", "contamination", "groundwater", "flow", "transport", "migration", "modeling", "prediction", "uncertainty-quantification", "sensitivity-analysis"]
 license = "Other"
 
 [[contributors]]

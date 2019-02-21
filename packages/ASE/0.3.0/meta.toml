@@ -7,6 +7,7 @@ description = "Julia Bindings for Atomic Simulation Environment "
 stargazers_count = "2"
 url = "https://github.com/libAtoms/ASE.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

@@ -1,7 +1,7 @@
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   329  100   329    0     0    564      0 --:--:-- --:--:-- --:--:--   564
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  154k    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  154k  100  154k    0     0  62766      0  0:00:02  0:00:02 --:--:-- 95015
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   329  100   329    0     0    621      0 --:--:-- --:--:-- --:--:--   621
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0 10  154k   10 16384    0     0   8515      0  0:00:18  0:00:01  0:00:17 18897100  154k  100  154k    0     0  57380      0  0:00:02  0:00:02 --:--:-- 93008
 make -f Makefile.1 -C /home/pfitzseb/.julia/packages/Algencan/zHtVy/deps/src/algencan-3.1.1/sources/hsl
 make[1]: Entering directory '/home/pfitzseb/.julia/packages/Algencan/zHtVy/deps/src/algencan-3.1.1/sources/hsl'
 make[1]: Nothing to be done for 'all'.

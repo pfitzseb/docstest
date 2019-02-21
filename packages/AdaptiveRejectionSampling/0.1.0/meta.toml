@@ -7,6 +7,7 @@ description = "Julia package for fast flexible adaptive rejection sampling"
 stargazers_count = "0"
 url = "https://github.com/mauriciogtec/AdaptiveRejectionSampling.jl.git"
 installs = true
+tags = ["rejection-sampling", "simulation"]
 license = "Other"
 
 [[contributors]]

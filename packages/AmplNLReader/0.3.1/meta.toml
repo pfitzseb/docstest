@@ -7,6 +7,7 @@ description = "Julia AMPL Models Conforming to NLPModels.jl"
 stargazers_count = "9"
 url = "https://github.com/JuliaSmoothOptimizers/AmplNLReader.jl.git"
 installs = true
+tags = ["ampl", "julia", "julia-language", "optimization", "nlpmodels"]
 license = "Mozilla Public License 2.0"
 
 [[contributors]]

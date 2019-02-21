@@ -7,6 +7,7 @@ description = "AWS S3 Simple Storage Service interface for Julia."
 stargazers_count = "5"
 url = "https://github.com/samoconnor/AWSS3.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

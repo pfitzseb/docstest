@@ -7,6 +7,7 @@ description = "Generic abstract algebra functionality in pure Julia (no C depend
 stargazers_count = "17"
 url = "https://github.com/Nemocas/AbstractAlgebra.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

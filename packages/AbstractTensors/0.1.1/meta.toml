@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AbstractTensors"
+owner = "chakravala"
+version = "0.1.1"
+description = "Tensor algebra abstract type system interoperability with vector space parameter"
+stargazers_count = "0"
+url = "https://github.com/chakravala/AbstractTensors.jl.git"
+installs = true
+tags = ["tensor-algebra", "type-system", "interoperability", "vector-space", "abstraction-layer", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "chakravala"
+contributions = "4"

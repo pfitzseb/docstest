@@ -7,6 +7,7 @@ description = "Approximate the product between infinite functional objects on a 
 stargazers_count = "1"
 url = "https://github.com/JuliaRobotics/ApproxManifoldProducts.jl.git"
 installs = true
+tags = []
 license = "MIT License"
 
 [[contributors]]

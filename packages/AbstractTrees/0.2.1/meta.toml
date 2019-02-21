@@ -7,6 +7,7 @@ description = "Abstract julia interfaces for working with trees"
 stargazers_count = "40"
 url = "https://github.com/Keno/AbstractTrees.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

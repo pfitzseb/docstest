@@ -7,6 +7,7 @@ description = "Approximate Minimum Degree Ordering in Julia"
 stargazers_count = "0"
 url = "https://github.com/JuliaSmoothOptimizers/AMD.jl.git"
 installs = true
+tags = ["amd", "permutation", "factorization", "sparse-matrices", "julia", "julia-language", "linear-algebra", "sparse-matrix"]
 license = "Mozilla Public License 2.0"
 
 [[contributors]]

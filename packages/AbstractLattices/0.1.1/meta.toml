@@ -7,6 +7,7 @@ description = "Abstract lattice functions meet and join, with symbols \\wedge an
 stargazers_count = "0"
 url = "https://github.com/scheinerman/AbstractLattices.jl.git"
 installs = true
+tags = []
 license = "MIT License"
 
 [[contributors]]

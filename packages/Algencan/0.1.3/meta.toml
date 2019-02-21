@@ -7,6 +7,7 @@ description = "JuMP / MathProgBase interface for Algencan"
 stargazers_count = "3"
 url = "https://github.com/pjssilva/Algencan.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

@@ -7,6 +7,7 @@ description = "Algebraic Multigrid in Julia"
 stargazers_count = "27"
 url = "https://github.com/JuliaLinearAlgebra/AlgebraicMultigrid.jl.git"
 installs = true
+tags = ["sparse-linear-systems", "julia-language", "iterative-methods"]
 license = "Other"
 
 [[contributors]]

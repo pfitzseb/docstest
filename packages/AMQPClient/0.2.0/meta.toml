@@ -7,6 +7,7 @@ description = "A Julia AMQP (Advanced Message Queuing Protocol) / RabbitMQ Clien
 stargazers_count = "6"
 url = "https://github.com/JuliaComputing/AMQPClient.jl.git"
 installs = true
+tags = ["amqpclient", "rabbitmq", "julia", "message-queue"]
 license = "Other"
 
 [[contributors]]

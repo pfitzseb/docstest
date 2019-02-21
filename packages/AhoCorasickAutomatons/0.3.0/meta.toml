@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AhoCorasickAutomatons"
+owner = "hack1nt0"
+version = "0.3.0"
+description = "A 2-Array implementation of Aho–Corasick automaton."
+stargazers_count = "0"
+url = "https://github.com/hack1nt0/AhoCorasickAutomatons.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "hack1nt0"
+contributions = "10"

@@ -7,6 +7,7 @@ description = "Amazon Web Services Core Functions and Types"
 stargazers_count = "23"
 url = "https://github.com/JuliaCloud/AWSCore.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

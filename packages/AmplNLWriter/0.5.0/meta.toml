@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AmplNLWriter"
+owner = "JuliaOpt"
+version = "0.5.0"
+description = "Julia interface to AMPL-enabled solvers"
+stargazers_count = "26"
+url = "https://github.com/JuliaOpt/AmplNLWriter.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "139"
+[[contributors]]
+name = "odow"
+contributions = "17"
+[[contributors]]
+name = "mlubin"
+contributions = "14"
+[[contributors]]
+name = "ccoffrin"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jcheyns"
+contributions = "1"

@@ -7,6 +7,7 @@ description = "Julia package for providing frequency-stability test functions. I
 stargazers_count = "1"
 url = "https://github.com/JulienKluge/AllanDeviations.jl.git"
 installs = true
+tags = ["julia", "julia-package", "frequency-analysis", "frequency-stability", "allan-variance", "deviation", "numerics"]
 license = "MIT License"
 
 [[contributors]]

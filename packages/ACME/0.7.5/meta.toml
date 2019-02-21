@@ -7,11 +7,12 @@ description = "ACME.jl - Analog Circuit Modeling and Emulation for Julia"
 stargazers_count = "41"
 url = "https://github.com/HSU-ANT/ACME.jl.git"
 installs = true
+tags = ["analog-circuit-modeling", "julia", "emulation", "audio"]
 license = "Other"
 
 [[contributors]]
 name = "martinholters"
-contributions = "441"
+contributions = "442"
 [[contributors]]
 name = "gitter-badger"
 contributions = "1"

@@ -7,6 +7,7 @@ description = "A Julia framework for implementing FFTs"
 stargazers_count = "11"
 url = "https://github.com/JuliaMath/AbstractFFTs.jl.git"
 installs = true
+tags = ["julia", "math", "fft"]
 license = "MIT License"
 
 [[contributors]]

@@ -7,6 +7,7 @@ description = "Approximate Bayesian Computation (ABC) algorithms for likelihood 
 stargazers_count = "16"
 url = "https://github.com/marcjwilliams1/ApproxBayes.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

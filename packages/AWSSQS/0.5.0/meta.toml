@@ -7,6 +7,7 @@ description = "AWS SQS Simple Queue Service interface for Julia"
 stargazers_count = "2"
 url = "https://github.com/samoconnor/AWSSQS.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]

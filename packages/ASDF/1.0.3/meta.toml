@@ -7,6 +7,7 @@ description = "A Julia implementation of the Advanced Scientific Data Format (AS
 stargazers_count = "3"
 url = "https://github.com/eschnett/ASDF.jl.git"
 installs = true
+tags = []
 license = "MIT License"
 
 [[contributors]]

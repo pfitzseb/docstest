@@ -7,6 +7,7 @@ description = "AbaqusReader.jl is a parse for ABAQUS FEM models. It's capable of
 stargazers_count = "6"
 url = "https://github.com/JuliaFEM/AbaqusReader.jl.git"
 installs = true
+tags = ["abaqus", "parser", "julialang", "inp"]
 license = "MIT License"
 
 [[contributors]]

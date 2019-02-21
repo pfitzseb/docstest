@@ -7,6 +7,7 @@ description = "Goodman & Weare's Affine Invariant Markov chain Monte Carlo (MCMC
 stargazers_count = "4"
 url = "https://github.com/madsjulia/AffineInvariantMCMC.jl.git"
 installs = true
+tags = ["mads", "julia", "mcmc", "uncertainty", "uncertainty-estimation", "uncertainty-quantification", "affine-invariance", "ensemble-sampler", "high-performance-computing", "monte-carlo-simulation", "markov-chain", "markov-chain-monte-carlo"]
 license = "Other"
 
 [[contributors]]

@@ -7,6 +7,7 @@ description = "Approximate Bayesian Computing with Julia"
 stargazers_count = "0"
 url = "https://github.com/eford/ApproximateBayesianComputing.jl.git"
 installs = true
+tags = []
 license = "Other"
 
 [[contributors]]
