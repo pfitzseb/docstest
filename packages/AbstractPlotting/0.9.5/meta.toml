@@ -1,0 +1,59 @@
+license_url = ""
+doctype = "default"
+name = "AbstractPlotting"
+owner = "JuliaPlots"
+version = "0.9.5"
+description = "An abstract interface for plotting libraries"
+stargazers_count = "12"
+url = "https://github.com/JuliaPlots/AbstractPlotting.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "323"
+[[contributors]]
+name = "anthony-wang"
+contributions = "46"
+[[contributors]]
+name = "piever"
+contributions = "30"
+[[contributors]]
+name = "mkborregaard"
+contributions = "13"
+[[contributors]]
+name = "Datseris"
+contributions = "6"
+[[contributors]]
+name = "mschauer"
+contributions = "3"
+[[contributors]]
+name = "asinghvi17"
+contributions = "3"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "2"
+[[contributors]]
+name = "louisponet"
+contributions = "2"
+[[contributors]]
+name = "edljk"
+contributions = "2"
+[[contributors]]
+name = "alblaz"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "colinxs"
+contributions = "1"
+[[contributors]]
+name = "ffreyer"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

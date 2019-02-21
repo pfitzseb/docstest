@@ -1,0 +1,29 @@
+license_url = ""
+doctype = "default"
+name = "ASE"
+owner = "libAtoms"
+version = "0.3.0"
+description = "Julia Bindings for Atomic Simulation Environment "
+stargazers_count = "2"
+url = "https://github.com/libAtoms/ASE.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "cortner"
+contributions = "145"
+[[contributors]]
+name = "jameskermode"
+contributions = "30"
+[[contributors]]
+name = "lifelemons"
+contributions = "2"
+[[contributors]]
+name = "dussong"
+contributions = "2"
+[[contributors]]
+name = "casv2"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "default"
+name = "Anasol"
+owner = "madsjulia"
+version = "0.5.0"
+description = "Analytical solutions for groundwater contaminant transport"
+stargazers_count = "5"
+url = "https://github.com/madsjulia/Anasol.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "69"
+[[contributors]]
+name = "omalled"
+contributions = "28"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

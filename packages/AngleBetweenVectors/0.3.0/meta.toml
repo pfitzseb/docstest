@@ -1,0 +1,14 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AngleBetweenVectors"
+owner = "JeffreySarnoff"
+version = "0.3.0"
+description = "An accurate and stable calculation of the angle separating two vectors."
+stargazers_count = "6"
+url = "https://github.com/JeffreySarnoff/AngleBetweenVectors.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "102"

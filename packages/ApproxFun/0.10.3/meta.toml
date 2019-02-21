@@ -1,0 +1,92 @@
+license_url = ""
+doctype = "real"
+name = "ApproxFun"
+owner = "JuliaApproximation"
+version = "0.10.3"
+description = "Julia package for function approximation"
+stargazers_count = "182"
+url = "https://github.com/JuliaApproximation/ApproxFun.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "3396"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "291"
+[[contributors]]
+name = "wormell"
+contributions = "49"
+[[contributors]]
+name = "marcusdavidwebb"
+contributions = "35"
+[[contributors]]
+name = "ajt60gaibb"
+contributions = "16"
+[[contributors]]
+name = "goretkin"
+contributions = "12"
+[[contributors]]
+name = "zz5016"
+contributions = "9"
+[[contributors]]
+name = "MasonProtter"
+contributions = "7"
+[[contributors]]
+name = "ngpooifung"
+contributions = "6"
+[[contributors]]
+name = "ikirill"
+contributions = "4"
+[[contributors]]
+name = "lcw"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "cmarcotte"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "macd"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "JackDevine"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "RichMorin"
+contributions = "1"
+[[contributors]]
+name = "dimkab"
+contributions = "1"
+[[contributors]]
+name = "edljk"
+contributions = "1"
+[[contributors]]
+name = "ksil"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"

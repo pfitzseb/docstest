@@ -1,0 +1,23 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AdjacentFloats"
+owner = "JeffreySarnoff"
+version = "0.1.0"
+description = "!!obsolete!! Versions of nextfloat, prevfloat that are at least as fast."
+stargazers_count = "0"
+url = "https://github.com/JeffreySarnoff/AdjacentFloats.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "79"
+[[contributors]]
+name = "dpsanders"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

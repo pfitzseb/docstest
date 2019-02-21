@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "default"
+name = "AdaptiveRejectionSampling"
+owner = "mauriciogtec"
+version = "0.1.0"
+description = "Julia package for fast flexible adaptive rejection sampling"
+stargazers_count = "0"
+url = "https://github.com/mauriciogtec/AdaptiveRejectionSampling.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "mauriciogtec"
+contributions = "4"

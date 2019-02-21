@@ -1,0 +1,14 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ApproxManifoldProducts"
+owner = "JuliaRobotics"
+version = "0.0.3"
+description = "Approximate the product between infinite functional objects on a manifold -- i.e. belief products"
+stargazers_count = "1"
+url = "https://github.com/JuliaRobotics/ApproxManifoldProducts.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "dehann"
+contributions = "61"

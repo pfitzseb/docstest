@@ -1,0 +1,50 @@
+license_url = ""
+doctype = "real"
+name = "AWSCore"
+owner = "JuliaCloud"
+version = "0.5.5"
+description = "Amazon Web Services Core Functions and Types"
+stargazers_count = "23"
+url = "https://github.com/JuliaCloud/AWSCore.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "229"
+[[contributors]]
+name = "morris25"
+contributions = "14"
+[[contributors]]
+name = "ararslan"
+contributions = "12"
+[[contributors]]
+name = "bors[bot]"
+contributions = "8"
+[[contributors]]
+name = "omus"
+contributions = "6"
+[[contributors]]
+name = "rofinn"
+contributions = "6"
+[[contributors]]
+name = "iamed2"
+contributions = "4"
+[[contributors]]
+name = "barcharcraz"
+contributions = "2"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "dtjohnson"
+contributions = "1"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"

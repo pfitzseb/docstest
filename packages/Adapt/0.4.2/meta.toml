@@ -1,0 +1,23 @@
+license_url = ""
+doctype = "default"
+name = "Adapt"
+owner = "JuliaGPU"
+version = "0.4.2"
+description = ""
+stargazers_count = "9"
+url = "https://github.com/JuliaGPU/Adapt.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "maleadt"
+contributions = "19"
+[[contributors]]
+name = "MikeInnes"
+contributions = "9"
+[[contributors]]
+name = "robot-uprising"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"

@@ -1,0 +1,17 @@
+license_url = ""
+doctype = "default"
+name = "AndersonMoore"
+owner = "es335mathwiz"
+version = "0.1.0"
+description = "julia implementation of the anderson moore algorithm for solving linear rational expectations models"
+stargazers_count = "0"
+url = "https://github.com/es335mathwiz/AndersonMoore.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "es335mathwiz"
+contributions = "194"
+[[contributors]]
+name = "gtunell"
+contributions = "172"

@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "default"
+name = "ActuarialScience"
+owner = "alecloudenback"
+version = "0.1.0"
+description = "A library to bring actuarial modeling to Julia."
+stargazers_count = "7"
+url = "https://github.com/alecloudenback/ActuarialScience.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "alecloudenback"
+contributions = "24"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

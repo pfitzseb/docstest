@@ -1,0 +1,47 @@
+license_url = ""
+doctype = "default"
+name = "Alpine"
+owner = "lanl-ansi"
+version = "0.1.3"
+description = "A JuMP-based Global Optimization Solver"
+stargazers_count = "38"
+url = "https://github.com/lanl-ansi/Alpine.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "tazz0416"
+contributions = "173"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "74"
+[[contributors]]
+name = "harshangrjn"
+contributions = "53"
+[[contributors]]
+name = "jac0320"
+contributions = "45"
+[[contributors]]
+name = "ccoffrin"
+contributions = "10"
+[[contributors]]
+name = "rb004f"
+contributions = "3"
+[[contributors]]
+name = "rantwijk"
+contributions = "1"
+[[contributors]]
+name = "hhijazi"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "Wikunia"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "mmerakli"
+contributions = "1"

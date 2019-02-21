@@ -1,0 +1,26 @@
+license_url = ""
+doctype = "default"
+name = "ApproxBayes"
+owner = "marcjwilliams1"
+version = "0.3.0"
+description = "Approximate Bayesian Computation (ABC) algorithms for likelihood free inference in julia"
+stargazers_count = "16"
+url = "https://github.com/marcjwilliams1/ApproxBayes.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "marcjwilliams1"
+contributions = "191"
+[[contributors]]
+name = "rdbrackston"
+contributions = "8"
+[[contributors]]
+name = "T-Heide"
+contributions = "5"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "quipa"
+contributions = "1"

@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "default"
+name = "ApproximateComputations"
+owner = "NTimmons"
+version = "0.3.2"
+description = "A library of tools to allow function synthesis for approximate computations"
+stargazers_count = "1"
+url = "https://github.com/NTimmons/ApproximateComputations.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "NTimmons"
+contributions = "58"

@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "default"
+name = "AMQPClient"
+owner = "JuliaComputing"
+version = "0.2.0"
+description = "A Julia AMQP (Advanced Message Queuing Protocol) / RabbitMQ Client."
+stargazers_count = "6"
+url = "https://github.com/JuliaComputing/AMQPClient.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "50"
+[[contributors]]
+name = "quinnj"
+contributions = "18"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

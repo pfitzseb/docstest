@@ -1,0 +1,17 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+doctype = "default"
+name = "AdobeGlyphList"
+owner = "sambitdash"
+version = "0.0.3"
+description = "AGL & AGLFN"
+stargazers_count = "0"
+url = "https://github.com/sambitdash/AdobeGlyphList.jl.git"
+installs = true
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "sambitdash"
+contributions = "22"
+[[contributors]]
+name = "kenlunde"
+contributions = "3"

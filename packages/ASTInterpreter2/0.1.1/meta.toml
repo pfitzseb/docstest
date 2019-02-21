@@ -1,0 +1,29 @@
+license_url = ""
+doctype = "default"
+name = "ASTInterpreter2"
+owner = "Keno"
+version = "0.1.1"
+description = "Re-write of ASTInterpreter for julia 0.6+"
+stargazers_count = "42"
+url = "https://github.com/Keno/ASTInterpreter2.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "52"
+[[contributors]]
+name = "Keno"
+contributions = "34"
+[[contributors]]
+name = "KristofferC"
+contributions = "11"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "Roboneet"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

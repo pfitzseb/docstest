@@ -1,0 +1,23 @@
+license_url = ""
+doctype = "default"
+name = "AWSSQS"
+owner = "samoconnor"
+version = "0.4.0"
+description = "AWS SQS Simple Queue Service interface for Julia"
+stargazers_count = "2"
+url = "https://github.com/samoconnor/AWSSQS.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "73"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"

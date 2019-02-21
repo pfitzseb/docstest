@@ -1,0 +1,7 @@
+julia 0.6
+JuMP
+MathProgBase 0.6.4
+Ipopt
+Cbc 0.3.2
+Pavito
+GLPKMathProgInterface

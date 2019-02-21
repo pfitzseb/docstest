@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "default"
+name = "AcceleratedArrays"
+owner = "andyferris"
+version = "0.2.1"
+description = "Arrays with acceleration indices"
+stargazers_count = "5"
+url = "https://github.com/andyferris/AcceleratedArrays.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "20"

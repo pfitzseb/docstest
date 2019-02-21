@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "real"
+name = "ApproximateBayesianComputing"
+owner = "eford"
+version = "0.0.2"
+description = "Approximate Bayesian Computing with Julia"
+stargazers_count = "0"
+url = "https://github.com/eford/ApproximateBayesianComputing.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "eford"
+contributions = "106"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "dch216"
+contributions = "1"

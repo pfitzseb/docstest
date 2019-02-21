@@ -1,0 +1,20 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ApplicationBuilder"
+owner = "NHDaly"
+version = "0.3.1"
+description = "Compile, bundle, and release julia software"
+stargazers_count = "73"
+url = "https://github.com/NHDaly/ApplicationBuilder.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "NHDaly"
+contributions = "135"
+[[contributors]]
+name = "ranjanan"
+contributions = "5"
+[[contributors]]
+name = "VPetukhov"
+contributions = "1"

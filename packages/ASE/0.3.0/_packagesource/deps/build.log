@@ -1,0 +1,355 @@
+pip 19.0.1 from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/pip (python 3.6)
+Collecting ase
+  Downloading https://files.pythonhosted.org/packages/a7/af/ea30928def88748d76946c0af0e6a8f9c2d2e65e3d65da527fe80e9ba06e/ase-3.17.0-py3-none-any.whl (1.8MB)
+Collecting flask (from ase)
+  Downloading https://files.pythonhosted.org/packages/7f/e7/08578774ed4536d3242b14dacb4696386634607af824ea997202cd0edb4b/Flask-1.0.2-py2.py3-none-any.whl (91kB)
+Collecting scipy (from ase)
+  Downloading https://files.pythonhosted.org/packages/7f/5f/c48860704092933bf1c4c1574a8de1ffd16bf4fde8bab190d747598844b2/scipy-1.2.1-cp36-cp36m-manylinux1_x86_64.whl (24.8MB)
+Requirement already satisfied, skipping upgrade: numpy in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from ase) (1.15.4)
+Requirement already satisfied, skipping upgrade: matplotlib in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from ase) (3.0.2)
+Collecting Werkzeug>=0.14 (from flask->ase)
+  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+Requirement already satisfied, skipping upgrade: Jinja2>=2.10 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from flask->ase) (2.10)
+Collecting click>=5.1 (from flask->ase)
+  Using cached https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl
+Collecting itsdangerous>=0.24 (from flask->ase)
+  Downloading https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Requirement already satisfied, skipping upgrade: cycler>=0.10 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from matplotlib->ase) (0.10.0)
+Requirement already satisfied, skipping upgrade: kiwisolver>=1.0.1 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from matplotlib->ase) (1.0.1)
+Requirement already satisfied, skipping upgrade: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from matplotlib->ase) (2.3.1)
+Requirement already satisfied, skipping upgrade: python-dateutil>=2.1 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from matplotlib->ase) (2.8.0)
+Requirement already satisfied, skipping upgrade: MarkupSafe>=0.23 in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from Jinja2>=2.10->flask->ase) (1.1.0)
+Requirement already satisfied, skipping upgrade: six in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from cycler>=0.10->matplotlib->ase) (1.12.0)
+Requirement already satisfied, skipping upgrade: setuptools in /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages (from kiwisolver>=1.0.1->matplotlib->ase) (40.7.3)
+Installing collected packages: Werkzeug, click, itsdangerous, flask, scipy, ase
+  The script flask is installed in '/home/pfitzseb/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  The scripts ase, ase-build, ase-db, ase-gui, ase-info and ase-run are installed in '/home/pfitzseb/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed Werkzeug-0.14.1 ase-3.17.0 click-7.0 flask-1.0.2 itsdangerous-1.1.0 scipy-1.2.1
+pip 19.0.1 from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/pip (python 3.6)
+Collecting matscipy
+  Downloading https://files.pythonhosted.org/packages/83/55/c93ad5c777f7020ddab52d3681459cbababb37fd203b64c210362928ba57/matscipy-0.1.4.tar.gz (117kB)
+Building wheels for collected packages: matscipy
+  Building wheel for matscipy (setup.py): started
+  Building wheel for matscipy (setup.py): finished with status 'error'
+  Complete output from command /home/pfitzseb/.julia/conda/3/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-i9s6lb7n/matscipy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/pip-wheel-luls78sb --python-tag cp36:
+  running bdist_wheel
+  running build
+  running config_cc
+  unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+  running config_fc
+  unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+  running build_src
+  build_src
+  building extension "_matscipy" sources
+  build_src: building npy-pkg config files
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-3.6
+  creating build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/visualise.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/surface.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/spatial_correlation_function.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/socketcalc.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/rings.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/opls.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/neighbours.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/logger.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/hydrogenate.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/elasticity.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/distributed_computation.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/atomic_strain.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/angle_distribution.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/_version.py -> build/lib.linux-x86_64-3.6/matscipy
+  copying matscipy/__init__.py -> build/lib.linux-x86_64-3.6/matscipy
+  creating build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/idealbrittlesolid.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/energy_release.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/crackpathsel.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/crack.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/clusters.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  copying matscipy/fracture_mechanics/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+  creating build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/JKR.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/Hertz.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/greens_function.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/DMT.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/analysis.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  copying matscipy/contact_mechanics/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+  creating build/lib.linux-x86_64-3.6/matscipy/calculators
+  copying matscipy/calculators/supercell_calculator.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+  copying matscipy/calculators/fitting.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+  copying matscipy/calculators/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+  creating build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+  copying matscipy/calculators/eam/io.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+  copying matscipy/calculators/eam/calculator.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+  copying matscipy/calculators/eam/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+  creating build/lib.linux-x86_64-3.6/matscipy/io
+  copying matscipy/io/tbl.py -> build/lib.linux-x86_64-3.6/matscipy/io
+  copying matscipy/io/opls.py -> build/lib.linux-x86_64-3.6/matscipy/io
+  copying matscipy/io/metis.py -> build/lib.linux-x86_64-3.6/matscipy/io
+  copying matscipy/io/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/io
+  creating build/lib.linux-x86_64-3.6/matscipy/tool
+  copying matscipy/tool/plot.py -> build/lib.linux-x86_64-3.6/matscipy/tool
+  copying matscipy/tool/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/tool
+  UPDATING build/lib.linux-x86_64-3.6/matscipy/_version.py
+  set build/lib.linux-x86_64-3.6/matscipy/_version.py to '0.1.4'
+  running build_ext
+  customize UnixCCompiler
+  customize UnixCCompiler using build_ext_subclass
+  customize UnixCCompiler
+  customize UnixCCompiler using build_ext_subclass
+  building '_matscipy' extension
+  compiling C sources with arguments []
+  C compiler: gcc -pthread -B /home/pfitzseb/.julia/conda/3/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+  
+  creating build/temp.linux-x86_64-3.6/c
+  compile options: '-I/home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include -I/home/pfitzseb/.julia/conda/3/include/python3.6m -c'
+  gcc: c/tools.c
+  gcc: c/angle_distribution.c
+  gcc: c/neighbours.c
+  gcc: c/matscipymodule.c
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/matscipymodule.c:26:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/tools.c:27:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/angle_distribution.c:27:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  c/angle_distribution.c: In function ‘py_angle_distribution’:
+  c/angle_distribution.c:75:12: warning: unused variable ‘j’ [-Wunused-variable]
+     npy_int *j = PyArray_DATA(j_arr);
+              ^
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/neighbours.c:27:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  compiling C++ sources with arguments ['-std=c++0x']
+  C compiler: g++ -pthread -B /home/pfitzseb/.julia/conda/3/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+  
+  compile options: '-I/home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include -I/home/pfitzseb/.julia/conda/3/include/python3.6m -c'
+  extra options: '-std=c++0x'
+  g++: c/islands.cpp
+  g++: c/ring_statistics.cpp
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/islands.cpp:27:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                   from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                   from c/ring_statistics.cpp:27:
+  /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   #warning "Using deprecated NumPy API, disable it by " \
+    ^~~~~~~
+  g++ -pthread -shared -B /home/pfitzseb/.julia/conda/3/compiler_compat -L/home/pfitzseb/.julia/conda/3/lib -Wl,-rpath=/home/pfitzseb/.julia/conda/3/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/c/tools.o build/temp.linux-x86_64-3.6/c/angle_distribution.o build/temp.linux-x86_64-3.6/c/neighbours.o build/temp.linux-x86_64-3.6/c/matscipymodule.o build/temp.linux-x86_64-3.6/c/islands.o build/temp.linux-x86_64-3.6/c/ring_statistics.o -o build/lib.linux-x86_64-3.6/_matscipy.cpython-36m-x86_64-linux-gnu.so
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  build/temp.linux-x86_64-3.6/c/tools.o: file not recognized: file format not recognized
+  collect2: error: ld returned 1 exit status
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+  build/temp.linux-x86_64-3.6/c/tools.o: file not recognized: file format not recognized
+  collect2: error: ld returned 1 exit status
+  error: Command "g++ -pthread -shared -B /home/pfitzseb/.julia/conda/3/compiler_compat -L/home/pfitzseb/.julia/conda/3/lib -Wl,-rpath=/home/pfitzseb/.julia/conda/3/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/c/tools.o build/temp.linux-x86_64-3.6/c/angle_distribution.o build/temp.linux-x86_64-3.6/c/neighbours.o build/temp.linux-x86_64-3.6/c/matscipymodule.o build/temp.linux-x86_64-3.6/c/islands.o build/temp.linux-x86_64-3.6/c/ring_statistics.o -o build/lib.linux-x86_64-3.6/_matscipy.cpython-36m-x86_64-linux-gnu.so" failed with exit status 1
+  
+  ----------------------------------------
+  Failed building wheel for matscipy
+  Running setup.py clean for matscipy
+Failed to build matscipy
+Installing collected packages: matscipy
+  Running setup.py install for matscipy: started
+    Running setup.py install for matscipy: finished with status 'error'
+    Complete output from command /home/pfitzseb/.julia/conda/3/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-i9s6lb7n/matscipy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-record-j8lzvyjx/install-record.txt --single-version-externally-managed --compile --user --prefix=:
+    running install
+    running build
+    running config_cc
+    unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+    running config_fc
+    unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+    running build_src
+    build_src
+    building extension "_matscipy" sources
+    build_src: building npy-pkg config files
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-3.6
+    creating build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/visualise.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/surface.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/spatial_correlation_function.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/socketcalc.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/rings.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/opls.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/neighbours.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/logger.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/hydrogenate.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/elasticity.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/distributed_computation.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/atomic_strain.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/angle_distribution.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/_version.py -> build/lib.linux-x86_64-3.6/matscipy
+    copying matscipy/__init__.py -> build/lib.linux-x86_64-3.6/matscipy
+    creating build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/idealbrittlesolid.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/energy_release.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/crackpathsel.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/crack.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/clusters.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    copying matscipy/fracture_mechanics/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/fracture_mechanics
+    creating build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/JKR.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/Hertz.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/greens_function.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/DMT.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/analysis.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    copying matscipy/contact_mechanics/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/contact_mechanics
+    creating build/lib.linux-x86_64-3.6/matscipy/calculators
+    copying matscipy/calculators/supercell_calculator.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+    copying matscipy/calculators/fitting.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+    copying matscipy/calculators/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/calculators
+    creating build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+    copying matscipy/calculators/eam/io.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+    copying matscipy/calculators/eam/calculator.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+    copying matscipy/calculators/eam/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/calculators/eam
+    creating build/lib.linux-x86_64-3.6/matscipy/io
+    copying matscipy/io/tbl.py -> build/lib.linux-x86_64-3.6/matscipy/io
+    copying matscipy/io/opls.py -> build/lib.linux-x86_64-3.6/matscipy/io
+    copying matscipy/io/metis.py -> build/lib.linux-x86_64-3.6/matscipy/io
+    copying matscipy/io/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/io
+    creating build/lib.linux-x86_64-3.6/matscipy/tool
+    copying matscipy/tool/plot.py -> build/lib.linux-x86_64-3.6/matscipy/tool
+    copying matscipy/tool/__init__.py -> build/lib.linux-x86_64-3.6/matscipy/tool
+    UPDATING build/lib.linux-x86_64-3.6/matscipy/_version.py
+    set build/lib.linux-x86_64-3.6/matscipy/_version.py to '0.1.4'
+    running build_ext
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext_subclass
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext_subclass
+    building '_matscipy' extension
+    compiling C sources with arguments []
+    C compiler: gcc -pthread -B /home/pfitzseb/.julia/conda/3/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+    
+    creating build/temp.linux-x86_64-3.6/c
+    compile options: '-I/home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include -I/home/pfitzseb/.julia/conda/3/include/python3.6m -c'
+    gcc: c/tools.c
+    gcc: c/angle_distribution.c
+    gcc: c/neighbours.c
+    gcc: c/matscipymodule.c
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/tools.c:27:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/matscipymodule.c:26:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/angle_distribution.c:27:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    c/angle_distribution.c: In function ‘py_angle_distribution’:
+    c/angle_distribution.c:75:12: warning: unused variable ‘j’ [-Wunused-variable]
+       npy_int *j = PyArray_DATA(j_arr);
+                ^
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/neighbours.c:27:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    compiling C++ sources with arguments ['-std=c++0x']
+    C compiler: g++ -pthread -B /home/pfitzseb/.julia/conda/3/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+    
+    compile options: '-I/home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include -I/home/pfitzseb/.julia/conda/3/include/python3.6m -c'
+    extra options: '-std=c++0x'
+    g++: c/islands.cpp
+    g++: c/ring_statistics.cpp
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/islands.cpp:27:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    In file included from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1823,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                     from /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                     from c/ring_statistics.cpp:27:
+    /home/pfitzseb/.julia/conda/3/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+     #warning "Using deprecated NumPy API, disable it by " \
+      ^~~~~~~
+    g++ -pthread -shared -B /home/pfitzseb/.julia/conda/3/compiler_compat -L/home/pfitzseb/.julia/conda/3/lib -Wl,-rpath=/home/pfitzseb/.julia/conda/3/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/c/tools.o build/temp.linux-x86_64-3.6/c/angle_distribution.o build/temp.linux-x86_64-3.6/c/neighbours.o build/temp.linux-x86_64-3.6/c/matscipymodule.o build/temp.linux-x86_64-3.6/c/islands.o build/temp.linux-x86_64-3.6/c/ring_statistics.o -o build/lib.linux-x86_64-3.6/_matscipy.cpython-36m-x86_64-linux-gnu.so
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    build/temp.linux-x86_64-3.6/c/tools.o: file not recognized: file format not recognized
+    collect2: error: ld returned 1 exit status
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    /home/pfitzseb/.julia/conda/3/compiler_compat/ld: build/temp.linux-x86_64-3.6/c/tools.o: unable to initialize decompress status for section .debug_info
+    build/temp.linux-x86_64-3.6/c/tools.o: file not recognized: file format not recognized
+    collect2: error: ld returned 1 exit status
+    error: Command "g++ -pthread -shared -B /home/pfitzseb/.julia/conda/3/compiler_compat -L/home/pfitzseb/.julia/conda/3/lib -Wl,-rpath=/home/pfitzseb/.julia/conda/3/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/c/tools.o build/temp.linux-x86_64-3.6/c/angle_distribution.o build/temp.linux-x86_64-3.6/c/neighbours.o build/temp.linux-x86_64-3.6/c/matscipymodule.o build/temp.linux-x86_64-3.6/c/islands.o build/temp.linux-x86_64-3.6/c/ring_statistics.o -o build/lib.linux-x86_64-3.6/_matscipy.cpython-36m-x86_64-linux-gnu.so" failed with exit status 1
+    
+    ----------------------------------------
+Command "/home/pfitzseb/.julia/conda/3/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-i9s6lb7n/matscipy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-record-j8lzvyjx/install-record.txt --single-version-externally-managed --compile --user --prefix=" failed with error code 1 in /tmp/pip-install-i9s6lb7n/matscipy/
+ERROR: LoadError: failed process: Process(`/home/pfitzseb/.julia/conda/3/bin/python -m pip install --upgrade --user matscipy`, ProcessExited(1)) [1]
+Stacktrace:
+ [1] error(::String, ::Base.Process, ::String, ::Int64, ::String) at ./error.jl:42
+ [2] pipeline_error at ./process.jl:785 [inlined]
+ [3] #run#515(::Bool, ::Function, ::Cmd) at ./process.jl:726
+ [4] run at ./process.jl:724 [inlined]
+ [5] pip(::String) at /home/pfitzseb/.julia/packages/ASE/DjzQw/deps/build.jl:22
+ [6] top-level scope at /home/pfitzseb/.julia/packages/ASE/DjzQw/deps/build.jl:44
+ [7] include at ./boot.jl:326 [inlined]
+ [8] include_relative(::Module, ::String) at ./loading.jl:1038
+ [9] include(::Module, ::String) at ./sysimg.jl:29
+ [10] include(::String) at ./client.jl:403
+ [11] top-level scope at none:0
+in expression starting at /home/pfitzseb/.julia/packages/ASE/DjzQw/deps/build.jl:28
+Installing Dependencies of `ASE.jl`: `ase` and `matscipy`
+`ase` was not found, trying to install via pip. If this fails,
+please file an issue and try to install it manually, following
+the instructions at `https://wiki.fysik.dtu.dk/ase/install.html`
+`matscipy` was not found, trying to install it. If this fails,
+please file an issue and try to install it manually, following
+the instructions at `https://github.com/libAtoms/matscipy`

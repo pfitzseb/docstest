@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "default"
+name = "AlgebraResultTypes"
+owner = "tpapp"
+version = "0.2.0"
+description = "result type calculations for algebraic operations"
+stargazers_count = "0"
+url = "https://github.com/tpapp/AlgebraResultTypes.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "14"

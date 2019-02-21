@@ -1,0 +1,14 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AbstractLattices"
+owner = "scheinerman"
+version = "0.1.1"
+description = "Abstract lattice functions meet and join, with symbols \\wedge and \\vee"
+stargazers_count = "0"
+url = "https://github.com/scheinerman/AbstractLattices.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "7"

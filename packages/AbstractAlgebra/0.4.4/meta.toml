@@ -1,0 +1,77 @@
+license_url = ""
+doctype = "real"
+name = "AbstractAlgebra"
+owner = "Nemocas"
+version = "0.4.4"
+description = "Generic abstract algebra functionality in pure Julia (no C dependencies)"
+stargazers_count = "17"
+url = "https://github.com/Nemocas/AbstractAlgebra.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "wbhart"
+contributions = "1519"
+[[contributors]]
+name = "thofma"
+contributions = "364"
+[[contributors]]
+name = "kalmarek"
+contributions = "207"
+[[contributors]]
+name = "fieker"
+contributions = "98"
+[[contributors]]
+name = "heiderich"
+contributions = "86"
+[[contributors]]
+name = "fredrik-johansson"
+contributions = "73"
+[[contributors]]
+name = "joschmitt"
+contributions = "63"
+[[contributors]]
+name = "sachinkm308"
+contributions = "49"
+[[contributors]]
+name = "martinra"
+contributions = "6"
+[[contributors]]
+name = "cossio"
+contributions = "5"
+[[contributors]]
+name = "aghitza"
+contributions = "4"
+[[contributors]]
+name = "rimbach"
+contributions = "3"
+[[contributors]]
+name = "hsgg"
+contributions = "3"
+[[contributors]]
+name = "alexjbest"
+contributions = "2"
+[[contributors]]
+name = "steenpass"
+contributions = "2"
+[[contributors]]
+name = "daviddelaat"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "dourouc05"
+contributions = "1"
+[[contributors]]
+name = "tkluck"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

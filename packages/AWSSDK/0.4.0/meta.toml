@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "default"
+name = "AWSSDK"
+owner = "JuliaCloud"
+version = "0.4.0"
+description = "Julia APIs for all public Amazon Web Services (requires AWSCore.jl)"
+stargazers_count = "8"
+url = "https://github.com/JuliaCloud/AWSSDK.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "23"

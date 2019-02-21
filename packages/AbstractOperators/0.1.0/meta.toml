@@ -1,0 +1,17 @@
+license_url = ""
+doctype = "real"
+name = "AbstractOperators"
+owner = "kul-forbes"
+version = "0.1.0"
+description = "Abstract operators for large scale optimization in Julia"
+stargazers_count = "15"
+url = "https://github.com/kul-forbes/AbstractOperators.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "nantonel"
+contributions = "147"
+[[contributors]]
+name = "lostella"
+contributions = "27"

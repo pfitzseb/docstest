@@ -1,0 +1,37 @@
+language: julia
+julia:
+  - 0.6
+  - 0.7
+  - 1.0
+  - nightly
+notifications:
+  email: false
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/ecfd7123156aeb0a3bf3
+    on_success: change
+    on_failure: always
+    on_start: never
+after_success:
+  - |
+    julia -e '
+        if VERSION >= v"0.7.0-DEV.3656"
+            import Pkg
+        else
+            cd(Pkg.dir("ACME"))
+        end
+        Pkg.add("Coverage")
+        using Coverage
+        Codecov.submit(process_folder()); Coveralls.submit(process_folder())'
+  - |
+    julia -e '
+        if VERSION >= v"0.7.0-DEV.3656"
+            using Pkg # `using Pkg` and `pkg"..."` must be in separate if blocks
+        end
+        @static if VERSION >= v"0.7.0-DEV.3656"
+            pkg"add Documenter@0.19.0"
+        else
+            Pkg.add("Documenter", v"0.19.0", v"0.19.0+")
+            cd(Pkg.dir("ACME"))
+        end
+        include(joinpath("docs", "make.jl"))'

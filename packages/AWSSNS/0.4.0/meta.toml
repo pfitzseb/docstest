@@ -1,0 +1,19 @@
+name = "AWSSNS"
+stargazers_count = "1"
+license_url = ""
+owner = "samoconnor"
+installs = false
+license = "Other"
+url = "https://github.com/samoconnor/AWSSNS.jl.git"
+version = "0.4.0"
+description = "AWS SNS Simple Notification Service interface for Julia"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "65"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"

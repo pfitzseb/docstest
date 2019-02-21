@@ -1,0 +1,29 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "AbaqusReader"
+owner = "JuliaFEM"
+version = "0.2.2"
+description = "AbaqusReader.jl is a parse for ABAQUS FEM models. It's capable of parsing the geometry accurately, including surface sets, node sets, and other relevant geometrical data used in FEM calculations. Other option is to parse whole model, including boundary conditions, material data and load steps."
+stargazers_count = "6"
+url = "https://github.com/JuliaFEM/AbaqusReader.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "73"
+[[contributors]]
+name = "TeroFrondelius"
+contributions = "9"
+[[contributors]]
+name = "ovainola"
+contributions = "2"
+[[contributors]]
+name = "jtveiten"
+contributions = "2"
+[[contributors]]
+name = "carlomontec"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

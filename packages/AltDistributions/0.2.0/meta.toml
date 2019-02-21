@@ -1,0 +1,14 @@
+license_url = ""
+doctype = "real"
+name = "AltDistributions"
+owner = "tpapp"
+version = "0.2.0"
+description = "Implementations for some distributions using a consistent API and AD-friendly code."
+stargazers_count = "0"
+url = "https://github.com/tpapp/AltDistributions.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "11"

@@ -1,0 +1,14 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AbstractInstances"
+owner = "dalum"
+version = "0.1.0"
+description = "A package for making concrete instances of abstract types"
+stargazers_count = "0"
+url = "https://github.com/dalum/AbstractInstances.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "dalum"
+contributions = "5"

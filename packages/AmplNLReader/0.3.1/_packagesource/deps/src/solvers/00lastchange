@@ -1,0 +1,3 @@
+20181031
+  fpinit.c:  add #ifdef __ARM_ARCH lines.  Should be invisible on
+non-ARM systems.

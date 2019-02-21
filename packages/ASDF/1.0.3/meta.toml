@@ -1,0 +1,14 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ASDF"
+owner = "eschnett"
+version = "1.0.3"
+description = "A Julia implementation of the Advanced Scientific Data Format (ASDF)"
+stargazers_count = "3"
+url = "https://github.com/eschnett/ASDF.jl.git"
+installs = true
+license = "MIT License"
+
+[[contributors]]
+name = "eschnett"
+contributions = "41"

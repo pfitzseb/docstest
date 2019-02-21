@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "default"
+name = "AlgebraicMultigrid"
+owner = "JuliaLinearAlgebra"
+version = "0.2.1"
+description = "Algebraic Multigrid in Julia"
+stargazers_count = "27"
+url = "https://github.com/JuliaLinearAlgebra/AlgebraicMultigrid.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "ranjanan"
+contributions = "134"
+[[contributors]]
+name = "mohamed82008"
+contributions = "38"
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "1"

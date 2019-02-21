@@ -1,0 +1,20 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "AmplNLReader"
+owner = "JuliaSmoothOptimizers"
+version = "0.1.0"
+description = "Julia AMPL Models Conforming to NLPModels.jl"
+stargazers_count = "9"
+url = "https://github.com/JuliaSmoothOptimizers/AmplNLReader.jl.git"
+installs = true
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "dpo"
+contributions = "219"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "24"
+[[contributors]]
+name = "mlubin"
+contributions = "5"

@@ -1,0 +1,20 @@
+license_url = ""
+doctype = "default"
+name = "Algencan"
+owner = "pjssilva"
+version = "0.3.3"
+description = "JuMP / MathProgBase interface for Algencan"
+stargazers_count = "3"
+url = "https://github.com/pjssilva/Algencan.jl.git"
+installs = true
+license = "Other"
+
+[[contributors]]
+name = "pjssilva"
+contributions = "260"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "6"
+[[contributors]]
+name = "chkwon"
+contributions = "1"
