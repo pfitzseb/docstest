@@ -1,0 +1,14 @@
+license_url = ""
+name = "JuliennedArrays"
+owner = "bramtayl"
+version = "0.1.0"
+description = "Type stable array slicing"
+stargazers_count = "19"
+url = "https://github.com/bramtayl/JuliennedArrays.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bramtayl"
+contributions = "62"

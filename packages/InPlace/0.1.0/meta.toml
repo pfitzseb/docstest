@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "InPlace"
+owner = "tkluck"
+version = "0.1.0"
+description = "InPlace.jl - in-place operations where possible"
+stargazers_count = "0"
+url = "https://github.com/tkluck/InPlace.jl.git"
+installs = true
+tags = ["julia", "bigint", "gmp"]
+license = "Other"
+
+[[contributors]]
+name = "tkluck"
+contributions = "13"

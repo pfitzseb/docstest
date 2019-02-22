@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "LevelDB"
+owner = "jerryzhenleicai"
+version = "1.2.2"
+description = "Julia interface to Google's LevelDB key value database"
+stargazers_count = "11"
+url = "https://github.com/jerryzhenleicai/LevelDB.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jerryzhenleicai"
+contributions = "11"
+[[contributors]]
+name = "gdkrmr"
+contributions = "6"
+[[contributors]]
+name = "huwenshuo"
+contributions = "5"
+[[contributors]]
+name = "jerry-cai-chanjet"
+contributions = "5"
+[[contributors]]
+name = "growler"
+contributions = "3"
+[[contributors]]
+name = "tmlbl"
+contributions = "3"
+[[contributors]]
+name = "wildart"
+contributions = "1"
+[[contributors]]
+name = "Phelimb"
+contributions = "1"

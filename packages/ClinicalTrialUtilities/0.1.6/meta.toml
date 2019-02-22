@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/agpl-3.0"
+doctype = "default"
+name = "ClinicalTrialUtilities"
+owner = "PharmCat"
+version = "0.1.6"
+description = "Clinical Trial Power and Sample Size calculation"
+stargazers_count = "0"
+url = "https://github.com/PharmCat/ClinicalTrialUtilities.jl.git"
+installs = true
+tags = ["julia", "sample-size-calculation", "bioequivalence", "clinical-trial"]
+license = "GNU Affero General Public License v3.0"
+
+[[contributors]]
+name = "PharmCat"
+contributions = "25"

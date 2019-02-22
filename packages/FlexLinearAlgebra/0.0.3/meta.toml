@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FlexLinearAlgebra"
+owner = "scheinerman"
+version = "0.0.3"
+description = "Flexible vectors and matrices for Julia"
+stargazers_count = "0"
+url = "https://github.com/scheinerman/FlexLinearAlgebra.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "24"

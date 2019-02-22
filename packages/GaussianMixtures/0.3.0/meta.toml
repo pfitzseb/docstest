@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "GaussianMixtures"
+owner = "davidavdav"
+version = "0.3.0"
+description = "Large scale Gaussian Mixture Models"
+stargazers_count = "31"
+url = "https://github.com/davidavdav/GaussianMixtures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidavdav"
+contributions = "329"
+[[contributors]]
+name = "fundamental"
+contributions = "25"
+[[contributors]]
+name = "staticfloat"
+contributions = "7"
+[[contributors]]
+name = "mbeltagy"
+contributions = "4"
+[[contributors]]
+name = "cstjean"
+contributions = "3"
+[[contributors]]
+name = "eford"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "maxmouchet"
+contributions = "1"
+[[contributors]]
+name = "rgiordan"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SafeTestsets"
+owner = "YingboMa"
+version = "0.0.1"
+description = ""
+stargazers_count = "2"
+url = "https://github.com/YingboMa/SafeTestsets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "YingboMa"
+contributions = "4"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"

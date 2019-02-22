@@ -1,0 +1,4 @@
+name = "LazyQuery"
+installs = false
+url = "https://github.com/bramtayl/LazyQuery.jl.git"
+version = "0.1.3"

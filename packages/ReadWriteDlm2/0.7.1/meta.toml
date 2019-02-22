@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ReadWriteDlm2"
+owner = "strickek"
+version = "0.7.1"
+description = "CSV IO: Read and write delimited text files with support of decimal comma,  Date/Time types, Complex and Rational numbers."
+stargazers_count = "7"
+url = "https://github.com/strickek/ReadWriteDlm2.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "strickek"
+contributions = "314"

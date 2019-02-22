@@ -1,0 +1,98 @@
+license_url = "https://api.github.com/licenses/mit"
+name = "PyPlot"
+owner = "JuliaPy"
+version = "2.7.0"
+description = "Plotting for Julia based on matplotlib.pyplot"
+stargazers_count = "233"
+url = "https://github.com/JuliaPy/PyPlot.jl.git"
+installs = false
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "autozimu"
+contributions = "273"
+[[contributors]]
+name = "stevengj"
+contributions = "160"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "nfoti"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "cmey"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "1"
+[[contributors]]
+name = "christianpeel"
+contributions = "1"
+[[contributors]]
+name = "cdsousa"
+contributions = "1"
+[[contributors]]
+name = "daanhb"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "jheinen"
+contributions = "1"
+[[contributors]]
+name = "julian-wolf"
+contributions = "1"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "fxbrain"
+contributions = "1"
+[[contributors]]
+name = "yoavram"
+contributions = "1"
+[[contributors]]
+name = "asbisen"
+contributions = "1"
+[[contributors]]
+name = "alanedelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "scheidan"
+contributions = "1"

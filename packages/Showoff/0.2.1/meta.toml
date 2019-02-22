@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "Showoff"
+owner = "JuliaGraphics"
+version = "0.2.1"
+description = "Nicely format an array of n things for tables and plots"
+stargazers_count = "1"
+url = "https://github.com/JuliaGraphics/Showoff.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dcjones"
+contributions = "19"
+[[contributors]]
+name = "tlnagy"
+contributions = "8"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "dmbates"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GraphDataFrameBridge"
+owner = "JuliaGraphs"
+version = "0.2.1"
+description = "Tools for interoperability between DataFrame objects and LightGraphs and MetaGraphs objects"
+stargazers_count = "2"
+url = "https://github.com/JuliaGraphs/GraphDataFrameBridge.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "nickeubank"
+contributions = "7"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"

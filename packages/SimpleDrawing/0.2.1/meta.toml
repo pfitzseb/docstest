@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleDrawing"
+owner = "scheinerman"
+version = "0.2.1"
+description = "Convenient drawing tools derived from Plots"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/SimpleDrawing.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "27"
+[[contributors]]
+name = "rbao2"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Elliptic"
+owner = "nolta"
+version = "0.5.0"
+description = "Elliptic integral and Jacobi elliptic special functions"
+stargazers_count = "12"
+url = "https://github.com/nolta/Elliptic.jl.git"
+installs = true
+tags = ["julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "nolta"
+contributions = "49"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

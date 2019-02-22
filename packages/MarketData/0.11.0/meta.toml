@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "MarketData"
+owner = "JuliaQuant"
+version = "0.11.0"
+description = "Time series market data"
+stargazers_count = "37"
+url = "https://github.com/JuliaQuant/MarketData.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "iblis17"
+contributions = "20"
+[[contributors]]
+name = "femtotrader"
+contributions = "13"
+[[contributors]]
+name = "milktrader"
+contributions = "13"
+[[contributors]]
+name = "GordStephen"
+contributions = "2"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RollingFunctions"
+owner = "JeffreySarnoff"
+version = "0.5.1"
+description = "Roll a window over data; apply a function over the window."
+stargazers_count = "7"
+url = "https://github.com/JeffreySarnoff/RollingFunctions.jl.git"
+installs = true
+tags = ["rolling", "running", "windowed", "timeseries"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "664"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

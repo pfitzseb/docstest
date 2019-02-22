@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "MultivariateFunctions"
+owner = "s-baumann"
+version = "0.1.6"
+description = "A framework for multivariate functions together with constructors for schumaker splines, OLS, Chebyshev, MARS splines for approximation."
+stargazers_count = "2"
+url = "https://github.com/s-baumann/MultivariateFunctions.jl.git"
+installs = true
+tags = ["interpolation", "algebra", "integration", "differentiation", "newtons-method", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "s-baumann"
+contributions = "55"

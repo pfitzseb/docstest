@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "NBInclude"
+owner = "stevengj"
+version = "2.1.0"
+description = "import code from IJulia Jupyter notebooks into Julia programs"
+stargazers_count = "67"
+url = "https://github.com/stevengj/NBInclude.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "21"
+[[contributors]]
+name = "ezander"
+contributions = "9"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "arnavs"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

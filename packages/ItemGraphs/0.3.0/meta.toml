@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "ItemGraphs"
+owner = "helgee"
+version = "0.3.0"
+description = "Shortest paths between items"
+stargazers_count = "2"
+url = "https://github.com/helgee/ItemGraphs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "28"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

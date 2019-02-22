@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "GPUifyLoops"
+owner = "vchuravy"
+version = "0.1.0"
+description = ""
+stargazers_count = "10"
+url = "https://github.com/vchuravy/GPUifyLoops.jl.git"
+installs = true
+tags = ["julia", "gpu"]
+license = "MIT License"
+
+[[contributors]]
+name = "vchuravy"
+contributions = "37"
+[[contributors]]
+name = "jkozdon"
+contributions = "3"
+[[contributors]]
+name = "bors[bot]"
+contributions = "2"
+[[contributors]]
+name = "lcw"
+contributions = "1"
+[[contributors]]
+name = "ali-ramadhan"
+contributions = "1"

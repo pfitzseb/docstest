@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "NMF"
+owner = "JuliaStats"
+version = "0.4.0"
+description = "A Julia package for non-negative matrix factorization"
+stargazers_count = "48"
+url = "https://github.com/JuliaStats/NMF.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lindahua"
+contributions = "42"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

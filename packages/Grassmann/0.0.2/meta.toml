@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "Grassmann"
+owner = "chakravala"
+version = "0.0.2"
+description = "Conformal geometric product algebra based on static dual multivectors with graded-blade indexing"
+stargazers_count = "15"
+url = "https://github.com/chakravala/Grassmann.jl.git"
+installs = true
+tags = ["geometric-algebra", "clifford-algebras", "lie-groups", "quaternion", "dual-numbers", "complex-numbers", "dual-quaternion", "tensor-algebra", "sparse", "tensor"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "chakravala"
+contributions = "57"

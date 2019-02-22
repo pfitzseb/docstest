@@ -1,0 +1,93 @@
+license_url = ""
+doctype = "default"
+name = "Unitful"
+owner = "ajkeller34"
+version = "0.14.0"
+description = "Physical quantities with arbitrary units"
+stargazers_count = "134"
+url = "https://github.com/ajkeller34/Unitful.jl.git"
+installs = true
+tags = ["unitful", "units", "units-of-measure", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "ajkeller34"
+contributions = "474"
+[[contributors]]
+name = "timholy"
+contributions = "12"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "6"
+[[contributors]]
+name = "richardreeve"
+contributions = "5"
+[[contributors]]
+name = "non-Jedi"
+contributions = "5"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "4"
+[[contributors]]
+name = "cstjean"
+contributions = "3"
+[[contributors]]
+name = "ggggggggg"
+contributions = "3"
+[[contributors]]
+name = "christiankral"
+contributions = "2"
+[[contributors]]
+name = "vtjnash"
+contributions = "2"
+[[contributors]]
+name = "jingpengw"
+contributions = "2"
+[[contributors]]
+name = "giordano"
+contributions = "2"
+[[contributors]]
+name = "nicoleepp"
+contributions = "2"
+[[contributors]]
+name = "rafaqz"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "sostock"
+contributions = "2"
+[[contributors]]
+name = "simonbyrne"
+contributions = "2"
+[[contributors]]
+name = "mweastwood"
+contributions = "2"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "dnadlinger"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "helgee"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "mdavezac"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

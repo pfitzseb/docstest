@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LCMGL"
+owner = "rdeits"
+version = "0.1.0"
+description = "Julia bindings for libbot LCMGL: https://github.com/RobotLocomotion/libbot/tree/master/bot2-lcmgl"
+stargazers_count = "0"
+url = "https://github.com/rdeits/LCMGL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "72"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

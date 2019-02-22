@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ObjectFile"
+owner = "staticfloat"
+version = "0.3.1"
+description = "Object File (ELF, MachO, COFF/PE, etc...) parser for Julia"
+stargazers_count = "0"
+url = "https://github.com/staticfloat/ObjectFile.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "39"
+[[contributors]]
+name = "Keno"
+contributions = "25"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "quinnj"
+contributions = "2"

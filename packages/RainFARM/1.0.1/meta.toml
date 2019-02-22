@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "RainFARM"
+owner = "jhardenberg"
+version = "1.0.1"
+description = "Julia library and command-line tools implementing the RainFARM stochastic precipitation downscaling method."
+stargazers_count = "2"
+url = "https://github.com/jhardenberg/RainFARM.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jhardenberg"
+contributions = "100"

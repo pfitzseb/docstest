@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Reinforce"
+owner = "JuliaML"
+version = "0.2.0"
+description = "Abstractions, algorithms, and utilities for reinforcement learning in Julia"
+stargazers_count = "84"
+url = "https://github.com/JuliaML/Reinforce.jl.git"
+installs = true
+tags = ["julialang", "reinforcement-learning"]
+license = "Other"
+
+[[contributors]]
+name = "tbreloff"
+contributions = "80"
+[[contributors]]
+name = "iblis17"
+contributions = "33"
+[[contributors]]
+name = "Evizero"
+contributions = "3"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JobJob"
+contributions = "1"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

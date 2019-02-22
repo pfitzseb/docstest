@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "real"
+name = "ImageFiltering"
+owner = "JuliaImages"
+version = "0.5.3"
+description = "Julia implementations of multidimensional array convolution and nonlinear stencil operations"
+stargazers_count = "27"
+url = "https://github.com/JuliaImages/ImageFiltering.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "160"
+[[contributors]]
+name = "RalphAS"
+contributions = "9"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "8"
+[[contributors]]
+name = "jw3126"
+contributions = "5"
+[[contributors]]
+name = "juliohm"
+contributions = "3"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "arijitkar98"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "daschw"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "innerlee"
+contributions = "1"

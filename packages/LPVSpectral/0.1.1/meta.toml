@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LPVSpectral"
+owner = "baggepinnen"
+version = "0.1.1"
+description = "Least-squares (sparse) spectral estimation and (sparse) LPV spectral decomposition."
+stargazers_count = "1"
+url = "https://github.com/baggepinnen/LPVSpectral.jl.git"
+installs = true
+tags = ["spectrum", "least-squares", "spectrum-analyzer", "system-identification", "time-series-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "87"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

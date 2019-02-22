@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "BeaData"
+owner = "stephenbnicar"
+version = "0.3.0"
+description = "A Julia interface for retrieving data from the Bureau of Economic Analysis (BEA)."
+stargazers_count = "10"
+url = "https://github.com/stephenbnicar/BeaData.jl.git"
+installs = true
+tags = ["economic-data", "economics", "econometrics", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "stephenbnicar"
+contributions = "79"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

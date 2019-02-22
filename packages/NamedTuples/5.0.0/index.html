@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · NamedTuples.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>NamedTuples.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Note:-the-[Named-Tuple-type](https://docs.julialang.org/en/v1/manual/types/#Named-Tuple-Types-1)-functionality-has-been-integrated-into-Julia-Base-as-of-Julia-0.7.-Prefer-using-the-Base-implementation-of-NamedTuples-when-writing-code-for-Julia-0.7-or-higher.-1">Note: the Named Tuple type functionality has been integrated into Julia Base as of Julia 0.7. Prefer using the Base implementation of NamedTuples when writing code for Julia 0.7 or higher.</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="https://travis-ci.org/JuliaData/NamedTuples.jl"><img src="https://travis-ci.org/JuliaData/NamedTuples.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/quinnj/namedtuples-jl"><img src="https://ci.appveyor.com/api/projects/status/github/JuliaData/NamedTuples.jl?svg=true" alt="Build Status"/></a> <a href="http://codecov.io/github/JuliaData/NamedTuples.jl?branch=master"><img src="http://codecov.io/github/JuliaData/NamedTuples.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><h1><a class="nav-anchor" id="NamedTuples-1" href="#NamedTuples-1">NamedTuples</a></h1><h2><a class="nav-anchor" id="Note:-the-[Named-Tuple-type](https://docs.julialang.org/en/v1/manual/types/#Named-Tuple-Types-1)-functionality-has-been-integrated-into-Julia-Base-as-of-Julia-0.7.-Prefer-using-the-Base-implementation-of-NamedTuples-when-writing-code-for-Julia-0.7-or-higher.-1" href="#Note:-the-[Named-Tuple-type](https://docs.julialang.org/en/v1/manual/types/#Named-Tuple-Types-1)-functionality-has-been-integrated-into-Julia-Base-as-of-Julia-0.7.-Prefer-using-the-Base-implementation-of-NamedTuples-when-writing-code-for-Julia-0.7-or-higher.-1">Note: the <a href="https://docs.julialang.org/en/v1/manual/types/#Named-Tuple-Types-1">Named Tuple type</a> functionality has been integrated into Julia Base as of Julia 0.7. Prefer using the Base implementation of NamedTuples when writing code for Julia 0.7 or higher.</a></h2><p>NamedTuples.jl provides a high performance implementation of named tuples for Julia (cf named tuples in python). Julia tuples are restricted to supporting index based access. This new implementation allows both index and property based access. NamedTuples may be used anywhere that a tuple is currently being used, for example in the definition of a method or as the return value of a method. NamedTuples are implemented using Julia’s macro system, ensuring that the run time cost is equivalent to constructing a regular immutable type.</p><p>NamedTuples may also be used in cases where a small typed immutable dictionary is desired.</p><p>Syntax</p><pre><code class="language-julia">@NT( a, b )                 -&gt; Defines a tuple with a and b as members
+@NT( a::Int64, b::Float64 ) -&gt; Defines a tuple with the specific arg types as members
+@NT( a = 1, b = &quot;hello&quot;)    -&gt; Defines and constructs a tuple with the specifed members and values
+@NT( a, b )( (1, &quot;hello&quot;) ) -&gt; Is equivalent to the above definition
+@NT( a::Int64 )( (2.0,) )   -&gt; Calls `convert( Int64, 2.0 )` on construction and sets `a`
+@NT( ::Int64, ::Float64 )   -&gt; Defines a named tuple with automatic names</code></pre><p>NamedTuples may be used anywhere you would use a regular Tuple, this includes method definition and return values.</p><pre><code class="language-julia">module Demo
+using NamedTuples
+
+function foo( y )
+    a = 1
+    x = 3
+    return  @NT( a = 1, b = &quot;world&quot;, c = &quot;hello&quot;, d=a/x, y = a/y  )
+end
+function bar( nt::@NT( a::Int64, c::String ))
+    return repeat( nt.c, nt.a )
+end
+
+end
+
+using NamedTuples
+Demo.foo( 1 ) # Returns a NamedTuple of 5 elements
+Demo.bar( @NT( a= 2, c=&quot;hello&quot;)) # Returns `hellohello`</code></pre><p>There is at most one instance of a NamedTuple type with a given set of Members and Types, hence</p><pre><code class="language-julia">typeof( @NT( a = 1, b = 2.0 )) == @NT( a::Int, b::Float64 )</code></pre><p>NamedTuple definitions are shared across all modules. The underlying immutable types are constructed at first use.</p><p>NamedTuples support iteration and indexing, and behave as immutable associative containers.</p><pre><code class="language-julia">@NT( a = 1 ).a == 1
+@NT( a = 1 )[1] == 1
+@NT( a = 1 )[:a] == 1
+length( @NT( a = 1)) == 1
+length( @NT( a = 1, b = 2.0)) == 2
+first( @NT( a = 1, b = 2.0 )) ==  1
+last( @NT( a = 1, b = 2.0 )) == 2.0
+using Compat: pairs
+for (k,v) in pairs(@NT( a = 1, b = 1 ))
+    println(&quot;$k = $v&quot;)
+end</code></pre><p>NamedTuples additionally support operations to merge, update, add and delete elements.  Since NamedTuples are immutable, these operations make a copy of the data and return a new NamedTuple. The current implementation of these operations is functional rather than performance oriented.</p><pre><code class="language-julia">julia&gt; nt = @NT( a=1, b=2, c=3 )
+(a = 1, b = 2, c = 3)
+
+julia&gt; x = NamedTuples.setindex( nt, :x, 123 )
+(a = 1, b = 2, c = 3, x = 123)
+
+julia&gt; NamedTuples.delete( x, :a)
+(b = 2, c = 3, x = 123)
+
+julia&gt; merge( nt, @NT( d = &quot;hello&quot;, e = &quot;world&quot;))
+(a = 1, b = 2, c = 3, d = &quot;hello&quot;, e = &quot;world&quot;)</code></pre><p>Note the use of <code>setindex/delete</code> and not <code>setindex!/delete!</code> as these operations do NOT modify in place.</p><footer><hr/></footer></article></body></html>

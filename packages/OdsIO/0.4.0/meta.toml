@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "OdsIO"
+owner = "sylvaticus"
+version = "0.4.0"
+description = "ODS (LibreOffice, OpenOffice and many more..) I/O for Julia using the python ezodf module "
+stargazers_count = "1"
+url = "https://github.com/sylvaticus/OdsIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sylvaticus"
+contributions = "60"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

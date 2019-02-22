@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · FreqTables.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>FreqTables.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="FreqTables-1" href="#FreqTables-1">FreqTables</a></h1><p><a href="https://travis-ci.org/nalimilan/FreqTables.jl"><img src="https://travis-ci.org/nalimilan/FreqTables.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/nalimilan/FreqTables.jl?branch=master"><img src="https://coveralls.io/repos/nalimilan/FreqTables.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://pkg.julialang.org/?pkg=FreqTables&amp;ver=1.0"><img src="http://pkg.julialang.org/badges/FreqTables_1.0.svg" alt="FreqTables"/></a></p><p>This package allows computing one- or multi-way frequency tables (a.k.a. contingency or pivot tables) from any type of vector or array. It includes support for <a href="https://github.com/JuliaData/CategoricalArrays.jl"><code>CategoricalArray</code></a> and <a href="https://github.com/JuliaData/DataFrames.jl"><code>DataFrame</code></a>, as well as for weighted counts.</p><p>Tables are represented as <a href="https://github.com/davidavdav/NamedArrays.jl/"><code>NamedArray</code></a> objects.</p><pre><code class="language-julia">julia&gt; using FreqTables
+
+julia&gt; x = repeat([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;], outer=[100]);
+
+julia&gt; y = repeat([&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;], inner=[10], outer=[10]);
+
+julia&gt; tbl = freqtable(x)
+4-element Named Array{Int64,1}
+Dim1  │
+──────┼────
+a     │ 100
+b     │ 100
+c     │ 100
+d     │ 100
+
+julia&gt; prop(tbl)
+4-element Named Array{Float64,1}
+Dim1  │
+──────┼─────
+a     │ 0.25
+b     │ 0.25
+c     │ 0.25
+d     │ 0.25
+
+julia&gt; freqtable(x, y)
+4×4 Named Array{Int64,2}
+Dim1 ╲ Dim2 │  A   B   C   D
+────────────┼───────────────
+a           │ 30  20  30  20
+b           │ 30  20  30  20
+c           │ 20  30  20  30
+d           │ 20  30  20  30
+
+julia&gt; tbl2 = freqtable(x, y, subset=1:20)
+4×2 Named Array{Int64,2}
+Dim1 ╲ Dim2 │ A  B
+────────────┼─────
+a           │ 3  2
+b           │ 3  2
+c           │ 2  3
+d           │ 2  3
+
+julia&gt; prop(tbl2, 2)
+4×2 Named Array{Float64,2}
+Dim1 ╲ Dim2 │   A    B
+────────────┼─────────
+a           │ 0.3  0.2
+b           │ 0.3  0.2
+c           │ 0.2  0.3
+d           │ 0.2  0.3
+
+julia&gt; freqtable(x, y, subset=1:20, weights=repeat([1, .5], outer=[10]))
+4×2 Named Array{Float64,2}
+Dim1 ╲ Dim2 │   A    B
+────────────┼─────────
+a           │ 3.0  2.0
+b           │ 1.5  1.0
+c           │ 2.0  3.0
+d           │ 1.0  1.5</code></pre><p>For convenience, when working with a data frame, one can also pass a <code>DataFrame</code> object and columns as symbols:</p><pre><code class="language-julia">julia&gt; using DataFrames, CSV
+
+julia&gt; iris = CSV.read(joinpath(Pkg.dir(&quot;DataFrames&quot;), &quot;test/data/iris.csv&quot;));
+
+julia&gt; iris[:LongSepal] = iris[:SepalLength] .&gt; 5.0;
+
+julia&gt; freqtable(iris, :Species, :LongSepal)
+3×2 Named Array{Int64,2}
+Species ╲ LongSepal │ false   true
+────────────────────┼─────────────
+setosa              │    28     22
+versicolor          │     3     47
+virginica           │     1     49
+
+julia&gt; freqtable(iris, :Species, :LongSepal, subset=iris[:PetalLength] .&lt; 4.0)
+2×2 Named Array{Int64,2}
+Species ╲ LongSepal │ false   true
+────────────────────┼─────────────
+setosa              │    28     22
+versicolor          │     3      8</code></pre><p>Note that when one of the input variables contains integers, <code>Name(i)</code> has to be used when indexing into the table to prevent <code>i</code> to be interpreted as a numeric index:</p><pre><code class="language-julia">julia&gt; df = DataFrame(A = 101:103, B = [&quot;x&quot;,&quot;y&quot;,&quot;y&quot;]);
+
+julia&gt; ft = freqtable(df, :A, :B)
+3×2 Named Array{Int64,2}
+Dim1 ╲ Dim2 │ x  y
+────────────┼─────
+101         │ 1  0
+102         │ 0  1
+103         │ 0  1
+
+julia&gt; ft[Name(101), &quot;x&quot;]
+1
+
+julia&gt; ft[101,&quot;x&quot;]
+ERROR: BoundsError: attempt to access 10×2 Array{Int64,2} at index [101, 1]</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

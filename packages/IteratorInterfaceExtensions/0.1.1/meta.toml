@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "IteratorInterfaceExtensions"
+owner = "queryverse"
+version = "0.1.1"
+description = "Traits for julia iterators"
+stargazers_count = "1"
+url = "https://github.com/queryverse/IteratorInterfaceExtensions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "28"

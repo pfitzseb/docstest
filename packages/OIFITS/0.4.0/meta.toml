@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "OIFITS"
+owner = "emmt"
+version = "0.4.0"
+description = "Support for OI-FITS (optical interferometry data format) in Julia."
+stargazers_count = "5"
+url = "https://github.com/emmt/OIFITS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "emmt"
+contributions = "132"
+[[contributors]]
+name = "Lightjohn"
+contributions = "2"
+[[contributors]]
+name = "andferrari"
+contributions = "1"
+[[contributors]]
+name = "DeVerMyst"
+contributions = "1"
+[[contributors]]
+name = "jdlangs"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

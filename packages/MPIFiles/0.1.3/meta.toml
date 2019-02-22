@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "MPIFiles"
+owner = "MagneticParticleImaging"
+version = "0.1.3"
+description = "Julia Package for reading and writing MPI Files"
+stargazers_count = "0"
+url = "https://github.com/MagneticParticleImaging/MPIFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tknopp"
+contributions = "238"
+[[contributors]]
+name = "flo12345678"
+contributions = "18"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "18"
+[[contributors]]
+name = "FranziW"
+contributions = "15"
+[[contributors]]
+name = "SzwarP"
+contributions = "15"
+[[contributors]]
+name = "hampii"
+contributions = "7"
+[[contributors]]
+name = "ngda"
+contributions = "5"
+[[contributors]]
+name = "mboberg"
+contributions = "2"

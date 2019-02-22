@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DifferenceLists"
+owner = "zot"
+version = "0.1.3"
+description = "A difference list implementation for Julia. These are a highly efficient and simple way to build up lists from parts: appending, prepending, and concatenation are all very fast (constant time). They're also immutable, so you can reuse the parts."
+stargazers_count = "0"
+url = "https://github.com/zot/DifferenceLists.jl.git"
+installs = true
+tags = ["julia", "data-structures", "utilities"]
+license = "MIT License"
+
+[[contributors]]
+name = "zot"
+contributions = "8"

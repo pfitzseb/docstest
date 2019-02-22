@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "KeywordDispatch"
+owner = "simonbyrne"
+version = "0.3.0"
+description = "Dispatch on keyword arguments"
+stargazers_count = "5"
+url = "https://github.com/simonbyrne/KeywordDispatch.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "17"

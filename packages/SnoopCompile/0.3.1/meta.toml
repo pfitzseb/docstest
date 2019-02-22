@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "SnoopCompile"
+owner = "timholy"
+version = "0.3.1"
+description = "Making packages work faster with more extensive precompilation"
+stargazers_count = "37"
+url = "https://github.com/timholy/SnoopCompile.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "25"
+[[contributors]]
+name = "dalum"
+contributions = "5"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"

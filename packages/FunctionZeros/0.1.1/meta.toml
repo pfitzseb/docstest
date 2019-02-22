@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FunctionZeros"
+owner = "jlapeyre"
+version = "0.1.1"
+description = "Zeros of Bessel J and Y functions"
+stargazers_count = "1"
+url = "https://github.com/jlapeyre/FunctionZeros.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "24"

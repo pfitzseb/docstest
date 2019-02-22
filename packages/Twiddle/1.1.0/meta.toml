@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Twiddle"
+owner = "BenJWard"
+version = "1.1.0"
+description = "A collection of useful bit-twiddling tricks in Julia."
+stargazers_count = "2"
+url = "https://github.com/BenJWard/Twiddle.jl.git"
+installs = true
+tags = ["binary-data", "bit-manipulation", "bit-twiddling-hacks", "bit-mask", "bit-tricks"]
+license = "MIT License"
+
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ljyanesm"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

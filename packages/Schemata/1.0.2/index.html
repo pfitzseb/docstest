@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Schemata.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Schemata.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Usage-1">Usage</a></li><li class="toplevel"><a class="toctext" href="#TODO-1">TODO</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Schemata.jl-1" href="#Schemata.jl-1">Schemata.jl</a></h1><p>A <code>Schema</code> is a specification of a data set.</p><p>It exists independently of any particular data set, and therefore can be constructed and modified in the absence of a data set.</p><p>This package facilitates 3 use cases:</p><ol><li><p>Read/write a schema from/to a yaml file. Thus schemata are portable, and a change to a schema does not require recompilation.</p></li><li><p>Compare a data set to a schema and list the non-compliance issues.</p></li><li><p>Transform an existing data set in order to comply with a schema as much as possible (then rerun the compare function to see any outstanding issues).</p></li></ol><h1><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h1><pre><code class="language-julia"># Read in a schema
+using Schemata
+
+schema = readschema(joinpath(dirname(pathof(Schemata)), &quot;..&quot;, &quot;test/schemata/fever.yaml&quot;))
+
+# Alternatively, construct the schema within the code
+patientid = ColumnSchema(:patientid, &quot;Patient ID&quot;,  UInt,   !CATEGORICAL, REQUIRED,  UNIQUE, UInt)
+age       = ColumnSchema(:age,       &quot;Age (years)&quot;, Int,    !CATEGORICAL, REQUIRED, !UNIQUE, Int)
+dose      = ColumnSchema(:dose,      &quot;Dose size&quot;,   String,  CATEGORICAL, REQUIRED, !UNIQUE, [&quot;small&quot;, &quot;medium&quot;, &quot;large&quot;])
+fever     = ColumnSchema(:fever,     &quot;Had fever&quot;,   Bool,    CATEGORICAL, REQUIRED, !UNIQUE, Bool)
+ts        = TableSchema(:mytable, &quot;My table&quot;, [patientid, age, dose, fever], [:patientid])
+schema    = Schema(:fever, &quot;Fever schema&quot;, Dict(:mytable =&gt; ts))
+
+# Import some data
+using DataFrames
+
+tbl = DataFrame(
+    patientid = [1, 2, 3, 4],
+    age       = [11, 22, 33, 444],
+    dose      = [&quot;small&quot;, &quot;medium&quot;, &quot;large&quot;, &quot;medium&quot;],
+    fever     = [false, true, true, false]
+)
+
+# Compare the data to the schema
+diagnose(tbl, schema.tables[:mytable])
+
+# Modify the data to comply with the schema
+categorical!(tbl, [:dose, :fever])        # Make these columns categorical
+tbl[:patientid] = UInt.(tbl[:patientid])  # Change the data type from Int to UInt
+
+# Compare again
+diagnose(tbl, schema.tables[:mytable])
+
+# Modify the schema: Require :age &lt;= 120
+schema.tables[:mytable].columns[:age].valid_values = 0:120
+
+# Compare again
+diagnose(tbl, schema.tables[:mytable])  # Looks like a data entry error
+
+# Fix the data: Attempt 1 (do not set invalid values to missing)
+tbl, issues = enforce_schema(tbl, schema.tables[:mytable], false);
+tbl
+issues
+
+# Fix the data: Attempt 2 (set invalid values to missing)
+tbl, issues = enforce_schema(tbl, schema.tables[:mytable], true);
+tbl
+issues
+
+# Fix the data: Attempt 3 (manually fix data entry error)
+tbl[4, :age] = 44
+diagnose(tbl, schema.tables[:mytable])
+
+# Add a new column to the schema
+zipcode = ColumnSchema(:zipcode, &quot;Zip code&quot;, Int, CATEGORICAL, !REQUIRED, !UNIQUE, 10000:99999)
+insert_column!(schema.tables[:mytable], zipcode)
+
+# Add a corresponding (non-compliant) column to the data
+tbl[:zipcode] = [&quot;11111&quot;, &quot;22222&quot;, &quot;33333&quot;, &quot;NULL&quot;];  # CSV file was supplied with &quot;NULL&quot; values, forcing eltype to be String.
+diagnose(tbl, schema.tables[:mytable])
+
+# Fix the data
+tbl, issues = enforce_schema(tbl, schema.tables[:mytable], true);
+tbl
+issues
+
+# Add a Date column to the schema; note the args in the datatype
+using Dates
+
+datatype = Dict(&quot;type&quot; =&gt; Date, &quot;args&quot; =&gt; &quot;Y-m-d&quot;)
+dosedate = ColumnSchema(:date, &quot;Dose date&quot;, datatype, CATEGORICAL, !REQUIRED, !UNIQUE, datatype)
+insert_column!(schema.tables[:mytable], dosedate)
+
+# Add a corresponding (compliant) column to the data
+tbl[:date] = [&quot;2017-12-01&quot;, &quot;2017-12-01&quot;, &quot;2017-12-11&quot;, &quot;2017-12-09&quot;];
+diagnose(tbl, schema.tables[:mytable])
+tbl, issues = enforce_schema(tbl, schema.tables[:mytable], true);
+show(tbl, true)
+issues</code></pre><h1><a class="nav-anchor" id="TODO-1" href="#TODO-1">TODO</a></h1><ol><li><p>Remove hard coded Date handling.</p></li><li><p>Implement writeschema.</p></li><li><p>Implement <code>intrarow_constraints</code> for <code>TableSchema</code>.</p></li><li><p>Define joins between tables within a schema, as well as intrarow_constraints across tables.</p></li><li><p>Infer a simple <code>Schema</code> from a given data table.</p></li><li><p>Replace dependence on DataFrames with dependence on the <code>Tables</code> interface.</p></li></ol><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

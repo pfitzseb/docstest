@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "PowerDynBase"
+owner = "JuliaEnergy"
+version = "0.6.1"
+description = "Base Package of PowerDynamics.jl"
+stargazers_count = "1"
+url = "https://github.com/JuliaEnergy/PowerDynBase.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "timkittel"
+contributions = "25"
+[[contributors]]
+name = "SabineAuer"
+contributions = "9"
+[[contributors]]
+name = "WouterVer"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "UAParser"
+owner = "JuliaWeb"
+version = "0.6.0"
+description = "Parse user-agent strings into components"
+stargazers_count = "5"
+url = "https://github.com/JuliaWeb/UAParser.jl.git"
+installs = true
+tags = ["uaparser", "julia", "data-frame", "julialang"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "44"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "11"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

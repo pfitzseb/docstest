@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BigCombinatorics"
+owner = "scheinerman"
+version = "0.1.4"
+description = "Combinatorial functions that always return a BigInt"
+stargazers_count = "0"
+url = "https://github.com/scheinerman/BigCombinatorics.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "57"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Glob"
+owner = "vtjnash"
+version = "1.2.0"
+description = "Posix-compliant file name pattern matching"
+stargazers_count = "42"
+url = "https://github.com/vtjnash/Glob.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "vtjnash"
+contributions = "11"
+[[contributors]]
+name = "hayd"
+contributions = "3"
+[[contributors]]
+name = "EQt"
+contributions = "2"
+[[contributors]]
+name = "JonathanAnderson"
+contributions = "1"
+[[contributors]]
+name = "NHDaly"
+contributions = "1"
+[[contributors]]
+name = "shashi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "jmkuhn"
+contributions = "1"

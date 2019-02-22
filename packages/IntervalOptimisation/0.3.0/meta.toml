@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "IntervalOptimisation"
+owner = "JuliaIntervals"
+version = "0.3.0"
+description = "Rigorous global optimisation in pure Julia"
+stargazers_count = "9"
+url = "https://github.com/JuliaIntervals/IntervalOptimisation.jl.git"
+installs = true
+tags = ["global-optimization", "interval-arithmetic", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "38"
+[[contributors]]
+name = "lbenet"
+contributions = "4"
+[[contributors]]
+name = "yash907"
+contributions = "2"
+[[contributors]]
+name = "thofma"
+contributions = "1"

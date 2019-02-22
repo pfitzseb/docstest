@@ -1,0 +1,162 @@
+license_url = ""
+doctype = "default"
+name = "Graphs"
+owner = "JuliaAttic"
+version = "0.10.2"
+description = "Working with graphs in Julia"
+stargazers_count = "182"
+url = "https://github.com/JuliaAttic/Graphs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lindahua"
+contributions = "102"
+[[contributors]]
+name = "dehann"
+contributions = "53"
+[[contributors]]
+name = "pozorvlak"
+contributions = "34"
+[[contributors]]
+name = "mlubin"
+contributions = "25"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "17"
+[[contributors]]
+name = "deinst"
+contributions = "15"
+[[contributors]]
+name = "nfoti"
+contributions = "13"
+[[contributors]]
+name = "rsofaer"
+contributions = "12"
+[[contributors]]
+name = "AlainLich"
+contributions = "11"
+[[contributors]]
+name = "kmsquire"
+contributions = "9"
+[[contributors]]
+name = "bdeonovic"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "7"
+[[contributors]]
+name = "ranjanan"
+contributions = "7"
+[[contributors]]
+name = "Keno"
+contributions = "7"
+[[contributors]]
+name = "sbromberger"
+contributions = "7"
+[[contributors]]
+name = "IainNZ"
+contributions = "6"
+[[contributors]]
+name = "timholy"
+contributions = "6"
+[[contributors]]
+name = "brian-j-smith"
+contributions = "4"
+[[contributors]]
+name = "maxlikely"
+contributions = "4"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "kshyatt"
+contributions = "4"
+[[contributors]]
+name = "daviddelaat"
+contributions = "3"
+[[contributors]]
+name = "scidom"
+contributions = "3"
+[[contributors]]
+name = "xhochy"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "yeesian"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "2"
+[[contributors]]
+name = "cameronraysmith"
+contributions = "2"
+[[contributors]]
+name = "dmbates"
+contributions = "2"
+[[contributors]]
+name = "kirbyfan64"
+contributions = "2"
+[[contributors]]
+name = "mrtzh"
+contributions = "2"
+[[contributors]]
+name = "andrioni"
+contributions = "1"
+[[contributors]]
+name = "tautologico"
+contributions = "1"
+[[contributors]]
+name = "bisraelsen"
+contributions = "1"
+[[contributors]]
+name = "david-crespo"
+contributions = "1"
+[[contributors]]
+name = "DillonEthier"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ericjang"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"
+[[contributors]]
+name = "GlenHertz"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "PersonalKilljoy"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "tkonolige"
+contributions = "1"
+[[contributors]]
+name = "wkearn"
+contributions = "1"
+[[contributors]]
+name = "lpand"
+contributions = "1"
+[[contributors]]
+name = "wsliang"
+contributions = "1"

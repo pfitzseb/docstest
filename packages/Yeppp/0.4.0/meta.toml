@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "Yeppp"
+owner = "JuliaMath"
+version = "0.4.0"
+description = "Yeppp! bindings"
+stargazers_count = "40"
+url = "https://github.com/JuliaMath/Yeppp.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "panlanfeng"
+contributions = "32"
+[[contributors]]
+name = "ViralBShah"
+contributions = "23"
+[[contributors]]
+name = "abhijithch"
+contributions = "4"
+[[contributors]]
+name = "rprechelt"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "KristofferC"
+contributions = "3"
+[[contributors]]
+name = "hiccup7"
+contributions = "2"
+[[contributors]]
+name = "jgoldfar"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

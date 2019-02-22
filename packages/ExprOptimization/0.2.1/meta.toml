@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ExprOptimization"
+owner = "sisl"
+version = "0.2.1"
+description = "Algorithms for optimization of Julia expressions"
+stargazers_count = "12"
+url = "https://github.com/sisl/ExprOptimization.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rcnlee"
+contributions = "58"

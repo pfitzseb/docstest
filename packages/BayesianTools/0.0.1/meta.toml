@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "BayesianTools"
+owner = "gragusa"
+version = "0.0.1"
+description = "Julia package designed to handle product distributions"
+stargazers_count = "8"
+url = "https://github.com/gragusa/BayesianTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gragusa"
+contributions = "47"
+[[contributors]]
+name = "atteson"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

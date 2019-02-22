@@ -1,0 +1,120 @@
+license_url = ""
+doctype = "real"
+name = "ForwardDiff"
+owner = "JuliaDiff"
+version = "0.10.3"
+description = "Forward Mode Automatic Differentiation for Julia"
+stargazers_count = "227"
+url = "https://github.com/JuliaDiff/ForwardDiff.jl.git"
+installs = true
+tags = ["julia", "calculus", "automatic-differentiation"]
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "414"
+[[contributors]]
+name = "scidom"
+contributions = "123"
+[[contributors]]
+name = "KristofferC"
+contributions = "16"
+[[contributors]]
+name = "mlubin"
+contributions = "10"
+[[contributors]]
+name = "powerdistribution"
+contributions = "8"
+[[contributors]]
+name = "simonbyrne"
+contributions = "6"
+[[contributors]]
+name = "maleadt"
+contributions = "5"
+[[contributors]]
+name = "gragusa"
+contributions = "4"
+[[contributors]]
+name = "rgiordan"
+contributions = "4"
+[[contributors]]
+name = "fredo-dedup"
+contributions = "4"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "tkf"
+contributions = "2"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "chriselrod"
+contributions = "2"
+[[contributors]]
+name = "alhirzel"
+contributions = "1"
+[[contributors]]
+name = "Non-Contradiction"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "dbeach24"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "lstagner"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "twadleigh"
+contributions = "1"
+[[contributors]]
+name = "aaowens"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "vrld"
+contributions = "1"

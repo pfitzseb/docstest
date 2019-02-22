@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "Conda"
+owner = "JuliaPy"
+version = "1.0.2"
+description = "Conda managing Julia binary dependencies"
+stargazers_count = "63"
+url = "https://github.com/JuliaPy/Conda.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Luthaf"
+contributions = "66"
+[[contributors]]
+name = "isuruf"
+contributions = "31"
+[[contributors]]
+name = "stevengj"
+contributions = "24"
+[[contributors]]
+name = "dhoegh"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "rofinn"
+contributions = "4"
+[[contributors]]
+name = "tkf"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "oxinabox"
+contributions = "2"
+[[contributors]]
+name = "waldyrious"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "meggart"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

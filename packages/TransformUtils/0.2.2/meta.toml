@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TransformUtils"
+owner = "dehann"
+version = "0.2.2"
+description = "Lie groups and algebra with some quaternions"
+stargazers_count = "7"
+url = "https://github.com/dehann/TransformUtils.jl.git"
+installs = true
+tags = ["lie-groups", "quaternion", "euler", "lie-algebra", "rotations-operations", "logmap", "expmap", "so3", "rigid-transformations", "2d", "3d", "se2", "se3"]
+license = "MIT License"
+
+[[contributors]]
+name = "dehann"
+contributions = "80"
+[[contributors]]
+name = "pvazteixeira"
+contributions = "6"
+[[contributors]]
+name = "Affie"
+contributions = "3"

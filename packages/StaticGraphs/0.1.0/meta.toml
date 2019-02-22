@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StaticGraphs"
+owner = "JuliaGraphs"
+version = "0.1.0"
+description = "Memory-efficient immutable LightGraphs."
+stargazers_count = "2"
+url = "https://github.com/JuliaGraphs/StaticGraphs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "38"
+[[contributors]]
+name = "matbesancon"
+contributions = "15"
+[[contributors]]
+name = "slyles1001"
+contributions = "1"

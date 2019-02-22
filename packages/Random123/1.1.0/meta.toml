@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Random123"
+owner = "sunoru"
+version = "1.1.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/sunoru/Random123.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sunoru"
+contributions = "8"

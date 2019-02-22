@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Zomato"
+owner = "rahulkp220"
+version = "0.0.2"
+description = "The unofficial Julia wrapper around Zomato's API :fire:"
+stargazers_count = "8"
+url = "https://github.com/rahulkp220/Zomato.jl.git"
+installs = true
+tags = ["julialang", "julia-package", "julia-wrapper", "api-wrapper", "zomato", "zomato-api-wrapper"]
+license = "MIT License"
+
+[[contributors]]
+name = "rahulkp220"
+contributions = "28"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RobotOSData"
+owner = "damiendr"
+version = "0.3.0"
+description = "Tools to read data from ROS bags and messages in Julia."
+stargazers_count = "3"
+url = "https://github.com/damiendr/RobotOSData.jl.git"
+installs = true
+tags = ["julia", "julia-language", "julialang", "ros", "rosbag", "fileio"]
+license = "Other"
+
+[[contributors]]
+name = "damiendr"
+contributions = "27"

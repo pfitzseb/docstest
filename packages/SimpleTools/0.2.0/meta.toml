@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleTools"
+owner = "scheinerman"
+version = "0.2.0"
+description = "Miscellaneous code useful for my SimpleWorld"
+stargazers_count = "0"
+url = "https://github.com/scheinerman/SimpleTools.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "40"

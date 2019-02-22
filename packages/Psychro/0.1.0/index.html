@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Psychro.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Psychro.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#User-interface-Thermodynamic-properties-of-moist-air,-dry-air-and-saturated-water-vapor.-1">User interface - Thermodynamic properties of moist air, dry air and saturated water vapor.</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#References-1">References</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Psychro-Thermodynamic-properties-of-moist-air-1" href="#Psychro-Thermodynamic-properties-of-moist-air-1">Psychro - Thermodynamic properties of moist air</a></h1><p>This package provides Julia with functions to compute some thermodynamic properties of moist air. The model uses real gas correlations as recommended by ASHRAE (see reference [5]).</p><p>Besides moist air, this package also calculates the properties of dry air and saturated water vapor. It is part of a larger effort to model the thermodynamic (and transport) properties of different types of fluids.</p><h2><a class="nav-anchor" id="User-interface-Thermodynamic-properties-of-moist-air,-dry-air-and-saturated-water-vapor.-1" href="#User-interface-Thermodynamic-properties-of-moist-air,-dry-air-and-saturated-water-vapor.-1">User interface - Thermodynamic properties of moist air, dry air and saturated water vapor.</a></h2><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923</code></pre><h2><a class="nav-anchor" id="References-1" href="#References-1">References</a></h2><ul><li>[1] Wexler, A. and Hyland, R. W., &quot;Formulations for the thermodynamic properties of the saturated phases of H2O from 173.15 K to 473.15 K&quot;, ASHRAE Transactions, 1983.</li><li>[2] Wexler, A. and Hyland, R. W., &quot;Formulations for the thermodynamic properties of dry air from 173.15 K to 473.15 K, and of saturated moist air from 173.15 K to 372.15 K at pressures to 5 MPa</li><li>[3] Himmelblaum D. M., &quot;Solubilities of inert gases in water, 0oC to near the critical point of water&quot;, Journal of Chemical and Engineering Data, Vol. 5, No. 1, January 1960.</li><li>[4] Kell, George S., &quot;Density, thermal expansivity, and compressibility of liquid water from 0oC to 150oC: correlations and tables for atmospheric pressure and saturation reviewed and expressed on 1968 temperature scale&quot;, Journal of Chemical and Engineering Data, Vol. 20, No. 1, 1975.</li><li>[5] ASHRAE, &quot;Psychrometrics: Theory and Practice&quot;, ASHRAE, 1996.</li></ul><p><a href="https://travis-ci.org/pjabardo/Psychro.jl"><img src="https://travis-ci.org/pjabardo/Psychro.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/pjabardo/Psychro.jl?branch=master"><img src="https://coveralls.io/repos/pjabardo/Psychro.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/pjabardo/Psychro.jl?branch=master"><img src="http://codecov.io/github/pjabardo/Psychro.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "TimeFrames"
+owner = "femtotrader"
+version = "0.2.0"
+description = "A Julia library that defines TimeFrame (essentially for resampling TimeSeries)"
+stargazers_count = "3"
+url = "https://github.com/femtotrader/TimeFrames.jl.git"
+installs = true
+tags = ["julia-library", "timeframes", "timeseries", "resampling"]
+license = "Other"
+
+[[contributors]]
+name = "femtotrader"
+contributions = "62"
+[[contributors]]
+name = "iblis17"
+contributions = "7"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

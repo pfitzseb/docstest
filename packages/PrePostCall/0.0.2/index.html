@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · PrePostCall.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PrePostCall.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="PrePostCall-1" href="#PrePostCall-1">PrePostCall</a></h1><p>PrePostCall is a package which offers an intuitive syntax for making preceding and subsequent function calls to other functions using macros.</p><p><a href="https://travis-ci.org/sebastianpech/PrePostCall.jl"><img src="https://travis-ci.org/sebastianpech/PrePostCall.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://codecov.io/gh/sebastianpech/PrePostCall.jl"><img src="https://codecov.io/gh/sebastianpech/PrePostCall.jl/branch/master/graph/badge.svg" alt="codecov"/></a> <a href="https://coveralls.io/github/sebastianpech/PrePostCall.jl?branch=master"><img src="https://coveralls.io/repos/github/sebastianpech/PrePostCall.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><h3><a class="nav-anchor" id="Simple-Example-1" href="#Simple-Example-1">Simple Example</a></h3><p>Here is a very simple example showing how to define a macro with PrePostCall which checks that </p><ul><li>all passed arguments to a function are positive and</li><li>the return value of a function is not <code>Inf</code></li></ul><p>Pre and post calls can be defined with <code>@pre</code> and <code>@post</code> respectively. So first the new macros are defined:</p><pre><code class="language-julia">@pre positive(x::Number) = x&lt;0 &amp;&amp; error(&quot;Passed values must be positive!&quot;)
+@post notInf(x::Number) = isinf(x) &amp;&amp; error(&quot;The return value is Inf&quot;)</code></pre><p>Now both macros <code>@positive</code> and <code>@notInf</code> can be applied to another function:</p><pre><code class="language-julia">@notInf @positive x y z function foo(x,y,z)
+    (x+y)/z
+end</code></pre><p>Calls to <code>foo</code> with various arguments now result in the following:</p><pre><code class="language-julia">julia&gt; foo(1,2,3)
+1.0
+
+julia&gt; foo(1,-2,3)
+ERROR: Passed values must be positive!
+
+julia&gt; foo(1,2,0)
+ERROR: The return value is Inf</code></pre><h3><a class="nav-anchor" id="Example-with-a-mutable-struct-1" href="#Example-with-a-mutable-struct-1">Example with a mutable struct</a></h3><p>In the following toy example you have a <code>mutable struct</code> where one field can either be an <code>Int</code> or <code>nothing</code>. A function that is called with this <code>mutable struct</code> should only be usable if the field is <strong>not</strong> <code>nothing</code>. Another function that is called with this <code>mutable struct</code> should only be usable if the field is <strong>not</strong> <code>nothing</code> and <strong>at least</strong> has a value of <code>3</code>. (This example is minimized to illustrated the usage of PrePostCall.)</p><p>First define the struct:</p><pre><code class="language-julia">mutable struct Bar
+    val::Union{Int,Nothing}
+end</code></pre><p>Then define the check functions:</p><pre><code class="language-julia">@pre alive(b::Bar) = b.val == nothing &amp;&amp; error(&quot;Bar must not be nothing&quot;)
+@pre large(b::Bar) = b.val &lt; 3 &amp;&amp; error(&quot;The value of bar must be &gt;= 3&quot;)</code></pre><p>The actual functions used on the <code>mutable type</code> can now be created with a clear, dense and easily readable definition:</p><pre><code class="language-julia">@alive addOne(b::Bar) = b.val += 1
+@alive @large addTen(b::Bar) = b.val += 10</code></pre><p>If no variable names are given for the newly created macros, the variables checked are assumed to have the same name as the ones used on the <code>@pre</code> (or <code>@post</code>) definitions.</p><p>Calls to the defined function with various <code>Bar</code>-types now result in the following:</p><pre><code class="language-julia">julia&gt; a = Bar(1)
+Bar(1)
+
+julia&gt; addOne(a)
+2
+
+julia&gt; a.val = nothing
+
+julia&gt; addOne(a)
+ERROR: Bar must not be nothing
+
+julia&gt; b = Bar(1)
+Bar(1)
+
+julia&gt; addTen(b)
+ERROR: The value of bar must be &gt;= 3
+
+julia&gt; addOne(b)
+2
+
+julia&gt; addOne(b)
+3
+
+julia&gt; addTen(b)
+13
+
+julia&gt; b.val = nothing
+
+julia&gt; addTen(b)
+ERROR: Bar must not be nothing</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

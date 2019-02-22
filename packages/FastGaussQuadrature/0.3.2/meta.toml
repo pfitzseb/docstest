@@ -1,0 +1,45 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "FastGaussQuadrature"
+owner = "ajt60gaibb"
+version = "0.3.2"
+description = "Gauss quadrature nodes and weights in Julia."
+stargazers_count = "69"
+url = "https://github.com/ajt60gaibb/FastGaussQuadrature.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ajt60gaibb"
+contributions = "117"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "53"
+[[contributors]]
+name = "popsomer"
+contributions = "20"
+[[contributors]]
+name = "yuyichao"
+contributions = "8"
+[[contributors]]
+name = "daanhb"
+contributions = "4"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "robertdj"
+contributions = "2"
+[[contributors]]
+name = "timueh"
+contributions = "2"
+[[contributors]]
+name = "ChristoSilvia"
+contributions = "1"
+[[contributors]]
+name = "nilshg"
+contributions = "1"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "1"

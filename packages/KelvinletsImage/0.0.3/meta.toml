@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "KelvinletsImage"
+owner = "GuilhermeHaetinger"
+version = "0.0.3"
+description = "Image Distortion via Elastic Deformation"
+stargazers_count = "0"
+url = "https://github.com/GuilhermeHaetinger/KelvinletsImage.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "GuilhermeHaetinger"
+contributions = "16"

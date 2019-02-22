@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FixedEffects"
+owner = "matthieugomez"
+version = "0.1.1"
+description = "Back end for FixedEffectModels.jl"
+stargazers_count = "4"
+url = "https://github.com/matthieugomez/FixedEffects.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "40"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "DocOpt"
+owner = "docopt"
+version = "0.4.0"
+description = "command line arguments parser"
+stargazers_count = "52"
+url = "https://github.com/docopt/DocOpt.jl.git"
+installs = true
+tags = ["julia"]
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "55"
+[[contributors]]
+name = "yadongli"
+contributions = "2"
+[[contributors]]
+name = "ceandrade"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "r9y9"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

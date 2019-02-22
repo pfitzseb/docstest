@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StatisticalRethinking"
+owner = "StatisticalRethinkingJulia"
+version = "0.7.0"
+description = "Julia version of the R package statistical rethinking (WIP)"
+stargazers_count = "25"
+url = "https://github.com/StatisticalRethinkingJulia/StatisticalRethinking.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "297"
+[[contributors]]
+name = "torkar"
+contributions = "31"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

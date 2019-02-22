@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Unicode_Entities"
+owner = "JuliaString"
+version = "0.3.2"
+description = "Support for using Unicode entity names in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/Unicode_Entities.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "63"
+[[contributors]]
+name = "maartenheremans"
+contributions = "2"

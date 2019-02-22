@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "GtkReactive"
+owner = "JuliaGizmos"
+version = "0.5.3"
+description = "Combining Reactive.jl with the Gtk toolkit"
+stargazers_count = "21"
+url = "https://github.com/JuliaGizmos/GtkReactive.jl.git"
+installs = true
+tags = ["graphical", "user", "interfaces", "mouse-events", "canvas", "widgets", "reactive-programming"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "124"
+[[contributors]]
+name = "jverzani"
+contributions = "70"
+[[contributors]]
+name = "yakir12"
+contributions = "10"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "3"
+[[contributors]]
+name = "slangangular"
+contributions = "3"
+[[contributors]]
+name = "shashi"
+contributions = "2"
+[[contributors]]
+name = "kswanson33"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mfalt"
+contributions = "1"
+[[contributors]]
+name = "grero"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

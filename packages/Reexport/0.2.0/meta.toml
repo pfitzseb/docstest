@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Reexport"
+owner = "simonster"
+version = "0.2.0"
+description = "Julia macro for re-exporting one module from another"
+stargazers_count = "31"
+url = "https://github.com/simonster/Reexport.jl.git"
+installs = true
+tags = ["julia", "module", "reexport"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "17"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "joshday"
+contributions = "4"
+[[contributors]]
+name = "lendle"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "henripal"
+contributions = "1"

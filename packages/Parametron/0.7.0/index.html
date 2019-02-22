@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Parametron.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Parametron.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Example-1-1">Example 1</a></li><li><a class="toctext" href="#Example-2-1">Example 2</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Parametron-1" href="#Parametron-1">Parametron</a></h1><p><a href="https://travis-ci.org/tkoolen/Parametron.jl"><img src="https://travis-ci.org/tkoolen/Parametron.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/tkoolen/Parametron.jl?branch=master"><img src="http://codecov.io/github/tkoolen/Parametron.jl/coverage.svg?branch=master" alt="codecov.io"/></a> <a href="https://tkoolen.github.io/Parametron.jl/latest"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt/></a> <a href="https://tkoolen.github.io/Parametron.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt/></a></p><p>Parametron makes it easy to set up and efficiently (ideally, with <em>zero</em> allocation) solve instances of a <strong>parameterized family</strong> of optimization problems.</p><h2><a class="nav-anchor" id="Example-1-1" href="#Example-1-1">Example 1</a></h2><p>As an example, we&#39;ll use the <a href="https://github.com/oxfordcontrol/OSQP.jl">OSQP</a> solver to solve the following quadratic program:</p><pre><code class="language-none">Minimize ||A x - b||^2
+subject to C x = d</code></pre><p>with decision variable vector <code>x</code>, and where <code>A</code>, <code>b</code>, <code>C</code>, and <code>d</code> are parameters with random values, to be re-sampled each time the problem is re-solved.</p><p>Here&#39;s the basic problem setup:</p><pre><code class="language-julia"># create a MathOptInterface optimizer instance
+using OSQP
+optimizer = OSQP.Optimizer()
+
+# create a Parametron.Model, which holds problem information
+using Parametron
+using Random, LinearAlgebra
+model = Model(optimizer)
+
+# create decision variables and parameters
+n = 8; m = 2
+x = [Variable(model) for _ = 1 : n]
+A = Parameter(rand!, zeros(n, n), model)
+b = Parameter(rand!, zeros(n), model)
+C = Parameter(rand!, zeros(m, n), model)
+d = Parameter(zeros(m), model) do d
+    # do syntax makes it easy to create custom Parameters
+    rand!(d)
+    d .*= 2
+end
+
+# the @expression macro can be used to create &#39;lazy&#39; expressions,
+# which can be used in constraints or the objective function, and
+# can be evaluated at a later time, automatically updating the
+# Parameters in the process (if needed).
+residual = @expression A * x - b
+
+# set the objective function
+@objective(model, Minimize, residual ⋅ residual)
+
+# add the constraints. You could have multiple @constraint calls
+# as well. ==, &lt;=, and &gt;= are supported.
+@constraint(model, C * x == d)</code></pre><p>Now that the problem is set up, we can solve and obtain the solution as follows:</p><pre><code class="language-julia">julia&gt; solve!(model)
+-----------------------------------------------------------------
+           OSQP v0.3.0  -  Operator Splitting QP Solver
+              (c) Bartolomeo Stellato,  Goran Banjac
+        University of Oxford  -  Stanford University 2017
+-----------------------------------------------------------------
+problem:  variables n = 8, constraints m = 2
+          nnz(P) + nnz(A) = 88
+settings: linear system solver = suitesparse ldl,
+          eps_abs = 1.0e-03, eps_rel = 1.0e-03,
+          eps_prim_inf = 1.0e-04, eps_dual_inf = 1.0e-04,
+          rho = 1.00e-01 (adaptive),
+          sigma = 1.00e-06, alpha = 1.60, max_iter = 4000
+          check_termination: on (interval 25),
+          scaling: on, scaled_termination: off
+          warm start: on, polish: off
+
+iter   objective    pri res    dua res    rho        time
+   1  -7.8949e-01   9.57e-01   1.02e+03   1.00e-01   1.34e-04s
+  25  -2.0032e+00   2.87e-04   4.82e-03   1.00e-01   1.76e-04s
+
+status:               solved
+number of iterations: 25
+optimal objective:    -2.0032
+run time:             1.81e-04s
+optimal rho estimate: 5.16e-02
+
+julia&gt; value.(model, x)
+8-element Array{Float64,1}:
+ -0.365181
+ -0.119036
+ -0.267222
+  1.41655
+  0.69472
+  0.993475
+ -0.631194
+ -1.02733</code></pre><p>Note that the next time <code>solve!</code> is called, the update functions of our parameters (<code>A</code>, <code>b</code>, <code>C</code>, and <code>d</code>) will be called again (<em>once</em> for each parameter), resulting in a different optimum:</p><pre><code class="language-julia">julia&gt; solve!(model)
+iter   objective    pri res    dua res    rho        time
+   1  -1.4419e+00   2.57e-01   5.79e+02   1.00e-01   1.53e-05s
+  25  -3.2498e+00   1.34e-04   2.74e-03   1.00e-01   3.10e-05s
+
+status:               solved
+number of iterations: 25
+optimal objective:    -3.2498
+run time:             3.63e-05s
+optimal rho estimate: 7.79e-02
+
+julia&gt; value.(model, x)
+8-element Array{Float64,1}:
+  0.220836
+ -0.462071
+  0.509146
+  0.667908
+ -0.850638
+  0.7877
+  1.01581
+ -0.992135</code></pre><p>Note that the solver is warm-started. Also note that updating the parameters and solving a new QP instance is quite fast:</p><pre><code class="language-julia">julia&gt; using MathOptInterface; using OSQP.MathOptInterfaceOSQP: OSQPSettings; MathOptInterface.set(optimizer, OSQPSettings.Verbose(), false) # silence the optimizer
+
+julia&gt; using BenchmarkTools
+
+julia&gt; @btime solve!($model)
+  51.863 μs (0 allocations: 0 bytes)</code></pre><p>The performance and lack of allocations stems from the fact that the &#39;lazy expressions&#39; used for the constraints and objective function are automatically optimized to calls to in-place functions.</p><h2><a class="nav-anchor" id="Example-2-1" href="#Example-2-1">Example 2</a></h2><p>Of course, in many real-world problems you are unlikely to update your parameters with random values. Here&#39;s an illustration showing how you might control these values more directly, fitting a vector <code>g</code> in a model</p><pre><code class="language-julia">g&#39; * X[:,i] ≈ p[i]</code></pre><p>for a set of vectors in columns of <code>X</code>.</p><p>This example also demonstrates a different style of updating parameters. Whereas in the previous example we supplied an &#39;update function&#39; (e.g., <code>rand!</code>) that is automatically called when <code>solve!</code> is called, in this example we use the syntax</p><pre><code class="language-julia">Parameter(model, val=some_manually_updated_mutable_object)</code></pre><p>to create a <code>Parameter</code> whose value may be updated manually between calls to the <code>solve!</code> function.</p><pre><code class="language-julia">using Parametron, OSQP.MathOptInterfaceOSQP
+using Random
+
+n, m = 5, 15
+Xdata = randn(n, m)
+pdata = Vector{Float64}(undef, m);
+model = Model(OSQP.Optimizer())
+X = Parameter(model, val=Xdata)
+p = Parameter(model, val=pdata)
+g = [Variable(model) for _ = 1:n]
+resid = @expression X&#39;*g - p
+@objective(model, Minimize, resid&#39;*resid)
+
+# Try with a specific ground-truth `g`
+ggt = randn(n)
+pdata .= Xdata&#39;*ggt  # set the values in-place using `.=`
+solve!(model)
+
+julia&gt; value.(model, g)
+5-element Array{Float64,1}:
+  0.6710700783457044
+  1.3999896266657308
+  0.5666247642146109
+ -1.018123491138979
+ -0.7464853233374451
+
+julia&gt; ggt
+5-element Array{Float64,1}:
+  0.671068170731507
+  1.399985646860983
+  0.5666231534233734
+ -1.0181205969900424
+ -0.7464832010803155</code></pre><p>You can re-fit the model after updating <code>pdata</code> and/or <code>Xdata</code> in-place.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

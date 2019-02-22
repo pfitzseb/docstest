@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "ResumableFunctions"
+owner = "BenLauwens"
+version = "0.4.2"
+description = "C# sharp style generators a.k.a. semi-coroutines for Julia."
+stargazers_count = "54"
+url = "https://github.com/BenLauwens/ResumableFunctions.jl.git"
+installs = true
+tags = ["semi-coroutine", "finite-state-machine", "julia", "iterator", "stackless"]
+license = "Other"
+
+[[contributors]]
+name = "BenLauwens"
+contributions = "162"
+[[contributors]]
+name = "arfon"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "Phlogistique"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"

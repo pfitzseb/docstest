@@ -1,0 +1,7 @@
+name = "SeDuMi"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/JuliaOpt/SeDuMi.jl.git"
+version = "0.1.0"
+description = "Julia wrapper for SeDuMi (http://sedumi.ie.lehigh.edu/)"

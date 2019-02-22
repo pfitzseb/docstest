@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "LossFunctions"
+owner = "JuliaML"
+version = "0.5.1"
+description = "Julia package of loss functions for machine learning."
+stargazers_count = "65"
+url = "https://github.com/JuliaML/LossFunctions.jl.git"
+installs = true
+tags = ["machine-learning", "loss-functions", "classification", "regression", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "246"
+[[contributors]]
+name = "ahwillia"
+contributions = "23"
+[[contributors]]
+name = "tbreloff"
+contributions = "20"
+[[contributors]]
+name = "joshday"
+contributions = "14"
+[[contributors]]
+name = "kumarkrishna"
+contributions = "12"
+[[contributors]]
+name = "nishnik"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JobJob"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "RatanRSur"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,198 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "OrderedCollections"
+owner = "JuliaCollections"
+version = "1.0.2"
+description = "Julia implementation of associative containers that preserve insertion order "
+stargazers_count = "7"
+url = "https://github.com/JuliaCollections/OrderedCollections.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "78"
+[[contributors]]
+name = "lindahua"
+contributions = "35"
+[[contributors]]
+name = "timholy"
+contributions = "24"
+[[contributors]]
+name = "yuyichao"
+contributions = "13"
+[[contributors]]
+name = "scls19fr"
+contributions = "12"
+[[contributors]]
+name = "rawls238"
+contributions = "12"
+[[contributors]]
+name = "StephenVavasis"
+contributions = "9"
+[[contributors]]
+name = "ararslan"
+contributions = "8"
+[[contributors]]
+name = "oxinabox"
+contributions = "8"
+[[contributors]]
+name = "DanielArndt"
+contributions = "8"
+[[contributors]]
+name = "fredrikekre"
+contributions = "5"
+[[contributors]]
+name = "quinnj"
+contributions = "5"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "martinholters"
+contributions = "4"
+[[contributors]]
+name = "srp"
+contributions = "4"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "wsliang"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "aviks"
+contributions = "3"
+[[contributors]]
+name = "dpsanders"
+contributions = "3"
+[[contributors]]
+name = "kshyatt"
+contributions = "3"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "2"
+[[contributors]]
+name = "msainz"
+contributions = "2"
+[[contributors]]
+name = "matthieugomez"
+contributions = "2"
+[[contributors]]
+name = "mlubin"
+contributions = "2"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"
+[[contributors]]
+name = "lendle"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "catawbasam"
+contributions = "2"
+[[contributors]]
+name = "sunoru"
+contributions = "2"
+[[contributors]]
+name = "sbromberger"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "Aerlinger"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "cpitclaudel"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "computo-fc"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "bicycle1885"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "neveritt"
+contributions = "1"
+[[contributors]]
+name = "peterahrens"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "RaviMohan"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "tbreloff"
+contributions = "1"
+[[contributors]]
+name = "toblux"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"

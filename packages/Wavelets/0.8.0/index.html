@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Wavelets.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Wavelets.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#API-1">API</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Thresholding-1">Thresholding</a></li><li><a class="toctext" href="#Benchmarks-1">Benchmarks</a></li><li><a class="toctext" href="#To-do-list-1">To-do list</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p>&lt;img src=&quot;wavelets.png&quot; alt=&quot;Wavelets&quot;&gt;</p><p><a href="https://travis-ci.org/JuliaDSP/Wavelets.jl"><img src="https://travis-ci.org/JuliaDSP/Wavelets.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/JuliaDSP/Wavelets.jl?branch=master"><img src="https://coveralls.io/repos/JuliaDSP/Wavelets.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p>A <a href="https://github.com/JuliaLang/julia">Julia</a> package for fast wavelet transforms (1-D, 2-D, 3-D, by filtering or lifting). The package includes discrete wavelet transforms, column-wise discrete wavelet transforms, and wavelet packet transforms.</p><ul><li><p>1st generation wavelets using filter banks (periodic and orthogonal). Filters are included for the following types: Haar, Daubechies, Coiflet, Symmlet, Battle-Lemarie, Beylkin, Vaidyanathan.</p></li><li><p>2nd generation wavelets by lifting (periodic and general type including orthogonal and biorthogonal). Included lifting schemes are currently only for Haar and Daubechies (under development). A new lifting scheme can be easily constructed by users. The current implementation of the lifting transforms is 2x faster than the filter transforms.</p></li><li><p>Thresholding, best basis and denoising functions, e.g. TI denoising by cycle spinning, best basis for WPT, noise estimation, matching pursuit. See example code and image below.</p></li><li><p>Wavelet utilities e.g. indexing and size calculation, scaling and wavelet functions computation, test functions, up and down sampling, filter mirrors, coefficient counting, inplace circshifts, and more.</p></li><li><p>Plotting/visualization utilities for 1-D and 2-D signals.</p></li></ul><p>See license (MIT) in LICENSE.md.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>Install via the package manager and load with <code>using</code></p><pre><code class="language-julia">julia&gt; Pkg.add(&quot;Wavelets&quot;)
+julia&gt; using Wavelets</code></pre><h2><a class="nav-anchor" id="API-1" href="#API-1">API</a></h2><h4><a class="nav-anchor" id="Wavelet-Transforms-1" href="#Wavelet-Transforms-1">Wavelet Transforms</a></h4><p>The functions <code>dwt</code> and <code>wpt</code> (and their inverses) are linear operators. See <code>wavelet</code> below for construction of the type <code>wt</code>.</p><p><strong>Discrete Wavelet Transform</strong></p><pre><code class="language-julia"># DWT
+dwt(x, wt, L=maxtransformlevels(x))
+idwt(x, wt, L=maxtransformlevels(x))
+dwt!(y, x, filter, L=maxtransformlevels(x))
+idwt!(y, scheme, L=maxtransformlevels(x))</code></pre><p><strong>Wavelet Packet Transform</strong></p><pre><code class="language-julia"># WPT (tree can also be an integer, equivalent to maketree(length(x), L, :full))
+wpt(x, wt, tree::BitVector=maketree(x, :full))
+iwpt(x, wt, tree::BitVector=maketree(x, :full))
+wpt!(y, x, filter, tree::BitVector=maketree(x, :full))
+iwpt!(y, scheme, tree::BitVector=maketree(y, :full))</code></pre><h4><a class="nav-anchor" id="Wavelet-Types-1" href="#Wavelet-Types-1">Wavelet Types</a></h4><p>The function <code>wavelet</code> is a type contructor for the transform functions. The transform type <code>t</code> can be either <code>WT.Filter</code> or <code>WT.Lifting</code>.</p><pre><code class="language-julia">wavelet(c, t=WT.Filter, boundary=WT.Periodic)</code></pre><h4><a class="nav-anchor" id="Wavelet-Classes-1" href="#Wavelet-Classes-1">Wavelet Classes</a></h4><p>The module WT contains the types for wavelet classes. The module defines constants of the form e.g. <code>WT.coif4</code> as shortcuts for <code>WT.Coiflet{4}()</code>. The numbers for orthogonal wavelets indicate the number vanishing moments of the wavelet function.</p><table><tr><th>Class Type</th><th>Namebase</th><th>Supertype</th><th>Numbers</th></tr><tr><td><code>Haar</code></td><td>haar</td><td><code>OrthoWaveletClass</code></td><td></td></tr><tr><td><code>Coiflet</code></td><td>coif</td><td><code>OrthoWaveletClass</code></td><td>2:2:8</td></tr><tr><td><code>Daubechies</code></td><td>db</td><td><code>OrthoWaveletClass</code></td><td>1:Inf</td></tr><tr><td><code>Symlet</code></td><td>sym</td><td><code>OrthoWaveletClass</code></td><td>4:10</td></tr><tr><td><code>Battle</code></td><td>batt</td><td><code>OrthoWaveletClass</code></td><td>2:2:6</td></tr><tr><td><code>Beylkin</code></td><td>beyl</td><td><code>OrthoWaveletClass</code></td><td></td></tr><tr><td><code>Vaidyanathan</code></td><td>vaid</td><td><code>OrthoWaveletClass</code></td><td></td></tr><tr><td><code>CDF</code></td><td>cdf</td><td><code>BiOrthoWaveletClass</code></td><td>(9,7)</td></tr></table><p>Class information</p><pre><code class="language-julia">WT.class(::WaveletClass) ::String              # class full name
+WT.name(::WaveletClass) ::String               # type short name
+WT.vanishingmoments(::WaveletClass)            # vanishing moments of wavelet function</code></pre><p>Transform type information</p><pre><code class="language-julia">WT.name(wt)                                     # type short name
+WT.length(f::OrthoFilter)                       # length of filter
+WT.qmf(f::OrthoFilter)                          # quadrature mirror filter
+WT.makeqmfpair(f::OrthoFilter, fw=true)
+WT.makereverseqmfpair(f::OrthoFilter, fw=true)</code></pre><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><p>The simplest way to transform a signal x is</p><pre><code class="language-julia">xt = dwt(x, wavelet(WT.db2))</code></pre><p>The transform type can be more explicitly specified (filter, Periodic, Orthogonal, 4 vanishing moments)</p><pre><code class="language-julia">wt = wavelet(WT.Coiflet{4}(), WT.Filter, WT.Periodic)</code></pre><p>For a periodic biorthogonal CDF 9/7 lifting scheme:</p><pre><code class="language-julia">wt = wavelet(WT.cdf97, WT.Lifting)</code></pre><p>Perform a transform of vector x</p><pre><code class="language-julia"># 5 level transform
+xt = dwt(x, wt, 5)
+# inverse tranform
+xti = idwt(xt, wt, 5)
+# a full transform
+xt = dwt(x, wt)</code></pre><p>Other examples:</p><pre><code class="language-julia"># scaling filters is easy
+wt = wavelet(WT.haar)
+wt = WT.scale(wt, 1/sqrt(2))
+# signals can be transformed inplace with a low-level command
+# requiring very little memory allocation (especially for L=1 for filters)
+dwt!(x, wt, L)      # inplace (lifting)
+dwt!(xt, x, wt, L)  # write to xt (filter)
+
+# denoising with default parameters (VisuShrink hard thresholding)
+x0 = testfunction(128, &quot;HeaviSine&quot;)
+x = x0 + 0.3*randn(128)
+y = denoise(x)
+
+# plotting utilities 1-d (see images and code in /example)
+x = testfunction(128, &quot;Bumps&quot;)
+y = dwt(x, wavelet(WT.cdf97, WT.Lifting))
+d,l = wplotdots(y, 0.1, 128)
+A = wplotim(y)
+# plotting utilities 2-d
+img = imread(&quot;lena.png&quot;)
+x = permutedims(img.data, [ndims(img.data):-1:1])
+L = 2
+xts = wplotim(x, L, wavelet(WT.db3))</code></pre><p>See <a href="/example/transform1d_bumps.png">Bumps</a> and <a href="/example/transform2d_lena.jpg">Lena</a> for plot images.</p><h2><a class="nav-anchor" id="Thresholding-1" href="#Thresholding-1">Thresholding</a></h2><p>The <code>Wavelets.Threshold</code> module includes the following utilities</p><ul><li>denoising (VisuShrink, translation invariant (TI))</li><li>best basis for WPT</li><li>noise estimator</li><li>matching pursuit</li><li>threshold functions (see table for types)</li></ul><h4><a class="nav-anchor" id="API-2" href="#API-2">API</a></h4><pre><code class="language-julia"># threshold types with parameter
+threshold!(x::AbstractArray, TH::THType, t::Real)
+threshold(x::AbstractArray, TH::THType, t::Real)
+# without parameter (PosTH, NegTH)
+threshold!(x::AbstractArray, TH::THType)
+threshold(x::AbstractArray, TH::THType)
+# denoising
+denoise(x::AbstractArray,
+        wt=DEFAULT_WAVELET;
+        L::Int=min(maxtransformlevels(x),6),
+        dnt=VisuShrink(size(x,1)),
+        estnoise::Function=noisest,
+        TI=false,
+        nspin=tuple([8 for i=1:ndims(x)]...) )
+# entropy
+coefentropy(x, et::Entropy, nrm)
+# best basis for WPT limited to active inital tree nodes
+bestbasistree(y::AbstractVector, wt::DiscreteWavelet,
+        L::Integer=nscales(y), et::Entropy=ShannonEntropy() )
+bestbasistree(y::AbstractVector, wt::DiscreteWavelet,
+        tree::BitVector, et::Entropy=ShannonEntropy() )</code></pre><table><tr><th>Type</th><th>Details</th></tr><tr><td><strong>Thresholding</strong></td><td><code>&lt;: THType</code></td></tr><tr><td><code>HardTH</code></td><td>hard thresholding</td></tr><tr><td><code>SoftTH</code></td><td>soft threshold</td></tr><tr><td><code>SemiSoftTH</code></td><td>semisoft thresholding</td></tr><tr><td><code>SteinTH</code></td><td>stein thresholding</td></tr><tr><td><code>PosTH</code></td><td>positive thresholding</td></tr><tr><td><code>NegTH</code></td><td>negative thresholding</td></tr><tr><td><code>BiggestTH</code></td><td>biggest m-term (best m-term) approx.</td></tr><tr><td><strong>Denoising</strong></td><td><code>&lt;: DNFT</code></td></tr><tr><td><code>VisuShrink</code></td><td>VisuShrink denoising</td></tr><tr><td><strong>Entropy</strong></td><td><code>&lt;: Entropy</code></td></tr><tr><td><code>ShannonEntropy</code></td><td><code>-v^2*log(v^2)</code> (Coifman-Wickerhauser)</td></tr><tr><td><code>LogEnergyEntropy</code></td><td><code>-log(v^2)</code></td></tr></table><h4><a class="nav-anchor" id="Examples-2" href="#Examples-2">Examples</a></h4><p>Find best basis tree for <code>wpt</code>, and compare to <code>dwt</code> using biggest m-term approximations.</p><pre><code class="language-julia">wt = wavelet(WT.db4)
+x = sin(4*range(0, stop=2*pi-eps(), length=1024))
+tree = bestbasistree(x, wt)
+xtb = wpt(x, wt, tree)
+xt = dwt(x, wt)
+# get biggest m-term approximations
+m = 50
+threshold!(xtb, BiggestTH(), m)
+threshold!(xt, BiggestTH(), m)
+# compare sparse approximations in ell_2 norm
+norm(x - iwpt(xtb, wt, tree), 2) # best basis wpt
+norm(x - idwt(xt, wt), 2)        # regular dwt</code></pre><pre><code class="language-none">julia&gt; norm(x - iwpt(xtb, wt, tree), 2)
+0.008941070750964843
+julia&gt; norm(x - idwt(xt, wt), 2)
+0.05964431178940861</code></pre><p>Denoising:</p><pre><code class="language-julia">n = 2^11;
+x0 = testfunction(n,&quot;Doppler&quot;)
+x = x0 + 0.05*randn(n)
+y = denoise(x,TI=true)</code></pre><p><img src="/example/denoise_doppler.png" alt="Doppler"/></p><h2><a class="nav-anchor" id="Benchmarks-1" href="#Benchmarks-1">Benchmarks</a></h2><p>Timing of <code>dwt</code> (using <code>db2</code> filter of length 4) and <code>fft</code>. The lifting wavelet transforms are faster and use less memory than <code>fft</code> in 1-D and 2-D. <code>dwt</code> by lifting is currently 2x faster than by filtering.</p><pre><code class="language-julia"># 10 iterations
+dwt by filtering (N=1048576), 20 levels
+elapsed time: 0.247907616 seconds (125861504 bytes allocated, 8.81% gc time)
+dwt by lifting (N=1048576), 20 levels
+elapsed time: 0.131240966 seconds (104898544 bytes allocated, 17.48% gc time)
+fft (N=1048576), (FFTW)
+elapsed time: 0.487693289 seconds (167805296 bytes allocated, 8.67% gc time)</code></pre><p>For 2-D transforms (using a <code>db4</code> filter and CDF 9/7 lifting scheme):</p><pre><code class="language-julia"># 10 iterations
+dwt by filtering (N=1024x1024), 10 levels
+elapsed time: 0.773281141 seconds (85813504 bytes allocated, 2.87% gc time)
+dwt by lifting (N=1024x1024), 10 levels
+elapsed time: 0.317705928 seconds (88765424 bytes allocated, 3.44% gc time)
+fft (N=1024x1024), (FFTW)
+elapsed time: 0.577537263 seconds (167805888 bytes allocated, 5.53% gc time)</code></pre><p>By using the low-level function <code>dwt!</code> and pre-allocating temporary arrays, significant gains can be made in terms of memory usage (and some speedup). This is useful when transforming multiple times.</p><h2><a class="nav-anchor" id="To-do-list-1" href="#To-do-list-1">To-do list</a></h2><ul><li>Transforms for non-square 2-D signals</li><li>Boundary extensions (other than periodic)</li><li>Boundary orthogonal wavelets</li><li>Define more lifting schemes</li><li>WPT in 2-D</li><li>Stationary transform</li><li>Continuous wavelets</li><li>Wavelet scalogram</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

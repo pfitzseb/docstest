@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "BrowseTables"
+owner = "tpapp"
+version = "0.2.0"
+description = "Julia package for browsing tables that that implement the Tables.jl interface as HTML."
+stargazers_count = "9"
+url = "https://github.com/tpapp/BrowseTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "14"
+[[contributors]]
+name = "n3n7i"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "FiniteFloats"
+owner = "JeffreySarnoff"
+version = "0.0.1"
+description = "Floats with neither Infinities nor NaNs nor signed zeros."
+stargazers_count = "1"
+url = "https://github.com/JeffreySarnoff/FiniteFloats.jl.git"
+installs = true
+tags = ["julia", "floating-point", "finite-values"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "83"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "JuliaKara"
+owner = "sebastianpech"
+version = "0.2.0"
+description = "A julia port of the learning environment Kara"
+stargazers_count = "5"
+url = "https://github.com/sebastianpech/JuliaKara.jl.git"
+installs = true
+tags = ["julia", "kara", "learn-to-code"]
+license = "Other"
+
+[[contributors]]
+name = "sebastianpech"
+contributions = "101"

@@ -1,0 +1,294 @@
+license_url = ""
+doctype = "default"
+name = "Plots"
+owner = "JuliaPlots"
+version = "0.23.0"
+description = "Powerful convenience for Julia visualizations and data analysis"
+stargazers_count = "701"
+url = "https://github.com/JuliaPlots/Plots.jl.git"
+installs = true
+tags = ["julia", "plotting", "visualization", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "tbreloff"
+contributions = "1201"
+[[contributors]]
+name = "daschw"
+contributions = "534"
+[[contributors]]
+name = "mkborregaard"
+contributions = "431"
+[[contributors]]
+name = "jheinen"
+contributions = "171"
+[[contributors]]
+name = "apalugniok"
+contributions = "63"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "39"
+[[contributors]]
+name = "piever"
+contributions = "37"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "22"
+[[contributors]]
+name = "ma-laforge"
+contributions = "21"
+[[contributors]]
+name = "oschulz"
+contributions = "19"
+[[contributors]]
+name = "pfitzseb"
+contributions = "15"
+[[contributors]]
+name = "tkf"
+contributions = "15"
+[[contributors]]
+name = "sebastianpech"
+contributions = "13"
+[[contributors]]
+name = "JackDevine"
+contributions = "13"
+[[contributors]]
+name = "sswatson"
+contributions = "12"
+[[contributors]]
+name = "pkofod"
+contributions = "11"
+[[contributors]]
+name = "yha"
+contributions = "10"
+[[contributors]]
+name = "fredrikekre"
+contributions = "9"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "8"
+[[contributors]]
+name = "wkearn"
+contributions = "8"
+[[contributors]]
+name = "diegozea"
+contributions = "7"
+[[contributors]]
+name = "fedxa"
+contributions = "7"
+[[contributors]]
+name = "Godisemo"
+contributions = "7"
+[[contributors]]
+name = "huckl3b3rry87"
+contributions = "7"
+[[contributors]]
+name = "sglyon"
+contributions = "7"
+[[contributors]]
+name = "floswald"
+contributions = "7"
+[[contributors]]
+name = "darwindarak"
+contributions = "6"
+[[contributors]]
+name = "KristofferC"
+contributions = "6"
+[[contributors]]
+name = "joshday"
+contributions = "6"
+[[contributors]]
+name = "anowacki"
+contributions = "5"
+[[contributors]]
+name = "WillRam"
+contributions = "5"
+[[contributors]]
+name = "iblis17"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "djsegal"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "4"
+[[contributors]]
+name = "blegat"
+contributions = "3"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "3"
+[[contributors]]
+name = "JonathanAnderson"
+contributions = "3"
+[[contributors]]
+name = "lwabeke"
+contributions = "3"
+[[contributors]]
+name = "mfalt"
+contributions = "3"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "biggsbiggsby"
+contributions = "3"
+[[contributors]]
+name = "jverzani"
+contributions = "3"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "3"
+[[contributors]]
+name = "anriseth"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "dpsanders"
+contributions = "2"
+[[contributors]]
+name = "greimel"
+contributions = "2"
+[[contributors]]
+name = "PhilipVinc"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "jgoldfar"
+contributions = "2"
+[[contributors]]
+name = "martinbiel"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"
+[[contributors]]
+name = "BoundaryValueProblems"
+contributions = "2"
+[[contributors]]
+name = "o01eg"
+contributions = "2"
+[[contributors]]
+name = "pabloferz"
+contributions = "2"
+[[contributors]]
+name = "pearlzli"
+contributions = "2"
+[[contributors]]
+name = "harryscholes"
+contributions = "2"
+[[contributors]]
+name = "johnrichardrinehart"
+contributions = "2"
+[[contributors]]
+name = "odow"
+contributions = "2"
+[[contributors]]
+name = "wfrgra"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "albi3ro"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "chfin"
+contributions = "1"
+[[contributors]]
+name = "dhoegh"
+contributions = "1"
+[[contributors]]
+name = "dennybiasiolli"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "grahamas"
+contributions = "1"
+[[contributors]]
+name = "H-M-H"
+contributions = "1"
+[[contributors]]
+name = "hycakir"
+contributions = "1"
+[[contributors]]
+name = "hayatoikoma"
+contributions = "1"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "jdeldre"
+contributions = "1"
+[[contributors]]
+name = "JeffFessler"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "mcawte"
+contributions = "1"
+[[contributors]]
+name = "BioTurboNick"
+contributions = "1"
+[[contributors]]
+name = "OliverEvans96"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "romainFr"
+contributions = "1"
+[[contributors]]
+name = "roshanshariff"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "sivark"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "improbable22"
+contributions = "1"
+[[contributors]]
+name = "innerlee"
+contributions = "1"
+[[contributors]]
+name = "massemanet"
+contributions = "1"

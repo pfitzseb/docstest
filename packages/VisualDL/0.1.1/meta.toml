@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "VisualDL"
+owner = "findmyway"
+version = "0.1.1"
+description = "A Julia wrapper for VisualDL aims for deep learning visualization"
+stargazers_count = "7"
+url = "https://github.com/findmyway/VisualDL.jl.git"
+installs = true
+tags = ["julia", "datavisualization", "deep-learning"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "findmyway"
+contributions = "22"

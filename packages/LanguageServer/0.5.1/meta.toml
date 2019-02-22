@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "LanguageServer"
+owner = "JuliaEditorSupport"
+version = "0.5.1"
+description = "An implementation of the Microsoft Language Server Protocol for the julia language."
+stargazers_count = "89"
+url = "https://github.com/JuliaEditorSupport/LanguageServer.jl.git"
+installs = true
+tags = ["julia", "julia-language", "julialang", "language-server-protocol", "languageserver", "microsoft"]
+license = "Other"
+
+[[contributors]]
+name = "ZacLN"
+contributions = "368"
+[[contributors]]
+name = "davidanthoff"
+contributions = "195"
+[[contributors]]
+name = "joshbode"
+contributions = "3"
+[[contributors]]
+name = "MartinWolke"
+contributions = "2"
+[[contributors]]
+name = "AmjadHD"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "randy3k"
+contributions = "1"
+[[contributors]]
+name = "rishisubramanian"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "innerlee"
+contributions = "1"

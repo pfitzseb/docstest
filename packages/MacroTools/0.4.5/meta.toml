@@ -1,0 +1,105 @@
+license_url = ""
+doctype = "real"
+name = "MacroTools"
+owner = "MikeInnes"
+version = "0.4.5"
+description = "A man has written a package. A package has no name."
+stargazers_count = "127"
+url = "https://github.com/MikeInnes/MacroTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "145"
+[[contributors]]
+name = "cstjean"
+contributions = "29"
+[[contributors]]
+name = "Roger-luo"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "bramtayl"
+contributions = "4"
+[[contributors]]
+name = "rdeits"
+contributions = "4"
+[[contributors]]
+name = "stevengj"
+contributions = "4"
+[[contributors]]
+name = "marius311"
+contributions = "4"
+[[contributors]]
+name = "ranjanan"
+contributions = "4"
+[[contributors]]
+name = "pfitzseb"
+contributions = "3"
+[[contributors]]
+name = "gaika"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "JackDevine"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "jlapeyre"
+contributions = "1"
+[[contributors]]
+name = "lopezm94"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "NHDaly"
+contributions = "1"
+[[contributors]]
+name = "peterahrens"
+contributions = "1"
+[[contributors]]
+name = "philtomson"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

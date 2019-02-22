@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RNGTest"
+owner = "andreasnoack"
+version = "1.4.0"
+description = "Code for testing of Julia's random numbers"
+stargazers_count = "7"
+url = "https://github.com/andreasnoack/RNGTest.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "56"
+[[contributors]]
+name = "awllee"
+contributions = "4"
+[[contributors]]
+name = "GregPlowman"
+contributions = "4"
+[[contributors]]
+name = "ViralBShah"
+contributions = "4"
+[[contributors]]
+name = "rfourquet"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

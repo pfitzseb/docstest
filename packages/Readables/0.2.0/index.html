@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Readables.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Readables.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Use-1">Use</a></li><li><a class="toctext" href="#Customize-1">Customize</a></li><li><a class="toctext" href="#Configure-1">Configure</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Readables.jl-1" href="#Readables.jl-1">Readables.jl</a></h1><h3><a class="nav-anchor" id="Make-extended-precision-numbers-readable.-1" href="#Make-extended-precision-numbers-readable.-1">Make extended precision numbers readable.</a></h3><p>| Copyright © 2018 by Jeffrey Sarnoff.  | This work is made available under The MIT License. | |:–––––––––––––––––––|:––––––––––––––––––––––––:|</p><hr/><p><a href="https://travis-ci.org/JeffreySarnoff/Readables.jl"><img src="https://travis-ci.org/JeffreySarnoff/TimesDates.jl.svg?branch=master" alt="Build Status"/></a></p><hr/><h2><a class="nav-anchor" id="Use-1" href="#Use-1">Use</a></h2><pre><code class="language-julia">julia&gt; using Readables
+
+julia&gt; setprecision(BigFloat, 160);
+julia&gt; prn(val) = println(&quot;\n\t&quot;, string(val), &quot;\n\t&quot;, readable(val));
+
+julia&gt; val = (pi/2)^9; prn(val)
+
+	58.22089713563711
+	58.22089_71356_3711
+
+julia&gt; val= (BigFloat(pi)/2)^9; prn(val)
+
+	5.8220897135637132161151176564921201882554800340637e+01
+	5.82208_97135_63713_21611_51176_56492_12018_82554_80034_0637e+01
+
+julia&gt; setprecision(BigFloat,192);
+
+julia&gt; val = (BigFloat(pi))^115; ival = trunc(BigInt, val); prn(ival)
+
+	1486741142588149449007460570055579083524909316281177999404
+	1,486,741,142,588,149,449,007,460,570,055,579,083,524,909,316,281,177,999,404
+</code></pre><h2><a class="nav-anchor" id="Customize-1" href="#Customize-1">Customize</a></h2><pre><code class="language-julia">
+julia&gt; config = setintsep(setintgroup(12), &#39;.&#39;);
+
+julia&gt; ival = trunc(BigInt, (BigFloat(pi))^64);
+
+julia&gt; readable(config, ival)
+&quot;65704006.445717084572.022626334540&quot;</code></pre><h2><a class="nav-anchor" id="Configure-1" href="#Configure-1">Configure</a></h2><p>We assume a <code>Real</code> value has an integer componant and a fractional componant (either may be zero).</p><p><code>intgroup, fracgroup</code> is the number of digits used to form digit subsequences in the integer and fractional parts</p><p><code>intsep, fracsep</code> is the <code>Char</code> used to separate groups in the integer and fractional parts</p><h3><a class="nav-anchor" id="exported-configurables-1" href="#exported-configurables-1">exported configurables</a></h3><ul><li>decpoint, setdecpoint</li><li>intsep, fracsep, setintsep, setfracsep</li><li>intgroup, fracgroup, setintgroup, setfracgroup</li></ul><hr/><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

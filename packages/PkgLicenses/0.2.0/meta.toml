@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "PkgLicenses"
+owner = "JuliaPackaging"
+version = "0.2.0"
+description = "Provides LICENSE texts for common software licenses"
+stargazers_count = "1"
+url = "https://github.com/JuliaPackaging/PkgLicenses.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "8"
+[[contributors]]
+name = "staticfloat"
+contributions = "4"
+[[contributors]]
+name = "wildart"
+contributions = "2"
+[[contributors]]
+name = "gabrielgellner"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

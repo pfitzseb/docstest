@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "TypedPolynomials"
+owner = "JuliaAlgebra"
+version = "0.2.1"
+description = "MultivariatePolynomials implementation using typed variables in Julia"
+stargazers_count = "10"
+url = "https://github.com/JuliaAlgebra/TypedPolynomials.jl.git"
+installs = true
+tags = ["julia", "polynomial", "algebra"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "139"
+[[contributors]]
+name = "blegat"
+contributions = "33"
+[[contributors]]
+name = "saschatimme"
+contributions = "8"

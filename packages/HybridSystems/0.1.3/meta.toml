@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "HybridSystems"
+owner = "blegat"
+version = "0.1.3"
+description = "Hybrid Systems definitions in Julia"
+stargazers_count = "13"
+url = "https://github.com/blegat/HybridSystems.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "99"
+[[contributors]]
+name = "mforets"
+contributions = "9"
+[[contributors]]
+name = "kostakoida"
+contributions = "2"

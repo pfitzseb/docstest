@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "WeightedArrays"
+owner = "mcabbott"
+version = "0.1.1"
+description = "Matrices with column weights"
+stargazers_count = "0"
+url = "https://github.com/mcabbott/WeightedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mcabbott"
+contributions = "3"

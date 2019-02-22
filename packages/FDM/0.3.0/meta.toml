@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FDM"
+owner = "invenia"
+version = "0.3.0"
+description = "Estimate derivatives with finite differences"
+stargazers_count = "6"
+url = "https://github.com/invenia/FDM.jl.git"
+installs = true
+tags = ["julia", "finite-difference-method"]
+license = "MIT License"
+
+[[contributors]]
+name = "wesselb"
+contributions = "22"
+[[contributors]]
+name = "willtebbutt"
+contributions = "16"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "rofinn"
+contributions = "1"

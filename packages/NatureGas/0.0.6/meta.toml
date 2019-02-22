@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NatureGas"
+owner = "hzgzh"
+version = "0.0.6"
+description = "nature gas compress factor calculation"
+stargazers_count = "0"
+url = "https://github.com/hzgzh/NatureGas.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "hzgzh"
+contributions = "33"

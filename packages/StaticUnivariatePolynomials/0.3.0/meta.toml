@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "StaticUnivariatePolynomials"
+owner = "tkoolen"
+version = "0.3.0"
+description = "Fixed-size univariate polynomials backed by a Tuple"
+stargazers_count = "0"
+url = "https://github.com/tkoolen/StaticUnivariatePolynomials.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "16"

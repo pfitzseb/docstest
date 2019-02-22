@@ -1,0 +1,165 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "JLD"
+owner = "JuliaIO"
+version = "0.9.1"
+description = "Saving and loading julia variables while preserving native types"
+stargazers_count = "129"
+url = "https://github.com/JuliaIO/JLD.jl.git"
+installs = true
+tags = ["julia", "jld-format", "hdf5-format", "serializer", "data-storage"]
+license = "MIT License"
+
+[[contributors]]
+name = "timholy"
+contributions = "376"
+[[contributors]]
+name = "simonster"
+contributions = "142"
+[[contributors]]
+name = "tkelman"
+contributions = "22"
+[[contributors]]
+name = "musm"
+contributions = "21"
+[[contributors]]
+name = "yuyichao"
+contributions = "17"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "16"
+[[contributors]]
+name = "mbauman"
+contributions = "16"
+[[contributors]]
+name = "stevengj"
+contributions = "12"
+[[contributors]]
+name = "amack315"
+contributions = "10"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "10"
+[[contributors]]
+name = "ggggggggg"
+contributions = "9"
+[[contributors]]
+name = "crbinz"
+contributions = "8"
+[[contributors]]
+name = "andreasnoack"
+contributions = "7"
+[[contributors]]
+name = "Keno"
+contributions = "6"
+[[contributors]]
+name = "jrevels"
+contributions = "5"
+[[contributors]]
+name = "petercolberg"
+contributions = "5"
+[[contributors]]
+name = "rened"
+contributions = "4"
+[[contributors]]
+name = "abhijithch"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "blakejohnson"
+contributions = "3"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "bhalonen"
+contributions = "2"
+[[contributors]]
+name = "cdsousa"
+contributions = "2"
+[[contributors]]
+name = "DSLituiev"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "2"
+[[contributors]]
+name = "jtravs"
+contributions = "2"
+[[contributors]]
+name = "powerdistribution"
+contributions = "2"
+[[contributors]]
+name = "sunetos"
+contributions = "1"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "avrahamruderman"
+contributions = "1"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "eford"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "IshitaTakeshi"
+contributions = "1"
+[[contributors]]
+name = "jpata"
+contributions = "1"
+[[contributors]]
+name = "Jutho"
+contributions = "1"
+[[contributors]]
+name = "mweastwood"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "pearlzli"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "davidavdav"
+contributions = "1"
+[[contributors]]
+name = "gdestouet"
+contributions = "1"
+[[contributors]]
+name = "peter1000"
+contributions = "1"
+[[contributors]]
+name = "pini-gh"
+contributions = "1"
+[[contributors]]
+name = "rfourquet"
+contributions = "1"
+[[contributors]]
+name = "teresy"
+contributions = "1"

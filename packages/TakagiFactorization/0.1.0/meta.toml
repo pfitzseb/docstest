@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/lgpl-3.0"
+doctype = "default"
+name = "TakagiFactorization"
+owner = "Element-126"
+version = "0.1.0"
+description = "Takagi factorization of complex symmetric matrices"
+stargazers_count = "2"
+url = "https://github.com/Element-126/TakagiFactorization.jl.git"
+installs = true
+tags = []
+license = "GNU Lesser General Public License v3.0"
+
+[[contributors]]
+name = "Element-126"
+contributions = "22"

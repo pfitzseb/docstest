@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "EmpiricalCDFs"
+owner = "jlapeyre"
+version = "0.2.1"
+description = "Online empirical cumulative distribution functions"
+stargazers_count = "3"
+url = "https://github.com/jlapeyre/EmpiricalCDFs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "91"

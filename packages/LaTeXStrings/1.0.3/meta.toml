@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LaTeXStrings"
+owner = "stevengj"
+version = "1.0.3"
+description = "convenient input and display of LaTeX equation strings for the Julia language"
+stargazers_count = "45"
+url = "https://github.com/stevengj/LaTeXStrings.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "stevengj"
+contributions = "22"
+[[contributors]]
+name = "malmaud"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "crstnbr"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

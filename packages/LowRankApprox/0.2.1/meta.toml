@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LowRankApprox"
+owner = "JuliaMatrices"
+version = "0.2.1"
+description = "Fast low-rank matrix approximation in Julia"
+stargazers_count = "30"
+url = "https://github.com/JuliaMatrices/LowRankApprox.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "klho"
+contributions = "55"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "41"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "1"

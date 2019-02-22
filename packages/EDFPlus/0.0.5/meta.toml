@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "EDFPlus"
+owner = "wherrera10"
+version = "0.0.5"
+description = "Julia port of Teunis van Beelen's edflib"
+stargazers_count = "3"
+url = "https://github.com/wherrera10/EDFPlus.jl.git"
+installs = true
+tags = ["eeg", "julia", "signal", "edf-files", "neuroscience"]
+license = "Other"
+
+[[contributors]]
+name = "wherrera10"
+contributions = "157"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Gym"
+owner = "ozanarkancan"
+version = "1.1.0"
+description = "Yet another Julia wraper for OpenAi gym"
+stargazers_count = "3"
+url = "https://github.com/ozanarkancan/Gym.jl.git"
+installs = true
+tags = ["openai-gym", "julia", "reinforcement-learning"]
+license = "Other"
+
+[[contributors]]
+name = "ozanarkancan"
+contributions = "47"

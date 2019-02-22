@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NamedTupleTools"
+owner = "JeffreySarnoff"
+version = "0.7.0"
+description = "some utilities for working with NamedTuples"
+stargazers_count = "3"
+url = "https://github.com/JeffreySarnoff/NamedTupleTools.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "173"
+[[contributors]]
+name = "pdeffebach"
+contributions = "1"

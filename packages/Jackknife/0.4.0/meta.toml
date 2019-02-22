@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Jackknife"
+owner = "ararslan"
+version = "0.4.0"
+description = "Jackknife resampling and estimation in Julia"
+stargazers_count = "10"
+url = "https://github.com/ararslan/Jackknife.jl.git"
+installs = true
+tags = ["julia", "estimation", "jackknife", "statistics"]
+license = "MIT License"
+
+[[contributors]]
+name = "ararslan"
+contributions = "21"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

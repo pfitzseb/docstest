@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "H5SectionsArrays"
+owner = "seung-lab"
+version = "0.7.0"
+description = "cutout arbitrary chunks from a serials of 2D image sections in hdf5 format"
+stargazers_count = "0"
+url = "https://github.com/seung-lab/H5SectionsArrays.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jingpengw"
+contributions = "13"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

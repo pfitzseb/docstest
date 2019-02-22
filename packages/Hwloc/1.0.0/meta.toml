@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Hwloc"
+owner = "JuliaParallel"
+version = "1.0.0"
+description = "A Julia API for hwloc"
+stargazers_count = "17"
+url = "https://github.com/JuliaParallel/Hwloc.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "eschnett"
+contributions = "93"
+[[contributors]]
+name = "juliohm"
+contributions = "11"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

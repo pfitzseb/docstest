@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GaussianMixtureTest"
+owner = "panlanfeng"
+version = "0.1.0"
+description = "Implement the Kasahara-Shimotsu Test to decide number of components in Gaussian Mixture Model."
+stargazers_count = "2"
+url = "https://github.com/panlanfeng/GaussianMixtureTest.jl.git"
+installs = true
+tags = ["mixture-model", "number-of-clusters"]
+license = "Other"
+
+[[contributors]]
+name = "panlanfeng"
+contributions = "45"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "StratiGraphics"
+owner = "juliohm"
+version = "0.0.1"
+description = "Stratrigraphy simulation solver for the GeoStats.jl framework"
+stargazers_count = "1"
+url = "https://github.com/juliohm/StratiGraphics.jl.git"
+installs = true
+tags = ["landscape-evolution", "structural-geology", "stratigraphy"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "60"

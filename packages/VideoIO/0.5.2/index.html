@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · VideoIO.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VideoIO.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Simple-Interface-1">Simple Interface</a></li><li><a class="toctext" href="#High-Level-Interface-1">High Level Interface</a></li><li><a class="toctext" href="#Low-Level-Interface-1">Low Level Interface</a></li><li><a class="toctext" href="#Test-Videos-1">Test Videos</a></li><li><a class="toctext" href="#Status-1">Status</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="https://travis-ci.org/JuliaIO/VideoIO.jl"><img src="https://travis-ci.org/JuliaIO/VideoIO.jl.svg?branch=master" alt="Build Status"/></a>  <a href="https://ci.appveyor.com/project/JuliaIO/videoio-jl"><img src="https://ci.appveyor.com/api/projects/status/44g5t95ev6ww6kro?svg=true" alt="Appveyor Build"/></a> <a href="https://coveralls.io/r/JuliaIO/VideoIO.jl"><img src="https://coveralls.io/repos/JuliaIO/VideoIO.jl/badge.png" alt="Coverage Status"/></a></p><h1><a class="nav-anchor" id="VideoIO.jl-1" href="#VideoIO.jl-1">VideoIO.jl</a></h1><p>Julia bindings for libav/ffmpeg.</p><p>Currently, only video reading is supported, for the following library versions:</p><ul><li>libav 0.8, 9, 10</li><li>ffmpeg 2.2 through 3.0</li></ul><p>Video images may be read as raw arrays, or optionally, <code>Image</code> objects (if <code>Images.jl</code> is installed and loaded first).</p><p>Feel free to request support for additional libav/ffmpeg versions, although earlier versions may be too challenging to support.</p><p>If you encounter any problems, please add the output of <code>VideoIO.versioninfo()</code> to your report.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Use the Julia package manager.  Within Julia, do:</p><pre><code class="language-julia">Pkg.add(&quot;VideoIO&quot;)</code></pre><h2><a class="nav-anchor" id="Simple-Interface-1" href="#Simple-Interface-1">Simple Interface</a></h2><p>A trivial video player interface exists (no audio):</p><pre><code class="language-none">import ImageView
+import VideoIO
+
+f = VideoIO.testvideo(&quot;annie_oakley&quot;)  # downloaded if not available
+VideoIO.playvideo(f)  # no sound
+
+# Aternatively, you can just open the camera
+#VideoIO.viewcam()</code></pre><h2><a class="nav-anchor" id="High-Level-Interface-1" href="#High-Level-Interface-1">High Level Interface</a></h2><p>VideoIO contains a simple high-level interface which allows reading of video frames from a supported video file, or from a camera device:</p><pre><code class="language-none">using Images
+import ImageView
+import VideoIO
+
+io = VideoIO.open(video_file)
+f = VideoIO.openvideo(io)
+
+# As a shortcut for just video, you can upen the file directly
+# with openvideo
+#f = VideoIO.openvideo(video_file)
+
+# Alternatively, you can open the camera with opencamera().
+# The default device is &quot;0&quot; on Windows, &quot;/dev/video0&quot; on Linux,
+# and &quot;Integrated Camera&quot; on OSX.  If using something other
+# than the default, pass it in as the first parameter (as a string).
+#f = VideoIO.opencamera()
+
+# One can seek to an arbitrary position in the video
+seek(f,2.5)  ## The second parameter is the time in seconds and must be Float64
+img = read(f)
+canvas, _ = ImageView.view(img)
+
+while !eof(f)
+    read!(f, img)
+    ImageView.imshow(canvas, img)
+    #sleep(1/30)
+end</code></pre><p>This code is essentially the code in <code>playvideo</code>, and will read and (without the <code>sleep</code>) play a movie file as fast as possible.</p><p>As with the <code>playvideo</code> function, the <code>Images</code> and <code>ImageView</code> packages must be loaded for the appropriate functions to be available.</p><h2><a class="nav-anchor" id="Low-Level-Interface-1" href="#Low-Level-Interface-1">Low Level Interface</a></h2><p>Each libav and ffmpeg library has its own VideoIO subpackage:</p><pre><code class="language-none">libavcodec    -&gt; AVCodecs
+libavdevice   -&gt; AVDevice
+libavfilter   -&gt; AVFilters
+libavformat   -&gt; AVFormat
+libavutil     -&gt; AVUtil
+libswscale    -&gt; SWScale</code></pre><p>The following three files are related to ffmpeg/libav, but currently not exposed:</p><pre><code class="language-none">libavresample -&gt; AVResample (libav only)
+libswresample -&gt; SWResample (ffmpeg only)
+libpostproc   -&gt; PostProc   (not wrapped)</code></pre><p>After importing VideoIO, you can import and use any of the subpackages directly</p><pre><code class="language-none">import VideoIO
+import SWResample  # SWResample functions are now available</code></pre><p>Note that much of the functionality of these subpackages is not enabled by default, to avoid long compilation times as they load.  To control what is loaded, each library version has a file which imports that&#39;s modules files.  For example, ffmpeg&#39;s libswscale-v2 files are loaded by VideoIO_PKG_DIR/src/ffmpeg/SWScale/v2/LIBSWSCALE.jl.</p><p>Check these files to enable any needed functionality that isn&#39;t already enabled.  Note that you&#39;ll probably need to do this for each version of the package for both ffmpeg and libav, and that the interfaces do change some from version to version.</p><p>Note that, in general, the low-level functions are not very fun to use, so it is good to focus initially on enabling a nice, higher-level function for these interfaces.</p><h2><a class="nav-anchor" id="Test-Videos-1" href="#Test-Videos-1">Test Videos</a></h2><p>A small number of test videos are available through VideoIO.TestVideos. These are short videos in a variety of formats with non-restrictive (public domain or Creative Commons) licenses.</p><ul><li><code>VideoIO.TestVideos.available()</code> prints a list of all available test videos.</li><li><code>VideoIO.testvideo(&quot;annie_oakley&quot;)</code> returns an AVInput object for the <code>&quot;annie_oakley&quot;</code> video.  The video will be downloaded if it isn&#39;t available.</li><li><code>VideoIO.TestVideos.download_all()</code> downloads all test videos</li><li><code>VideoIO.TestVideos.remove_all()</code> removes all test videos</li></ul><h2><a class="nav-anchor" id="Status-1" href="#Status-1">Status</a></h2><p>At this point, a simple video interface is available, for multiple versions of libav and ffmpeg.  See TODO.md for some possible directions forward.</p><p>Issues, requests, and/or pull requests for problems or additional functionality are very welcome.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DiscreteFunctions"
+owner = "scheinerman"
+version = "0.1.1"
+description = "Functions to/from {1,2,...,n}"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/DiscreteFunctions.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "19"

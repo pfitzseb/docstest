@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "ImageFeatures"
+owner = "JuliaImages"
+version = "0.0.3"
+description = "Image feature detection for the Julia language"
+stargazers_count = "22"
+url = "https://github.com/JuliaImages/ImageFeatures.jl.git"
+installs = true
+tags = ["feature-extraction", "feature-detection", "image-processing", "computer-vision"]
+license = "Other"
+
+[[contributors]]
+name = "mronian"
+contributions = "123"
+[[contributors]]
+name = "timholy"
+contributions = "19"
+[[contributors]]
+name = "Evizero"
+contributions = "4"
+[[contributors]]
+name = "annimesh2809"
+contributions = "3"
+[[contributors]]
+name = "tejus-gupta"
+contributions = "3"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "2"
+[[contributors]]
+name = "davidbp"
+contributions = "1"
+[[contributors]]
+name = "Deepank308"
+contributions = "1"
+[[contributors]]
+name = "gzhang8"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "mprat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

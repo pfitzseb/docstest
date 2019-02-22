@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SparseGrids"
+owner = "robertdj"
+version = "1.1.0"
+description = "Sparse grid quadrature in Julia"
+stargazers_count = "7"
+url = "https://github.com/robertdj/SparseGrids.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "robertdj"
+contributions = "56"
+[[contributors]]
+name = "RJDennis"
+contributions = "1"

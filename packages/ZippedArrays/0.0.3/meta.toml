@@ -1,0 +1,4 @@
+name = "ZippedArrays"
+installs = false
+url = "https://github.com/bramtayl/ZippedArrays.jl.git"
+version = "0.0.3"

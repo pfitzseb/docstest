@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Rsvg"
+owner = "lobingera"
+version = "0.2.3"
+description = "adaptation of the rsvg lib"
+stargazers_count = "9"
+url = "https://github.com/lobingera/Rsvg.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lobingera"
+contributions = "71"
+[[contributors]]
+name = "davidanthoff"
+contributions = "9"
+[[contributors]]
+name = "sglyon"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"

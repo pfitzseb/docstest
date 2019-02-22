@@ -1,0 +1,7 @@
+name = "UncertainData"
+stargazers_count = "4"
+doctype = "real"
+installs = true
+url = "https://github.com/kahaaga/UncertainData.jl.git"
+version = "0.1.8"
+description = "Working efficiently with datasets where observations have associated uncertainties. "

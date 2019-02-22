@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "JSONSchema"
+owner = "fredo-dedup"
+version = "0.1.0"
+description = "JSON Schema validation package for Julia"
+stargazers_count = "1"
+url = "https://github.com/fredo-dedup/JSONSchema.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fredo-dedup"
+contributions = "39"

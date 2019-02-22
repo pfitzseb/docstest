@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "SpatialEcology"
+owner = "EcoJulia"
+version = "0.7.0"
+description = "Julia framework for spatial ecology - data types and utilities"
+stargazers_count = "17"
+url = "https://github.com/EcoJulia/SpatialEcology.jl.git"
+installs = true
+tags = ["julia", "ecology", "macroecology", "biogeography"]
+license = "Other"
+
+[[contributors]]
+name = "mkborregaard"
+contributions = "341"
+[[contributors]]
+name = "kescobo"
+contributions = "9"
+[[contributors]]
+name = "tpoisot"
+contributions = "3"
+[[contributors]]
+name = "richardreeve"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

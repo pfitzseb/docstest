@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Hyperspecialize"
+owner = "peterahrens"
+version = "0.2.0"
+description = "Simple ambiguity resolution."
+stargazers_count = "0"
+url = "https://github.com/peterahrens/Hyperspecialize.jl.git"
+installs = true
+tags = ["julia", "multiple-dispatch", "method-ambiguity"]
+license = "Other"
+
+[[contributors]]
+name = "peterahrens"
+contributions = "86"

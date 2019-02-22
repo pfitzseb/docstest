@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DirectConvolution"
+owner = "vincent-picaud"
+version = "0.2.0"
+description = "Direct Convolution (no FFT) in Julia"
+stargazers_count = "4"
+url = "https://github.com/vincent-picaud/DirectConvolution.jl.git"
+installs = true
+tags = ["convolution", "wavelet", "savitzky-golay"]
+license = "Other"
+
+[[contributors]]
+name = "vincent-picaud"
+contributions = "160"

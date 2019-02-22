@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BilevelOptimization"
+owner = "matbesancon"
+version = "0.1.1"
+description = "JuMP-based toolbox for solving bilevel optimization problems"
+stargazers_count = "7"
+url = "https://github.com/matbesancon/BilevelOptimization.jl.git"
+installs = true
+tags = ["bilevel-optimization", "mathematical-programming", "jump", "julialang", "julia", "optimization", "graphs"]
+license = "MIT License"
+
+[[contributors]]
+name = "matbesancon"
+contributions = "42"

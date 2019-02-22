@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ChrBase"
+owner = "JuliaString"
+version = "0.1.11"
+description = "Support for parameterized character type `Chr`, and common aliases (ASCIIChr, LatinChr, UCS2Chr, UTF32Chr)"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/ChrBase.jl.git"
+installs = true
+tags = ["character"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "44"

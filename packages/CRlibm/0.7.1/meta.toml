@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CRlibm"
+owner = "JuliaIntervals"
+version = "0.7.1"
+description = "Correctly-rounded mathematical functions for Julia"
+stargazers_count = "5"
+url = "https://github.com/JuliaIntervals/CRlibm.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "91"
+[[contributors]]
+name = "lbenet"
+contributions = "3"
+[[contributors]]
+name = "braamvandyk"
+contributions = "1"

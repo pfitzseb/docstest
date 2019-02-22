@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "RemoteFiles"
+owner = "helgee"
+version = "0.2.1"
+description = "Download files from the Internet and keep them up-to-date."
+stargazers_count = "9"
+url = "https://github.com/helgee/RemoteFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "53"
+[[contributors]]
+name = "adamryczkowski"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

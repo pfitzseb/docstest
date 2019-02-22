@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "SubpixelRegistration"
+owner = "romainFr"
+version = "0.1.0"
+description = "Subpixel alignment of arrays."
+stargazers_count = "2"
+url = "https://github.com/romainFr/SubpixelRegistration.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "romainFr"
+contributions = "19"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "phlavenk"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

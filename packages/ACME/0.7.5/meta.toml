@@ -1,12 +1,11 @@
 license_url = ""
-doctype = "real"
 name = "ACME"
 owner = "HSU-ANT"
 version = "0.7.5"
 description = "ACME.jl - Analog Circuit Modeling and Emulation for Julia"
 stargazers_count = "41"
 url = "https://github.com/HSU-ANT/ACME.jl.git"
-installs = true
+installs = false
 tags = ["analog-circuit-modeling", "julia", "emulation", "audio"]
 license = "Other"
 

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GLMakie"
+owner = "JuliaPlots"
+version = "0.0.4"
+description = "OpenGL backend for Makie"
+stargazers_count = "4"
+url = "https://github.com/JuliaPlots/GLMakie.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "66"
+[[contributors]]
+name = "c42f"
+contributions = "5"
+[[contributors]]
+name = "edljk"
+contributions = "1"

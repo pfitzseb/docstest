@@ -1,0 +1,108 @@
+license_url = ""
+doctype = "default"
+name = "PlotlyJS"
+owner = "sglyon"
+version = "0.12.3"
+description = "Julia library for plotting with plotly.js"
+stargazers_count = "134"
+url = "https://github.com/sglyon/PlotlyJS.jl.git"
+installs = true
+tags = ["julia", "plotlyjs", "graphics", "plotting", "javascript"]
+license = "Other"
+
+[[contributors]]
+name = "sglyon"
+contributions = "384"
+[[contributors]]
+name = "caimichael"
+contributions = "8"
+[[contributors]]
+name = "VPetukhov"
+contributions = "7"
+[[contributors]]
+name = "cc7768"
+contributions = "7"
+[[contributors]]
+name = "MikeInnes"
+contributions = "6"
+[[contributors]]
+name = "JobJob"
+contributions = "3"
+[[contributors]]
+name = "EricForgy"
+contributions = "2"
+[[contributors]]
+name = "TotalVerb"
+contributions = "2"
+[[contributors]]
+name = "matthieugomez"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ghuba"
+contributions = "2"
+[[contributors]]
+name = "tbreloff"
+contributions = "2"
+[[contributors]]
+name = "alyst"
+contributions = "1"
+[[contributors]]
+name = "asbisen"
+contributions = "1"
+[[contributors]]
+name = "beOn"
+contributions = "1"
+[[contributors]]
+name = "cdsousa"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mirestrepo"
+contributions = "1"
+[[contributors]]
+name = "jjstickel"
+contributions = "1"
+[[contributors]]
+name = "Kryohi"
+contributions = "1"
+[[contributors]]
+name = "halars"
+contributions = "1"
+[[contributors]]
+name = "mmcky"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "travigd"
+contributions = "1"

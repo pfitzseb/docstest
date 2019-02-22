@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "ArrayFire"
+owner = "JuliaComputing"
+version = "0.7.0"
+description = "Julia wrapper for the ArrayFire library"
+stargazers_count = "131"
+url = "https://github.com/JuliaComputing/ArrayFire.jl.git"
+installs = true
+tags = ["julia", "arrayfire", "cuda-backend", "opencl-backend", "arrayfire-library", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "gaika"
+contributions = "472"
+[[contributors]]
+name = "ranjanan"
+contributions = "290"
+[[contributors]]
+name = "Keno"
+contributions = "10"
+[[contributors]]
+name = "hayatoikoma"
+contributions = "6"
+[[contributors]]
+name = "ViralBShah"
+contributions = "5"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "Godisemo"
+contributions = "2"
+[[contributors]]
+name = "oschulz"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "dwd31415"
+contributions = "1"
+[[contributors]]
+name = "levskaya"
+contributions = "1"
+[[contributors]]
+name = "LeMinaw"
+contributions = "1"
+[[contributors]]
+name = "Naereen"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "lruthotto"
+contributions = "1"
+[[contributors]]
+name = "s-broda"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "alha02"
+contributions = "1"

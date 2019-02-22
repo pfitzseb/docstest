@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · CombineML.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CombineML.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Getting-Started-1">Getting Started</a></li><li><a class="toctext" href="#Available-Transformers-1">Available Transformers</a></li><li><a class="toctext" href="#Known-Limitations-1">Known Limitations</a></li><li><a class="toctext" href="#Misc-1">Misc</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p>Copyright for portions of project CombineML.jl are held by Samuel Jenkins, 2014 as part of project Orchestra.jl. All other copyright for project CombineML.jl are held by Paulito Palmes, 2016.</p><p>The CombineML.jl package is licensed under the MIT &quot;Expat&quot; License:</p><h1><a class="nav-anchor" id="CombineML-1" href="#CombineML-1">CombineML</a></h1><p><a href="https://gitter.im/CombineML-jl/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/CombineML-jl/Lobby.svg" alt="Join the chat at https://gitter.im/CombineML-jl/Lobby"/></a></p><p>Julia 1.0 on Linux: <a href="https://travis-ci.org/ppalmes/CombineML.jl"><img src="https://travis-ci.org/ppalmes/CombineML.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/ppalmes/CombineML.jl?branch=master"><img src="https://coveralls.io/repos/github/ppalmes/CombineML.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><p>CombineML is a heterogeneous ensemble learning package for the Julia programming language. It is driven by a uniform machine learner API designed for learner composition.</p><h2><a class="nav-anchor" id="Getting-Started-1" href="#Getting-Started-1">Getting Started</a></h2><p>See the notebook for demo: <a href="https://github.com/ppalmes/CombineML.jl/blob/master/MetaModeling.ipynb">MetaModeling.ipnyb</a></p><p>We will cover how to predict on a dataset using CombineML.</p><h3><a class="nav-anchor" id="Obtain-Data-1" href="#Obtain-Data-1">Obtain Data</a></h3><p>A tabular dataset will be used to obtain our features and labels. </p><p>This will be split it into a training and test set using holdout method.</p><pre><code class="language-julia">import RDatasets
+using CombineML.Util
+using CombineML.Transformers
+
+# Obtain features and labels
+dataset = RDatasets.dataset(&quot;datasets&quot;, &quot;iris&quot;)
+features = Array(dataset[:, 1:(end-1)])
+labels = Array(dataset[:, end])
+
+# Split into training and test sets
+(train_ind, test_ind) = holdout(size(features, 1), 0.3)</code></pre><h3><a class="nav-anchor" id="Create-a-Learner-1" href="#Create-a-Learner-1">Create a Learner</a></h3><p>A transformer processes features in some form. Coincidentally, a learner is a subtype of transformer.</p><p>A transformer can be created by instantiating it, taking an options dictionary as an optional argument. </p><p>All transformers, including learners are called in the same way.</p><pre><code class="language-julia"># Learner with default settings
+learner = PrunedTree()
+
+# Learner with some of the default settings overriden
+learner = PrunedTree(Dict(
+  :impl_options =&gt; Dict(
+    :purity_threshold =&gt; 0.5
+  )
+))
+
+# All learners are called in the same way.
+learner = StackEnsemble(Dict(
+  :learners =&gt; [
+    PrunedTree(), 
+    RandomForest(),
+    DecisionStumpAdaboost()
+  ], 
+  :stacker =&gt; RandomForest()
+))</code></pre><h3><a class="nav-anchor" id="Create-a-Pipeline-1" href="#Create-a-Pipeline-1">Create a Pipeline</a></h3><p>Normally we may require the use of data pre-processing before the features are passed to the learner.</p><p>We shall use a pipeline transformer to chain many transformers in sequence.</p><p>In this case we shall one hot encode categorical features, impute NA values and numerically standardize before we call the learner.</p><pre><code class="language-julia"># Create pipeline
+pipeline = Pipeline(Dict(
+  :transformers =&gt; [
+    OneHotEncoder(), # Encodes nominal features into numeric
+    Imputer(), # Imputes NA values
+    StandardScaler(), # Standardizes features 
+    PCA(),
+    learner # Predicts labels on features
+  ]
+))</code></pre><h3><a class="nav-anchor" id="Train-and-Predict-1" href="#Train-and-Predict-1">Train and Predict</a></h3><p>Training is done via the <code>fit!</code> function, predicton via <code>transform!</code>. </p><p>All transformers, provide these two functions. They are always called the same way.</p><pre><code class="language-julia"># Train
+fit!(pipeline, features[train_ind, :], labels[train_ind])
+
+# Predict
+predictions = transform!(pipeline, features[test_ind, :])</code></pre><h3><a class="nav-anchor" id="Assess-1" href="#Assess-1">Assess</a></h3><p>Finally we assess how well our learner performed.</p><pre><code class="language-julia"># Assess predictions
+result = score(:accuracy, labels[test_ind], predictions)</code></pre><h2><a class="nav-anchor" id="Available-Transformers-1" href="#Available-Transformers-1">Available Transformers</a></h2><p>Outlined are all the transformers currently available via CombineML.</p><h3><a class="nav-anchor" id="CombineML-2" href="#CombineML-2">CombineML</a></h3><h4><a class="nav-anchor" id="Baseline-(CombineML.jl-Learner)-1" href="#Baseline-(CombineML.jl-Learner)-1">Baseline (CombineML.jl Learner)</a></h4><p>Baseline learner that by default assigns the most frequent label.</p><pre><code class="language-julia">learner = Baseline(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Label assignment strategy.
+  # Function that takes a label vector and returns the required output.
+  :strategy =&gt; StatsBase.mode
+))</code></pre><h4><a class="nav-anchor" id="Identity-(CombineML.jl-Transformer)-1" href="#Identity-(CombineML.jl-Transformer)-1">Identity (CombineML.jl Transformer)</a></h4><p>Identity transformer passes the features as is.</p><pre><code class="language-julia">transformer = Identity()</code></pre><h4><a class="nav-anchor" id="VoteEnsemble-(CombineML.jl-Learner)-1" href="#VoteEnsemble-(CombineML.jl-Learner)-1">VoteEnsemble (CombineML.jl Learner)</a></h4><p>Set of machine learners that majority vote to decide prediction.</p><pre><code class="language-julia">learner = VoteEnsemble(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Learners in voting committee.
+  :learners =&gt; [PrunedTree(), DecisionStumpAdaboost(), RandomForest()]
+))</code></pre><h4><a class="nav-anchor" id="StackEnsemble-(CombineML.jl-Learner)-1" href="#StackEnsemble-(CombineML.jl-Learner)-1">StackEnsemble (CombineML.jl Learner)</a></h4><p>Ensemble where a &#39;stack&#39; learner learns on a set of learners&#39; predictions.</p><pre><code class="language-julia">learner = StackEnsemble(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Set of learners that produce feature space for stacker.
+  :learners =&gt; [PrunedTree(), DecisionStumpAdaboost(), RandomForest()],
+  # Machine learner that trains on set of learners&#39; outputs.
+  :stacker =&gt; RandomForest(),
+  # Proportion of training set left to train stacker itself.
+  :stacker_training_proportion =&gt; 0.3,
+  # Provide original features on top of learner outputs to stacker.
+  :keep_original_features =&gt; false
+))</code></pre><h4><a class="nav-anchor" id="BestLearner-(CombineML.jl-Learner)-1" href="#BestLearner-(CombineML.jl-Learner)-1">BestLearner (CombineML.jl Learner)</a></h4><p>Selects best learner out of set.  Will perform a grid search on learners if options grid is provided.</p><pre><code class="language-julia">learner = BestLearner(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Function to return partitions of instance indices.
+  :partition_generator =&gt; (features, labels) -&gt; kfold(size(features, 1), 5),
+  # Function that selects the best learner by index.
+  # Arg learner_partition_scores is a (learner, partition) score matrix.
+  :selection_function =&gt; (learner_partition_scores) -&gt; findmax(mean(learner_partition_scores, 2))[2],      
+  # Score type returned by score() using respective output.
+  :score_type =&gt; Real,
+  # Candidate learners.
+  :learners =&gt; [PrunedTree(), DecisionStumpAdaboost(), RandomForest()],
+  # Options grid for learners, to search through by BestLearner.
+  # Format is [learner_1_options, learner_2_options, ...]
+  # where learner_options is same as a learner&#39;s options but
+  # with a list of values instead of scalar.
+  :learner_options_grid =&gt; nothing
+))</code></pre><h4><a class="nav-anchor" id="OneHotEncoder-(CombineML.jl-Transformer)-1" href="#OneHotEncoder-(CombineML.jl-Transformer)-1">OneHotEncoder (CombineML.jl Transformer)</a></h4><p>Transforms nominal features into one-hot form  and coerces the instance matrix to be of element type Float64.</p><pre><code class="language-julia">transformer = OneHotEncoder(Dict(
+  # Nominal columns
+  :nominal_columns =&gt; nothing,
+  # Nominal column values map. Key is column index, value is list of
+  # possible values for that column.
+  :nominal_column_values_map =&gt; nothing
+))</code></pre><h4><a class="nav-anchor" id="Imputer-(CombineML.jl-Transformer)-1" href="#Imputer-(CombineML.jl-Transformer)-1">Imputer (CombineML.jl Transformer)</a></h4><p>Imputes NaN values from Float64 features.</p><pre><code class="language-julia">transformer = Imputer(Dict(
+  # Imputation strategy.
+  # Statistic that takes a vector such as mean or median.
+  :strategy =&gt; mean
+))</code></pre><h4><a class="nav-anchor" id="Pipeline-(CombineML.jl-Transformer)-1" href="#Pipeline-(CombineML.jl-Transformer)-1">Pipeline (CombineML.jl Transformer)</a></h4><p>Chains multiple transformers in sequence.</p><pre><code class="language-julia">transformer = Pipeline(Dict(
+  # Transformers as list to chain in sequence.
+  :transformers =&gt; [OneHotEncoder(), Imputer()],
+  # Transformer options as list applied to same index transformer.
+  :transformer_options =&gt; nothing
+))</code></pre><h4><a class="nav-anchor" id="Wrapper-(CombineML.jl-Transformer)-1" href="#Wrapper-(CombineML.jl-Transformer)-1">Wrapper (CombineML.jl Transformer)</a></h4><p>Wraps around an CombineML transformer.</p><pre><code class="language-julia">transformer = Wrapper(Dict(
+  # Transformer to call.
+  :transformer =&gt; OneHotEncoder(),
+  # Transformer options.
+  :transformer_options =&gt; nothing
+))</code></pre><h3><a class="nav-anchor" id="Julia-1" href="#Julia-1">Julia</a></h3><h4><a class="nav-anchor" id="PrunedTree-(DecisionTree.jl-Learner)-1" href="#PrunedTree-(DecisionTree.jl-Learner)-1">PrunedTree (DecisionTree.jl Learner)</a></h4><p>Pruned CART decision tree.</p><pre><code class="language-julia">learner = PrunedTree(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Options specific to this implementation.
+  :impl_options =&gt; Dict(
+    # Merge leaves having &gt;= purity_threshold combined purity.
+    :purity_threshold =&gt; 1.0,
+    # Maximum depth of the decision tree (default: no maximum).
+    :max_depth =&gt; -1,
+    # Minimum number of samples each leaf needs to have.
+    :min_samples_leaf =&gt; 1,
+    # Minimum number of samples in needed for a split.
+    :min_samples_split =&gt; 2,
+    # Minimum purity increase needed for a split.
+    :min_purity_increase =&gt; 0.0
+  ) 
+))</code></pre><h4><a class="nav-anchor" id="RandomForest-(DecisionTree.jl-Learner)-1" href="#RandomForest-(DecisionTree.jl-Learner)-1">RandomForest (DecisionTree.jl Learner)</a></h4><p>Random forest (CART).</p><pre><code class="language-julia">learner = RandomForest(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Options specific to this implementation.
+  :impl_options =&gt; Dict(
+    # Number of features to train on with trees (default: 0, keep all).
+    # Good values are square root or log2 of total number of features, rounded.
+    :num_subfeatures =&gt; 0,
+    # Number of trees in forest.
+    :num_trees =&gt; 10,
+    # Proportion of trainingset to be used for trees.
+    :partial_sampling =&gt; 0.7,
+    # Maximum depth of each decision tree (default: no maximum).
+    :max_depth =&gt; -1
+  )
+))</code></pre><h4><a class="nav-anchor" id="DecisionStumpAdaboost-(DecisionTree.jl-Learner)-1" href="#DecisionStumpAdaboost-(DecisionTree.jl-Learner)-1">DecisionStumpAdaboost (DecisionTree.jl Learner)</a></h4><p>Adaboosted decision stumps.</p><pre><code class="language-julia">learner = DecisionStumpAdaboost(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  # Options specific to this implementation.
+  :impl_options =&gt; Dict(
+    # Number of boosting iterations.
+    :num_iterations =&gt; 7
+  )
+))</code></pre><h4><a class="nav-anchor" id="PCA-(DimensionalityReduction.jl-Transformer)-1" href="#PCA-(DimensionalityReduction.jl-Transformer)-1">PCA (DimensionalityReduction.jl Transformer)</a></h4><p>Principal Component Analysis rotation on features. Features ordered by maximal variance descending.</p><p>Fails if zero-variance feature exists. Based on MultivariateStats PCA</p><pre><code class="language-julia">transformer = PCA(Dict(
+  :pratio =&gt; 1.0,
+  :maxoutdim =&gt; 5
+))</code></pre><h4><a class="nav-anchor" id="StandardScaler-(MLBase.jl-Transformer)-1" href="#StandardScaler-(MLBase.jl-Transformer)-1">StandardScaler (MLBase.jl Transformer)</a></h4><p>Standardizes each feature using (X - mean) / stddev. Will produce NaN if standard deviation is zero.</p><pre><code class="language-julia">transformer = StandardScaler(Dict(
+  # Center features
+  :center =&gt; true,
+  # Scale features
+  :scale =&gt; true
+))</code></pre><h3><a class="nav-anchor" id="Python-1" href="#Python-1">Python</a></h3><p>See the scikit-learn <a href="http://scikit-learn.org/stable/modules/classes.html">API</a> for what options are available per learner.</p><h4><a class="nav-anchor" id="SKLLearner-(scikit-learn-0.15-Learner)-1" href="#SKLLearner-(scikit-learn-0.15-Learner)-1">SKLLearner (scikit-learn 0.15 Learner)</a></h4><p>Wrapper for scikit-learn that provides access to most learners.</p><p>Options for the specific scikit-learn learner is to be passed in <code>options[:impl_options]</code> dictionary.</p><p>Available learners:</p><ul><li>&quot;AdaBoostClassifier&quot;</li><li>&quot;BaggingClassifier&quot;</li><li>&quot;ExtraTreesClassifier&quot;</li><li>&quot;GradientBoostingClassifier&quot;</li><li>&quot;RandomForestClassifier&quot;</li><li>&quot;LDA&quot;</li><li>&quot;LogisticRegression&quot;</li><li>&quot;PassiveAggressiveClassifier&quot;</li><li>&quot;RidgeClassifier&quot;</li><li>&quot;RidgeClassifierCV&quot;</li><li>&quot;SGDClassifier&quot;</li><li>&quot;KNeighborsClassifier&quot;</li><li>&quot;RadiusNeighborsClassifier&quot;</li><li>&quot;NearestCentroid&quot;</li><li>&quot;QDA&quot;</li><li>&quot;SVC&quot;</li><li>&quot;LinearSVC&quot;</li><li>&quot;NuSVC&quot;</li><li>&quot;DecisionTreeClassifier&quot;</li></ul><pre><code class="language-julia">learner = SKLLearner(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  :learner =&gt; &quot;LinearSVC&quot;,
+  # Options specific to this implementation.
+  :impl_options =&gt; Dict()
+))</code></pre><h3><a class="nav-anchor" id="R-1" href="#R-1">R</a></h3><p>Python library &#39;rpy2&#39; is required to interface with R.</p><p>R library &#39;caret&#39; offers more than 100 learners.  See <a href="http://caret.r-forge.r-project.org/modelList.html">here</a> for more details.</p><h4><a class="nav-anchor" id="CRTLearner-(caret-6.0-Learner)-1" href="#CRTLearner-(caret-6.0-Learner)-1">CRTLearner (caret 6.0 Learner)</a></h4><p>CARET wrapper that provides access to all learners.</p><p>Options for the specific CARET learner is to be passed in <code>options[:impl_options]</code> dictionary.</p><pre><code class="language-julia">learner = CRTLearner(Dict(
+  # Output to train against
+  # (:class).
+  :output =&gt; :class,
+  :learner =&gt; &quot;svmLinear&quot;,
+  :impl_options =&gt; Dict()
+))</code></pre><h2><a class="nav-anchor" id="Known-Limitations-1" href="#Known-Limitations-1">Known Limitations</a></h2><p>Learners have only been tested on numeric features. </p><p>Inconsistencies may result in using nominal features directly without a numeric transformation (i.e. OneHotEncoder).</p><h2><a class="nav-anchor" id="Misc-1" href="#Misc-1">Misc</a></h2><p>The links provided below will only work if you are viewing this in the GitHub repository.</p><h3><a class="nav-anchor" id="Changes-1" href="#Changes-1">Changes</a></h3><p>See <a href="CHANGELOG.yml">CHANGELOG.yml</a>.</p><h3><a class="nav-anchor" id="License-1" href="#License-1">License</a></h3><p>MIT &quot;Expat&quot; License. See <a href="LICENSE.md">LICENSE.md</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LoopThrottle"
+owner = "tkoolen"
+version = "0.0.3"
+description = "Slow down Julia for loops and while loops to a desired maximum rate using a macro"
+stargazers_count = "1"
+url = "https://github.com/tkoolen/LoopThrottle.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "22"

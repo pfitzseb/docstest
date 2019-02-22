@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NearestNeighborDescent"
+owner = "dillondaudert"
+version = "0.2.0"
+description = "Efficient approximate k-nearest neighbors graph construction and search in Julia"
+stargazers_count = "9"
+url = "https://github.com/dillondaudert/NearestNeighborDescent.jl.git"
+installs = true
+tags = ["nearest-neighbors", "distance", "knn-graphs", "knn-algorithm", "approximate-nearest-neighbor-search", "julialang"]
+license = "MIT License"
+
+[[contributors]]
+name = "dillondaudert"
+contributions = "282"

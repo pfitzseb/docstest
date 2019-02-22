@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SemidefiniteModels"
+owner = "JuliaOpt"
+version = "0.1.1"
+description = "A MathProgBase extension for Semidefinite Modelling"
+stargazers_count = "4"
+url = "https://github.com/JuliaOpt/SemidefiniteModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "23"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

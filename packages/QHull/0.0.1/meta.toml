@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "QHull"
+owner = "JuliaPolyhedra"
+version = "0.0.1"
+description = "A Julia wrapper around a PyCall wrapper around the qhull Convex Hull library"
+stargazers_count = "12"
+url = "https://github.com/JuliaPolyhedra/QHull.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "32"
+[[contributors]]
+name = "davidavdav"
+contributions = "12"
+[[contributors]]
+name = "mkborregaard"
+contributions = "5"
+[[contributors]]
+name = "crbinz"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "pnvolkmar"
+contributions = "1"

@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "NLsolve"
+owner = "JuliaNLSolvers"
+version = "3.0.1"
+description = "Julia solvers for systems of nonlinear equations and mixed complementarity problems"
+stargazers_count = "86"
+url = "https://github.com/JuliaNLSolvers/NLsolve.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "43"
+[[contributors]]
+name = "pkofod"
+contributions = "40"
+[[contributors]]
+name = "svillemot"
+contributions = "40"
+[[contributors]]
+name = "sglyon"
+contributions = "35"
+[[contributors]]
+name = "matthieugomez"
+contributions = "8"
+[[contributors]]
+name = "timholy"
+contributions = "6"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "6"
+[[contributors]]
+name = "arnavs"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"
+[[contributors]]
+name = "anriseth"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "chkwon"
+contributions = "1"
+[[contributors]]
+name = "dawbarton"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "BeastyBlacksmith"
+contributions = "1"
+[[contributors]]
+name = "Sleort"
+contributions = "1"
+[[contributors]]
+name = "miguelraz"
+contributions = "1"

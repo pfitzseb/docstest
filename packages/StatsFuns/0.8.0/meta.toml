@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "StatsFuns"
+owner = "JuliaStats"
+version = "0.8.0"
+description = "Mathematical functions related to statistics."
+stargazers_count = "42"
+url = "https://github.com/JuliaStats/StatsFuns.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lindahua"
+contributions = "38"
+[[contributors]]
+name = "BioTurboNick"
+contributions = "13"
+[[contributors]]
+name = "andreasnoack"
+contributions = "11"
+[[contributors]]
+name = "simonbyrne"
+contributions = "8"
+[[contributors]]
+name = "dmbates"
+contributions = "7"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "jmxpearson"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "Halmoni100"
+contributions = "3"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "2"
+[[contributors]]
+name = "xukai92"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hycakir"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "roshanshariff"
+contributions = "1"
+[[contributors]]
+name = "oshikiri"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

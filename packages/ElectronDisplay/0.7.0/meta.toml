@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ElectronDisplay"
+owner = "queryverse"
+version = "0.7.0"
+description = "An Electron.jl based figure and table display."
+stargazers_count = "12"
+url = "https://github.com/queryverse/ElectronDisplay.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "46"
+[[contributors]]
+name = "tkf"
+contributions = "19"
+[[contributors]]
+name = "sglyon"
+contributions = "2"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "CSDP"
+owner = "JuliaOpt"
+version = "0.4.1"
+description = "Julia Wrapper for CSDP (https://projects.coin-or.org/Csdp/)"
+stargazers_count = "9"
+url = "https://github.com/JuliaOpt/CSDP.jl.git"
+installs = true
+tags = ["julia-wrapper", "optimization", "sdp", "solver"]
+license = "Other"
+
+[[contributors]]
+name = "EQt"
+contributions = "241"
+[[contributors]]
+name = "blegat"
+contributions = "123"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

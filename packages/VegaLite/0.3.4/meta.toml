@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "VegaLite"
+owner = "fredo-dedup"
+version = "0.3.4"
+description = "Julia bindings to Vega-Lite"
+stargazers_count = "68"
+url = "https://github.com/fredo-dedup/VegaLite.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "278"
+[[contributors]]
+name = "fredo-dedup"
+contributions = "134"
+[[contributors]]
+name = "leethargo"
+contributions = "4"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "EricForgy"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "PetrKryslUCSD"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

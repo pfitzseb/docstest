@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StringEncodings.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StringEncodings.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Encoding-and-Decoding-Strings-1">Encoding and Decoding Strings</a></li><li><a class="toctext" href="#The-Encoding-type-1">The <code>Encoding</code> type</a></li><li><a class="toctext" href="#Reading-from-and-Writing-to-Encoded-Text-Files-1">Reading from and Writing to Encoded Text Files</a></li><li><a class="toctext" href="#Advanced-Usage:-StringEncoder-and-StringDecoder-1">Advanced Usage: <code>StringEncoder</code> and <code>StringDecoder</code></a></li><li><a class="toctext" href="#Notes-on-Installation-on-Linux-OS-1">Notes on Installation on Linux OS</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StringEncodings-1" href="#StringEncodings-1">StringEncodings</a></h1><p><a href="https://travis-ci.org/JuliaStrings/StringEncodings.jl"><img src="https://travis-ci.org/JuliaStrings/StringEncodings.jl.svg?branch=master" alt="Travis CI Build Status"/></a> <a href="https://ci.appveyor.com/project/nalimilan/stringencodings-jl"><img src="https://ci.appveyor.com/api/projects/status/3gslhfg91isldnvq?svg=true" alt="AppVeyor Build Status"/></a> <a href="https://coveralls.io/github/JuliaStrings/StringEncodings.jl?branch=master"><img src="https://coveralls.io/repos/JuliaStrings/StringEncodings.jl/badge.svg?branch=master&amp;service=github" alt="Coveralls Coverage Status"/></a> <a href="http://codecov.io/github/JuliaStrings/StringEncodings.jl?branch=master"><img src="http://codecov.io/github/JuliaStrings/StringEncodings.jl/coverage.svg?branch=master" alt="Codecov Coverage Status"/></a></p><p><a href="http://pkg.julialang.org/?pkg=StringEncodings&amp;ver=0.6"><img src="http://pkg.julialang.org/badges/StringEncodings_0.6.svg" alt="Julia 0.6 Status"/></a> <a href="http://pkg.julialang.org/?pkg=StringEncodings&amp;ver=0.7"><img src="http://pkg.julialang.org/badges/StringEncodings_0.7.svg" alt="Julia 0.7 Status"/></a></p><p>This Julia package provides support for decoding and encoding texts between multiple character encodings. It is currently based on the iconv interface, and supports all major platforms using either the native iconv support or <a href="https://www.gnu.org/software/libiconv/">GNU libiconv</a>. In the future, native Julia support for major encodings will be added.</p><h2><a class="nav-anchor" id="Encoding-and-Decoding-Strings-1" href="#Encoding-and-Decoding-Strings-1">Encoding and Decoding Strings</a></h2><p><em>Encoding</em> a refers to the process of converting a string (of any <code>AbstractString</code> type) to a sequence of bytes represented as a <code>Vector{UInt8}</code>. <em>Decoding</em> refers to the inverse process.</p><pre><code class="language-julia">julia&gt; using StringEncodings
+
+julia&gt; encode(&quot;café&quot;, &quot;UTF-16&quot;)
+10-element Array{UInt8,1}:
+ 0xff
+ 0xfe
+ 0x63
+ 0x00
+ 0x61
+ 0x00
+ 0x66
+ 0x00
+ 0xe9
+ 0x00
+
+julia&gt; decode(ans, &quot;UTF-16&quot;)
+&quot;café&quot;</code></pre><p>Use the <code>encodings</code> function to get the list of all supported encodings on the current platform:</p><pre><code class="language-julia">julia&gt; encodings()
+411-element Array{String,1}:
+ &quot;850&quot;
+ &quot;862&quot;
+ &quot;866&quot;
+ &quot;ANSI_X3.4-1968&quot;
+ &quot;ANSI_X3.4-1986&quot;
+ &quot;ARABIC&quot;
+ &quot;ARMSCII-8&quot;
+ &quot;ASCII&quot;
+ &quot;ASMO-708&quot;
+ ⋮
+ &quot;WINDOWS-1257&quot;
+ &quot;windows-1258&quot;
+ &quot;WINDOWS-1258&quot;
+ &quot;windows-874&quot;
+ &quot;WINDOWS-874&quot;
+ &quot;WINDOWS-936&quot;
+ &quot;X0201&quot;
+ &quot;X0208&quot;
+ &quot;X0212&quot;</code></pre><p>(Note that many of these are aliases for standard names.)</p><h2><a class="nav-anchor" id="The-Encoding-type-1" href="#The-Encoding-type-1">The <code>Encoding</code> type</a></h2><p>In the examples above, the encoding was specified as a standard string. Though, in order to avoid ambiguities in multiple dispatch and to increase performance via type specialization, the package offers a special <code>Encoding</code> parametric type. Each parameterization of this type represents a character encoding. The <a href="http://docs.julialang.org/en/stable/manual/strings/#man-non-standard-string-literals">non-standard string literal</a> <code>enc</code> can be used to create an instance of this type, like so: <code>enc&quot;UTF-16&quot;</code>.</p><p>Since there is no ambiguity, the <code>encode</code> and <code>decode</code> functions accept either a string or an <code>Encoding</code> object. On the other hand, other functions presented below only support the latter to avoid creating conflicts with other packages extending Julia Base methods.</p><p>In future versions, the <code>Encoding</code> type will allow getting information about character encodings, and will be used to improve the performance of conversions.</p><h2><a class="nav-anchor" id="Reading-from-and-Writing-to-Encoded-Text-Files-1" href="#Reading-from-and-Writing-to-Encoded-Text-Files-1">Reading from and Writing to Encoded Text Files</a></h2><p>The package also provides several simple methods to deal with files containing encoded text. They extend the equivalent functions from Julia Base, which only support text stored in the UTF-8 encoding.</p><p>A method for <code>open</code> is provided to write a string under an encoded form to a file:</p><pre><code class="language-julia">julia&gt; path = tempname();
+
+julia&gt; f = open(path, enc&quot;UTF-16&quot;, &quot;w&quot;);
+
+julia&gt; write(f, &quot;café\nnoël&quot;);
+
+julia&gt; close(f); # Essential to complete encoding</code></pre><p>The contents of the file can then be read back using <code>read(path, String)</code>:</p><pre><code class="language-julia">julia&gt; read(path, String) # Standard function expects UTF-8
+&quot;\xfe\xff\0c\0a\0f\0\xe9\0\n\0n\0o\0\xeb\0l&quot;
+
+julia&gt; read(path, String, enc&quot;UTF-16&quot;) # Works when passing the correct encoding
+&quot;café\nnoël&quot;</code></pre><p>Other variants of standard convenience functions are provided:</p><pre><code class="language-julia">julia&gt; readline(path, enc&quot;UTF-16&quot;)
+&quot;café&quot;
+
+julia&gt; readlines(path, enc&quot;UTF-16&quot;)
+2-element Array{String,1}:
+ &quot;café&quot;
+ &quot;noël&quot;  
+
+julia&gt; for l in eachline(path, enc&quot;UTF-16&quot;)
+           println(l)
+       end
+café
+noël
+
+julia&gt; readuntil(path, enc&quot;UTF-16&quot;, &quot;ë&quot;)
+&quot;café\nno&quot;</code></pre><p>When performing more complex operations on an encoded text file, it will often be easier to specify the encoding only once when opening it. The resulting I/O stream can then be passed to functions that are unaware of encodings (i.e. that assume UTF-8 text):</p><pre><code class="language-julia">julia&gt; io = open(path, enc&quot;UTF-16&quot;);
+
+julia&gt; read(io, String)
+&quot;café\nnoël&quot;</code></pre><p>In particular, this method allows reading encoded comma-separated values (CSV) and other character-delimited text files:</p><pre><code class="language-julia">julia&gt; using DelimitedFiles
+
+julia&gt; open(readcsv, path, enc&quot;UTF-16&quot;)
+2x1 Array{Any,2}:
+ &quot;café&quot;
+ &quot;noël&quot;</code></pre><h2><a class="nav-anchor" id="Advanced-Usage:-StringEncoder-and-StringDecoder-1" href="#Advanced-Usage:-StringEncoder-and-StringDecoder-1">Advanced Usage: <code>StringEncoder</code> and <code>StringDecoder</code></a></h2><p>The convenience functions presented above are based on the <code>StringEncoder</code> and <code>StringDecoder</code> types, which wrap I/O streams and offer on-the-fly character encoding conversion facilities. They can be used directly if you need to work with encoded text on an already existing I/O stream. This can be illustrated using an <code>IOBuffer</code>:</p><pre><code class="language-julia">julia&gt; b = IOBuffer();
+
+julia&gt; s = StringEncoder(b, &quot;UTF-16&quot;);
+
+julia&gt; write(s, &quot;café&quot;); # Encoding happens automatically here
+
+julia&gt; close(s); # Essential to complete encoding
+
+julia&gt; seek(b, 0); # Move to start of buffer
+
+julia&gt; s = StringDecoder(b, &quot;UTF-16&quot;);
+
+julia&gt; read(s, String) # Decoding happens automatically here
+&quot;café&quot;</code></pre><p>Do not forget to call <code>close</code> on <code>StringEncoder</code> and <code>StringDecoder</code> objects to finish the encoding process. For <code>StringEncoder</code>, this function calls <code>flush</code>, which writes any characters still in the buffer, and possibly some control sequences (for stateful encodings). For both <code>StringEncoder</code> and <code>StringDecoder</code>, <code>close</code> checks that there are no incomplete sequences left in the input stream, and raise an <code>IncompleteSequenceError</code> if that&#39;s the case. It will also free iconv resources immediately, instead of waiting for garbage collection.</p><p>Conversion currently raises an error if an invalid byte sequence is encountered in the input, or if some characters cannot be represented in the target enconding. It is not yet possible to ignore such characters or to replace them with a placeholder.</p><h2><a class="nav-anchor" id="Notes-on-Installation-on-Linux-OS-1" href="#Notes-on-Installation-on-Linux-OS-1">Notes on Installation on Linux OS</a></h2><p>Most Linux distributions provide <code>iconv</code> functionalities as part of the base operating system library <code>glibc</code>. In normal circumstances, no additional installation of <code>libiconv</code> should be required. If you observe such a behavior on your operating system, file an issue with OS details.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

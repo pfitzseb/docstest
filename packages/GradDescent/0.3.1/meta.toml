@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GradDescent"
+owner = "jacobcvt12"
+version = "0.3.1"
+description = "Gradient Descent optimizers for Julia"
+stargazers_count = "5"
+url = "https://github.com/jacobcvt12/GradDescent.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "theogf"
+contributions = "14"
+[[contributors]]
+name = "jacobcvt12"
+contributions = "14"
+[[contributors]]
+name = "dfdx"
+contributions = "1"

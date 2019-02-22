@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "AssetRegistry"
+owner = "JuliaGizmos"
+version = "0.1.0"
+description = ""
+stargazers_count = "4"
+url = "https://github.com/JuliaGizmos/AssetRegistry.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ranjanan"
+contributions = "16"
+[[contributors]]
+name = "piever"
+contributions = "2"
+[[contributors]]
+name = "pfitzseb"
+contributions = "2"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "shashi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

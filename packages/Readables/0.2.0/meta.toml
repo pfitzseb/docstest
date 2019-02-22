@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Readables"
+owner = "JeffreySarnoff"
+version = "0.2.0"
+description = "makes extended precision numbers readable"
+stargazers_count = "0"
+url = "https://github.com/JeffreySarnoff/Readables.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "73"

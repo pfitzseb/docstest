@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Quantum Circuit Born Machine · Yao.jl</title><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89508993-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="canonical" href="https://quantumbfs.github.io/Yao.jl/latest/tutorial/QCBM/index.html"/><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../../index.html"><img class="logo" src="../../assets/logo.png" alt="Yao.jl logo"/></a><h1>Yao.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Tutorial</span><ul><li><a class="toctext" href="../RegisterBasics/">Register Basics</a></li><li><a class="toctext" href="../BlockBasics/">Block Basics</a></li><li><a class="toctext" href="../Diff/">Automatic Differentiation</a></li><li><a class="toctext" href="../BinaryBasics/">Binary Basics</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../GHZ/">Prepare Greenberger–Horne–Zeilinger state with Quantum Circuit</a></li><li><a class="toctext" href="../QFT/">Quantum Fourier Transformation and Phase Estimation</a></li><li><a class="toctext" href="../Grover/">Grover Search and Quantum Inference</a></li><li class="current"><a class="toctext" href>Quantum Circuit Born Machine</a><ul class="internal"><li><a class="toctext" href="#Training-target-1">Training target</a></li><li><a class="toctext" href="#Build-Circuits-1">Build Circuits</a></li><li><a class="toctext" href="#MMD-Loss-and-Gradients-1">MMD Loss &amp; Gradients</a></li><li><a class="toctext" href="#Optimizer-1">Optimizer</a></li><li><a class="toctext" href="#Start-Training-1">Start Training</a></li></ul></li></ul></li><li><span class="toctext">Manual</span><ul><li><a class="toctext" href="../../man/yao/">Yao</a></li><li><a class="toctext" href="../../man/interfaces/">Interfaces</a></li><li><a class="toctext" href="../../man/registers/">Registers</a></li><li><a class="toctext" href="../../man/blocks/">Blocks System</a></li><li><a class="toctext" href="../../man/intrinsics/">Intrinsics</a></li><li><a class="toctext" href="../../man/boost/">Boost</a></li></ul></li><li><span class="toctext">Developer Documentation</span><ul><li><a class="toctext" href="../../dev/extending-blocks/">Extending Blocks</a></li><li><a class="toctext" href="../../dev/benchmark/">Benchmark with ProjectQ</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li><a href>Quantum Circuit Born Machine</a></li></ul><a class="edit-page" href="https://github.com/TRAVIS_REPO_SLUG/blob/master/"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Quantum Circuit Born Machine</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Quantum-Circuit-Born-Machine-1" href="#Quantum-Circuit-Born-Machine-1">Quantum Circuit Born Machine</a></h1><p>Reference: <a href="https://arxiv.org/abs/1804.04168">Jin-Guo Liu, Lei Wang (2018)</a> Differentiable Learning of Quantum Circuit Born Machine</p><div><pre><code class="language-julia">using Yao, Yao.Blocks
+using LinearAlgebra</code></pre></div><h2><a class="nav-anchor" id="Training-target-1" href="#Training-target-1">Training target</a></h2><p>A gaussian distribution</p><div>\[f(x \left| \mu, \sigma^2\right) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</div><div><pre><code class="language-julia">function gaussian_pdf(x, μ::Real, σ::Real)
+    pl = @. 1 / sqrt(2pi * σ^2) * exp(-(x - μ)^2 / (2 * σ^2))
+    pl / sum(pl)
+end
+pg = gaussian_pdf(1:1&lt;&lt;6, 1&lt;&lt;5-0.5, 1&lt;&lt;4);</code></pre><pre><code class="language-none">64-element Array{Float64,1}:
+ 0.004247398374539952
+ 0.004775478356709538
+ 0.00534828205609621
+ 0.00596643978342116
+ 0.00663009510228327
+ 0.0073388462845503655
+ 0.008091692340120575
+ 0.008886985457097086
+ 0.009722391704426287
+ 0.010594861806188646
+ ⋮
+ 0.008091692340120575
+ 0.0073388462845503655
+ 0.00663009510228327
+ 0.00596643978342116
+ 0.00534828205609621
+ 0.004775478356709538
+ 0.004247398374539952
+ 0.003762986403249595
+ 0.0033208238453357147</code></pre></div><p>This distribution looks like <img src="../../assets/figures/QCBM_1.svg" alt="Gaussian Distribution"/></p><h2><a class="nav-anchor" id="Build-Circuits-1" href="#Build-Circuits-1">Build Circuits</a></h2><h3><a class="nav-anchor" id="Building-Blocks-1" href="#Building-Blocks-1">Building Blocks</a></h3><p>Gates are grouped to become a layer in a circuit, this layer can be <strong>Arbitrary Rotation</strong> or <strong>CNOT entangler</strong>. Which are used as our basic building blocks of <strong>Born Machines</strong>.</p><p><img src="../../assets/figures/differentiable.png" alt="differentiable ciruit"/></p><h4><a class="nav-anchor" id="Arbitrary-Rotation-1" href="#Arbitrary-Rotation-1">Arbitrary Rotation</a></h4><p>Arbitrary Rotation is built with <strong>Rotation Gate on Z</strong>, <strong>Rotation Gate on X</strong> and <strong>Rotation Gate on Z</strong>:</p><div>\[Rz(\theta) \cdot Rx(\theta) \cdot Rz(\theta)\]</div><p>Since our input will be a <span>$|0\dots 0\rangle$</span> state. The first layer of arbitrary rotation can just use <span>$Rx(\theta) \cdot Rz(\theta)$</span> and the last layer of arbitrary rotation could just use <span>$Rz(\theta)\cdot Rx(\theta)$</span></p><p>In <strong>幺</strong>, every Hilbert operator is a <strong>block</strong> type, this includes all <strong>quantum gates</strong> and <strong>quantum oracles</strong>. In general, operators appears in a quantum circuit can be divided into <strong>Composite Blocks</strong> and <strong>Primitive Blocks</strong>.</p><p>We follow the low abstraction principle and thus each block represents a certain approach of calculation. The simplest <strong>Composite Block</strong> is a <strong>Chain Block</strong>, which chains other blocks (oracles) with the same number of qubits together. It is just a simple mathematical composition of operators with same size. e.g.</p><div>\[\text{chain(X, Y, Z)} \iff X \cdot Y \cdot Z\]</div><p>We can construct an arbitrary rotation block by chain <span>$Rz$</span>, <span>$Rx$</span>, <span>$Rz$</span> together.</p><div><pre><code class="language-julia">chain(Rz(0), Rx(0), Rz(0))</code></pre><pre><code class="language-none">Total: 1, DataType: Complex{Float64}
+chain
+├─ Rot Z gate: 0.0
+├─ Rot X gate: 0.0
+└─ Rot Z gate: 0.0</code></pre></div><p><code>Rx</code>, <code>Ry</code> and <code>Rz</code> will construct new rotation gate, which are just shorthands for <code>rot(X, 0.0)</code>, etc.</p><p>Then, let&#39;s chain them up</p><div><pre><code class="language-julia">layer(nbit::Int, x::Symbol) = layer(nbit, Val(x))
+layer(nbit::Int, ::Val{:first}) = chain(nbit, put(i=&gt;chain(Rx(0), Rz(0))) for i = 1:nbit);</code></pre><pre><code class="language-none">layer (generic function with 2 methods)</code></pre></div><p>Here, we do not need to feed the first <code>nbit</code> parameter into <code>put</code>. All factory methods can be <strong>lazy</strong> evaluate <strong>the first arguements</strong>, which is the number of qubits. It will return a lambda function that requires a single interger input. The instance of desired block will only be constructed until all the information is filled. When you filled all the information in somewhere of the declaration, 幺 will be able to infer the others. We will now define the rest of rotation layers</p><div><pre><code class="language-julia">layer(nbit::Int, ::Val{:last}) = chain(nbit, put(i=&gt;chain(Rz(0), Rx(0))) for i = 1:nbit)
+layer(nbit::Int, ::Val{:mid}) = chain(nbit, put(i=&gt;chain(Rz(0), Rx(0), Rz(0))) for i = 1:nbit);</code></pre><pre><code class="language-none">layer (generic function with 4 methods)</code></pre></div><h4><a class="nav-anchor" id="CNOT-Entangler-1" href="#CNOT-Entangler-1">CNOT Entangler</a></h4><p>Another component of quantum circuit born machine is several <strong>CNOT</strong> operators applied on different qubits.</p><div><pre><code class="language-julia">entangler(pairs) = chain(control([ctrl, ], target=&gt;X) for (ctrl, target) in pairs);</code></pre><pre><code class="language-none">entangler (generic function with 1 method)</code></pre></div><p>We can then define such a born machine</p><div><pre><code class="language-julia">function build_circuit(n::Int, nlayer::Int, pairs)
+    circuit = chain(n)
+    push!(circuit, layer(n, :first))
+
+    for i = 1:(nlayer - 1)
+        push!(circuit, cache(entangler(pairs)))
+        push!(circuit, layer(n, :mid))
+    end
+
+    push!(circuit, cache(entangler(pairs)))
+    push!(circuit, layer(n, :last))
+
+    circuit
+end;</code></pre><pre><code class="language-none">build_circuit (generic function with 1 method)</code></pre></div><p>We use the method <code>cache</code> here to tag the entangler block that it should be cached after its first run, because it is actually a constant oracle. Let&#39;s see what will be constructed</p><pre><code class="language-julia-repl">julia&gt; build_circuit(4, 1, [1=&gt;2, 2=&gt;3, 3=&gt;4]) |&gt; autodiff(:QC)
+Total: 4, DataType: Complex{Float64}
+chain
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 0.0
+│  │     └─ [̂∂] Rot Z gate: 0.0
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 0.0
+│  │     └─ [̂∂] Rot Z gate: 0.0
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 0.0
+│  │     └─ [̂∂] Rot Z gate: 0.0
+│  └─ put on (4)
+│     └─ chain
+│        ├─ [̂∂] Rot X gate: 0.0
+│        └─ [̂∂] Rot Z gate: 0.0
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  └─ control(3)
+│     └─ (4,)=&gt;X gate
+└─ chain
+   ├─ put on (1)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.0
+   │     └─ [̂∂] Rot X gate: 0.0
+   ├─ put on (2)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.0
+   │     └─ [̂∂] Rot X gate: 0.0
+   ├─ put on (3)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.0
+   │     └─ [̂∂] Rot X gate: 0.0
+   └─ put on (4)
+      └─ chain
+         ├─ [̂∂] Rot Z gate: 0.0
+         └─ [̂∂] Rot X gate: 0.0</code></pre><p><a href="../../man/blocks/#Yao.Blocks.RotationGate"><code>RotationGate</code></a>s inside this circuit are automatically marked by [̂∂], which means parameters inside are diferentiable. <code>autodiff</code> has two modes, one is <code>autodiff(:QC)</code>, which means quantum differentiation with simulation complexity <span>$O(M^2)$</span> (<span>$M$</span> is the number of parameters), the other is classical backpropagation <code>autodiff(:BP)</code> with simulation coplexity <span>$O(M)$</span>.</p><p>Let&#39;s define a circuit to use later</p><div><pre><code class="language-julia">circuit = build_circuit(6, 10, [1=&gt;2, 3=&gt;4, 5=&gt;6, 2=&gt;3, 4=&gt;5, 6=&gt;1]) |&gt; autodiff(:QC)
+dispatch!(circuit, :random);</code></pre><pre><code class="language-none">Total: 6, DataType: Complex{Float64}
+chain
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.379059276134648
+│  │     └─ [̂∂] Rot Z gate: 5.757053623143943
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.528753417624498
+│  │     └─ [̂∂] Rot Z gate: 2.258435034923792
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 1.8974953796945428
+│  │     └─ [̂∂] Rot Z gate: 3.315783188949739
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 4.041832544293619
+│  │     └─ [̂∂] Rot Z gate: 1.2526413139921773
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.441695241889433
+│  │     └─ [̂∂] Rot Z gate: 2.929209460626737
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot X gate: 0.6467238195022509
+│        └─ [̂∂] Rot Z gate: 1.9503961098279807
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.7639714267593491
+│  │     ├─ [̂∂] Rot X gate: 2.379641039728012
+│  │     └─ [̂∂] Rot Z gate: 1.6587633241562725
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.587704679209707
+│  │     ├─ [̂∂] Rot X gate: 4.211368727722853
+│  │     └─ [̂∂] Rot Z gate: 3.34694481298986
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.17189408638197
+│  │     ├─ [̂∂] Rot X gate: 4.0755016283590315
+│  │     └─ [̂∂] Rot Z gate: 2.68058959254184
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.688181974797117
+│  │     ├─ [̂∂] Rot X gate: 6.081529228864955
+│  │     └─ [̂∂] Rot Z gate: 4.375880292338089
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.3497005871410028
+│  │     ├─ [̂∂] Rot X gate: 0.6537606060956541
+│  │     └─ [̂∂] Rot Z gate: 1.6795096470286177
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.901334971399858
+│        ├─ [̂∂] Rot X gate: 2.391762889323087
+│        └─ [̂∂] Rot Z gate: 1.6156107296379538
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.1017054277448395
+│  │     ├─ [̂∂] Rot X gate: 5.017006127143341
+│  │     └─ [̂∂] Rot Z gate: 3.3908851051946325
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.514135807319627
+│  │     ├─ [̂∂] Rot X gate: 4.927595829267363
+│  │     └─ [̂∂] Rot Z gate: 6.27666549866113
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.812157936312202
+│  │     ├─ [̂∂] Rot X gate: 3.344185368781871
+│  │     └─ [̂∂] Rot Z gate: 5.321474445433447
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.336208869468626
+│  │     ├─ [̂∂] Rot X gate: 5.637366843127811
+│  │     └─ [̂∂] Rot Z gate: 4.59880160508917
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.407179381521976
+│  │     ├─ [̂∂] Rot X gate: 5.681632857427495
+│  │     └─ [̂∂] Rot Z gate: 5.232472067865934
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 2.276807353529354
+│        ├─ [̂∂] Rot X gate: 3.0277645865466454
+│        └─ [̂∂] Rot Z gate: 0.6486752221984613
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.797251240057782
+│  │     ├─ [̂∂] Rot X gate: 0.6701717647073838
+│  │     └─ [̂∂] Rot Z gate: 2.9602534724897316
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.699463622936146
+│  │     ├─ [̂∂] Rot X gate: 3.979128978652039
+│  │     └─ [̂∂] Rot Z gate: 4.556242636651363
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.276413621968313
+│  │     ├─ [̂∂] Rot X gate: 2.624920210902086
+│  │     └─ [̂∂] Rot Z gate: 1.8909876950964888
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.5298367760540458
+│  │     ├─ [̂∂] Rot X gate: 3.6154484141496024
+│  │     └─ [̂∂] Rot Z gate: 0.6699146532393222
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.608944376708569
+│  │     ├─ [̂∂] Rot X gate: 2.1347077836057387
+│  │     └─ [̂∂] Rot Z gate: 0.8340192518346154
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 4.126946176255801
+│        ├─ [̂∂] Rot X gate: 1.108573761955702
+│        └─ [̂∂] Rot Z gate: 2.651599859994409
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.207068879670495
+│  │     ├─ [̂∂] Rot X gate: 2.895729583961037
+│  │     └─ [̂∂] Rot Z gate: 5.210866627026929
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.1414899962877705
+│  │     ├─ [̂∂] Rot X gate: 0.6459644393047815
+│  │     └─ [̂∂] Rot Z gate: 0.28707847766852085
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.314631573522212
+│  │     ├─ [̂∂] Rot X gate: 1.9190950957625275
+│  │     └─ [̂∂] Rot Z gate: 1.7877856747065575
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4234993747598743
+│  │     ├─ [̂∂] Rot X gate: 3.5006341406984602
+│  │     └─ [̂∂] Rot Z gate: 4.114698370673381
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.3163590079586872
+│  │     ├─ [̂∂] Rot X gate: 0.12876301138597385
+│  │     └─ [̂∂] Rot Z gate: 3.308234242862752
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 5.112598463645478
+│        ├─ [̂∂] Rot X gate: 2.6486708887679944
+│        └─ [̂∂] Rot Z gate: 0.19889707898168954
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4738645978318439
+│  │     ├─ [̂∂] Rot X gate: 3.084921059791097
+│  │     └─ [̂∂] Rot Z gate: 1.1696793065091813
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.8440082048409254
+│  │     ├─ [̂∂] Rot X gate: 5.423766942896688
+│  │     └─ [̂∂] Rot Z gate: 5.701773350312522
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.506757163508433
+│  │     ├─ [̂∂] Rot X gate: 1.6185264422541252
+│  │     └─ [̂∂] Rot Z gate: 5.948020394637336
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.22566553309405
+│  │     ├─ [̂∂] Rot X gate: 5.43597759659563
+│  │     └─ [̂∂] Rot Z gate: 4.687301078365472
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.701122766856339
+│  │     ├─ [̂∂] Rot X gate: 0.3118403752465244
+│  │     └─ [̂∂] Rot Z gate: 1.9928963443936172
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 2.8051071475895686
+│        ├─ [̂∂] Rot X gate: 1.7078273140170157
+│        └─ [̂∂] Rot Z gate: 0.19492437695941464
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.116660887200889
+│  │     ├─ [̂∂] Rot X gate: 0.4032339191904653
+│  │     └─ [̂∂] Rot Z gate: 0.21178785419022378
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.6641178745280316
+│  │     ├─ [̂∂] Rot X gate: 2.1769038937898246
+│  │     └─ [̂∂] Rot Z gate: 4.978835766483823
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.053372789116258
+│  │     ├─ [̂∂] Rot X gate: 2.670466886985597
+│  │     └─ [̂∂] Rot Z gate: 1.8996232055216808
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4703929142128846
+│  │     ├─ [̂∂] Rot X gate: 0.39540204373002363
+│  │     └─ [̂∂] Rot Z gate: 5.310695862184065
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.161323747920202
+│  │     ├─ [̂∂] Rot X gate: 3.382297482506275
+│  │     └─ [̂∂] Rot Z gate: 2.6033398818569684
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 3.011583622631482
+│        ├─ [̂∂] Rot X gate: 1.0103894007826786
+│        └─ [̂∂] Rot Z gate: 3.042097778340875
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.6688259242679924
+│  │     ├─ [̂∂] Rot X gate: 1.1985719788823395
+│  │     └─ [̂∂] Rot Z gate: 5.162678990899936
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.119969617968912
+│  │     ├─ [̂∂] Rot X gate: 4.690766513774124
+│  │     └─ [̂∂] Rot Z gate: 4.101915110360184
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.1042182927758326
+│  │     ├─ [̂∂] Rot X gate: 5.939516219296476
+│  │     └─ [̂∂] Rot Z gate: 4.949820669542521
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.816707741642359
+│  │     ├─ [̂∂] Rot X gate: 5.243807893254636
+│  │     └─ [̂∂] Rot Z gate: 1.1227742204444187
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.84230522768451
+│  │     ├─ [̂∂] Rot X gate: 5.1348859286758985
+│  │     └─ [̂∂] Rot Z gate: 0.7030745975562425
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 5.114648047469112
+│        ├─ [̂∂] Rot X gate: 1.9094003574117513
+│        └─ [̂∂] Rot Z gate: 6.057580574117597
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.038045605916055
+│  │     ├─ [̂∂] Rot X gate: 0.23401958793449204
+│  │     └─ [̂∂] Rot Z gate: 3.0722448476509383
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.4098076309565934
+│  │     ├─ [̂∂] Rot X gate: 4.0631072007987
+│  │     └─ [̂∂] Rot Z gate: 5.894089457436394
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.4536917883767257
+│  │     ├─ [̂∂] Rot X gate: 4.498746395628821
+│  │     └─ [̂∂] Rot Z gate: 5.239914013862117
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.2147492162309184
+│  │     ├─ [̂∂] Rot X gate: 1.7787670208535737
+│  │     └─ [̂∂] Rot Z gate: 1.5858096946625568
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.45946528637082307
+│  │     ├─ [̂∂] Rot X gate: 1.0757654061506219
+│  │     └─ [̂∂] Rot Z gate: 1.321013460011578
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.22788759496696154
+│        ├─ [̂∂] Rot X gate: 5.988056409453544
+│        └─ [̂∂] Rot Z gate: 0.19560415909441345
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.05572824046477352
+│  │     ├─ [̂∂] Rot X gate: 4.6993339302717665
+│  │     └─ [̂∂] Rot Z gate: 5.334356478619035
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4351948895165825
+│  │     ├─ [̂∂] Rot X gate: 3.172572407619337
+│  │     └─ [̂∂] Rot Z gate: 0.571973578275446
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.4283139169438678
+│  │     ├─ [̂∂] Rot X gate: 0.6506235235204229
+│  │     └─ [̂∂] Rot Z gate: 2.575805972456146
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.2803654015796737
+│  │     ├─ [̂∂] Rot X gate: 0.9099408951189758
+│  │     └─ [̂∂] Rot Z gate: 3.084012282283374
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.3172124746105374
+│  │     ├─ [̂∂] Rot X gate: 5.5899839836465395
+│  │     └─ [̂∂] Rot Z gate: 2.6998309312914053
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.14785188728424667
+│        ├─ [̂∂] Rot X gate: 3.1112695099831194
+│        └─ [̂∂] Rot Z gate: 2.228198263287546
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+└─ chain
+   ├─ put on (1)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 6.123572928609877
+   │     └─ [̂∂] Rot X gate: 2.98966643991693
+   ├─ put on (2)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.10420755278738275
+   │     └─ [̂∂] Rot X gate: 1.7404553138455763
+   ├─ put on (3)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 2.1979819358425297
+   │     └─ [̂∂] Rot X gate: 0.5631344401784725
+   ├─ put on (4)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 2.854038203942951
+   │     └─ [̂∂] Rot X gate: 1.8920950711668985
+   ├─ put on (5)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.7024813981015936
+   │     └─ [̂∂] Rot X gate: 2.3342897419736235
+   └─ put on (6)
+      └─ chain
+         ├─ [̂∂] Rot Z gate: 3.431016450505438
+         └─ [̂∂] Rot X gate: 5.03854064793918</code></pre></div><p>Here, the function <code>autodiff(:QC)</code> will mark rotation gates in a circuit as differentiable automatically.</p><h2><a class="nav-anchor" id="MMD-Loss-and-Gradients-1" href="#MMD-Loss-and-Gradients-1">MMD Loss &amp; Gradients</a></h2><p>The MMD loss is describe below:</p><div>\[\begin{aligned}
+\mathcal{L} &amp;= \left| \sum_{x} p \theta(x) \phi(x) - \sum_{x} \pi(x) \phi(x) \right|^2\\
+            &amp;= \langle K(x, y) \rangle_{x \sim p_{\theta}, y\sim p_{\theta}} - 2 \langle K(x, y) \rangle_{x\sim p_{\theta}, y\sim \pi} + \langle K(x, y) \rangle_{x\sim\pi, y\sim\pi}
+\end{aligned}\]</div><p>We will use a squared exponential kernel here.</p><div><pre><code class="language-julia">struct RBFKernel
+    sigma::Float64
+    matrix::Matrix{Float64}
+end
+
+&quot;&quot;&quot;get kernel matrix&quot;&quot;&quot;
+kmat(mbf::RBFKernel) = mbf.matrix
+
+&quot;&quot;&quot;statistic functional for kernel matrix&quot;&quot;&quot;
+kernel_expect(kernel::RBFKernel, px::Vector, py::Vector=px) = px&#39; * kmat(kernel) * py;</code></pre><pre><code class="language-none">Main.ex-QCBM.kernel_expect</code></pre></div><p>Now let&#39;s define the RBF kernel matrix used in calculation</p><div><pre><code class="language-julia">function rbf_kernel(basis, σ::Real)
+    dx2 = (basis .- basis&#39;).^2
+    RBFKernel(σ, exp.(-1/2σ * dx2))
+end
+
+kernel = rbf_kernel(0:1&lt;&lt;6-1, 0.25);</code></pre><pre><code class="language-none">Main.ex-QCBM.RBFKernel(0.25, [1.0 0.135335 … 0.0 0.0; 0.135335 1.0 … 0.0 0.0; … ; 0.0 0.0 … 1.0 0.135335; 0.0 0.0 … 0.135335 1.0])</code></pre></div><p>Next, we build a QCBM setup, which is a combination of <code>circuit</code>, <code>kernel</code> and target probability distribution <code>ptrain</code> Its loss function is MMD loss, if and only if it is 0, the output probability of circuit matches <code>ptrain</code> exactly.</p><div><pre><code class="language-julia">struct QCBM{BT&lt;:AbstractBlock}
+    circuit::BT
+    kernel::RBFKernel
+    ptrain::Vector{Float64}
+end
+
+&quot;&quot;&quot;get wave function&quot;&quot;&quot;
+psi(qcbm::QCBM) = zero_state(qcbm.circuit |&gt; nqubits) |&gt; qcbm.circuit
+
+&quot;&quot;&quot;extract probability dierctly&quot;&quot;&quot;
+Yao.probs(qcbm::QCBM) = qcbm |&gt; psi |&gt; probs
+
+&quot;&quot;&quot;the loss function&quot;&quot;&quot;
+function mmd_loss(qcbm, p=qcbm|&gt;probs)
+    p = p - qcbm.ptrain
+    kernel_expect(qcbm.kernel, p, p)
+end;</code></pre><pre><code class="language-none">Main.ex-QCBM.mmd_loss</code></pre></div><p>problem setup</p><div><pre><code class="language-julia">qcbm = QCBM(circuit, kernel, pg);</code></pre><pre><code class="language-none">Main.ex-QCBM.QCBM{ChainBlock{6,Complex{Float64}}}(Total: 6, DataType: Complex{Float64}
+chain
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.379059276134648
+│  │     └─ [̂∂] Rot Z gate: 5.757053623143943
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.528753417624498
+│  │     └─ [̂∂] Rot Z gate: 2.258435034923792
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 1.8974953796945428
+│  │     └─ [̂∂] Rot Z gate: 3.315783188949739
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 4.041832544293619
+│  │     └─ [̂∂] Rot Z gate: 1.2526413139921773
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot X gate: 5.441695241889433
+│  │     └─ [̂∂] Rot Z gate: 2.929209460626737
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot X gate: 0.6467238195022509
+│        └─ [̂∂] Rot Z gate: 1.9503961098279807
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.7639714267593491
+│  │     ├─ [̂∂] Rot X gate: 2.379641039728012
+│  │     └─ [̂∂] Rot Z gate: 1.6587633241562725
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.587704679209707
+│  │     ├─ [̂∂] Rot X gate: 4.211368727722853
+│  │     └─ [̂∂] Rot Z gate: 3.34694481298986
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.17189408638197
+│  │     ├─ [̂∂] Rot X gate: 4.0755016283590315
+│  │     └─ [̂∂] Rot Z gate: 2.68058959254184
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.688181974797117
+│  │     ├─ [̂∂] Rot X gate: 6.081529228864955
+│  │     └─ [̂∂] Rot Z gate: 4.375880292338089
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.3497005871410028
+│  │     ├─ [̂∂] Rot X gate: 0.6537606060956541
+│  │     └─ [̂∂] Rot Z gate: 1.6795096470286177
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.901334971399858
+│        ├─ [̂∂] Rot X gate: 2.391762889323087
+│        └─ [̂∂] Rot Z gate: 1.6156107296379538
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.1017054277448395
+│  │     ├─ [̂∂] Rot X gate: 5.017006127143341
+│  │     └─ [̂∂] Rot Z gate: 3.3908851051946325
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.514135807319627
+│  │     ├─ [̂∂] Rot X gate: 4.927595829267363
+│  │     └─ [̂∂] Rot Z gate: 6.27666549866113
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.812157936312202
+│  │     ├─ [̂∂] Rot X gate: 3.344185368781871
+│  │     └─ [̂∂] Rot Z gate: 5.321474445433447
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.336208869468626
+│  │     ├─ [̂∂] Rot X gate: 5.637366843127811
+│  │     └─ [̂∂] Rot Z gate: 4.59880160508917
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.407179381521976
+│  │     ├─ [̂∂] Rot X gate: 5.681632857427495
+│  │     └─ [̂∂] Rot Z gate: 5.232472067865934
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 2.276807353529354
+│        ├─ [̂∂] Rot X gate: 3.0277645865466454
+│        └─ [̂∂] Rot Z gate: 0.6486752221984613
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.797251240057782
+│  │     ├─ [̂∂] Rot X gate: 0.6701717647073838
+│  │     └─ [̂∂] Rot Z gate: 2.9602534724897316
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.699463622936146
+│  │     ├─ [̂∂] Rot X gate: 3.979128978652039
+│  │     └─ [̂∂] Rot Z gate: 4.556242636651363
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.276413621968313
+│  │     ├─ [̂∂] Rot X gate: 2.624920210902086
+│  │     └─ [̂∂] Rot Z gate: 1.8909876950964888
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.5298367760540458
+│  │     ├─ [̂∂] Rot X gate: 3.6154484141496024
+│  │     └─ [̂∂] Rot Z gate: 0.6699146532393222
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.608944376708569
+│  │     ├─ [̂∂] Rot X gate: 2.1347077836057387
+│  │     └─ [̂∂] Rot Z gate: 0.8340192518346154
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 4.126946176255801
+│        ├─ [̂∂] Rot X gate: 1.108573761955702
+│        └─ [̂∂] Rot Z gate: 2.651599859994409
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.207068879670495
+│  │     ├─ [̂∂] Rot X gate: 2.895729583961037
+│  │     └─ [̂∂] Rot Z gate: 5.210866627026929
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.1414899962877705
+│  │     ├─ [̂∂] Rot X gate: 0.6459644393047815
+│  │     └─ [̂∂] Rot Z gate: 0.28707847766852085
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.314631573522212
+│  │     ├─ [̂∂] Rot X gate: 1.9190950957625275
+│  │     └─ [̂∂] Rot Z gate: 1.7877856747065575
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4234993747598743
+│  │     ├─ [̂∂] Rot X gate: 3.5006341406984602
+│  │     └─ [̂∂] Rot Z gate: 4.114698370673381
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.3163590079586872
+│  │     ├─ [̂∂] Rot X gate: 0.12876301138597385
+│  │     └─ [̂∂] Rot Z gate: 3.308234242862752
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 5.112598463645478
+│        ├─ [̂∂] Rot X gate: 2.6486708887679944
+│        └─ [̂∂] Rot Z gate: 0.19889707898168954
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4738645978318439
+│  │     ├─ [̂∂] Rot X gate: 3.084921059791097
+│  │     └─ [̂∂] Rot Z gate: 1.1696793065091813
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.8440082048409254
+│  │     ├─ [̂∂] Rot X gate: 5.423766942896688
+│  │     └─ [̂∂] Rot Z gate: 5.701773350312522
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.506757163508433
+│  │     ├─ [̂∂] Rot X gate: 1.6185264422541252
+│  │     └─ [̂∂] Rot Z gate: 5.948020394637336
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.22566553309405
+│  │     ├─ [̂∂] Rot X gate: 5.43597759659563
+│  │     └─ [̂∂] Rot Z gate: 4.687301078365472
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 5.701122766856339
+│  │     ├─ [̂∂] Rot X gate: 0.3118403752465244
+│  │     └─ [̂∂] Rot Z gate: 1.9928963443936172
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 2.8051071475895686
+│        ├─ [̂∂] Rot X gate: 1.7078273140170157
+│        └─ [̂∂] Rot Z gate: 0.19492437695941464
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.116660887200889
+│  │     ├─ [̂∂] Rot X gate: 0.4032339191904653
+│  │     └─ [̂∂] Rot Z gate: 0.21178785419022378
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.6641178745280316
+│  │     ├─ [̂∂] Rot X gate: 2.1769038937898246
+│  │     └─ [̂∂] Rot Z gate: 4.978835766483823
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.053372789116258
+│  │     ├─ [̂∂] Rot X gate: 2.670466886985597
+│  │     └─ [̂∂] Rot Z gate: 1.8996232055216808
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4703929142128846
+│  │     ├─ [̂∂] Rot X gate: 0.39540204373002363
+│  │     └─ [̂∂] Rot Z gate: 5.310695862184065
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.161323747920202
+│  │     ├─ [̂∂] Rot X gate: 3.382297482506275
+│  │     └─ [̂∂] Rot Z gate: 2.6033398818569684
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 3.011583622631482
+│        ├─ [̂∂] Rot X gate: 1.0103894007826786
+│        └─ [̂∂] Rot Z gate: 3.042097778340875
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.6688259242679924
+│  │     ├─ [̂∂] Rot X gate: 1.1985719788823395
+│  │     └─ [̂∂] Rot Z gate: 5.162678990899936
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.119969617968912
+│  │     ├─ [̂∂] Rot X gate: 4.690766513774124
+│  │     └─ [̂∂] Rot Z gate: 4.101915110360184
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.1042182927758326
+│  │     ├─ [̂∂] Rot X gate: 5.939516219296476
+│  │     └─ [̂∂] Rot Z gate: 4.949820669542521
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.816707741642359
+│  │     ├─ [̂∂] Rot X gate: 5.243807893254636
+│  │     └─ [̂∂] Rot Z gate: 1.1227742204444187
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.84230522768451
+│  │     ├─ [̂∂] Rot X gate: 5.1348859286758985
+│  │     └─ [̂∂] Rot Z gate: 0.7030745975562425
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 5.114648047469112
+│        ├─ [̂∂] Rot X gate: 1.9094003574117513
+│        └─ [̂∂] Rot Z gate: 6.057580574117597
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 6.038045605916055
+│  │     ├─ [̂∂] Rot X gate: 0.23401958793449204
+│  │     └─ [̂∂] Rot Z gate: 3.0722448476509383
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 4.4098076309565934
+│  │     ├─ [̂∂] Rot X gate: 4.0631072007987
+│  │     └─ [̂∂] Rot Z gate: 5.894089457436394
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 2.4536917883767257
+│  │     ├─ [̂∂] Rot X gate: 4.498746395628821
+│  │     └─ [̂∂] Rot Z gate: 5.239914013862117
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 3.2147492162309184
+│  │     ├─ [̂∂] Rot X gate: 1.7787670208535737
+│  │     └─ [̂∂] Rot Z gate: 1.5858096946625568
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.45946528637082307
+│  │     ├─ [̂∂] Rot X gate: 1.0757654061506219
+│  │     └─ [̂∂] Rot Z gate: 1.321013460011578
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.22788759496696154
+│        ├─ [̂∂] Rot X gate: 5.988056409453544
+│        └─ [̂∂] Rot Z gate: 0.19560415909441345
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+├─ chain
+│  ├─ put on (1)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.05572824046477352
+│  │     ├─ [̂∂] Rot X gate: 4.6993339302717665
+│  │     └─ [̂∂] Rot Z gate: 5.334356478619035
+│  ├─ put on (2)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.4351948895165825
+│  │     ├─ [̂∂] Rot X gate: 3.172572407619337
+│  │     └─ [̂∂] Rot Z gate: 0.571973578275446
+│  ├─ put on (3)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.4283139169438678
+│  │     ├─ [̂∂] Rot X gate: 0.6506235235204229
+│  │     └─ [̂∂] Rot Z gate: 2.575805972456146
+│  ├─ put on (4)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 0.2803654015796737
+│  │     ├─ [̂∂] Rot X gate: 0.9099408951189758
+│  │     └─ [̂∂] Rot Z gate: 3.084012282283374
+│  ├─ put on (5)
+│  │  └─ chain
+│  │     ├─ [̂∂] Rot Z gate: 1.3172124746105374
+│  │     ├─ [̂∂] Rot X gate: 5.5899839836465395
+│  │     └─ [̂∂] Rot Z gate: 2.6998309312914053
+│  └─ put on (6)
+│     └─ chain
+│        ├─ [̂∂] Rot Z gate: 0.14785188728424667
+│        ├─ [̂∂] Rot X gate: 3.1112695099831194
+│        └─ [̂∂] Rot Z gate: 2.228198263287546
+├─ [↺] chain
+│  ├─ control(1)
+│  │  └─ (2,)=&gt;X gate
+│  ├─ control(3)
+│  │  └─ (4,)=&gt;X gate
+│  ├─ control(5)
+│  │  └─ (6,)=&gt;X gate
+│  ├─ control(2)
+│  │  └─ (3,)=&gt;X gate
+│  ├─ control(4)
+│  │  └─ (5,)=&gt;X gate
+│  └─ control(6)
+│     └─ (1,)=&gt;X gate
+└─ chain
+   ├─ put on (1)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 6.123572928609877
+   │     └─ [̂∂] Rot X gate: 2.98966643991693
+   ├─ put on (2)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.10420755278738275
+   │     └─ [̂∂] Rot X gate: 1.7404553138455763
+   ├─ put on (3)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 2.1979819358425297
+   │     └─ [̂∂] Rot X gate: 0.5631344401784725
+   ├─ put on (4)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 2.854038203942951
+   │     └─ [̂∂] Rot X gate: 1.8920950711668985
+   ├─ put on (5)
+   │  └─ chain
+   │     ├─ [̂∂] Rot Z gate: 0.7024813981015936
+   │     └─ [̂∂] Rot X gate: 2.3342897419736235
+   └─ put on (6)
+      └─ chain
+         ├─ [̂∂] Rot Z gate: 3.431016450505438
+         └─ [̂∂] Rot X gate: 5.03854064793918
+, Main.ex-QCBM.RBFKernel(0.25, [1.0 0.135335 … 0.0 0.0; 0.135335 1.0 … 0.0 0.0; … ; 0.0 0.0 … 1.0 0.135335; 0.0 0.0 … 0.135335 1.0]), [0.0042474, 0.00477548, 0.00534828, 0.00596644, 0.0066301, 0.00733885, 0.00809169, 0.00888699, 0.00972239, 0.0105949  …  0.00888699, 0.00809169, 0.00733885, 0.0066301, 0.00596644, 0.00534828, 0.00477548, 0.0042474, 0.00376299, 0.00332082])</code></pre></div><h3><a class="nav-anchor" id="Gradients-1" href="#Gradients-1">Gradients</a></h3><p>the gradient of MMD loss is</p><div>\[\begin{aligned}
+\frac{\partial \mathcal{L}}{\partial \theta^i_l} &amp;= \langle K(x, y) \rangle_{x\sim p_{\theta^+}, y\sim p_{\theta}} - \langle K(x, y) \rangle_{x\sim p_{\theta}^-, y\sim p_{\theta}}\\
+&amp;- \langle K(x, y) \rangle _{x\sim p_{\theta^+}, y\sim\pi} + \langle K(x, y) \rangle_{x\sim p_{\theta^-}, y\sim\pi}
+\end{aligned}\]</div><div><pre><code class="language-julia">function mmdgrad(qcbm::QCBM, dbs; p0::Vector)
+    statdiff(()-&gt;probs(qcbm) |&gt; as_weights, dbs, StatFunctional(kmat(qcbm.kernel)), initial=p0 |&gt; as_weights) -
+        2*statdiff(()-&gt;probs(qcbm) |&gt; as_weights, dbs, StatFunctional(kmat(qcbm.kernel)*qcbm.ptrain))
+end;</code></pre><pre><code class="language-none">mmdgrad (generic function with 1 method)</code></pre></div><h2><a class="nav-anchor" id="Optimizer-1" href="#Optimizer-1">Optimizer</a></h2><p>We will use the Adam optimizer. Since we don&#39;t want you to install another package for this, the following code for this optimizer is copied from <a href="https://github.com/denizyuret/Knet.jl">Knet.jl</a></p><p>Reference: <a href="https://arxiv.org/abs/1412.6980">Kingma, D. P., &amp; Ba, J. L. (2015)</a>. Adam: a Method for Stochastic Optimization. International Conference on Learning Representations, 1–13.</p><div><pre><code class="language-julia">mutable struct Adam
+    lr::AbstractFloat
+    gclip::AbstractFloat
+    beta1::AbstractFloat
+    beta2::AbstractFloat
+    eps::AbstractFloat
+    t::Int
+    fstm
+    scndm
+end
+
+Adam(; lr=0.001, gclip=0, beta1=0.9, beta2=0.999, eps=1e-8)=Adam(lr, gclip, beta1, beta2, eps, 0, nothing, nothing)
+
+function update!(w, g, p::Adam)
+    gclip!(g, p.gclip)
+    if p.fstm===nothing; p.fstm=zero(w); p.scndm=zero(w); end
+    p.t += 1
+    lmul!(p.beta1, p.fstm)
+    BLAS.axpy!(1-p.beta1, g, p.fstm)
+    lmul!(p.beta2, p.scndm)
+    BLAS.axpy!(1-p.beta2, g .* g, p.scndm)
+    fstm_corrected = p.fstm / (1 - p.beta1 ^ p.t)
+    scndm_corrected = p.scndm / (1 - p.beta2 ^ p.t)
+    BLAS.axpy!(-p.lr, @.(fstm_corrected / (sqrt(scndm_corrected) + p.eps)), w)
+end
+
+function gclip!(g, gclip)
+    if gclip == 0
+        g
+    else
+        gnorm = vecnorm(g)
+        if gnorm &lt;= gclip
+            g
+        else
+            BLAS.scale!(gclip/gnorm, g)
+        end
+    end
+end
+optim = Adam(lr=0.1);</code></pre><pre><code class="language-none">Main.ex-QCBM.Adam(0.1, 0.0, 0.9, 0.999, 1.0e-8, 0, nothing, nothing)</code></pre></div><h2><a class="nav-anchor" id="Start-Training-1" href="#Start-Training-1">Start Training</a></h2><p>We define an iterator called <code>QCBMOptimizer</code>. We want to realize some interface like</p><pre><code class="language-julia">for x in qo
+    # runtime result analysis
+end</code></pre><p>Although such design makes the code a bit more complicated, but one will benefit from this interfaces when doing run time analysis, like keeping track of the loss.</p><div><pre><code class="language-julia">struct QCBMOptimizer
+    qcbm::QCBM
+    optimizer
+    dbs
+    params::Vector
+    QCBMOptimizer(qcbm::QCBM, optimizer) = new(qcbm, optimizer, collect(qcbm.circuit, AbstractDiff), parameters(qcbm.circuit))
+end</code></pre></div><p>In the initialization of <code>QCBMOptimizer</code> instance, we collect all differentiable units into a sequence <code>dbs</code> for furture use.</p><p><strong>iterator interface</strong> To support iteration operations, <a href="https://docs.julialang.org/en/v1/manual/interfaces/index.html#man-interface-iteration-1"><code>Base.iterate</code></a> should be implemented</p><div><pre><code class="language-julia">function Base.iterate(qo::QCBMOptimizer, state::Int=1)
+    p0 = qo.qcbm |&gt; probs
+    grad = mmdgrad.(Ref(qo.qcbm), qo.dbs, p0=p0)
+    update!(qo.params, grad, qo.optimizer)
+    dispatch!(qo.qcbm.circuit, qo.params)
+    (p0, state+1)
+end</code></pre></div><p>In each iteration, the iterator will return the generated probability distribution in current step. During each iteration step, we broadcast <code>mmdgrad</code> function over <code>dbs</code> to obtain all gradients. Here, To avoid the QCBM instance from being broadcasted, we wrap it with <a href="https://docs.julialang.org/en/v1/base/c/#Core.Ref"><code>Ref</code></a> to create a reference for it. The training of the quantum circuit is simple, just iterate through the steps.</p><div><pre><code class="language-julia">history = Float64[]
+for (k, p) in enumerate(QCBMOptimizer(qcbm, optim))
+    curr_loss = mmd_loss(qcbm, p)
+    push!(history, curr_loss)
+    k%5 == 0 &amp;&amp; println(&quot;k = &quot;, k, &quot; loss = &quot;, curr_loss)
+    k &gt;= 50 &amp;&amp; break
+end</code></pre><pre><code class="language-none">k = 5 loss = 0.007271661797185932
+k = 10 loss = 0.0023714583665719914
+k = 15 loss = 0.0015867013333431316
+k = 20 loss = 0.000831401984643542
+k = 25 loss = 0.0004807352943801705
+k = 30 loss = 0.0003450518153316237
+k = 35 loss = 0.00021021191512021672
+k = 40 loss = 0.0001351199856770375
+k = 45 loss = 8.347838801468199e-5
+k = 50 loss = 5.510416547971884e-5</code></pre></div><p>The training history looks like <img src="../../assets/figures/QCBM_2.svg" alt="History"/></p><p>and the learnt distribution <img src="../../assets/figures/QCBM_3.svg" alt="Learnt Distribution"/></p><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p><footer><hr/><a class="previous" href="../Grover/"><span class="direction">Previous</span><span class="title">Grover Search and Quantum Inference</span></a><a class="next" href="../../man/yao/"><span class="direction">Next</span><span class="title">Yao</span></a></footer></article></body></html>

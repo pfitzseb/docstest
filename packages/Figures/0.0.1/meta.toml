@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Figures"
+owner = "EricForgy"
+version = "0.0.1"
+description = ""
+stargazers_count = "3"
+url = "https://github.com/EricForgy/Figures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "EricForgy"
+contributions = "3"

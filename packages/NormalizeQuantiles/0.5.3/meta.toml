@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "NormalizeQuantiles"
+owner = "oheil"
+version = "0.5.3"
+description = "NormalizeQuantiles.jl implements quantile normalization"
+stargazers_count = "4"
+url = "https://github.com/oheil/NormalizeQuantiles.jl.git"
+installs = true
+tags = ["quantile-normalization", "normalize-quantiles", "quantile-normalisation", "normalise-quantiles"]
+license = "Other"
+
+[[contributors]]
+name = "oheil"
+contributions = "326"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

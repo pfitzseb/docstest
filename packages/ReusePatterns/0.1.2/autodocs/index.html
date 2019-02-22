@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · ReusePatterns.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ReusePatterns.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.@copy_fields" href="#ReusePatterns.@copy_fields"><code>ReusePatterns.@copy_fields</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><p><code>@copy_fields T</code></p><p>Copy all field definitions from a structure into another.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">
+julia&gt; struct First
+    field1
+    field2::Int
+end
+julia&gt; struct Second
+    @copy_fields(First)
+    field3::String
+end
+
+julia&gt; println(fieldnames(Second))
+(:field1, :filed2, :field3)
+
+julia&gt; println(fieldtype.(Second, fieldnames(Second)))
+(Any, Int64, String)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.@forward" href="#ReusePatterns.@forward"><code>ReusePatterns.@forward</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><p><code>@forward(sender, receiver, ekws...)</code></p><p>Evaluate the Julia code to forward methods.  The syntax is exactly the same as the <code>forward</code> function.</p><p><strong>Example:</strong></p><pre><code class="language-julia-repl">julia&gt; struct Book
+    title::String
+    author::String
+end
+julia&gt; Base.show(io::IO, b::Book) = println(io, &quot;$(b.title) (by $(b.author))&quot;)
+julia&gt; Base.print(b::Book) = println(&quot;In a hole in the ground there lived a hobbit...&quot;)
+julia&gt; author(b::Book) = b.author
+
+julia&gt; struct PaperBook
+    b::Book
+    number_of_pages::Int
+end
+julia&gt; @forward((PaperBook, :b), Book)
+julia&gt; pages(book::PaperBook) = book.number_of_pages
+
+julia&gt; struct Edition
+    b::PaperBook
+    year::Int
+end
+julia&gt; @forward((Edition, :b), PaperBook)
+julia&gt; year(book::Edition) = book.year
+
+julia&gt; book = Edition(PaperBook(Book(&quot;The Hobbit&quot;, &quot;J.R.R. Tolkien&quot;), 374), 2013)
+
+julia&gt; print(author(book), &quot;, &quot;, pages(book), &quot; pages, Ed. &quot;, year(book))
+J.R.R. Tolkien, 374 pages, Ed. 2013
+
+julia&gt; print(book)
+In a hole in the ground there lived a hobbit...</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.@quasiabstract" href="#ReusePatterns.@quasiabstract"><code>ReusePatterns.@quasiabstract</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><p><code>@quasiabstract expression</code></p><p>Create a <em>quasi abstract</em> type.</p><p>This macro accepts an expression defining a (mutable or immutable) structure, and outputs the code for two new type definitions:</p><ul><li>an abstract type with the same name and (if given) supertype of the input structure;</li><li>a concrete structure definition with name prefix <code>Concrete_</code>, subtyping the abstract type defined above.</li></ul><p>The relation between the types ensure there will be a single concrete type associated to the abstract one, hence you can use the abstract type to annotate method arguments, and be sure to receive the associated concrete type, or one of its subtypes (which shares all field names and types of the ancestors).</p><p>The concrete type associated to an <em>quasi abstract</em> type can be retrieved with the <code>concretetype</code> function.  The <code>Concrete_</code> prefix can be customized passing a second symbol argument to the macro.</p><p>These newly defined types allows to easily implement concrete subtyping: simply use the <em>quasi abstract</em> type name for both object construction and to annotate method arguments.</p><p><strong>Example:</strong></p><pre><code class="language-julia-repl">julia&gt; @quasiabstract struct Book
+    title::String
+    author::String
+end
+julia&gt; Base.show(io::IO, b::Book) = println(io, &quot;$(b.title) (by $(b.author))&quot;)
+julia&gt; Base.print(b::Book) = println(&quot;In a hole in the ground there lived a hobbit...&quot;)
+julia&gt; author(b::Book) = b.author
+
+julia&gt; @quasiabstract struct PaperBook &lt;: Book
+    number_of_pages::Int
+end
+julia&gt; pages(book::PaperBook) = book.number_of_pages
+
+julia&gt; @quasiabstract struct Edition &lt;: PaperBook
+    year::Int
+end
+julia&gt; year(book::Edition) = book.year
+
+julia&gt; println(fieldnames(concretetype(Edition)))
+(:title, :author, :number_of_pages, :year)
+
+julia&gt; book = Edition(&quot;The Hobbit&quot;, &quot;J.R.R. Tolkien&quot;, 374, 2013)
+
+julia&gt; print(author(book), &quot;, &quot;, pages(book), &quot; pages, Ed. &quot;, year(book))
+J.R.R. Tolkien, 374 pages, Ed. 2013
+
+julia&gt; print(book)
+In a hole in the ground there lived a hobbit...
+
+julia&gt; isquasiconcrete(typeof(book))
+true
+
+julia&gt; isquasiabstract(supertype(typeof(book)))
+true
+
+julia&gt; concretetype(typeof(book)) === supertype(typeof(book))
+true</code></pre></div></div></section><pre><code class="language-none">ReusePatterns.ReusePatterns</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.concretetype" href="#ReusePatterns.concretetype"><code>ReusePatterns.concretetype</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>concretetype(T::Type)</code></p><p>Return the concrete type associated with the <em>quasi abstract</em> type <code>T</code>. If <code>T</code> is not <em>quasi abstract</em> returns nothing.</p><p>See also: <code>@quasiabstract</code></p></div></div></section><pre><code class="language-none">ReusePatterns.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.forward" href="#ReusePatterns.forward"><code>ReusePatterns.forward</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>forward(sender::Tuple{Type,Symbol}, receiver::Type, method::Method; withtypes=true, allargs=true)</code></p><p>Return a <code>Vector{String}</code> containing the Julia code to properly forward <code>method</code> calls to from a <code>sender</code> type to a receiver type.</p><p>The <code>sender</code> tuple must contain a structure type, and a symbol with the name of one of its fields.</p><p>The <code>withtypes</code> keyword controls whether the forwarding method has type annotated arguments.  The <code>allargs</code> keyword controls wether all arguments should be used, or just the first ones up to the last containing the <code>receiver</code> type.</p><p>Both keywords are <code>true</code> by defult, but they can be set to <code>false</code> to decrease the number of forwarding methods.</p><p><strong>Example:</strong></p><p>Implement a wrapper for an <code>Int</code> object, and forward the <code>+</code> method accepting <code>Int</code>:</p><pre><code class="language-julia-repl">struct Wrapper{T}
+    wrappee::T
+    extra
+    Wrapper{T}(args...; kw...) where T = new(T(args...; kw...), nothing)
+end
+
+# Prepare and evaluate forwarding methods:
+m = forward((Wrapper, :wrappee), Int, which(+, (Int, Int)))
+eval.(Meta.parse.(m))
+
+# Instantiate two wrapped `Int`
+i1 = Wrapper{Int}(1)
+i2 = Wrapper{Int}(2)
+
+# And add them seamlessly
+println(i1 +  2)
+println( 1 + i2)
+println(i1 + i2)</code></pre></div></div><div><div><p><code>forward(sender::Tuple{Type,Symbol}, receiver::Type, methods::Vector{Method}; kw...)</code></p></div></div><div><div><p><code>forward(sender::Tuple{Type,Symbol}, receivers::Vector{T}, methods; kw...)</code></p></div></div><div><div><p><code>forward(sender::Tuple{Type,Symbol}, receiver::Type; super=true, kw...)</code></p><p>Wrapper for <code>forward(send, receiver, supertypes(receiver, super=super); kw...)</code></p></div></div></section><pre><code class="language-none">ReusePatterns.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.isquasiabstract" href="#ReusePatterns.isquasiabstract"><code>ReusePatterns.isquasiabstract</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>isquasiabstract(T::Type)</code></p><p>Return <code>true</code> if <code>T</code> is <em>quasi abstract</em>, <code>false</code> otherwise.</p><p>See also: <code>@quasiabstract</code></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.isquasiconcrete" href="#ReusePatterns.isquasiconcrete"><code>ReusePatterns.isquasiconcrete</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>isquasiconcrete(T::Type)</code></p><p>Return <code>true</code> if <code>T</code> is a concrete type associated to a <em>quasi abstract</em> type, <code>false</code> otherwise.</p><p>See also: <code>@quasiabstract</code></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReusePatterns.supertypes" href="#ReusePatterns.supertypes"><code>ReusePatterns.supertypes</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>supertypes(T::Type)</code></p><p>Returns a vector with all supertypes of type <code>T</code> (excluding <code>Any</code>).</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; println(supertypes(Int))
+Type[Signed, Integer, Real, Number]</code></pre></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

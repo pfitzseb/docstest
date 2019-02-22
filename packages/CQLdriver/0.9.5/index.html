@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · CQLdriver.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CQLdriver.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Example-use-1">Example use</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="CQLdriver-1" href="#CQLdriver-1">CQLdriver</a></h1><p>This Julia package is an interface to ScyllaDB / Cassandra and is based on the Datastax <a href="http://datastax.github.io/cpp-driver/">CPP driver</a> implementing the CQL v3 binary protocol. The package is missing very many features, but it does two things quite well:</p><ul><li>write very many rows quickly</li><li>read very many rows quickly</li></ul><p>Now, it&#39;s probably easy to extend this package to enable other features, but I haven&#39;t taken the time to do so. If you find this useful but are missing a small set of features I can probably implement them if you file an issue. CQLdriver depends on <a href="https://github.com/JuliaData/DataFrames.jl">DataFrames</a>.</p><p>Currently the following data-types are supported:</p><table><tr><th>Julia Type</th><th>CQL type</th></tr><tr><td>String</td><td>TEXT</td></tr><tr><td>String</td><td>VARCHAR</td></tr><tr><td>Date</td><td>DATE</td></tr><tr><td>Int8</td><td>TINYINT</td></tr><tr><td>Int16</td><td>SMALLINT</td></tr><tr><td>Int32</td><td>INTEGER</td></tr><tr><td>Int64</td><td>BIGINT</td></tr><tr><td>Int64</td><td>COUNTER</td></tr><tr><td>Bool</td><td>BOOLEAN</td></tr><tr><td>Float32</td><td>FLOAT</td></tr><tr><td>Float64</td><td>DOUBLE</td></tr><tr><td>DateTime</td><td>TIMESTAMP</td></tr></table><h1><a class="nav-anchor" id="Example-use-1" href="#Example-use-1">Example use</a></h1><h3><a class="nav-anchor" id="Starting-/-Closing-a-session-1" href="#Starting-/-Closing-a-session-1">Starting / Closing a session</a></h3><p><code>cqlinit()</code> will return a tuple with 2 pointers and a <code>UInt16</code> error code which you can check.  If the returned value is <code>0</code> then you&#39;re in good shape. It also lets you tune some performance characteristics of your connection.</p><pre><code class="language-none">julia&gt; session, cluster, err = cqlinit(&quot;192.168.1.128, 192.168.1.140&quot;)
+julia&gt; const CQL_OK = 0x0000
+julia&gt; @assert err == CQL_OK
+julia&gt; cqlclose(session, cluster)
+
+julia&gt; session, cluster, err = cqlinit(hosts, threads = 1, connections = 2, queuesize = 4096, bytelimit = 65536, requestlimit = 256)
+julia&gt; cqlclose(session, cluster)</code></pre><p>The driver tries to be smart about detecting all the nodes in the cluster and keeping the connection alive.</p><h3><a class="nav-anchor" id="Writing-data-1" href="#Writing-data-1">Writing data</a></h3><p><code>cqlwrite()</code> takes a <code>DataFrame</code> with named columns. Make sure that the column names in your DataFrame are the same as those in table you are writing to. By default it will write 1000 rows per batch and will make 5 attemps at writing each batch.</p><p>For appending new rows to tables:</p><pre><code class="language-none">julia&gt; table = &quot;data.refrigerator&quot;
+julia&gt; data = DataFrame(veggies = [&quot;Carrots&quot;, &quot;Broccoli&quot;], amount = [3, 5])
+julia&gt; err = cqlwrite(session, table, data)</code></pre><p>For updating a table you must provide additional arguments.  Consider the following statement which updates a table that uses counters: <code>UPDATE data.car SET speed = speed + ?, temp = temp + ? WHERE partid = ?</code> The query below is analogous to the statement above:</p><pre><code class="language-none">julia&gt; table = &quot;data.car&quot;
+julia&gt; data = DataFrame(speed=[1,2], temp=[4,5], partid=[&quot;wheel1&quot;,&quot;wheel2&quot;])
+julia&gt; err = cqlwrite(session, 
+                      table, 
+                      data[:,[:speed, :total]],
+                      update = data[:,[:partid]],
+                      batchsize = 10000,
+                      retries = 6,
+                      counter = true)</code></pre><h3><a class="nav-anchor" id="Reading-data-1" href="#Reading-data-1">Reading data</a></h3><p><code>cqlread()</code> pulls down data in 10000-row pages by default. It will do 5 retries per page and collate everything into a <code>DataFrame</code> with typed and named columns.</p><pre><code class="language-none">julia&gt; query = &quot;SELECT * FROM data.car&quot;
+julia&gt; err, output = cqlread(session, query)
+
+(0x0000, 2×3 DataFrames.DataFrame
+│ Row │ speed │ temp │ partid   │
+├┼┼┼┤
+│ 1   │ 1     │ 4    │ &quot;wheel1&quot; │
+│ 2   │ 2     │ 5    │ &quot;wheel2&quot; │)</code></pre><p>Changing the page size might affect performance. You can also increase the number of characters allowed for string types.</p><pre><code class="language-none">julia&gt; query = &quot;SELECT * FROM data.bigtable LIMIT 1000000&quot;
+julia&gt; err, output = cqlread(session, 
+                             query, 
+                             pgsize = 15000, 
+                             retries = 6, 
+                             strlen = 1024)</code></pre><p>You can send in an array of different queries and the driver will execute them asynchronously and return an array of resulting dataframes.</p><pre><code class="language-none">julia&gt; query = [&quot;SELECT * FROM data.bigtable WHERE driver=124&quot;,&quot;SELECT * FROM data.smalltable WHERE car=144&quot;]
+julia&gt; err, output = cqlread(session, 
+                             query, 
+                             concurrency=500, 
+                             timeout = 12000)
+</code></pre><h3><a class="nav-anchor" id="Executing-commands-1" href="#Executing-commands-1">Executing commands</a></h3><p><code>cqlexec()</code> runs your command on the database and returns a 0x0000 if everything went OK.</p><pre><code class="language-none">julia&gt; cmd = &quot;CREATE TABLE test.example (id int, data text, PRIMARY KEY (id));&quot;
+julia&gt; err = cqlexec(session, cmd)</code></pre><footer><hr/></footer></article></body></html>

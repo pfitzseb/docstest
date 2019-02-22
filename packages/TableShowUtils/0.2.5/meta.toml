@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TableShowUtils"
+owner = "queryverse"
+version = "0.2.5"
+description = "Low level package that provides some helpers for implementing show for TableTraits.jl types"
+stargazers_count = "0"
+url = "https://github.com/queryverse/TableShowUtils.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "40"

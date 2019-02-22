@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DoubleFloats"
+owner = "JuliaMath"
+version = "0.1.11"
+description = "math with more good bits"
+stargazers_count = "32"
+url = "https://github.com/JuliaMath/DoubleFloats.jl.git"
+installs = true
+tags = ["julia", "math", "floating-point", "accuracy", "precision", "performance", "extended-precision", "doubledouble"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "2196"
+[[contributors]]
+name = "saschatimme"
+contributions = "11"
+[[contributors]]
+name = "dillondaudert"
+contributions = "8"
+[[contributors]]
+name = "anriseth"
+contributions = "3"
+[[contributors]]
+name = "bdeonovic"
+contributions = "2"
+[[contributors]]
+name = "haampie"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mfalt"
+contributions = "1"
+[[contributors]]
+name = "rfourquet"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"

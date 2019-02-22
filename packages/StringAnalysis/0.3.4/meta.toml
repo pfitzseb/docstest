@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "StringAnalysis"
+owner = "zgornel"
+version = "0.3.4"
+description = "Hard-Forked from JuliaText/TextAnalysis.jl"
+stargazers_count = "3"
+url = "https://github.com/zgornel/StringAnalysis.jl.git"
+installs = true
+tags = ["corpus-processing", "julia-language", "text-processing", "text-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "zgornel"
+contributions = "169"

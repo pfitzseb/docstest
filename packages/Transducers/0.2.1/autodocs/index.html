@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Transducers.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Transducers.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.@return_if_reduced" href="#Transducers.@return_if_reduced"><code>Transducers.@return_if_reduced</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@return_if_reduced complete(rf, val)</code></pre><p>It transforms the given expression to:</p><pre><code class="language-julia">val isa Reduced &amp;&amp; return reduced(complete(rf, unreduced(val)))</code></pre><p>That is to say, if <code>val</code> is <code>Reduced</code>, unpack it, call <code>complete</code>, re-pack into <code>Reduced</code>, and then finally return it.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers: @return_if_reduced
+
+julia&gt; @macroexpand @return_if_reduced complete(rf, val)
+:(val isa Transducers.Reduced &amp;&amp; return (Transducers.reduced)(complete(rf, (Transducers.unreduced)(val))))</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.@simd_if" href="#Transducers.@simd_if"><code>Transducers.@simd_if</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@simd_if rf for ... end</code></pre><p>Wrap <code>for</code>-loop with <code>@simd</code> if the outer most transducer of the reducing function <code>rf</code> is <code>UseSIMD</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.@~" href="#Transducers.@~"><code>Transducers.@~</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">(@~ broadcasting_expression) :: Broadcasted</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.AbstractFilter" href="#Transducers.AbstractFilter"><code>Transducers.AbstractFilter</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">AbstractFilter &lt;: Transducer</code></pre><p>The abstract type for filter-like transducers.  <a href="#Transducers.outtype"><code>outtype</code></a> is appropriately defined for child types.</p></div></div></section><pre><code class="language-none">Transducers.AbstractReduction</code></pre><pre><code class="language-none">Transducers.Aired</code></pre><pre><code class="language-none">Transducers.BottomRF</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Cat" href="#Transducers.Cat"><code>Transducers.Cat</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Cat()</code></pre><p>Concatenate/flatten nested iterators.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/cat"><code>cat</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Cat(), [[1, 2], [3], [4, 5]]) == 1:5
+true</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Completing" href="#Transducers.Completing"><code>Transducers.Completing</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Completing(function)</code></pre><p>Wrap a <code>function</code> to add a no-op <a href="#Transducers.complete"><code>complete</code></a> protocol.  Use it when passing a <code>function</code> without 1-argument arity to <a href="#Transducers.transduce"><code>transduce</code></a> etc.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/completing"><code>completing</code> in Clojure</a>.</p></div></div></section><pre><code class="language-none">Transducers.Composition</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Count" href="#Transducers.Count"><code>Transducers.Count</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Count([start[, step]])</code></pre><p>Generate a sequence <code>start</code>, <code>start + step</code>, <code>start + step + step</code>, and so on.</p><p>Note that input is ignored.  To use the input in the downstream reduction steps, use <a href="#Transducers.Zip"><code>Zip</code></a>.</p><p><code>start</code> defaults to 1 and <code>step</code> defaults to <code>oneunit(start)</code>.</p><p>See also: <a href="https://docs.julialang.org/en/v1/base/iterators/"><code>Iterators.countfrom</code></a>. <a href="#Transducers.Enumerate"><code>Enumerate</code></a></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Zip(Map(identity), Count()), -3:-1)
+3-element Array{Tuple{Int64,Int64},1}:
+ (-3, 1)
+ (-2, 2)
+ (-1, 3)
+
+julia&gt; using Dates
+
+julia&gt; collect(Zip(Map(identity), Count(Day(1))) |&gt; Map(xs -&gt; *(xs...)), 1:3)
+3-element Array{Day,1}:
+ 1 day
+ 4 days
+ 9 days</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Dedupe" href="#Transducers.Dedupe"><code>Transducers.Dedupe</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Dedupe()</code></pre><p>De-duplicate <em>consecutive</em> items.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dedupe"><code>dedupe</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Dedupe(), [1, 1, 2, 1, 3, 3, 2])
+5-element Array{Int64,1}:
+ 1
+ 2
+ 1
+ 3
+ 2</code></pre></div></div></section><pre><code class="language-none">Transducers.DenseSubVector</code></pre><pre><code class="language-none">Transducers.Distinct</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Drop" href="#Transducers.Drop"><code>Transducers.Drop</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Drop(n)</code></pre><p>Drop first <code>n</code> items.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/drop"><code>drop</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Drop(3), 1:5)
+2-element Array{Int64,1}:
+ 4
+ 5</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.DropLast" href="#Transducers.DropLast"><code>Transducers.DropLast</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">DropLast(n)</code></pre><p>Drop last <code>n</code> items.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/drop-last"><code>drop-last</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(DropLast(2), 1:5)
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3
+
+julia&gt; collect(DropLast(2), 1:1)
+0-element Array{Int64,1}
+
+julia&gt; collect(DropLast(2), 1:0)
+0-element Array{Int64,1}</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.DropWhile" href="#Transducers.DropWhile"><code>Transducers.DropWhile</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">DropWhile(pred)</code></pre><p>Drop items while <code>pred</code> returns <code>true</code> consecutively.  It becomes a no-op after <code>pred</code> returns a <code>false</code>.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/drop-while"><code>drop-while</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(DropWhile(x -&gt; x &lt; 3), [1:5; 1:2])
+5-element Array{Int64,1}:
+ 3
+ 4
+ 5
+ 1
+ 2</code></pre></div></div></section><pre><code class="language-none">Transducers.Eduction</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Enumerate" href="#Transducers.Enumerate"><code>Transducers.Enumerate</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Enumerate([start[, step]])</code></pre><p>Transducer variant of <code>Base.enumerate</code>. The <code>start</code> and <code>step</code> arguments are optional and have the same meaning as in <a href="#Transducers.Count"><code>Count</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Enumerate(), [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;])
+3-element Array{Tuple{Int64,String},1}:
+ (1, &quot;A&quot;)
+ (2, &quot;B&quot;)
+ (3, &quot;C&quot;)
+
+julia&gt; start=2; step=3;
+
+julia&gt; collect(Enumerate(start, step), [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;])
+3-element Array{Tuple{Int64,String},1}:
+ (2, &quot;A&quot;)
+ (5, &quot;B&quot;)
+ (8, &quot;C&quot;)
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Filter" href="#Transducers.Filter"><code>Transducers.Filter</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Filter(pred)</code></pre><p>Skip items for which <code>pred</code> is evaluated to <code>false</code>.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/filter"><code>filter</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Filter(iseven), 1:3)
+1-element Array{Int64,1}:
+ 2</code></pre></div></div></section><pre><code class="language-none">Transducers.FinalType</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.FlagFirst" href="#Transducers.FlagFirst"><code>Transducers.FlagFirst</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">FlagFirst()</code></pre><p>Output <code>(isfirst, input)</code> where <code>isfirst::Bool</code> is <code>true</code> only for the first iteration and <code>input</code> is the original input.</p><p>See also: <a href="https://juliacollections.github.io/IterTools.jl/latest/#flagfirst(xs)-1"><code>IterTools.flagfirst</code></a></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(FlagFirst(), 1:3)
+3-element Array{Tuple{Bool,Int64},1}:
+ (true, 1)
+ (false, 2)
+ (false, 3)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.GetIndex" href="#Transducers.GetIndex"><code>Transducers.GetIndex</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">GetIndex(array)
+GetIndex{inbounds}(array)</code></pre><p>Transform an integer input <code>i</code> to <code>array[i]</code>.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>This API is experimental.  Backward incompatible change, including the removal of this API, is more likely to occur than other parts of this package.</p></div></div><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+       using Transducers: GetIndex
+
+julia&gt; collect(GetIndex(1:10), [2, 3, 4])
+3-element Array{Int64,1}:
+ 2
+ 3
+ 4
+
+julia&gt; collect(GetIndex{true}(1:10), [2, 3, 4])
+3-element Array{Int64,1}:
+ 2
+ 3
+ 4</code></pre></div></div></section><pre><code class="language-none">Transducers.IdentityTransducer</code></pre><pre><code class="language-none">Transducers.InType</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Initializer" href="#Transducers.Initializer"><code>Transducers.Initializer</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Initializer(f)</code></pre><p>Wrap a factory function to create an initial value for transducible processes (e.g., <a href="@ref"><code>mapfoldl</code></a>) and &quot;stateful&quot; transducers (e.g., <a href="#Transducers.Scan"><code>Scan</code></a>).  Factory function <code>f</code> takes the input type to the transducer or the reducing function.</p><p><code>Initializer</code> must be used whenever using in-place reduction with <a href="@ref"><code>mapreduce</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; xf1 = Scan(push!, [])
+Scan(push!, Any[])
+
+julia&gt; mapfoldl(xf1, right, 1:3)
+3-element Array{Any,1}:
+ 1
+ 2
+ 3
+
+julia&gt; xf1
+Scan(push!, Any[1, 2, 3])</code></pre><p>Notice that the array is stored in <code>xf1</code> and mutated in-place.  As a result, second run of <code>mapfoldl</code> contains the results from the first run:</p><pre><code class="language-julia-repl">julia&gt; mapfoldl(xf1, right, 10:11)
+5-element Array{Any,1}:
+  1
+  2
+  3
+ 10
+ 11</code></pre><p>This may not be desired.  To avoid this behavior, create an <code>Initializer</code> object which takes a factory function to create a new initial value.</p><pre><code class="language-julia-repl">julia&gt; xf2 = Scan(push!, Initializer(T -&gt; T[]))
+Scan(push!, Initializer(##9#10()))
+
+julia&gt; mapfoldl(xf2, right, 1:3)
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3
+
+julia&gt; mapfoldl(xf2, right, [10.0, 11.0])
+2-element Array{Float64,1}:
+ 10.0
+ 11.0</code></pre><p>Keyword argument <code>init</code> for transducible processes also accept an <code>Initializer</code>:</p><pre><code class="language-julia-repl">julia&gt; mapfoldl(Map(identity), push!, &quot;abc&quot;; init=Initializer(T -&gt; T[]))
+3-element Array{Char,1}:
+ &#39;a&#39;
+ &#39;b&#39;
+ &#39;c&#39;</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Inject" href="#Transducers.Inject"><code>Transducers.Inject</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Inject(iterator)</code></pre><p>Inject the output from <code>iterator</code> to the stream processed by the inner reduction step.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>This API is experimental.  Backward incompatible change, including the removal of this API, is more likely to occur than other parts of this package.</p></div></div><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+       using Transducers: Inject
+
+julia&gt; collect(Inject(Iterators.cycle(&quot;hello&quot;)), 1:8)
+8-element Array{Tuple{Int64,Char},1}:
+ (1, &#39;h&#39;)
+ (2, &#39;e&#39;)
+ (3, &#39;l&#39;)
+ (4, &#39;l&#39;)
+ (5, &#39;o&#39;)
+ (6, &#39;h&#39;)
+ (7, &#39;e&#39;)
+ (8, &#39;l&#39;)
+
+julia&gt; collect(Inject(Iterators.repeated([1 2])), 1:4)
+4-element Array{Tuple{Int64,Array{Int64,2}},1}:
+ (1, [1 2])
+ (2, [1 2])
+ (3, [1 2])
+ (4, [1 2])
+
+julia&gt; collect(Inject(Iterators.product(1:2, 3:5)), 1:100)
+6-element Array{Tuple{Int64,Tuple{Int64,Int64}},1}:
+ (1, (1, 3))
+ (2, (2, 3))
+ (3, (1, 4))
+ (4, (2, 4))
+ (5, (1, 5))
+ (6, (2, 5))</code></pre></div></div></section><pre><code class="language-none">Transducers.InnerType</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Interpose" href="#Transducers.Interpose"><code>Transducers.Interpose</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Interpose(sep)</code></pre><p>Interleave input items with a <code>sep</code>.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/interpose"><code>interpose</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Interpose(missing), 1:3)
+5-element Array{Union{Missing, Int64},1}:
+ 1
+  missing
+ 2
+  missing
+ 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Iterated" href="#Transducers.Iterated"><code>Transducers.Iterated</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Iterated(f, init[, T::Type])</code></pre><p>Generate a sequence <code>init</code>, <code>f(init)</code>, <code>f(f(init))</code>, <code>f(f(f(init)))</code>, and so on.</p><p>Note that input is ignored.  To use the input in the downstream reduction steps, use <a href="#Transducers.Zip"><code>Zip</code></a>.</p><p>Use the third argument <code>T</code> to specify the output type of <code>f</code>.</p><p>An <a href="#Transducers.Initializer"><code>Initializer</code></a> object can be passed to <code>init</code> for creating a dedicated (possibly mutable) state for each fold.</p><p>See also: <a href="#Transducers.Scan"><code>Scan</code></a>, <a href="#Transducers.ScanEmit"><code>ScanEmit</code></a>.</p><p>The idea is taken from <a href="https://juliacollections.github.io/IterTools.jl/latest/#IterTools.iterated"><code>IterTools.iterated</code></a></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Iterated(x -&gt; 2x, 1), 1:5)
+5-element Array{Int64,1}:
+  1
+  2
+  4
+  8
+ 16
+
+julia&gt; collect(Zip(Map(identity), Iterated(x -&gt; 2x, 1)), 1:5)
+5-element Array{Tuple{Int64,Int64},1}:
+ (1, 1)
+ (2, 2)
+ (3, 4)
+ (4, 8)
+ (5, 16)</code></pre></div></div></section><pre><code class="language-none">Transducers.Joiner</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Keep" href="#Transducers.Keep"><code>Transducers.Keep</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Keep(f)</code></pre><p>Pass non-<code>nothing</code> output of <code>f</code> to the inner reducing step.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keep"><code>keep</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; xf = Keep() do x
+           if x &lt; 3
+               x + 1
+           end
+       end;
+
+julia&gt; collect(xf, 1:5)
+2-element Array{Int64,1}:
+ 2
+ 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Map" href="#Transducers.Map"><code>Transducers.Map</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Map(f)</code></pre><p>Apply unary function <code>f</code> to each input and pass the result to the inner reducing step.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/map"><code>map</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Map(x -&gt; 2x), 1:3)
+3-element Array{Int64,1}:
+ 2
+ 4
+ 6</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.MapCat" href="#Transducers.MapCat"><code>Transducers.MapCat</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">MapCat(f)</code></pre><p>Concatenate output of <code>f</code> which is expected to return an iterable.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/mapcat"><code>mapcat</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(MapCat(x -&gt; 1:x), 1:3)
+6-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 1
+ 2
+ 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.MapSplat" href="#Transducers.MapSplat"><code>Transducers.MapSplat</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">MapSplat(f)</code></pre><p>Like <code>Map(f)</code> but calls <code>f(input...)</code> for each <code>input</code> and then pass the result to the inner reducing step.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(MapSplat(*), zip(1:3, 10:10:30))
+3-element Array{Int64,1}:
+ 10
+ 40
+ 90</code></pre></div></div></section><pre><code class="language-none">Transducers.MissingInit</code></pre><pre><code class="language-none">Transducers.NoComplete</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.NotA" href="#Transducers.NotA"><code>Transducers.NotA</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">NotA(T)</code></pre><p>Skip items of type <code>T</code>.  Unlike <code>Filter(!ismissing)</code>, downstream transducers can have a correct type information for <code>NotA(Missing)</code>.</p><p>See also: <a href="#Transducers.OfType"><code>OfType</code></a></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(NotA(Missing), [1, missing, 2])
+2-element Array{Int64,1}:
+ 1
+ 2
+
+julia&gt; collect(Filter(!ismissing), [1, missing, 2])  # see the eltype below
+2-element Array{Union{Missing, Int64},1}:
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.OfType" href="#Transducers.OfType"><code>Transducers.OfType</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">OfType(T)</code></pre><p>Include only items of type <code>T</code>.</p><p>See also: <a href="#Transducers.NotA"><code>NotA</code></a></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(OfType(Int), [1, missing, 2])
+2-element Array{Int64,1}:
+ 1
+ 2
+
+julia&gt; collect(Filter(!ismissing), [1, missing, 2])  # see the eltype below
+2-element Array{Union{Missing, Int64},1}:
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Partition" href="#Transducers.Partition"><code>Transducers.Partition</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Partition(size, step = size, flush = false)
+Partition(size; step = size, flush = false)</code></pre><p>Sliding window of width <code>size</code> and interval <code>step</code>.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>The vector passed to the inner reducing function is valid only during its <em>immediate</em> reduction step.  It must be reduced immediately <em>or</em> copied.</p></div></div><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/partition-all"><code>partition-all</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Partition(3) |&gt; Map(copy), 1:8)
+2-element Array{Array{Int64,1},1}:
+ [1, 2, 3]
+ [4, 5, 6]
+
+julia&gt; collect(Partition(3; flush=true) |&gt; Map(copy), 1:8)
+3-element Array{Array{Int64,1},1}:
+ [1, 2, 3]
+ [4, 5, 6]
+ [7, 8]
+
+julia&gt; collect(Partition(3; step=1) |&gt; Map(copy), 1:8)
+6-element Array{Array{Int64,1},1}:
+ [1, 2, 3]
+ [2, 3, 4]
+ [3, 4, 5]
+ [4, 5, 6]
+ [5, 6, 7]
+ [6, 7, 8]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.PartitionBy" href="#Transducers.PartitionBy"><code>Transducers.PartitionBy</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">PartitionBy(f)</code></pre><p>Group input sequence into chunks in which <code>f</code> returns a same value consecutively.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>The vector passed to the inner reducing function is valid only during its <em>immediate</em> reduction step.  It must be reduced immediately <em>or</em> copied.</p></div></div><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/partition-by"><code>partition-by</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(PartitionBy(x -&gt; (x + 1) ÷ 3) |&gt; Map(copy), 1:9)
+4-element Array{Array{Int64,1},1}:
+ [1]
+ [2, 3, 4]
+ [5, 6, 7]
+ [8, 9]</code></pre></div></div></section><pre><code class="language-none">Transducers.PrivateState</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.R_" href="#Transducers.R_"><code>Transducers.R_</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Transducers.R_{X}</code></pre><p>When defining a transducer type <code>X</code>, it is often required to dispatch on type <code>rf::R_{X}</code> (Reducing Function) which bundles the current transducer <code>xform(rf)::X</code> and the inner reducing function <code>inner(rf)::R_</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Reduced" href="#Transducers.Reduced"><code>Transducers.Reduced</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Reduced</code></pre><p>The type signaling transducible processes to abort.</p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>Call <a href="#Transducers.reduced"><code>reduced</code></a> function for aborting the transducible process since <a href="#Transducers.reduced"><code>reduced</code></a> makes sure <code>x</code> is not doubly wrapped.  <code>Reduced</code> is meant to be used as <code>x isa Reduced</code> for checking if the result from <a href="#Transducers.transduce"><code>transduce</code></a> is due to early termination.</p></div></div><p>See <a href="#Transducers.reduced"><code>reduced</code></a>, <a href="#Transducers.unreduced"><code>unreduced</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; function step_demo(y, x)
+           if x &gt; 5
+               return reduced(y)
+           else
+               return y + x
+           end
+       end;
+
+julia&gt; result = transduce(Map(identity), Completing(step_demo), 0, 1:10)
+Reduced{Int64}(15)
+
+julia&gt; result isa Reduced
+true
+
+julia&gt; unreduced(result)
+15
+
+julia&gt; result = transduce(Map(identity), Completing(step_demo), 0, 1:4)
+10
+
+julia&gt; result isa Reduced
+false
+
+julia&gt; unreduced(result)
+10</code></pre></div></div></section><pre><code class="language-none">Transducers.Reduction</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Replace" href="#Transducers.Replace"><code>Transducers.Replace</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Replace(assoc)</code></pre><p>Replace each input with the value in the associative container <code>assoc</code> (e.g., a dictionary, array, string) if it matches with a key/index. Otherwise output the input as-is.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/replace"><code>replace</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Replace(Dict(&#39;a&#39; =&gt; &#39;A&#39;)), &quot;abc&quot;)
+3-element Array{Char,1}:
+ &#39;A&#39;
+ &#39;b&#39;
+ &#39;c&#39;
+
+julia&gt; collect(Replace([:a, :b, :c]), 0:4)
+5-element Array{Union{Int64, Symbol},1}:
+ 0
+  :a
+  :b
+  :c
+ 4
+
+julia&gt; collect(Replace(&quot;abc&quot;), 0:4)
+5-element Array{Union{Char, Int64},1}:
+ 0
+  &#39;a&#39;
+  &#39;b&#39;
+  &#39;c&#39;
+ 4</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Scan" href="#Transducers.Scan"><code>Transducers.Scan</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Scan(f, [init])</code></pre><p>Accumulate input with binary function <code>f</code> and pass the accumulated result so far to the inner reduction step.</p><p>The inner reducing step receives the sequence <code>y₁, y₂, y₃, ..., yₙ, ...</code> when the sequence <code>x₁, x₂, x₃, ..., xₙ, ...</code> is fed to <code>Scan(f)</code>.</p><pre><code class="language-none">y₁ = f(init, x₁)
+y₂ = f(y₁, x₂)
+y₃ = f(y₂, x₃)
+...
+yₙ = f(yₙ₋₁, xₙ)</code></pre><p>This is a generalized version of the <a href="https://en.wikipedia.org/wiki/Prefix_sum"><em>prefix sum</em></a> also known as <em>cumulative sum</em>, <em>inclusive scan</em>, or <em>scan</em>.</p><p>Note that the associativity of <code>f</code> is not required when the transducer is used in a process that gurantee an order, such as <a href="@ref"><code>mapfoldl</code></a>.</p><p>Unless <code>f</code> is a function with known identity element such as <code>+</code>, <code>*</code>, <code>min</code>, <code>max</code>, and <code>append!</code>, the initial state <code>init</code> must be provided.</p><p>An <a href="#Transducers.Initializer"><code>Initializer</code></a> object can be passed to <code>init</code> for creating a dedicated (possibly mutable) state for each fold.</p><p>See also: <a href="#Transducers.ScanEmit"><code>ScanEmit</code></a>, <a href="#Transducers.Iterated"><code>Iterated</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Scan(*), 1:3)
+3-element Array{Int64,1}:
+ 1
+ 2
+ 6
+
+julia&gt; collect(Map(x -&gt; x + im) |&gt; Scan(*), 1:3)
+3-element Array{Complex{Int64},1}:
+ 1 + 1im
+ 1 + 3im
+ 0 + 10im
+
+julia&gt; collect(Scan(*, 10), 1:3)
+3-element Array{Int64,1}:
+ 10
+ 20
+ 60</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.ScanEmit" href="#Transducers.ScanEmit"><code>Transducers.ScanEmit</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ScanEmit(f, init[, onlast])</code></pre><p>Accumulate input <code>x</code> with a function <code>f</code> with the call signature <code>(u, x) -&gt; (y, u)</code> and pass the result <code>y</code> to the inner reduction step.</p><p>The inner reducing step receives the sequence <code>y₁, y₂, y₃, ..., yₙ, ...</code> computed as follows</p><pre><code class="language-none">u₀ = init
+y₁, u₁ = f(u₀, x₁)
+y₂, u₂ = f(u₁, x₂)
+y₃, u₃ = f(u₂, x₃)
+...
+yₙ, uₙ = f(uₙ₋₁, xₙ)
+...
+yₒₒ = onlast(uₒₒ)</code></pre><p>when the sequence <code>x₁, x₂, x₃, ..., xₙ, ...</code> is fed to <code>ScanEmit(f)</code>.</p><p>An <a href="#Transducers.Initializer"><code>Initializer</code></a> object can be passed to <code>init</code> for creating a dedicated (possibly mutable) state for each fold.</p><p>See also: <a href="#Transducers.ScanEmit"><code>ScanEmit</code></a>, <a href="#Transducers.Iterated"><code>Iterated</code></a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(ScanEmit(tuple, 0), 1:3)
+3-element Array{Int64,1}:
+ 0
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.SetIndex" href="#Transducers.SetIndex"><code>Transducers.SetIndex</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">SetIndex(array)
+SetIndex{inbounds}(array)</code></pre><p>Perform <code>array[i] = v</code> for each input pair <code>(i, v)</code>.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>This API is experimental.  Backward incompatible change, including the removal of this API, is more likely to occur than other parts of this package.</p></div></div><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+       using Transducers: SetIndex
+
+julia&gt; ys = zeros(3);
+
+julia&gt; mapfoldl(SetIndex(ys), first ∘ tuple, [(1, 11.1), (3, 33.3)], init=nothing)
+
+julia&gt; ys
+3-element Array{Float64,1}:
+ 11.1
+  0.0
+ 33.3</code></pre></div></div></section><pre><code class="language-none">Transducers.SideEffect</code></pre><pre><code class="language-none">Transducers.Splitter</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Take" href="#Transducers.Take"><code>Transducers.Take</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Take(n)</code></pre><p>Take <code>n</code> items from the input sequence.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/take"><code>take</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Take(2), 1:10)
+2-element Array{Int64,1}:
+ 1
+ 2
+
+julia&gt; collect(Take(5), 1:2)
+2-element Array{Int64,1}:
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.TakeLast" href="#Transducers.TakeLast"><code>Transducers.TakeLast</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">TakeLast(n)</code></pre><p>Take last <code>n</code> items from the input sequence.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(TakeLast(2), 1:10)
+2-element Array{Int64,1}:
+  9
+ 10
+
+julia&gt; collect(TakeLast(5), 1:2)
+2-element Array{Int64,1}:
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.TakeNth" href="#Transducers.TakeNth"><code>Transducers.TakeNth</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">TakeNth(n)</code></pre><p>Output every <code>n</code> item to the inner reducing step.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/take-nth"><code>take-nth</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(TakeNth(3), 1:9)
+3-element Array{Int64,1}:
+ 1
+ 4
+ 7</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.TakeWhile" href="#Transducers.TakeWhile"><code>Transducers.TakeWhile</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">TakeWhile(pred)</code></pre><p>Take items while <code>pred</code> returns <code>true</code>.  Abort the reduction when <code>pred</code> returns <code>false</code> for the first time.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/take-while"><code>take-while</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(TakeWhile(x -&gt; x &lt; 3), [1, 2, 3, 1, 2])
+2-element Array{Int64,1}:
+ 1
+ 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.TeeZip" href="#Transducers.TeeZip"><code>Transducers.TeeZip</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">TeeZip(xform::Transducer)</code></pre><p>Branch input into two &quot;flows&quot;, inject one into <code>xform</code> and then merge the output of <code>xform</code> with the original input.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>This API is experimental.  Backward incompatible change, including the removal of this API, is more likely to occur than other parts of this package.</p></div></div><p>To illustrate how it works, consider the following usage</p><pre><code class="language-none">xf0 |&gt; TeeZip(xf1) |&gt; xf2</code></pre><p>where <code>xf0</code>, <code>xf1</code>, and <code>xf2</code> are some transducers.  Schematically, the output <code>yn</code> from <code>xfn</code> flows as follows:</p><pre><code class="language-text">xf0      xf1                       xf2
+---- y0 ------ y1 ---.-- (y0, y1) -----&gt;
+      |              |
+       `-------------&#39;
+    &quot;Tee&quot;          &quot;Zip&quot;</code></pre><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+       using Transducers: TeeZip
+
+julia&gt; collect(TeeZip(Filter(isodd) |&gt; Map(x -&gt; x + 1)), 1:5)
+3-element Array{Tuple{Int64,Int64},1}:
+ (1, 2)
+ (3, 4)
+ (5, 6)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Transducer" href="#Transducers.Transducer"><code>Transducers.Transducer</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Transducer</code></pre><p>The abstract type for transducers.</p></div></div></section><pre><code class="language-none">Transducers.TransducerFolder</code></pre><pre><code class="language-none">Transducers.TransducerLister</code></pre><pre><code class="language-none">Transducers.Transducers</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Unique" href="#Transducers.Unique"><code>Transducers.Unique</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Unique()</code></pre><p>Pass only unseen item to the inner reducing step.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/distinct"><code>distinct</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Unique(), [1, 1, 2, 1, 3, 3, 2])
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3</code></pre></div></div></section><pre><code class="language-none">Transducers.Unseen</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.UseSIMD" href="#Transducers.UseSIMD"><code>Transducers.UseSIMD</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">UseSIMD{ivdep}()</code></pre><p>Tell the reducible to run the inner reducing function using <code>@simd</code>. The reducible can support it using <code>@simd_if</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.Zip" href="#Transducers.Zip"><code>Transducers.Zip</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Zip(xforms...)</code></pre><p>Zip outputs of transducers <code>xforms</code> in a tuple and pass it to the inner reduction step.</p><div class="admonition warning"><div class="admonition-title">Warning</div><div class="admonition-text"><p>Head transducers drive tail transducers.  Be careful when using it with transducers other than <a href="#Transducers.Map"><code>Map</code></a>, especially the contractive ones like <a href="#Transducers.PartitionBy"><code>PartitionBy</code></a> and the expansive ones like <a href="#Transducers.MapCat"><code>MapCat</code></a>.</p></div></div><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; collect(Zip(Map(identity), Map(x -&gt; 10x), Map(x -&gt; 100x)), 1:3)
+3-element Array{Tuple{Int64,Int64,Int64},1}:
+ (1, 10, 100)
+ (2, 20, 200)
+ (3, 30, 300)</code></pre></div></div></section><pre><code class="language-none">Transducers._Zip</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.__foldl__" href="#Transducers.__foldl__"><code>Transducers.__foldl__</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">__foldl__(rf, init, reducible::T)</code></pre><p>Left fold a <code>reducible</code> with reducing function <code>rf</code> and initial value <code>init</code>.  This is primary an API for overloading when the reducible &quot;container&quot; or &quot;context&quot; (e.g., I/O stream) of type <code>T</code> can provide a better reduction mechanism than the default iterator-based one.</p><p>For a simple iterable type <code>MyType</code>, a valid implementation is:</p><pre><code class="language-julia">function __foldl__(rf, val, itr::MyType)
+    for x in itr
+        val = next(rf, val, x)
+        @return_if_reduced complete(rf, val)
+    end
+    return complete(rf, val)
+end</code></pre><p>although in this case default <code>__foldl__</code> can handle <code>MyType</code> and thus there is no need for defining it.  In general, defining <code>__foldl__</code> is useful only when there is a better way to go over items in <code>reducible</code> than <code>Base.iterate</code>.</p><p>See also: <a href="#Transducers.@return_if_reduced"><code>@return_if_reduced</code></a>.</p></div></div></section><pre><code class="language-none">Transducers.__reduce__</code></pre><pre><code class="language-none">Transducers.__simple_foldl__</code></pre><pre><code class="language-none">Transducers._chan_ctype</code></pre><pre><code class="language-none">Transducers._cljapiurl</code></pre><pre><code class="language-none">Transducers._cljref</code></pre><pre><code class="language-none">Transducers._experimental_warning</code></pre><pre><code class="language-none">Transducers._false_str</code></pre><pre><code class="language-none">Transducers._foldl_product</code></pre><pre><code class="language-none">Transducers._getvalues</code></pre><pre><code class="language-none">Transducers._initvalue</code></pre><pre><code class="language-none">Transducers._joiner_error</code></pre><pre><code class="language-none">Transducers._joiner_lens</code></pre><pre><code class="language-none">Transducers._lefttype</code></pre><pre><code class="language-none">Transducers._map!</code></pre><pre><code class="language-none">Transducers._name_of_transducer_type</code></pre><pre><code class="language-none">Transducers._next_oftype</code></pre><pre><code class="language-none">Transducers._next_oftype_t</code></pre><pre><code class="language-none">Transducers._non_executable_transducer_msg</code></pre><pre><code class="language-none">Transducers._normalize</code></pre><pre><code class="language-none">Transducers._poptail</code></pre><pre><code class="language-none">Transducers._poptail_impl</code></pre><pre><code class="language-none">Transducers._prepare_map</code></pre><pre><code class="language-none">Transducers._rf_to_teezip</code></pre><pre><code class="language-none">Transducers._setinput</code></pre><pre><code class="language-none">Transducers._shared_notes_unfold</code></pre><pre><code class="language-none">Transducers._shared_vector_warning</code></pre><pre><code class="language-none">Transducers._show</code></pre><pre><code class="language-none">Transducers._show_field</code></pre><pre><code class="language-none">Transducers._show_impl</code></pre><pre><code class="language-none">Transducers._show_intype</code></pre><pre><code class="language-none">Transducers._show_multiline_args</code></pre><pre><code class="language-none">Transducers._show_noindent</code></pre><pre><code class="language-none">Transducers._show_type</code></pre><pre><code class="language-none">Transducers._start_init</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers._teezip_lens" href="#Transducers._teezip_lens"><code>Transducers._teezip_lens</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">_teezip_lens(rf) :: Lens</code></pre><p>Return a lens to the <code>.value</code> field of the first &quot;unbalanced&quot; <code>Joiner</code>.  A <code>Joiner</code> matched with preceding <code>Splitter</code> would be treated as a regular reducing function node.  Thus, reducing function <code>rf</code> must have one more <code>Joiner</code> than <code>Splitter</code>.</p></div></div></section><pre><code class="language-none">Transducers._teezip_rf</code></pre><pre><code class="language-none">Transducers._thx_clj</code></pre><pre><code class="language-none">Transducers._true_str</code></pre><pre><code class="language-none">Transducers._type_fixedpoint</code></pre><pre><code class="language-none">Transducers._type_scan_fixedpoint</code></pre><pre><code class="language-none">Transducers._unexported_public_api</code></pre><pre><code class="language-none">Transducers._use_initializer</code></pre><pre><code class="language-none">Transducers._usesimd</code></pre><pre><code class="language-none">Transducers._window_next</code></pre><pre><code class="language-none">Transducers._zip_between</code></pre><pre><code class="language-none">Transducers._zip_init</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.air" href="#Transducers.air"><code>Transducers.air</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">air.(broadcasting_expression) :: Broadcasted</code></pre><p>Broadcast without materialization.</p><p>The idea is taken from @dawbarton&#39;s <code>_lazy</code> function: https://discourse.julialang.org/t/19641/20.</p></div></div></section><pre><code class="language-none">Transducers.as</code></pre><pre><code class="language-none">Transducers.avaltype</code></pre><pre><code class="language-none">Transducers.combine</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.complete" href="#Transducers.complete"><code>Transducers.complete</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Transducers.complete(rf::R_{X}, state)</code></pre><p>This is an optional interface for a transducer.  If transducer <code>X</code> has some internal state, this is the last chance to &quot;flush&quot; the result.</p><p>See <a href="#Transducers.PartitionBy"><code>PartitionBy</code></a>, etc. for real-world examples.</p><p>If <strong>both</strong> <code>complete(rf::R_{X}, state)</code> <strong>and</strong> <code>start(rf::R_{X}, state)</code> are defined, <code>complete</code> <strong>must</strong> unwarp <code>state</code> before returning <code>state</code> to the outer reducing function.  If <code>complete</code> is not defined for <code>R_{X}</code>, this happens automatically.</p></div></div></section><pre><code class="language-none">Transducers.darkritual</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.eduction" href="#Transducers.eduction"><code>Transducers.eduction</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">eduction(xf::Transducer, coll)</code></pre><p>Create a iterable and reducible object.</p><ul><li><a href="https://docs.julialang.org/en/v1/manual/interfaces/#man-interface-iteration-1">Iterable</a>.</li><li>Reducible; i.e., it can be handled by <a href="#Transducers.transduce"><code>transduce</code></a> efficiently.</li></ul><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/eduction"><code>eduction</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; for x in eduction(Filter(isodd) |&gt; Take(3), 1:1000)
+           @show x
+       end
+x = 1
+x = 3
+x = 5</code></pre></div></div></section><pre><code class="language-none">Transducers.ensurerf</code></pre><pre><code class="language-none">Transducers.eval</code></pre><pre><code class="language-none">Transducers.first_paragraph</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.foldl_nocomplete" href="#Transducers.foldl_nocomplete"><code>Transducers.foldl_nocomplete</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">foldl_nocomplete(rf, init, coll)</code></pre><p>Call <a href="#Transducers.__foldl__"><code>__foldl__</code></a> without calling <a href="#Transducers.complete"><code>complete</code></a>.</p></div></div></section><pre><code class="language-none">Transducers.has</code></pre><pre><code class="language-none">Transducers.hasdoc</code></pre><pre><code class="language-none">Transducers.header_code</code></pre><pre><code class="language-none">Transducers.identityof</code></pre><pre><code class="language-none">Transducers.ieltype</code></pre><pre><code class="language-none">Transducers.include</code></pre><pre><code class="language-none">Transducers.inittypeof</code></pre><pre><code class="language-none">Transducers.initvalue</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.inner" href="#Transducers.inner"><code>Transducers.inner</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Transducers.inner(rf::R_)</code></pre><p>Return the inner reducing function of <code>rf</code>.</p></div></div></section><pre><code class="language-none">Transducers.is_anonymous</code></pre><pre><code class="language-none">Transducers.is_internal</code></pre><pre><code class="language-none">Transducers.is_transducer_type</code></pre><pre><code class="language-none">Transducers.isexpansive</code></pre><pre><code class="language-none">Transducers.isivdep</code></pre><pre><code class="language-none">Transducers.isreduced</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.maybe_usesimd" href="#Transducers.maybe_usesimd"><code>Transducers.maybe_usesimd</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">maybe_usesimd(xform, simd)</code></pre><p>Insert <code>UseSIMD</code> to <code>xform</code> if appropriate.</p><p><strong>Arguments</strong></p><ul><li><code>xform::Transducer</code></li><li><code>simd</code>: <code>false</code>, <code>true</code>, or <code>:ivdep</code>.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+       using Transducers: maybe_usesimd
+
+julia&gt; maybe_usesimd(eduction(Map(identity), 1:1).rf, false)
+Reduction{▶ Int64}(
+    Map(identity),
+    BottomRF{▶ Int64}(
+        Completing{typeof(push!)}(push!)))
+
+julia&gt; maybe_usesimd(eduction(Map(identity), 1:1).rf, true)
+Reduction{▶ Int64}(
+    Transducers.UseSIMD{false}(),
+    Reduction{▶ Int64}(
+        Map(identity),
+        BottomRF{▶ Int64}(
+            Completing{typeof(push!)}(push!))))
+
+julia&gt; maybe_usesimd(eduction(Cat(), 1:1).rf, true)
+Reduction{▶ Int64}(
+    Cat(),
+    Reduction{▶ Int64}(
+        Transducers.UseSIMD{false}(),
+        BottomRF{▶ Int64}(
+            Completing{typeof(push!)}(push!))))
+
+julia&gt; maybe_usesimd(eduction(Map(sin) |&gt; Cat() |&gt; Map(cos), 1:1).rf, :ivdep)
+Reduction{▶ Int64}(
+    Map(sin),
+    Reduction{▶ Float64}(
+        Cat(),
+        Reduction{▶ Float64}(
+            Transducers.UseSIMD{true}(),
+            Reduction{▶ Float64}(
+                Map(cos),
+                BottomRF{▶ Float64}(
+                    Completing{typeof(push!)}(push!))))))
+
+julia&gt; maybe_usesimd(eduction(Map(sin) |&gt; Cat() |&gt; Map(cos) |&gt; Cat() |&gt; Map(tan), 1:1).rf, true)
+Reduction{▶ Int64}(
+    Map(sin),
+    Reduction{▶ Float64}(
+        Cat(),
+        Reduction{▶ Float64}(
+            Map(cos),
+            Reduction{▶ Float64}(
+                Cat(),
+                Reduction{▶ Float64}(
+                    Transducers.UseSIMD{false}(),
+                    Reduction{▶ Float64}(
+                        Map(tan),
+                        BottomRF{▶ Float64}(
+                            Completing{typeof(push!)}(push!))))))))</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.next" href="#Transducers.next"><code>Transducers.next</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Transducers.next(rf::R_{X}, state, input)</code></pre><p>This is the only required interface.  It takes the following form (if <code>start</code> is not defined):</p><pre><code class="language-julia">next(rf::R_{X}, result, input) =
+    # code calling next(inner(rf), result, possibly_modified_input)</code></pre><p>See <a href="#Transducers.Map"><code>Map</code></a>, <a href="#Transducers.Filter"><code>Filter</code></a>, <a href="#Transducers.Cat"><code>Cat</code></a>, etc. for real-world examples.</p></div></div></section><pre><code class="language-none">Transducers.nthtype</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.outtype" href="#Transducers.outtype"><code>Transducers.outtype</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">outtype(xf::Transducer, intype)</code></pre><p>Output item type for the transducer <code>xf</code> when the input type is <code>intype</code>.</p></div></div></section><pre><code class="language-none">Transducers.ownsstate</code></pre><pre><code class="language-none">Transducers.prefixed_type_name</code></pre><pre><code class="language-none">Transducers.prependxf</code></pre><pre><code class="language-none">Transducers.print_arrow</code></pre><pre><code class="language-none">Transducers.print_spaced_arrow</code></pre><pre><code class="language-none">Transducers.provide_init</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.reduced" href="#Transducers.reduced"><code>Transducers.reduced</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">reduced([x = nothing])</code></pre><p>Stop transducible process with the final value <code>x</code> (default: <code>nothing</code>).  Return <code>x</code> as-is if it&#39;s already is a <code>reduced</code> value.</p><p>See <a href="#Transducers.Reduced"><code>Reduced</code></a>, <a href="#Transducers.unreduced"><code>unreduced</code></a>.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ensure-reduced"><code>ensure-reduced</code> in Clojure</a>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; foldl(Enumerate(), &quot;abcdef&quot;; init=0) do y, (i, x)
+           if x == &#39;d&#39;
+               return reduced(y)
+           end
+           return y + i
+       end
+6
+
+julia&gt; foreach(Enumerate(), &quot;abc&quot;) do (i, x)
+           println(i, &#39; &#39;, x)
+           if x == &#39;b&#39;
+               return reduced()
+           end
+       end
+1 a
+2 b</code></pre></div></div></section><pre><code class="language-none">Transducers.reducingfunction</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.reform" href="#Transducers.reform"><code>Transducers.reform</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">reform(rf, f)</code></pre><p>Reset &quot;bottom&quot; reducing function of <code>rf</code> to <code>f</code>.</p></div></div></section><pre><code class="language-none">Transducers.ridentityof</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.right" href="#Transducers.right"><code>Transducers.right</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">right([l, ]r) -&gt; r</code></pre><p>It is simply defined as</p><pre><code class="language-julia">right(l, r) = r
+right(r) = r</code></pre><p>This function is meant to be used as <code>step</code> argument for <a href="@ref"><code>mapfoldl</code></a> etc. for extracting the last output of the transducers.  Note that <code>init</code> for <code>right</code> is set to <code>nothing</code> if not provided.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; mapfoldl(Take(5), right, 1:10)
+5
+
+julia&gt; mapfoldl(Drop(5), right, 1:3) === nothing
+true
+
+julia&gt; mapfoldl(Drop(5), right, 1:3; init=0)  # using `init` as the default value
+0</code></pre></div></div></section><pre><code class="language-none">Transducers.setinner</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.setinput" href="#Transducers.setinput"><code>Transducers.setinput</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setinput(ed::Eduction, coll)</code></pre><p>Set input collection of eduction <code>ed</code> to <code>coll</code>.  This is efficient than re-creating an <code>Eduction</code> with a new <code>coll</code> if <code>eltype</code> of old and new input collections are the same.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Transducers
+
+julia&gt; ed = eduction(Map(x -&gt; 2x), Float64[]);</code></pre><p>Here, we created an <code>Eduction</code> with input container whose <code>eltype</code> is <code>Float64</code>.  It can be used later with different container.</p><pre><code class="language-julia-repl">julia&gt; using Test
+
+julia&gt; xs = ones(2, 3);
+
+julia&gt; foldl(+, @inferred setinput(ed, xs))
+12.0</code></pre><p>Note that we changed the container type from <code>Vector</code> to <code>Matrix</code> while using the same <code>eltype</code>.  In this case, <code>setinput</code> is inferrable and thus can be compiled away.  It is also possible to set container with different <code>eltype</code> although not inferrable in this case:</p><pre><code class="language-julia-repl">julia&gt; xs = ones(Int, 2, 3);
+
+julia&gt; foldl(+, setinput(ed, xs))
+12
+
+julia&gt; foldl(+, @inferred setinput(ed, xs))
+ERROR: return type Transducers.Eduction{...} does not match inferred return type ...
+[...]</code></pre></div></div></section><pre><code class="language-none">Transducers.show_args</code></pre><pre><code class="language-none">Transducers.show_transducer</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.simple_transduce" href="#Transducers.simple_transduce"><code>Transducers.simple_transduce</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">simple_transduce(xform, step, init, coll)</code></pre><p>Simplified version of <a href="#Transducers.transduce"><code>transduce</code></a>.  For simple transducers Julia may be able to emit a good code.  This function exists only for performance tuning.</p></div></div></section><pre><code class="language-none">Transducers.skipcomplete</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.start" href="#Transducers.start"><code>Transducers.start</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Transducers.start(rf::R_{X}, state)</code></pre><p>This is an optional interface for a transducer.  Default implementation just calls <code>start</code> of the inner reducing function; i.e.,</p><pre><code class="language-julia">start(rf::Reduction, result) = start(inner(rf), result)</code></pre><p>If the transducer <code>X</code> is stateful, it can &quot;bundle&quot; its private state with <code>wrap</code>:</p><pre><code class="language-julia">start(rf::R_{X}, result) = wrap(rf, PRIVATE_STATE, start(inner(rf), result))</code></pre><p>where <code>PRIVATE_STATE</code> is an initial value for the private state that can be used inside <a href="#Transducers.next"><code>next</code></a> via <a href="#Transducers.wrapping"><code>wrapping</code></a>.</p><p>See <a href="#Transducers.Take"><code>Take</code></a>, <a href="#Transducers.PartitionBy"><code>PartitionBy</code></a>, etc. for real-world examples.</p><p>Side notes: There is no related API in Clojure&#39;s Transducers. Transducers.jl uses it to implement stateful transducers using &quot;pure&quot; functions.  The idea is based on a slightly different approach taken in C++ Transducer library <a href="https://github.com/AbletonAG/atria">atria</a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.transduce" href="#Transducers.transduce"><code>Transducers.transduce</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">transduce(xf, step, init, reducible) :: Union{T, Reduced{T}}</code></pre><p>See <a href="@ref"><code>mapfoldl</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.unreduced" href="#Transducers.unreduced"><code>Transducers.unreduced</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">unreduced(x)</code></pre><p>Unwrap <code>x</code> if it is a <code>Reduced</code>; do nothing otherwise.</p><p>See <a href="#Transducers.Reduced"><code>Reduced</code></a>, <a href="#Transducers.reduced"><code>reduced</code></a>.</p><p>This API is modeled after <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/unreduced"><code>unreduced</code> in Clojure</a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.unwrap" href="#Transducers.unwrap"><code>Transducers.unwrap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">unwrap(rf, result)</code></pre><p>Unwrap <a href="#Transducers.wrap"><code>wrap</code></a>ed <code>result</code> to a private state and inner result. Following identity holds:</p><pre><code class="language-julia">unwrap(rf, wrap(rf, state, iresult)) == (state, iresult)</code></pre><p>This is intended to be used only in <a href="#Transducers.complete"><code>complete</code></a>.  Inside <a href="#Transducers.next"><code>next</code></a>, use <a href="#Transducers.wrapping"><code>wrapping</code></a>.</p></div></div></section><pre><code class="language-none">Transducers.unwrap_all</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.usesimd" href="#Transducers.usesimd"><code>Transducers.usesimd</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">usesimd(rf::Reduction, xfsimd::UseSIMD)</code></pre><p>Wrap the inner-most loop of reducing function <code>rf</code> with <code>xfsimd</code>. <code>xfsimd</code> is inserted after the inner-most <code>Cat</code> if <code>rf</code> includes <code>Cat</code>.</p></div></div></section><pre><code class="language-none">Transducers.valueof</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.wrap" href="#Transducers.wrap"><code>Transducers.wrap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">wrap(rf::R_{X}, state, iresult)</code></pre><p>Pack private <code>state</code> for reducing function <code>rf</code> (or rather the transducer <code>X</code>) with the result <code>iresult</code> returned from the inner reducing function <code>inner(rf)</code>.  This packed result is typically passed to the outer reducing function.</p><p>This is intended to be used only in <a href="#Transducers.start"><code>start</code></a>.  Inside <a href="#Transducers.next"><code>next</code></a>, use <a href="#Transducers.wrapping"><code>wrapping</code></a>.</p><p>Consider a reducing step constructed as</p><pre><code class="language-none">rf = Reduction(xf₁ |&gt; xf₂ |&gt; xf₃, f, intype)</code></pre><p>where each <code>xfₙ</code> is a stateful transducer and hence needs a private state <code>stateₙ</code>.  Then, calling <code>start(rf, result))</code> is equivalent to</p><pre><code class="language-julia">wrap(rf,
+     state₁,                     # private state for xf₁
+     wrap(inner(rf),
+          state₂,                # private state for xf₂
+          wrap(inner(rf).inner,
+               state₃,           # private state for xf₃
+               result)))</code></pre><p>or equivalently</p><pre><code class="language-julia">result₃ = result
+result₂ = wrap(inner(inner(rf)), state₃, result₃)
+result₁ = wrap(inner(rf),        state₂, result₂)
+result₀ = wrap(rf,               state₁, result₁)</code></pre><p>The inner most step function receives the original <code>result</code> as the first argument while transducible processes such as <a href="@ref"><code>mapfoldl</code></a> only sees the outer-most &quot;tree&quot; <code>result₀</code> during the reduction.  The whole tree is <a href="#Transducers.unwrap"><code>unwrap</code></a>ed during the <a href="#Transducers.complete"><code>complete</code></a> phase.</p><p>See <a href="#Transducers.wrapping"><code>wrapping</code></a>, <a href="#Transducers.unwrap"><code>unwrap</code></a>, and <a href="#Transducers.start"><code>start</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.wrapping" href="#Transducers.wrapping"><code>Transducers.wrapping</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">wrapping(f, rf, result)</code></pre><p>Function <code>f</code> must take two argument <code>state</code> and <code>iresult</code>, and return a tuple <code>(state, iresult)</code>.  This is intended to be used only in <a href="#Transducers.next"><code>next</code></a>, possibly with a <code>do</code> block.</p><pre><code class="language-julia">next(rf::R_{MyTransducer}, result, input) =
+    wrapping(rf, result) do my_state, iresult
+        # code calling `next(inner(rf), iresult, possibly_modified_input)`
+        return my_state, iresult  # possibly modified
+    end</code></pre><p>See <a href="#Transducers.wrap"><code>wrap</code></a>, <a href="#Transducers.unwrap"><code>unwrap</code></a>, and <a href="#Transducers.next"><code>next</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Transducers.xform" href="#Transducers.xform"><code>Transducers.xform</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Transducers.xform(rf::R_{X}) -&gt; xf :: X</code></pre><p>Return the transducer <code>xf</code> associated with <code>rf</code>.  Returned transducer <code>xf</code> is &quot;atomic&quot;; i.e., it is not a <code>Composition</code> transducer type.</p></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

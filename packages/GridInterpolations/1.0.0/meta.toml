@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "GridInterpolations"
+owner = "sisl"
+version = "1.0.0"
+description = "Multidimensional grid interpolation in arbitrary dimensions"
+stargazers_count = "15"
+url = "https://github.com/sisl/GridInterpolations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mykelk"
+contributions = "22"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "9"
+[[contributors]]
+name = "Shushman"
+contributions = "8"
+[[contributors]]
+name = "zsunberg"
+contributions = "5"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "4"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "4"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "tawheeler"
+contributions = "1"

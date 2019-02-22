@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "WeakRefStrings"
+owner = "JuliaData"
+version = "0.5.7"
+description = "a minimal String type for Julia that allows for efficient string representation and transfer"
+stargazers_count = "5"
+url = "https://github.com/JuliaData/WeakRefStrings.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "70"
+[[contributors]]
+name = "andreasnoack"
+contributions = "10"
+[[contributors]]
+name = "nalimilan"
+contributions = "7"
+[[contributors]]
+name = "alyst"
+contributions = "3"
+[[contributors]]
+name = "shashi"
+contributions = "3"
+[[contributors]]
+name = "tanmaykm"
+contributions = "3"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "2"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "spurll"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

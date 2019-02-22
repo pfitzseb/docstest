@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "AstroTime"
+owner = "JuliaAstro"
+version = "0.1.2"
+description = "Astronomical time keeping in Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaAstro/AstroTime.jl.git"
+installs = true
+tags = ["julia", "astronomy", "time-keeping"]
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "204"
+[[contributors]]
+name = "prakharcode"
+contributions = "22"
+[[contributors]]
+name = "ashishpriyadarshiCIC"
+contributions = "3"
+[[contributors]]
+name = "bgodard"
+contributions = "1"

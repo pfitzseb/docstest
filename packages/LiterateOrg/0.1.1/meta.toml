@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LiterateOrg"
+owner = "jagot"
+version = "0.1.1"
+description = ""
+stargazers_count = "1"
+url = "https://github.com/jagot/LiterateOrg.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jagot"
+contributions = "23"

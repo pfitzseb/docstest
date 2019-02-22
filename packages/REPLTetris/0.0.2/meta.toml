@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "REPLTetris"
+owner = "ChristianKurz"
+version = "0.0.2"
+description = "A small Tetris-implementation to be used directly form the Julia REPL"
+stargazers_count = "7"
+url = "https://github.com/ChristianKurz/REPLTetris.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChristianKurz"
+contributions = "35"

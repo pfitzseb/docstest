@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ElasticArrays"
+owner = "JuliaArrays"
+version = "0.3.0"
+description = "Resizeable multi-dimensional arrays for Julia"
+stargazers_count = "11"
+url = "https://github.com/JuliaArrays/ElasticArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oschulz"
+contributions = "56"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "1"

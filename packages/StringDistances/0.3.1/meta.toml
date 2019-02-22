@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "StringDistances"
+owner = "matthieugomez"
+version = "0.3.1"
+description = "String Distances"
+stargazers_count = "28"
+url = "https://github.com/matthieugomez/StringDistances.jl.git"
+installs = true
+tags = ["string-distance", "levenshtein-distance", "similarity-score", "edit-distances", "winkler", "qgram-distance", "fuzzywuzzy"]
+license = "Other"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "138"
+[[contributors]]
+name = "pfitzseb"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"

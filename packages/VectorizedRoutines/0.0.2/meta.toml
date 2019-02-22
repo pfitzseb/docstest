@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "VectorizedRoutines"
+owner = "ChrisRackauckas"
+version = "0.0.2"
+description = "Familiar vectorized routines from R/Python/MATLAB, plus some more."
+stargazers_count = "11"
+url = "https://github.com/ChrisRackauckas/VectorizedRoutines.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "54"
+[[contributors]]
+name = "mkborregaard"
+contributions = "16"
+[[contributors]]
+name = "ViktorQvarfordt"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "SalchiPapa"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

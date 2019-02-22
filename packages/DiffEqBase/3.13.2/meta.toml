@@ -1,0 +1,108 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqBase"
+owner = "JuliaDiffEq"
+version = "3.13.2"
+description = "The lightweight Base library for shared types and functionality."
+stargazers_count = "29"
+url = "https://github.com/JuliaDiffEq/DiffEqBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "721"
+[[contributors]]
+name = "YingboMa"
+contributions = "46"
+[[contributors]]
+name = "tkf"
+contributions = "36"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "16"
+[[contributors]]
+name = "devmotion"
+contributions = "14"
+[[contributors]]
+name = "Datseris"
+contributions = "10"
+[[contributors]]
+name = "mauro3"
+contributions = "6"
+[[contributors]]
+name = "elevien"
+contributions = "6"
+[[contributors]]
+name = "ScottPJones"
+contributions = "5"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "5"
+[[contributors]]
+name = "thesharpshooter"
+contributions = "5"
+[[contributors]]
+name = "ronisbr"
+contributions = "4"
+[[contributors]]
+name = "BeastyBlacksmith"
+contributions = "4"
+[[contributors]]
+name = "jagot"
+contributions = "3"
+[[contributors]]
+name = "aytekinar"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "2"
+[[contributors]]
+name = "tkoolen"
+contributions = "2"
+[[contributors]]
+name = "non-Jedi"
+contributions = "1"
+[[contributors]]
+name = "AttilaKovacs"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "favba"
+contributions = "1"
+[[contributors]]
+name = "gabrielgellner"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "korsbo"
+contributions = "1"
+[[contributors]]
+name = "isaacsas"
+contributions = "1"
+[[contributors]]
+name = "Libbum"
+contributions = "1"
+[[contributors]]
+name = "timkittel"
+contributions = "1"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "1"
+[[contributors]]
+name = "Armavica"
+contributions = "1"
+[[contributors]]
+name = "tungli"
+contributions = "1"

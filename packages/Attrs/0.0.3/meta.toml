@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Attrs"
+owner = "simonfxr"
+version = "0.0.3"
+description = ""
+stargazers_count = "2"
+url = "https://github.com/simonfxr/Attrs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonfxr"
+contributions = "9"

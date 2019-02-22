@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "LatinHypercubeSampling"
+owner = "MrUrq"
+version = "1.2.0"
+description = "Julia package for the creation of optimised Latin Hypercube Sampling Plans"
+stargazers_count = "3"
+url = "https://github.com/MrUrq/LatinHypercubeSampling.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MrUrq"
+contributions = "75"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

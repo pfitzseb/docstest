@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Psychro.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Psychro.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.@polyeval" href="#Psychro.@polyeval"><code>Psychro.@polyeval</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@polyeval(z, p, N)</code></pre><p>Evaluate the polynomial <span>$\sum_k c[k] z^{k-1}$</span> for the coefficients <code>c[1]</code>, <code>c[2]</code>, ..., <code>c[N]</code>; that is, the coefficients are given in ascending order by power of <code>z</code>.  This macro expands to efficient inline code that uses either Horner&#39;s method.</p><pre><code class="language-julia-repl">
+julia&gt; p = randn(5)
+5-element Array{Float64,1}:
+  0.106455 
+  0.0351716
+ -0.204764 
+ -0.87642  
+  0.260407 
+
+julia&gt; @polyeval(0.5, p, 5)
+-0.020427265391245605
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.AbstractFluid" href="#Psychro.AbstractFluid"><code>Psychro.AbstractFluid</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Abstract type that represents any kind of fluid</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.AbstractMaterial" href="#Psychro.AbstractMaterial"><code>Psychro.AbstractMaterial</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Abstract type that represents any kind of matter</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Baa" href="#Psychro.Baa"><code>Psychro.Baa</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Baa(Tk)```</code></pre><p>Virial coefficient Bₐₐ of dry air eq 10 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Bₐₐ in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Baw" href="#Psychro.Baw"><code>Psychro.Baw</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Baw(Tk)```</code></pre><p>Cross virial coefficient Baw of saturated vapor eq 15 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Baw in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Blin" href="#Psychro.Blin"><code>Psychro.Blin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Blin(Tk)```</code></pre><p>Virial coefficient B&#39; saturated vapor eq 15 [1]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: B&#39; in Pa^(-1)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Bm" href="#Psychro.Bm"><code>Psychro.Bm</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Bm(Tk,xv)```</code></pre><p>First virial coefficient Bm of moist air of saturated vapor eq 2 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>xv</code> Molar fraction of water vapor in the moist air</li><li>Output: Bm in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Bww" href="#Psychro.Bww"><code>Psychro.Bww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Bww(Tk)```</code></pre><p>Virial coefficient Bww of saturated vapor eq 19 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Bww in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Caaa" href="#Psychro.Caaa"><code>Psychro.Caaa</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Caa(Tk)```</code></pre><p>Second virial coefficient Cₐₐₐ of dry air eq 11 [2].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Bₐₐ in m^6/mol^2</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Caaw" href="#Psychro.Caaw"><code>Psychro.Caaw</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Caaw(Tk)```</code></pre><p>Cross virial coefficient Caaw of saturated vapor eq 16 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Caaw in m^6/mol^2</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Caww" href="#Psychro.Caww"><code>Psychro.Caww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Caww(Tk)```</code></pre><p>Cross virial coefficient Caaw of saturated vapor eq 17 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Caww in m^6/mol^2</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Clin" href="#Psychro.Clin"><code>Psychro.Clin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Second virial coefficient C&#39; saturated vapor eq 16 [1]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: B&#39; in Pa^(-2)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Cm" href="#Psychro.Cm"><code>Psychro.Cm</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Cm(Tk,xv)```</code></pre><p>Second virial coefficient Cm of moist air of saturated vapor eq 3 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>xv</code> Molar fraction of water vapor in the moist air</li><li>Output: Cm in m^6/mol^2</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.ConvergenceError" href="#Psychro.ConvergenceError"><code>Psychro.ConvergenceError</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ConvergenceError([msg, val, niter, err])</code></pre><p>Exception that is to be thrown when an iterative procedure fails to converge.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Cwww" href="#Psychro.Cwww"><code>Psychro.Cwww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Cwww(Tk)```</code></pre><p>Second virial coefficient Cwww of saturated vapor eq 20 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Cwww in m^3/mol</li></ul></div></div></section><pre><code class="language-none">Psychro.Density</code></pre><pre><code class="language-none">Psychro.DewPoint</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.DryAir" href="#Psychro.DryAir"><code>Psychro.DryAir</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Type used to model dry air</p><p>This uses the formulations presente in the ASHRAE handbook Psychrometrics: Theory and Practice, reference [5].</p><p>The methods dealing with this type implement the equations of reference [2].</p><p>Some thermodynamic properties are implemented as methods. Every method takes as arguments, the type Vapor<code>as first argument and the temperature as the second. If</code>Unitful` package is used, any unit can be used. On the other hand if no units are provided, the packages assumes SI units all through. In particular:</p><ul><li>Temperature in K</li><li>Pressure in Pa</li><li>Length in m</li><li>Quantity of matter in mol</li><li>Mass in kg</li><li>Energy in J</li></ul><p>The following methods are implemented:</p><ul><li><code>volume(DryAir, T, P)</code> specific volume</li><li><code>volumem(DryAir, T, P</code> molar volume</li><li><code>density(DryAir, T, P)</code> density</li><li><code>enthalpy(DryAir, T, P)</code> specific enthalpy</li><li><code>enthalpym(DryAir, T, P)</code> molar enthalpy</li><li><code>entropy(DryAir, T, P)</code> specific entropy</li><li><code>entropym(DryAir, T, P)</code> molar entropy</li><li><code>compressfactor(DryAir, T, P)</code> Compressibility factor.</li></ul></div></div></section><pre><code class="language-none">Psychro.Enthalpy</code></pre><pre><code class="language-none">Psychro.Entropy</code></pre><pre><code class="language-none">Psychro.HumRat</code></pre><pre><code class="language-none">Psychro.L</code></pre><pre><code class="language-none">Psychro.M</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Ma" href="#Psychro.Ma"><code>Psychro.Ma</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Molecular weight of air in kg/mol</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.MoistAir" href="#Psychro.MoistAir"><code>Psychro.MoistAir</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Type used to model moist air</p><p>This uses the formulations presente in the ASHRAE handbook Psychrometrics: Theory and Practice, reference [5]. </p><p>The temperature range is <code>173.15 &lt; T &lt; 474.15 K</code> with pressures <code>P &lt; 5 MPa</code>.</p><p>The methods dealing with this type implement the equations of references [1-2] to calculate some thermodynamics of real moits air.</p><p>Some thermodynamic properties are implemented as methods. Every method takes as arguments, the type <code>MoistAir</code> as first argument, temperature as second argument, a type declaring how humidity is specified, the value of humidity using and pressure. If <code>Unitful</code> package is used, any unit can be used. On the other hand if no units are provided, the packages assumes SI units all through. In particular:</p><ul><li>Temperature in K</li><li>Pressure in Pa</li><li>Length in m</li><li>Quantity of matter in mol</li><li>Mass in kg</li><li>Energy in J</li></ul><p>To specify humidity the following types are implemented:</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p>The following methods are implemented:</p><ul><li><code>volume(MoistAir, T, HumType, h, P)</code> specific volume</li><li><code>volumem(MoistAir, T, HumType, h, P</code> molar volume</li><li><code>density(MoistAir, T, HumType, h, P)</code> density</li><li><code>enthalpy(MoistAir, T, HumType, h, P)</code> specific enthalpy</li><li><code>enthalpym(MoistAir, T, HumType, h, P)</code> molar enthalpy</li><li><code>entropy(MoistAir, T, HumType, h, P)</code> specific entropy</li><li><code>entropym(MoistAir, T, HumType, h, P)</code> molar entropy</li><li><code>compressfactor(MoistAir, T, HumType, h, P)</code> Compressibility factor.</li></ul><p>It should be noted that the specific enthalpy, entropy and volume are calculated with respect to the mass of dry air. Therefore, 1 J/kg is actually 1 J per kg of dry air.</p></div></div></section><pre><code class="language-none">Psychro.MolarFrac</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Mv" href="#Psychro.Mv"><code>Psychro.Mv</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Molecular weight of water in kg/mol</p></div></div></section><pre><code class="language-none">Psychro.Pressure</code></pre><pre><code class="language-none">Psychro.Psychro</code></pre><pre><code class="language-none">Psychro.PsychroProperty</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Pws" href="#Psychro.Pws"><code>Psychro.Pws</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Pws(Tk)```</code></pre><p>Saturation pressure of vapor pressure over liquid water or ice. This function calls either <code>Pws_l</code> or <code>Pws_s</code>. At a temperature of  273.16 both expressions are almost exactly the same (6 decimal figures).</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Pws_l" href="#Psychro.Pws_l"><code>Psychro.Pws_l</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Pws_l(Tk)```</code></pre><p>Saturation pressure of vapor pressure over liquid water. This implements equation 17 from [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Pws_s" href="#Psychro.Pws_s"><code>Psychro.Pws_s</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Pws_s(Tk)```</code></pre><p>Saturation pressure of vapor pressure over ice. This implements equation 18 from [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.R" href="#Psychro.R"><code>Psychro.R</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Universal gas constant kg m^2 /s^2 /K /mol</p></div></div></section><pre><code class="language-none">Psychro.RelHum</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.SpecHum" href="#Psychro.SpecHum"><code>Psychro.SpecHum</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Specific Humidity mv / (ma+mv)</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.T0" href="#Psychro.T0"><code>Psychro.T0</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Melting point of water</p></div></div></section><pre><code class="language-none">Psychro.Temperature</code></pre><pre><code class="language-none">Psychro.ThermodynamicProperty</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Tws" href="#Psychro.Tws"><code>Psychro.Tws</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Tws(P)```</code></pre><p>Calculates the saturation temperature of water vapor.  This function is the inverse of function <code>Pws(T)</code>.  First an approximation was obtained and then a Newton iteration is used to obtain more accurate data.</p><ul><li><code>P</code> Saturation pressure in Pa</li><li>Output: Saturation temperature in K.</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Vapor" href="#Psychro.Vapor"><code>Psychro.Vapor</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Type used to model saturated water vapor</p><p>This uses the formulations presente in the ASHRAE handbook Psychrometrics: Theory and Practice, reference [5].</p><p>The methods dealing with this type implement the equations of reference [1].</p><p>Some thermodynamic properties are implemented as methods. Every method takes as arguments, the type <code>DryAir</code> as first argument and the saturation temperature. If <code>Unitful</code> package is used, any unit can be used. On the other hand if no units are provided, the packages assumes SI units all through. In particular:</p><ul><li>Temperature in K</li><li>Pressure in Pa</li><li>Length in m</li><li>Quantity of matter in mol</li><li>Mass in kg</li><li>Energy in J</li></ul><p>The following methods are implemented:</p><ul><li><code>volume(Vapor, T)</code> specific volume</li><li><code>volumem(Vapor, T)</code> molar volume</li><li><code>density(Vapor, T)</code> density</li><li><code>enthalpy(Vapor, T)</code> specific enthalpy</li><li><code>enthalpym(Vapor, T)</code> molar enthalpy</li><li><code>entropy(Vapor, T)</code> specific entropy</li><li><code>entropym(Vapor, T)</code> molar entropy</li><li><code>compressfactor(Vapor, T)</code> Compressibility factor.</li></ul></div></div></section><pre><code class="language-none">Psychro.Volume</code></pre><pre><code class="language-none">Psychro.WetBulb</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Zair" href="#Psychro.Zair"><code>Psychro.Zair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Zair(Tk, P, EPS, MAXITER)```</code></pre><p>Compressibility factor of dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: Z (nondimensional)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Zmoist" href="#Psychro.Zmoist"><code>Psychro.Zmoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Zmoist(Tk, P, xv)```</code></pre><p>Compressibility factor of moist air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code> molar fraction of water vapor.</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: Z (nondimensional)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.Zvapor" href="#Psychro.Zvapor"><code>Psychro.Zvapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Zvapor(Tk)</code></pre><p>Compressibility factor of saturated vapor. Eq. 21 reference [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.a" href="#Psychro.a"><code>Psychro.a</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Coefficients a_i to calculate enthalpy of moist air ref[2]</p></div></div></section><pre><code class="language-none">Psychro.aux_WB</code></pre><pre><code class="language-none">Psychro.calc_W_from_B</code></pre><pre><code class="language-none">Psychro.calcdewpoint</code></pre><pre><code class="language-none">Psychro.calcwetbulb</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.calcz" href="#Psychro.calcz"><code>Psychro.calcz</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">calcz(vm, b0, c0, [EPS, [MAXITER, [relax]]])</code></pre><p>Calculates the compressibility factor using a virial equation:</p><p><code>z = 1 + b₀/z + c₀/vₘ²</code></p><p>The algorithm initially uses as an initial guess only the b₀ virial  coefficient. Then it uses a Newton-Raphson algorithm to compute the compressibility factor</p><ul><li><code>b0</code> b₀ parameter of the virial equation</li><li><code>c0</code> c₀ parameter of the virial equation</li><li><code>EPS</code> Convergence criterium</li><li><code>MAXITER</code> Maximim number of iterations</li><li><code>relax</code> Sub-relaxation parameter if convergence is difficult.</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.compressfactor" href="#Psychro.compressfactor"><code>Psychro.compressfactor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">compressfactor(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+compressfactor(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+compressfactor(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the compressibility factor Z of a gas. In the case of moist air, parameters specifying the humidity shoud be added. </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; compressfactor(DryAir, 293.15, 101325.0)
+1.2044776705391136
+
+julia&gt; compressfactor(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+1.2044776705391136 kg m^-3
+
+julia&gt; compressfactor(Vapor, 293.15)
+0.017308548277505224
+
+julia&gt; compressfactor(Vapor, 20.0u&quot;°C&quot;)
+0.017308548277505224 kg m^-3
+
+julia&gt; compressfactor(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+1.1971436091840653
+
+julia&gt; compressfactor(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+1.195819185774941 kg m^-3
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.d" href="#Psychro.d"><code>Psychro.d</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Coefficients d_i to calculate enthalpy of moist air ref[2]</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dBaa" href="#Psychro.dBaa"><code>Psychro.dBaa</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dBaa(Tk)```</code></pre><p>Derivative of Bₐₐ(T). Calculated from equation 10 [2].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Bₐₐ in m^3/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dBaw" href="#Psychro.dBaw"><code>Psychro.dBaw</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```Baw(Tk)```</code></pre><p>Derivative of cross virial coefficient Bww of saturated vapor eq 15 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: dBaw/dT in m^3/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dBlin" href="#Psychro.dBlin"><code>Psychro.dBlin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dBlin(Tk)```</code></pre><p>Derivative of virial coefficient dB&#39;/dT saturated vapor eq 15 [1]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: B&#39; in Pa^(-1)/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dBm" href="#Psychro.dBm"><code>Psychro.dBm</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dBm(Tk,xv)```</code></pre><p>Derivative of first virial coefficient Bm of moist air of saturated vapor eq 2 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>xv</code> Molar fraction of water vapor in the moist air</li><li>Output: dBm/dT in m^3/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dBww" href="#Psychro.dBww"><code>Psychro.dBww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dBww(Tk)```</code></pre><p>Derivative of virial coefficient dBww/dT of saturated vapor eq 19 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: dBww/dT in m^3/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dCaaa" href="#Psychro.dCaaa"><code>Psychro.dCaaa</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dCaa(Tk)```</code></pre><p>Derivative of second virial coefficient Cₐₐₐ of dry air eq 11 [2].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Bₐₐ in m^6/mol^2/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dCaaw" href="#Psychro.dCaaw"><code>Psychro.dCaaw</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dCaaw(Tk)```</code></pre><p>Derivative of cross virial coefficient dCaaw/dT of saturated vapor eq 16 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: dCaaw/dT in m^6/mol^2/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dCaww" href="#Psychro.dCaww"><code>Psychro.dCaww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dCaww(Tk)```</code></pre><p>Derivative of cross virial coefficient dCaaw/dT of saturated vapor eq 17 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: dCaww/dT in m^6/mol^2/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dClin" href="#Psychro.dClin"><code>Psychro.dClin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dClin(Tk)```</code></pre><p>Derivative of Second virial coefficient dC&#39;/dT saturated vapor eq 16 [1]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: B&#39; in Pa^(-2)/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dCm" href="#Psychro.dCm"><code>Psychro.dCm</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dCm(Tk,xv)```</code></pre><p>Derivative of second virial coefficient Cm of moist air of saturated vapor eq 3 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>xv</code> Molar fraction of water vapor in the moist air</li><li>Output: dCm/dT in m^6/mol^2/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dCwww" href="#Psychro.dCwww"><code>Psychro.dCwww</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dCwww(Tk)```</code></pre><p>Derivative of second virial coefficient dCww/dT of saturated vapor eq 20 [2]</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: dCwww/dT in m^3/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dPws" href="#Psychro.dPws"><code>Psychro.dPws</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dPws(Tk)```</code></pre><p>Derivative of saturation pressure of vapor pressure over liquid water and ice. This combines the functions <code>dPws_l</code> and <code>dPws_s</code>.</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dPws_l" href="#Psychro.dPws_l"><code>Psychro.dPws_l</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dPws_s(Tk)```</code></pre><p>Derivative of saturation pressure of vapor pressure over water. This implements the derivative of equation 17 from [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dPws_s" href="#Psychro.dPws_s"><code>Psychro.dPws_s</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```dPws_s(Tk)```</code></pre><p>Derivative of saturation pressure of vapor pressure over ice. This implements the derivative of equation 18 from [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: Pa/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.density" href="#Psychro.density"><code>Psychro.density</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">density(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+density(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+density(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the density volume of a gas. In the case of moist air, parameters specifying the humidity shoud be added. </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; density(DryAir, 293.15, 101325.0)
+1.2044776705391136
+
+julia&gt; density(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+1.2044776705391136 kg m^-3
+
+julia&gt; density(Vapor, 293.15)
+0.017308548277505224
+
+julia&gt; density(Vapor, 20.0u&quot;°C&quot;)
+0.017308548277505224 kg m^-3
+
+julia&gt; density(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+1.1971436091840653
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+1.195819185774941 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;lb/inch^3&quot;)
+4.3201708903793606e-5 in^-3 lb
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.densitywater" href="#Psychro.densitywater"><code>Psychro.densitywater</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">densitywater(Tk)</code></pre><p>Density of saturated water. Equation 5 from ref. [1].</p><ul><li><code>Tk</code> Temperature in K.</li><li>Output: density kg/m^3</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.dewpoint" href="#Psychro.dewpoint"><code>Psychro.dewpoint</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></section><pre><code class="language-none">Psychro.dimless</code></pre><pre><code class="language-none">Psychro.efactor</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.efactor2" href="#Psychro.efactor2"><code>Psychro.efactor2</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```e_factor(Tk,P)```</code></pre><p>Enhancement factor of moist air.  Uses an iterative procedure to calculate the Enhancement factor defined  in equation 18 [2]</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpy" href="#Psychro.enthalpy"><code>Psychro.enthalpy</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpy(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+enthalpy(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+enthalpy(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the specific enthalpy of a gas. In the case of moist air, parameters specifying the humidity shoud be added and the the property is based on the mass of dry air not mass of the gas (as is the case for <code>DryAir</code> or <code>Vapor</code>). </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; enthalpy(DryAir, 293.15, 101325.0)
+20121.2722813185
+
+julia&gt; enthalpy(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+20121.2722813185 kg^-1 J
+
+julia&gt; enthalpy(Vapor, 293.15)
+2.5374003352412493e6
+
+julia&gt; enthalpy(Vapor, 20.0u&quot;°C&quot;)
+2.5374003352412493e6 kg^-1 J
+
+julia&gt; enthalpy(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+46142.773129687484
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+50944.84575377501 kg^-1 J
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;J/lb&quot;)
+23108.193324739244 J lb^-1
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpyair" href="#Psychro.enthalpyair"><code>Psychro.enthalpyair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpyair(Tk)</code></pre><p>Specific enthalpy of dry air. Equation 13 of reference [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: m^3/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpyice" href="#Psychro.enthalpyice"><code>Psychro.enthalpyice</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpyice(Tk)</code></pre><p>Specific enthalpy of saturated ice. Equation 3 of ref. [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpym" href="#Psychro.enthalpym"><code>Psychro.enthalpym</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpym(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+enthalpym(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+enthalpym(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the molar enthalpy of a gas. In the case of moist air, parameters specifying the humidity shoud be added. </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; enthalpym(DryAir, 293.15, 101325.0)
+582.7824697199684
+
+julia&gt; enthalpym(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+582.7824697199684 J mol^-1
+
+julia&gt; enthalpy(Vapor, 293.15)
+2.5374003352412493e6
+
+julia&gt; enthalpym(Vapor, 20.0u&quot;°C&quot;)
+45711.977511464975 J mol^-1
+
+julia&gt; enthalpym(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+1314.7744549269437
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+1447.2684837312868 J mol^-1
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;kJ/kmol&quot;)
+1447.2684837312868 kJ kmol^-1
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpymoist" href="#Psychro.enthalpymoist"><code>Psychro.enthalpymoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpymoist(Tk, P, xv, EPS=1e-8, MAXITER=100)</code></pre><p>Specific enthalphy of moist air defined as enthalpy per kg of dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code> molar fraction of water vapor.</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: J/kg of dry air</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpyvapor" href="#Psychro.enthalpyvapor"><code>Psychro.enthalpyvapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpyvapor(Tk)</code></pre><p>Specific enthalpy of saturated water vapor. Equation 19 of ref. [1].</p><p>Equation 19 ha a problem since the terms using the virial coefficients are actually molar enthalpies not specific. Dividing these terms by Mv solves any issues and the equations match the table in the appendix!</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpywater" href="#Psychro.enthalpywater"><code>Psychro.enthalpywater</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpywater(Tk)</code></pre><p>Specific enthalpy of saturated water. Equations 6-11 of ref. [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.enthalpywi" href="#Psychro.enthalpywi"><code>Psychro.enthalpywi</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">enthalpywi(Tk)</code></pre><p>Specific enthalpy of saturated water in condensed phase (ice or water).</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.entropy" href="#Psychro.entropy"><code>Psychro.entropy</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">entropy(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+entropy(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+entropy(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the specific entropy of a gas. In the case of moist air, parameters specifying the humidity shoud be added and the the property is based on the mass of dry air not mass of the gas (as is the case for <code>DryAir</code> or <code>Vapor</code>). </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; entropy(DryAir, 293.15, 101325.0)
+71.09262577195514
+
+julia&gt; entropy(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+71.09262577195514 kg^-1 J K^-1
+
+julia&gt; entropy(Vapor, 293.15)
+8665.873003613997
+
+julia&gt; entropy(Vapor, 20.0u&quot;°C&quot;)
+8665.873003613997 kg^-1 J K^-1
+
+julia&gt; entropy(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+166.33538729355692
+
+julia&gt; entropy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+182.97140931650105 kg^-1 J K^-1
+
+julia&gt; entropy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;kJ/lb/°F&quot;)
+0.04610801955228433 °F^-1 kJ lb^-1
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.entropyair" href="#Psychro.entropyair"><code>Psychro.entropyair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">entropyair(Tk)</code></pre><p>Specific entropy of dry air. Equation 14 of reference [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: m^3/(kg.K)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.entropym" href="#Psychro.entropym"><code>Psychro.entropym</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">entropym(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+entropym(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+entropym(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the molar entropy of a gas. In the case of moist air, parameters specifying the humidity shoud be added. </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; entropym(DryAir, 293.15, 101325.0)
+2.0590912665460226
+
+julia&gt; entropym(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+2.0590912665460226 J K^-1 mol^-1
+
+julia&gt; entropy(Vapor, 293.15)
+8665.873003613997
+
+julia&gt; entropym(Vapor, 20.0u&quot;°C&quot;)
+156.11812860454717 J K^-1 mol^-1
+
+julia&gt; entropym(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+4.739496639035868
+
+julia&gt; entropym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+5.197949865380578 J K^-1 mol^-1
+
+julia&gt; entropym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;kJ/kmol/°F&quot;)
+2.8877499252114327 °F^-1 kJ kmol^-1
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.entropymoist" href="#Psychro.entropymoist"><code>Psychro.entropymoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">entropymoist(Tk, P, xv, EPS=1e-8, MAXITER=100)</code></pre><p>Specific entropy of moist air defined as entropy per kg of dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code> molar fraction of water vapor.</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: J/kg/K of dry air</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.entropyvapor" href="#Psychro.entropyvapor"><code>Psychro.entropyvapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">entropyvapor(Tk)</code></pre><p>Specific entropy of saturated vapor. Eq. 20 reference [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/kg/K</li></ul></div></div></section><pre><code class="language-none">Psychro.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.g" href="#Psychro.g"><code>Psychro.g</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Coefficients g_i to calculate enthalpy of moist air ref[2]</p></div></div></section><pre><code class="language-none">Psychro.gg</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.henryk" href="#Psychro.henryk"><code>Psychro.henryk</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">henryk(Tk)</code></pre><p>Henry&#39;s coefficient for solubility of air in water. Implements equations 24 and 25 from ref. [2]. See reference [3] Valid for temperatures between 273.15 K and 500 K</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: k in atm/mol fract * 10^(-4)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.henryk_N2" href="#Psychro.henryk_N2"><code>Psychro.henryk_N2</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">henryk_N2(Tk)</code></pre><p>Henry&#39;s coefficient for solubility of N2 in water. Implements equation 23 from ref. [2]. See reference [3] Valid for temperatures between 273.15 K and 500 K</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: k in atm/mol * 10^(-4)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.henryk_O2" href="#Psychro.henryk_O2"><code>Psychro.henryk_O2</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">henryk_O2(Tk)</code></pre><p>Henry&#39;s coefficient for solubility of O2 in water. Implements equation 23 from ref. [2]. See reference [3] Valid for temperatures between 273.15 K and 500 K</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: k in atm/mol * 10^(-4)</li></ul></div></div></section><pre><code class="language-none">Psychro.hh</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.humrat" href="#Psychro.humrat"><code>Psychro.humrat</code></a> — <span class="docstring-category">Function</span>.</div><div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></div></section><pre><code class="language-none">Psychro.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.k" href="#Psychro.k"><code>Psychro.k</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><p>Coefficients k_i to calculate enthalpy of moist air ref[2]</p></div></div></section><pre><code class="language-none">Psychro.kappa_f</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.kappa_l" href="#Psychro.kappa_l"><code>Psychro.kappa_l</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">kappa_l(Tk)</code></pre><p>Isothermal compressibility of saturated liquid water. Equation 21, ref. [2]. Range of applicability 0°C - 150°C but can be extended up to 200°C More details in reference [4].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: κ in 1/Pa</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.kappa_s" href="#Psychro.kappa_s"><code>Psychro.kappa_s</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">kappa_s(Tk)</code></pre><p>Isothermal compressibility of ice. Equation 22, ref. [2].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: κ in 1/Pa</li></ul></div></div></section><pre><code class="language-none">Psychro.lnf</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.lnf2" href="#Psychro.lnf2"><code>Psychro.lnf2</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```lnf(Tk, P, xas)```</code></pre><p>Auxiliary function used to calculate the enhancement factor. Actually, this function implements the RHS of eq. 18 of [2].</p></div></div></section><pre><code class="language-none">Psychro.mm</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarenthalpyair" href="#Psychro.molarenthalpyair"><code>Psychro.molarenthalpyair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarenthalpyair(Tk)</code></pre><p>Molar enthalpy of dry air. Equation 13 of reference [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarenthalpymoist" href="#Psychro.molarenthalpymoist"><code>Psychro.molarenthalpymoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarenthalpymoist(Tk, P, xv, EPS=1e-8, MAXITER=100)</code></pre><p>Molar enthalphy of moist air defined as enthalpy dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code> molar fraction of water vapor.</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: J/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarentropyair" href="#Psychro.molarentropyair"><code>Psychro.molarentropyair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarentropyair(Tk)</code></pre><p>Specific entropy of dry air. Equation 14 of reference [2]</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: m^3/(kg.K)</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarentropymoist" href="#Psychro.molarentropymoist"><code>Psychro.molarentropymoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarentropymoist(Tk, P, xv, EPS=1e-8, MAXITER=100)</code></pre><p>Molar entropy of moist air defined as entropy per kg of dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code> molar fraction of water vapor.</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: J/mol/K of dry air</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarentropyvapor" href="#Psychro.molarentropyvapor"><code>Psychro.molarentropyvapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarentropyvapor(Tk)</code></pre><p>Molar entropy of saturated vapor. Eq. 20 reference [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: J/mol/K</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarfrac" href="#Psychro.molarfrac"><code>Psychro.molarfrac</code></a> — <span class="docstring-category">Function</span>.</div><div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarfracmoist_sat" href="#Psychro.molarfracmoist_sat"><code>Psychro.molarfracmoist_sat</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarfracmoist_sat(Tk, P)</code></pre><p>Molar fraction of water vapor in saturated moist air</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li>Output: molar fraction</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarvolumeair" href="#Psychro.molarvolumeair"><code>Psychro.molarvolumeair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">molarvolumeair(Tk)</code></pre><p>Molar volume of dry air. Equation 12 of reference [1]. This function requires iteration to compute the volume.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: molar volume in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarvolumemoist" href="#Psychro.molarvolumemoist"><code>Psychro.molarvolumemoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```molarvolumemoist```</code></pre><p>Molar volume of moist air given the molar fraction of water vapor. Assumes a real gas.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code>  Molar fraction of water vapor</li><li>Output: molar volume in m^3/mol</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.molarvolvapor" href="#Psychro.molarvolvapor"><code>Psychro.molarvolvapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumevapor(Tk)</code></pre><p>Molar volume of saturated vapor. Eq. 21 reference [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: m^3/mol</li></ul></div></div></section><pre><code class="language-none">Psychro.ndim</code></pre><pre><code class="language-none">Psychro.perc</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.relhum" href="#Psychro.relhum"><code>Psychro.relhum</code></a> — <span class="docstring-category">Function</span>.</div><div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.spechum" href="#Psychro.spechum"><code>Psychro.spechum</code></a> — <span class="docstring-category">Function</span>.</div><div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></div></section><pre><code class="language-none">Psychro.uD</code></pre><pre><code class="language-none">Psychro.uH</code></pre><pre><code class="language-none">Psychro.uP</code></pre><pre><code class="language-none">Psychro.uS</code></pre><pre><code class="language-none">Psychro.uT</code></pre><pre><code class="language-none">Psychro.uV</code></pre><pre><code class="language-none">Psychro.umD</code></pre><pre><code class="language-none">Psychro.umH</code></pre><pre><code class="language-none">Psychro.umS</code></pre><pre><code class="language-none">Psychro.umV</code></pre><pre><code class="language-none">Psychro.val</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volume" href="#Psychro.volume"><code>Psychro.volume</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volume(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+volume(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+volume(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the specific volume of a gas. In the case of moist air, parameters specifying the humidity shoud be added and the the property is based on the mass of dry air not mass of the gas (as is the case for <code>DryAir</code> or <code>Vapor</code>). </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(DryAir, 293.15, 101325.0)
+0.8302353995092402
+
+julia&gt; volume(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+0.8302353995092402 kg^-1 m^3
+
+julia&gt; volume(Vapor, 293.15)
+57.77492045936827
+
+julia&gt; volume(Vapor, 20.0u&quot;°C&quot;)
+57.77492045936827 kg^-1 m^3
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+0.8464079202783964 kg^-1 m^3
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;inch^3/lb&quot;)
+23428.490579267214 in^3 lb^-1</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumeair" href="#Psychro.volumeair"><code>Psychro.volumeair</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumeair</code></pre><p>Specific volume of dry air. Uses <code>molarvolumeair</code>.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>EPS</code>: Acceptable error</li><li><code>MAXITER</code>: Maixmum number of iterations</li><li>Output: molar volume in m^3/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumeice" href="#Psychro.volumeice"><code>Psychro.volumeice</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumeice(Tk)</code></pre><p>Specific volume of saturated ice. Equation 2 from ref. [1].</p><ul><li><code>Tk</code> Temperature in K.</li><li>Output: specific volume in m^3/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumem" href="#Psychro.volumem"><code>Psychro.volumem</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumem(DryAir, T, P[, out_unit=u&quot;m^3/kg&quot;])
+volumem(Vapor, T[, out_unit=u&quot;m^3/kg&quot;])
+volumem(MoistAir, T, HumidityType, hum, P[, out_unit=&quot;m^3/kg&quot;])</code></pre><p>Calculates the molar volume of a gas. In the case of moist air, parameters specifying the humidity shoud be added. </p><p>If <code>Unitful</code> units are used, all parameters of the function (except dimensionless) should have units associated. When no units are provided, all parameters should use SI units (and so does the return type). For further information, checkout the doc for <code>Psychro</code> module.</p><p>Temperature should be in the range <code>173.15 K &lt; T &lt; 473.15</code> and pressure should be below 5 MPa.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volumem(DryAir, 293.15, 101325.0)
+0.024046522993685877
+
+julia&gt; volumem(DryAir, 20.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+0.024046522993685877 m^3 mol^-1
+
+julia&gt; volumem(Vapor, 293.15)
+1.040831369053248
+
+julia&gt; volumem(Vapor, 20.0u&quot;°C&quot;)
+1.040831369053248 m^3 mol^-1
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.02404547233948706
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;)
+0.024045209859305458 m^3 mol^-1
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 18.0u&quot;°C&quot;, 1.0u&quot;atm&quot;, u&quot;inch^3/mol&quot;)
+1467.32873315839 in^3 mol^-1</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumemoist" href="#Psychro.volumemoist"><code>Psychro.volumemoist</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">```volumemoist```</code></pre><p>Specific volume of moist air given the molar fraction of water vapor. Assumes a real gas. The specific volume is defined as the volume occupied by a mixture of dry air and water vapor per kg of dry air.</p><ul><li><code>Tk</code> Temperature in K</li><li><code>P</code> Pressure in Pa</li><li><code>xv</code>  Molar fraction of water vapor</li><li>Output: molar volume in m^3/kg of dry air.</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumevapor" href="#Psychro.volumevapor"><code>Psychro.volumevapor</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumevapor(Tk)</code></pre><p>Specific volume of saturated vapor. Eq. 21 reference [1].</p><ul><li><code>Tk</code> Temperature in K</li><li>Output: m^3/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.volumewater" href="#Psychro.volumewater"><code>Psychro.volumewater</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">volumewater(Tk)</code></pre><p>Specific volume of saturated water. Inverse of equation 5 from ref. [1].</p><ul><li><code>Tk</code> Temperature in K.</li><li>Output: specific volume in m^3/kg</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Psychro.wetbulb" href="#Psychro.wetbulb"><code>Psychro.wetbulb</code></a> — <span class="docstring-category">Function</span>.</div><div><div><div><p><strong>Thermodynamic properties of moist air, dry air and saturated water vapor.</strong></p><p>The methods listed below calculate thermodynamic properties of moist air:</p><pre><code class="language-none">volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+volume(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+density(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpy(MoistAir, T, HumidityType, humidity, P[, outunit])
+enthalpym(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropy(MoistAir, T, HumidityType, humidity, P[, outunit])
+entropym(MoistAir, T, HumidityType, humidity, P[, outunit])
+compressfactor(MoistAir, T, HumidityType, humidity, P[, outunit])
+dewpoint(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+wetbulb(MoistAir, T, HumidityType, humidity, P[, outunit]) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+relhum(MoistAir, T, HumidityType, humidity, P) 
+humrat(MoistAir, T, HumidityType, humidity, P) 
+spechum(MoistAir, T, HumidityType, humidity, P) 
+molarfrac(MoistAir, T, HumidityType, humidity, P)</code></pre><p>The methods listed above calculate the following thermodynamic properties of moist air:</p><ul><li><code>volume</code> Specific volume </li><li><code>volumem</code> Molar volume</li><li><code>density</code> Density</li><li><code>enthalpy</code> Specific enthalpy</li><li><code>enthalpym</code> Molar enthalpy</li><li><code>entropy</code> Specific entropy</li><li><code>entropym</code> Molar entropy</li><li><code>compressfactor</code> Compressibility factor Z </li><li><code>dewpoint</code> Dew point temperature</li><li><code>wetbulb</code> Adiabatic saturation temperature</li><li><code>humrat</code> Humidity ratio</li><li><code>relhum</code> Relative humidity</li><li><code>spechum</code> Specific humidity</li><li><code>molarfrac</code> Molar fraction of water vapor</li></ul><p>The humidity is specified using two parameters:</p><ul><li>How the humidity is specified</li><li>The actual value of humidity</li></ul><p>The following types are used to characterize the humidity.</p><ul><li><code>WetBulb</code> for wet bulb temperature, actually adiabatic saturation temperature</li><li><code>DewPoint</code> Dew point temperature</li><li><code>RelHum</code> Relative humidity</li><li><code>HumRat</code> Humidity ratio (kg of vapor / kg of dry air)</li><li><code>SpecHum</code> Specific humidity (kg of vapor / kg of moist air)</li><li><code>MolarFrac</code> Molar fraction of water vapor.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; volume(MoistAir, 293.15, WetBulb, 291.15, 101325.0)
+0.8464079202783964
+
+julia&gt; volume(MoistAir, 293.15, DewPoint, 291.15, 101325.0)
+0.8475219875187474
+
+julia&gt; volume(MoistAir, 293.15, RelHum, 0.7, 101325.0)
+0.843889817602806
+
+julia&gt; volume(MoistAir, 20.0u&quot;°C&quot;, DewPoint, 60.0u&quot;°F&quot;, 1.0u&quot;atm&quot;)
+0.8449934929585231 kg^-1 m^3
+
+julia&gt; volumem(MoistAir, 293.15, RelHum, 0.5, 93000.0)
+0.026199080086890276
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1.0976075893895811 kg m^-3
+
+julia&gt; density(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;lb/inch^3&quot;)
+3.965358988338535e-5 in^-3 lb
+
+julia&gt; volumem(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;inch^3/kmol&quot;)
+1.598733210336603e6 in^3 kmol^-1
+
+julia&gt; enthalpy(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+50667.43014746832 kg^-1 J
+
+julia&gt; enthalpym(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+1439.6551689935861 J mol^-1
+
+julia&gt; compressfactor(MoistAir, -90.0u&quot;°C&quot;, RelHum, 0.01, 4.5u&quot;MPa&quot;)
+0.8552758629097985
+
+julia&gt; wetbulb(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+17.0 °C
+
+julia&gt; dewpoint(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;, u&quot;°C&quot;)
+15.475836053510477 °C
+
+julia&gt; humrat(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.012032930694441925
+
+julia&gt; relhum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.7517801524436909
+
+julia&gt; spechum(MoistAir, 20.0u&quot;°C&quot;, WetBulb, 17.0u&quot;°C&quot;, 93u&quot;kPa&quot;)
+0.011889860823189923
+
+</code></pre></div></div></div></section><pre><code class="language-none">Psychro.ww</code></pre><pre><code class="language-none">Psychro.ℓ</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

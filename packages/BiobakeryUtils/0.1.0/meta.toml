@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BiobakeryUtils"
+owner = "BioJulia"
+version = "0.1.0"
+description = "A companion package for Microbiome.jl for working with the Biobakery family of computational tools"
+stargazers_count = "0"
+url = "https://github.com/BioJulia/BiobakeryUtils.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kescobo"
+contributions = "27"

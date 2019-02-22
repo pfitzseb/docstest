@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "ModernGL"
+owner = "JuliaGL"
+version = "1.0.0"
+description = "OpenGL 3+ bindings for Julia"
+stargazers_count = "44"
+url = "https://github.com/JuliaGL/ModernGL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "119"
+[[contributors]]
+name = "aaalexandrov"
+contributions = "12"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "pao"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "aaronang"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"

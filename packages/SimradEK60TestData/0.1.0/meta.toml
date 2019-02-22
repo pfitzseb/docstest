@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SimradEK60TestData"
+owner = "EchoJulia"
+version = "0.1.0"
+description = "Example Simrad EK60 data and corresponding output from Echoview"
+stargazers_count = "0"
+url = "https://github.com/EchoJulia/SimradEK60TestData.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RobBlackwell"
+contributions = "21"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

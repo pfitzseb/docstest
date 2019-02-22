@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "RigidBodyTreeInspector"
+owner = "rdeits"
+version = "0.4.0"
+description = "Simple visualization for the RigidBodyDynamics.jl library"
+stargazers_count = "9"
+url = "https://github.com/rdeits/RigidBodyTreeInspector.jl.git"
+installs = true
+tags = ["ijulia", "visualization", "julia", "urdf", "robotics"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "164"
+[[contributors]]
+name = "tkoolen"
+contributions = "54"
+[[contributors]]
+name = "goretkin"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,258 @@
+license_url = ""
+doctype = "default"
+name = "Compat"
+owner = "JuliaLang"
+version = "1.5.1"
+description = "Compatibility across Julia versions"
+stargazers_count = "62"
+url = "https://github.com/JuliaLang/Compat.jl.git"
+installs = true
+tags = ["julia", "compatibility"]
+license = "Other"
+
+[[contributors]]
+name = "martinholters"
+contributions = "71"
+[[contributors]]
+name = "timholy"
+contributions = "66"
+[[contributors]]
+name = "stevengj"
+contributions = "60"
+[[contributors]]
+name = "ararslan"
+contributions = "52"
+[[contributors]]
+name = "tkelman"
+contributions = "50"
+[[contributors]]
+name = "TotalVerb"
+contributions = "44"
+[[contributors]]
+name = "yuyichao"
+contributions = "43"
+[[contributors]]
+name = "andreasnoack"
+contributions = "33"
+[[contributors]]
+name = "fredrikekre"
+contributions = "29"
+[[contributors]]
+name = "simonster"
+contributions = "28"
+[[contributors]]
+name = "nalimilan"
+contributions = "21"
+[[contributors]]
+name = "jakebolewski"
+contributions = "20"
+[[contributors]]
+name = "quinnj"
+contributions = "17"
+[[contributors]]
+name = "ranjanan"
+contributions = "15"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "14"
+[[contributors]]
+name = "KristofferC"
+contributions = "10"
+[[contributors]]
+name = "kmsquire"
+contributions = "10"
+[[contributors]]
+name = "omus"
+contributions = "9"
+[[contributors]]
+name = "malmaud"
+contributions = "9"
+[[contributors]]
+name = "bicycle1885"
+contributions = "9"
+[[contributors]]
+name = "Keno"
+contributions = "8"
+[[contributors]]
+name = "dancasimiro"
+contributions = "7"
+[[contributors]]
+name = "garrison"
+contributions = "7"
+[[contributors]]
+name = "rofinn"
+contributions = "6"
+[[contributors]]
+name = "hayd"
+contributions = "5"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "5"
+[[contributors]]
+name = "shashi"
+contributions = "5"
+[[contributors]]
+name = "simonbyrne"
+contributions = "5"
+[[contributors]]
+name = "vtjnash"
+contributions = "5"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "4"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "jmkuhn"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "3"
+[[contributors]]
+name = "lbenet"
+contributions = "3"
+[[contributors]]
+name = "mbauman"
+contributions = "3"
+[[contributors]]
+name = "musm"
+contributions = "3"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "samoconnor"
+contributions = "3"
+[[contributors]]
+name = "sbromberger"
+contributions = "3"
+[[contributors]]
+name = "maleadt"
+contributions = "3"
+[[contributors]]
+name = "dpsanders"
+contributions = "3"
+[[contributors]]
+name = "wildart"
+contributions = "2"
+[[contributors]]
+name = "iamed2"
+contributions = "2"
+[[contributors]]
+name = "galenlynch"
+contributions = "2"
+[[contributors]]
+name = "ivarne"
+contributions = "2"
+[[contributors]]
+name = "jrevels"
+contributions = "2"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "Nosferican"
+contributions = "2"
+[[contributors]]
+name = "jfsantos"
+contributions = "2"
+[[contributors]]
+name = "mweastwood"
+contributions = "2"
+[[contributors]]
+name = "rfourquet"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "traktofon"
+contributions = "2"
+[[contributors]]
+name = "tanmaykm"
+contributions = "2"
+[[contributors]]
+name = "ViralBShah"
+contributions = "2"
+[[contributors]]
+name = "amitmurthy"
+contributions = "1"
+[[contributors]]
+name = "anowacki"
+contributions = "1"
+[[contributors]]
+name = "blakejohnson"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"
+[[contributors]]
+name = "darwindarak"
+contributions = "1"
+[[contributors]]
+name = "davidagold"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "antimon2"
+contributions = "1"
+[[contributors]]
+name = "helgee"
+contributions = "1"
+[[contributors]]
+name = "JobJob"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "appleparan"
+contributions = "1"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "1"
+[[contributors]]
+name = "chakravala"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "mschauer"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "bramtayl"
+contributions = "1"
+[[contributors]]
+name = "timkittel"
+contributions = "1"

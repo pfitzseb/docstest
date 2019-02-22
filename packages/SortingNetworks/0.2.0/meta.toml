@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SortingNetworks"
+owner = "JeffreySarnoff"
+version = "0.2.0"
+description = "Sort 1..25 values with conditional swaps"
+stargazers_count = "4"
+url = "https://github.com/JeffreySarnoff/SortingNetworks.jl.git"
+installs = true
+tags = ["julia", "sorting"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "139"
+[[contributors]]
+name = "JanWeidnerPTW"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

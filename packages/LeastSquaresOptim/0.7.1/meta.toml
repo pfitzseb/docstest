@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LeastSquaresOptim"
+owner = "matthieugomez"
+version = "0.7.1"
+description = "Dense and Sparse Least Squares Optimization"
+stargazers_count = "16"
+url = "https://github.com/matthieugomez/LeastSquaresOptim.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "138"
+[[contributors]]
+name = "jlperla"
+contributions = "3"
+[[contributors]]
+name = "crbinz"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"

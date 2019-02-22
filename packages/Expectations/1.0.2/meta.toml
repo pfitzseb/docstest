@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Expectations"
+owner = "QuantEcon"
+version = "1.0.2"
+description = "Expectation operators for Distributions.jl objects"
+stargazers_count = "6"
+url = "https://github.com/QuantEcon/Expectations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "arnavs"
+contributions = "90"
+[[contributors]]
+name = "jlperla"
+contributions = "8"

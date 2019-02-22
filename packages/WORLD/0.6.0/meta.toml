@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "WORLD"
+owner = "r9y9"
+version = "0.6.0"
+description = "A lightweight julia wrapper for WORLD - a high-quality speech analysis, modification and synthesis system"
+stargazers_count = "19"
+url = "https://github.com/r9y9/WORLD.jl.git"
+installs = true
+tags = ["julia", "speech-processing", "julia-wrapper"]
+license = "Other"
+
+[[contributors]]
+name = "r9y9"
+contributions = "224"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "wookay"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleTropical"
+owner = "scheinerman"
+version = "0.1.1"
+description = "Julia implementation of tropical arithmetic"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/SimpleTropical.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "11"
+[[contributors]]
+name = "giordano"
+contributions = "1"

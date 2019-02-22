@@ -1,0 +1,32 @@
+license_url = ""
+name = "Decimals"
+owner = "JuliaMath"
+version = "0.3.1"
+description = "Pure Julia decimal arithmetic library."
+stargazers_count = "20"
+url = "https://github.com/JuliaMath/Decimals.jl.git"
+installs = false
+tags = ["julia", "decimals"]
+license = "Other"
+
+[[contributors]]
+name = "tinybike"
+contributions = "53"
+[[contributors]]
+name = "iamed2"
+contributions = "8"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "russolsen"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"

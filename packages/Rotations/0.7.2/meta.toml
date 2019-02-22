@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "Rotations"
+owner = "FugroRoames"
+version = "0.7.2"
+description = "Julia implementations for different rotation parameterisations"
+stargazers_count = "34"
+url = "https://github.com/FugroRoames/Rotations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "90"
+[[contributors]]
+name = "andyferris"
+contributions = "32"
+[[contributors]]
+name = "awbsmith"
+contributions = "17"
+[[contributors]]
+name = "ryanelandt"
+contributions = "12"
+[[contributors]]
+name = "c42f"
+contributions = "9"
+[[contributors]]
+name = "jw3126"
+contributions = "7"
+[[contributors]]
+name = "timholy"
+contributions = "6"
+[[contributors]]
+name = "twadleigh"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "miguelraz"
+contributions = "2"
+[[contributors]]
+name = "AndrewGibb"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "danielmatz"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

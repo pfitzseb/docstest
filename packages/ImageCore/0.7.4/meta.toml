@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "ImageCore"
+owner = "JuliaImages"
+version = "0.7.4"
+description = "Julia types for representing images"
+stargazers_count = "6"
+url = "https://github.com/JuliaImages/ImageCore.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "152"
+[[contributors]]
+name = "Evizero"
+contributions = "5"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "2"
+[[contributors]]
+name = "RalphAS"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"

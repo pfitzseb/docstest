@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "Granular"
+owner = "anders-dc"
+version = "0.4.1"
+description = "Julia package for granular dynamics simulation"
+stargazers_count = "6"
+url = "https://github.com/anders-dc/Granular.jl.git"
+installs = true
+tags = ["discrete-element-method", "granular-media", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "anders-dc"
+contributions = "780"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "Nonemoticoner"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"

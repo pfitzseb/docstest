@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "PiecewiseDeterministicMarkovProcesses"
+owner = "rveltz"
+version = "0.0.1"
+description = "Piecewise Deterministic Markov Processes in Julia"
+stargazers_count = "6"
+url = "https://github.com/rveltz/PiecewiseDeterministicMarkovProcesses.jl.git"
+installs = true
+tags = ["julia", "simulation", "stochastic-processes", "differential-equations"]
+license = "Other"
+
+[[contributors]]
+name = "rveltz"
+contributions = "122"
+[[contributors]]
+name = "sdwfrost"
+contributions = "60"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"

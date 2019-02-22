@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SASLib.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SASLib.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Read-Performance-1">Read Performance</a></li><li><a class="toctext" href="#User-Guide-1">User Guide</a></li><li><a class="toctext" href="#Related-Packages-1">Related Packages</a></li><li><a class="toctext" href="#Credits-1">Credits</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SASLib.jl-1" href="#SASLib.jl-1">SASLib.jl</a></h1><p><a href="https://travis-ci.org/tk3369/SASLib.jl"><img src="https://travis-ci.org/tk3369/SASLib.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/tk3369/SASLib.jl?branch=master"><img src="http://codecov.io/github/tk3369/SASLib.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>The goal is to have a fast reader that allows greater interoperability of Julia with the SAS ecosystem.  Only <code>sas7bdat</code> format is supported.  SASLib is licensed under the MIT Expat license.</p><p><em>Notes:</em> SASLib v0.5.0 coontains a major breaking change in the results being returned from the <code>readsas</code> or <code>SASLib.read</code> functions.  Please read documentation below about how to use the new <code>SASLib.ResultSet</code> object.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><pre><code class="language-none">Pkg.add(&quot;SASLib&quot;)</code></pre><h2><a class="nav-anchor" id="Read-Performance-1" href="#Read-Performance-1">Read Performance</a></h2><p>I did benchmarking mostly on my Macbook Pro laptop.  In general, the Julia implementation is somewhere between 10-100x faster than the Python Pandas.  Test results are documented in the <code>test/perf_results_&lt;version&gt;</code> folders.</p><h2><a class="nav-anchor" id="User-Guide-1" href="#User-Guide-1">User Guide</a></h2><pre><code class="language-none">julia&gt; using SASLib</code></pre><h3><a class="nav-anchor" id="Reading-SAS-Files-1" href="#Reading-SAS-Files-1">Reading SAS Files</a></h3><p>Use the <code>readsas</code> function to read a SAS7BDAT file.  </p><pre><code class="language-julia">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;)
+Read productsales.sas7bdat with size 1440 x 10 in 0.00256 seconds
+SASLib.ResultSet (1440 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 925.0, 850.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-01-01
+2: 999.0, 297.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-02-01
+3: 608.0, 846.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-03-01
+4: 642.0, 533.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-04-01
+5: 656.0, 646.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-05-01
+⋮</code></pre><h3><a class="nav-anchor" id="Accessing-Results-1" href="#Accessing-Results-1">Accessing Results</a></h3><p>There are several ways to access the data conveniently without using any third party packages. Each cell value may be retrieved directly via the regular <code>[i,j]</code> index.  Accessing an entire row or column returns a tuple and a vector respectively.</p><pre><code class="language-none">julia&gt; rs[4,2]
+533.0
+
+julia&gt; rs[4, :PREDICT]
+533.0
+
+julia&gt; rs[1]
+(925.0, 850.0, &quot;CANADA&quot;, &quot;EAST&quot;, &quot;EDUCATION&quot;, &quot;FURNITURE&quot;, &quot;SOFA&quot;, 1.0, 1993.0, 1993-01-01)
+
+julia&gt; rs[:ACTUAL]
+1440-element Array{Float64,1}:
+ 925.0
+ 999.0
+ 608.0
+ ⋮</code></pre><p>You may access a portion of the result set by indexing with unit range and column symbols. </p><pre><code class="language-none">julia&gt; rs[2:4]
+SASLib.ResultSet (3 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 999.0, 297.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-02-01
+2: 608.0, 846.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-03-01
+3: 642.0, 533.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-04-01
+
+
+julia&gt; rs[:ACTUAL, :PREDICT, :YEAR, :MONTH]
+SASLib.ResultSet (1440 rows x 4 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:YEAR, 4:MONTH
+1: 925.0, 850.0, 1993.0, 1993-01-01
+2: 999.0, 297.0, 1993.0, 1993-02-01
+3: 608.0, 846.0, 1993.0, 1993-03-01
+4: 642.0, 533.0, 1993.0, 1993-04-01
+5: 656.0, 646.0, 1993.0, 1993-05-01
+⋮</code></pre><h3><a class="nav-anchor" id="Assignments-1" href="#Assignments-1">Assignments</a></h3><p>You may assign values at the cell level.  Doing so has a side effect.</p><pre><code class="language-none">julia&gt; srs = rs[:ACTUAL, :PREDICT, :YEAR, :MONTH][1:2]
+SASLib.ResultSet (2 rows x 4 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:YEAR, 4:MONTH
+1: 925.0, 850.0, 1993.0, 1993-01-01
+2: 999.0, 297.0, 1993.0, 1993-02-01
+
+julia&gt; srs[2,2] = 3
+3
+
+julia&gt; rs[1:2]
+SASLib.ResultSet (2 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 925.0, 850.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-01-01
+2: 999.0, 3.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-02-01</code></pre><h3><a class="nav-anchor" id="Iteration-1" href="#Iteration-1">Iteration</a></h3><p>ResultSet implements the usual Base.iteration interface, so it&#39;s easy to walk through the results:</p><pre><code class="language-none">julia&gt; for r in rs
+         r[1] &lt; 10 &amp;&amp; println(r)
+       end
+(5.0, 425.0, &quot;CANADA&quot;, &quot;EAST&quot;, &quot;CONSUMER&quot;, &quot;FURNITURE&quot;, &quot;SOFA&quot;, 1.0, 1993.0, 1993-01-01)
+(8.0, 957.0, &quot;CANADA&quot;, &quot;EAST&quot;, &quot;CONSUMER&quot;, &quot;FURNITURE&quot;, &quot;SOFA&quot;, 3.0, 1993.0, 1993-07-01)
+(6.0, 214.0, &quot;CANADA&quot;, &quot;WEST&quot;, &quot;EDUCATION&quot;, &quot;OFFICE&quot;, &quot;TABLE&quot;, 3.0, 1993.0, 1993-08-01)
+(9.0, 814.0, &quot;CANADA&quot;, &quot;WEST&quot;, &quot;EDUCATION&quot;, &quot;OFFICE&quot;, &quot;TABLE&quot;, 4.0, 1993.0, 1993-11-01)
+(3.0, 405.0, &quot;CANADA&quot;, &quot;WEST&quot;, &quot;CONSUMER&quot;, &quot;FURNITURE&quot;, &quot;SOFA&quot;, 2.0, 1994.0, 1994-05-01)
+(3.0, 938.0, &quot;GERMANY&quot;, &quot;WEST&quot;, &quot;EDUCATION&quot;, &quot;FURNITURE&quot;, &quot;BED&quot;, 1.0, 1993.0, 1993-03-01)
+(4.0, 975.0, &quot;U.S.A.&quot;, &quot;EAST&quot;, &quot;EDUCATION&quot;, &quot;FURNITURE&quot;, &quot;SOFA&quot;, 1.0, 1993.0, 1993-01-01)
+(9.0, 134.0, &quot;U.S.A.&quot;, &quot;EAST&quot;, &quot;EDUCATION&quot;, &quot;FURNITURE&quot;, &quot;BED&quot;, 4.0, 1993.0, 1993-12-01)
+(6.0, 915.0, &quot;U.S.A.&quot;, &quot;WEST&quot;, &quot;EDUCATION&quot;, &quot;OFFICE&quot;, &quot;DESK&quot;, 2.0, 1993.0, 1993-04-01)</code></pre><h3><a class="nav-anchor" id="ResultSet-Metadata-1" href="#ResultSet-Metadata-1">ResultSet Metadata</a></h3><p>There are simple functions to retrieve meta information about a ResultSet.</p><pre><code class="language-none">names(rs)
+columns(rs)
+size(rs)</code></pre><h3><a class="nav-anchor" id="Conversion-to-DataFrame-1" href="#Conversion-to-DataFrame-1">Conversion to DataFrame</a></h3><p>It may be beneficial to convert the result set to DataFrame for more complex queries and manipulations.  </p><pre><code class="language-julia">julia&gt; df = DataFrame(columns(rs), names(rs));
+
+julia&gt; head(df)
+6×10 DataFrames.DataFrame
+│ Row │ ACTUAL │ PREDICT │ COUNTRY │ REGION │ DIVISION  │ PRODTYPE  │ PRODUCT │ QUARTER │ YEAR   │ MONTH      │
+├─────┼────────┼─────────┼─────────┼────────┼───────────┼───────────┼─────────┼─────────┼────────┼────────────┤
+│ 1   │ 925.0  │ 850.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 1.0     │ 1993.0 │ 1993-01-01 │
+│ 2   │ 999.0  │ 297.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 1.0     │ 1993.0 │ 1993-02-01 │
+│ 3   │ 608.0  │ 846.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 1.0     │ 1993.0 │ 1993-03-01 │
+│ 4   │ 642.0  │ 533.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 2.0     │ 1993.0 │ 1993-04-01 │
+│ 5   │ 656.0  │ 646.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 2.0     │ 1993.0 │ 1993-05-01 │
+│ 6   │ 948.0  │ 486.0   │ CANADA  │ EAST   │ EDUCATION │ FURNITURE │ SOFA    │ 2.0     │ 1993.0 │ 1993-06-01 │</code></pre><h3><a class="nav-anchor" id="Inclusion/Exclusion-of-Columns-1" href="#Inclusion/Exclusion-of-Columns-1">Inclusion/Exclusion of Columns</a></h3><p><strong>Column Inclusion</strong></p><p>It is always faster to read only the columns that you need.  The <code>include_columns</code> argument comes in handy:</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:YEAR, :MONTH, :PRODUCT, :ACTUAL])
+Read productsales.sas7bdat with size 1440 x 4 in 0.00151 seconds
+SASLib.ResultSet (1440 rows x 4 columns)
+Columns 1:ACTUAL, 2:PRODUCT, 3:YEAR, 4:MONTH
+1: 925.0, SOFA, 1993.0, 1993-01-01
+2: 999.0, SOFA, 1993.0, 1993-02-01
+3: 608.0, SOFA, 1993.0, 1993-03-01
+4: 642.0, SOFA, 1993.0, 1993-04-01
+5: 656.0, SOFA, 1993.0, 1993-05-01
+⋮</code></pre><p><strong>Column Exclusion</strong></p><p>Likewise, you can read all columns except the ones you don&#39;t want as specified in <code>exclude_columns</code> argument:</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, exclude_columns=[:YEAR, :MONTH, :PRODUCT, :ACTUAL])
+Read productsales.sas7bdat with size 1440 x 6 in 0.00265 seconds
+SASLib.ResultSet (1440 rows x 6 columns)
+Columns 1:PREDICT, 2:COUNTRY, 3:REGION, 4:DIVISION, 5:PRODTYPE, 6:QUARTER
+1: 850.0, CANADA, EAST, EDUCATION, FURNITURE, 1.0
+2: 297.0, CANADA, EAST, EDUCATION, FURNITURE, 1.0
+3: 846.0, CANADA, EAST, EDUCATION, FURNITURE, 1.0
+4: 533.0, CANADA, EAST, EDUCATION, FURNITURE, 2.0
+5: 646.0, CANADA, EAST, EDUCATION, FURNITURE, 2.0
+⋮</code></pre><p><strong>Case Sensitivity and Column Number</strong></p><p>Column symbols are matched in a case insensitive manner with SAS column names.  </p><p>Both <code>include_columns</code> and <code>exclude_columns</code> accept column number.  In fact, you can mixed column symbols and column numbers as such:</p><pre><code class="language-none">julia&gt; readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:actual, :predict, 8, 9, 10])
+Read productsales.sas7bdat with size 1440 x 5 in 0.16378 seconds
+SASLib.ResultSet (1440 rows x 5 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:QUARTER, 4:YEAR, 5:MONTH
+1: 925.0, 850.0, 1.0, 1993.0, 1993-01-01
+2: 999.0, 297.0, 1.0, 1993.0, 1993-02-01
+3: 608.0, 846.0, 1.0, 1993.0, 1993-03-01
+4: 642.0, 533.0, 2.0, 1993.0, 1993-04-01
+5: 656.0, 646.0, 2.0, 1993.0, 1993-05-01
+⋮</code></pre><h3><a class="nav-anchor" id="Incremental-Reading-1" href="#Incremental-Reading-1">Incremental Reading</a></h3><p>If you need to read files incrementally, you can use the <code>SASLib.open</code> function to obtain a handle of the file.  Then, use the <code>SASLib.read</code> function to fetch a number of rows.  Remember to close the handler with <code>SASLib.close</code> to avoid memory leak.</p><pre><code class="language-julia">julia&gt; handler = SASLib.open(&quot;productsales.sas7bdat&quot;)
+SASLib.Handler[productsales.sas7bdat]
+
+julia&gt; rs = SASLib.read(handler, 2)
+Read productsales.sas7bdat with size 2 x 10 in 0.06831 seconds
+SASLib.ResultSet (2 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 925.0, 850.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-01-01
+2: 999.0, 297.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-02-01
+
+julia&gt; rs = SASLib.read(handler, 3)
+Read productsales.sas7bdat with size 3 x 10 in 0.00046 seconds
+SASLib.ResultSet (3 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 608.0, 846.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-03-01
+2: 642.0, 533.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-04-01
+3: 656.0, 646.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-05-01
+
+julia&gt; SASLib.close(handler)</code></pre><p>Note that there is no facility at the moment to jump and read a subset of rows.  Currently, SASLib always read from the beginning.</p><h3><a class="nav-anchor" id="String-Column-Constructor-1" href="#String-Column-Constructor-1">String Column Constructor</a></h3><p>By default, string columns are read into a special AbstractArray structure called <code>ObjectPool</code> in order to conserve memory space that might otherwise be wasted for duplicate string values.  SASLib tries to be smart – when it encounters too many unique values (&gt; 10%) in a large array (&gt; 2000 rows), it falls back to a regular Julia array.</p><p>You can use a different array type (e.g. <a href="https://github.com/JuliaData/CategoricalArrays.jl">CategoricalArray</a> or <a href="https://github.com/JuliaComputing/PooledArrays.jl">PooledArray</a>) for any columns as you wish by specifying a <code>string_array_fn</code> parameter when reading the file.  This argument must be a Dict that maps a column symbol into a function that takes an integer argument and returns any array of that size.</p><p>Here&#39;s the normal case:</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:COUNTRY, :REGION]);
+Read productsales.sas7bdat with size 1440 x 2 in 0.00193 seconds
+
+julia&gt; typeof.(columns(rs))
+2-element Array{DataType,1}:
+ SASLib.ObjectPool{String,UInt16}
+ SASLib.ObjectPool{String,UInt16}</code></pre><p>If you really want a regular String array, you can force SASLib to do so as such:</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:COUNTRY, :REGION],
+                    string_array_fn=Dict(:COUNTRY =&gt; (n)-&gt;fill(&quot;&quot;,n)));
+Read productsales.sas7bdat with size 1440 x 2 in 0.00333 seconds
+
+julia&gt; typeof.(columns(rs))
+2-element Array{DataType,1}:
+ Array{String,1}                 
+ SASLib.ObjectPool{String,UInt16}</code></pre><p>For convenience, <code>SASLib.REGULAR_STR_ARRAY</code> is a function that does exactly that.  In addition, if you need all columns to be configured the same then the key of the <code>string_array_fn</code> dict may be just the symbol <code>:_all_</code>. </p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:COUNTRY, :REGION],
+                    string_array_fn=Dict(:_all_ =&gt; REGULAR_STR_ARRAY));
+Read productsales.sas7bdat with size 1440 x 2 in 0.00063 seconds
+
+julia&gt; typeof.(columns(rs))
+2-element Array{DataType,1}:
+ Array{String,1}
+ Array{String,1}</code></pre><h3><a class="nav-anchor" id="Numeric-Columns-Constructor-1" href="#Numeric-Columns-Constructor-1">Numeric Columns Constructor</a></h3><p>In general, SASLib allocates native arrays when returning numerical column data.  However, you can provide a custom constructor so you would be able to either preallcoate the array or construct a different type of array.  The <code>number_array_fn</code> parameter is a Dict that maps  column symbols to the custom constructors.  Similar to <code>string_array_fn</code>, this Dict may be specified with a special symbol <code>:_all_</code> to indicate such constructor be used for all numeric columns.</p><p>Example - create SharedArray:</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:ACTUAL,:PREDICT], 
+                          number_array_fn=Dict(:ACTUAL =&gt; (n)-&gt;SharedArray{Float64}(n)));
+Read productsales.sas7bdat with size 1440 x 2 in 0.00385 seconds
+
+julia&gt; typeof.(columns(rs))
+2-element Array{DataType,1}:
+ SharedArray{Float64,1}
+ Array{Float64,1}          </code></pre><p>Example - preallocate arrays:</p><pre><code class="language-none">julia&gt; A = zeros(1440, 2);
+
+julia&gt; f1(n) = @view A[:, 1];
+
+julia&gt; f2(n) = @view A[:, 2];
+
+julia&gt; readsas(&quot;productsales.sas7bdat&quot;, include_columns=[:ACTUAL,:PREDICT], 
+               number_array_fn=Dict(:ACTUAL =&gt; f1, :PREDICT =&gt; f2));
+Read productsales.sas7bdat with size 1440 x 2 in 0.00041 seconds
+
+julia&gt; A[1:5,:]
+5×2 Array{Float64,2}:
+ 925.0  850.0
+ 999.0  297.0
+ 608.0  846.0
+ 642.0  533.0
+ 656.0  646.0</code></pre><h3><a class="nav-anchor" id="Column-Type-Conversion-1" href="#Column-Type-Conversion-1">Column Type Conversion</a></h3><p>Often, you want a column to be an integer but the SAS7BDAT stores everything as Float64. Specifying the <code>column_type</code> argument does the conversion for you.</p><pre><code class="language-none">julia&gt; rs = readsas(&quot;productsales.sas7bdat&quot;, column_types=Dict(:ACTUAL=&gt;Int))
+Read productsales.sas7bdat with size 1440 x 10 in 0.08043 seconds
+SASLib.ResultSet (1440 rows x 10 columns)
+Columns 1:ACTUAL, 2:PREDICT, 3:COUNTRY, 4:REGION, 5:DIVISION, 6:PRODTYPE, 7:PRODUCT, 8:QUARTER, 9:YEAR, 10:MONTH
+1: 925, 850.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-01-01
+2: 999, 297.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-02-01
+3: 608, 846.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 1.0, 1993.0, 1993-03-01
+4: 642, 533.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-04-01
+5: 656, 646.0, CANADA, EAST, EDUCATION, FURNITURE, SOFA, 2.0, 1993.0, 1993-05-01
+
+julia&gt; typeof(rs[:ACTUAL])
+Array{Int64,1}</code></pre><h3><a class="nav-anchor" id="File-Metadata-1" href="#File-Metadata-1">File Metadata</a></h3><p>You may obtain meta data for a SAS data file using the <code>metadata</code> function.</p><pre><code class="language-julia">julia&gt; md = metadata(&quot;productsales.sas7bdat&quot;)
+File: productsales.sas7bdat (1440 x 10)
+1:ACTUAL(Float64)                5:DIVISION(String)               9:YEAR(Float64)
+2:PREDICT(Float64)               6:PRODTYPE(String)               10:MONTH(Date/Missings.Missing)
+3:COUNTRY(String)                7:PRODUCT(String) 
+4:REGION(String)                 8:QUARTER(Float64)</code></pre><p>It&#39;s OK to access the fields directly.</p><pre><code class="language-julia">julia&gt; fieldnames(SASLib.Metadata)
+9-element Array{Symbol,1}:
+ :filename   
+ :encoding   
+ :endianness 
+ :compression
+ :pagesize   
+ :npages     
+ :nrows      
+ :ncols      
+ :columnsinfo
+
+julia&gt; md = metadata(&quot;test3.sas7bdat&quot;);
+
+julia&gt; md.compression
+:RDC</code></pre><h2><a class="nav-anchor" id="Related-Packages-1" href="#Related-Packages-1">Related Packages</a></h2><p><a href="https://github.com/davidanthoff/ReadStat.jl">ReadStat.jl</a> uses the <a href="https://github.com/WizardMac/ReadStat">ReadStat C-library</a>.  However, ReadStat-C does not support reading RDC-compressed binary files.</p><p><a href="https://github.com/davidanthoff/StatFiles.jl">StatFiles.jl</a> is a higher-level package built on top of ReadStat.jl and implements the <a href="https://github.com/JuliaIO/FileIO.jl">FileIO</a> interface.</p><p><a href="https://github.com/pandas-dev/pandas">Python Pandas</a> package has an implementation of SAS file reader that SASLib borrows heavily from.</p><h2><a class="nav-anchor" id="Credits-1" href="#Credits-1">Credits</a></h2><ul><li>Jared Hobbs, the author of the SAS reader code from Pandas.  See LICENSE_SAS7BDAT.md.</li><li><a href="https://github.com/evanmiller">Evan Miller</a>, the author of ReadStat C/C++ library.  See LICENSE_READSTAT.md.</li><li><a href="https://github.com/davidanthoff">David Anthoff</a>, who provided many valuable ideas at the early stage of development.</li><li><a href="https://github.com/tbeason">Tyler Beason</a></li><li><a href="https://github.com/xiaodaigh">susabi</a></li></ul><p>I also want to thank all the active members at the <a href="https://discourse.julialang.org">Julia Discourse community</a>.  This project wouldn&#39;t be possible without all the help I got from the community.  That&#39;s the beauty of open-source development.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

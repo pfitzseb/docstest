@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "TuringModels"
+owner = "StatisticalRethinkingJulia"
+version = "0.1.0"
+description = "Turing version of StatisticalRethinking models"
+stargazers_count = "0"
+url = "https://github.com/StatisticalRethinkingJulia/TuringModels.jl.git"
+installs = true
+tags = ["mcmc", "julia-language", "turinglang", "statisticalrethinking"]
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "322"
+[[contributors]]
+name = "torkar"
+contributions = "31"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

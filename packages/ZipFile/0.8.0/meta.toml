@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "ZipFile"
+owner = "fhs"
+version = "0.8.0"
+description = "Read/Write ZIP archives in Julia"
+stargazers_count = "9"
+url = "https://github.com/fhs/ZipFile.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fhs"
+contributions = "88"
+[[contributors]]
+name = "yuyichao"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "bhalonen"
+contributions = "2"
+[[contributors]]
+name = "mweastwood"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "hayd"
+contributions = "1"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "Liozou"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "samoconnor"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"

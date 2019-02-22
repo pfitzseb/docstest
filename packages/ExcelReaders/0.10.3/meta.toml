@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ExcelReaders"
+owner = "queryverse"
+version = "0.10.3"
+description = "ExcelReaders is a package that provides functionality to read Excel files."
+stargazers_count = "47"
+url = "https://github.com/queryverse/ExcelReaders.jl.git"
+installs = true
+tags = ["julia", "data", "excel"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "132"
+[[contributors]]
+name = "dhoegh"
+contributions = "3"
+[[contributors]]
+name = "omus"
+contributions = "2"
+[[contributors]]
+name = "pdobacz"
+contributions = "1"

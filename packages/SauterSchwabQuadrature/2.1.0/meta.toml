@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SauterSchwabQuadrature"
+owner = "ga96tik"
+version = "2.1.0"
+description = "Implementation of the Sauter-Schwab quadrature rules"
+stargazers_count = "1"
+url = "https://github.com/ga96tik/SauterSchwabQuadrature.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "19"
+[[contributors]]
+name = "ga96tik"
+contributions = "9"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

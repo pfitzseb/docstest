@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "Cassette"
+owner = "jrevels"
+version = "0.2.2"
+description = "Overdub Your Julia Code"
+stargazers_count = "170"
+url = "https://github.com/jrevels/Cassette.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "500"
+[[contributors]]
+name = "maleadt"
+contributions = "6"
+[[contributors]]
+name = "oxinabox"
+contributions = "3"
+[[contributors]]
+name = "MikeInnes"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "mschauer"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"

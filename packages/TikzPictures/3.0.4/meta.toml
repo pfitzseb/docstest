@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "TikzPictures"
+owner = "JuliaTeX"
+version = "3.0.4"
+description = "This library allows one to create PGF/TikZ pictures and save in various formats."
+stargazers_count = "23"
+url = "https://github.com/JuliaTeX/TikzPictures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mykelk"
+contributions = "52"
+[[contributors]]
+name = "Shushman"
+contributions = "16"
+[[contributors]]
+name = "tawheeler"
+contributions = "16"
+[[contributors]]
+name = "sidthekid402"
+contributions = "10"
+[[contributors]]
+name = "cloud-oak"
+contributions = "2"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "dharasim"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "dressel"
+contributions = "1"
+[[contributors]]
+name = "pwl"
+contributions = "1"
+[[contributors]]
+name = "rodonn"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "epatters"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Dubins"
+owner = "kaarthiksundar"
+version = "1.0.1"
+description = "A Julia package to compute the Dubins Paths"
+stargazers_count = "1"
+url = "https://github.com/kaarthiksundar/Dubins.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "45"

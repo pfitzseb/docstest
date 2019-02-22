@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "IdentityRanges"
+owner = "JuliaArrays"
+version = "0.3.0"
+description = "Ranges that preserve indices of views"
+stargazers_count = "0"
+url = "https://github.com/JuliaArrays/IdentityRanges.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "16"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Liozou"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "SampledSignals"
+owner = "JuliaAudio"
+version = "2.0.0"
+description = "Core types for regularly-sampled multichannel signals like Audio, RADAR and Software-Defined Radio"
+stargazers_count = "32"
+url = "https://github.com/JuliaAudio/SampledSignals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ssfrr"
+contributions = "206"
+[[contributors]]
+name = "haberdashPI"
+contributions = "10"
+[[contributors]]
+name = "wookay"
+contributions = "5"
+[[contributors]]
+name = "dskkato"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

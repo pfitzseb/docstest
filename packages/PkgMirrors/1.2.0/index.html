@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · PkgMirrors.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PkgMirrors.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#New-mirror?-1">New mirror?</a></li><li><a class="toctext" href="#Issues-1">Issues</a></li><li><a class="toctext" href="#License-1">License</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="PkgMirrors-1" href="#PkgMirrors-1">PkgMirrors</a></h1><p><em>Use alternative mirrors to manage your packages for Julia.</em></p><p>Linux, OSX: <a href="https://travis-ci.com/sunoru/PkgMirrors.jl"><img src="https://travis-ci.com/sunoru/PkgMirrors.jl.svg?branch=master" alt="Build Status"/></a></p><p>Windows: <a href="https://ci.appveyor.com/project/sunoru/mirrors-jl"><img src="https://ci.appveyor.com/api/projects/status/jw8aik6dcug8io06?svg=true" alt="Build status"/></a></p><p>Code Coverage: <a href="https://coveralls.io/github/sunoru/PkgMirrors.jl?branch=master"><img src="https://coveralls.io/repos/sunoru/PkgMirrors.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://codecov.io/github/sunoru/PkgMirrors.jl?branch=master"><img src="http://codecov.io/github/sunoru/PkgMirrors.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p><a href="README-zh_cn.md">中文文档</a></p><p><code>PkgMirrors.jl</code> is a client for boosting your download by using a mirror when you have a slow connection to GitHub (for example, in China).</p><p>Current supported mirrors (see <a href="data/mirror_list.txt">mirror_list.txt</a>):</p><ul><li>ZJU (https://mirrors.zju.edu.cn/julia/)</li><li>USTC (https://mirrors.ustc.edu.cn/julia/)</li></ul><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p><strong>NOTE: This package will only work with Pkg3, which means you need to run Julia 0.7+ to use it.</strong></p><p>There are several ways to install this package:</p><pre><code class="language-julia">julia&gt; # Type &quot;]&quot; to enter Pkg REPL-mode.
+
+(v1.0) pkg&gt; add PkgMirrors  # Install from the official registry.
+
+(v1.0) pkg&gt; add https://github.com/sunoru/PkgMirrors.jl  # Install from source code.
+
+(v1.0) pkg&gt; add https://mirrors.zju.edu.cn/julia/PkgMirrors.jl.git@v1.1.0  # Install from the mirror. (Recommended)</code></pre><p>You will probably prefer the third way, for it is why you want to use <code>PkgMirrors.jl</code>. The URL can be replaced by that of your preferred mirror. Remove <code>#v1.0.0</code> if you want to use the developing branch.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>To start with <code>PkgMirrors.jl</code>, import the package and set a mirror for your <code>Pkg</code>.</p><pre><code class="language-julia">julia&gt; import PkgMirrors
+
+julia&gt; PkgMirrors.availables()  # to list available mirrors.
+2-element Array{String,1}:
+ &quot;ZJU&quot;
+ &quot;USTC&quot;
+
+julia&gt; PkgMirrors.setmirror(&quot;ZJU&quot;)  # to set the mirror.
+[ Info: Updating mirror information...
+[ Info: PkgMirror ZJU activated.
+PkgMirrors.PkgMirror(&quot;ZJU&quot;, &quot;https://mirrors.zju.edu.cn/julia&quot;)</code></pre><p>It will remember which mirror you have chosen, so there&#39;s no need to <code>setmirror</code> for the next time:</p><pre><code class="language-julia">julia&gt; import PkgMirrors
+[ Info: Using saved mirror: ZJU (https://mirrors.zju.edu.cn/julia)
+[ Info: Updating mirror information...
+[ Info: PkgMirror ZJU activated.</code></pre><p>Once a mirror is selected and activated, you are free to use the standard <code>Pkg</code> to install or update packages. For example:</p><pre><code class="language-julia">julia&gt; # Type &quot;]&quot; to enter Pkg REPL-mode.
+
+(v1.0) pkg&gt; update
+  Updating registry at `C:\Users\sunoru\.julia\registries\General`
+  Updating git-repo `https://mirrors.zju.edu.cn/julia/registries/General.git`
+ Resolving package versions...
+  Updating `C:\Users\sunoru\.julia\environments\v1.0\Project.toml`
+ [no changes]
+  Updating `C:\Users\sunoru\.julia\environments\v1.0\Manifest.toml`
+ [no changes]
+
+(v1.0) pkg&gt; add RandomNumbers
+ Resolving package versions...
+  Updating `C:\Users\sunoru\.julia\environments\v1.0\Project.toml`
+  [e6cf234a] + RandomNumbers v1.0.1
+  Updating `C:\Users\sunoru\.julia\environments\v1.0\Manifest.toml`
+  [e6cf234a] + RandomNumbers v1.0.1</code></pre><p>You can find that the URL of the git repo for General registry has been modified to the one <code>PkgMirrors.jl</code> provides.</p><p>If a package is not on the mirror it will have a fallback to use <code>git clone</code> from GitHub.</p><p>When you exit Julia the changes to your registries will be undone automatically:</p><pre><code class="language-julia">julia&gt; exit()
+[ Info: PkgMirror ZJU deactivated.</code></pre><p>You can also deactivate the mirror manually or clear the cache data by a simple statement:</p><pre><code class="language-julia">julia&gt; PkgMirrors.deactivate()
+[ Info: PkgMirror ZJU deactivated.
+
+julia&gt; PkgMirrors.clear()
+[ Info: Cache clear.</code></pre><h2><a class="nav-anchor" id="New-mirror?-1" href="#New-mirror?-1">New mirror?</a></h2><p>See <a href="https://github.com/sunoru/julia-mirror">julia-mirror</a> for how to build a mirror. You can file an issue or open a pull request to add a new mirror into <a href="data/mirror_list.txt">the mirror list</a>.</p><h2><a class="nav-anchor" id="Issues-1" href="#Issues-1">Issues</a></h2><p>Known:</p><ul><li><code>PkgMirrors.jl</code> is not able to deal with packages not in General registry at the moment. It is not vital</li></ul><p>yet, since current working mirrors don&#39;t provide other registries as well.</p><p>You are welcome to <a href="https://github.com/sunoru/PkgMirrors.jl/issues/new">file an issue</a> if having any questions.</p><h2><a class="nav-anchor" id="License-1" href="#License-1">License</a></h2><p><a href="LICENSE.md">MIT License</a></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

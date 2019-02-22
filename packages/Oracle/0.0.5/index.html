@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Oracle.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Oracle.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Requirements-1">Requirements</a></li><li><a class="toctext" href="#Instant-Client-installation-1">Instant Client installation</a></li><li><a class="toctext" href="#Package-installation-1">Package installation</a></li><li><a class="toctext" href="#Tutorial-1">Tutorial</a></li><li><a class="toctext" href="#ODPI-C-Naming-Conventions-1">ODPI-C Naming Conventions</a></li><li><a class="toctext" href="#License-1">License</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Oracle.jl-1" href="#Oracle.jl-1">Oracle.jl</a></h1><p>This package provides a driver to access Oracle databases using the Julia language, based on <a href="https://github.com/oracle/odpi">ODPI-C</a> bindings.</p><h2><a class="nav-anchor" id="Requirements-1" href="#Requirements-1">Requirements</a></h2><ul><li><p><a href="https://julialang.org/">Julia</a> v0.6, v0.7 or v1.0.</p></li><li><p>Oracle&#39;s <a href="https://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html">Instant Client</a>.</p></li><li><p>Linux or macOS.</p></li><li><p>C compiler.</p></li></ul><h2><a class="nav-anchor" id="Instant-Client-installation-1" href="#Instant-Client-installation-1">Instant Client installation</a></h2><p>This package requires Oracle&#39;s <a href="https://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html">Instant Client</a>.</p><p>To install it, follow these instructions:</p><ul><li><p><a href="https://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html">Download</a> instant client.</p></li><li><p>Unzip and add <code>instantclient</code> folder to your LD<em>LIBRARY</em>PATH:</p></li></ul><pre><code class="language-none">export LD_LIBRARY_PATH=/path-to-folder/instantclient_XX_Y:$LD_LIBRARY_PATH</code></pre><p>Check <a href="https://oracle.github.io/odpi/doc/installation.html">ODPI-C documentation</a>, or <a href="https://www.oracle.com/technetwork/database/database-technologies/instant-client/documentation/index.html">Instant Client documentation</a> for alternative installation methods.</p><h2><a class="nav-anchor" id="Package-installation-1" href="#Package-installation-1">Package installation</a></h2><pre><code class="language-julia">julia&gt; Pkg.add(&quot;Oracle&quot;)</code></pre><h2><a class="nav-anchor" id="Tutorial-1" href="#Tutorial-1">Tutorial</a></h2><h3><a class="nav-anchor" id="Getting-a-Connection-1" href="#Getting-a-Connection-1">Getting a Connection</a></h3><pre><code class="language-julia">import Oracle
+
+username = &quot;my_username&quot;
+password = &quot;my_password&quot;
+connect_string = &quot;//IP_ADDRESS/XE&quot; # a valid Oracle connect string
+
+conn = Oracle.Connection(username, password, connect_string)</code></pre><p>Currently, this driver only supports connections using ASCII or UTF-8 encodings. All connections are created using UTF-8 encoding by default, for both CHAR and NCHAR.</p><p>To connect as SYSDBA, use the appropriate <code>auth_mode</code> parameter.</p><pre><code class="language-julia">conn = Oracle.Connection(username, password, connect_string, auth_mode=Oracle.ORA_MODE_AUTH_SYSDBA)</code></pre><p>Connections are closed automatically (by the garbage collector) when they go out of scope. But you can also close a connection using <code>Oracle.close!</code> method.</p><pre><code class="language-julia">Oracle.close!(conn)</code></pre><h3><a class="nav-anchor" id="Executing-a-Statement-1" href="#Executing-a-Statement-1">Executing a Statement</a></h3><pre><code class="language-julia">Oracle.execute!(conn, &quot;CREATE TABLE TB_TEST ( ID INT NULL )&quot;)
+Oracle.execute!(conn, &quot;INSERT INTO TB_TEST ( ID ) VALUES ( 1 )&quot;)
+Oracle.execute!(conn, &quot;INSERT INTO TB_TEST ( ID ) VALUES ( null )&quot;)
+Oracle.commit!(conn) # will commit 2 lines
+
+Oracle.execute!(conn, &quot;INSERT INTO TB_TEST ( ID ) VALUES ( 3 )&quot;)
+Oracle.rollback!(conn) # abort insertion of the third line</code></pre><h3><a class="nav-anchor" id="Binding-values-to-a-Statement-1" href="#Binding-values-to-a-Statement-1">Binding values to a Statement</a></h3><pre><code class="language-julia">Oracle.execute!(conn, &quot;CREATE TABLE TB_BIND ( ID NUMBER(15,0) NULL, FLT NUMBER(15,4) NULL, STR VARCHAR(255) NULL, DT DATE NULL)&quot;)
+
+stmt = Oracle.Stmt(conn, &quot;INSERT INTO TB_BIND ( ID, FLT, STR, DT ) VALUES ( :id, :flt, :str, :dt )&quot;)
+
+# will add a single line to TB_BIND
+stmt[:id] = 1
+stmt[:flt] = 10.23
+stmt[:str] = &quot;a string&quot;
+stmt[:dt] = Date(2018,12,31)
+Oracle.execute!(stmt)
+
+Oracle.commit!(conn)
+Oracle.close!(stmt)</code></pre><p>Statements are closed automatically (by the garbage collector) when they go out of scope. But it&#39;s good practice to close a Statement using <code>Oracle.close!</code> method as soon as you have finished with it, to release database resources.</p><h3><a class="nav-anchor" id="Executing-a-Query-1" href="#Executing-a-Query-1">Executing a Query</a></h3><p>Use <code>Oracle.query</code> method with <em>do-syntax</em> to get a reference to a cursor.</p><pre><code class="language-julia">Oracle.query(conn, &quot;SELECT * FROM TB_BIND&quot;) do cursor
+    for row in cursor
+        # row values can be accessed using column name or position
+        println( row[&quot;ID&quot;]  ) # same as row[1]
+        println( row[&quot;FLT&quot;] )
+        println( row[&quot;STR&quot;] )
+        println( row[&quot;DT&quot;]  ) # same as row[4]
+    end
+end</code></pre><p>You can also use a prepared statement to execute a query.</p><pre><code class="language-julia">stmt = Oracle.Stmt(conn, &quot;SELECT FLT FROM TB_BIND WHERE ID = :id&quot;)
+stmt[:id] = 1
+
+Oracle.query(stmt) do cursor
+    for row in cursor
+      println(row[&quot;FLT&quot;])
+    end
+end
+
+Oracle.close!(stmt)</code></pre><p>There is also the possibility to fetch one row at a time.</p><pre><code class="language-julia">stmt = Oracle.Stmt(conn, &quot;SELECT FLT FROM TB_BIND&quot;)
+Oracle.execute!(stmt)
+
+row = Oracle.fetch_row!(stmt)
+while row != nothing
+    println(row[1])
+    row = Oracle.fetch_row!(stmt)
+end
+
+Oracle.close!(stmt)</code></pre><h3><a class="nav-anchor" id="Batch-statement-execution-1" href="#Batch-statement-execution-1">Batch statement execution</a></h3><p>If you need to execute the same statement many times but binding different values each time, pass a vector of columns to <code>Oracle.execute!</code> method.</p><p>This will use the ODPI-C <em>executeMany</em> feature.</p><pre><code class="language-julia">NUM_ROWS = 1_000
+
+column_1 = [ i for i in 1:NUM_ROWS ]
+column_2 = .5 * column_1
+
+sql = &quot;INSERT INTO TB_BENCH_EXECUTE_MANY ( ID, FLT ) VALUES ( :1, :2 )&quot;
+Oracle.execute!(conn, sql, [ column_1, column_2 ])</code></pre><h3><a class="nav-anchor" id="Session-Pools-1" href="#Session-Pools-1">Session Pools</a></h3><p>A <em>Pool</em> represents a pool of connections, and provides a faster way to acquire connections to the database.</p><pre><code class="language-julia"># creates a pool for a maximum of 2 sessions
+pool = Oracle.Pool(username, password, connect_string, max_sessions=2, session_increment=1)
+
+conn_1 = Oracle.Connection(pool)
+conn_2 = Oracle.Connection(pool) # at this point, we can&#39;t acquire more connections
+
+# release a connection so that we can acquire another one.
+Oracle.close!(conn_1)
+
+# by now, acquiring a new connection should be pretty fast
+# since the new connection will be taken from the pool
+conn_3 = Oracle.Connection(pool)
+
+# release all connections that are still open
+Oracle.close!(conn_2)
+Oracle.close!(conn_3)
+
+Oracle.close!(pool)</code></pre><p>A <em>Pool</em> is closed automatically (by the garbage collector) when it goes out of scope. You can use <code>Oracle.close!</code> method as soon as you have finished with it, to release database resources.</p><h3><a class="nav-anchor" id="LOB-1" href="#LOB-1">LOB</a></h3><p>Oracle LOB fields can hold <a href="https://docs.oracle.com/cd/B28359_01/server.111/b28320/limits001.htm">up to 4GB of data</a>.</p><p>They come in two flavors:</p><ul><li><p>Binary LOBs: BLOB or BFILE.</p></li><li><p>Character LOBs: CLOB or NCLOB.</p></li></ul><p>LOB values are represented as a value of type <code>Oracle.Lob</code> in this package.</p><p>From a LOB value, you can use <code>read</code> and <code>write</code> methods to manipulate whole contents of the LOB value. For incremental reading/writing, you can use <code>open</code> with <em>do-syntax</em> do get an IO stream out of a <code>Oracle.Lob</code>.</p><p>IO Streams created on Character LOBs use the character index as its position, and only support reading/writing for <code>Char</code> and <code>String</code> data types.</p><p>A LOB is closed automatically (by the garbage collector) when it goes out of scope. You can use <code>Oracle.close!</code> method as soon as you have finished with it, to release database resources.</p><p><em>Currently, BFILE is not supported.</em></p><h4><a class="nav-anchor" id="Reading-from-a-BLOB-1" href="#Reading-from-a-BLOB-1">Reading from a BLOB</a></h4><pre><code class="language-julia">lyric = &quot;hey you. 🎵 🎶 Out there in the cold. getting lonely, getting old. Can you feel me? 📼📼📼📼&quot;
+
+Oracle.execute!(conn, &quot;CREATE TABLE TB_BLOB ( b BLOB )&quot;)
+Oracle.execute!(conn, &quot;INSERT INTO TB_BLOB ( B ) VALUES ( utl_raw.cast_to_raw(&#39;$lyric&#39;))&quot;)
+
+Oracle.query(conn, &quot;SELECT B FROM TB_BLOB&quot;) do cursor
+    for row in cursor
+        blob = row[&quot;B&quot;]
+        bytes_vector = read(blob) # Vector{UInt8}
+        println(String(bytes_vector))
+    end
+end</code></pre><h4><a class="nav-anchor" id="Writing-to-a-BLOB-1" href="#Writing-to-a-BLOB-1">Writing to a BLOB</a></h4><p>Follow these steps to write to a BLOB field in the database.</p><ol><li><p>Create a temporary Lob associated with the connection using <code>Oracle.Lob(connection, oracle_type)</code>.</p></li><li><p>Write data to the Lob.</p></li><li><p>Wrap the Lob into a Variable.</p></li><li><p>Bind the variable to the statement.</p></li><li><p>Execute the statement.</p></li></ol><pre><code class="language-julia">Oracle.execute!(conn, &quot;CREATE TABLE TB_BLOB_VARIABLE ( B BLOB )&quot;)
+
+test_data = rand(UInt8, 5000)
+
+# creates a temporary Lob bounded to the Connection
+blob = Oracle.Lob(conn, Oracle.ORA_ORACLE_TYPE_BLOB)
+
+# replaces all Lob data with the contents of the array test_data
+write(blob, test_data)
+
+# wraps the blob in a Variable
+ora_var = Oracle.Variable(conn, blob)
+
+stmt = Oracle.Stmt(conn, &quot;INSERT INTO TB_BLOB_VARIABLE ( B ) VALUES ( :1 )&quot;)
+
+# binds the variable to the statement
+stmt[1] = ora_var
+
+Oracle.execute!(stmt)
+Oracle.close!(stmt)</code></pre><h2><a class="nav-anchor" id="ODPI-C-Naming-Conventions-1" href="#ODPI-C-Naming-Conventions-1">ODPI-C Naming Conventions</a></h2><p>All enums, constants and structs in ODPI-C library use the prefix <code>DPI</code> or <code>dpi</code>.</p><p>In <em>Oracle.jl</em>, the Julia implementation of these elements use the prefix <code>ORA</code> or <code>Ora</code>.</p><p>Examples:</p><ul><li><p>The ODPI-C constant <code>DPI_MODE_AUTH_SYSDBA</code> becomes <code>ORA_MODE_AUTH_SYSDBA</code> in Julia.</p></li><li><p>The ODPI-C enum <code>dpiAuthMode</code> becomes <code>OraAuthMode</code> in Julia.</p></li><li><p>The ODPI-C struct <code>dpiTimestamp</code> becomes <code>OraTimestamp</code> in Julia.</p></li></ul><p>All julia structs with prefix <code>Ora</code> are raw wrappers around ODPC-C structs and may contain unsafe attributes.</p><p>Safe equivalent Julia structs drop the <code>Ora</code> prefix.</p><p>ODPI-C <em>function wrappers</em> have their name preserved, as in <code>dpiContext_create</code>.</p><h2><a class="nav-anchor" id="License-1" href="#License-1">License</a></h2><p>The source code for the package <em>Oracle.jl</em> is licensed under the <a href="https://github.com/felipenoris/Oracle.jl/blob/master/LICENSE">MIT License</a>.</p><p>During installation, <em>Oracle.jl</em> downloads the source code and compile the library <a href="https://github.com/oracle/odpi">ODPI-C</a> which is licensed under <a href="https://oracle.github.io/odpi/doc/license.html">The Universal Permissive License (UPL), Version 1.0</a> and/or the <a href="https://oracle.github.io/odpi/doc/license.html">Apache License</a>.</p><footer><hr/></footer></article></body></html>

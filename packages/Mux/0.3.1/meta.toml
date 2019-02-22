@@ -1,0 +1,83 @@
+license_url = ""
+name = "Mux"
+owner = "JuliaWeb"
+version = "0.3.1"
+description = "Middleware for Julia"
+stargazers_count = "142"
+url = "https://github.com/JuliaWeb/Mux.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "55"
+[[contributors]]
+name = "rdeits"
+contributions = "11"
+[[contributors]]
+name = "vdayanand"
+contributions = "11"
+[[contributors]]
+name = "piever"
+contributions = "9"
+[[contributors]]
+name = "amgad-naiem"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "aviks"
+contributions = "3"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "sjkelly"
+contributions = "2"
+[[contributors]]
+name = "quinnj"
+contributions = "2"
+[[contributors]]
+name = "dls"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "shashi"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "yfractal"
+contributions = "1"

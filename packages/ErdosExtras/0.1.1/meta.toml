@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ErdosExtras"
+owner = "CarloLucibello"
+version = "0.1.1"
+description = "More algorithms for Erdos.jl graph library"
+stargazers_count = "1"
+url = "https://github.com/CarloLucibello/ErdosExtras.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "CarloLucibello"
+contributions = "34"

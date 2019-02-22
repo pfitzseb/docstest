@@ -1,0 +1,7 @@
+name = "TikzQTrees"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/dharasim/TikzQTrees.jl.git"
+version = "0.1.1"
+description = "Plotting trees using the latex package tikz-qtree"

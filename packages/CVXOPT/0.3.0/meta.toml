@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CVXOPT"
+owner = "cvxopt"
+version = "0.3.0"
+description = "Julia interface to CVXOPT"
+stargazers_count = "6"
+url = "https://github.com/cvxopt/CVXOPT.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "martinandersen"
+contributions = "20"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

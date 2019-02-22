@@ -1,0 +1,7 @@
+name = "FormattedTables"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/tom--lee/FormattedTables.jl.git"
+version = "0.2.0"
+description = "A Julia package for formatting tabular data"

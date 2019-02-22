@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "QNaNs"
+owner = "JeffreySarnoff"
+version = "0.3.0"
+description = "Use of quiet NaNs carrying different payloads."
+stargazers_count = "1"
+url = "https://github.com/JeffreySarnoff/QNaNs.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "77"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

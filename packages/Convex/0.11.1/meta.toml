@@ -1,0 +1,129 @@
+license_url = ""
+doctype = "default"
+name = "Convex"
+owner = "JuliaOpt"
+version = "0.11.1"
+description = "A Julia package for disciplined convex programming"
+stargazers_count = "263"
+url = "https://github.com/JuliaOpt/Convex.jl.git"
+installs = true
+tags = ["julia", "convex-optimization", "solver"]
+license = "Other"
+
+[[contributors]]
+name = "madeleineudell"
+contributions = "316"
+[[contributors]]
+name = "Ayush-iitkgp"
+contributions = "277"
+[[contributors]]
+name = "karanveerm"
+contributions = "204"
+[[contributors]]
+name = "davidlizeng"
+contributions = "83"
+[[contributors]]
+name = "mlubin"
+contributions = "32"
+[[contributors]]
+name = "jennyhong"
+contributions = "26"
+[[contributors]]
+name = "ararslan"
+contributions = "23"
+[[contributors]]
+name = "IainNZ"
+contributions = "15"
+[[contributors]]
+name = "jduchi"
+contributions = "4"
+[[contributors]]
+name = "hsnamkoong"
+contributions = "4"
+[[contributors]]
+name = "mfalt"
+contributions = "4"
+[[contributors]]
+name = "peterwittek"
+contributions = "3"
+[[contributors]]
+name = "vernwalrahul"
+contributions = "3"
+[[contributors]]
+name = "blakejohnson"
+contributions = "2"
+[[contributors]]
+name = "daviddelaat"
+contributions = "2"
+[[contributors]]
+name = "dressel"
+contributions = "2"
+[[contributors]]
+name = "nangeschnappt"
+contributions = "2"
+[[contributors]]
+name = "rofinn"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "seanemoon"
+contributions = "1"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "chkwon"
+contributions = "1"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "emreyamangil"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "ericphanson"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "kofron"
+contributions = "1"
+[[contributors]]
+name = "jayvn"
+contributions = "1"
+[[contributors]]
+name = "snitramodranoel"
+contributions = "1"
+[[contributors]]
+name = "marcusps"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "stared"
+contributions = "1"
+[[contributors]]
+name = "aspicer"
+contributions = "1"
+[[contributors]]
+name = "tummykung"
+contributions = "1"
+[[contributors]]
+name = "yvesx"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"
+[[contributors]]
+name = "nkottary"
+contributions = "1"

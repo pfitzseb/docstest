@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Hungarian"
+owner = "Gnimuc"
+version = "0.3.0"
+description = "The Hungarian(Kuhn-Munkres) algorithm for Julia"
+stargazers_count = "7"
+url = "https://github.com/Gnimuc/Hungarian.jl.git"
+installs = true
+tags = ["julia", "optimization", "assignment-problem", "munkres"]
+license = "MIT License"
+
+[[contributors]]
+name = "Gnimuc"
+contributions = "78"
+[[contributors]]
+name = "dourouc05"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

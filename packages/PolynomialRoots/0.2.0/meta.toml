@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "PolynomialRoots"
+owner = "giordano"
+version = "0.2.0"
+description = "Fast complex polynomial root finder, with support for arbitrary precision calculations"
+stargazers_count = "16"
+url = "https://github.com/giordano/PolynomialRoots.jl.git"
+installs = true
+tags = ["julia", "root-finding", "polynomials", "complex-polynomials", "arbitrary-precision", "multiprecision", "math"]
+license = "Other"
+
+[[contributors]]
+name = "giordano"
+contributions = "68"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "simonfxr"
+contributions = "1"

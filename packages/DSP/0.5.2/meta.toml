@@ -1,0 +1,159 @@
+license_url = ""
+doctype = "real"
+name = "DSP"
+owner = "JuliaDSP"
+version = "0.5.2"
+description = "Filter design, periodograms, window functions, and other digital signal processing functionality"
+stargazers_count = "132"
+url = "https://github.com/JuliaDSP/DSP.jl.git"
+installs = true
+tags = ["julia", "dsp", "filter", "periodogram", "spectrogram"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "190"
+[[contributors]]
+name = "jfsantos"
+contributions = "47"
+[[contributors]]
+name = "JayKickliter"
+contributions = "40"
+[[contributors]]
+name = "martinholters"
+contributions = "38"
+[[contributors]]
+name = "galenlynch"
+contributions = "31"
+[[contributors]]
+name = "ssfrr"
+contributions = "31"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "18"
+[[contributors]]
+name = "gummif"
+contributions = "16"
+[[contributors]]
+name = "r9y9"
+contributions = "10"
+[[contributors]]
+name = "ararslan"
+contributions = "9"
+[[contributors]]
+name = "jordancluts"
+contributions = "8"
+[[contributors]]
+name = "mpastell"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "ViralBShah"
+contributions = "6"
+[[contributors]]
+name = "bjarthur"
+contributions = "5"
+[[contributors]]
+name = "sirtom67"
+contributions = "5"
+[[contributors]]
+name = "kofron"
+contributions = "4"
+[[contributors]]
+name = "alecokas"
+contributions = "3"
+[[contributors]]
+name = "wherrera10"
+contributions = "2"
+[[contributors]]
+name = "ClemensFMN"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "ibadr"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "2"
+[[contributors]]
+name = "codles"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "1"
+[[contributors]]
+name = "crstnbr"
+contributions = "1"
+[[contributors]]
+name = "CrocoDuckoDucks"
+contributions = "1"
+[[contributors]]
+name = "davidavdav"
+contributions = "1"
+[[contributors]]
+name = "hamzaelsaawy"
+contributions = "1"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "JKrehl"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "mcawte"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "platawiec"
+contributions = "1"

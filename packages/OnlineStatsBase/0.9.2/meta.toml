@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "OnlineStatsBase"
+owner = "joshday"
+version = "0.9.2"
+description = "Base types for OnlineStats."
+stargazers_count = "13"
+url = "https://github.com/joshday/OnlineStatsBase.jl.git"
+installs = true
+tags = ["onlinestats", "julia", "online-algorithm"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "233"

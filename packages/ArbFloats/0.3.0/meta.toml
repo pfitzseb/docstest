@@ -1,0 +1,32 @@
+license_url = "https://api.github.com/licenses/mit"
+name = "ArbFloats"
+owner = "JuliaArbTypes"
+version = "0.3.0"
+description = "Much faster than BigFloat at precisions up to 3,500 bits (1050 digits)"
+stargazers_count = "16"
+url = "https://github.com/JuliaArbTypes/ArbFloats.jl.git"
+installs = false
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1109"
+[[contributors]]
+name = "JuliaNumberTypes"
+contributions = "34"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "PerezHz"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

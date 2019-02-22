@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Expokit"
+owner = "acroy"
+version = "0.2.0"
+description = "Julia implementation of EXPOKIT routines"
+stargazers_count = "15"
+url = "https://github.com/acroy/Expokit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "acroy"
+contributions = "37"
+[[contributors]]
+name = "mforets"
+contributions = "5"
+[[contributors]]
+name = "marcusps"
+contributions = "4"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "GiggleLiu"
+contributions = "1"

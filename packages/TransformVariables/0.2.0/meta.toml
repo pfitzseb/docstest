@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "TransformVariables"
+owner = "tpapp"
+version = "0.2.0"
+description = "Transformations to contrained variables from ℝⁿ."
+stargazers_count = "12"
+url = "https://github.com/tpapp/TransformVariables.jl.git"
+installs = true
+tags = ["julia", "julia-package", "bayesian-inference", "bayesian-statistics"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "129"

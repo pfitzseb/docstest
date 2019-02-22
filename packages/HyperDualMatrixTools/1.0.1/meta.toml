@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "HyperDualMatrixTools"
+owner = "briochemc"
+version = "1.0.1"
+description = "A little Julia module to allow factorization and backslash to work with hyperdual-valued arrays and sparse arrays."
+stargazers_count = "1"
+url = "https://github.com/briochemc/HyperDualMatrixTools.jl.git"
+installs = true
+tags = ["julia", "julia-language", "julialang", "julia-package", "matrix-factorization", "backslash", "sparse-matrices"]
+license = "MIT License"
+
+[[contributors]]
+name = "briochemc"
+contributions = "56"

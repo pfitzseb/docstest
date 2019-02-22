@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Widgets"
+owner = "piever"
+version = "0.2.5"
+description = "Low dependency package to create custom widgets"
+stargazers_count = "2"
+url = "https://github.com/piever/Widgets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "66"

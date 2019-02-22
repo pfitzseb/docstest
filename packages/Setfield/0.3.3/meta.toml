@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Setfield"
+owner = "jw3126"
+version = "0.3.3"
+description = "Update deeply nested immutable structs."
+stargazers_count = "21"
+url = "https://github.com/jw3126/Setfield.jl.git"
+installs = true
+tags = ["julia", "immutable", "lens"]
+license = "Other"
+
+[[contributors]]
+name = "jw3126"
+contributions = "61"
+[[contributors]]
+name = "tkf"
+contributions = "38"
+[[contributors]]
+name = "christopher-dG"
+contributions = "1"

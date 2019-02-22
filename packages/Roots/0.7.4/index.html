@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Roots.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Roots.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#An-alternate-interface-1">An alternate interface</a></li><li><a class="toctext" href="#Usage-examples-1">Usage examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="http://pkg.julialang.org/?pkg=Roots&amp;ver=0.6"><img src="http://pkg.julialang.org/badges/Roots_0.6.svg" alt="Roots"/></a> <a href="http://pkg.julialang.org/?pkg=Roots&amp;ver=0.7"><img src="http://pkg.julialang.org/badges/Roots_0.7.svg" alt="Roots"/></a> Linux: <a href="https://travis-ci.org/JuliaMath/Roots.jl"><img src="https://travis-ci.org/JuliaMath/Roots.jl.svg?branch=master" alt="Build Status"/></a> Windows: <a href="https://ci.appveyor.com/project/jverzani/roots-jl"><img src="https://ci.appveyor.com/api/projects/status/goteuptn5kypafyl?svg=true" alt="Build status"/></a></p><h1><a class="nav-anchor" id="Root-finding-functions-for-Julia-1" href="#Root-finding-functions-for-Julia-1">Root finding functions for Julia</a></h1><p>This package contains simple routines for finding roots of continuous scalar functions of a single real variable. The <code>find_zero</code>function provides the primary interface. It supports various algorithms through the specification of a method. These include:</p><ul><li>Bisection-like algorithms. For functions where a bracketing interval is known (one where <code>f(a)</code> and <code>f(b)</code> have alternate signs), the <code>Bisection</code> method can be specified. For most floating point number types, bisection occurs in a manner exploiting floating point storage conventions. For others, an algorithm of Alefeld, Potra, and Shi is used. These methods are guaranteed to converge.</li></ul><ul><li>Several derivative-free methods are implemented. These are specified through the methods <code>Order0</code>, <code>Order1</code> (the secant method), <code>Order2</code> (the Steffensen method), <code>Order5</code>, <code>Order8</code>, and <code>Order16</code>. The number indicates, roughly, the order of convergence. The <code>Order0</code> method is the default, and the most robust, but may take many more function calls to converge. The higher order methods promise higher order (faster) convergence, though don&#39;t always yield results with fewer function calls than <code>Order1</code> or <code>Order2</code>. The methods <code>Roots.Order1B</code> and <code>Roots.Order2B</code> are superlinear and quadratically converging methods independent of the multiplicity of the zero.</li></ul><ul><li>There are historic methods that require a derivative or two: <code>Roots.Newton</code> and <code>Roots.Halley</code>.  <code>Roots.Schroder</code> provides a quadratic method, like Newton&#39;s method, which is independent of the multiplicity of the zero.</li></ul><p>Each method&#39;s documentation has additional detail.</p><p>Some examples:</p><pre><code class="language-julia">using Roots
+f(x) = exp(x) - x^4
+
+# a bisection method has the bracket specified with a tuple or vector
+julia&gt; find_zero(f, (8,9), Bisection())
+8.613169456441398
+
+julia&gt; find_zero(f, (-10, 0))  # Bisection if x is a tuple and no method
+-0.8155534188089606
+
+
+julia&gt; find_zero(f, (-10, 0), FalsePosition())  # just 11 function evaluations
+-0.8155534188089607</code></pre><p>For non-bracketing methods, the initial position is passed in as a scalar:</p><pre><code class="language-julia">## find_zero(f, x0::Number) will use Order0()
+julia&gt; find_zero(f, 3)         # default is Order0()
+1.4296118247255556
+
+julia&gt; find_zero(f, 3, Order1()) # same answer, different method
+1.4296118247255556
+
+julia&gt; find_zero(sin, BigFloat(3.0), Order16())
+3.141592653589793238462643383279502884197169399375105820974944592307816406286198</code></pre><p>The <code>find_zero</code> function can be used with callable objects:</p><pre><code class="language-julia">using SymEngine
+@vars x
+find_zero(x^5 - x - 1, 1.0)  # 1.1673039782614185</code></pre><p>Or,</p><pre><code class="language-julia">using Polynomials
+x = variable(Int)
+find_zero(x^5 - x - 1, 1.0)  # 1.1673039782614185</code></pre><p>The function should respect the units of the <code>Unitful</code> package:</p><pre><code class="language-julia">using Unitful
+s = u&quot;s&quot;; m = u&quot;m&quot;
+g = 9.8*m/s^2
+v0 = 10m/s
+y0 = 16m
+y(t) = -g*t^2 + v0*t + y0
+find_zero(y, 1s)      # 1.886053370668014 s</code></pre><p>Newton&#39;s method can be used without taking derivatives, if the <code>ForwardDiff</code> package is available:</p><pre><code class="language-julia">using ForwardDiff
+D(f) = x -&gt; ForwardDiff.derivative(f,float(x))</code></pre><p>Now we have:</p><pre><code class="language-none">f(x) = x^3 - 2x - 5
+x0 = 2
+find_zero((f,D(f)), x0, Roots.Newton())   # 2.0945514815423265</code></pre><p>Automatic derivatives allow for easy solutions to finding critical points of a function.</p><pre><code class="language-julia">## mean
+using Statistics
+as = rand(5)
+function M(x)
+  sum([(x-a)^2 for a in as])
+end
+find_zero(D(M), .5) - mean(as)	  # 0.0
+
+## median
+function m(x)
+  sum([abs(x-a) for a in as])
+
+end
+find_zero(D(m), (0, 1)) - median(as)	# 0.0</code></pre><h3><a class="nav-anchor" id="Multiple-zeros-1" href="#Multiple-zeros-1">Multiple zeros</a></h3><p>The <code>find_zeros</code> function can be used to search for all zeros in a specified interval. The basic algorithm essentially splits the interval into many subintervals. For each, if there is a bracket, a bracketing algorithm is used to identify a zero, otherwise a derivative free method is used to search for zeros. This algorithm can miss zeros for various reasons, so the results should be confirmed by other means.</p><pre><code class="language-julia">f(x) = exp(x) - x^4
+find_zeros(f, -10, 10)</code></pre><h3><a class="nav-anchor" id="Convergence-1" href="#Convergence-1">Convergence</a></h3><p>For most algorithms, convergence is decided when</p><ul><li><p>The value |f(x<em>n)| &lt; tol with `tol = max(atol, abs(x</em>n)*rtol)`, or</p></li><li><p>the values x<em>n ≈ x</em>{n-1} with tolerances <code>xatol</code> and <code>xrtol</code> <em>and</em> f(x_n) ≈ 0 with a <em>relaxed</em> tolerance based on <code>atol</code> and <code>rtol</code>.</p></li></ul><p>The algorithm stops if</p><ul><li><p>it encounters an <code>NaN</code> or an <code>Inf</code>, or</p></li><li><p>the number of iterations exceed <code>maxevals</code>, or</p></li><li><p>the number of function calls exceeds <code>maxfnevals</code>.</p></li></ul><p>If the algorithm stops and the relaxed convergence criteria is met, the suspected zero is returned. Otherwise an error is thrown indicating no convergence. To adjust the tolerances, <code>find_zero</code> accepts keyword arguments <code>atol</code>, <code>rtol</code>, <code>xatol</code>, and <code>xrtol</code>.</p><p>The <code>Bisection</code> and <code>Roots.A42</code> methods are guaranteed to converge even if the tolerances are set to zero, so these are the defaults. Non-zero values for <code>xatol</code> and <code>xrtol</code> can be specified to reduce the number of function calls when lower precision is required.</p><h2><a class="nav-anchor" id="An-alternate-interface-1" href="#An-alternate-interface-1">An alternate interface</a></h2><p>This functionality is provided by the <code>fzero</code> function, familiar to MATLAB users. <code>Roots</code> also provides this alternative interface:</p><ul><li><p><code>fzero(f, x0::Real; order=0)</code> calls a derivative-free method. with the order specifying one of <code>Order0</code>, <code>Order1</code>, etc.</p></li><li><p><code>fzero(f, a::Real, b::Real)</code> calls the <code>find_zero</code> algorithm with the <code>Bisection</code> method.</p></li><li><p><code>fzeros(f, a::Real, b::Real)</code> will call <code>find_zeros</code>.</p></li></ul><h2><a class="nav-anchor" id="Usage-examples-1" href="#Usage-examples-1">Usage examples</a></h2><pre><code class="language-julia">f(x) = exp(x) - x^4
+## bracketing
+fzero(f, 8, 9)		          # 8.613169456441398
+fzero(f, -10, 0)		      # -0.8155534188089606
+fzeros(f, -10, 10)            # -0.815553, 1.42961  and 8.61317
+
+## use a derivative free method
+fzero(f, 3)			          # 1.4296118247255558
+
+## use a different order
+fzero(sin, big(3), order=16)  # 3.141592653589793...</code></pre><h3><a class="nav-anchor" id="Technical-difference-between-find_zero-and-fzero-1" href="#Technical-difference-between-find_zero-and-fzero-1">Technical difference between find_zero and fzero</a></h3><p>The <code>fzero</code> function is not identical to <code>find_zero</code>. When a function, <code>f</code>, is passed to <code>find_zero</code> the code is specialized to the function <code>f</code> which means the first use of <code>f</code> will be slower due to compilation, but subsequent uses will be faster. For <code>fzero</code>, the code is not specialized to the function <code>f</code>, so the story is reversed.</p><hr/><p>Some additional documentation can be read <a href="http://nbviewer.ipython.org/url/github.com/JuliaLang/Roots.jl/blob/master/doc/roots.ipynb?create=1">here</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

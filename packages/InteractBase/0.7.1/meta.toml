@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "InteractBase"
+owner = "piever"
+version = "0.7.1"
+description = "Build interactive HTML5 widgets in Julia"
+stargazers_count = "17"
+url = "https://github.com/piever/InteractBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "232"
+[[contributors]]
+name = "tkoolen"
+contributions = "3"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "djsegal"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "korsbo"
+contributions = "1"
+[[contributors]]
+name = "rafaqz"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "vdayanand"
+contributions = "1"

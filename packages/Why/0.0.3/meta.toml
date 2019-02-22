@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Why"
+owner = "TorkelE"
+version = "0.0.3"
+description = "A simple function, why, which gives randomly generated answers (please note that not all answers might be helpful)."
+stargazers_count = "1"
+url = "https://github.com/TorkelE/Why.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "TorkelE"
+contributions = "61"

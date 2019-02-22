@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Faceting (Trellis Plot / Small Multiples) · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li><a class="toctext" href="../examples_scatter_strip_plots/">Scatter &amp; Strip Plots</a></li><li><a class="toctext" href="../examples_line_charts/">Line Charts</a></li><li><a class="toctext" href="../examples_area_Charts_streamgraphs/">Area Charts &amp; Streamgraphs</a></li><li><a class="toctext" href="../examples_table_based_plots/">Table-based Plots</a></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li class="current"><a class="toctext" href>Faceting (Trellis Plot / Small Multiples)</a><ul class="internal"><li><a class="toctext" href="#Trellis-Bar-Chart-1">Trellis Bar Chart</a></li><li><a class="toctext" href="#Trellis-Stacked-Bar-Chart-1">Trellis Stacked Bar Chart</a></li><li><a class="toctext" href="#Trellis-Scatter-Plot-1">Trellis Scatter Plot</a></li><li><a class="toctext" href="#Trellis-Histograms-1">Trellis Histograms</a></li><li><a class="toctext" href="#Trellis-Scatter-Plot-showing-Anscombe&#39;s-Quartet-1">Trellis Scatter Plot showing Anscombe&#39;s Quartet</a></li><li><a class="toctext" href="#Becker&#39;s-Barley-Trellis-Plot-1">Becker&#39;s Barley Trellis Plot</a></li><li><a class="toctext" href="#Trellis-Area-1">Trellis Area</a></li></ul></li><li><a class="toctext" href="../examples_repeat_concatenation/">Repeat &amp; Concatenation</a></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Multi-View Displays</li><li><a href>Faceting (Trellis Plot / Small Multiples)</a></li></ul></nav><hr/><div id="topbar"><span>Faceting (Trellis Plot / Small Multiples)</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Faceting-(Trellis-Plot-/-Small-Multiples)-1" href="#Faceting-(Trellis-Plot-/-Small-Multiples)-1">Faceting (Trellis Plot / Small Multiples)</a></h1><h2><a class="nav-anchor" id="Trellis-Bar-Chart-1" href="#Trellis-Bar-Chart-1">Trellis Bar Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;population&quot;) |&gt;
+@vlplot(
+    :bar,
+    transform=[
+        {filter=&quot;datum.year==2000&quot;},
+        {calculate=&quot;datum.sex==2 ? &#39;Female&#39; : &#39;Male&#39;&quot;,as=:gender}
+    ],
+    row=&quot;gender:n&quot;,
+    y={&quot;sum(people)&quot;, axis={title=&quot;population&quot;}},
+    x={&quot;age:o&quot;, scale={rangeStep=17}},
+    color={&quot;gender:n&quot;, scale={range=[&quot;#EA98D2&quot;, &quot;#659CCA&quot;]}}
+)</code></pre><h2><a class="nav-anchor" id="Trellis-Stacked-Bar-Chart-1" href="#Trellis-Stacked-Bar-Chart-1">Trellis Stacked Bar Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;barley&quot;) |&gt;
+@vlplot(:bar, column=&quot;year:o&quot;, x=&quot;sum(yield)&quot;, y=:variety, color=:site)</code></pre><h2><a class="nav-anchor" id="Trellis-Scatter-Plot-1" href="#Trellis-Scatter-Plot-1">Trellis Scatter Plot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;movies&quot;) |&gt;
+@vlplot(:point, column=&quot;MPAA_Rating:o&quot;, x=:Worldwide_Gross, y=:US_DVD_Sales)</code></pre><h2><a class="nav-anchor" id="Trellis-Histograms-1" href="#Trellis-Histograms-1">Trellis Histograms</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(
+    :bar,
+    x={
+        :Horsepower,
+        bin={maxbins=15}
+    },
+    y=&quot;count()&quot;,
+    row=:Origin
+)</code></pre><h2><a class="nav-anchor" id="Trellis-Scatter-Plot-showing-Anscombe&#39;s-Quartet-1" href="#Trellis-Scatter-Plot-showing-Anscombe&#39;s-Quartet-1">Trellis Scatter Plot showing Anscombe&#39;s Quartet</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;anscombe&quot;) |&gt;
+@vlplot(
+    :circle,
+    column=:Series,
+    x={:X, scale={zero=false}},
+    y={:Y, scale={zero=false}},
+    opacity={value=1}
+)</code></pre><h2><a class="nav-anchor" id="Becker&#39;s-Barley-Trellis-Plot-1" href="#Becker&#39;s-Barley-Trellis-Plot-1">Becker&#39;s Barley Trellis Plot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;barley&quot;) |&gt;
+@vlplot(
+    :point,
+    row=&quot;site:o&quot;,
+    x={&quot;median(yield)&quot;, scale={zero=false}},
+    y={
+        &quot;variety:o&quot;,
+        sort={
+            &quot;yield&quot;,
+            op=:median,
+            order=:descending
+        },
+        scale={rangeStep=12}},
+    color=:year
+)</code></pre><h2><a class="nav-anchor" id="Trellis-Area-1" href="#Trellis-Area-1">Trellis Area</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    :area,
+    width=300,height=40,
+    transform=[{filter=&quot;datum.symbol !== &#39;GOOG&#39;&quot;}],
+    x={
+        &quot;date:t&quot;,
+        axis={format=&quot;%Y&quot;,title=&quot;Time&quot;,grid=false}
+    },
+    y={
+        :price,
+        axis={title=&quot;Price&quot;,grid=false}
+    },
+    color={
+        :symbol,
+        legend=nothing
+    },
+    row={
+        :symbol,
+        header={title=&quot;Symbol&quot;}
+    }
+)</code></pre><footer><hr/><a class="previous" href="../examples_box_plots/"><span class="direction">Previous</span><span class="title">Box Plots</span></a><a class="next" href="../examples_repeat_concatenation/"><span class="direction">Next</span><span class="title">Repeat &amp; Concatenation</span></a></footer></article></body></html>

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ProteinEnsembles"
+owner = "jgreener64"
+version = "0.2.0"
+description = "Generate and perturb protein structural ensembles using the ExProSE algorithm"
+stargazers_count = "6"
+url = "https://github.com/jgreener64/ProteinEnsembles.jl.git"
+installs = true
+tags = ["julia", "protein-structure", "allostery", "allosteric-predictions", "paper", "coarse-grained"]
+license = "Other"
+
+[[contributors]]
+name = "jgreener64"
+contributions = "85"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

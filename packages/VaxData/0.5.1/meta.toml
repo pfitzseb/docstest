@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "VaxData"
+owner = "halleysfifthinc"
+version = "0.5.1"
+description = "VAX data format library"
+stargazers_count = "1"
+url = "https://github.com/halleysfifthinc/VaxData.jl.git"
+installs = true
+tags = ["vax", "julia", "libvaxdata", "dec"]
+license = "Other"
+
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "38"

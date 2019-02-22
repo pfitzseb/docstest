@@ -1,0 +1,57 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ImageView"
+owner = "JuliaImages"
+version = "0.8.2"
+description = "Interactive display of images and movies"
+stargazers_count = "55"
+url = "https://github.com/JuliaImages/ImageView.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "timholy"
+contributions = "218"
+[[contributors]]
+name = "rsrock"
+contributions = "24"
+[[contributors]]
+name = "kmsquire"
+contributions = "10"
+[[contributors]]
+name = "Cody-G"
+contributions = "2"
+[[contributors]]
+name = "HaoyangRong"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "2"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "bjarthur"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "cmey"
+contributions = "1"
+[[contributors]]
+name = "motatoes"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"

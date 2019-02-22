@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · RecipesBase.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>RecipesBase.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Why-should-I-care-about-this-package?-1">Why should I care about this package?</a></li><li><a class="toctext" href="#Hello-world-1">Hello world</a></li><li><a class="toctext" href="#A-real-example-1">A real example</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="RecipesBase-1" href="#RecipesBase-1">RecipesBase</a></h1><p><a href="https://travis-ci.org/JuliaPlots/RecipesBase.jl"><img src="https://travis-ci.org/JuliaPlots/RecipesBase.jl.svg?branch=master" alt="Build Status"/></a></p><h3><a class="nav-anchor" id="Author:-Thomas-Breloff-(@tbreloff)-1" href="#Author:-Thomas-Breloff-(@tbreloff)-1">Author: Thomas Breloff (@tbreloff)</a></h3><p>This package implements handy macros <code>@recipe</code> and <code>@series</code> which will define a custom transformation and attach attributes for user types.  Its design is an attempt to simplify and generalize the summary and display of types and data from external packages.  With no extra dependencies and minimal code, package authors can describe visualization routines that can be used as components in more complex visualizations.</p><p>This functionality is primarily geared to turning user types and settings into the data and attributes that describe a <a href="https://github.com/tbreloff/Plots.jl">Plots</a> visualization, though it could be used for other purposes as well. Plots has extensive machinery to uniquely take advantage of the simplified recipe description you define.  See the <a href="http://docs.juliaplots.org/latest/recipes/">Plots documentation on recipes</a> for more information.</p><p>The <code>@recipe</code> macro will process a function definition, use <code>--&gt;</code> commands to define attributes, and pass the return value through for further processing (likely by Plots.jl).</p><h2><a class="nav-anchor" id="Why-should-I-care-about-this-package?-1" href="#Why-should-I-care-about-this-package?-1">Why should I care about this package?</a></h2><p>Many packages have custom types and custom data.  There is usually specialized structure, and useful methods of visualizing that structure and data.  This package solves the difficult problem of how to build generic visualizations of user-defined data types, without adding bulky dependencies on complex graphics packages.</p><p>This package is as lightweight as possible.  It exports two macros, and defines only a few internal methods. It has <strong>zero dependencies</strong>.</p><p>However, although it is lightweight, it enables a lot.  The entirety of the Plots framework becomes available to any package implementing a recipe.  This means that complex plots and subplots can be built with uber-flexibility using custom combinations of data types.  Some examples of applications:</p><ul><li>Distributions: overlayed density plots for non-normal fitted distributions.</li><li>DataFrames: &quot;Grammar of Graphics&quot;-style inputs using symbols.</li><li>Deep Learning: frameworks for visualization of neural network states and tracking of internal calculations.</li><li>Graphs: flexible, interactive graphs with easily customizable colors, etc.</li><li>Symbolic frameworks: sample from complex symbolic distributions.</li></ul><p>Really there&#39;s very little that <em>couldn&#39;t</em> be mapped to a useful visualization. I challenge you to create the pictures that are worth a thousand words.</p><p>For more information about Plots, see <a href="http://juliaplots.github.io/">the docs</a>, and be sure to reference the <a href="http://docs.juliaplots.org/latest/supported/#keyword-arguments">supported keywords</a>. For additional examples of recipes in the wild, see <a href="https://github.com/JuliaPlots/PlotRecipes.jl">PlotRecipes</a>. Ask questions on <a href="https://gitter.im/tbreloff/Plots.jl">gitter</a> or in the issues.</p><h2><a class="nav-anchor" id="Hello-world-1" href="#Hello-world-1">Hello world</a></h2><p>This will build a spiky surface:</p><pre><code class="language-julia">using Plots; gr()
+struct T end
+@recipe f(::T) = rand(100,100)
+surface(T())</code></pre><p><img src="https://cloud.githubusercontent.com/assets/933338/15089193/7a453ec6-13cc-11e6-9ae8-959e98b615dc.png" alt/></p><h2><a class="nav-anchor" id="A-real-example-1" href="#A-real-example-1">A real example</a></h2><pre><code class="language-julia">using RecipesBase
+
+# Our user-defined data type
+struct T end
+
+# This is all we define.  It uses a familiar signature, but strips it apart
+# in order to add a custom definition to the internal method `RecipesBase.apply_recipe`
+@recipe function plot(::T, n = 1; customcolor = :green)
+    markershape --&gt; :auto        # if markershape is unset, make it :auto
+    markercolor :=  customcolor  # force markercolor to be customcolor
+    xrotation   --&gt; 45           # if xrotation is unset, make it 45
+    zrotation   --&gt; 90           # if zrotation is unset, make it 90
+    rand(10,n)                   # return the arguments (input data) for the next recipe
+end
+
+# ----------------------------
+
+# Plots will be the ultimate consumer of our recipe in this example
+using Plots
+gr()
+
+# This call will implicitly call `RecipesBase.apply_recipe` as part of the Plots
+# processing pipeline (see the Pipeline section of the Plots documentation).
+#   It will plot 5 line plots (a 5-column matrix is returned from the recipe).
+#   All will have black circles:
+#       - user override for markershape: :c == :circle
+#       - customcolor overridden to :black, and markercolor is forced to be customcolor
+#   If markershape is an unsupported keyword, the call will error.
+#   By default, a warning will be shown for an unsupported keyword.
+#   This will be suppressed for zrotation (:quiet flag).
+plot(T(), 5; customcolor = :black, shape=:c)</code></pre><p><img src="https://cloud.githubusercontent.com/assets/933338/15083906/02a06810-139e-11e6-98a0-dd81c3fb1ad8.png" alt/></p><p>In this example, we see a lot of the machinery in action.  We create a new type <code>T</code>, which we will use for dispatch, and an optional argument <code>n</code>, which will be used to determine the number of series to display.  User-defined keyword arguments are passed through, and the <code>--&gt;</code> command can be trailed by flags:</p><ul><li><code>quiet</code>:   Suppress unsupported keyword warnings</li><li><code>require</code>: Error if keyword is unsupported</li><li><code>force</code>:   Don&#39;t allow user override for this keyword</li></ul><h3><a class="nav-anchor" id="Series-1" href="#Series-1">Series</a></h3><p>For complex visualizations, it can be beneficial to create many series inside a single recipe.  The <code>@series</code> macro will make a copy of the attribute dictionary <code>d</code>, and add a new RecipeData object to the returned list.  See the <a href="http://docs.juliaplots.org/latest/recipes/#case-studies">case studies</a> for more details.</p><h3><a class="nav-anchor" id="Generated-code-1" href="#Generated-code-1">Generated code</a></h3><p>For the example above, the following code is generated.  In it, you can see the managing of the scope of the keyword args, creation of a definition for <code>RecipesBase.apply_recipe</code>, setting attributes, and creating the list of <code>RecipeData</code> objects:</p><pre><code class="language-julia">function RecipesBase.apply_recipe(d::Dict{Symbol,Any},::T,n=1)
+    if RecipesBase._debug_recipes[1]
+        println(&quot;apply_recipe args: &quot;,Any[:(::T),:(n=1)])
+    end
+    begin
+        customcolor = get!(d,:customcolor,:green)
+    end
+    series_list = RecipesBase.RecipeData[]
+    func_return = begin
+            get!(d,:markershape,:auto)
+            d[:markercolor] = customcolor
+            get!(d,:xrotation,45)
+            get!(d,:zrotation,90)
+            rand(10,n)
+        end
+    if func_return != nothing
+        push!(series_list,RecipesBase.RecipeData(d,RecipesBase.wrap_tuple(func_return)))
+    end
+    begin
+        RecipesBase.is_key_supported(:customcolor) || delete!(d,:customcolor)
+    end
+    series_list
+end</code></pre><h3><a class="nav-anchor" id="A-humble-request-1" href="#A-humble-request-1">A humble request</a></h3><p>If you build a recipe for your package, please let me know!  I&#39;d love to compile both a gallery and a listing of user-defined recipes, as well as the packages that are available for Plots visualizations.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

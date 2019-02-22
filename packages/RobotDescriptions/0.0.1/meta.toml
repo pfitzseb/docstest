@@ -1,0 +1,7 @@
+name = "RobotDescriptions"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/phelipe/RobotDescriptions.jl.git"
+version = "0.0.1"
+description = "URDF and meshes for robots"

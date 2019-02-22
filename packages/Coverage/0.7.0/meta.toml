@@ -1,0 +1,162 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Coverage"
+owner = "JuliaCI"
+version = "0.7.0"
+description = "Take Julia code coverage and memory allocation results, do useful things with them"
+stargazers_count = "65"
+url = "https://github.com/JuliaCI/Coverage.jl.git"
+installs = true
+tags = ["julia", "coverage", "coveralls", "codecov"]
+license = "MIT License"
+
+[[contributors]]
+name = "IainNZ"
+contributions = "95"
+[[contributors]]
+name = "kshyatt"
+contributions = "31"
+[[contributors]]
+name = "timholy"
+contributions = "28"
+[[contributors]]
+name = "fingolfin"
+contributions = "13"
+[[contributors]]
+name = "ararslan"
+contributions = "12"
+[[contributors]]
+name = "ccoffrin"
+contributions = "10"
+[[contributors]]
+name = "vtjnash"
+contributions = "9"
+[[contributors]]
+name = "ssfrr"
+contributions = "9"
+[[contributors]]
+name = "tinybike"
+contributions = "7"
+[[contributors]]
+name = "christopher-dG"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "5"
+[[contributors]]
+name = "musm"
+contributions = "5"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "4"
+[[contributors]]
+name = "omus"
+contributions = "4"
+[[contributors]]
+name = "juliangehring"
+contributions = "4"
+[[contributors]]
+name = "simonbyrne"
+contributions = "4"
+[[contributors]]
+name = "iamed2"
+contributions = "3"
+[[contributors]]
+name = "felipenoris"
+contributions = "2"
+[[contributors]]
+name = "laurentheirendt"
+contributions = "2"
+[[contributors]]
+name = "mpastell"
+contributions = "2"
+[[contributors]]
+name = "svs14"
+contributions = "2"
+[[contributors]]
+name = "sbromberger"
+contributions = "2"
+[[contributors]]
+name = "ajkeller34"
+contributions = "1"
+[[contributors]]
+name = "hayd"
+contributions = "1"
+[[contributors]]
+name = "skariel"
+contributions = "1"
+[[contributors]]
+name = "BenLauwens"
+contributions = "1"
+[[contributors]]
+name = "dancasimiro"
+contributions = "1"
+[[contributors]]
+name = "dirkschumacher"
+contributions = "1"
+[[contributors]]
+name = "gaika"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "indiedotkim"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"
+[[contributors]]
+name = "PerezHz"
+contributions = "1"
+[[contributors]]
+name = "joshday"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "navidcy"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "stevepeak"
+contributions = "1"
+[[contributors]]
+name = "tchajed"
+contributions = "1"
+[[contributors]]
+name = "tk3369"
+contributions = "1"
+[[contributors]]
+name = "cgroll"
+contributions = "1"
+[[contributors]]
+name = "platawiec"
+contributions = "1"
+[[contributors]]
+name = "ylxdzsw"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Fatou"
+owner = "chakravala"
+version = "1.1.0"
+description = "Fatou sets in Julia (Fractals, Newton basins, Mandelbrot)"
+stargazers_count = "27"
+url = "https://github.com/chakravala/Fatou.jl.git"
+installs = true
+tags = ["julia", "fatou", "newton-fractals", "complex-analysis", "mandelbrot", "cobweb-plot", "fractal-images", "fractals", "julia-sets"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "55"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

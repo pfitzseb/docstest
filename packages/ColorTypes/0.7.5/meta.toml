@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "ColorTypes"
+owner = "JuliaGraphics"
+version = "0.7.5"
+description = "Basic color definitions and traits "
+stargazers_count = "17"
+url = "https://github.com/JuliaGraphics/ColorTypes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "172"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "30"
+[[contributors]]
+name = "yuyichao"
+contributions = "8"
+[[contributors]]
+name = "Evizero"
+contributions = "4"
+[[contributors]]
+name = "andrewcooke"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "mronian"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "bjarthur"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "mbeltagy"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

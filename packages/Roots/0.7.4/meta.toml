@@ -1,0 +1,81 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Roots"
+owner = "JuliaMath"
+version = "0.7.4"
+description = "Root finding functions for Julia"
+stargazers_count = "51"
+url = "https://github.com/JuliaMath/Roots.jl.git"
+installs = true
+tags = ["julia", "root-finding", "math"]
+license = "MIT License"
+
+[[contributors]]
+name = "jverzani"
+contributions = "238"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "7"
+[[contributors]]
+name = "ikirill"
+contributions = "7"
+[[contributors]]
+name = "jtravs"
+contributions = "6"
+[[contributors]]
+name = "carlozanella"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "vagoberto"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "andrewclausen"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "iblech"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jwmerrill"
+contributions = "1"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "1"
+[[contributors]]
+name = "Ringoxue"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

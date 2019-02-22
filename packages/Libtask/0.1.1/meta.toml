@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Libtask"
+owner = "TuringLang"
+version = "0.1.1"
+description = "C shim for task copying in Turing"
+stargazers_count = "3"
+url = "https://github.com/TuringLang/Libtask.jl.git"
+installs = true
+tags = ["continuations", "coroutines", "threads"]
+license = "MIT License"
+
+[[contributors]]
+name = "yebai"
+contributions = "35"
+[[contributors]]
+name = "KDr2"
+contributions = "20"
+[[contributors]]
+name = "cpfiffer"
+contributions = "15"
+[[contributors]]
+name = "hessammehr"
+contributions = "4"
+[[contributors]]
+name = "mohamed82008"
+contributions = "2"

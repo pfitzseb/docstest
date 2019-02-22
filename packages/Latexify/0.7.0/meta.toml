@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Latexify"
+owner = "korsbo"
+version = "0.7.0"
+description = "Convert julia objects to LaTeX equations, arrays or other environments. "
+stargazers_count = "122"
+url = "https://github.com/korsbo/Latexify.jl.git"
+installs = true
+tags = ["julia-library", "latex-maths", "latex", "ode", "equation", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "korsbo"
+contributions = "273"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "goropikari"
+contributions = "3"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

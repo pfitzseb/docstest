@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MonteCarloObservable"
+owner = "crstnbr"
+version = "0.2.1"
+description = "Observable for Markov chain Monte Carlo simulations"
+stargazers_count = "1"
+url = "https://github.com/crstnbr/MonteCarloObservable.jl.git"
+installs = true
+tags = ["quantum-monte-carlo", "monte-carlo-simulation", "physics-simulation", "numerical-simulations"]
+license = "Other"
+
+[[contributors]]
+name = "crstnbr"
+contributions = "143"

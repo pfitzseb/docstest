@@ -1,0 +1,60 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BufferedStreams"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Fast composable IO streams"
+stargazers_count = "16"
+url = "https://github.com/BioJulia/BufferedStreams.jl.git"
+installs = true
+tags = ["julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "65"
+[[contributors]]
+name = "dcjones"
+contributions = "34"
+[[contributors]]
+name = "ringw"
+contributions = "5"
+[[contributors]]
+name = "musm"
+contributions = "5"
+[[contributors]]
+name = "kdmurray91"
+contributions = "4"
+[[contributors]]
+name = "simonster"
+contributions = "2"
+[[contributors]]
+name = "BenJWard"
+contributions = "1"
+[[contributors]]
+name = "Hydrotoast"
+contributions = "1"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "jkroso"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "sambitdash"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

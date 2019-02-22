@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "LightGraphsMatching"
+owner = "JuliaGraphs"
+version = "0.1.0"
+description = "Matching algorithms for LightGraphs.jl"
+stargazers_count = "4"
+url = "https://github.com/JuliaGraphs/LightGraphsMatching.jl.git"
+installs = true
+tags = ["graph", "julia", "matching-algorithm", "lightgraphs"]
+license = "Other"
+
+[[contributors]]
+name = "matbesancon"
+contributions = "23"
+[[contributors]]
+name = "Wikunia"
+contributions = "1"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "dourouc05"
+contributions = "1"

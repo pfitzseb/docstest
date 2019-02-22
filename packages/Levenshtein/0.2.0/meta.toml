@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Levenshtein"
+owner = "rawrgrr"
+version = "0.2.0"
+description = "Levenshtein distance between two strings in julia"
+stargazers_count = "8"
+url = "https://github.com/rawrgrr/Levenshtein.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "rawrgrr"
+contributions = "27"
+[[contributors]]
+name = "cuevasclemente"
+contributions = "7"
+[[contributors]]
+name = "venkr"
+contributions = "3"
+[[contributors]]
+name = "felipenoris"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "dnk8n"
+contributions = "1"
+[[contributors]]
+name = "musically-ut"
+contributions = "1"

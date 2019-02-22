@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Psychro"
+owner = "termolivre"
+version = "0.1.0"
+description = "Thermodynamic properties of moist air in Julia"
+stargazers_count = "2"
+url = "https://github.com/termolivre/Psychro.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pjabardo"
+contributions = "49"

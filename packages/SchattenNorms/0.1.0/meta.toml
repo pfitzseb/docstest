@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "SchattenNorms"
+owner = "BBN-Q"
+version = "0.1.0"
+description = "Julia package providing Schatten norms, including completely bounded norms, such as Kitaev's diamond norm (ubiquitous in, e.g.,  quantum information processing)"
+stargazers_count = "4"
+url = "https://github.com/BBN-Q/SchattenNorms.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "marcusps"
+contributions = "45"
+[[contributors]]
+name = "matthewware"
+contributions = "18"
+[[contributors]]
+name = "jlapeyre"
+contributions = "12"
+[[contributors]]
+name = "blakejohnson"
+contributions = "1"
+[[contributors]]
+name = "aoboturov"
+contributions = "1"

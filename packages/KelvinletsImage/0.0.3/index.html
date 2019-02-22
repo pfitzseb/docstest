@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · KelvinletsImage.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>KelvinletsImage.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><hr/><p>Author: Guilherme Gomes Haetinger Title: KelvinletsImage.jl Date: Nov. 8th, 2018 –-</p><h1><a class="nav-anchor" id="KelvinletsImage.jl-1" href="#KelvinletsImage.jl-1">KelvinletsImage.jl</a></h1><p>Implementation for Kelvinlets Deformations presented on  <a href="https://graphics.pixar.com/library/Kelvinlets/paper.pdf">Regularized Kelvinlets: Sculpting Brushes based on Fundamental Solutions of Elasticity</a>  from <em>Fernando De Goes</em> and <em>Doug L. James</em> on <strong>Julia v1.0</strong>.</p><p>Deformations for the <em>Grab</em>, <em>Scale</em> and <em>Pinch</em> brushes. </p><hr/><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><h3><a class="nav-anchor" id="Initialization-1" href="#Initialization-1">Initialization</a></h3><p>You must first initialize the structure <strong>KelvinletsObject</strong> to start deforming a given image. To do that you must first select an image end define a <em>poisson ratio</em> <strong>ν</strong> and an <em>elastic shear modulus</em> <strong>μ</strong> (both of them are explained on the above paper).</p><pre><code class="language-julia">    using KelvinletsImage, TestImages
+
+    ν = 0.4
+    μ = 1.0
+    image = testimages(&quot;mandrill&quot;)
+
+    object = KelvinletsObject(image, ν, μ)</code></pre><p><img src="./sampleImages/original.png" alt="original image"/></p><p>After initializing the presented object, you will use ir for further operations.</p><h3><a class="nav-anchor" id="Grab-Brush-1" href="#Grab-Brush-1">Grab Brush</a></h3><pre><code class="language-julia">    using KelvinletsImage
+
+    pressurePosition = [256, 256]
+    forceVector = [200., 0.]
+    ϵ = 70. # Brush Size
+    grabbedImage = grab(object, pressurePosition, forceVector, ϵ)</code></pre><p><img src="./sampleImages/grab.png" alt="grabbed image"/></p><pre><code class="language-julia">    using KelvinletsImage
+
+    frames = 20
+    grabbedImageGIF = makeVideo(object, grab, pressurePosition, forceVector, ϵ, frames)</code></pre><p><img src="./sampleImages/grabVid.gif" alt="grabbed image GIF"/></p><h3><a class="nav-anchor" id="Scale-Brush-1" href="#Scale-Brush-1">Scale Brush</a></h3><pre><code class="language-julia">    using KelvinletsImage
+
+    pressurePosition = [256, 256]
+    scale = -200000. # Negative value = inflates .. Positive Value = Contracts
+    ϵ = 70. # Brush Size
+    scaledImage = scale(object, pressurePosition, forceVector, ϵ)</code></pre><p><img src="./sampleImages/scale.png" alt="grabbed image"/></p><pre><code class="language-julia">    using KelvinletsImage
+
+    frames = 20
+    grabbedImageGIF = makeVideo(object, scale, pressurePosition, scale, ϵ, frames)</code></pre><p><img src="./sampleImages/scaleVid.gif" alt="grabbed image GIF"/></p><h3><a class="nav-anchor" id="Pinch-Brush-1" href="#Pinch-Brush-1">Pinch Brush</a></h3><pre><code class="language-julia">    using KelvinletsImage
+
+    pressurePosition = [256, 256]
+    forceVector = [0. 0.; 0. 300000.]
+    ϵ = 300. # Brush Size
+    grabbedImage = pinch(object, pressurePosition, forceVector, ϵ)</code></pre><p><img src="./sampleImages/pinch.png" alt="grabbed image"/></p><pre><code class="language-julia">    using KelvinletsImage
+
+    frames = 20
+    grabbedImageGIF = makeVideo(object, pinch, pressurePosition, forceVector, ϵ, frames)</code></pre><p><img src="./sampleImages/pinchVid.gif" alt="grabbed image GIF"/></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

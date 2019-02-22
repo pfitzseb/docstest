@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "NaNMath"
+owner = "mlubin"
+version = "0.3.2"
+description = "Julia math built-ins which return NaN and accumulator functions which ignore NaN"
+stargazers_count = "6"
+url = "https://github.com/mlubin/NaNMath.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "29"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "mkborregaard"
+contributions = "3"
+[[contributors]]
+name = "ufechner"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "anowacki"
+contributions = "1"
+[[contributors]]
+name = "ysimillides"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Elly"
+owner = "JuliaParallel"
+version = "0.2.0"
+description = "Hadoop HDFS and Yarn client"
+stargazers_count = "30"
+url = "https://github.com/JuliaParallel/Elly.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "108"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

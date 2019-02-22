@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "GtkUtilities"
+owner = "timholy"
+version = "0.3.0"
+description = "Interactive utilities for the Gtk toolkit (Julia)"
+stargazers_count = "1"
+url = "https://github.com/timholy/GtkUtilities.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "82"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "4"
+[[contributors]]
+name = "tomerarnon"
+contributions = "3"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

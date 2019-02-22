@@ -1,0 +1,78 @@
+license_url = ""
+doctype = "real"
+name = "Primes"
+owner = "JuliaMath"
+version = "0.4.0"
+description = "Prime numbers in Julia"
+stargazers_count = "23"
+url = "https://github.com/JuliaMath/Primes.jl.git"
+installs = true
+tags = ["julia", "prime-numbers", "math"]
+license = "Other"
+
+[[contributors]]
+name = "ararslan"
+contributions = "24"
+[[contributors]]
+name = "rfourquet"
+contributions = "15"
+[[contributors]]
+name = "simonbyrne"
+contributions = "14"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "13"
+[[contributors]]
+name = "pabloferz"
+contributions = "9"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "5"
+[[contributors]]
+name = "aiorla"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "vinctux"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "jlapeyre"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "Zyndric"
+contributions = "1"
+[[contributors]]
+name = "davidssmith"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "mschauer"
+contributions = "1"

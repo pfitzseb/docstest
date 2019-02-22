@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "VegaDatasets"
+owner = "queryverse"
+version = "0.5.0"
+description = "Julia package for loading the standard Vega data sets"
+stargazers_count = "3"
+url = "https://github.com/queryverse/VegaDatasets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "domoritz"
+contributions = "46"
+[[contributors]]
+name = "davidanthoff"
+contributions = "39"
+[[contributors]]
+name = "kanitw"
+contributions = "7"
+[[contributors]]
+name = "willium"
+contributions = "7"
+[[contributors]]
+name = "jheer"
+contributions = "5"
+[[contributors]]
+name = "RileyChang"
+contributions = "5"
+[[contributors]]
+name = "arvind"
+contributions = "2"
+[[contributors]]
+name = "jwoLondon"
+contributions = "2"
+[[contributors]]
+name = "chanwutk"
+contributions = "2"
+[[contributors]]
+name = "randyzwitch"
+contributions = "2"
+[[contributors]]
+name = "jakevdp"
+contributions = "1"
+[[contributors]]
+name = "yhoonkim"
+contributions = "1"
+[[contributors]]
+name = "ZeningQu"
+contributions = "1"
+[[contributors]]
+name = "mcorrell"
+contributions = "1"

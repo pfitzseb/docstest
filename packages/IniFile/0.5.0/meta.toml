@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "IniFile"
+owner = "JuliaIO"
+version = "0.5.0"
+description = "Reading and writing Windows-style INI files (writing not yet implemented)."
+stargazers_count = "3"
+url = "https://github.com/JuliaIO/IniFile.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "8"
+[[contributors]]
+name = "tanmaykm"
+contributions = "6"
+[[contributors]]
+name = "quinnj"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "4"
+[[contributors]]
+name = "hustf"
+contributions = "4"
+[[contributors]]
+name = "daviddelaat"
+contributions = "2"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "nolta"
+contributions = "2"
+[[contributors]]
+name = "tknopp"
+contributions = "2"
+[[contributors]]
+name = "ViralBShah"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

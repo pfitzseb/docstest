@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "InverseLaplace"
+owner = "jlapeyre"
+version = "0.2.2"
+description = "Inverse Laplace transform"
+stargazers_count = "11"
+url = "https://github.com/jlapeyre/InverseLaplace.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "65"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

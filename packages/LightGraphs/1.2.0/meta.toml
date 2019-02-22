@@ -1,0 +1,219 @@
+license_url = ""
+doctype = "real"
+name = "LightGraphs"
+owner = "JuliaGraphs"
+version = "1.2.0"
+description = "An optimized graphs package for the Julia programming language"
+stargazers_count = "275"
+url = "https://github.com/JuliaGraphs/LightGraphs.jl.git"
+installs = true
+tags = ["julia", "graph", "lightgraphs", "graph-theory", "graph-generation", "graph-analytics", "graph-algorithms"]
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "865"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "178"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "107"
+[[contributors]]
+name = "afternone"
+contributions = "30"
+[[contributors]]
+name = "SohamTamba"
+contributions = "23"
+[[contributors]]
+name = "kshyatt"
+contributions = "21"
+[[contributors]]
+name = "athulappadan"
+contributions = "19"
+[[contributors]]
+name = "simonschoelly"
+contributions = "19"
+[[contributors]]
+name = "juliohm"
+contributions = "18"
+[[contributors]]
+name = "pranavtbhat"
+contributions = "15"
+[[contributors]]
+name = "Azzaare"
+contributions = "14"
+[[contributors]]
+name = "hayd"
+contributions = "8"
+[[contributors]]
+name = "nickeubank"
+contributions = "8"
+[[contributors]]
+name = "ZacCranko"
+contributions = "8"
+[[contributors]]
+name = "somil55"
+contributions = "8"
+[[contributors]]
+name = "marcliberatore"
+contributions = "7"
+[[contributors]]
+name = "mschauer"
+contributions = "7"
+[[contributors]]
+name = "juyeongkim"
+contributions = "6"
+[[contributors]]
+name = "suzhu1988"
+contributions = "6"
+[[contributors]]
+name = "devmotion"
+contributions = "6"
+[[contributors]]
+name = "matbesancon"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "mcognetta"
+contributions = "5"
+[[contributors]]
+name = "rlouf"
+contributions = "5"
+[[contributors]]
+name = "IssamT"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "abhijithanilkumar"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "3"
+[[contributors]]
+name = "jgoldfar"
+contributions = "3"
+[[contributors]]
+name = "abhinavmehndiratta"
+contributions = "2"
+[[contributors]]
+name = "adamglos92"
+contributions = "2"
+[[contributors]]
+name = "bkamins"
+contributions = "2"
+[[contributors]]
+name = "arekfu"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "bovine3dom"
+contributions = "2"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "vgauthier"
+contributions = "2"
+[[contributors]]
+name = "slyles1001"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "myuuuuun"
+contributions = "1"
+[[contributors]]
+name = "scheidan"
+contributions = "1"
+[[contributors]]
+name = "lelogrott"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "cmcaine"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"
+[[contributors]]
+name = "dellison"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "fneum"
+contributions = "1"
+[[contributors]]
+name = "ivirshup"
+contributions = "1"
+[[contributors]]
+name = "jpfair"
+contributions = "1"
+[[contributors]]
+name = "maximerischard"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "dourouc05"
+contributions = "1"
+[[contributors]]
+name = "Thuener"
+contributions = "1"
+[[contributors]]
+name = "VPetukhov"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "shizejin"
+contributions = "1"
+[[contributors]]
+name = "cjprybol"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "gmarcais"
+contributions = "1"
+[[contributors]]
+name = "jordancluts"
+contributions = "1"
+[[contributors]]
+name = "petershintech"
+contributions = "1"
+[[contributors]]
+name = "rfourquet"
+contributions = "1"
+[[contributors]]
+name = "tejus-gupta"
+contributions = "1"

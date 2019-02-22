@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "PoissonRandom"
+owner = "JuliaDiffEq"
+version = "0.2.0"
+description = "Fast Poisson Random Numbers in pure Julia"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiffEq/PoissonRandom.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "18"
+[[contributors]]
+name = "devmotion"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

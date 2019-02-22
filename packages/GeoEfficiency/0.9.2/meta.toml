@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "GeoEfficiency"
+owner = "DrKrar"
+version = "0.9.2"
+description = "Accurate Geometrical Efficiency Calculator "
+stargazers_count = "1"
+url = "https://github.com/DrKrar/GeoEfficiency.jl.git"
+installs = true
+tags = ["efficiency-calculation", "radiation-detector", "geometrical-efficiency", "solid-angle", "cylindrical-detector", "well-type-detector", "borehole-detector", "volumetric-source", "disc-source", "total-efficiency", "efficiency-transfer", "effective-solid-angle"]
+license = "Other"
+
+[[contributors]]
+name = "DrKrar"
+contributions = "764"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

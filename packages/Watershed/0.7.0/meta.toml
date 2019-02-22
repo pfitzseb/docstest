@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "Watershed"
+owner = "seung-lab"
+version = "0.7.0"
+description = "Julia version of watershed."
+stargazers_count = "0"
+url = "https://github.com/seung-lab/Watershed.jl.git"
+installs = true
+tags = ["watershed", "image-segmentation", "julia"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "jingpengw"
+contributions = "80"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "tartavull"
+contributions = "1"

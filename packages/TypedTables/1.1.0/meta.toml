@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "TypedTables"
+owner = "FugroRoames"
+version = "1.1.0"
+description = "Simple, fast, column-based storage for data analysis in Julia"
+stargazers_count = "45"
+url = "https://github.com/FugroRoames/TypedTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "152"
+[[contributors]]
+name = "cstjean"
+contributions = "6"
+[[contributors]]
+name = "davidanthoff"
+contributions = "4"
+[[contributors]]
+name = "oschulz"
+contributions = "3"
+[[contributors]]
+name = "c42f"
+contributions = "3"
+[[contributors]]
+name = "GlenHertz"
+contributions = "2"
+[[contributors]]
+name = "aaronsheldon"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"

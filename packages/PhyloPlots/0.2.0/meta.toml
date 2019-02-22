@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PhyloPlots"
+owner = "cecileane"
+version = "0.2.0"
+description = "Display utilities for phylogenetic trees and networks"
+stargazers_count = "4"
+url = "https://github.com/cecileane/PhyloPlots.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cecileane"
+contributions = "25"

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · PrePostCall.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PrePostCall.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PrePostCall.@post" href="#PrePostCall.@post"><code>PrePostCall.@post</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@post function name ...</code></pre><p>Create a macro <code>@name [[variable] variable ...] function other ...</code> for inserting a call to <code>name</code> after each call to <code>other</code>.</p><p><code>variable</code> defines the variable names passed to <code>name</code>. If <code>variable</code> is omitted, <code>name</code> is called on the return argument of <code>other</code>. If <code>variable</code> is used, the call to <code>other</code> is inserted before each <code>return</code>, or if non present, as last expression in <code>other</code>. If multiple variables are given <code>name</code> is called on each of them, for example:</p><ul><li><code>@name x y z</code> is just a short notation for <code>@name x @name y @name z</code> and calls <code>name(x)</code>, <code>name(y)</code>, <code>name(z)</code></li><li><code>@name x,y,z</code> calls <code>name(x,y,z)</code></li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @post function nonzero(x::Int)
+           @assert x!=0
+       end
+@nonzero (macro with 2 methods)
+
+julia&gt; @nonzero function foo(x::Int,y::Int)
+           x*y
+       end
+foo (generic function with 1 method)
+
+julia&gt; foo(1,2)
+2
+
+julia&gt; foo(1,0)
+ERROR: AssertionError: x != 0
+
+julia&gt; @nonzero @nonzero a function foo(x::Int,y::Int)
+           a = x-1
+           return a*y
+       end
+foo (generic function with 1 method)
+
+julia&gt; foo(1,2)
+ERROR: AssertionError: x != 0</code></pre><p>Failes because <code>a</code> must be nonzero</p><pre><code class="language-julia-repl">julia&gt; foo(2,2)
+2
+
+julia&gt; foo(2,0)
+ERROR: AssertionError: x != 0</code></pre><p>Failes because the return value must be nonzero</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PrePostCall.@pre" href="#PrePostCall.@pre"><code>PrePostCall.@pre</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@pre function name ...</code></pre><p>Create a macro <code>@name [[variable] variable ...] function other ...</code> for inserting a call to <code>name</code> before each call to <code>other</code>.</p><p><code>variable</code> defines the variable names passed to <code>name</code>. If <code>variable</code> is omitted the names of the attributes of <code>name</code> are used. If multiple variables are given <code>name</code> is called on each of them, for example:</p><ul><li><code>@name x y z</code> is just a short notation for <code>@name x @name y @name z</code> and calls <code>name(x)</code>, <code>name(y)</code>, <code>name(z)</code></li><li><code>@name x,y,z</code> calls <code>name(x,y,z)</code></li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @pre function nonzero(x::Int)
+           @assert x!=0
+       end
+@nonzero (macro with 2 methods)
+
+julia&gt; @nonzero @nonzero y function foo(x::Int,y::Int)
+           x+y
+       end
+foo (generic function with 1 method)</code></pre><p>The outer <code>@nonzero</code> uses <code>x</code> as the attribute due to the function definition of <code>nonzero</code>.</p><pre><code class="language-julia-repl">julia&gt; foo(1,2)
+3
+
+julia&gt; foo(1,0)
+ERROR: AssertionError: x != 0
+
+julia&gt; foo(0,1)
+ERROR: AssertionError: x != 0</code></pre></div></div></section><pre><code class="language-none">PrePostCall.PrePostCall</code></pre><pre><code class="language-none">PrePostCall.eval</code></pre><pre><code class="language-none">PrePostCall.get_args_for_call</code></pre><pre><code class="language-none">PrePostCall.get_qargs_for_call</code></pre><pre><code class="language-none">PrePostCall.include</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

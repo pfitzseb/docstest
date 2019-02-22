@@ -1,0 +1,84 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "HttpCommon"
+owner = "JuliaWeb"
+version = "0.5.0"
+description = "Types and helper functions for dealing with the HTTP in Julia"
+stargazers_count = "23"
+url = "https://github.com/JuliaWeb/HttpCommon.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "IainNZ"
+contributions = "38"
+[[contributors]]
+name = "malmaud"
+contributions = "22"
+[[contributors]]
+name = "zachallaun"
+contributions = "15"
+[[contributors]]
+name = "astrieanna"
+contributions = "12"
+[[contributors]]
+name = "danielmendel"
+contributions = "10"
+[[contributors]]
+name = "quinnj"
+contributions = "7"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "5"
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "chuckha"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "Snnappie"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"
+[[contributors]]
+name = "sboysel"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "hlaaftana"
+contributions = "1"
+[[contributors]]
+name = "hustf"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "real"
+name = "Revise"
+owner = "timholy"
+version = "1.0.2"
+description = "Automatically update function definitions in a running Julia session"
+stargazers_count = "258"
+url = "https://github.com/timholy/Revise.jl.git"
+installs = true
+tags = ["developer-tools", "productivity-booster", "jit", "reloading"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "322"
+[[contributors]]
+name = "cstjean"
+contributions = "6"
+[[contributors]]
+name = "fredrikekre"
+contributions = "3"
+[[contributors]]
+name = "tkf"
+contributions = "3"
+[[contributors]]
+name = "iblis17"
+contributions = "2"
+[[contributors]]
+name = "pfitzseb"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "gaika"
+contributions = "1"
+[[contributors]]
+name = "HarrisonGrodin"
+contributions = "1"
+[[contributors]]
+name = "helgee"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "rfourquet"
+contributions = "1"
+[[contributors]]
+name = "raminammour"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "maleadt"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

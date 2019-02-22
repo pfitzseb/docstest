@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "Missings"
+owner = "JuliaData"
+version = "0.3.0"
+description = "Missing value support for Julia"
+stargazers_count = "28"
+url = "https://github.com/JuliaData/Missings.jl.git"
+installs = true
+tags = ["julia", "missing-data"]
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "75"
+[[contributors]]
+name = "nalimilan"
+contributions = "42"
+[[contributors]]
+name = "ararslan"
+contributions = "10"
+[[contributors]]
+name = "cjprybol"
+contributions = "6"
+[[contributors]]
+name = "omus"
+contributions = "2"
+[[contributors]]
+name = "Nosferican"
+contributions = "2"
+[[contributors]]
+name = "sylvaticus"
+contributions = "1"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "bmharsha"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"

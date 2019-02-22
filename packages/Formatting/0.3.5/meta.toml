@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "Formatting"
+owner = "JuliaIO"
+version = "0.3.5"
+description = "A Julia package to provide Python-like formatting support"
+stargazers_count = "52"
+url = "https://github.com/JuliaIO/Formatting.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jmkuhn"
+contributions = "38"
+[[contributors]]
+name = "lindahua"
+contributions = "28"
+[[contributors]]
+name = "ScottPJones"
+contributions = "9"
+[[contributors]]
+name = "tonyhffong"
+contributions = "7"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "odow"
+contributions = "3"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "czlee"
+contributions = "2"
+[[contributors]]
+name = "kleinhenz"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "galenlynch"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "scidom"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

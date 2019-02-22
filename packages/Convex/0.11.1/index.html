@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Convex.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Convex.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Quick-Example-1">Quick Example</a></li><li><a class="toctext" href="#More-Examples-1">More Examples</a></li><li><a class="toctext" href="#Citing-this-package-1">Citing this package</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Convex.jl-1" href="#Convex.jl-1">Convex.jl</a></h1><p><a href="https://travis-ci.org/JuliaOpt/Convex.jl"><img src="https://travis-ci.org/JuliaOpt/Convex.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/r/JuliaOpt/Convex.jl?branch=master"><img src="https://coveralls.io/repos/JuliaOpt/Convex.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><p><a href="http://pkg.julialang.org/?pkg=Convex&amp;ver=0.4"><img src="http://pkg.julialang.org/badges/Convex_0.4.svg" alt="Convex"/></a> <a href="http://pkg.julialang.org/?pkg=Convex&amp;ver=0.5"><img src="http://pkg.julialang.org/badges/Convex_0.5.svg" alt="Convex"/></a> <a href="http://pkg.julialang.org/?pkg=Convex&amp;ver=0.6"><img src="http://pkg.julialang.org/badges/Convex_0.6.svg" alt="Convex"/></a></p><p><strong>Convex.jl</strong> is a <a href="http://julialang.org">Julia</a> package for <a href="http://dcp.stanford.edu/">Disciplined Convex Programming</a>. Convex.jl can solve linear programs, mixed-integer linear programs, and DCP-compliant convex programs using a variety of solvers, including <a href="https://github.com/JuliaOpt/Mosek.jl">Mosek</a>, <a href="https://github.com/JuliaOpt/Gurobi.jl">Gurobi</a>, <a href="https://github.com/JuliaOpt/ECOS.jl">ECOS</a>, <a href="https://github.com/JuliaOpt/SCS.jl">SCS</a>, and  <a href="https://github.com/JuliaOpt/GLPK.jl">GLPK</a>, through the <a href="http://mathprogbasejl.readthedocs.org/en/latest/">MathProgBase</a> interface. It also supports optimization with complex variables and coefficients.</p><p><strong>Installation</strong>: <code>julia&gt; Pkg.add(&quot;Convex&quot;)</code></p><ul><li><strong>Detailed documentation and examples</strong> for Convex.jl (<a href="http://convexjl.readthedocs.io/en/stable">stable</a> | <a href="http://convexjl.readthedocs.io/en/latest">latest</a>).</li><li>If you&#39;re running into <strong>bugs or have feature requests</strong>, please use the <a href="https://github.com/JuliaOpt/Convex.jl/issues&gt;">Github Issue Tracker</a>.</li><li>For usage questions, please contact us via <a href="https://discourse.julialang.org/c/domain/opt">Discourse</a>.</li></ul><h2><a class="nav-anchor" id="Quick-Example-1" href="#Quick-Example-1">Quick Example</a></h2><p>To run this example, first install Convex and at least one solver, such as SCS:</p><pre><code class="language-julia">Pkg.add(&quot;Convex&quot;)
+Pkg.add(&quot;SCS&quot;)</code></pre><p>Now let&#39;s solve a least-squares problem with inequality constraints.</p><pre><code class="language-julia"># Let us first make the Convex.jl module available
+using Convex
+
+# Generate random problem data
+m = 4;  n = 5
+A = randn(m, n); b = randn(m, 1)
+
+# Create a (column vector) variable of size n x 1.
+x = Variable(n)
+
+# The problem is to minimize ||Ax - b||^2 subject to x &gt;= 0
+# This can be done by: minimize(objective, constraints)
+problem = minimize(sumsquares(A * x - b), [x &gt;= 0])
+
+# Solve the problem by calling solve!
+solve!(problem)
+
+# Check the status of the problem
+problem.status # :Optimal, :Infeasible, :Unbounded etc.
+
+# Get the optimal value
+problem.optval</code></pre><h2><a class="nav-anchor" id="More-Examples-1" href="#More-Examples-1">More Examples</a></h2><p>A number of examples can be found <a href="http://convexjl.readthedocs.org/en/latest/examples.html">here</a>. The <a href="http://nbviewer.ipython.org/github/JuliaOpt/Convex.jl/blob/master/examples/basic_usage.ipynb">basic usage notebook</a> gives a simple tutorial on problems that can be solved using Convex.jl. Many use cases of the package in complex-domain optimization can be found <a href="https://github.com/JuliaOpt/Convex.jl/tree/master/examples/optimization_with_complex_variables">here</a>.</p><h2><a class="nav-anchor" id="Citing-this-package-1" href="#Citing-this-package-1">Citing this package</a></h2><p>If you use Convex.jl for published work, we encourage you to cite the software using the following BibTeX citation:</p><pre><code class="language-none">@article{convexjl,
+ title = {Convex Optimization in {J}ulia},
+ author ={Udell, Madeleine and Mohan, Karanveer and Zeng, David and Hong, Jenny and Diamond, Steven and Boyd, Stephen},
+ year = {2014},
+ journal = {SC14 Workshop on High Performance Technical Computing in Dynamic Languages},
+ archivePrefix = &quot;arXiv&quot;,
+ eprint = {1410.4821},
+ primaryClass = &quot;math-oc&quot;,
+}</code></pre><blockquote><p>Convex.jl was previously called CVX.jl.</p></blockquote><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

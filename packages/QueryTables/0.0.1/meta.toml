@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "QueryTables"
+owner = "queryverse"
+version = "0.0.1"
+description = "A simple table type for the Queryverse"
+stargazers_count = "0"
+url = "https://github.com/queryverse/QueryTables.jl.git"
+installs = true
+tags = ["julia"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "9"

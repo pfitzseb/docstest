@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Peaks"
+owner = "halleysfifthinc"
+version = "0.1.0"
+description = "Find local extrema of signals"
+stargazers_count = "2"
+url = "https://github.com/halleysfifthinc/Peaks.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "23"

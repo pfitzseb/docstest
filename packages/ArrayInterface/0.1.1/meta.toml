@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ArrayInterface"
+owner = "JuliaDiffEq"
+version = "0.1.1"
+description = "Designs for new Base array interface primitives"
+stargazers_count = "5"
+url = "https://github.com/JuliaDiffEq/ArrayInterface.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "18"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"

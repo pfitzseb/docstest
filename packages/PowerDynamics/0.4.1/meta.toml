@@ -1,0 +1,20 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+name = "PowerDynamics"
+owner = "JuliaEnergy"
+version = "0.4.1"
+description = "Package for dynamical modeling of power grids"
+stargazers_count = "6"
+url = "https://github.com/JuliaEnergy/PowerDynamics.jl.git"
+installs = false
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "timkittel"
+contributions = "41"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "antonplietzsch"
+contributions = "1"

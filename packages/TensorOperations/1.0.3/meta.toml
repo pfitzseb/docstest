@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "real"
+name = "TensorOperations"
+owner = "Jutho"
+version = "1.0.3"
+description = "Julia package for tensor contractions and related operations"
+stargazers_count = "117"
+url = "https://github.com/Jutho/TensorOperations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "125"
+[[contributors]]
+name = "getzdan"
+contributions = "3"
+[[contributors]]
+name = "sglyon"
+contributions = "2"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "AustinPrivett"
+contributions = "1"
+[[contributors]]
+name = "0"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "traktofon"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "marcusps"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

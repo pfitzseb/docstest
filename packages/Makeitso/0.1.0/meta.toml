@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Makeitso"
+owner = "krcools"
+version = "0.1.0"
+description = "Make-like behaviour for Julia scripts"
+stargazers_count = "3"
+url = "https://github.com/krcools/Makeitso.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "18"

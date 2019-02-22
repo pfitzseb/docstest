@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ExpectationStubs"
+owner = "oxinabox"
+version = "0.3.0"
+description = "Mocks on which you can set expectations of how they are called. And check those expectations were true."
+stargazers_count = "3"
+url = "https://github.com/oxinabox/ExpectationStubs.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "31"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"

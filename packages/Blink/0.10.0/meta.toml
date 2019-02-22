@@ -1,0 +1,78 @@
+license_url = ""
+doctype = "real"
+name = "Blink"
+owner = "JunoLab"
+version = "0.10.0"
+description = "Web-based GUIs for Julia"
+stargazers_count = "137"
+url = "https://github.com/JunoLab/Blink.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "189"
+[[contributors]]
+name = "NHDaly"
+contributions = "61"
+[[contributors]]
+name = "rdeits"
+contributions = "46"
+[[contributors]]
+name = "pfitzseb"
+contributions = "34"
+[[contributors]]
+name = "sglyon"
+contributions = "32"
+[[contributors]]
+name = "piever"
+contributions = "4"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "malmaud"
+contributions = "3"
+[[contributors]]
+name = "vdayanand"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "EricDarve"
+contributions = "2"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "2"
+[[contributors]]
+name = "shashi"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "waldyrious"
+contributions = "2"
+[[contributors]]
+name = "cc7768"
+contributions = "1"
+[[contributors]]
+name = "lwabeke"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "rai-nhdaly"
+contributions = "1"
+[[contributors]]
+name = "randyzwitch"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "travigd"
+contributions = "1"

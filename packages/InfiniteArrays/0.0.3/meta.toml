@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "InfiniteArrays"
+owner = "JuliaApproximation"
+version = "0.0.3"
+description = "A Julia package for representing infinite-dimensional arrays"
+stargazers_count = "8"
+url = "https://github.com/JuliaApproximation/InfiniteArrays.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "35"
+[[contributors]]
+name = "ararslan"
+contributions = "1"

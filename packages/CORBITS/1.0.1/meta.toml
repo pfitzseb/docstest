@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CORBITS"
+owner = "eford"
+version = "1.0.1"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/eford/CORBITS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrakensiek"
+contributions = "51"
+[[contributors]]
+name = "eford"
+contributions = "20"

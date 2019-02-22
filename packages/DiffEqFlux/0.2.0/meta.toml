@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DiffEqFlux"
+owner = "JuliaDiffEq"
+version = "0.2.0"
+description = "Interactions between DifferentialEquations.jl and Flux.jl"
+stargazers_count = "58"
+url = "https://github.com/JuliaDiffEq/DiffEqFlux.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "42"
+[[contributors]]
+name = "YingboMa"
+contributions = "8"
+[[contributors]]
+name = "MikeInnes"
+contributions = "8"
+[[contributors]]
+name = "scheidan"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"

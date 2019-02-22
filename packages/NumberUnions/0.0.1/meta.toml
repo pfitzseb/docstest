@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NumberUnions"
+owner = "JeffreySarnoff"
+version = "0.0.1"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JeffreySarnoff/NumberUnions.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "38"

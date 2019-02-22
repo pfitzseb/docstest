@@ -1,0 +1,99 @@
+license_url = ""
+doctype = "default"
+name = "Erdos"
+owner = "CarloLucibello"
+version = "0.7.0"
+description = "A graph library for Julia."
+stargazers_count = "12"
+url = "https://github.com/CarloLucibello/Erdos.jl.git"
+installs = true
+tags = ["julia", "graph-library", "graph-algorithms", "graph-generation", "graph", "graphs"]
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "622"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "612"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "78"
+[[contributors]]
+name = "afternone"
+contributions = "29"
+[[contributors]]
+name = "juliohm"
+contributions = "15"
+[[contributors]]
+name = "pranavtbhat"
+contributions = "15"
+[[contributors]]
+name = "Azzaare"
+contributions = "11"
+[[contributors]]
+name = "hayd"
+contributions = "8"
+[[contributors]]
+name = "ZacCranko"
+contributions = "8"
+[[contributors]]
+name = "marcliberatore"
+contributions = "7"
+[[contributors]]
+name = "juyeongkim"
+contributions = "6"
+[[contributors]]
+name = "devmotion"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "rlouf"
+contributions = "5"
+[[contributors]]
+name = "athulappadan"
+contributions = "5"
+[[contributors]]
+name = "suzhu1988"
+contributions = "5"
+[[contributors]]
+name = "IssamT"
+contributions = "4"
+[[contributors]]
+name = "abhijithanilkumar"
+contributions = "3"
+[[contributors]]
+name = "arekfu"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "epatters"
+contributions = "1"
+[[contributors]]
+name = "ivirshup"
+contributions = "1"
+[[contributors]]
+name = "jpfair"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

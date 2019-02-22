@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "HomotopyContinuation"
+owner = "JuliaHomotopyContinuation"
+version = "0.5.2"
+description = "A Julia package for solving systems of polynomials via homotopy continuation."
+stargazers_count = "31"
+url = "https://github.com/JuliaHomotopyContinuation/HomotopyContinuation.jl.git"
+installs = true
+tags = ["julia-language", "julia", "homotopy-continuation"]
+license = "Other"
+
+[[contributors]]
+name = "saschatimme"
+contributions = "787"
+[[contributors]]
+name = "PBrdng"
+contributions = "56"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "chriscoey"
+contributions = "1"

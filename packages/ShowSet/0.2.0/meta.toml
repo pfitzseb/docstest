@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ShowSet"
+owner = "scheinerman"
+version = "0.2.0"
+description = "Nicer output for Set and IntSet objects in Julia."
+stargazers_count = "1"
+url = "https://github.com/scheinerman/ShowSet.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "41"

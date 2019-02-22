@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "Blosc"
+owner = "stevengj"
+version = "0.5.1"
+description = "Blosc compression for the Julia language"
+stargazers_count = "15"
+url = "https://github.com/stevengj/Blosc.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "70"
+[[contributors]]
+name = "jakebolewski"
+contributions = "6"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "eschnett"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "mohamed82008"
+contributions = "1"
+[[contributors]]
+name = "nkottary"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"

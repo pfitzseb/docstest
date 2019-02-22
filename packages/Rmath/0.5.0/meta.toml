@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "Rmath"
+owner = "JuliaStats"
+version = "0.5.0"
+description = "Archive of functions that emulate R's d-p-q-r functions for probability distributions"
+stargazers_count = "8"
+url = "https://github.com/JuliaStats/Rmath.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkelman"
+contributions = "23"
+[[contributors]]
+name = "andreasnoack"
+contributions = "12"
+[[contributors]]
+name = "dmbates"
+contributions = "8"
+[[contributors]]
+name = "simonbyrne"
+contributions = "6"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "quinnj"
+contributions = "3"
+[[contributors]]
+name = "panlanfeng"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

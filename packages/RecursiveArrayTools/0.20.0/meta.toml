@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "RecursiveArrayTools"
+owner = "JuliaDiffEq"
+version = "0.20.0"
+description = "Tools for easily handling objects like arrays of arrays and deeper nestings"
+stargazers_count = "32"
+url = "https://github.com/JuliaDiffEq/RecursiveArrayTools.jl.git"
+installs = true
+tags = ["vector", "array", "recursion"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "162"
+[[contributors]]
+name = "gabrielgellner"
+contributions = "5"
+[[contributors]]
+name = "YingboMa"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "4"
+[[contributors]]
+name = "devmotion"
+contributions = "4"
+[[contributors]]
+name = "ranocha"
+contributions = "3"
+[[contributors]]
+name = "Gregstrq"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "1"
+[[contributors]]
+name = "vchuravy"
+contributions = "1"

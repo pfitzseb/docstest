@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StructC14N.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StructC14N.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Structure-and-named-tuple-canonicalization.-1">Structure and named tuple canonicalization.</a></li><li><a class="toctext" href="#Canonicalization-rules:-1">Canonicalization rules:</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StructC14N.jl-1" href="#StructC14N.jl-1">StructC14N.jl</a></h1><h2><a class="nav-anchor" id="Structure-and-named-tuple-canonicalization.-1" href="#Structure-and-named-tuple-canonicalization.-1">Structure and named tuple canonicalization.</a></h2><p>(works only with Julia v0.7/v1.0)</p><p><a href="https://travis-ci.org/gcalderone/StructC14N.jl"><img src="https://travis-ci.org/gcalderone/StructC14N.jl.svg?branch=master" alt="Build Status"/></a></p><p>Install with:</p><pre><code class="language-julia">]add StructC14N</code></pre><p>________</p><p>This package exports the <code>canonicalize</code> function which allows <em>canonicalization</em> of structures and named tuples according to a <em>template</em> structure or named tuple.</p><p>The signature is as follows:</p><pre><code class="language-julia">canonicalize(template, input)</code></pre><p><code>template</code> can be either a structure or a named tuple.  Return value has the same type as <code>template</code>.  <code>input</code> can be a structure, a named tuple or a tuple.  In the latter case the tuple must contains the same number of items as the <code>template</code>.</p><p>Type <code>? canonicalize</code> in the REPL to see the documentation for individual methods.</p><h2><a class="nav-anchor" id="Canonicalization-rules:-1" href="#Canonicalization-rules:-1">Canonicalization rules:</a></h2><ul><li><p>output keys are the same as in <code>template</code>;</p></li><li><p>if <code>input</code> contains less items than <code>template</code>, the default values in <code>template</code> will be used to fill unspecified values;</p></li><li><p>output default values are determined as follows:</p><ul><li>if <code>template</code> is a named tuple and if one of its value is a Type <code>T</code>, the corresponding default value is <code>Missing</code>;</li><li>if <code>template</code> is not a named tuple, or if one of its value is of Type <code>T</code>, the corresponging default value is the value itself;</li></ul></li><li><p>output default values are overridden by values in <code>input</code> if a key in <code>input</code> is the same, or it is an unambiguous abbreviation, of one of the keys in <code>template</code>;</p></li><li><p>output override occurs regardless of the order of items in <code>template</code> and <code>input</code>;</p></li><li><p>if a key in <code>input</code> is not an abbreviation of the keys in <code>template</code>,  or if the abbreviation is ambiguous, an error is raised;</p></li><li><p>values in output are deep copied from <code>input</code>, and converted to the appropriate type.  If conversion is not possible an error is raised.</p></li></ul><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">using StructC14N
+
+# Create a template
+template = (xrange=NTuple{2,Number},
+            yrange=NTuple{2,Number},
+            title=&quot;A string&quot;)
+
+# Create input named tuple...
+nt = (xr=(1,2), tit=&quot;Foo&quot;)
+
+# Dump canonicalized version
+dump(canonicalize(template, nt))</code></pre><p>will result in</p><pre><code class="language-julia">NamedTuple{(:xrange, :yrange, :title),Tuple{Tuple{Int64,Int64},Missing,String}}
+  xrange: Tuple{Int64,Int64}
+    1: Int64 1
+    2: Int64 2
+  yrange: Missing missing
+  title: String &quot;Foo&quot;</code></pre><p>One of the main use of <code>canonicalize</code> is to call functions using abbreviated keyword names (i.e. it can be used as a replacement for <a href="https://github.com/gcalderone/AbbrvKW.jl">AbbrvKW.jl</a>).  Consider the following function:</p><pre><code class="language-julia">function Foo(; OptionalKW::Union{Missing,Bool}=missing, Keyword1::Int=1,
+               AnotherKeyword::Float64=2.0, StillAnotherOne=3, KeyString::String=&quot;bar&quot;)
+    @show OptionalKW
+    @show Keyword1
+    @show AnotherKeyword
+    @show StillAnotherOne
+    @show KeyString
+end</code></pre><p>The only way to use the keywords is to type their entire names, resulting in very long code lines, i.e.:</p><pre><code class="language-julia">Foo(Keyword1=10, AnotherKeyword=20.0, StillAnotherOne=30, KeyString=&quot;baz&quot;)</code></pre><p>By using <code>canonicalize</code> we may re-implement the function as follows</p><pre><code class="language-julia">function Foo(; kwargs...)
+    template = (; OptionalKW=Bool, Keyword1=1,
+               AnotherKeyword=2.0, StillAnotherOne=3, KeyString=&quot;bar&quot;)
+    kw = StructC14N.canonicalize(template; kwargs...)
+    @show kw.OptionalKW
+    @show kw.Keyword1
+    @show kw.AnotherKeyword
+    @show kw.StillAnotherOne
+    @show kw.KeyString
+end</code></pre><p>And call it using abbreviated keyword names:</p><pre><code class="language-julia">Foo(Keyw=10, A=20.0, S=30, KeyS=&quot;baz&quot;) # Much shorter, isn&#39;t it?</code></pre><p>A wrong abbreviation or a wrong type will result in errors:</p><pre><code class="language-julia">Foo(aa=1)
+Foo(Keyw=&quot;abc&quot;)</code></pre><p>Another common use of <code>StructC14N</code> is in parsing configuration files, e.g.:</p><pre><code class="language-julia">configtemplate = (optStr=String,
+                  optInt=Int,
+                  optFloat=Float64)
+
+# Parse a tuple
+configentry = &quot;aa, 1, 2&quot;
+c = canonicalize(configtemplate, (split(configentry, &quot;,&quot;)...,))
+
+# Parse a named tuple
+configentry = &quot;optFloat=20, optStr=\&quot;aaa\&quot;, optInt=10&quot;
+c = canonicalize(configtemplate, eval(Meta.parse(&quot;($configentry)&quot;)))</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

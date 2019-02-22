@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Table-based Plots · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li><a class="toctext" href="../examples_scatter_strip_plots/">Scatter &amp; Strip Plots</a></li><li><a class="toctext" href="../examples_line_charts/">Line Charts</a></li><li><a class="toctext" href="../examples_area_Charts_streamgraphs/">Area Charts &amp; Streamgraphs</a></li><li class="current"><a class="toctext" href>Table-based Plots</a><ul class="internal"><li><a class="toctext" href="#Table-Heatmap-1">Table Heatmap</a></li><li><a class="toctext" href="#Table-Binned-heatmap-1">Table Binned heatmap</a></li><li><a class="toctext" href="#Table-Bubble-Plot-(Github-Punch-Card)-1">Table Bubble Plot (Github Punch Card)</a></li><li><a class="toctext" href="#Layering-text-over-heatmap-1">Layering text over heatmap</a></li></ul></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li><a class="toctext" href="../examples_faceting/">Faceting (Trellis Plot / Small Multiples)</a></li><li><a class="toctext" href="../examples_repeat_concatenation/">Repeat &amp; Concatenation</a></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Single-View Plots</li><li><a href>Table-based Plots</a></li></ul></nav><hr/><div id="topbar"><span>Table-based Plots</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Table-based-Plots-1" href="#Table-based-Plots-1">Table-based Plots</a></h1><h2><a class="nav-anchor" id="Table-Heatmap-1" href="#Table-Heatmap-1">Table Heatmap</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:rect, y=:Origin, x=&quot;Cylinders:o&quot;, color=&quot;mean(Horsepower)&quot;)</code></pre><h2><a class="nav-anchor" id="Table-Binned-heatmap-1" href="#Table-Binned-heatmap-1">Table Binned heatmap</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;movies&quot;) |&gt;
+@vlplot(
+    :rect,
+    width=300, height=200,
+    x={:IMDB_Rating, bin={maxbins=60}},
+    y={:Rotten_Tomatoes_Rating, bin={maxbins=40}},
+    color=&quot;count()&quot;,
+    config={
+        range={
+            heatmap={
+                scheme=&quot;greenblue&quot;
+            }
+        },
+        view={
+            stroke=&quot;transparent&quot;
+        }
+    }
+)</code></pre><h2><a class="nav-anchor" id="Table-Bubble-Plot-(Github-Punch-Card)-1" href="#Table-Bubble-Plot-(Github-Punch-Card)-1">Table Bubble Plot (Github Punch Card)</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;github&quot;) |&gt;
+@vlplot(
+    :circle,
+    y=&quot;day(time):o&quot;,
+    x=&quot;hours(time):o&quot;,
+    size=&quot;sum(count)&quot;
+)</code></pre><h2><a class="nav-anchor" id="Layering-text-over-heatmap-1" href="#Layering-text-over-heatmap-1">Layering text over heatmap</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+cars = dataset(&quot;cars&quot;)
+
+@vlplot(
+    data=cars,
+    y=&quot;Origin:o&quot;,
+    x=&quot;Cylinders:o&quot;,
+    config={
+        scale={bandPaddingInner=0, bandPaddingOuter=0},
+        text={baseline=:middle}
+    }
+) +
+@vlplot(:rect, color=&quot;count()&quot;) +
+@vlplot(
+    :text,
+    text=&quot;count()&quot;,
+    color={
+        condition={
+            test=&quot;datum[&#39;count_*&#39;] &gt; 100&quot;,
+            value=:black
+        },
+        value=:white
+    }
+)</code></pre><footer><hr/><a class="previous" href="../examples_area_Charts_streamgraphs/"><span class="direction">Previous</span><span class="title">Area Charts &amp; Streamgraphs</span></a><a class="next" href="../examples_error_bars_bands/"><span class="direction">Next</span><span class="title">Error Bars &amp; Error Bands</span></a></footer></article></body></html>

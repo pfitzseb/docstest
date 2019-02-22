@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "FillArrays"
+owner = "JuliaArrays"
+version = "0.2.1"
+description = "Julia package for lazily representing matrices filled with a single entry"
+stargazers_count = "27"
+url = "https://github.com/JuliaArrays/FillArrays.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "34"
+[[contributors]]
+name = "jlapeyre"
+contributions = "6"
+[[contributors]]
+name = "cstjean"
+contributions = "5"
+[[contributors]]
+name = "willtebbutt"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"

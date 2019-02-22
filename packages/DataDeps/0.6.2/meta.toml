@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "DataDeps"
+owner = "oxinabox"
+version = "0.6.2"
+description = "reproducible data setup for reproducible science"
+stargazers_count = "55"
+url = "https://github.com/oxinabox/DataDeps.jl.git"
+installs = true
+tags = ["data", "data-science", "open-science"]
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "240"
+[[contributors]]
+name = "nicoleepp"
+contributions = "3"
+[[contributors]]
+name = "yakir12"
+contributions = "2"
+[[contributors]]
+name = "asbisen"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "dellison"
+contributions = "1"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

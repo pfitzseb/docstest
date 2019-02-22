@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "WAV"
+owner = "dancasimiro"
+version = "1.0.1"
+description = "Julia package for working with WAV files"
+stargazers_count = "37"
+url = "https://github.com/dancasimiro/WAV.jl.git"
+installs = true
+tags = ["wav-files", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "dancasimiro"
+contributions = "178"
+[[contributors]]
+name = "danielcasimirosonos"
+contributions = "78"
+[[contributors]]
+name = "martinholters"
+contributions = "12"
+[[contributors]]
+name = "rjkat"
+contributions = "9"
+[[contributors]]
+name = "staticfloat"
+contributions = "5"
+[[contributors]]
+name = "rdeits"
+contributions = "4"
+[[contributors]]
+name = "bjarthur"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "davidavdav"
+contributions = "2"
+[[contributors]]
+name = "bastibe"
+contributions = "1"
+[[contributors]]
+name = "binarybana"
+contributions = "1"
+[[contributors]]
+name = "jfsantos"
+contributions = "1"
+[[contributors]]
+name = "rfejgin"
+contributions = "1"
+[[contributors]]
+name = "samoconnor"
+contributions = "1"

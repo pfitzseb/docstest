@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RecurrenceAnalysis"
+owner = "JuliaDynamics"
+version = "1.0.1"
+description = "Recurrence Quantification Analysis in Julia"
+stargazers_count = "7"
+url = "https://github.com/JuliaDynamics/RecurrenceAnalysis.jl.git"
+installs = true
+tags = ["recurrence-quantification-analysis", "nonlinear-dynamics", "julia", "physics"]
+license = "MIT License"
+
+[[contributors]]
+name = "heliosdrm"
+contributions = "114"
+[[contributors]]
+name = "Datseris"
+contributions = "43"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "felixcremer"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

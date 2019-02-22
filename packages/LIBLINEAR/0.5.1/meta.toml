@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "LIBLINEAR"
+owner = "innerlee"
+version = "0.5.1"
+description = "LIBLINEAR bindings for Julia"
+stargazers_count = "6"
+url = "https://github.com/innerlee/LIBLINEAR.jl.git"
+installs = true
+tags = ["liblinear", "julia", "svm"]
+license = "Other"
+
+[[contributors]]
+name = "innerlee"
+contributions = "94"
+[[contributors]]
+name = "Thuener"
+contributions = "3"
+[[contributors]]
+name = "jzazo"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mauritsd"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

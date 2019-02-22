@@ -1,0 +1,7 @@
+name = "IncompleteLU"
+stargazers_count = "9"
+doctype = "default"
+installs = true
+url = "https://github.com/haampie/IncompleteLU.jl.git"
+version = "0.1.1"
+description = "Crout ILU for Julia"

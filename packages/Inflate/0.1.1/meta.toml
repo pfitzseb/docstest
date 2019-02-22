@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Inflate"
+owner = "GunnarFarneback"
+version = "0.1.1"
+description = "Julia implementation of zlib decompression"
+stargazers_count = "12"
+url = "https://github.com/GunnarFarneback/Inflate.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "25"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"

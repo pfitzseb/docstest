@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "IndirectArrays"
+owner = "JuliaArrays"
+version = "0.5.0"
+description = "Julia implementation of indexed or \"lookup\" arrays"
+stargazers_count = "7"
+url = "https://github.com/JuliaArrays/IndirectArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "32"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "PotentialFlow"
+owner = "darwindarak"
+version = "0.1.0"
+description = "a scaffolding for building inviscid flow models"
+stargazers_count = "7"
+url = "https://github.com/darwindarak/PotentialFlow.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "darwindarak"
+contributions = "237"
+[[contributors]]
+name = "jdeldre"
+contributions = "21"
+[[contributors]]
+name = "jeffmina"
+contributions = "3"

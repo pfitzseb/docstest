@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "BlossomV"
+owner = "mlewe"
+version = "0.4.2"
+description = "Julia interface for the Blossom V perfect matching algorithm"
+stargazers_count = "6"
+url = "https://github.com/mlewe/BlossomV.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlewe"
+contributions = "30"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "7"
+[[contributors]]
+name = "oxinabox"
+contributions = "6"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · MLLabelUtils.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>MLLabelUtils.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">MLLabelUtils.BinaryLabelEncoding</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.LabelEnc" href="#MLLabelUtils.LabelEnc"><code>MLLabelUtils.LabelEnc</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>The submodule <code>MLLabelUtils.LabelEnc</code> contains a selection of popular label encodings:</p><p>Strictly binary label encodings:</p><ul><li><a href="@ref"><code>LabelEnc.FuzzyBinary</code></a></li><li><a href="@ref"><code>LabelEnc.TrueFalse</code></a></li><li><a href="@ref"><code>LabelEnc.ZeroOne</code></a></li><li><a href="@ref"><code>LabelEnc.MarginBased</code></a></li></ul><p>Multiclass label encodings:</p><ul><li><a href="@ref"><code>LabelEnc.Indices</code></a></li><li><a href="@ref"><code>LabelEnc.NativeLabels</code></a></li><li><a href="@ref"><code>LabelEnc.OneOfK</code></a></li></ul><p>Multiclass to binary:</p><ul><li><a href="@ref"><code>LabelEnc.OneVsRest</code></a></li></ul></div></div></section><pre><code class="language-none">MLLabelUtils.LabelEncoding</code></pre><pre><code class="language-none">MLLabelUtils.MLLabelUtils</code></pre><pre><code class="language-none">MLLabelUtils.MatrixLabelEncoding</code></pre><pre><code class="language-none">MLLabelUtils.ObsDim</code></pre><pre><code class="language-none">MLLabelUtils.VectorLabelEncoding</code></pre><pre><code class="language-none">MLLabelUtils._ambiguous</code></pre><pre><code class="language-none">MLLabelUtils._arrange_label</code></pre><pre><code class="language-none">MLLabelUtils._array_type</code></pre><pre><code class="language-none">MLLabelUtils._lm</code></pre><pre><code class="language-none">MLLabelUtils._sign</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.classify" href="#MLLabelUtils.classify"><code>MLLabelUtils.classify</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">classify(x, encoding)</code></pre><p>Returns the classified version of <code>x</code> given the <code>encoding</code>. Which means that if <code>x</code> can be interpreted as a positive label, the positive label of <code>encoding</code> is returned; the negative otherwise.</p><pre><code class="language-none">julia&gt; classify(0.6, LabelEnc.ZeroOne(UInt8))
+0x01
+
+julia&gt; classify(0.4, LabelEnc.ZeroOne(UInt8))
+0x00
+
+julia&gt; classify([0.1,0.2,0.6,0.1], LabelEnc.OneOfK)
+3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.classify!" href="#MLLabelUtils.classify!"><code>MLLabelUtils.classify!</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">classify!(out, x, encoding)</code></pre><p>Same as <code>classify</code>, but uses <code>out</code> to store the result.</p><pre><code class="language-none">julia&gt; buffer = zeros(2);
+julia&gt; classify!(buffer, [0.4,0.6], LabelEnc.ZeroOne)
+2-element Array{Float64,1}:
+ 0.0
+ 1.0</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.convertlabel" href="#MLLabelUtils.convertlabel"><code>MLLabelUtils.convertlabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">convertlabel(new_encoding, x, [old_encoding])</code></pre><p>Converts the given value/array <code>x</code> from the <code>old_encoding</code> into the <code>new_encoding</code>. Note that if <code>old_encoding</code> is not specified it will be derived automaticaly using <code>labelenc</code>.</p><pre><code class="language-none">julia&gt; convertlabel(LabelEnc.MarginBased, [0, 1, 1, 0, 0])
+5-element Array{Int64,1}:
+ -1
+  1
+  1
+ -1
+ -1
+
+julia&gt; convertlabel([:yes,:no], [0, 1, 1, 0, 0])
+5-element Array{Symbol,1}:
+ :no
+ :yes
+ :yes
+ :no
+ :no</code></pre><p>For more information on the available encodings, see <code>?LabelEnc</code>.</p><pre><code class="language-none">convertlabel(new_encoding, x, [old_encoding], [obsdim])</code></pre><p>When working with <code>OneOfK</code> one can additionally specifify which dimension of the array denotes the observations using <code>obsdim</code></p><pre><code class="language-none">julia&gt; convertlabel(LabelEnc.OneOfK, [0, 1, 1, 0, 0], obsdim = 2)
+2×5 Array{Int64,2}:
+ 0  1  1  0  0
+ 1  0  0  1  1</code></pre></div></div></section><pre><code class="language-none">MLLabelUtils.convertlabel!</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.convertlabelview" href="#MLLabelUtils.convertlabelview"><code>MLLabelUtils.convertlabelview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">convertlabel(new_encoding, vec::AbstractVector, [old_encoding]) -&gt; (Readonly)MappedArray</code></pre><p>Creates a lazy view into <code>vec</code> that makes it look like it is in the encoding specified by <code>new_encoding</code>, while it is actually preserved as being of <code>old_encoding</code>.</p><p>This method only works for label-encodings that are vector-based (i.e. pretty much all but <code>OneOfK</code>). The resulting MappedArray will be writeable unless <code>old_encoding</code> is of type <code>OneVsRest</code>, in which case the result will be a <code>ReadonlyMappedArray</code>.</p></div></div></section><pre><code class="language-none">MLLabelUtils.eval</code></pre><pre><code class="language-none">MLLabelUtils.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.ind2label" href="#MLLabelUtils.ind2label"><code>MLLabelUtils.ind2label</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">ind2label(index, encoding)</code></pre><p>Converts the given <code>index</code> into the corresponding label defined by the <code>encoding</code>. Note that in the binary case, <code>index == 1</code> represents the positive label and <code>index == 2</code> the negative label.</p><pre><code class="language-none">julia&gt; ind2label(1, LabelEnc.ZeroOne(Float32))
+1.0f0
+
+julia&gt; ind2label(2, LabelEnc.ZeroOne(Float32))
+0.0f0</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.islabelenc" href="#MLLabelUtils.islabelenc"><code>MLLabelUtils.islabelenc</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">islabelenc(obj, encoding) -&gt; Bool</code></pre><p>Checks is the given object <code>obj</code> can be described as being produced by the given <code>encoding</code> in which case the function returns true, or false otherwise.</p><pre><code class="language-none">julia&gt; islabelenc([1,0,1], LabelEnc.ZeroOne)
+true
+
+julia&gt; islabelenc([1,-1,1], LabelEnc.ZeroOne)
+false</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.isneglabel" href="#MLLabelUtils.isneglabel"><code>MLLabelUtils.isneglabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">isneglabel(x, encoding) -&gt; Bool</code></pre><p>Checks if the given value <code>x</code> can be interpreted as the negative label given the <code>encoding</code>. This function takes potential classification rules into account.</p><pre><code class="language-none">julia&gt; isneglabel(0.6, LabelEnc.ZeroOne(0.5))
+false
+
+julia&gt; isneglabel(0.4, LabelEnc.ZeroOne(0.5))
+true
+
+julia&gt; isneglabel(:b, LabelEnc.NativeLabels([:a,:b]))
+true</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.isposlabel" href="#MLLabelUtils.isposlabel"><code>MLLabelUtils.isposlabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">isposlabel(x, encoding) -&gt; Bool</code></pre><p>Checks if the given value <code>x</code> can be interpreted as the positive label given the <code>encoding</code>. This function takes potential classification rules into account.</p><pre><code class="language-none">julia&gt; isposlabel(0.6, LabelEnc.ZeroOne(0.5))
+true
+
+julia&gt; isposlabel(0.4, LabelEnc.ZeroOne(0.5))
+false
+
+julia&gt; isposlabel(:b, LabelEnc.NativeLabels([:a,:b]))
+false</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.label" href="#MLLabelUtils.label"><code>MLLabelUtils.label</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">label(obj) -&gt; Vector</code></pre><p>Returns the labels represented in the given object <code>obj</code>. Note that the order of the labels matters. In the case of two labels, the first element represents the positive label and the second element the negative label.</p><pre><code class="language-none">julia&gt; label([:yes,:no,:yes,:yes])
+2-element Array{Symbol,1}:
+ :yes
+ :no
+
+julia&gt; label(LabelEnc.ZeroOne())
+2-element Array{Float64,1}:
+ 1.0
+ 0.0</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.label2ind" href="#MLLabelUtils.label2ind"><code>MLLabelUtils.label2ind</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">label2ind(label, encoding) -&gt; Int</code></pre><p>Converts the given <code>label</code> into the corresponding index defined by the encoding. Note that in the binary case, the positive label will result in the index <code>1</code> and the negative label in the index <code>2</code> respectively</p><pre><code class="language-none">julia&gt; label2ind(:no, LabelEnc.NativeLabels([:yes,:no]))
+2
+
+julia&gt; label2ind(1, LabelEnc.MarginBased())
+1
+
+julia&gt; label2ind(-1, LabelEnc.MarginBased())
+2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelenc" href="#MLLabelUtils.labelenc"><code>MLLabelUtils.labelenc</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelenc(obj) -&gt; LabelEncoding</code></pre><p>Tries to determine the most approriate label-encoding to describe the given object <code>obj</code> based on the result of <code>label(obj)</code>. Note that in most cases this function is not typestable.</p><pre><code class="language-none">julia&gt; labelenc([:yes,:no,:no,:yes,:maybe])
+MLLabelUtils.LabelEnc.NativeLabels{Symbol,3}(Symbol[:yes,:no,:maybe],Dict(:yes=&gt;1,:maybe=&gt;3,:no=&gt;2))
+
+julia&gt; labelenc([1,0,0,1,0,1])
+MLLabelUtils.LabelEnc.ZeroOne{Int64,Float64}(0.5)
+
+julia&gt; labelenc(Int8[1,-1,-1,1,-1,1])
+MLLabelUtils.LabelEnc.MarginBased{Int8}()</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelfreq" href="#MLLabelUtils.labelfreq"><code>MLLabelUtils.labelfreq</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelfreq(obj) -&gt; Dict</code></pre><p>Computes the absolute frequencies for each label in <code>obj</code>.</p><pre><code class="language-none">julia&gt; labelfreq([0, 1, 1, 0, 0])
+Dict{Int64,Int64} with 2 entries:
+  0 =&gt; 3
+  1 =&gt; 2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelfreq!" href="#MLLabelUtils.labelfreq!"><code>MLLabelUtils.labelfreq!</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelfreq!(dict, obj) -&gt; Dict</code></pre><p>updates the given label-frequency-map <code>dict</code> with the absolute frequencies for each label in <code>obj</code></p><pre><code class="language-none">julia&gt; ld = labelfreq([0, 1, 1, 0, 0])
+Dict{Int64,Int64} with 2 entries:
+  0 =&gt; 3
+  1 =&gt; 2
+
+julia&gt; labelfreq!(ld, [1,0,0])
+Dict{Int64,Int64} with 2 entries:
+  0 =&gt; 5
+  1 =&gt; 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelmap" href="#MLLabelUtils.labelmap"><code>MLLabelUtils.labelmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelmap(obj) -&gt; Dict</code></pre><p>Computes a mapping from the labels in <code>obj</code> to all the individual element-indices in <code>obj</code> that correspond to that label</p><pre><code class="language-none">julia&gt; labelmap([0, 1, 1, 0, 0])
+Dict{Int64,Array{Int64,1}} with 2 entries:
+  0 =&gt; [1,4,5]
+  1 =&gt; [2,3]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelmap!" href="#MLLabelUtils.labelmap!"><code>MLLabelUtils.labelmap!</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelmap!(dict, idx, elem) -&gt; Dict</code></pre><p>Updates the given label-map <code>dict</code> with the new element <code>elem</code>, which is assumed to be associated with the index <code>idx</code>.</p><pre><code class="language-none">julia&gt; lm = labelmap([0, 1, 1, 0, 0])
+Dict{Int64,Array{Int64,1}} with 2 entries:
+  0 =&gt; [1,4,5]
+  1 =&gt; [2,3]
+
+julia&gt; labelmap!(lm, 6, 0)
+Dict{Int64,Array{Int64,1}} with 2 entries:
+  0 =&gt; [1,4,5,6]
+  1 =&gt; [2,3]
+
+julia&gt; labelmap!(lm, 7:8, [1,0])
+Dict{Int64,Array{Int64,1}} with 2 entries:
+  0 =&gt; [1,4,5,6,8]
+  1 =&gt; [2,3,7]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labelmap2vec" href="#MLLabelUtils.labelmap2vec"><code>MLLabelUtils.labelmap2vec</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labelmap2vec(dict) -&gt; Vector</code></pre><p>Inverse function of labelmap. Computes an <code>array</code> of labels by element-wise traversal of the entries in <code>dict</code>.</p><pre><code class="language-none">julia&gt; labelvec = [:yes,:no,:no,:yes,:yes]
+
+julia&gt; lm = labelmap(labelvec)
+Dict{Symbol,Array{Int64,1}} with 2 entries:
+    :yes =&gt; [1, 4, 5]
+    :no  =&gt; [2, 3]
+
+julia&gt; labelmap2vec(lm)
+5-element Array{Symbol,1}:
+    :yes
+    :no
+    :no
+    :yes
+    :yes</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.labeltype" href="#MLLabelUtils.labeltype"><code>MLLabelUtils.labeltype</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">labeltype(::Type{&lt;:LabelEncoding}) -&gt; DataType</code></pre><p>Determine the type of the labels represented by the label encoding <code>T</code></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.neglabel" href="#MLLabelUtils.neglabel"><code>MLLabelUtils.neglabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">neglabel(encoding)</code></pre><p>If the encoding is binary it will return the negative label of it. The function will throw an error otherwise.</p><pre><code class="language-none">julia&gt; neglabel(LabelEnc.MarginBased(Float32))
+-1.0f0</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.nlabel" href="#MLLabelUtils.nlabel"><code>MLLabelUtils.nlabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">nlabel(obj) -&gt; Int</code></pre><p>Returns the number of labels represented in the given object <code>obj</code>.</p><pre><code class="language-none">julia&gt; nlabel([:yes,:no,:yes,:yes])
+2</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLLabelUtils.poslabel" href="#MLLabelUtils.poslabel"><code>MLLabelUtils.poslabel</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">poslabel(encoding)</code></pre><p>If the encoding is binary it will return the positive label of it. The function will throw an error otherwise.</p><pre><code class="language-none">julia&gt; poslabel(LabelEnc.MarginBased(Float32))
+1.0f0</code></pre></div></div></section><pre><code class="language-none">MLLabelUtils.standardize_label</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

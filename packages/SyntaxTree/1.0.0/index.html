@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SyntaxTree.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SyntaxTree.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p>&lt;p align=&quot;center&quot;&gt;   &lt;img src=&quot;./docs/src/assets/logo.png&quot; alt=&quot;SyntaxTree.jl&quot;/&gt; &lt;/p&gt;</p><h1><a class="nav-anchor" id="SyntaxTree.jl-1" href="#SyntaxTree.jl-1">SyntaxTree.jl</a></h1><p><em>Toolset for modifying Julia AST</em></p><p><a href="https://travis-ci.org/chakravala/SyntaxTree.jl"><img src="https://travis-ci.org/chakravala/SyntaxTree.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/chakravala/syntaxtree-jl"><img src="https://ci.appveyor.com/api/projects/status/udd0yvrqkeqa5hbp?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/chakravala/SyntaxTree.jl?branch=master"><img src="https://coveralls.io/repos/chakravala/SyntaxTree.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://codecov.io/github/chakravala/SyntaxTree.jl?branch=master"><img src="http://codecov.io/github/chakravala/SyntaxTree.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package is a general purpose toolkit intended for manipulations of Julia&#39;s AST. It contains methods like <code>linefilter!</code>, <code>callcount</code>, <code>genfun</code>, and <code>exprval</code>. Certain useful expression transformations are also possible, such as the <code>SyntaxTree.sub</code> method to convert scalar values to a single type, <code>SyntaxTree.abs</code> to apply <code>Base.abs</code> to all scalars and operations, and also <code>SyntaxTree.alg</code> to introduce an algebraic machine epsilon bound at each operation.</p><p>The <code>exprval</code> method to compute the expression value is defined in &quot;Optimal polynomial characteristic methods&quot; by Michael Reed in 2018 with the supporting <code>expravg</code> and <code>exprdev</code> methods to compute scalar averages and standard deviations for expressions. The expression value can be used to order equivalent forms of an expression, where lower values are more optimal and computationally efficient.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>Recursively filter out <code>:LineNumberNode</code> from <code>Expr</code> objects:</p><pre><code class="language-Julia">julia&gt; expr = quote
+           x = 7
+           y = x^2
+       end
+quote
+    #= REPL[3]:2 =#
+    x = 7
+    #= REPL[3]:3 =#
+    y = x ^ 2
+end
+
+julia&gt; linefilter!(expr)
+quote
+    x = 7
+    y = x ^ 2
+end</code></pre><p>Substitute numerical values with type conversion:</p><pre><code class="language-Julia">julia&gt; SyntaxTree.sub(Float64,:(2x^2-1//2))
+:(2.0 * x ^ 2 - 1.0 // 2.0)</code></pre><p>Apply <code>abs</code> to an expression recursively:</p><pre><code class="language-Julia">julia&gt; SyntaxTree.abs(:(2x^2-1//2))
+:(2 * x ^ 2 + 1 // 2)</code></pre><p>Recursively insert a machine epsilon bound <code>(1+ϵ)</code> per call:</p><pre><code class="language-Julia">julia&gt; SyntaxTree.alg(:(2x^2-1//2))
+:((1 + ϵ) * ((1 + ϵ) * (2 * ((1 + ϵ) * x ^ 2)) - (1 + ϵ) * 1 // 2))</code></pre><p>Return an anonymous function given <code>expr</code> and <code>args</code></p><pre><code class="language-Julia">julia&gt; a = @genfun x^2-y^2 x y
+#3 (generic function with 1 method)
+
+julia&gt; a(5,4)
+9
+
+julia&gt; b = genfun(:(x^2-y^2),[:x,:y])
+#1 (generic function with 1 method)
+
+julia&gt; b(5,4)
+9</code></pre><p>Obtain the number of <code>call</code> operations in an expression:</p><pre><code class="language-Julia">julia&gt; callcount(:(2x^2-1//2))
+4</code></pre><p>Recursively obtain the <em>number of scalars</em> in an expression, the <em>average of those scalars</em>, the <em>number of non-trivial exponents</em> in the expression, and the <em>average of the exponents</em>.</p><pre><code class="language-Julia">julia&gt; SyntaxTree.expravg(:(2x^2-1//2))
+(3, 0.7954314537066303, 1, 2.0)</code></pre><p>Get the <em>standard deviation</em> of the logarithm of the scalars in an expression:</p><pre><code class="language-Julia">julia&gt; SyntaxTree.exprdev(:(2x^2-1//2))
+0.22136580504842668</code></pre><p>Compute the expression value and other characteristics:</p><pre><code class="language-Julia">julia&gt; SyntaxTree.exprval(:(2x^2-1//2))
+(4.89405674908118, 4, 0.4704952763295575, 0.7954314537066303, 2.0)</code></pre><p>The <strong>first</strong> value is the <em>expression value</em>, the <strong>second</strong> is the <em>number of operations</em>, the <strong>third</strong> is the <em>standard deviation</em> of the logarithms of the scalars, the <strong>fourth</strong> is the <em>average</em> of the logarithms of the scalars, and the <strong>fifth</strong> is the <em>average of the exponents</em>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

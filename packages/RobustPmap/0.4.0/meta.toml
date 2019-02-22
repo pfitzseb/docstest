@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RobustPmap"
+owner = "madsjulia"
+version = "0.4.0"
+description = "Robust pmap calls for efficient parallelization and high-performance computing"
+stargazers_count = "0"
+url = "https://github.com/madsjulia/RobustPmap.jl.git"
+installs = true
+tags = ["mads", "julia", "pmap-checking", "parallel-computing", "parallel-processing", "parallelization", "high-performance-computing", "parallel", "parallel-programming", "parallelize", "parallelism", "hpc", "pmap-calls", "model-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "48"
+[[contributors]]
+name = "omalled"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

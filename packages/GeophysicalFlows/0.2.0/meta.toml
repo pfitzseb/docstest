@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "GeophysicalFlows"
+owner = "FourierFlows"
+version = "0.2.0"
+description = "Geophysical fluid dynamics pseudospectral solvers with Julia and FourierFlows.jl."
+stargazers_count = "3"
+url = "https://github.com/FourierFlows/GeophysicalFlows.jl.git"
+installs = true
+tags = ["geophysical-fluid-dynamics"]
+license = "Other"
+
+[[contributors]]
+name = "navidcy"
+contributions = "172"
+[[contributors]]
+name = "glwagner"
+contributions = "76"

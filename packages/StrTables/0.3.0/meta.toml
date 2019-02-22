@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrTables"
+owner = "JuliaString"
+version = "0.3.0"
+description = "Simple packed string tables, with support for load/save to a file or open IO stream."
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "82"

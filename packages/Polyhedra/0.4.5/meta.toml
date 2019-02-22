@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "Polyhedra"
+owner = "JuliaPolyhedra"
+version = "0.4.5"
+description = "Polyhedral Computation Interface"
+stargazers_count = "52"
+url = "https://github.com/JuliaPolyhedra/Polyhedra.jl.git"
+installs = true
+tags = ["julia", "polyhedral-computations", "polyhedra"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "485"
+[[contributors]]
+name = "rdeits"
+contributions = "22"
+[[contributors]]
+name = "goretkin"
+contributions = "5"
+[[contributors]]
+name = "oyamad"
+contributions = "3"
+[[contributors]]
+name = "joehuchette"
+contributions = "3"
+[[contributors]]
+name = "tkoolen"
+contributions = "3"
+[[contributors]]
+name = "cc7768"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "leethargo"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "guberger"
+contributions = "1"
+[[contributors]]
+name = "mforets"
+contributions = "1"

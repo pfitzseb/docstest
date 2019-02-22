@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "FINUFFT"
+owner = "ludvigak"
+version = "0.4.1"
+description = "Julia interface to the nonuniform FFT library FINUFFT"
+stargazers_count = "4"
+url = "https://github.com/ludvigak/FINUFFT.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ludvigak"
+contributions = "52"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TickTock"
+owner = "cormullion"
+version = "0.2.0"
+description = "tick tock timing (but it’s tick() tock() rather than tic() toc() ...)"
+stargazers_count = "1"
+url = "https://github.com/cormullion/TickTock.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cormullion"
+contributions = "27"

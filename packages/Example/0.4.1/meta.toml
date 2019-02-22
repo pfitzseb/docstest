@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "Example"
+owner = "JuliaLang"
+version = "0.4.1"
+description = "Example Julia package repo."
+stargazers_count = "36"
+url = "https://github.com/JuliaLang/Example.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jiahao"
+contributions = "13"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "13"
+[[contributors]]
+name = "tkelman"
+contributions = "13"
+[[contributors]]
+name = "IainNZ"
+contributions = "7"
+[[contributors]]
+name = "ViralBShah"
+contributions = "7"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "aviks"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "nalimilan"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "NHDaly"
+contributions = "1"
+[[contributors]]
+name = "morris25"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"

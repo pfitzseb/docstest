@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "CausalInference"
+owner = "mschauer"
+version = "0.4.0"
+description = "Causal inference, graphical models and structure learning with the PC algorithm."
+stargazers_count = "20"
+url = "https://github.com/mschauer/CausalInference.jl.git"
+installs = true
+tags = ["causal-inference", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "mschauer"
+contributions = "54"
+[[contributors]]
+name = "schnirz"
+contributions = "35"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

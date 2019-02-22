@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FoundationDB"
+owner = "tanmaykm"
+version = "0.1.0"
+description = "FoundationDB client in Julia"
+stargazers_count = "1"
+url = "https://github.com/tanmaykm/FoundationDB.jl.git"
+installs = true
+tags = ["foundationdb", "julialang", "foundationdb-client", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "31"

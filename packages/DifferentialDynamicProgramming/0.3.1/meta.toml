@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DifferentialDynamicProgramming"
+owner = "baggepinnen"
+version = "0.3.1"
+description = "A package for solving Differential Dynamic Programming and trajectory optimization problems."
+stargazers_count = "19"
+url = "https://github.com/baggepinnen/DifferentialDynamicProgramming.jl.git"
+installs = true
+tags = ["ddp", "dynamic-programming", "trajectory-optimization", "optimal-control", "model-predictive-control"]
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "99"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

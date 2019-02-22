@@ -1,0 +1,108 @@
+license_url = ""
+doctype = "real"
+name = "Polynomials"
+owner = "JuliaMath"
+version = "0.5.2"
+description = "Polynomial manipulations in Julia"
+stargazers_count = "55"
+url = "https://github.com/JuliaMath/Polynomials.jl.git"
+installs = true
+tags = ["julia", "math", "polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "jverzani"
+contributions = "121"
+[[contributors]]
+name = "Keno"
+contributions = "21"
+[[contributors]]
+name = "vtjnash"
+contributions = "18"
+[[contributors]]
+name = "aytekinar"
+contributions = "15"
+[[contributors]]
+name = "pwl"
+contributions = "8"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "jwmerrill"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "neveritt"
+contributions = "4"
+[[contributors]]
+name = "jcrist"
+contributions = "4"
+[[contributors]]
+name = "pjabardo"
+contributions = "4"
+[[contributors]]
+name = "hrobotron"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "3"
+[[contributors]]
+name = "kshyatt"
+contributions = "3"
+[[contributors]]
+name = "hamzaelsaawy"
+contributions = "2"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "2"
+[[contributors]]
+name = "magistere"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "djsegal"
+contributions = "1"
+[[contributors]]
+name = "daviddelaat"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "ivanslapnicar"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "martinholters"
+contributions = "1"
+[[contributors]]
+name = "mfalt"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"
+[[contributors]]
+name = "olof3"
+contributions = "1"

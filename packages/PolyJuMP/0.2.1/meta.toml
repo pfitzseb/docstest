@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "PolyJuMP"
+owner = "JuliaOpt"
+version = "0.2.1"
+description = "A JuMP extension for Polynomial Optimization"
+stargazers_count = "17"
+url = "https://github.com/JuliaOpt/PolyJuMP.jl.git"
+installs = true
+tags = ["julia", "optimization", "polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "148"
+[[contributors]]
+name = "joehuchette"
+contributions = "10"
+[[contributors]]
+name = "chriscoey"
+contributions = "5"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,93 @@
+license_url = ""
+doctype = "real"
+name = "GLM"
+owner = "JuliaStats"
+version = "1.1.0"
+description = "Generalized linear models in Julia"
+stargazers_count = "226"
+url = "https://github.com/JuliaStats/GLM.jl.git"
+installs = true
+tags = ["julia", "glm", "regression", "statistics"]
+license = "Other"
+
+[[contributors]]
+name = "dmbates"
+contributions = "159"
+[[contributors]]
+name = "simonster"
+contributions = "62"
+[[contributors]]
+name = "andreasnoack"
+contributions = "45"
+[[contributors]]
+name = "mkborregaard"
+contributions = "18"
+[[contributors]]
+name = "nalimilan"
+contributions = "13"
+[[contributors]]
+name = "ararslan"
+contributions = "11"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "11"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "pkofod"
+contributions = "4"
+[[contributors]]
+name = "lendle"
+contributions = "4"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "3"
+[[contributors]]
+name = "BenjaminBorn"
+contributions = "2"
+[[contributors]]
+name = "setzler"
+contributions = "2"
+[[contributors]]
+name = "doobwa"
+contributions = "2"
+[[contributors]]
+name = "Nosferican"
+contributions = "2"
+[[contributors]]
+name = "pbastide"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "lindahua"
+contributions = "1"
+[[contributors]]
+name = "hung-q-ngo"
+contributions = "1"
+[[contributors]]
+name = "jacobadenbaum"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "LewisHein"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "grero"
+contributions = "1"
+[[contributors]]
+name = "powerdistribution"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

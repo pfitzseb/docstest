@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "SplitApplyCombine"
+owner = "JuliaData"
+version = "0.4.1"
+description = "Split-apply-combine strategies for Julia"
+stargazers_count = "35"
+url = "https://github.com/JuliaData/SplitApplyCombine.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "64"
+[[contributors]]
+name = "c42f"
+contributions = "2"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "2"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "2"
+[[contributors]]
+name = "mschauer"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

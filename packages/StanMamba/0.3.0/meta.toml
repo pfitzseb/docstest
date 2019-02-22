@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StanMamba"
+owner = "StanJulia"
+version = "0.3.0"
+description = "Integration of Mamba diagnostic plots and CmdStan"
+stargazers_count = "0"
+url = "https://github.com/StanJulia/StanMamba.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "46"
+[[contributors]]
+name = "bparbhu"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

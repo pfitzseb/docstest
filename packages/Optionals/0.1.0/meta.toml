@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Optionals"
+owner = "simonfxr"
+version = "0.1.0"
+description = "Julia Optionals Package"
+stargazers_count = "0"
+url = "https://github.com/simonfxr/Optionals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonfxr"
+contributions = "4"

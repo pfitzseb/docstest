@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "HyperbolicPlane"
+owner = "scheinerman"
+version = "0.2.3"
+description = "Implementation of basic hyperbolic geometry (Poincare disc model)"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/HyperbolicPlane.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "116"
+[[contributors]]
+name = "chakravala"
+contributions = "1"

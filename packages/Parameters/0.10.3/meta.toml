@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "real"
+name = "Parameters"
+owner = "mauro3"
+version = "0.10.3"
+description = "Types with default field values, keyword constructors and (un-)pack macros"
+stargazers_count = "121"
+url = "https://github.com/mauro3/Parameters.jl.git"
+installs = true
+tags = ["julia"]
+license = "Other"
+
+[[contributors]]
+name = "mauro3"
+contributions = "121"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "arnavs"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jannefiluren"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "rafaqz"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "YingboMa"
+contributions = "1"

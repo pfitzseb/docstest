@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "ContinuousTransformations"
+owner = "tpapp"
+version = "1.0.0"
+description = "Continuous transformations from ℝ or ℝⁿ to various open sets"
+stargazers_count = "15"
+url = "https://github.com/tpapp/ContinuousTransformations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "178"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

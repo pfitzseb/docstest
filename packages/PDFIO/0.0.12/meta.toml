@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "PDFIO"
+owner = "sambitdash"
+version = "0.0.12"
+description = "PDF Reader Library for native Julia. "
+stargazers_count = "13"
+url = "https://github.com/sambitdash/PDFIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sambitdash"
+contributions = "221"
+[[contributors]]
+name = "gwierzchowski"
+contributions = "10"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

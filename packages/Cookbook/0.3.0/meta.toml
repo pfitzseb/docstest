@@ -1,0 +1,7 @@
+name = "Cookbook"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/tom--lee/Cookbook.jl.git"
+version = "0.3.0"
+description = "A Julia package for automating data analysis"

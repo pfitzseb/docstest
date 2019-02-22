@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "WoodburyMatrices"
+owner = "timholy"
+version = "0.4.1"
+description = "Support for the Woodbury matrix identity for Julia"
+stargazers_count = "8"
+url = "https://github.com/timholy/WoodburyMatrices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "29"
+[[contributors]]
+name = "gabgoh"
+contributions = "13"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "sglyon"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"

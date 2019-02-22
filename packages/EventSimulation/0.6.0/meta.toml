@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "EventSimulation"
+owner = "bkamins"
+version = "0.6.0"
+description = "An event based Discrete Event Simulation engine"
+stargazers_count = "6"
+url = "https://github.com/bkamins/EventSimulation.jl.git"
+installs = true
+tags = ["simulation", "julia-language", "discrete-event"]
+license = "Other"
+
+[[contributors]]
+name = "bkamins"
+contributions = "89"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

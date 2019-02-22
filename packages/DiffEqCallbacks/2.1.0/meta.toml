@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqCallbacks"
+owner = "JuliaDiffEq"
+version = "2.1.0"
+description = "A library of useful callbacks for DiffEq solvers"
+stargazers_count = "6"
+url = "https://github.com/JuliaDiffEq/DiffEqCallbacks.jl.git"
+installs = true
+tags = ["callback", "differential-equations"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "94"
+[[contributors]]
+name = "ranocha"
+contributions = "12"
+[[contributors]]
+name = "devmotion"
+contributions = "10"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"
+[[contributors]]
+name = "AleMorales"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Gregstrq"
+contributions = "1"
+[[contributors]]
+name = "korsbo"
+contributions = "1"
+[[contributors]]
+name = "ronisbr"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "CleggTom"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "YingboMa"
+contributions = "1"
+[[contributors]]
+name = "jondeuce"
+contributions = "1"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "1"

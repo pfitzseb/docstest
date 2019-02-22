@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DynamicHMCModels"
+owner = "StatisticalRethinkingJulia"
+version = "0.1.0"
+description = "DynamicHMC versions of StatisticalRethinking models"
+stargazers_count = "0"
+url = "https://github.com/StatisticalRethinkingJulia/DynamicHMCModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "323"
+[[contributors]]
+name = "torkar"
+contributions = "31"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

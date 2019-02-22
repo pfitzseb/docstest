@@ -1,0 +1,87 @@
+license_url = ""
+doctype = "real"
+name = "LsqFit"
+owner = "JuliaNLSolvers"
+version = "0.7.3"
+description = "Simple curve fitting in Julia"
+stargazers_count = "91"
+url = "https://github.com/JuliaNLSolvers/LsqFit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "102"
+[[contributors]]
+name = "pkofod"
+contributions = "52"
+[[contributors]]
+name = "blakejohnson"
+contributions = "44"
+[[contributors]]
+name = "iewaij"
+contributions = "10"
+[[contributors]]
+name = "cmcbride"
+contributions = "8"
+[[contributors]]
+name = "mlubin"
+contributions = "8"
+[[contributors]]
+name = "timholy"
+contributions = "7"
+[[contributors]]
+name = "jw3126"
+contributions = "5"
+[[contributors]]
+name = "marcusps"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "mzaffalon"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "stakaz"
+contributions = "2"
+[[contributors]]
+name = "AtsushiSakai"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "Magalame"
+contributions = "1"
+[[contributors]]
+name = "nignatiadis"
+contributions = "1"
+[[contributors]]
+name = "sanga"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

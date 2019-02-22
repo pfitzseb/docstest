@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "Clipper"
+owner = "JuliaGeometry"
+version = "0.5.0"
+description = "Julia wrapping of clipper"
+stargazers_count = "10"
+url = "https://github.com/JuliaGeometry/Clipper.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sjkelly"
+contributions = "77"
+[[contributors]]
+name = "jminardi"
+contributions = "18"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "17"
+[[contributors]]
+name = "ajkeller34"
+contributions = "10"
+[[contributors]]
+name = "maxvoxel8"
+contributions = "8"
+[[contributors]]
+name = "jonvoxel8"
+contributions = "5"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

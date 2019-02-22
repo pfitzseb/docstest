@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SummationByPartsOperators"
+owner = "ranocha"
+version = "0.1.0"
+description = "A library of classical summation-by-parts (SBP) operators used in finite difference methods to get provably stable semidiscretisations, paying special attention to boundary conditions."
+stargazers_count = "2"
+url = "https://github.com/ranocha/SummationByPartsOperators.jl.git"
+installs = true
+tags = ["finite-difference", "summation-by-parts"]
+license = "Other"
+
+[[contributors]]
+name = "ranocha"
+contributions = "224"

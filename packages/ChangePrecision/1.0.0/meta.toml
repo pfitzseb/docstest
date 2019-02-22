@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ChangePrecision"
+owner = "stevengj"
+version = "1.0.0"
+description = "macro to change the default floating-point precision in Julia code"
+stargazers_count = "17"
+url = "https://github.com/stevengj/ChangePrecision.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "21"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "2"

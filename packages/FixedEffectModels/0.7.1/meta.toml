@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "FixedEffectModels"
+owner = "matthieugomez"
+version = "0.7.1"
+description = "Fast Estimation of Linear Models with IV and High Dimensional Categorical Variables"
+stargazers_count = "54"
+url = "https://github.com/matthieugomez/FixedEffectModels.jl.git"
+installs = true
+tags = ["instrumental-variables", "iv", "categorical-variables", "fixed-effects", "panel-data", "clustered-standard-errors", "regression", "economics"]
+license = "Other"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "270"
+[[contributors]]
+name = "maxnorton"
+contributions = "4"
+[[contributors]]
+name = "helix123"
+contributions = "2"
+[[contributors]]
+name = "duncanhobbs"
+contributions = "1"
+[[contributors]]
+name = "jlperla"
+contributions = "1"
+[[contributors]]
+name = "jmboehm"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "sboysel"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "menggai"
+contributions = "1"

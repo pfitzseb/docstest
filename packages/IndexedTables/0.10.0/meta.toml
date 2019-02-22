@@ -1,0 +1,81 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "IndexedTables"
+owner = "JuliaComputing"
+version = "0.10.0"
+description = "tables with indices"
+stargazers_count = "63"
+url = "https://github.com/JuliaComputing/IndexedTables.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffBezanson"
+contributions = "110"
+[[contributors]]
+name = "piever"
+contributions = "63"
+[[contributors]]
+name = "shashi"
+contributions = "47"
+[[contributors]]
+name = "joshday"
+contributions = "22"
+[[contributors]]
+name = "tanmaykm"
+contributions = "19"
+[[contributors]]
+name = "davidanthoff"
+contributions = "10"
+[[contributors]]
+name = "pranavtbhat"
+contributions = "5"
+[[contributors]]
+name = "tshort"
+contributions = "3"
+[[contributors]]
+name = "ViralBShah"
+contributions = "3"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "3"
+[[contributors]]
+name = "dhairyagandhi96"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "scls19fr"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"

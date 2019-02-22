@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StanModels"
+owner = "StatisticalRethinkingJulia"
+version = "0.1.0"
+description = "CmdStan versions of StatisticalRethinking models"
+stargazers_count = "0"
+url = "https://github.com/StatisticalRethinkingJulia/StanModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "305"
+[[contributors]]
+name = "torkar"
+contributions = "31"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "PowerDynSolve"
+owner = "JuliaEnergy"
+version = "0.4.1"
+description = "Subpackage of PowerDynamics.jl providing the functionality to solve/simulate the built models"
+stargazers_count = "1"
+url = "https://github.com/JuliaEnergy/PowerDynSolve.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "timkittel"
+contributions = "33"

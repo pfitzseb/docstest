@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ReadStat"
+owner = "queryverse"
+version = "0.4.1"
+description = "Read files from Stata, SAS, and SPSS"
+stargazers_count = "54"
+url = "https://github.com/queryverse/ReadStat.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "62"
+[[contributors]]
+name = "evanmiller"
+contributions = "30"
+[[contributors]]
+name = "dmbates"
+contributions = "7"
+[[contributors]]
+name = "matthieugomez"
+contributions = "4"
+[[contributors]]
+name = "diogocp"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

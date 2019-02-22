@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "StatsMakie"
+owner = "JuliaPlots"
+version = "0.0.2"
+description = "Statistical visualizations based on high performance plotting package Makie"
+stargazers_count = "19"
+url = "https://github.com/JuliaPlots/StatsMakie.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "73"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"

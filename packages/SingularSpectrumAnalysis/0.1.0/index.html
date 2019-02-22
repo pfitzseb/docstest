@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SingularSpectrumAnalysis.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SingularSpectrumAnalysis.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Simple-Usage-1">Simple Usage</a></li><li><a class="toctext" href="#Advanced-usage-1">Advanced usage</a></li><li><a class="toctext" href="#Reading-1">Reading</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SingularSpectrumAnalysis-1" href="#SingularSpectrumAnalysis-1">SingularSpectrumAnalysis</a></h1><p><a href="http://pkg.julialang.org/detail/SingularSpectrumAnalysis"><img src="http://pkg.julialang.org/badges/SingularSpectrumAnalysis_0.5.svg" alt="SingularSpectrumAnalysis"/></a> <a href="http://pkg.julialang.org/detail/SingularSpectrumAnalysis"><img src="http://pkg.julialang.org/badges/SingularSpectrumAnalysis_0.6.svg" alt="SingularSpectrumAnalysis"/></a> <a href="https://travis-ci.org/baggepinnen/SingularSpectrumAnalysis.jl"><img src="https://travis-ci.org/baggepinnen/SingularSpectrumAnalysis.jl.svg?branch=master" alt="Build Status"/></a></p><p>A package for performing Singular Spectrum Analysis (SSA) https://en.wikipedia.org/wiki/Singular<em>spectrum</em>analysis</p><h2><a class="nav-anchor" id="Simple-Usage-1" href="#Simple-Usage-1">Simple Usage</a></h2><p>The plot functions are only available if <code>Plots.jl</code> has been loaded when <code>SingularSpectrumAnalysis</code> is loaded.</p><pre><code class="language-julia">using SingularSpectrumAnalysis
+# generate some data
+L = 20 # Window length
+K = 100
+N = K*L; # number of datapoints
+t = 1:N; # Time vector
+T = 20; # period of main oscillation
+y = sin.(2pi/T*t); # Signal
+y .+= (0.5sin.(2pi/T*4*t)).^2 # Add another frequency
+e = 0.1randn(N); # Add some noise
+ys = y+e;
+# plot(ys)
+
+USV = hsvd(ys,L) # Perform svd on the trajectory matrix
+sigmaplot(USV) # Plot normalized singular values
+# logsigmaplot(USV) # Plot singular values
+# cumsigmaplot(USV) # Plot cumulative normalized singular values</code></pre><p><img src="figs/sigmaplot.svg" alt="window"/></p><pre><code class="language-julia">seasonal_groupings = [1:2, 4:5] # Determine pairs of singular values corresponding to seasonal components
+trends = 3 # If some singular value lacks a buddy, this is a trend component
+pairplot(USV,seasonal_groupings) # plot phase plots for all seasonal components
+yrt, yrs = reconstruct(USV, trends, seasonal_groupings) # Reconstruct the underlying signal without noise, based on all identified components with significant singular values
+yr = sum([yrt yrs],2) # Form full reconstruction
+plot([y ys yr], lab=[&quot;y&quot; &quot;ys&quot; &quot;yr&quot;])</code></pre><h2><a class="nav-anchor" id="Advanced-usage-1" href="#Advanced-usage-1">Advanced usage</a></h2><p>See the implementation of functions <code>hsvd</code> and <code>reconstruct</code></p><h2><a class="nav-anchor" id="Reading-1" href="#Reading-1">Reading</a></h2><p>See http://www.jds-online.com/files/JDS-396.pdf for an easy-to-read introduction to SSA</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

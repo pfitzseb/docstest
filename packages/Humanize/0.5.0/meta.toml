@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Humanize"
+owner = "IainNZ"
+version = "0.5.0"
+description = "Humanize numbers: data sizes, datetime deltas, digit separators"
+stargazers_count = "25"
+url = "https://github.com/IainNZ/Humanize.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "IainNZ"
+contributions = "27"
+[[contributors]]
+name = "juliangehring"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "2"

@@ -1,0 +1,93 @@
+license_url = ""
+doctype = "default"
+name = "StatPlots"
+owner = "JuliaPlots"
+version = "0.9.2"
+description = "Statistical plotting recipes for Plots.jl"
+stargazers_count = "101"
+url = "https://github.com/JuliaPlots/StatPlots.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mkborregaard"
+contributions = "151"
+[[contributors]]
+name = "piever"
+contributions = "120"
+[[contributors]]
+name = "tbreloff"
+contributions = "52"
+[[contributors]]
+name = "daschw"
+contributions = "19"
+[[contributors]]
+name = "kescobo"
+contributions = "9"
+[[contributors]]
+name = "diegozea"
+contributions = "6"
+[[contributors]]
+name = "tk3369"
+contributions = "5"
+[[contributors]]
+name = "ValdarT"
+contributions = "5"
+[[contributors]]
+name = "pkofod"
+contributions = "3"
+[[contributors]]
+name = "sylvaticus"
+contributions = "3"
+[[contributors]]
+name = "lyon-fnal"
+contributions = "2"
+[[contributors]]
+name = "opahk"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "lssimoes"
+contributions = "2"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "anriseth"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "NHDaly"
+contributions = "1"
+[[contributors]]
+name = "oschulz"
+contributions = "1"
+[[contributors]]
+name = "funnell"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "goropikari"
+contributions = "1"
+[[contributors]]
+name = "mbeltagy"
+contributions = "1"

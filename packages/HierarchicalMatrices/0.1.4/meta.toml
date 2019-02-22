@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "HierarchicalMatrices"
+owner = "JuliaMatrices"
+version = "0.1.4"
+description = "Julia package for hierarchical matrices"
+stargazers_count = "8"
+url = "https://github.com/JuliaMatrices/HierarchicalMatrices.jl.git"
+installs = true
+tags = ["julia", "hierarchical-matrices", "fast-multipole-method", "cauchy"]
+license = "Other"
+
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "36"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "17"
+[[contributors]]
+name = "tkelman"
+contributions = "3"

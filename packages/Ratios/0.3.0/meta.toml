@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Ratios"
+owner = "timholy"
+version = "0.3.0"
+description = "Faster Rational-like types for Julia"
+stargazers_count = "3"
+url = "https://github.com/timholy/Ratios.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "13"
+[[contributors]]
+name = "tomasaschan"
+contributions = "3"
+[[contributors]]
+name = "felixcremer"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

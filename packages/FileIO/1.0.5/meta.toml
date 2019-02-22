@@ -1,0 +1,117 @@
+license_url = ""
+doctype = "default"
+name = "FileIO"
+owner = "JuliaIO"
+version = "1.0.5"
+description = "Main Package for IO, loading all different kind of files"
+stargazers_count = "74"
+url = "https://github.com/JuliaIO/FileIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "190"
+[[contributors]]
+name = "timholy"
+contributions = "64"
+[[contributors]]
+name = "davidanthoff"
+contributions = "23"
+[[contributors]]
+name = "musm"
+contributions = "21"
+[[contributors]]
+name = "ssfrr"
+contributions = "16"
+[[contributors]]
+name = "yuyichao"
+contributions = "10"
+[[contributors]]
+name = "sjkelly"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "4"
+[[contributors]]
+name = "RalphAS"
+contributions = "4"
+[[contributors]]
+name = "alyst"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "prcastro"
+contributions = "3"
+[[contributors]]
+name = "tlnagy"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "CiaranOMara"
+contributions = "2"
+[[contributors]]
+name = "jsams"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "rsrock"
+contributions = "2"
+[[contributors]]
+name = "simonbyrne"
+contributions = "2"
+[[contributors]]
+name = "cormullion"
+contributions = "2"
+[[contributors]]
+name = "davidssmith"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "JohnHBrock"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "hpoit"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "magister-ludi"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"

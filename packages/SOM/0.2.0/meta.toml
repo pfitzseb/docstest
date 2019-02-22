@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "SOM"
+owner = "LiScI-Lab"
+version = "0.2.0"
+description = "Kohonen's self-organising maps for Julia"
+stargazers_count = "3"
+url = "https://github.com/LiScI-Lab/SOM.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andreasdominik"
+contributions = "187"
+[[contributors]]
+name = "Noah-Maze"
+contributions = "1"

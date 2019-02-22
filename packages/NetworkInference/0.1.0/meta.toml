@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "NetworkInference"
+owner = "Tchanders"
+version = "0.1.0"
+description = "Methods for inferring undirected networks from data"
+stargazers_count = "8"
+url = "https://github.com/Tchanders/NetworkInference.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Tchanders"
+contributions = "51"
+[[contributors]]
+name = "ananth-pallaseni"
+contributions = "8"
+[[contributors]]
+name = "EmilyBennett"
+contributions = "3"

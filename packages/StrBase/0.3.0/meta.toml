@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrBase"
+owner = "JuliaString"
+version = "0.3.0"
+description = "Basic functions for string support"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "76"

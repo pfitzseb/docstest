@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "KahanSummation"
+owner = "JuliaMath"
+version = "0.1.0"
+description = "Sum and cumulative sum using the Kahan-Babuska-Neumaier algorithm"
+stargazers_count = "3"
+url = "https://github.com/JuliaMath/KahanSummation.jl.git"
+installs = true
+tags = ["julia", "math", "summation", "kahan-summation"]
+license = "MIT License"
+
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"

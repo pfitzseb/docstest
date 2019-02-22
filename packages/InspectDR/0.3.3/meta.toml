@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "InspectDR"
+owner = "ma-laforge"
+version = "0.3.3"
+description = "Fast, interactive Julia/GTK+ plots (+Smith charts +Gtk widget +Cairo-only images)"
+stargazers_count = "22"
+url = "https://github.com/ma-laforge/InspectDR.jl.git"
+installs = true
+tags = ["smith-chart", "plotting", "visualization", "widget", "mixed-signal", "transient", "bode", "simulation", "eda"]
+license = "MIT License"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "168"
+[[contributors]]
+name = "tkelman"
+contributions = "3"

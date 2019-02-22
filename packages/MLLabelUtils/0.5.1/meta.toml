@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "MLLabelUtils"
+owner = "JuliaML"
+version = "0.5.1"
+description = "Utility package for working with classification targets and label-encodings"
+stargazers_count = "18"
+url = "https://github.com/JuliaML/MLLabelUtils.jl.git"
+installs = true
+tags = ["machine-learning", "classification", "julia", "preprocessing"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "76"
+[[contributors]]
+name = "oxinabox"
+contributions = "5"
+[[contributors]]
+name = "holtri"
+contributions = "2"
+[[contributors]]
+name = "englhardt"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "roberthoenig"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

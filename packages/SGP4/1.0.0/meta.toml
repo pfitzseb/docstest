@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SGP4"
+owner = "crbinz"
+version = "1.0.0"
+description = "Julia wrapper of the Python SGP4 library"
+stargazers_count = "2"
+url = "https://github.com/crbinz/SGP4.jl.git"
+installs = true
+tags = ["space", "sgp4", "tle", "propagation", "astrodynamics", "satellites"]
+license = "MIT License"
+
+[[contributors]]
+name = "crbinz"
+contributions = "64"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

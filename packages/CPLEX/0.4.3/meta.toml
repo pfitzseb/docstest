@@ -1,0 +1,93 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CPLEX"
+owner = "JuliaOpt"
+version = "0.4.3"
+description = "Julia interface for the CPLEX optimization software"
+stargazers_count = "31"
+url = "https://github.com/JuliaOpt/CPLEX.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "joehuchette"
+contributions = "216"
+[[contributors]]
+name = "mlubin"
+contributions = "84"
+[[contributors]]
+name = "blegat"
+contributions = "20"
+[[contributors]]
+name = "IssamT"
+contributions = "19"
+[[contributors]]
+name = "odow"
+contributions = "15"
+[[contributors]]
+name = "matbesancon"
+contributions = "6"
+[[contributors]]
+name = "chengg04"
+contributions = "6"
+[[contributors]]
+name = "sbebo"
+contributions = "5"
+[[contributors]]
+name = "emreyamangil"
+contributions = "4"
+[[contributors]]
+name = "yeesian"
+contributions = "4"
+[[contributors]]
+name = "kibaekkim"
+contributions = "3"
+[[contributors]]
+name = "EQt"
+contributions = "2"
+[[contributors]]
+name = "vitornesello"
+contributions = "2"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "chriscoey"
+contributions = "1"
+[[contributors]]
+name = "lkapelevich"
+contributions = "1"
+[[contributors]]
+name = "madanim"
+contributions = "1"
+[[contributors]]
+name = "Ontahm"
+contributions = "1"
+[[contributors]]
+name = "remi-garcia"
+contributions = "1"
+[[contributors]]
+name = "jac0320"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "Thuener"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "dafrick"
+contributions = "1"
+[[contributors]]
+name = "laurentheirendt"
+contributions = "1"
+[[contributors]]
+name = "nodet"
+contributions = "1"

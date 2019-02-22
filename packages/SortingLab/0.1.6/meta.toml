@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SortingLab"
+owner = "xiaodaigh"
+version = "0.1.6"
+description = "Experimental implementations of sorting algorithms"
+stargazers_count = "1"
+url = "https://github.com/xiaodaigh/SortingLab.jl.git"
+installs = true
+tags = ["sorting-algorithms", "julia-package", "julialang"]
+license = "Other"
+
+[[contributors]]
+name = "xiaodaigh"
+contributions = "41"

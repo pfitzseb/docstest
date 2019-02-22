@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StandardizedMatrices"
+owner = "joshday"
+version = "0.3.0"
+description = "Operations for standardized matrices without changing the underlying data"
+stargazers_count = "4"
+url = "https://github.com/joshday/StandardizedMatrices.jl.git"
+installs = true
+tags = ["statistics", "julia", "linear-algebra", "sparse-matrix"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "37"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

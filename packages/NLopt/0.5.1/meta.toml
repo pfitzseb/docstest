@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "NLopt"
+owner = "JuliaOpt"
+version = "0.5.1"
+description = "Package to call the NLopt nonlinear-optimization library from the Julia language"
+stargazers_count = "94"
+url = "https://github.com/JuliaOpt/NLopt.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "47"
+[[contributors]]
+name = "mlubin"
+contributions = "34"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "malmaud"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "svillemot"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "anriseth"
+contributions = "1"
+[[contributors]]
+name = "benhemingway"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"
+[[contributors]]
+name = "yurivict"
+contributions = "1"

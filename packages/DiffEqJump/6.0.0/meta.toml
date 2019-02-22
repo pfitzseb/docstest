@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqJump"
+owner = "JuliaDiffEq"
+version = "6.0.0"
+description = "Build and simulate jump equations like Gillespie simulations and jump diffusions with constant and state-dependent rates"
+stargazers_count = "16"
+url = "https://github.com/JuliaDiffEq/DiffEqJump.jl.git"
+installs = true
+tags = ["gillespie", "ssa", "jump-diffusion", "stochastic", "differential-equations"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "142"
+[[contributors]]
+name = "isaacsas"
+contributions = "76"
+[[contributors]]
+name = "alanderos91"
+contributions = "12"
+[[contributors]]
+name = "elevien"
+contributions = "12"
+[[contributors]]
+name = "devmotion"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "onoderat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

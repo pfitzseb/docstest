@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "VoronoiDelaunay"
+owner = "JuliaGeometry"
+version = "0.3.1"
+description = "Fast and robust Voronoi & Delaunay tessellation creation with Julia"
+stargazers_count = "58"
+url = "https://github.com/JuliaGeometry/VoronoiDelaunay.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "skariel"
+contributions = "70"
+[[contributors]]
+name = "swt30"
+contributions = "7"
+[[contributors]]
+name = "dkarrasch"
+contributions = "6"
+[[contributors]]
+name = "robertdj"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "juliohm"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "aaronang"
+contributions = "1"
+[[contributors]]
+name = "hayd"
+contributions = "1"
+[[contributors]]
+name = "JobLeonard"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "VPetukhov"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · PerceptualColourMaps.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PerceptualColourMaps.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">PerceptualColourMaps.FloatArray2RGB</code></pre><pre><code class="language-none">PerceptualColourMaps.FloatArray2RGBA</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.PerceptualColourMaps" href="#PerceptualColourMaps.PerceptualColourMaps"><code>PerceptualColourMaps.PerceptualColourMaps</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p><strong>PerceptualColourMaps</strong></p><p>Perceptually Uniform Colour maps</p><p>Peter Kovesi</p><p><a href="http://peterkovesi.com">peterkovesi.com</a></p><p><em>Colour Map Generation and Application</em></p><ul><li>cmap - Library of perceptually uniform colour maps.</li><li>equalisecolourmap - Equalise colour contrast over a colour map.</li><li>linearrgbmap - Linear rgb colourmap from black to a specified colour.</li><li>applycolourmap - Applies colourmap to a single channel image to obtain an RGB result.</li><li>applycycliccolourmap - Applies a cyclic colour map to an image of angular data.</li><li>applydivergingcolourmap - Applies a diverging colour map to an image.</li><li>ternaryimage - Perceptualy uniform ternary image from 3 bands of data.</li><li>relief - Generates a relief shaded image.</li><li>viewlabspace - Visualisation of Lab colour space.</li></ul><p><em>Images for testing colour maps</em></p><ul><li>sineramp - Generates sine on a ramp colour map test image.</li><li>circlesineramp - Generates a test image for evaluating cyclic colour maps.</li></ul><p><em>Utilities</em></p><ul><li>histtruncate - Truncates ends of an image histogram.</li><li>normalise - Normalises image values to 0-1, or to desired mean and variance.</li><li>srgb2lab - Convert RGB colour map or RGB image to Lab.</li><li>lab2srgb - Convert Lab colour map or Lab image to RGB.</li></ul><p><em>Reference:</em></p><p><a href="http://arxiv.org/abs/1509.03700">Good Colour Maps: How to Design Them.  arXiv:1509.03700 [cs.GR] 2015.</a></p></div></div></section><pre><code class="language-none">PerceptualColourMaps.RGB2FloatArray</code></pre><pre><code class="language-none">PerceptualColourMaps.RGBA2FloatArray</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.RGBA2UInt32" href="#PerceptualColourMaps.RGBA2UInt32"><code>PerceptualColourMaps.RGBA2UInt32</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Convert an array of ColorTypes RGB values to an array of UInt32 values for use as a colour map in Winston</p><pre><code class="language-none"> Usage:  uint32rgb = RGBA2UInt32(rgbmap)
+
+ Argument:   rgbmap - Vector of ColorTypes.RGBA values as
+                      returned by cmap().
+
+ Returns: uint32rgb - An array of UInt32 values packed with the 8 bit RGB values.</code></pre><p>See also: cmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applycolormap" href="#PerceptualColourMaps.applycolormap"><code>PerceptualColourMaps.applycolormap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applycolormap: Applies colourmap to a single channel image to obtain an RGB result</p><pre><code class="language-none">Usage: rgbimg = applycolormap(img, cmap, rnge)
+
+Arguments:  img - Single channel image to apply colourmap to.
+                  ::ImageMeta{T,2} or ::Array{Float64,2}
+           cmap - RGB colourmap as generated by cmap().
+                  ::Array{ColorTypes.RGBA{Float64},1}
+           rnge - Optional 2-vector specifying the min and max values in
+                  the image to be mapped across the colour map.  Values
+                  outside this range are mapped to the end points of the
+                  colour map.  If range is omitted the full range
+                  of image values are used.
+
+Returns: rgbimg - RGB image of floating point values in the range 0-1.
+                  NaN values in the input image are rendered as black.
+                  ::ImageMeta{Float64,3} or ::Array{Float64,3}
+
+For full documentation see applycolourmap
+                                    ^</code></pre><p>See also: cmap, applycycliccolourmap, applydivergingcolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applycolourmap" href="#PerceptualColourMaps.applycolourmap"><code>PerceptualColourMaps.applycolourmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applycolourmap/applycolormap: Applies colourmap to a single channel image to obtain an RGB result</p><pre><code class="language-none">Usage: rgbimg = applycolourmap(img, cmap, rnge)
+
+Arguments:  img - Single channel image to apply colourmap to.
+                  ::ImageMeta{T,2} or ::Array{Float64,2}
+           cmap - RGB colourmap as generated by cmap().
+                  ::Array{ColorTypes.RGBA{Float64},1}
+           rnge - Optional 2-vector specifying the min and max values in
+                  the image to be mapped across the colour map.  Values
+                  outside this range are mapped to the end points of the
+                  colour map.  If range is omitted the full range
+                  of image values are used.
+
+Returns: rgbimg - RGB image of floating point values in the range 0-1.
+                  NaN values in the input image are mapped to black.
+                  ::ImageMeta{Float64,3} or ::Array{Float64,3}</code></pre><p>Why use this function when you can simply set a colour map?</p><p>Well, actually you probably want to use the functions applycycliccolourmap() and applydivergingcolourmap() which make use of this function.</p><p>Many visualisation packages may automatically apply an offset and perform some scaling of your data to normalise it to a range of, say, 0-255 before applying a colour map and rendering it on your screen. In many cases this is useful. However, if you are wanting to render your data with a diverging or cyclic colour map then this behaviour is definitely not appropriate because these types of colour maps requires that data values are honoured in some way to make any sense.</p><p>By providing a &#39;range&#39; parameter this function allows you to apply a colour map in a way that respects your data values.</p><p>See also: cmap, applycycliccolourmap, applydivergingcolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applycycliccolormap" href="#PerceptualColourMaps.applycycliccolormap"><code>PerceptualColourMaps.applycycliccolormap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applycycliccolormap:  Applies a cyclic colour map to an image of angular data</p><pre><code class="language-none">For full documentation see applycycliccolourmap
+                                          ^</code></pre><p>See also: applycolourmap, applydivergingcolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applycycliccolourmap" href="#PerceptualColourMaps.applycycliccolourmap"><code>PerceptualColourMaps.applycycliccolourmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applycycliccolourmap/applycycliccolormap: Applies a cyclic colour map to an image of angular data</p><p>For angular data to be rendered correctly it is important that the data values are respected so that data values are correctly assigned to specific entries in a cyclic colour map.  The assignment of values to colours also depends on whether the data is cyclic over pi, or 2*pi.</p><p>In contrast, default display methods typically do not respect data values directly and can perform inappropriate offsetting and normalisation of the angular data before display and rendering with a colour map.</p><p>The rendering of the angular data with a specified colour map can be modulated as a function of an associated image amplitude.  This allows the colour map encoding of the angular information to be modulated to represent the amplitude/reliability/coherence of the angular data.</p><pre><code class="language-none">Usage: rgbimg = applycycliccolourmap(ang, cmap)
+       rgbimg = applycycliccolourmap(ang, cmap, keyword args ...)
+
+Arguments:
+           ang - Image of angular data to be rendered
+                 ::ImageMeta or ::Array{Float64,2}
+          cmap - Cyclic colour map to render the angular data with.
+
+Keyword arguments:
+
+           amp - Amplitude image used to modulate the mapped colours of the
+                 angular data.  If not supplied no modulation of colours is
+                 performed.
+                 ::ImageMeta or ::Array{Float64,2}
+   modtoblack  - Boolean flag/1 indicating whether the amplitude image is used to
+                 modulate the colour mapped image values towards black,
+                 or towards white.  The default is true, towards black.
+   cyclelength - The cycle length of the angular data.  Use a value of pi
+                 if the data represents orientations, or 2*pi if the data
+                 represents phase values.  If the input data is in degrees
+                 simply set cycle in degrees and the data will be
+                 rendered appropriately. Default is 2*pi.
+
+Returns: rgbim - The rendered image.
+                 ::ImageMeta{Float64,3} or ::Array{Float64,3}</code></pre><p>For a list of all cyclic colour maps that can be generated by cmap() use:</p><pre><code class="language-none">&gt; cmap(&quot;cyclic&quot;)</code></pre><p>See also: cmap, scalogram, ridgeorient, applycolourmap, applydivergingcolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applydivergingcolormap" href="#PerceptualColourMaps.applydivergingcolormap"><code>PerceptualColourMaps.applydivergingcolormap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applydivergingcolormap - Applies a diverging colour map to an image</p><pre><code class="language-none">For full documentation see applydivergingcolourmap
+                                             ^</code></pre><p>See also: applycolourmap, applycycliccolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.applydivergingcolourmap" href="#PerceptualColourMaps.applydivergingcolourmap"><code>PerceptualColourMaps.applydivergingcolourmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>applydivergingcolourmap/applydivergingcolormap - Applies a diverging colour map to an image</p><p>For data to be displayed correctly with a diverging colour map it is important that the data values are respected so that the reference value in the data is correctly associated with the centre entry of a diverging colour map.</p><p>In contrast, default display methods typically do not respect data values directly and can perform inappropriate offsetting and normalisation of the data before display and rendering with a colour map.</p><pre><code class="language-none">Usage:  rgbim = applydivergingcolourmap(img, map, refval)
+
+Arguments:
+           img - Image to be rendered.  ::ImageMeta or ::Array{Float64,2}
+           map - Colour map to render the data with.
+        refval - Reference value to be associated with centre point of
+                 diverging colour map.  Defaults to 0.
+Returns:
+        rgbimg - The rendered image.
+                 ::ImageMeta{Float64,3} or ::Array{Float64,3}</code></pre><p>For a list of all diverging colour maps that can be generated by cmap() use: &gt; cmap(&quot;div&quot;)</p><p>See also: applycolourmap, applycycliccolourmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.bbspline" href="#PerceptualColourMaps.bbspline"><code>PerceptualColourMaps.bbspline</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>bbspline - Basic B-spline</p><pre><code class="language-none">Usage:  S = bbspline(P, k, N)
+
+Arguments:   P - [dim x Npts] array of control points
+             k - order of spline (&gt;= 2).
+                 k = 2: Linear
+                 k = 3: Quadratic, etc
+             N - Optional number of points to evaluate along
+                 spline. Defaults to 100.
+
+Returns:     S - spline curve  [dim x N] spline points</code></pre><p>See also: pbspline</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.catalogue</code></pre><pre><code class="language-none">PerceptualColourMaps.ch2ab</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.cie76" href="#PerceptualColourMaps.cie76"><code>PerceptualColourMaps.cie76</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>deltaE: Compute weighted Delta E between successive entries in a colour map using the CIE76 formula + weighting</p><pre><code class="language-none">Usage: deltaE = cie76(L::Array, a::Array, b::Array, W::Array)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.ciede2000" href="#PerceptualColourMaps.ciede2000"><code>PerceptualColourMaps.ciede2000</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>ciede2000: Compute weighted Delta E between successive entries in a colour map using the CIEDE2000 formula + weighting</p><pre><code class="language-none">Usage: deltaE = ciede2000(L::Array, a::Array, b::Array, W::Array)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.circlesineramp" href="#PerceptualColourMaps.circlesineramp"><code>PerceptualColourMaps.circlesineramp</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>circlesineramp - Generates a test image for evaluating cyclic colour maps</p><pre><code class="language-none">Usage: (img, alpha) = circlesineramp(sze, amp, wavelen, p, hole)
+       (img, alpha) = circlesineramp()
+
+Arguments:     sze - Size of test image.  Defaults to 512x512.
+               amp - Amplitude of sine wave. Defaults to pi/10
+           wavelen - Wavelength of sine wave at half radius of the
+                     circular test image. Defaults to 8 pixels.
+                 p - Power to which the linear attenuation of amplitude,
+                     from outside edge to centre, is raised.  For no
+                     attenuation use p = 0.  For linear attenuation use a
+                     value of 1.  The default value is 2, quadratic
+                     attenuation.
+              hole - Boolean flag indicating whether the test image should have
+                     a &#39;hole&#39; in its centre.  The default is true, to have a
+                     hole, this removes the distraction of the orientation
+                     singularlity at the centre.
+Returns:
+                im - The test image.
+             alpha - Alpha mask matching the regions outside of of the
+                     circular test image that are set to NaN.  Used if you
+                     want to write an image with these regions transparent.</code></pre><p>The test image is a circular pattern consistsing of a sine wave superimposed on a spiral ramp function.  The spiral ramp starts at a value of 0 pointing right, increasing anti-clockwise to a value of 2<em>pi as it completes the full circle. This gives a 2</em>pi discontinuity on the right side of the image.  The amplitude of the superimposed sine wave is modulated from its full value at the outside of the circular pattern to 0 at the centre.  The default sine wave amplitude of pi/10 means that the overall size of the sine wave from peak to trough represents 2<em>(pi/10)/(2</em>pi) = 10% of the total spiral ramp of 2*pi.  If you are testing your colour map over a cycle of pi you should use amp = pi/20 to obtain an equivalent ratio of sine wave to circular ramp.</p><p>The image is designed for evaluating the effectiveness of cyclic colour maps. It is the cyclic companion to sineramp().  Ideally the sine wave pattern should be equally discernible over all angles around the test image.  In practice many colourmaps have uneven perceptual contrast over their range and often include &#39;flat spots&#39; of no perceptual contrast that can hide significant features.  Try a HSV colour map.</p><p>Ideally the test image should be rendered with a cyclic colour map using showangularim() though, in this case, rendering the image with SHOW or IMAGESC will also be fine because all image values lie within, and use the full range of, 0-2*pi.  However, in general, default display methods typically do not respect data values directly and can perform inappropriate offsetting and normalisation of the angular data before display and rendering with a colour map.</p><p>For angular data to be rendered correctly it is important that the data values are respected so that data values are correctly assigned to specific entries in a cyclic colour map.  The assignment of values to colours also depends on whether the data is cyclic over pi, or 2*pi.  SHOWANGULARIM supports this.</p><p>See also: applycycliccolourmap, sineramp, chirplin, chirpexp, equalisecolourmap, cmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.cmap" href="#PerceptualColourMaps.cmap"><code>PerceptualColourMaps.cmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>cmap:  Library of perceptually uniform colour maps</p><p>Most of these colour maps have been designed to have constant a magnitude of lightness gradient.  At fine spatial frequencies perceptual contrast is dominated by <em>lightness</em> difference, chroma and hue are relatively unimportant.</p><pre><code class="language-none">Usage:  1:  map = cmap(I, keyword_params ...)
+        2:  (map, name, desc) = cmap(I, keyword_params ..., returnname=true)
+        3:  cmap(searchStr)
+        4:  cmap()
+
+Arguments for Usage 1 and 2:
+
+            I - A string label indicating the colour map to be generated or a
+                string specifying a colour map name or attribute to search
+                for.  Type &#39;cmap()&#39; with no arguments to get a full list of
+                possible colour maps and their corresponding labels.
+
+  labels:  &quot;L1&quot; - &quot;L19&quot;  for linear maps
+           &quot;D1&quot; - &quot;D13&quot;  for diverging maps
+           &quot;C1&quot; - &quot;C9&quot;   for cyclic maps
+           &quot;R1&quot; - &quot;R3&quot;   for rainbow maps
+           &quot;I1&quot; - &quot;I3&quot;   for isoluminant maps
+
+  labels for generating maps for the colour blind:
+           &quot;CBL1&quot;  - &quot;CBL4&quot; Linear maps for protanopic and deuteranopic viewers.
+           &quot;CBD1&quot;  - &quot;CBD2&quot; Diverging maps for protanopic and deuteranopic viewers.
+           &quot;CBC1&quot;  - &quot;CBC2&quot; Cyclic maps for protanopic and deuteranopic viewers.
+           &quot;CBTL1&quot; - &quot;CBTL4&quot; Linear maps for tritanopic viewers.
+           &quot;CBTD1&quot; - Diverging map for tritanopic viewers.
+           &quot;CBTC1&quot; - &quot;CBTC2&quot; Cyclic maps for tritanopic viewers.
+
+
+ Some colour maps have alternate labels for convenience and readability.
+
+   map = cmap(&quot;L1&quot;)  or map = cmap(&quot;grey&quot;)  will produce a linear grey map.
+   cmap()  lists all colour maps and labels.
+
+ Possible keyword parameter options:
+
+    chromaK::Real - The scaling to apply to the chroma values of the colour map,
+                    0 - 1.  The default is 1 giving a fully saturated colour map
+                    as designed. However, depending on your application you may
+                    want a colour map with reduced chroma/saturation values.
+                    You can use values greater than 1 however gamut clipping is
+                    likely to occur giving rise to artifacts in the colour map.
+           N::Int - Number of values in the colour map. Defaults to 256.
+      shift::Real - Fraction of the colour map length N that the colour map is
+                    to be cyclically rotated, may be negative.  (Should only be
+                    applied to cyclic colour maps!). Defaults to 0.
+    reverse::Bool - If true reverses the colour map. Defaults to false.
+diagnostics::Bool - If true displays various diagnostic plots. Note the
+                    diagnostic plots will be for the map _before_ any cyclic
+                    shifting or reversing is applied. Defaults to false.
+ returnname::Bool - If true the function returns a tuple of the colourmap, its
+                    name and its description  (colourmap, name, description)
+                    The default value is false, just the colourmap is returned.
+
+Returns:
+          map - Array of ColorTypes.RGBA{Float64,1} giving the rgb colour map.
+
+     If returnname=true the function additionally returns
+         name - A string giving a nominal name for the colour map
+         desc - A string giving a brief description of the colour map</code></pre><p>Usage 3 and 4:  cmap(searchStr)</p><p>Given the large number of colour maps that this function can create this usage option provides some help by listing the numbers of all the colour maps with names containing the string &#39;str&#39;.  Typically this is used to search for colour maps having a specified attribute: &quot;linear&quot;, &quot;diverging&quot;, &quot;rainbow&quot;, &quot;cyclic&quot;, or &quot;isoluminant&quot; etc.  If &#39;searchStr&#39; is omitted all colour maps are listed.</p><pre><code class="language-none">   cmap()              # lists all colour maps
+   cmap(&quot;diverging&quot;)   # lists all diverging colour maps</code></pre><p>Note the listing of colour maps can be a bit slow because each colour map has to be created in order to determine its full name.</p><p><strong>Using the colour maps:</strong></p><p>PyPlot:</p><pre><code class="language-none">&gt; using PyPlot
+&gt; sr = sineramp();    # Generate the sineramp() colour map test image.
+&gt; imshow(sr);         # Display with matplotlib&#39;s default &#39;jet&#39; colour map.
+                      # Note the perceptual dead spots in the map.
+&gt; imshow(sr, cmap = ColorMap(cmap(&quot;L3&quot;))); # Apply the cmap() heat colour map.</code></pre><p>Plots:</p><pre><code class="language-none">&gt; using Plots
+&gt; y=rand(100);
+&gt; Plots.scatter(y, zcolor=y, marker=ColorGradient(cmap(&quot;R3&quot;)));</code></pre><p>You can also apply a colour map to a single channel image to create a conventional RGB image. This is recommended if you are using a diverging or cyclic colour map because it allows you to ensure data values are honoured appropriately when you map them to colours.</p><pre><code class="language-none">  Apply the L4 heat colour map to the test image
+&gt; rgbimg = applycolourmap(sr, cmap(&quot;L4&quot;));
+
+  Apply a diverging colour map to the test image using 127 as the
+  value that is associated with the centre point of the diverging
+  colour map
+&gt; rgbimg = applydivergingcolourmap(sr, cmap(&quot;D1&quot;),127);
+
+  Apply a cyclic colour map to the circlesineramp() test image specifying
+  a data cyclelength of 2*pi.
+&gt; (cr,) = circlesineramp();   # Generate a cyclic colour map test image.
+&gt; rgbimg = applycycliccolourmap(cr, cmap(&quot;C1&quot;), cyclelength=2*pi);
+
+&gt; ImageView.view(rgbimg)      # Display the image with ImageView
+&gt; PyPlot.imshow(rgbimg)       # or with PyPlot</code></pre><p><em>Warning</em> PyPlot and Tk do not seem to coexist very well (Julia can crash!).  ImageView and Winston use Tk which means that you may have to take care which image display functions you choose to use.</p><p><strong>Colour Map naming convention:</strong></p><pre><code class="language-none">                    linear_kryw_5-100_c67_n256
+                      /      /    |    \    \
+  Colour Map attribute(s)   /     |     \   Number of colour map entries
+                           /      |      \
+     String indicating nominal    |      Mean chroma of colour map
+     hue sequence.                |
+                              Range of lightness values</code></pre><p>In addition, the name of the colour map may have cyclic shift information appended to it, it may also have a flag indicating it is reversed.</p><pre><code class="language-none">              cyclic_wrwbw_90-40_c42_n256_s25_r
+                                          /    \
+                                         /   Indicates that the map is reversed.
+                                        /
+                  Percentage of colour map length
+                  that the map has been rotated by.</code></pre><ul><li>Attributes may be: linear, diverging, cyclic, rainbow, or isoluminant.  A</li></ul><p>colour map may have more than one attribute. For example, diverging-linear or cyclic-isoluminant.</p><ul><li>Lightness values can range from 0 to 100. For linear colour maps the two</li></ul><p>lightness values indicate the first and last lightness values in the map. For diverging colour maps the second value indicates the lightness value of the centre point of the colour map (unless it is a diverging-linear colour map). For cyclic and rainbow colour maps the two values indicate the minimum and maximum lightness values. Isoluminant colour maps have only one lightness value.</p><ul><li>The string of characters indicating the nominal hue sequence uses</li></ul><p>the following code</p><pre><code class="language-none">      r - red      g - green      b - blue
+      c - cyan     m - magenta    y - yellow
+      o - orange   v - violet
+      k - black    w - white      j - grey</code></pre><p>(&#39;j&#39; rhymes with grey). Thus a &#39;heat&#39; style colour map would be indicated by the string &#39;kryw&#39;. If the colour map is predominantly one colour then the full name of that colour may be used. Note these codes are mainly used to indicate the hues of the colour map independent of the lightness/darkness and saturation of the colours.</p><ul><li>Mean chroma/saturation is an indication of vividness of the colour map. A</li></ul><p>value of 0 corresponds to a greyscale. A value of 50 or more will indicate a vivid colour map.</p><p>Adding your own colour maps is straightforward. See comments within the code for instructions for doing this.</p><p>Reference: Peter Kovesi. Good Colour Maps: How to Design Them. <a href="https://arXiv:1509.03700">arXiv:1509.03700 [cs.GR] 2015</a></p><p>See also: equalisecolourmap, viewlabspace, sineramp, circlesineramp, applycolourmap, applycycliccolourmap, applydivergingcolourmap</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.colourmapdef</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.equalisecolourmap" href="#PerceptualColourMaps.equalisecolourmap"><code>PerceptualColourMaps.equalisecolourmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>equalisecolourmap/equalizecolormap - Equalise colour contrast over a colour map</p><p>This function is used by cmap() and you would not normally call this function directly. However, you may want to try using this function to equalise the perceptual contrast of colour maps obtained from some other source.</p><pre><code class="language-none">Usage: newrgbmap = equalisecolourmap(rgblab, map, formula, W, sigma, diagnostics)
+                   equalizecolormap(....
+
+Arguments:     rgblab - String &quot;RGB&quot; or &quot;LAB&quot; indicating the type of data
+                        in map.
+                  map - A Nx3 RGB or CIELAB colour map
+                        or an array of ColorTypes.RGBA{Float64} values
+              formula - String &quot;CIE76&quot; or &quot;CIEDE2000&quot;
+                    W - A 3-vector of weights to be applied to the
+                        lightness, chroma and hue components of the
+                        difference equation. It is recommended that you
+                        use [1, 0, 0] to only take into account lightness.
+                        If desired use  [1, 1, 1] for the full formula.
+                        See note below.
+                sigma - Optional Gaussian smoothing parameter, see
+                        explanation below.
+               cyclic - Boolean flag indicating whether the colour map is
+                        cyclic. This affects how smoothing is applied at
+                        the end points.
+          diagnostics - Optional boolean flag indicating whether diagnostic
+                        plots should be displayed.  Defaults to false.
+
+Returns:    newrgbmap - RGB colour map adjusted so that the perceptual
+                        contrast of colours along the colour map is constant.
+                        This is a Nx3 Array of Float64 values.</code></pre><p>Suggested parameters:</p><p>The CIE76 and CIEDE2000 colour difference formulas were developed for much lower spatial frequencies than we are typically interested in. Neither is ideal for our application.  The main thing to note is that at <em>fine</em> spatial frequencies perceptual contrast is dominated by <em>lightness</em> difference, chroma and hue are relatively unimportant.</p><p>For colour maps with a significant range of lightness use:</p><pre><code class="language-none">                       formula = &quot;CIE76&quot; or &quot;CIEDE2000&quot;
+                             W = [1, 0, 0]  (Only correct for lightness)
+                         sigma = 5 - 7</code></pre><p>For isoluminant or low lightness gradient colour maps use:</p><pre><code class="language-none">                       formula = &quot;CIE76&quot;
+                             W = [1, 1, 1]  (Correct for colour and lightness)
+                         sigma = 5 - 7</code></pre><p>Ideally, for a colour map to be effective the perceptual contrast along the colour map should be constant.  Many colour maps are very poor in this regard. Try testing your favourite colour map on the sineramp() test image.  The perceptual contrast is very much dominated by the contrast in colour lightness values along the map.  This function attempts to equalise the chosen perceptual contrast measure along a colour map by stretching and/or compressing sections of the colour map.</p><p>This function&#39;s primary use is for the correction of colour maps generated by cmap() however it can be applied to any colour map.  There are limitations to what this function can correct.  When applied to some of MATLAB&#39;s colour maps such as &#39;jet&#39;, &#39;hsv&#39; and &#39;cool&#39; you get colour discontinuity artifacts because these colour maps have segments that are nearly constant in lightness. However, it does a nice job of fixing up MATLAB&#39;s &#39;hot&#39;, &#39;winter&#39;, &#39;spring&#39; and &#39;autumn&#39; colour maps.  If you do see colour discontinuities in the resulting colour map try changing W from [1, 0, 0] to [1, 1, 1], or some intermediate weighting of [1, 0.5, 0.5], say.</p><p>Difference formula: Neither CIE76 or CIEDE2000 difference measures are ideal for the high spatial frequencies that we are interested in.  Empirically I find that CIEDE2000 seems to give slightly better results on colour maps where there is a significant lightness gradient (this applies to most colour maps). In this case you would be using a weighting vector W = [1, 0, 0].  For isoluminant, or low lightness gradient colour maps where one is using a weighting vector W = [1, 1, 1] CIE76 should be used as the CIEDE2000 chroma correction is inapropriate for the spatial frequencies we are interested in.</p><p>Weighting vetor W: The CIEDE2000 colour difference formula incorporates the scaling parameters kL, kC, kH in the demonimator of the lightness, chroma, and hue difference components respectively.  The 3 components of W correspond to the reciprocal of these 3 parameters.  (I do not know why they chose to put kL, kC, kH in the denominator. If you wanted to ignore, say, the chroma component you would have to set kC to Inf, rather than setting W[2] to 0 which seems more sensible to me).  If you are using CIE76 then W[2] amd W[3] are applied to the differences in a and b.  In this case you should ensure W[2] = W[3].  In general, for the spatial frequencies of interest to us, lightness differences are overwhelmingly more important than chroma or hue and W shoud be set to [1, 0, 0]</p><p>Smoothing parameter sigma: The output colour map will have lightness values of constant slope magnitude. However, it is possible that the sign of the slope may change, for example at the mid point of a bilateral colour map.  This slope discontinuity of lightness can induce a false apparent feature in the colour map.  A smaller effect is also occurs for slope discontinuities in a and b.  For such colour maps it can be useful to introduce a small amount of smoothing of the Lab values to soften the transition of sign in the slope to remove this apparent feature.  However in doing this one creates a small region of suppressed luminance contrast in the colour map which induces a &#39;blind spot&#39; that compromises the visibility of features should they fall in that data range.  Accordingly the smoothing should be kept to a minimum.  A value of sigma in the range 5 to 7 in a 256 element colour map seems about right.  As a guideline sigma should not be more than about 1/25 of the number of entries in the colour map, preferably less.</p><p>Reference: Peter Kovesi. Good Colour Maps: How to Design Them. <a href="https://arXiv:1509.03700">arXiv:1509.03700 [cs.GR] 2015</a></p><p>See also: cmap, applycycliccolourmap, applydivergingcolourmap, sineramp, circlesineramp</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.equalizecolormap" href="#PerceptualColourMaps.equalizecolormap"><code>PerceptualColourMaps.equalizecolormap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>equalisecolourmap - Equalise colour contrast over a colourmap equalizecolormap</p><pre><code class="language-none">Usage: newrgbmap = equalisecolourmap(rgblab, map, formula, W, sigma, diagnostics)
+                   equalizecolormap(....
+
+Arguments:     rgblab - String &quot;RGB&quot; or &quot;LAB&quot; indicating the type of data
+                        in map.
+                  map - A Nx3 RGB or CIELAB colour map
+                        or an array of ColorTypes.RGB{Float64} values
+              formula - String &quot;CIE76&quot; or &quot;CIEDE2000&quot;
+                    W - A 3-vector of weights to be applied to the
+                        lightness, chroma and hue components of the
+                        difference equation. It is recommended that you
+                        use [1, 0, 0] to only take into account lightness.
+                        If desired used  [1, 1, 1] for the full formula.
+                sigma - Optional Gaussian smoothing parameter.
+               cyclic - Boolean flag indicating whether the colour map is
+                        cyclic. This affects how smoothing is applied at
+                        the end points.
+          diagnostics - Optional boolean flag indicating whether diagnostic
+                        plots should be displayed.  Defaults to false.
+
+Returns:    newrgbmap - RGB colour map adjusted so that the perceptual
+                        contrast of colours along the colour map is constant.
+                        This is a Nx3 Array of Float64 values.
+
+For full documentation see equalisecolourmap()
+                                 ^     ^</code></pre><p>See also: cmap, sineramp, circlesineramp</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.eval</code></pre><pre><code class="language-none">PerceptualColourMaps.gaussfilt1d</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.histtruncate" href="#PerceptualColourMaps.histtruncate"><code>PerceptualColourMaps.histtruncate</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>histtruncate - Truncates ends of an image histogram.</p><p>Function truncates a specified percentage of the lower and upper ends of an image histogram.</p><p>This operation allows grey levels to be distributed across the primary part of the histogram.  This solves the problem when one has, say, a few very bright values in the image which have the overall effect of darkening the rest of the image after rescaling.</p><pre><code class="language-none">Usage:
+1)   newimg = histtruncate(img, lHistCut, uHistCut)
+2)   newimg = histtruncate(img, HistCut)
+
+Arguments:
+ Usage 1)
+   img         -  Image to be processed.
+   lHistCut    -  Percentage of the lower end of the histogram
+                  to saturate.
+   uHistCut    -  Percentage of the upper end of the histogram
+                  to saturate.  If omitted or empty defaults to the value
+                  for lHistCut.
+ Usage 2)
+   HistCut     -  Percentage of upper and lower ends of the histogram to cut.
+
+Returns:
+   newimg      -  Image with values clipped at the specified histogram
+                  fraction values.  If the input image was colour the
+                  lightness values are clipped and stretched to the range
+                  0-1.  If the input image is greyscale no stretching is
+                  applied. You may want to use normalise() to achieve this.</code></pre><p>See also: normalise</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.interp1" href="#PerceptualColourMaps.interp1"><code>PerceptualColourMaps.interp1</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Simple 1D linear interpolation of an array of data</p><pre><code class="language-none"> Usage:  yi = interp1(x, y, xi)
+
+Arguments:  x - Array of coordinates at which y is defined.
+            y - Array of values at coordinates x.
+           xi - Coordinate locations at which you wish to interpolate y values.
+
+Returns:   yi - Values linearly interpolated from y at xi.
+</code></pre><p>Interpolates y, defined at values x, at locations xi and returns the corresponding values as yi</p><p>x is assumed increasing but not necessarily equi-spaced. xi values do not need to be sorted.</p><p>If any xi are outside the range of x then the corresponding value of yi is set to the appropriate end value of y.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.lab2srgb" href="#PerceptualColourMaps.lab2srgb"><code>PerceptualColourMaps.lab2srgb</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Convenience function for converting an Nx3 array of CIELAB values in a colour map to an Nx3 array of RGB values.  Function can also be used to convert a 3 channel CIELAB image to a 3 channel RGB image</p><p>Note it appears that the Colors.convert() function uses a default white point of D65</p><pre><code class="language-none"> Usage:  rgb = srgb2lab(lab)
+
+ Argument:   lab - A N x 3 array of CIELAB values of a 3 channel CIELAB image.
+ Returns:    rgb - A N x 3 array of RGB values or a 3 channel RGB image.</code></pre><p>See also: srgb2lab</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.linearrgbmap" href="#PerceptualColourMaps.linearrgbmap"><code>PerceptualColourMaps.linearrgbmap</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>linearrgbmap: Linear rgb colourmap from black to a specified colour</p><pre><code class="language-none">Usage: cmap = linearrgbmap(C, N)
+
+Arguments:  C - 3-vector specifying RGB colour
+            N - Number of colourmap elements, defaults to 256
+
+Returns: cmap - N element ColorTypes.RGBA colourmap ranging from [0 0 0]
+                to RGB colour C</code></pre><p>It is suggested that you pass the resulting colour map to equalisecolourmap() to obtain a map with uniform steps in perceptual lightness</p><pre><code class="language-none">&gt; cmap = equalisecolourmap(&quot;rgb&quot;, linearrgbmap(C, N))</code></pre><p>See also: equalisecolourmap, ternarymaps</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.matprint</code></pre><pre><code class="language-none">PerceptualColourMaps.newcolourmapdef</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.normalise" href="#PerceptualColourMaps.normalise"><code>PerceptualColourMaps.normalise</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>normalise/normalize - Normalises image values to 0-1, or to desired mean and variance</p><pre><code class="language-none">Usage 1:      nimg = normalise(img)</code></pre><p>Offsets and rescales image so that the minimum value is 0 and the maximum value is 1.</p><pre><code class="language-none">Usage 2:      nimg = normalise(img, reqmean, reqvar)
+
+Arguments:  img     - A grey-level input image.
+            reqmean - The required mean value of the image.
+            reqvar  - The required variance of the image.</code></pre><p>Offsets and rescales image so that nimg has mean reqmean and variance reqvar.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.normalize" href="#PerceptualColourMaps.normalize"><code>PerceptualColourMaps.normalize</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>normalize - Normalizes image values to 0-1, or to desired mean and variance</p><pre><code class="language-none">Usage 1:      nimg = normalize(img)</code></pre><p>Offsets and rescales image so that the minimum value is 0 and the maximum value is 1.</p><pre><code class="language-none">Usage 2:      nimg = normalize(img, reqmean, reqvar)
+
+Arguments:  img     - A grey-level input image.
+            reqmean - The required mean value of the image.
+            reqvar  - The required variance of the image.</code></pre><p>Offsets and rescales image so that nimg has mean reqmean and variance reqvar.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.pbspline" href="#PerceptualColourMaps.pbspline"><code>PerceptualColourMaps.pbspline</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>pbspline - Basic Periodic B-spline</p><pre><code class="language-none">Usage:  S = pbspline(P, k, N)
+
+Arguments:   P - [dim x Npts] array of control points
+             k - order of spline (&gt;= 2).
+                 k = 2: Linear
+                 k = 3: Quadratic, etc
+             N - Optional number of points to evaluate along
+                 spline. Defaults to 100.
+
+Returns:     S - spline curve  [dim x N] spline points</code></pre><p>Note that the spline points are rotated so that the first point is as close as possible to the first control point.  This is important for the formation of cyclic paths in colour space.</p><p>See also: bbspline</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.relief" href="#PerceptualColourMaps.relief"><code>PerceptualColourMaps.relief</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>relief -  Generates relief shaded image</p><pre><code class="language-none">Usage:  shadeimg = relief(img, azimuth, elevation, gradscale, rgbimg)
+
+Arguments: img - Image/heightmap to be relief shaded. ::Array{T&lt;:Real,2}
+       azimuth - Of light direction in degrees. Zero azimuth points
+                 upwards and increases clockwise. Defaults to 45.
+     elevation - Of light direction in degrees. Defaults to 45.
+     gradscale - Scaling to apply to the surface gradients.  If the shading
+                 is excessive decrease the scaling. Try successive doubling
+                 or halving to find a good value.
+        rgbimg - Optional RGB image to which the shading pattern derived
+                 from &#39;img&#39; is applied.   Alternatively, rgbimg can be a
+                 colour map of type ::Array{ColorTypes.RGBA{Float64},1}
+                 obtained from cmap().  This colour map is applied to the input
+                 image/heightmap in order to obtain a RGB image to which
+                 the shading pattern is applied.</code></pre><p>Lambertian shading is used to form the relief image.  This obtained from the cosine of the angle between the surface normal and light direction.  Note that shadows are ignored.  Thus a small feature that might otherwise be in the shadow of a nearby large structure is rendered as if the large feature was not there.</p><p>See also: cmap, applycolourmap</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.renderlabslice</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.sineramp" href="#PerceptualColourMaps.sineramp"><code>PerceptualColourMaps.sineramp</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>sineramp  - Generates sine on a ramp colour map test image</p><p>The test image consists of a sine wave superimposed on a ramp function The amplitude of the sine wave is modulated from its full value at the top of the image to 0 at the bottom.</p><p>The image is useful for evaluating the effectiveness of different colour maps. Ideally the sine wave pattern should be equally discernible over the full range of the colour map.  In addition, across the bottom of the image, one should not see any identifiable features as the underlying signal is a smooth ramp.  In practice many colour maps have uneven perceptual contrast over their range and often include &#39;flat spots&#39; of no perceptual contrast that can hide significant features.</p><pre><code class="language-none">Usage: img = sineramp(sze, amp, wavelen, p)
+       img = sineramp()
+
+Arguments:     sze - (rows, cols) specifying size of test image.
+                     Defaults to (256 512)  Note the number of columns is
+                     nominal and will be ajusted so that there are an
+                     integer number of sine wave cycles across the image.
+               amp - Amplitude of sine wave. Defaults to 12.5
+           wavelen - Wavelength of sine wave in pixels. Defaults to 8.
+                 p - Power to which the linear attenuation of amplitude,
+                     from top to bottom, is raised.  For no attenuation use
+                     p = 0.  For linear attenuation use a value of 1.  For
+                     contrast sensitivity experiments use larger values of
+                     p.  The default value is 2.</code></pre><p>The ramp function that the sine wave is superimposed on is adjusted slightly for each row so that each row of the image spans the full data range of 0 to</p><ol><li>Thus using a large sine wave amplitude will result in the ramp at the</li></ol><p>top of the test image being reduced relative to the slope of the ramp at the bottom of the image.</p><p>To start with try</p><pre><code class="language-none">  &gt; img = sineramp()</code></pre><p>This is equivalent to</p><pre><code class="language-none">  &gt; img = sineramp((256 512), 12.5, 8, 2)</code></pre><p>View it under &#39;gray&#39; then try the &#39;jet&#39;, &#39;hsv&#39;, &#39;hot&#39; etc colour maps.  The results may cause you some concern!</p><p>If you are wishing to evaluate a cyclic colour map, say hsv, it is suggested that you use the test image generated by circlesineramp().</p><p>See source code comments for more details on the default wavelength and amplitude.</p><p>See also: circlesineramp, chirplin, chirpexp, equalisecolourmap, cmap</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.smooth</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.srgb2lab" href="#PerceptualColourMaps.srgb2lab"><code>PerceptualColourMaps.srgb2lab</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Convenience function for converting an Nx3 array of RGB values in a colour map to an Nx3 array of CIELAB values.  Function can also be used to convert a 3 channel RGB image to a 3 channel CIELAB image</p><p>Note it appears that the Colors.convert() function uses a default white point of D65</p><pre><code class="language-none"> Usage:  lab = srgb2lab(rgb)
+
+ Argument:    rgb - A N x 3 array of RGB values or a 3 channel RGB image.
+ Returns:     lab - A N x 3 array of Lab values of a 3 channel CIELAB image.
+</code></pre><p>See also: lab2srgb</p></div></div></section><pre><code class="language-none">PerceptualColourMaps.surfacenormals</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.ternaryimage" href="#PerceptualColourMaps.ternaryimage"><code>PerceptualColourMaps.ternaryimage</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>ternaryimage:  Perceptualy uniform ternary image from 3 bands of data</p><p>This function generates a ternary image using 3 basis colours that are closely matched in lightness, as are their secondary colours.  The colours are not as vivid as the RGB primaries but they produce ternary images with consistent feature salience no matter what permutation of channel-colour assignement is used.  This is in contrast to ternary images constructed with the RGB primaries where the channel that happens to get encoded in green dominates the perceptual result.</p><p>Useful for Landsat imagery or radiometric images.</p><pre><code class="language-none">Usage: rgbimg = ternaryimage(img; bands, histcut, RGB)
+
+Argument:
+            img - Multiband image with at least 3 bands.
+                  ::ImageMeta{T,3} or ::Array{T&lt;:Real,3}
+
+Keyword Arguments:
+          bands - Array of 3 values indicating the bands, to be assigned to
+                  the red, green and blue basis colour maps.  If omitted
+                  bands defaults to [1, 2, 3].
+        histcut - Percentage of image band histograms to clip.  It can be
+                  useful to clip 1-2%. If you see lots of white in your
+                  ternary image you have clipped too much. Defaults to 0.
+            RGB - Boolean flag, if set to true the classical RGB primaries
+                  are used to construct the ternary image rather than the
+                  lightness matched primaries. Defaults to false.
+
+Returns:
+          rgbimg - RGB ternary image
+                  ::ImageMeta{T,3} or ::Array{T&lt;:Real,3}</code></pre><p>For the derivation of the three primary colours see: Peter Kovesi. Good Colour Maps: How to Design Them. arXiv:1509.03700 [cs.GR] 2015.</p><p>See also: applycolourmap, linearrgbmap</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="PerceptualColourMaps.viewlabspace" href="#PerceptualColourMaps.viewlabspace"><code>PerceptualColourMaps.viewlabspace</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>viewlabspace:  Visualisation of L<em>a</em>b* space</p><pre><code class="language-none">Usage:    viewlabspace(L = 50, figNo = 1)
+
+Arguments:     L - Lightness level in which to display slice of L*a*b* space
+           figNo - PyPlot figure to use</code></pre><p>Function allows interactive viewing of a sequence of images corresponding to different slices of lightness in L<em>a</em>b* space.  Lightness varies from 0 to</p><ol><li>Initially a slice at a lightness of 50 is displayed.</li></ol><p>Pressing &#39;l&#39; or arrow up/right will increase the lightness by dL. Pressing &#39;d&#39; or arrow down/left will darken by dL. Press &#39;x&#39; to exit.</p><p>To Do: The CIELAB colour coordinates of the cursor position within the slice images should be updated continuously.  This is useful for determining suitable control points for the definition of colourmap paths through CIELAB space in cmap().</p><p>See also: colourmappath, cmap</p></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

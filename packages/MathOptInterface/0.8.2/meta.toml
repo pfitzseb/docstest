@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "real"
+name = "MathOptInterface"
+owner = "JuliaOpt"
+version = "0.8.2"
+description = "An abstraction layer for mathematical optimization solvers."
+stargazers_count = "57"
+url = "https://github.com/JuliaOpt/MathOptInterface.jl.git"
+installs = true
+tags = ["optimization"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "808"
+[[contributors]]
+name = "mlubin"
+contributions = "194"
+[[contributors]]
+name = "joaquimg"
+contributions = "85"
+[[contributors]]
+name = "odow"
+contributions = "84"
+[[contributors]]
+name = "chriscoey"
+contributions = "24"
+[[contributors]]
+name = "IssamT"
+contributions = "13"
+[[contributors]]
+name = "tkoolen"
+contributions = "11"
+[[contributors]]
+name = "rdeits"
+contributions = "6"
+[[contributors]]
+name = "guilhermebodin"
+contributions = "5"
+[[contributors]]
+name = "mohamed82008"
+contributions = "4"
+[[contributors]]
+name = "anriseth"
+contributions = "1"
+[[contributors]]
+name = "BenChung"
+contributions = "1"
+[[contributors]]
+name = "Peiffap"
+contributions = "1"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "1"
+[[contributors]]
+name = "guberger"
+contributions = "1"
+[[contributors]]
+name = "ulfworsoe"
+contributions = "1"

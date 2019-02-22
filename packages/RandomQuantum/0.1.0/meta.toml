@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RandomQuantum"
+owner = "BBN-Q"
+version = "0.1.0"
+description = "Julia package for generating random quantum states and processes according to a number of natural distributions."
+stargazers_count = "4"
+url = "https://github.com/BBN-Q/RandomQuantum.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "marcusps"
+contributions = "19"
+[[contributors]]
+name = "matthewware"
+contributions = "7"
+[[contributors]]
+name = "jlapeyre"
+contributions = "4"

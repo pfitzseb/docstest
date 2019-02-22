@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Einsum"
+owner = "ahwillia"
+version = "0.4.1"
+description = "Einstein summation notation in Julia"
+stargazers_count = "50"
+url = "https://github.com/ahwillia/Einsum.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ahwillia"
+contributions = "72"
+[[contributors]]
+name = "phipsgabler"
+contributions = "42"
+[[contributors]]
+name = "mcabbott"
+contributions = "3"
+[[contributors]]
+name = "ntezak"
+contributions = "2"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "crstnbr"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

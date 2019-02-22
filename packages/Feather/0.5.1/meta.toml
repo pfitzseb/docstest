@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "Feather"
+owner = "JuliaData"
+version = "0.5.1"
+description = "Read and write feather files in pure Julia"
+stargazers_count = "70"
+url = "https://github.com/JuliaData/Feather.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "121"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "23"
+[[contributors]]
+name = "dmbates"
+contributions = "20"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"

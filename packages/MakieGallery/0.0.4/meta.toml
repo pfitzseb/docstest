@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "MakieGallery"
+owner = "JuliaPlots"
+version = "0.0.4"
+description = "An Example Gallery for Makie"
+stargazers_count = "6"
+url = "https://github.com/JuliaPlots/MakieGallery.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "53"
+[[contributors]]
+name = "Datseris"
+contributions = "7"
+[[contributors]]
+name = "ianshmean"
+contributions = "1"

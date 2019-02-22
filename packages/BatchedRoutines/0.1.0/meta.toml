@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BatchedRoutines"
+owner = "Roger-luo"
+version = "0.1.0"
+description = "Batched routines (BLAS, LAPACK, etc.) for multi-dimensional arrays"
+stargazers_count = "2"
+url = "https://github.com/Roger-luo/BatchedRoutines.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "29"

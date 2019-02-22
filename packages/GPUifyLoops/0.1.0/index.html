@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · GPUifyLoops.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>GPUifyLoops.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Home</a><ul class="internal"><li><a class="toctext" href="#API-1">API</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Home</a></li></ul></nav><hr/><div id="topbar"><span>Home</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="GPUifyLoops.jl-1" href="#GPUifyLoops.jl-1">GPUifyLoops.jl</a></h1><p>GPUifyLoops tries to solve the problem of code-duplication that can occur when writing performant kernels that target multiple devices.</p><h2><a class="nav-anchor" id="API-1" href="#API-1">API</a></h2><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GPUifyLoops.@loop" href="#GPUifyLoops.@loop"><code>GPUifyLoops.@loop</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@loop for i in (A; B)
+    # body
+end</code></pre><p>Take a <code>for i in (A; B)</code> expression and on the CPU lowers it to:</p><pre><code class="language-julia">for i in A
+    # body
+end</code></pre><p>and on the GPU:</p><pre><code class="language-julia">for i in B
+    if !(i in A)
+        continue
+    end
+    # body
+end</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GPUifyLoops.@setup" href="#GPUifyLoops.@setup"><code>GPUifyLoops.@setup</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@setup Dev</code></pre><p>Setups some hidden state within the function that allows the other macros to properly work.</p><pre><code class="language-julia">function kernel(::Val{Dev}, A) where Dev
+    @setup Dev
+    # ...
+end
+
+kernel(A::Array) = kernel(Val(:CPU), A)
+kernel(A::CuArray) = @cuda kernel(Val(:GPU), A)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GPUifyLoops.@synchronize" href="#GPUifyLoops.@synchronize"><code>GPUifyLoops.@synchronize</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@syncronize</code></pre><p>Calls <code>sync_threads()</code> on the GPU and nothing on the CPU.</p></div></div></section><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><h3><a class="nav-anchor" id="Simple-1" href="#Simple-1">Simple</a></h3><div><pre><code class="language-julia">using GPUifyLoops
+
+kernel(A::Array) = kernel(Val(:CPU), A)
+function kernel(::Val{Dev}, A) where Dev
+    @setup Dev
+
+    @loop for i in (1:size(A,1);
+                    threadIdx().x)
+        A[i] = 2*A[i]
+    end
+    @synchronize
+end
+
+data = Array{Float32}(undef, 1024)
+kernel(data)
+
+@static if Base.find_package(&quot;CuArrays&quot;) !== nothing
+    using CuArrays
+    using CUDAnative
+
+    @eval function kernel(A::CuArray)
+        @cuda threads=length(A) kernel(Val(:GPU), A)
+    end
+
+    data = CuArray{Float32}(undef, 1024)
+    kernel(data)
+end
+
+</code></pre></div><footer><hr/></footer></article></body></html>

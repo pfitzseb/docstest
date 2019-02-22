@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "Ipopt"
+owner = "JuliaOpt"
+version = "0.5.4"
+description = "Julia interface to the Ipopt nonlinear solver"
+stargazers_count = "38"
+url = "https://github.com/JuliaOpt/Ipopt.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "98"
+[[contributors]]
+name = "IainNZ"
+contributions = "41"
+[[contributors]]
+name = "tkelman"
+contributions = "19"
+[[contributors]]
+name = "joehuchette"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "odow"
+contributions = "3"
+[[contributors]]
+name = "chkwon"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "2"
+[[contributors]]
+name = "Wikunia"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "dpo"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "KNITRO"
+owner = "JuliaOpt"
+version = "0.6.0"
+description = "Julia interface to the Artelys Knitro solver"
+stargazers_count = "22"
+url = "https://github.com/JuliaOpt/KNITRO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "frapac"
+contributions = "117"
+[[contributors]]
+name = "yeesian"
+contributions = "87"
+[[contributors]]
+name = "mlubin"
+contributions = "52"
+[[contributors]]
+name = "sylvainmouret"
+contributions = "9"
+[[contributors]]
+name = "edljk"
+contributions = "6"
+[[contributors]]
+name = "GillesBareilles"
+contributions = "4"
+[[contributors]]
+name = "gragusa"
+contributions = "3"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "huckl3b3rry87"
+contributions = "1"
+[[contributors]]
+name = "Kelvyn88"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "joaquimg"
+contributions = "1"

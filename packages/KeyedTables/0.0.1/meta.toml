@@ -1,0 +1,4 @@
+name = "KeyedTables"
+installs = false
+url = "https://github.com/bramtayl/KeyedTables.jl.git"
+version = "0.0.1"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ReplMaker"
+owner = "MasonProtter"
+version = "0.2.2"
+description = "Simple API for building repl modes in Julia"
+stargazers_count = "24"
+url = "https://github.com/MasonProtter/ReplMaker.jl.git"
+installs = true
+tags = ["julia", "repl-mode", "dsl"]
+license = "MIT License"
+
+[[contributors]]
+name = "MasonProtter"
+contributions = "57"
+[[contributors]]
+name = "HarrisonGrodin"
+contributions = "1"

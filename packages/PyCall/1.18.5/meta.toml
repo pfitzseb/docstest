@@ -1,0 +1,168 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "PyCall"
+owner = "JuliaPy"
+version = "1.18.5"
+description = "Package to call Python functions from the Julia language"
+stargazers_count = "609"
+url = "https://github.com/JuliaPy/PyCall.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "stevengj"
+contributions = "477"
+[[contributors]]
+name = "yuyichao"
+contributions = "27"
+[[contributors]]
+name = "tkf"
+contributions = "17"
+[[contributors]]
+name = "simonster"
+contributions = "15"
+[[contributors]]
+name = "Keno"
+contributions = "12"
+[[contributors]]
+name = "malmaud"
+contributions = "11"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "11"
+[[contributors]]
+name = "cstjean"
+contributions = "11"
+[[contributors]]
+name = "jakebolewski"
+contributions = "10"
+[[contributors]]
+name = "JobJob"
+contributions = "7"
+[[contributors]]
+name = "vtjnash"
+contributions = "6"
+[[contributors]]
+name = "darwindarak"
+contributions = "5"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "ranjanan"
+contributions = "4"
+[[contributors]]
+name = "galenlynch"
+contributions = "3"
+[[contributors]]
+name = "ihnorton"
+contributions = "3"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "marius311"
+contributions = "2"
+[[contributors]]
+name = "sbromberger"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "2"
+[[contributors]]
+name = "dhoegh"
+contributions = "2"
+[[contributors]]
+name = "crstnbr"
+contributions = "1"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "drewrobson"
+contributions = "1"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "isuruf"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "jmxpearson"
+contributions = "1"
+[[contributors]]
+name = "findmyway"
+contributions = "1"
+[[contributors]]
+name = "mrkn"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "mweastwood"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "orivej"
+contributions = "1"
+[[contributors]]
+name = "rasmushenningsson"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "ysimillides"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "qwert42"
+contributions = "1"
+[[contributors]]
+name = "domenzain"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "zsz00"
+contributions = "1"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "NPZ"
+owner = "fhs"
+version = "0.3.0"
+description = "A Julia package that provides support for reading and writing Numpy .npy and .npz files"
+stargazers_count = "15"
+url = "https://github.com/fhs/NPZ.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fhs"
+contributions = "34"
+[[contributors]]
+name = "mweastwood"
+contributions = "5"
+[[contributors]]
+name = "galenlynch"
+contributions = "4"
+[[contributors]]
+name = "bhalonen"
+contributions = "2"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "JoshChristie"
+contributions = "1"
+[[contributors]]
+name = "denglerchr"
+contributions = "1"

@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "POMDPs"
+owner = "JuliaPOMDP"
+version = "0.7.2"
+description = "MDPs and POMDPs in Julia - An interface for defining, solving, and simulating discrete and continuous, fully and partially observable Markov decision processes."
+stargazers_count = "160"
+url = "https://github.com/JuliaPOMDP/POMDPs.jl.git"
+installs = true
+tags = ["pomdps", "markov-decision-processes", "julia", "artificial-intelligence", "control-systems", "reinforcement-learning", "reinforcement-learning-algorithms", "mdps"]
+license = "Other"
+
+[[contributors]]
+name = "zsunberg"
+contributions = "297"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "185"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "37"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "27"
+[[contributors]]
+name = "ebalaban"
+contributions = "19"
+[[contributors]]
+name = "tawheeler"
+contributions = "6"
+[[contributors]]
+name = "ajkeith"
+contributions = "4"
+[[contributors]]
+name = "dressel"
+contributions = "3"
+[[contributors]]
+name = "Shushman"
+contributions = "3"
+[[contributors]]
+name = "mykelk"
+contributions = "2"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

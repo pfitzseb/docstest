@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Planets.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Planets.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">Planets.Planets</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Planets.accretion_rate" href="#Planets.accretion_rate"><code>Planets.accretion_rate</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Compute the gas accretion rate onto a planet, up to Neptune size, embedded in a protoplanetary disk. This function implements Equation (B36) derived in Carrera et al. (2018) which itself is adapted from Ginzburg et al. (2016).</p><p><strong>NOTE</strong>: Equation (B36) of Carrera et al. is in units of M<em>earth/Myr but this function returns values in untis of M</em>earth/year.</p><p><strong>NOTE</strong>: The accretion rate for a planet with zero atmosphere diverges. You need to initialize the planet&#39;s atmosphere to a non-zero value. A reasonable choice is the gas mass contained inside the planet&#39;s Bondi radius. Furthermore, the accretion rate is initially very high and small timesteps are required to resolve the accretion correctly.</p><p>Example:</p><pre><code class="language-none">#
+# Gas accretion rate (units: M_earth / year) for a small planet embedded
+# in a protoplanetary disk.
+#
+# Inputs:
+#
+M_core = 8.0  # Planet&#39;s core mass in Earth masses.
+M_atm = 0.02  # Planet&#39;s current H2 mass in Earth masses.
+T_disk = 500  # Local disk temperature in Kelvin.
+
+M_atm_dot = accretion_rate(M_core, M_atm, T_disk) # M_earth / year.</code></pre><p>Citation:</p><pre><code class="language-none">Carrera et al. (2018) and Ginzburg et al. (2016)
+
+http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1804.05069
+http://adsabs.harvard.edu/abs/2016ApJ...825...29G</code></pre><p><strong>Initializing the planet&#39;s atmosphere:</strong></p><pre><code class="language-none">ρ = ... # Local disk gas density in g/cm^3
+T = ... # Local disk gas temperature in Kelvin
+
+M_core = ... # Core mass in M_earth
+
+Rb = 2.861e7 * M_core / T # Bondi radius in cm
+
+M_atm = ρ * Rb^3 * 1.6744e-28 # Initial atmosphere mass in M_earth</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Planets.core_radius" href="#Planets.core_radius"><code>Planets.core_radius</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Compute the core radius for either a rock-iron or water-rock core.</p><p>Examples:</p><pre><code class="language-none">#
+# Radius of a 3.0 M_earth core with 10% water + 90% rock:
+#
+radius = core_radius(3.0, h2o=0.1) # In Earth radii.
+
+#
+# Radius of a 3.0 M_earth core with 10% iron + 90% rock:
+#
+radius = core_radius(3.0, fe=0.1) # In Earth radii.</code></pre><p>Citation:</p><pre><code class="language-none">Zeng et al (2016)
+http://adsabs.harvard.edu/abs/2016ApJ...819..127Z</code></pre></div></div></section><pre><code class="language-none">Planets.eval</code></pre><pre><code class="language-none">Planets.include</code></pre><pre><code class="language-none">Planets.mr_names</code></pre><pre><code class="language-none">Planets.mr_table</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

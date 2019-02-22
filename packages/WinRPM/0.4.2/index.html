@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · WinRPM.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>WinRPM.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Package-Availability-1">Package Availability</a></li><li><a class="toctext" href="#Package-Installation-1">Package Installation</a></li><li><a class="toctext" href="#Dependencies-1">Dependencies</a></li><li><a class="toctext" href="#Package-Creation-1">Package Creation</a></li><li class="toplevel"><a class="toctext" href="#BinDeps-Integration-1">BinDeps Integration</a></li><li class="toplevel"><a class="toctext" href="#Stand-alone-Usage-1">Stand-alone Usage</a></li><li class="toplevel"><a class="toctext" href="#Full-API-1">Full API</a></li><li class="toplevel"><a class="toctext" href="#Usage-Example-1">Usage Example</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Introduction-1" href="#Introduction-1">Introduction</a></h1><p>WinRPM is an installer for RPM packages provided by an RPM-md build system. The default RPM-md provider is the <a href="https://build.opensuse.org/">OpenSUSE build service</a>, which builds 32- and 64-bit DLLs for libraries used by several Julia packages (note: builds are cross-compiled).</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>To install WinRPM via the Julia package manager, use:</p><pre><code class="language-julia">Pkg.add(&quot;WinRPM&quot;)</code></pre><h2><a class="nav-anchor" id="Package-Availability-1" href="#Package-Availability-1">Package Availability</a></h2><p>To search for a package from within Julia:</p><pre><code class="language-julia">using WinRPM
+
+WinRPM.search(&quot;packagename&quot;)</code></pre><p>See also: upstream package information for <a href="https://build.opensuse.org/project/show/windows%3Amingw%3Awin64">Win64</a> and <a href="https://build.opensuse.org/project/show/windows%3Amingw%3Awin32">Win32</a></p><h2><a class="nav-anchor" id="Package-Installation-1" href="#Package-Installation-1">Package Installation</a></h2><p>To install a library using WinRPM:</p><pre><code class="language-julia">WinRPM.install(&quot;gtk2&quot;)
+WinRPM.install(&quot;win_iconv&quot;,&quot;mingw32&quot;)</code></pre><h2><a class="nav-anchor" id="Dependencies-1" href="#Dependencies-1">Dependencies</a></h2><p>WinRPM will automatically install dependencies declared in the RPM-md package specification.</p><h2><a class="nav-anchor" id="Package-Creation-1" href="#Package-Creation-1">Package Creation</a></h2><p>Please see the OpenSUSE build service <a href="http://en.opensuse.org/openSUSE:Packaging_guidelines">packaging guidelines</a> for further information.</p><h1><a class="nav-anchor" id="BinDeps-Integration-1" href="#BinDeps-Integration-1">BinDeps Integration</a></h1><p>WinRPM may be integrated with the <a href="https://github.com/JuliaLang/BinDeps.jl">BinDeps</a> system by declaring a <code>provides(WinRPM.RPM...</code> line for each serviceable dependency.</p><p>For example, in the <a href="https://github.com/JuliaLang/Tk.jl">Tk.jl</a> package the following lines declare availability of the <code>tcl</code> and <code>tk</code> libraries from WinRPM:</p><pre><code class="language-julia">if Sys.iswindows()
+    using WinRPM
+    provides(WinRPM.RPM, &quot;tk&quot;, tk, os=:Windows)
+    provides(WinRPM.RPM, &quot;tcl&quot;, tcl, os=:Windows)
+end</code></pre><p>These lines must be preceded by <code>BinDeps.library_dependency</code> declarations; please see the BinDeps documentation for more information.</p><p>It may also be helpful to review usage examples in Tk.jl or other existing packages (see <code>deps/build.jl</code>): <a href="https://github.com/staticfloat/Nettle.jl">Nettle.jl</a> <a href="https://github.com/JuliaLang/Cairo.jl">Cairo.jl</a></p><h1><a class="nav-anchor" id="Stand-alone-Usage-1" href="#Stand-alone-Usage-1">Stand-alone Usage</a></h1><p>For stand-alone use, add the following lines to your <code>%APPDATA%/julia/.juliarc.jl</code> file:</p><pre><code class="language-julia">RPMbindir = Pkg.dir(&quot;WinRPM&quot;,&quot;deps&quot;,&quot;usr&quot;,&quot;$(Sys.ARCH)-w64-mingw32&quot;,&quot;sys-root&quot;,&quot;mingw&quot;,&quot;bin&quot;)
+push!(Libdl.DL_LOAD_PATH,RPMbindir)
+ENV[&quot;PATH&quot;]=ENV[&quot;PATH&quot;]*&quot;;&quot;*RPMbindir</code></pre><h1><a class="nav-anchor" id="Full-API-1" href="#Full-API-1">Full API</a></h1><p>RPM-md provides the following functions for general usage: <code>update</code>, <code>whatprovides</code>, <code>search</code>, <code>lookup</code>, and <code>install</code></p><p><code>update()</code> – download the new metadata from the hosts. Additional hosts can be added by editing the file <code>sources.list</code>.</p><p><code>whatprovides(file)</code> – given a part of a filename or file-path, returns a list of packages that include</p><p><code>search(string)</code> – search for a string in the package description, summary, or name fields and returns a list of matching packages</p><p><code>lookup(name)</code> – search for a package by name</p><p><code>install(pkg)</code> – install a package (by name or package identifier), including dependencies, into the <code>deps</code> folder</p><p>The functions typically take a second parameter &quot;arch&quot; specifying the package architecture for search, defaulting to the current operating system. It also offers the keyword argument <code>yes</code> which should be set to <code>true</code> if no prompt is desired.</p><h1><a class="nav-anchor" id="Usage-Example-1" href="#Usage-Example-1">Usage Example</a></h1><p>Package lists can be further filtered and analyzed, as the following example demonstrates:</p><pre><code class="language-julia">julia&gt; using WinRPM
+
+julia&gt; gtk3_candidates = WinRPM.search(&quot;gtk3&quot;, &quot;mingw32&quot;)
+1. webkitgtk3-debug (mingw32) - Debug information for package mingw32-webkitgtk3
+2. webkitgtk3-lang (mingw32) - Languages for package mingw32-webkitgtk3
+3. webkitgtk3-tools (mingw32) - Library for rendering web content, GTK+ 3 Port (tools)
+4. gtk3-data (mingw32) - The GTK+ toolkit library (version 3) -- Data Files
+5. gtk3-lang (mingw32) - Languages for package mingw32-gtk3
+6. gtk3 (mingw32) - The GTK+ toolkit library (version 3)
+7. gtk3-devel (mingw32) - The GTK+ toolkit library (version 3) -- Development Files
+8. gtk3-debug (mingw32) - Debug information for package mingw32-gtk3
+9. gtk3-tools (mingw32) - The GTK+ toolkit library (version 3) -- Tools
+10. libwebkitgtk3 (mingw32) - Library for rendering web content, GTK+ 3 Port
+11. libwebkitgtk3-devel (mingw32) - Library for rendering web content, GTK+ 3 Port (development files)
+
+julia&gt; gtk3_pkg = gtk3_candidates[6]
+Name: gtk3
+Summary: The GTK+ toolkit library (version 3)
+Version: 3.8.1 (rel 1.31)
+Arch: mingw32
+URL: http://www.gtk.org/
+License: LGPL-2.0+
+Description: GTK+ is a multi-platform toolkit for creating graphical user interfaces.
+Offering a complete set of widgets, GTK+ is suitable for projects
+ranging from small one-off projects to complete application suites.
+
+julia&gt; WinRPM.install(gtk3_pkg)
+MESSAGE: Installing: libxml2, atk, gdk-pixbuf, liblzma, zlib, libpng, libtiff, pixman, freetype, libffi, glib2-lang, atk-lang, libjpeg, gdk-pixbuf-lang, libharfbuzz, glib2, fontconfig, libcairo2, libjasper, libgcc, libintl, gtk3
+MESSAGE: Downloading: libxml2
+MESSAGE: Extracting: libxml2
+2286 blocks
+MESSAGE: Downloading: atk
+MESSAGE: Extracting: atk
+263 blocks
+...
+MESSAGE: Downloading: gtk3
+MESSAGE: Extracting: gtk3
+9614 blocks
+MESSAGE: Success
+
+julia&gt; # or we can just install it directly
+julia&gt; WinRPM.install(&quot;gtk3&quot;)</code></pre><footer><hr/></footer></article></body></html>

@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "CurricularAnalytics"
+owner = "heileman"
+version = "0.3.1"
+description = "CurricularAnalytics.jl"
+stargazers_count = "2"
+url = "https://github.com/heileman/CurricularAnalytics.jl.git"
+installs = true
+tags = ["curriculum", "graphs", "analytics", "julia", "graph-theory", "curricular-analytics"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "heileman"
+contributions = "137"
+[[contributors]]
+name = "haydenfree"
+contributions = "102"
+[[contributors]]
+name = "orhanabar"
+contributions = "94"
+[[contributors]]
+name = "kevinwarne"
+contributions = "13"
+[[contributors]]
+name = "wgthompson"
+contributions = "11"

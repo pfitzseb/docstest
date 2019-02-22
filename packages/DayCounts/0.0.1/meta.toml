@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "DayCounts"
+owner = "JuliaFinance"
+version = "0.0.1"
+description = "Day count convention calculations"
+stargazers_count = "3"
+url = "https://github.com/JuliaFinance/DayCounts.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "16"
+[[contributors]]
+name = "EricForgy"
+contributions = "7"

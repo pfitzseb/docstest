@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Bridge"
+owner = "mschauer"
+version = "0.9.0"
+description = "A statistical toolbox for diffusion processes and stochastic differential equations. Named after the Brownian Bridge."
+stargazers_count = "28"
+url = "https://github.com/mschauer/Bridge.jl.git"
+installs = true
+tags = ["diffusion", "julia", "stochastic-differential-equations", "mcmc", "bayesian-inference"]
+license = "Other"
+
+[[contributors]]
+name = "mschauer"
+contributions = "298"
+[[contributors]]
+name = "getzdan"
+contributions = "31"
+[[contributors]]
+name = "fmeulen"
+contributions = "8"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

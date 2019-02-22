@@ -1,0 +1,105 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Gurobi"
+owner = "JuliaOpt"
+version = "0.6.0"
+description = "Julia interface for Gurobi Optimizer"
+stargazers_count = "57"
+url = "https://github.com/JuliaOpt/Gurobi.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "mlubin"
+contributions = "145"
+[[contributors]]
+name = "odow"
+contributions = "54"
+[[contributors]]
+name = "joehuchette"
+contributions = "40"
+[[contributors]]
+name = "lindahua"
+contributions = "39"
+[[contributors]]
+name = "IainNZ"
+contributions = "25"
+[[contributors]]
+name = "joaquimg"
+contributions = "10"
+[[contributors]]
+name = "rdeits"
+contributions = "8"
+[[contributors]]
+name = "daschw"
+contributions = "6"
+[[contributors]]
+name = "colinfang"
+contributions = "4"
+[[contributors]]
+name = "yeesian"
+contributions = "4"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "cossio"
+contributions = "2"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "omalled"
+contributions = "2"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "2"
+[[contributors]]
+name = "englhardt"
+contributions = "1"
+[[contributors]]
+name = "andrioni"
+contributions = "1"
+[[contributors]]
+name = "antonhinneck"
+contributions = "1"
+[[contributors]]
+name = "chriscoey"
+contributions = "1"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "sbebo"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "vtjeng"
+contributions = "1"
+[[contributors]]
+name = "vitornesello"
+contributions = "1"
+[[contributors]]
+name = "adelarue"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "gliuzzi"
+contributions = "1"
+[[contributors]]
+name = "kiwisensei"
+contributions = "1"
+[[contributors]]
+name = "stefanobenati"
+contributions = "1"

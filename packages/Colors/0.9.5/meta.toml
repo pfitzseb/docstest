@@ -1,0 +1,138 @@
+license_url = ""
+doctype = "real"
+name = "Colors"
+owner = "JuliaGraphics"
+version = "0.9.5"
+description = "Color manipulation utilities for Julia"
+stargazers_count = "54"
+url = "https://github.com/JuliaGraphics/Colors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "183"
+[[contributors]]
+name = "dcjones"
+contributions = "41"
+[[contributors]]
+name = "jiahao"
+contributions = "25"
+[[contributors]]
+name = "cormullion"
+contributions = "21"
+[[contributors]]
+name = "glenn-sweeney"
+contributions = "11"
+[[contributors]]
+name = "yuyichao"
+contributions = "11"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "10"
+[[contributors]]
+name = "staticfloat"
+contributions = "8"
+[[contributors]]
+name = "stevengj"
+contributions = "8"
+[[contributors]]
+name = "fredrikekre"
+contributions = "5"
+[[contributors]]
+name = "waldyrious"
+contributions = "4"
+[[contributors]]
+name = "jakebolewski"
+contributions = "4"
+[[contributors]]
+name = "juliohm"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "rickhg12hs"
+contributions = "3"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "dmbates"
+contributions = "2"
+[[contributors]]
+name = "vtjnash"
+contributions = "2"
+[[contributors]]
+name = "jwmerrill"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "2"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "tbreloff"
+contributions = "2"
+[[contributors]]
+name = "kimikage"
+contributions = "2"
+[[contributors]]
+name = "natj"
+contributions = "2"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "kescobo"
+contributions = "1"
+[[contributors]]
+name = "ikirill"
+contributions = "1"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "1"
+[[contributors]]
+name = "pao"
+contributions = "1"
+[[contributors]]
+name = "ninjin"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "sebastiang"
+contributions = "1"
+[[contributors]]
+name = "scw"
+contributions = "1"
+[[contributors]]
+name = "skleinbo"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "yurivish"
+contributions = "1"
+[[contributors]]
+name = "ianshmean"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Hadamard"
+owner = "stevengj"
+version = "1.1.0"
+description = "Fast Walsh-Hadamard transforms for the Julia language"
+stargazers_count = "14"
+url = "https://github.com/stevengj/Hadamard.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "stevengj"
+contributions = "40"

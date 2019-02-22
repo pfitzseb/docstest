@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "EnglishText"
+owner = "TotalVerb"
+version = "0.6.0"
+description = "Utilities for English-language quirks in Julia"
+stargazers_count = "11"
+url = "https://github.com/TotalVerb/EnglishText.jl.git"
+installs = true
+tags = ["english", "julia", "text", "pluralization", "noun", "inflection"]
+license = "Other"
+
+[[contributors]]
+name = "TotalVerb"
+contributions = "57"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "EasyTranspose"
+owner = "musm"
+version = "0.1.1"
+description = "A friendly way to transpose arrays and vectors"
+stargazers_count = "0"
+url = "https://github.com/musm/EasyTranspose.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "musm"
+contributions = "7"

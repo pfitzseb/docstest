@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "ImageSegmentation"
+owner = "JuliaImages"
+version = "1.1.0"
+description = "Partitioning images into meaningful regions"
+stargazers_count = "16"
+url = "https://github.com/JuliaImages/ImageSegmentation.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "11"
+[[contributors]]
+name = "annimesh2809"
+contributions = "10"
+[[contributors]]
+name = "tejus-gupta"
+contributions = "4"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "lucianolorenti"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "phlavenk"
+contributions = "1"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "CompScienceMeshes"
+owner = "krcools"
+version = "0.2.2"
+description = "Computational Geometry Foundations for Finite and Boundary Element Methods"
+stargazers_count = "5"
+url = "https://github.com/krcools/CompScienceMeshes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "156"
+[[contributors]]
+name = "Elkalsh"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "awmorley"
+contributions = "1"

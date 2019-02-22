@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Yota"
+owner = "dfdx"
+version = "0.1.2"
+description = "Reverse-mode automatic differentiation in Julia"
+stargazers_count = "8"
+url = "https://github.com/dfdx/Yota.jl.git"
+installs = true
+tags = ["automatic-differentiation", "machine-learning"]
+license = "MIT License"
+
+[[contributors]]
+name = "dfdx"
+contributions = "27"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"

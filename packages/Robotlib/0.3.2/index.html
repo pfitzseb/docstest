@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Robotlib.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Robotlib.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#The-module-imports-the-following-files-1">The module imports the following files</a></li><li><a class="toctext" href="#Exported-functions-1">Exported functions</a></li><li><a class="toctext" href="#Kinematics-1">Kinematics</a></li><li class="toplevel"><a class="toctext" href="#Frames-1">Frames</a></li><li><a class="toctext" href="#Usage-3">Usage</a></li><li class="toplevel"><a class="toctext" href="#Citing-1">Citing</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="http://pkg.julialang.org/?pkg=Robotlib"><img src="http://pkg.julialang.org/badges/Robotlib_0.6.svg" alt="Robotlib"/></a> <a href="https://travis-ci.org/baggepinnen/Robotlib.jl"><img src="https://travis-ci.org/baggepinnen/Robotlib.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://codecov.io/gh/baggepinnen/Robotlib.jl"><img src="https://codecov.io/gh/baggepinnen/Robotlib.jl/branch/master/graph/badge.svg" alt="codecov"/></a></p><p>Now supporting Julia v0.7/v1.0. Dependency MAT.jl is currently not building on Julia v1.0 and hence all file loading functionality and some tests have been deactivated.</p><h1><a class="nav-anchor" id="Robotlib-1" href="#Robotlib-1">Robotlib</a></h1><p>This is a library of functions to help out in a robotics lab. At present stage, it contains functions for forward kinematics, jacobians, iterative inverse kinematics and for a few robotics related calibration problems. The library also contains a number of functions to convert from various orientation representations and other robotics related helper functions.</p><p>Install using</p><p><code>Pkg.add(&quot;Robotlib&quot;)</code></p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><pre><code class="language-julia">fkine, ikine, jacobian = get_kinematic_functions(&quot;yumi&quot;) # Replace yumi for your robot model, as long as it&#39;s supported
+data = orcalog2mat(pathopen, pathsave) # Read data from a csv-file and save as binary file
+q = getData(&quot;robot_0.*posRawAbs&quot;, data, 1, removeNaN = false) # Extract columns from data object using regex like syntax</code></pre><p>For ABB YuMi, joint angles <code>q</code> must be converted to logical order using e.g. <code>abb2logical!(q)</code> If you use the kinematic functions privided by <code>get_kinematic_functions</code>, the base transform is handled automatically. If you use the standard kinematic functions provided in Robotlib, you must also consider the base transform.</p><h3><a class="nav-anchor" id="Case-study,-calibrate-force-sensor-1" href="#Case-study,-calibrate-force-sensor-1">Case study, calibrate force sensor</a></h3><pre><code class="language-julia">using Robotlib
+using Robotlib.Calibration
+using DSP # For filtfilt
+
+# Define robot to use, in this case YuMi
+dh = DHYuMi()
+fkine, ikine, jacobian = get_kinematic_functions(&quot;yumi&quot;)
+
+# Define paths to log file and where to store converted binary file for faster reading
+pathopen = &quot;/work/fredrikb/extRosetta/frida_gravity_2.txt&quot;
+pathsave = &quot;/tmp/fredrikb/log.mat&quot;
+
+# Get data from the logfile
+data    = orcalog2mat(pathopen, pathsave) # This line is only needed during the first run
+data    = readmat(pathsave)
+ds      = 1 # Downsampling factor
+q       = getData(&quot;robot_1.*posRawAbs&quot;, data, ds) # Data vectors to retrieve are specified with regex style
+q̇       = getData(&quot;robot_1.*velFlt&quot;, data, ds)
+τ       = getData(&quot;robot_1.*trqRaw&quot;, data, ds)
+f       = getData(&quot;force&quot;, data, ds)
+
+# Convert joint data from ABB order to logical order
+abb2logical!(q)
+abb2logical!(q̇)
+abb2logical!(τ)
+
+# Apply gear ratio transformation
+q = q*dh.GR&#39;
+q̇ = q̇*dh.GR&#39;
+τ = τ*inv(dh.GR&#39;)
+
+# Filter velocities to get accelerations
+q̈ = filtfilt(ones(50),[50.],centralDiff(q̇))
+
+# plot(abs([q̇, q̈]))
+
+# Sort out data with low acceleration
+lowAcc  = all(abs.(q̈) .&lt; 3e-4,2)
+q       = q[lowAcc,:]
+q̇       = q̇[lowAcc,:]
+τ       = τ[lowAcc,:]
+f       = f[lowAcc,:]
+N       = size(q,1)
+
+
+# Apply forward kinematics to get end-effector poses
+T  = cat([fkine(q[i,:]) for i = 1:N]..., dims=3)
+
+trajplot(T) # Plots a trajectory of R4x4 transformation matrices
+
+# Perform the force sensor calibration and plot the errors
+Rf,m,offset     = Robotlib.Calibration.calibForce(T,f,0.2205,offset=true)
+err = hcat([Rf*f[i,1:3] + offset - T[1:3,1:3,i]&#39;*[0, 0, m*-9.82] for i = 1:N]...)&#39;
+plot(f[:,1:3],lab=&quot;Force&quot;)
+plot!(err,l=:dash,lab=&quot;Error&quot;)
+println(&quot;Error: &quot;, round(rms(err), digits=4))</code></pre><h2><a class="nav-anchor" id="The-module-imports-the-following-files-1" href="#The-module-imports-the-following-files-1">The module imports the following files</a></h2><pre><code class="language-julia">include(&quot;POEutils.jl&quot;)
+include(&quot;DH.jl&quot;)
+include(&quot;kinematics.jl&quot;)
+include(&quot;robotplot.jl&quot;)
+include(&quot;Frames.jl&quot;)
+include(&quot;read_log.jl&quot;)
+include(&quot;csv2mat.jl&quot;)</code></pre><h2><a class="nav-anchor" id="Exported-functions-1" href="#Exported-functions-1">Exported functions</a></h2><pre><code class="language-julia">Rt2T, T2R, T2t, skewcoords, twistcoords, skew, skew4, expω, expξ, expξ2, expξ!, logT, logR
+ad, adi, trinv, isrot, isse3, Rangle, conformize, DH2twistsPOE, DH2twistsLPOE, dh2Tn
+toOrthoNormal!, toOrthoNormal, rpy2R, Quaternion, xyθ
+fkinePOE, fkineLPOE, ikinePOE, dh2Tn, jacobianPOE, jacobianPOEikine, jacobian, get_kinematic_functions
+plot_traj, plot_traj3, plot_traj_sub, plot3smart, plotsub
+DH, DH2400, DHYuMi, DH7600, DHtest, abb2logical!, logical2abb!, abb2logical, logical2abb
+csv2mat, orcalog2mat, getData, readmat</code></pre><p>The module includes a submodule, Frames, which is aimed at replacing the Nikon K600 software. It supports creation of frames, simple projections, fitting of planes, lines etc. and has a number of plotting options. It must be separately imported with <code>using Robotlib.Frames</code></p><p>The module includes a submodule, Calibration, which includes a number of calibration routines. It must be separately imported with <code>using Robotlib.Calibration</code></p><h2><a class="nav-anchor" id="Kinematics-1" href="#Kinematics-1">Kinematics</a></h2><p>The library has functions for calculation of forward kinematics, inverse kinematics and jacobians. Several versions of all kinematics functions are provided; calculations can be made using either the DH-convention or the (local) product of exponentials formulation. To support a new robot, create an object of the type <code>DH</code>, or provide a matrix with POE-style link twists, for use with the kinematic functions.</p><h3><a class="nav-anchor" id="Usage-2" href="#Usage-2">Usage</a></h3><pre><code class="language-julia">dh = DH7600() # ABB Irb 7600
+xi = DH2twistsPOE(dh)
+T  = fkinePOE(xi, q)</code></pre><p>or alternatively</p><pre><code class="language-julia">dh = DH7600()
+Jn, J0, T, Ti, trans = jacobian(q, dh)</code></pre><p>many other options exits, check <a href="src/kinematics.jl">kinematics.jl</a></p><h1><a class="nav-anchor" id="Frames-1" href="#Frames-1">Frames</a></h1><p>This module is aimed at assisting with the creation of frames for tracking using optical tracking systems. It supports projection of points and lines onto planes, creating frames from features and has some plotting functionality.</p><h2><a class="nav-anchor" id="Usage-3" href="#Usage-3">Usage</a></h2><p>This is an example of how data can be loaded from files and how different geometrical objects can be fitted to data, projected onto other objects etc.</p><pre><code class="language-julia">using Frames
+import MAT
+function setupframes(path)
+	path = Pkg.dir(&quot;Robotlib&quot;,&quot;src&quot;,&quot;applications&quot;,&quot;frames/&quot;)
+
+	# Add frame names to the dictionary
+	add_frame_name!(&quot;SEAM&quot;,&quot;Weld seam frame&quot;)
+	add_frame_name!(&quot;TAB&quot;,&quot;Table frame&quot;)
+
+	# Read matrices from file
+	T_RB_Tm = MAT.matread(path*&quot;T_RB_T.mat&quot;)[&quot;T_RB_T&quot;]
+	T_TF_TCPm = MAT.matread(path*&quot;T_TF_TCP.mat&quot;)[&quot;T_TF_TCP&quot;]
+	T_T_TABm = MAT.matread(path*&quot;T_T_Table.mat&quot;)[&quot;T_T_Table&quot;]
+
+	# Create frames from matrices
+	T_RB_T = Frame(T_RB_Tm,&quot;RB&quot;,&quot;T&quot;)
+	T_S_D = Frame(T_TF_TCPm,&quot;S&quot;,&quot;D&quot;)
+	T_T_TAB = Frame(T_T_TABm,&quot;T&quot;,&quot;TAB&quot;)
+
+	# Read point clouds generated by nikon software from file
+	cloud_seam = readcloud(path*&quot;CloudSeam_edge.txt&quot;)
+	plane_seam = readplane(path*&quot;PlaneSeam_edge.txt&quot;)
+
+	# Project points onto plane and fit a line
+	cloud_seam_projected = project(plane_seam,cloud_seam)
+	line_seam = fitline(cloud_seam_projected)
+
+	# Create a frame from the measured features
+	T_T_SEAM = framefromfeatures((&quot;z+&quot;,line_seam),(&quot;y-&quot;,plane_seam),cloud_seam_projected[1],&quot;SEAM&quot;)
+	T_RB_SEAM = T_RB_T*T_T_SEAM
+	T_RB_TAB = T_RB_T*T_T_TAB
+	T_TAB_SEAM = inv(T_T_TAB)*T_T_SEAM
+
+
+	cloud_seam_RB = T_RB_T*cloud_seam
+	cloud_seam_projected_RB = T_RB_T*cloud_seam_projected
+	plane_seam_RB = T_RB_T*plane_seam
+	line_seam_RB = T_RB_T*line_seam
+
+	# Plot results
+	plot(Frame(I4,&quot;RB&quot;,&quot;U&quot;), 200)
+	plot!(cloud_seam_RB, c=:blue)
+	plot!(cloud_seam_projected_RB, c=:red)
+	plot!(line_seam_RB, 500, label=&quot;Line seam&quot;)
+	plot!(plane_seam_RB, 200, label=&quot;Plane seam&quot;)
+	plot!(T_RB_SEAM, 200, label=&quot;T_RB_SEAM&quot;)
+	plot!(T_RB_TAB, 200, label=&quot;T_RB_TAB&quot;)
+
+	xlabel!(&quot;x&quot;)
+	ylabel!(&quot;y&quot;)
+	# zlabel!(&quot;z&quot;)
+
+    # Write frames to file
+    MAT.matwrite(path*&quot;T_TAB_SEAM.mat&quot;,[&quot;T_TAB_SEAM&quot; =&gt; T_TAB_SEAM.T])
+    MAT.matwrite(path*&quot;T_T_SEAM.mat&quot;,[&quot;T_T_SEAM&quot; =&gt; T_T_SEAM.T])
+    MAT.matwrite(path*&quot;T_RB_TAB.mat&quot;,[&quot;T_RB_TAB&quot; =&gt; T_RB_TAB.T])
+    println(&quot;Wrote T_TAB_SEAM, T_T_SEAM, T_RB_TAB to files in $path&quot;)
+end</code></pre><h1><a class="nav-anchor" id="Citing-1" href="#Citing-1">Citing</a></h1><p>This software package was developed for the following thesis</p><pre><code class="language-bibtex">@thesis{bagge2017,
+  author       = {Bagge Carlson, Fredrik},
+  month        = {03},
+  note         = {Licentiate Thesis},
+  publisher    = {Department of Automatic Control, Lund University},
+  title        = {Modeling and Estimation Topics in Robotics},
+  year         = {2017},
+}</code></pre><p>The algorithm <code>calibNAXP</code> was presented in</p><pre><code class="language-bibtex">@inproceedings{bagge2015calibration,
+  title        = {Six {DOF} eye-to-hand calibration from {2D} measurements using planar constraints},
+  author       = {Bagge Carlson, Fredrik and Johansson, Rolf and Robertsson, Anders},
+  booktitle    = {International Conference on Intelligent Robots and Systems (IROS)},
+  year         = {2015},
+  organization = {IEEE}
+}</code></pre><p>The friction model <code>frictionRBFN</code> was presented in</p><pre><code class="language-bibtex">@inproceedings{bagge2015friction,
+  title        = {Modeling and identification of position and temperature dependent friction phenomena without temperature sensing},
+  author       = {Bagge Carlson, Fredrik and Robertsson, Anders and Johansson, Rolf},
+  booktitle    = {International Conference on Intelligent Robots and Systems (IROS)},
+  year         = {2015},
+  organization = {IEEE}
+}</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

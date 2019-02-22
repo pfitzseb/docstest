@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "QuartzImageIO"
+owner = "JuliaIO"
+version = "0.5.2"
+description = "Exposes Mac OS X's native image IO functionality to Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaIO/QuartzImageIO.jl.git"
+installs = true
+tags = ["julia-language", "fileio", "images"]
+license = "Other"
+
+[[contributors]]
+name = "rsrock"
+contributions = "54"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "19"
+[[contributors]]
+name = "timholy"
+contributions = "14"
+[[contributors]]
+name = "musm"
+contributions = "4"
+[[contributors]]
+name = "cstjean"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "damiendr"
+contributions = "2"
+[[contributors]]
+name = "malmaud"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "bjarthur"
+contributions = "1"
+[[contributors]]
+name = "cormullion"
+contributions = "1"
+[[contributors]]
+name = "jmsteitz"
+contributions = "1"

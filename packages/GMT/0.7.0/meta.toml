@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "GMT"
+owner = "GenericMappingTools"
+version = "0.7.0"
+description = "Generic Mapping Tools Library Wrapper for Julia"
+stargazers_count = "35"
+url = "https://github.com/GenericMappingTools/GMT.jl.git"
+installs = true
+tags = ["mapping", "gmt", "geophysics", "earth-science", "julia", "plotting", "visualization", "geospatial"]
+license = "Other"
+
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "leouieda"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "hydrocoast"
+contributions = "1"

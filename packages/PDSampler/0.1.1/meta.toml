@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "PDSampler"
+owner = "alan-turing-institute"
+version = "0.1.1"
+description = "Piecewise Deterministic Sampler library (Bouncy particle sampler, Zig Zag sampler, ...)"
+stargazers_count = "19"
+url = "https://github.com/alan-turing-institute/PDSampler.jl.git"
+installs = true
+tags = ["markov-chain-monte-carlo", "bayesian-inference", "sampling-methods", "graphical-models", "zig-zag-sampler", "bouncy-particle-sampler"]
+license = "Other"
+
+[[contributors]]
+name = "tlienart"
+contributions = "253"
+[[contributors]]
+name = "martintoreilly"
+contributions = "12"
+[[contributors]]
+name = "sjvollmer"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BernoulliFactory"
+owner = "awllee"
+version = "0.0.1"
+description = "Common Bernoulli factory algorithms"
+stargazers_count = "1"
+url = "https://github.com/awllee/BernoulliFactory.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "awllee"
+contributions = "3"

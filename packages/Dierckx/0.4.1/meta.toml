@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "Dierckx"
+owner = "kbarbary"
+version = "0.4.1"
+description = "Julia package for 1-d and 2-d splines"
+stargazers_count = "53"
+url = "https://github.com/kbarbary/Dierckx.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kbarbary"
+contributions = "104"
+[[contributors]]
+name = "cortner"
+contributions = "12"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "jgoldfar"
+contributions = "5"
+[[contributors]]
+name = "bshall"
+contributions = "5"
+[[contributors]]
+name = "jtravs"
+contributions = "3"
+[[contributors]]
+name = "JulienPascal"
+contributions = "3"
+[[contributors]]
+name = "mweastwood"
+contributions = "3"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "jdtuck"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "getzze"
+contributions = "1"

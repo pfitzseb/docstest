@@ -1,0 +1,101 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+name = "QuantEcon"
+owner = "QuantEcon"
+version = "0.15.0"
+description = "Julia implementation of QuantEcon routines"
+stargazers_count = "259"
+url = "https://github.com/QuantEcon/QuantEcon.jl.git"
+installs = false
+tags = []
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "sglyon"
+contributions = "323"
+[[contributors]]
+name = "oyamad"
+contributions = "60"
+[[contributors]]
+name = "ZacCranko"
+contributions = "53"
+[[contributors]]
+name = "cc7768"
+contributions = "48"
+[[contributors]]
+name = "jstac"
+contributions = "20"
+[[contributors]]
+name = "tokupooh"
+contributions = "15"
+[[contributors]]
+name = "Nosferican"
+contributions = "13"
+[[contributors]]
+name = "albep"
+contributions = "12"
+[[contributors]]
+name = "Shunsuke-Hori"
+contributions = "10"
+[[contributors]]
+name = "mmcky"
+contributions = "8"
+[[contributors]]
+name = "ranjanan"
+contributions = "7"
+[[contributors]]
+name = "rawls238"
+contributions = "4"
+[[contributors]]
+name = "natashawatkins"
+contributions = "4"
+[[contributors]]
+name = "a-parida12"
+contributions = "3"
+[[contributors]]
+name = "nilshg"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "vgregory757"
+contributions = "3"
+[[contributors]]
+name = "IljaK91"
+contributions = "2"
+[[contributors]]
+name = "stephenbnicar"
+contributions = "2"
+[[contributors]]
+name = "myuuuuun"
+contributions = "2"
+[[contributors]]
+name = "brilhana"
+contributions = "1"
+[[contributors]]
+name = "colbec"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "sanguineturtle"
+contributions = "1"
+[[contributors]]
+name = "MaximilianJHuber"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "Balinus"
+contributions = "1"
+[[contributors]]
+name = "shizejin"
+contributions = "1"
+[[contributors]]
+name = "amckay"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

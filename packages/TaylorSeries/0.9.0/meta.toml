@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "TaylorSeries"
+owner = "JuliaDiff"
+version = "0.9.0"
+description = "A julia package for Taylor polynomial expansions in one or more independent variables."
+stargazers_count = "50"
+url = "https://github.com/JuliaDiff/TaylorSeries.jl.git"
+installs = true
+tags = ["julia", "taylor-expansions", "automatic-differentiation", "polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "lbenet"
+contributions = "298"
+[[contributors]]
+name = "dpsanders"
+contributions = "44"
+[[contributors]]
+name = "blas-ko"
+contributions = "15"
+[[contributors]]
+name = "PerezHz"
+contributions = "7"
+[[contributors]]
+name = "pwl"
+contributions = "4"
+[[contributors]]
+name = "jedbrown"
+contributions = "3"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "dapias"
+contributions = "1"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Displaz"
+owner = "c42f"
+version = "1.0.0"
+description = "Julia bindings for the displaz lidar viewer"
+stargazers_count = "9"
+url = "https://github.com/c42f/Displaz.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "c42f"
+contributions = "48"
+[[contributors]]
+name = "andyferris"
+contributions = "9"
+[[contributors]]
+name = "twadleigh"
+contributions = "5"
+[[contributors]]
+name = "janzill"
+contributions = "4"
+[[contributors]]
+name = "JoshChristie"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

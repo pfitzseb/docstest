@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ConceptnetNumberbatch"
+owner = "zgornel"
+version = "0.1.5"
+description = "Julia API for ConceptNetNumberbatch"
+stargazers_count = "0"
+url = "https://github.com/zgornel/ConceptnetNumberbatch.jl.git"
+installs = true
+tags = ["embeddings", "julia", "retrieving-embeddings", "wildcard-matches", "conceptnet"]
+license = "MIT License"
+
+[[contributors]]
+name = "zgornel"
+contributions = "60"

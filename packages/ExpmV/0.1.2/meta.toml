@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "ExpmV"
+owner = "matteoacrossi"
+version = "0.1.2"
+description = "Julia package to compute the result of expm(t*A)*v when A is a sparse matrix, without computing expm(t*A)."
+stargazers_count = "5"
+url = "https://github.com/matteoacrossi/ExpmV.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "matteoacrossi"
+contributions = "130"
+[[contributors]]
+name = "marcusps"
+contributions = "33"
+[[contributors]]
+name = "pochoi"
+contributions = "2"
+[[contributors]]
+name = "dnadlinger"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "caryan"
+contributions = "1"

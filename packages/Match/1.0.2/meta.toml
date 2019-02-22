@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "Match"
+owner = "kmsquire"
+version = "1.0.2"
+description = "Advanced Pattern Matching for Julia"
+stargazers_count = "96"
+url = "https://github.com/kmsquire/Match.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "125"
+[[contributors]]
+name = "damiendr"
+contributions = "2"
+[[contributors]]
+name = "jhasse"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"
+[[contributors]]
+name = "sisirkoppaka"
+contributions = "1"
+[[contributors]]
+name = "magistere"
+contributions = "1"
+[[contributors]]
+name = "epatters"
+contributions = "1"

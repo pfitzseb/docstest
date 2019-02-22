@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "DualNumbers"
+owner = "JuliaDiff"
+version = "0.6.2"
+description = "Julia package for representing dual numbers and for performing dual algebra"
+stargazers_count = "43"
+url = "https://github.com/JuliaDiff/DualNumbers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "49"
+[[contributors]]
+name = "scidom"
+contributions = "15"
+[[contributors]]
+name = "ararslan"
+contributions = "7"
+[[contributors]]
+name = "timholy"
+contributions = "6"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "3"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "3"
+[[contributors]]
+name = "c42f"
+contributions = "2"
+[[contributors]]
+name = "willtebbutt"
+contributions = "2"
+[[contributors]]
+name = "briochemc"
+contributions = "1"
+[[contributors]]
+name = "gasagna"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "tomasaschan"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

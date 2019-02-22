@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MathPhysicalConstants"
+owner = "LaGuer"
+version = "0.0.5"
+description = "Mathematical and Physical Constants in Cosmology and micro physics (updated SI CIPM CODATA 2019)"
+stargazers_count = "0"
+url = "https://github.com/LaGuer/MathPhysicalConstants.jl.git"
+installs = true
+tags = ["julia", "language", "package", "mathematical", "physical", "constants", "python", "notebook", "cipm", "nist", "codata", "si", "bipm", "cosmology", "micro", "physics", "jupyter"]
+license = "Other"
+
+[[contributors]]
+name = "LaGuer"
+contributions = "176"

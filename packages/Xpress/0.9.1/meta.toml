@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Xpress"
+owner = "JuliaOpt"
+version = "0.9.1"
+description = "A Julia interface for the FICO Xpress optimization suite"
+stargazers_count = "10"
+url = "https://github.com/JuliaOpt/Xpress.jl.git"
+installs = true
+tags = ["xpress", "xpress-optimizer", "milp", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "joaquimg"
+contributions = "269"
+[[contributors]]
+name = "dpo"
+contributions = "6"
+[[contributors]]
+name = "hellemo"
+contributions = "6"
+[[contributors]]
+name = "mlubin"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "frapac"
+contributions = "1"

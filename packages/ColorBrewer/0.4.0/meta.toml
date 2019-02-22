@@ -1,0 +1,32 @@
+license_url = ""
+name = "ColorBrewer"
+owner = "timothyrenner"
+version = "0.4.0"
+description = "A Julia library for generating color brewer color schemes."
+stargazers_count = "25"
+url = "https://github.com/timothyrenner/ColorBrewer.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timothyrenner"
+contributions = "30"
+[[contributors]]
+name = "ikirill"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "dmoliveira"
+contributions = "1"

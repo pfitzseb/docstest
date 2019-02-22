@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StructC14N"
+owner = "gcalderone"
+version = "0.2.1"
+description = "Normalize structures and named tuples according to a user provided template"
+stargazers_count = "0"
+url = "https://github.com/gcalderone/StructC14N.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "28"

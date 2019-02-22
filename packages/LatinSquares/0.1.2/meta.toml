@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LatinSquares"
+owner = "scheinerman"
+version = "0.1.2"
+description = "Creating Latin squares and pairs of orthogonal Latin squares"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/LatinSquares.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "31"

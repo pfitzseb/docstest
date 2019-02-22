@@ -1,0 +1,5 @@
+name = "MaximumLikelihoodPower"
+doctype = "default"
+installs = true
+url = "https://github.com/jlapeyre/MaximumLikelihoodPower.jl.git"
+version = "0.3.0"

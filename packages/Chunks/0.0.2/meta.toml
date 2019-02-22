@@ -1,0 +1,4 @@
+name = "Chunks"
+installs = false
+url = "https://github.com/bramtayl/Chunks.jl.git"
+version = "0.0.2"

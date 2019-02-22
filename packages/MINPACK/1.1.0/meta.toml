@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "MINPACK"
+owner = "sglyon"
+version = "1.1.0"
+description = "Wrapper for cminpack multivariate root finding routines "
+stargazers_count = "3"
+url = "https://github.com/sglyon/MINPACK.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sglyon"
+contributions = "39"
+[[contributors]]
+name = "cc7768"
+contributions = "1"

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Data Access · Temporal</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Temporal</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Home</a></li><li><a class="toctext" href="../ts/">TS Object</a></li><li><a class="toctext" href="../calculation/">Calculation</a></li><li class="current"><a class="toctext" href>Data Access</a><ul class="internal"><li><a class="toctext" href="#Flat-Files-1">Flat Files</a></li><li><a class="toctext" href="#Yahoo-1">Yahoo</a></li><li><a class="toctext" href="#Quandl-1">Quandl</a></li></ul></li><li><span class="toctext">Data Manipulation</span><ul><li><a class="toctext" href="../indexing/">Indexing</a></li><li><a class="toctext" href="../combining/">Joins</a></li><li><a class="toctext" href="../aggregation/">Aggregation</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Data Access</a></li></ul></nav><hr/><div id="topbar"><span>Data Access</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Data-Readers-1" href="#Data-Readers-1">Data Readers</a></h1><h2><a class="nav-anchor" id="Flat-Files-1" href="#Flat-Files-1">Flat Files</a></h2><pre><code class="language-julia-repl">julia&gt; using Temporal
+
+julia&gt; X = TS(randn(252, 4))
+252x4 TS{Float64,Dates.Date}: 2018-06-16 to 2019-02-22
+
+Index       A        B        C        D
+2018-06-16  1.1033   -0.1347  -1.0901  0.1049
+2018-06-17  1.4482   -1.003   0.8088   0.2953
+2018-06-18  -0.2407  -1.2144  0.9074   2.1053
+2018-06-19  -0.4139  -0.9436  1.2046   1.1806
+2018-06-20  -2.1216  0.3549   -0.6242  -0.2714
+2018-06-21  0.9345   -0.7092  -0.1648  1.5339
+2018-06-22  -1.7915  -0.0962  0.2489   -0.724
+⋮
+2019-02-15  0.334    2.4214   -0.2839  -0.2421
+2019-02-16  -0.9142  -0.2233  0.0315   -0.6255
+2019-02-17  -1.2373  0.4763   -1.8531  -1.4018
+2019-02-18  -1.437   0.1059   0.0035   -1.1027
+2019-02-19  -1.0038  -0.1962  -0.1725  -0.3291
+2019-02-20  1.7633   -1.0447  0.7139   0.7653
+2019-02-21  0.5654   0.3389   -0.0918  1.3421
+2019-02-22  -0.3435  0.3057   0.3874   1.282
+
+julia&gt; filepath = &quot;tmp.csv&quot;
+&quot;tmp.csv&quot;
+
+julia&gt; tswrite(X, filepath)
+
+julia&gt; Y = tsread(filepath)
+252x4 TS{Float64,Dates.Date}: 2018-06-16 to 2019-02-22
+
+Index       A        B        C        D
+2018-06-16  1.1033   -0.1347  -1.0901  0.1049
+2018-06-17  1.4482   -1.003   0.8088   0.2953
+2018-06-18  -0.2407  -1.2144  0.9074   2.1053
+2018-06-19  -0.4139  -0.9436  1.2046   1.1806
+2018-06-20  -2.1216  0.3549   -0.6242  -0.2714
+2018-06-21  0.9345   -0.7092  -0.1648  1.5339
+2018-06-22  -1.7915  -0.0962  0.2489   -0.724
+⋮
+2019-02-15  0.334    2.4214   -0.2839  -0.2421
+2019-02-16  -0.9142  -0.2233  0.0315   -0.6255
+2019-02-17  -1.2373  0.4763   -1.8531  -1.4018
+2019-02-18  -1.437   0.1059   0.0035   -1.1027
+2019-02-19  -1.0038  -0.1962  -0.1725  -0.3291
+2019-02-20  1.7633   -1.0447  0.7139   0.7653
+2019-02-21  0.5654   0.3389   -0.0918  1.3421
+2019-02-22  -0.3435  0.3057   0.3874   1.282
+
+julia&gt; X == Y
+true</code></pre><h2><a class="nav-anchor" id="Yahoo-1" href="#Yahoo-1">Yahoo</a></h2><pre><code class="language-julia-repl">julia&gt; using Temporal
+
+julia&gt; X = yahoo(&quot;FB&quot;)
+1700x6 TS{Float64,Dates.Date}: 2012-05-18 to 2019-02-21
+
+Index       Open    High    Low     Close   AdjClose  Volume
+2012-05-18  42.05   45.0    38.0    38.23   38.23     5.735764e8
+2012-05-21  36.53   36.66   33.0    34.03   34.03     1.681927e8
+2012-05-22  32.61   33.59   30.94   31.0    31.0      1.017866e8
+2012-05-23  31.37   32.5    31.36   32.0    32.0      7.36e7
+2012-05-24  32.95   33.21   31.77   33.03   33.03     5.02372e7
+2012-05-25  32.9    32.95   31.11   31.91   31.91     3.71498e7
+2012-05-29  31.48   31.69   28.65   28.84   28.84     7.80634e7
+⋮
+2019-02-11  167.9   168.3   165.08  165.79  165.79    1.28112e7
+2019-02-12  166.86  168.34  164.5   165.04  165.04    1.62923e7
+2019-02-13  165.38  166.22  163.73  164.07  164.07    1.42051e7
+2019-02-14  163.19  164.87  162.25  163.95  163.95    1.27552e7
+2019-02-15  164.51  164.7   160.86  162.5   162.5     1.55044e7
+2019-02-19  160.5   164.15  160.33  162.29  162.29    1.43454e7
+2019-02-20  162.25  163.72  161.25  162.56  162.56    1.17707e7
+2019-02-21  161.93  162.24  159.59  160.04  160.04    1.55469e7</code></pre><h2><a class="nav-anchor" id="Quandl-1" href="#Quandl-1">Quandl</a></h2><pre><code class="language-julia-repl">julia&gt; using Temporal
+
+julia&gt; X = quandl(&quot;CHRIS/CME_CL1&quot;, from=&quot;2010-01-01&quot;)
+2302x8 TS{Float64,Dates.Date}: 2010-01-04 to 2019-02-21
+
+Index       Open    High    Low     Last    Change  Settle  Volume      PreviousDayOpenInterest
+2010-01-04  79.63   81.79   79.63   81.51   NaN     81.51   263542.0    290352.0
+2010-01-05  81.77   81.77   81.77   81.77   NaN     81.77   258887.0    280580.0
+2010-01-06  81.43   83.52   80.85   83.18   NaN     83.18   370059.0    275043.0
+2010-01-07  83.2    83.36   82.26   82.66   NaN     82.66   246632.0    262309.0
+2010-01-08  82.65   83.47   81.8    82.75   NaN     82.75   310377.0    250371.0
+2010-01-11  82.88   83.95   81.96   82.52   NaN     82.52   296304.0    226210.0
+2010-01-12  82.07   82.34   79.91   80.79   NaN     80.79   333866.0    189671.0
+⋮
+2019-02-11  52.66   52.78   51.23   52.45   0.31    52.41   728941.0    318986.0
+2019-02-12  52.47   54.05   52.29   53.34   0.69    53.1    699203.0    264681.0
+2019-02-13  53.35   54.6    53.27   53.95   0.8     53.9    694106.0    223779.0
+2019-02-14  53.96   54.68   53.08   54.47   0.51    54.41   615056.0    163621.0
+2019-02-15  54.48   55.87   54.24   55.79   1.18    55.59   271828.0    109346.0
+2019-02-19  55.78   56.33   55.29   56.09   0.5     56.09   151828.0    74706.0
+2019-02-20  55.94   57.55   55.48   56.9    0.83    56.92   23631.0     29785.0
+2019-02-21  57.24   57.61   56.64   56.84   0.2     56.96   543531.0    407691.0</code></pre><footer><hr/><a class="previous" href="../calculation/"><span class="direction">Previous</span><span class="title">Calculation</span></a><a class="next" href="../indexing/"><span class="direction">Next</span><span class="title">Indexing</span></a></footer></article></body></html>

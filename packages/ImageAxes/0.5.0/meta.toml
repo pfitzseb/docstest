@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "ImageAxes"
+owner = "JuliaImages"
+version = "0.5.0"
+description = "Julia package for giving \"meaning\" to the axes of an image"
+stargazers_count = "1"
+url = "https://github.com/JuliaImages/ImageAxes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "72"
+[[contributors]]
+name = "RalphAS"
+contributions = "6"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"

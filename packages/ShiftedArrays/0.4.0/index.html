@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ShiftedArrays.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ShiftedArrays.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Shifted-Arrays-1">Shifted Arrays</a></li><li><a class="toctext" href="#Shifting-the-data-1">Shifting the data</a></li><li><a class="toctext" href="#Shifting-the-data-circularly-1">Shifting the data circularly</a></li><li><a class="toctext" href="#Reducing-your-data-1">Reducing your data</a></li><li><a class="toctext" href="#Collecting-a-vector-of-ShiftedArrays-into-an-(Offset)Array-1">Collecting a vector of ShiftedArrays into an (Offset)Array</a></li><li><a class="toctext" href="#Warning-1">Warning</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ShiftedArrays-1" href="#ShiftedArrays-1">ShiftedArrays</a></h1><p><a href="https://travis-ci.org/piever/ShiftedArrays.jl"><img src="https://travis-ci.org/piever/ShiftedArrays.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/piever/ShiftedArrays.jl?branch=master"><img src="http://codecov.io/github/piever/ShiftedArrays.jl/coverage.svg?branch=master" alt="codecov.io"/></a> <a href="http://pkg.julialang.org/?pkg=ShiftedArrays"><img src="http://pkg.julialang.org/badges/ShiftedArrays_0.6.svg" alt="ShiftedArrays"/></a> <a href="http://pkg.julialang.org/?pkg=ShiftedArrays"><img src="http://pkg.julialang.org/badges/ShiftedArrays_0.7.svg" alt="ShiftedArrays"/></a></p><p>Implementation of shifted arrays.</p><h2><a class="nav-anchor" id="Shifted-Arrays-1" href="#Shifted-Arrays-1">Shifted Arrays</a></h2><p>A <code>ShiftedArray</code> is a lazy view of an Array, shifted on some or all of his indexing dimensions by some constant values.</p><pre><code class="language-julia">julia&gt; v = reshape(1:16, 4, 4)
+4×4 Base.ReshapedArray{Int64,2,UnitRange{Int64},Tuple{}}:
+ 1  5   9  13
+ 2  6  10  14
+ 3  7  11  15
+ 4  8  12  16
+
+ julia&gt; s = ShiftedArray(v, (2, 0))
+ 4×4 ShiftedArrays.ShiftedArray{Int64,2,Base.ReshapedArray{Int64,2,UnitRange{Int64},Tuple{}}}:
+   missing   missing    missing    missing
+   missing   missing    missing    missing
+  1         5          9         13       
+  2         6         10         14  </code></pre><p>The parent Array as well as the amount of shifting can be recovered with <code>parent</code> and <code>shifts</code> respectively.</p><pre><code class="language-julia">julia&gt; parent(s)
+4×4 Base.ReshapedArray{Int64,2,UnitRange{Int64},Tuple{}}:
+ 1  5   9  13
+ 2  6  10  14
+ 3  7  11  15
+ 4  8  12  16
+
+julia&gt; shifts(s)
+(2, 0)</code></pre><p><code>shifts</code> returns a <code>Tuple</code>, where the n-th element corresponds to the shift on the n-th dimension of the parent <code>Array</code>.</p><p>Use <code>copy</code> to collect the shifted data into an <code>Array</code>:</p><pre><code class="language-julia">julia&gt; copy(s)
+4×4 Array{Union{Int64, Missings.Missing},2}:
+  missing   missing    missing    missing
+  missing   missing    missing    missing
+ 1         5          9         13       
+ 2         6         10         14   </code></pre><p>If you pass an integer, it will shift in the first dimension:</p><pre><code class="language-julia">julia&gt; ShiftedArray(v, 1)
+4×4 ShiftedArrays.ShiftedArray{Int64,2,Base.ReshapedArray{Int64,2,UnitRange{Int64},Tuple{}}}:
+  missing   missing    missing    missing
+ 1         5          9         13
+ 2         6         10         14
+ 3         7         11         15</code></pre><p>A custom default value (other than <code>missing</code>) can be provided with the <code>default</code> keyword:</p><pre><code class="language-julia">julia&gt; ShiftedArray([1.2, 3.1, 4.5], 1, default = NaN)
+3-element ShiftedArrays.ShiftedArray{Float64,Float64,1,Array{Float64,1}}:
+ NaN
+   1.2
+   3.1</code></pre><h3><a class="nav-anchor" id="Out-of-bound-indexes-1" href="#Out-of-bound-indexes-1">Out of bound indexes</a></h3><p>The bound check is performed only on the parent <code>Array</code>, not on the <code>ShiftedArray</code>, so for example:</p><pre><code class="language-julia">julia&gt; ShiftedArray([1.2, 3.1, 4.5], 1, default = NaN)[-2:3]
+6-element Array{Float64,1}:
+ NaN
+ NaN
+ NaN
+ NaN
+   1.2
+   3.1</code></pre><h2><a class="nav-anchor" id="Shifting-the-data-1" href="#Shifting-the-data-1">Shifting the data</a></h2><p>Using the <code>ShiftedArray</code> type, this package provides two operations for lazily shifting vectors: <code>lag</code> and <code>lead</code>.</p><pre><code class="language-julia">julia&gt; v = [1, 3, 5, 4];
+
+julia&gt; lag(v)
+4-element ShiftedArrays.ShiftedArray{Int64,1,Array{Int64,1}}:
+  missing
+ 1       
+ 3       
+ 5       
+
+julia&gt; v .- lag(v) # compute difference from previous element without unnecessary allocations
+4-element Array{Any,1}:
+   missing
+  2       
+  2       
+ -1       
+
+julia&gt; s = lag(v, 2) # shift by more than one element
+4-element ShiftedArrays.ShiftedArray{Int64,1,Array{Int64,1}}:
+  missing
+  missing
+ 1       
+ 3</code></pre><p><code>lead</code> is the analogous of <code>lag</code> but shifts in the opposite direction:</p><pre><code class="language-julia">julia&gt; v = [1, 3, 5, 4];
+
+julia&gt; lead(v)
+4-element ShiftedArrays.ShiftedArray{Int64,1,Array{Int64,1}}:
+ 3       
+ 5       
+ 4       
+  missing</code></pre><h2><a class="nav-anchor" id="Shifting-the-data-circularly-1" href="#Shifting-the-data-circularly-1">Shifting the data circularly</a></h2><p>Julia Base provides a function <code>circshift</code> to shift the data circularly. However this function creates a copy of the vector, which may be unnecessary if the rotated vector is to be used only once. This package provides the <code>CircShiftedArray</code> type, which is a lazy view of an array shifted on some or all of his indexing dimensions by some constant values.</p><p>Our implementation of <code>circshift</code> relies on them to avoid copying:</p><pre><code class="language-julia">julia&gt; w = reshape(1:16, 4, 4);
+
+julia&gt; s = ShiftedArrays.circshift(w, (1, -1))
+4×4 ShiftedArrays.CircShiftedArray{Int64,2,Base.ReshapedArray{Int64,2,UnitRange{Int64},Tuple{}}}:
+ 8  12  16  4
+ 5   9  13  1
+ 6  10  14  2
+ 7  11  15  3</code></pre><p>As usual, you can <code>copy</code> the result to have a normal <code>Array</code>:</p><pre><code class="language-julia">julia&gt; copy(s)
+4×4 Array{Int64,2}:
+ 8  12  16  4
+ 5   9  13  1
+ 6  10  14  2
+ 7  11  15  3</code></pre><h2><a class="nav-anchor" id="Reducing-your-data-1" href="#Reducing-your-data-1">Reducing your data</a></h2><p>A common pattern, when working with a time dependent variable is to align all vectors on important events and then compute some relevant summary functions (<code>sum</code>, <code>mean</code>, <code>std</code>, etc) or reduce the data using a binary function (<code>+</code>, <code>*</code>, etc...).</p><p>Let&#39;s say our data is the vector:</p><pre><code class="language-julia">data = [1, 3, 5, 6, 7, 9, 16, 2, 3, 4, 7]</code></pre><p>and our relevant events happen at times:</p><pre><code class="language-julia">times = [2, 7, 9]</code></pre><p>Then we should first compute the list of <code>ShiftedArrays</code>:</p><pre><code class="language-julia">julia&gt; ss = ShiftedArray.((data,), .-times) # You need to subtract the index to center around times
+3-element Array{ShiftedArrays.ShiftedArray{Int64,1,Array{Int64,1}},1}:
+ Union{Int64, Missings.Missing}[5, 6, 7, 9, 16, 2, 3, 4, 7, missing, missing]                                         
+ Union{Int64, Missings.Missing}[2, 3, 4, 7, missing, missing, missing, missing, missing, missing, missing]            
+ Union{Int64, Missings.Missing}[4, 7, missing, missing, missing, missing, missing, missing, missing, missing, missing]</code></pre><p>Then to compute sum of the values of <code>data</code> in a range of <code>-1:2</code> aligned around <code>times</code>, we can simply do:</p><pre><code class="language-julia">julia&gt; reduce(+, ss, -1:2)
+4-element Array{Int64,1}:
+ 12
+ 22
+ 11
+ 16</code></pre><p><code>mapreduce</code> allows applying a function before the reducing operator. For example, to compute the sum of squares we&#39;d d:</p><pre><code class="language-julia">julia&gt; mapreduce(i-&gt;i^2, +, ss, -1:2)
+4-element Array{Int64,1}:
+  86
+ 274
+  45
+  94</code></pre><p>Vectorial summary functions (<code>mean</code>, <code>std</code>) can also be used, provided they accept an iterator as argument, example:</p><pre><code class="language-julia">julia&gt; reduce_vec(std, ss, -1:2)
+4-element Array{Float64,1}:
+ 4.3589
+ 7.50555
+ 1.52753
+ 2.08167</code></pre><p>As before, <code>mapreduce_vec</code> allows passing a preprocessing function before reducing, for example to compute the mean of the squares, simply run:</p><pre><code class="language-julia">julia&gt; mapreduce_vec(i-&gt;i^2, mean, ss, -1:2)
+4-element Array{Float64,1}:
+ 28.6667
+ 91.3333
+ 15.0   
+ 31.3333</code></pre><h3><a class="nav-anchor" id="Filtering-1" href="#Filtering-1">Filtering</a></h3><p>To exclude some of the data before reducing it (<code>missing</code> is excluded by default, but maybe you want to filter for <code>isfinite</code> or <code>!isnan</code>) use the <code>filter</code> keyword:</p><pre><code class="language-julia">mapreduce_vec(f, g, s, range, filter = isfinite)</code></pre><h2><a class="nav-anchor" id="Collecting-a-vector-of-ShiftedArrays-into-an-(Offset)Array-1" href="#Collecting-a-vector-of-ShiftedArrays-into-an-(Offset)Array-1">Collecting a vector of ShiftedArrays into an (Offset)Array</a></h2><p>To collect a <code>Vector</code> of <code>ShiftedArrays</code> into a normal <code>Array</code>, simply:</p><pre><code class="language-julia">ShiftedArray.to_array(s, inds...)</code></pre><p>where you need as many <code>inds</code> as the dimensions of your <code>ShiftedArrays</code>. The output <code>Array</code> first few dimensions will be indexed by <code>inds</code> (though starting from <code>1</code>) and the last one will correspond to the index of the <code>ShiftedArray</code> within the <code>Array</code> of <code>ShiftedArrays</code>.</p><p>Similarly, to collect a <code>Vector</code> of <code>ShiftedArrays</code> into an <code>OffseyArray</code> (if you want to preserve the <code>inds</code> as offset indices), simply:</p><pre><code class="language-julia">ShiftedArray.to_offsetarray(s, inds...)</code></pre><p>The output <code>OffsetArray</code> first few dimensions will be indexed by <code>inds</code> and the last one will correspond to the index of the <code>ShiftedArray</code> within the <code>Array</code> of <code>ShiftedArrays</code>.</p><h2><a class="nav-anchor" id="Warning-1" href="#Warning-1">Warning</a></h2><p>This package uses <code>Missings</code> for missing data. <code>Missings</code> are known to be inefficient in Julia 0.6, but should work better in Julia 1.0.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

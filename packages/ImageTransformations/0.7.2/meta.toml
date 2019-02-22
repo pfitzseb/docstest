@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "ImageTransformations"
+owner = "JuliaImages"
+version = "0.7.2"
+description = "Geometric transformations on images for Julia"
+stargazers_count = "13"
+url = "https://github.com/JuliaImages/ImageTransformations.jl.git"
+installs = true
+tags = ["julia", "image-processing", "image-transformations"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "44"
+[[contributors]]
+name = "timholy"
+contributions = "42"
+[[contributors]]
+name = "RalphAS"
+contributions = "6"
+[[contributors]]
+name = "johnnychen94"
+contributions = "2"
+[[contributors]]
+name = "andyferris"
+contributions = "1"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

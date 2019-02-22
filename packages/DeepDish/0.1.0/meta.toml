@@ -1,0 +1,7 @@
+name = "DeepDish"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/portugueslab/DeepDish.jl.git"
+version = "0.1.0"
+description = "A simple package to load HDF5 files saved by the DeepDish python library in Julia"

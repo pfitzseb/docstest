@@ -1,0 +1,99 @@
+license_url = ""
+doctype = "default"
+name = "Calculus"
+owner = "JuliaMath"
+version = "0.4.1"
+description = "Calculus functions in Julia"
+stargazers_count = "123"
+url = "https://github.com/JuliaMath/Calculus.jl.git"
+installs = true
+tags = ["julia", "calculus"]
+license = "Other"
+
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "58"
+[[contributors]]
+name = "mlubin"
+contributions = "28"
+[[contributors]]
+name = "magistere"
+contributions = "25"
+[[contributors]]
+name = "powerdistribution"
+contributions = "9"
+[[contributors]]
+name = "yuyichao"
+contributions = "8"
+[[contributors]]
+name = "jrevels"
+contributions = "7"
+[[contributors]]
+name = "ivarne"
+contributions = "7"
+[[contributors]]
+name = "jakeconnor"
+contributions = "5"
+[[contributors]]
+name = "eriktaubeneck"
+contributions = "4"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "2"
+[[contributors]]
+name = "rgiordan"
+contributions = "2"
+[[contributors]]
+name = "tanmaykm"
+contributions = "2"
+[[contributors]]
+name = "giordano"
+contributions = "2"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "fcard"
+contributions = "1"
+[[contributors]]
+name = "Godisemo"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jeff-regier"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "johanbluecreek"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"

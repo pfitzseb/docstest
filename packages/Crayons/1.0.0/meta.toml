@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Crayons"
+owner = "KristofferC"
+version = "1.0.0"
+description = "Colored and styled strings for terminals."
+stargazers_count = "39"
+url = "https://github.com/KristofferC/Crayons.jl.git"
+installs = true
+tags = ["ansi-escape-codes", "terminal", "colors"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "39"
+[[contributors]]
+name = "NOTtheMessiah"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

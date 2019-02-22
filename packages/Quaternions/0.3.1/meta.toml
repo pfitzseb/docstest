@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "Quaternions"
+owner = "JuliaGeometry"
+version = "0.3.1"
+description = "A Julia module with quaternion and dual-quaternion functionality"
+stargazers_count = "33"
+url = "https://github.com/JuliaGeometry/Quaternions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "16"
+[[contributors]]
+name = "keesvp"
+contributions = "10"
+[[contributors]]
+name = "stuinzuri"
+contributions = "6"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "4"
+[[contributors]]
+name = "jw3126"
+contributions = "3"
+[[contributors]]
+name = "adambrewster"
+contributions = "1"
+[[contributors]]
+name = "JanWeidnerPTW"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"

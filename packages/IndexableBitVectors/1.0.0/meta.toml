@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "IndexableBitVectors"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Fully indexable dictionaries - access/rank/select operations"
+stargazers_count = "6"
+url = "https://github.com/BioJulia/IndexableBitVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "91"
+[[contributors]]
+name = "dcjones"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

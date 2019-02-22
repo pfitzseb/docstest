@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "BulkSMS"
+owner = "scls19fr"
+version = "0.0.1"
+description = "A Julia package to send SMS (Short Message Service) using BulkSMS API https://scls19fr.github.io/BulkSMS.jl/dev"
+stargazers_count = "0"
+url = "https://github.com/scls19fr/BulkSMS.jl.git"
+installs = true
+tags = ["julia-language", "bulk-sms", "short-messaging-service", "notifications"]
+license = "Other"
+
+[[contributors]]
+name = "scls19fr"
+contributions = "22"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

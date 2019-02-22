@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "real"
+name = "DataStreams"
+owner = "JuliaData"
+version = "0.4.1"
+description = "A fast, generic framework for transferring table-like data structures in Julia"
+stargazers_count = "59"
+url = "https://github.com/JuliaData/DataStreams.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "138"
+[[contributors]]
+name = "iamed2"
+contributions = "9"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "felipenoris"
+contributions = "4"
+[[contributors]]
+name = "omus"
+contributions = "3"
+[[contributors]]
+name = "alyst"
+contributions = "2"
+[[contributors]]
+name = "nicoleepp"
+contributions = "2"
+[[contributors]]
+name = "davidagold"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "blakeriley"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

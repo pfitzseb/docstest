@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · FoundationDB.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>FoundationDB.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="FoundationDB-Julia-Client-1" href="#FoundationDB-Julia-Client-1">FoundationDB Julia Client</a></h1><p><a href="https://travis-ci.org/tanmaykm/FoundationDB.jl"><img src="https://travis-ci.org/tanmaykm/FoundationDB.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/tanmaykm/FoundationDB.jl?branch=master"><img src="https://coveralls.io/repos/tanmaykm/FoundationDB.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://codecov.io/github/tanmaykm/FoundationDB.jl?branch=master"><img src="http://codecov.io/github/tanmaykm/FoundationDB.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>The current implementation covers all of the C-APIs, and provides an easy to use Julia API layer over it for simple key-value pairs.</p><p>The Julia APIs are quite easy to follow, with this example:</p><pre><code class="language-none">using FoundationDB
+
+open(FDBCluster()) do cluster                        # Read cluster configuration
+    open(FDBDatabase(cluster)) do db                 # Open the database
+        key = UInt8[0,1,2]                           # This is a key, and ...
+        val = UInt8[9, 9, 9]                         # this is a value. Both are byte arrays.
+        open(FDBTransaction(db)) do tran             # Start a transaction
+            @test clearkey(tran, key) == nothing     # Delete a key if present
+            @test getval(tran, key) == nothing       # Get value for a key (nothing if not present)
+            @test setval(tran, key, val) == nothing  # Set value for a key
+            @test getval(tran, key) == val           # We get the value, once it has been set
+            @test commit(tran)                       # Commit changes we made in our snapshot
+            @test_throws FDBError commit(tran)       # We can only commit once.
+        end
+
+        open(FDBTransaction(db)) do tran             # Open a new transaction 
+            @test clearkey(tran, key) == nothing     # Delete a key
+            @test getval(tran, key) == nothing
+        end                                          # Transactions are auto-committed by default!
+                                                     # And also retried automatically when possible
+
+        open(FDBTransaction(db)) do tran             # Need a transaction even for read operation
+            @test getval(tran, key) == nothing
+        end                                          # Reads don&#39;t have to be committed
+    end
+end</code></pre><p>Note: The Julia implementation makes use of Julia threading APIs. Make sure you have enabled threading and have at least two threads configured for Julia. E.g.:</p><pre><code class="language-none">$&gt; JULIA_NUM_THREADS=2
+$&gt; export JULIA_NUM_THREADS
+$&gt; julia -e &#39;using Pkg; Pkg.test(&quot;FoundationDB&quot;)&#39;</code></pre><footer><hr/></footer></article></body></html>

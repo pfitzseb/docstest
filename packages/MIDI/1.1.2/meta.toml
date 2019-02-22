@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MIDI"
+owner = "JuliaMusic"
+version = "1.1.2"
+description = "A Julia library for handling MIDI files"
+stargazers_count = "14"
+url = "https://github.com/JuliaMusic/MIDI.jl.git"
+installs = true
+tags = ["midi", "audio", "interface", "julia", "notes"]
+license = "MIT License"
+
+[[contributors]]
+name = "Datseris"
+contributions = "142"
+[[contributors]]
+name = "JoelHobson"
+contributions = "97"
+[[contributors]]
+name = "ljahn"
+contributions = "11"
+[[contributors]]
+name = "yurivish"
+contributions = "9"
+[[contributors]]
+name = "chfin"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "dumptruckman"
+contributions = "1"
+[[contributors]]
+name = "Kevin-Mattheus-Moerman"
+contributions = "1"
+[[contributors]]
+name = "r9y9"
+contributions = "1"
+[[contributors]]
+name = "TravisBarryDick"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "GraphIO"
+owner = "JuliaGraphs"
+version = "0.4.0"
+description = "Graph IO functionality for various formats."
+stargazers_count = "10"
+url = "https://github.com/JuliaGraphs/GraphIO.jl.git"
+installs = true
+tags = ["graphs", "lightgraphs", "persistence", "save", "load", "read", "write"]
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "38"
+[[contributors]]
+name = "simonschoelly"
+contributions = "11"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

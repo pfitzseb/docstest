@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "VT100"
+owner = "Keno"
+version = "0.3.2"
+description = "Terminal Emulation for terminal UI verification"
+stargazers_count = "6"
+url = "https://github.com/Keno/VT100.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "42"
+[[contributors]]
+name = "abhijithch"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "jpsamaroo"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "shashi"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

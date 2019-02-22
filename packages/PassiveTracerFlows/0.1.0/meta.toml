@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "PassiveTracerFlows"
+owner = "FourierFlows"
+version = "0.1.0"
+description = "Passive tracer dynamics pseudospectral solvers with Julia and FourierFlows.jl."
+stargazers_count = "2"
+url = "https://github.com/FourierFlows/PassiveTracerFlows.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "navidcy"
+contributions = "28"
+[[contributors]]
+name = "glwagner"
+contributions = "4"

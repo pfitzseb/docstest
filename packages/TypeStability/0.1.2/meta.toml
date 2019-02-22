@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TypeStability"
+owner = "Collegeville"
+version = "0.1.2"
+description = "Automates checking type stability of Julia functions"
+stargazers_count = "3"
+url = "https://github.com/Collegeville/TypeStability.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "neil-lindquist"
+contributions = "17"
+[[contributors]]
+name = "username12"
+contributions = "5"
+[[contributors]]
+name = "garrison"
+contributions = "1"

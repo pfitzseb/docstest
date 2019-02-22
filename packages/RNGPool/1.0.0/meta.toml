@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RNGPool"
+owner = "awllee"
+version = "1.0.0"
+description = "A pool of random number generators for multi-threaded applications"
+stargazers_count = "0"
+url = "https://github.com/awllee/RNGPool.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "awllee"
+contributions = "15"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "StatProfilerHTML"
+owner = "tkluck"
+version = "0.4.0"
+description = "Show Julia profiling data in an explorable HTML page"
+stargazers_count = "36"
+url = "https://github.com/tkluck/StatProfilerHTML.jl.git"
+installs = true
+tags = ["profiling", "julia", "visualization", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "mbarbon"
+contributions = "502"
+[[contributors]]
+name = "tkluck"
+contributions = "61"
+[[contributors]]
+name = "tsee"
+contributions = "49"
+[[contributors]]
+name = "NHDaly"
+contributions = "3"
+[[contributors]]
+name = "GlenHertz"
+contributions = "1"
+[[contributors]]
+name = "mickeyn"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

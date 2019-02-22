@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqPDEBase"
+owner = "JuliaDiffEq"
+version = "0.4.0"
+description = "Library for common tools for solving PDEs with FDM, FVM, and FEM methods"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiffEq/DiffEqPDEBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "48"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

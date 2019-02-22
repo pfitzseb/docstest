@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleGF2"
+owner = "scheinerman"
+version = "0.0.1"
+description = "An implementation of arithmetic in GF(2)"
+stargazers_count = "0"
+url = "https://github.com/scheinerman/SimpleGF2.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "24"

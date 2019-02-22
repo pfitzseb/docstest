@@ -1,0 +1,63 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "QuadGK"
+owner = "JuliaMath"
+version = "2.0.3"
+description = "adaptive 1d numerical Gauss–Kronrod integration in Julia"
+stargazers_count = "37"
+url = "https://github.com/JuliaMath/QuadGK.jl.git"
+installs = true
+tags = ["julia", "math", "integration"]
+license = "MIT License"
+
+[[contributors]]
+name = "ararslan"
+contributions = "18"
+[[contributors]]
+name = "stevengj"
+contributions = "12"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "3"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "ajkeller34"
+contributions = "2"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "2"
+[[contributors]]
+name = "daanhb"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "Roger-luo"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

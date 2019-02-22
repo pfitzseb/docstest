@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "ImageMagick"
+owner = "JuliaIO"
+version = "0.7.1"
+description = "Thin Wrapper for the library ImageMagick"
+stargazers_count = "15"
+url = "https://github.com/JuliaIO/ImageMagick.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "100"
+[[contributors]]
+name = "timholy"
+contributions = "92"
+[[contributors]]
+name = "bjarthur"
+contributions = "19"
+[[contributors]]
+name = "musm"
+contributions = "13"
+[[contributors]]
+name = "Allardvm"
+contributions = "9"
+[[contributors]]
+name = "RalphAS"
+contributions = "6"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "sglyon"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "benmoran"
+contributions = "1"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hpoit"
+contributions = "1"
+[[contributors]]
+name = "oschulz"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tbreloff"
+contributions = "1"
+[[contributors]]
+name = "damiendr"
+contributions = "1"
+[[contributors]]
+name = "robbystk"
+contributions = "1"

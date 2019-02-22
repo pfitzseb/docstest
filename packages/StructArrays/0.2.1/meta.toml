@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "StructArrays"
+owner = "piever"
+version = "0.2.1"
+description = "Efficient implementation of struct arrays in Julia"
+stargazers_count = "27"
+url = "https://github.com/piever/StructArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "62"
+[[contributors]]
+name = "KristofferC"
+contributions = "7"

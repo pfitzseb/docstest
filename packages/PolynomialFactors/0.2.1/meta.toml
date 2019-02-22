@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "PolynomialFactors"
+owner = "jverzani"
+version = "0.2.1"
+description = "Julia code for factorization of polynomials over the integers"
+stargazers_count = "1"
+url = "https://github.com/jverzani/PolynomialFactors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jverzani"
+contributions = "43"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

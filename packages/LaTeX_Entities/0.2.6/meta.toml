@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LaTeX_Entities"
+owner = "JuliaString"
+version = "0.2.6"
+description = "Support for using LaTeX entities to map to/from Unicode characters"
+stargazers_count = "2"
+url = "https://github.com/JuliaString/LaTeX_Entities.jl.git"
+installs = true
+tags = ["latex", "character", "unicode-characters", "latex-entities"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "70"
+[[contributors]]
+name = "maartenheremans"
+contributions = "2"

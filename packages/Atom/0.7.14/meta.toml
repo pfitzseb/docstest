@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "Atom"
+owner = "JunoLab"
+version = "0.7.14"
+description = "Julia Client for Atom"
+stargazers_count = "38"
+url = "https://github.com/JunoLab/Atom.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pfitzseb"
+contributions = "394"
+[[contributors]]
+name = "MikeInnes"
+contributions = "296"
+[[contributors]]
+name = "TsurHerman"
+contributions = "4"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "sglyon"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "2"
+[[contributors]]
+name = "nilshg"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "jkroso"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "1"
+[[contributors]]
+name = "tlienart"
+contributions = "1"

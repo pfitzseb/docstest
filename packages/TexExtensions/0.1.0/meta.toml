@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "TexExtensions"
+owner = "Keno"
+version = "0.1.0"
+description = "Tex Pretty printing of Julia Base types. "
+stargazers_count = "6"
+url = "https://github.com/Keno/TexExtensions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "11"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

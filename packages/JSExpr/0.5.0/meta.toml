@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "JSExpr"
+owner = "JuliaGizmos"
+version = "0.5.0"
+description = "Translate Julia to JavaScript"
+stargazers_count = "12"
+url = "https://github.com/JuliaGizmos/JSExpr.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "8"
+[[contributors]]
+name = "piever"
+contributions = "6"
+[[contributors]]
+name = "shashi"
+contributions = "5"
+[[contributors]]
+name = "sglyon"
+contributions = "3"
+[[contributors]]
+name = "MikeInnes"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"

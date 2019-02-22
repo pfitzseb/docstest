@@ -1,0 +1,20 @@
+license_url = ""
+name = "GlobalSearchRegressionGUI"
+owner = "ParallelGSReg"
+version = "0.0.1"
+description = "Global Search Regression GUI"
+stargazers_count = "0"
+url = "https://github.com/ParallelGSReg/GlobalSearchRegressionGUI.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "adanmauri"
+contributions = "38"
+[[contributors]]
+name = "vmari"
+contributions = "29"
+[[contributors]]
+name = "dpanigo"
+contributions = "2"

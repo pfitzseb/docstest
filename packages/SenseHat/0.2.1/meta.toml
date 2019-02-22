@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "SenseHat"
+owner = "JuliaBerry"
+version = "0.2.1"
+description = "Julia package for the Raspberry Pi Sense HAT"
+stargazers_count = "5"
+url = "https://github.com/JuliaBerry/SenseHat.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "23"
+[[contributors]]
+name = "Ellipse0934"
+contributions = "6"
+[[contributors]]
+name = "aviks"
+contributions = "2"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

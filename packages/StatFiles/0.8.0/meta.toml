@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StatFiles"
+owner = "queryverse"
+version = "0.8.0"
+description = "FileIO.jl integration for Stata, SPSS, and SAS files"
+stargazers_count = "7"
+url = "https://github.com/queryverse/StatFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "49"
+[[contributors]]
+name = "TonyLianLong"
+contributions = "4"
+[[contributors]]
+name = "schrimpf"
+contributions = "1"

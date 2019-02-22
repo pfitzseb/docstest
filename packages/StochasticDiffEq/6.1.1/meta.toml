@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "StochasticDiffEq"
+owner = "JuliaDiffEq"
+version = "6.1.1"
+description = "DiffEq solvers for stochastic differential equations"
+stargazers_count = "36"
+url = "https://github.com/JuliaDiffEq/StochasticDiffEq.jl.git"
+installs = true
+tags = ["stochastic-differential-equations", "stochastic", "sde", "sode", "adaptive", "ito", "stratonovich", "stochastic-processes", "noise", "random", "random-differential-equations", "rode", "rde"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "663"
+[[contributors]]
+name = "YingboMa"
+contributions = "50"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "26"
+[[contributors]]
+name = "devmotion"
+contributions = "19"
+[[contributors]]
+name = "onoderat"
+contributions = "8"
+[[contributors]]
+name = "tkf"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "darwindarak"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "Krastanov"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

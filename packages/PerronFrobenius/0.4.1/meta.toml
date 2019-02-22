@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "PerronFrobenius"
+owner = "kahaaga"
+version = "0.4.1"
+description = "Estimating the transfer operator (Perron Frobenius operator) and invariant measures from time series. "
+stargazers_count = "1"
+url = "https://github.com/kahaaga/PerronFrobenius.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "104"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

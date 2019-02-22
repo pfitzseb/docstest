@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "BSON"
+owner = "MikeInnes"
+version = "0.2.1"
+description = ""
+stargazers_count = "49"
+url = "https://github.com/MikeInnes/BSON.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "23"
+[[contributors]]
+name = "richiejp"
+contributions = "6"
+[[contributors]]
+name = "Roboneet"
+contributions = "5"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "zgornel"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "LightGraphsFlows"
+owner = "JuliaGraphs"
+version = "0.3.0"
+description = "Flow algorithms on LightGraphs"
+stargazers_count = "10"
+url = "https://github.com/JuliaGraphs/LightGraphsFlows.jl.git"
+installs = true
+tags = ["flow", "maxflow", "lightgraphs", "graph", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "matbesancon"
+contributions = "32"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "ndinsmore"
+contributions = "1"

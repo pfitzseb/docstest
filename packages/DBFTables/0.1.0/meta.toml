@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DBFTables"
+owner = "JuliaData"
+version = "0.1.0"
+description = "Functions for reading dbf files in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaData/DBFTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "4"
+[[contributors]]
+name = "quinnj"
+contributions = "4"
+[[contributors]]
+name = "cchderrick"
+contributions = "4"

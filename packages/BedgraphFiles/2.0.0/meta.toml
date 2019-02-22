@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "BedgraphFiles"
+owner = "CiaranOMara"
+version = "2.0.0"
+description = "FileIO.jl integration for bedGraph files"
+stargazers_count = "1"
+url = "https://github.com/CiaranOMara/BedgraphFiles.jl.git"
+installs = true
+tags = ["dna", "bedgraph", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "CiaranOMara"
+contributions = "42"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"

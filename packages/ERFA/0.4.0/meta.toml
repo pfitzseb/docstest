@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "ERFA"
+owner = "JuliaAstro"
+version = "0.4.0"
+description = "Julia wrapper for liberfa"
+stargazers_count = "2"
+url = "https://github.com/JuliaAstro/ERFA.jl.git"
+installs = true
+tags = ["julia", "astronomy", "erfa"]
+license = "MIT License"
+
+[[contributors]]
+name = "nirinA"
+contributions = "46"
+[[contributors]]
+name = "helgee"
+contributions = "38"
+[[contributors]]
+name = "kbarbary"
+contributions = "17"
+[[contributors]]
+name = "nolta"
+contributions = "14"
+[[contributors]]
+name = "giordano"
+contributions = "5"
+[[contributors]]
+name = "crbinz"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

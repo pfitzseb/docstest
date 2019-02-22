@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DynamicPolynomials"
+owner = "JuliaAlgebra"
+version = "0.1.3"
+description = "Multivariate polynomials implementation of commutative and non-commutative variables"
+stargazers_count = "10"
+url = "https://github.com/JuliaAlgebra/DynamicPolynomials.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "102"
+[[contributors]]
+name = "saschatimme"
+contributions = "43"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

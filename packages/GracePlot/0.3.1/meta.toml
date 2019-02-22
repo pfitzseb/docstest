@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GracePlot"
+owner = "ma-laforge"
+version = "0.3.1"
+description = "Publication-quality plotting for julia using Grace/xmgrace"
+stargazers_count = "1"
+url = "https://github.com/ma-laforge/GracePlot.jl.git"
+installs = true
+tags = ["grace", "xmgrace", "plotting"]
+license = "MIT License"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "21"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

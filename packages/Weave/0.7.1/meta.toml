@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "Weave"
+owner = "mpastell"
+version = "0.7.1"
+description = "Scientific reports/literate programming for Julia"
+stargazers_count = "237"
+url = "https://github.com/mpastell/Weave.jl.git"
+installs = true
+tags = ["julia", "literate-programming", "reproducible-research", "scientific-reports", "scientific-workflows"]
+license = "Other"
+
+[[contributors]]
+name = "mpastell"
+contributions = "470"
+[[contributors]]
+name = "gragusa"
+contributions = "12"
+[[contributors]]
+name = "wildart"
+contributions = "6"
+[[contributors]]
+name = "dmbates"
+contributions = "6"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "4"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "tpapp"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "sje30"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "tpoisot"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"
+[[contributors]]
+name = "bramtayl"
+contributions = "1"
+[[contributors]]
+name = "schrimpf"
+contributions = "1"

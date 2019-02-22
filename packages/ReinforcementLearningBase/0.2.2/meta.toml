@@ -1,0 +1,7 @@
+name = "ReinforcementLearningBase"
+stargazers_count = "3"
+doctype = "default"
+installs = true
+url = "https://github.com/JuliaReinforcementLearning/ReinforcementLearningBase.jl.git"
+version = "0.2.2"
+description = ""

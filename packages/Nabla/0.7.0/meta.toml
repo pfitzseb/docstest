@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "Nabla"
+owner = "invenia"
+version = "0.7.0"
+description = ""
+stargazers_count = "24"
+url = "https://github.com/invenia/Nabla.jl.git"
+installs = true
+tags = ["julia", "autodiff", "automatic-differentiation", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "willtebbutt"
+contributions = "98"
+[[contributors]]
+name = "iamed2"
+contributions = "33"
+[[contributors]]
+name = "ararslan"
+contributions = "19"
+[[contributors]]
+name = "wesselb"
+contributions = "13"
+[[contributors]]
+name = "eperim"
+contributions = "7"
+[[contributors]]
+name = "rofinn"
+contributions = "1"

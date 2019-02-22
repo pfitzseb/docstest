@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Bijectors"
+owner = "TuringLang"
+version = "0.2.6"
+description = "Automatic transformations for constrained random variables. "
+stargazers_count = "9"
+url = "https://github.com/TuringLang/Bijectors.jl.git"
+installs = true
+tags = ["turing-language", "mcmc-sampler", "bayesian-inference", "transforms"]
+license = "MIT License"
+
+[[contributors]]
+name = "mohamed82008"
+contributions = "15"
+[[contributors]]
+name = "yebai"
+contributions = "11"

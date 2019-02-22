@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "GeoStatsImages"
+owner = "juliohm"
+version = "0.3.0"
+description = "Training images for geostastical simulation"
+stargazers_count = "7"
+url = "https://github.com/juliohm/GeoStatsImages.jl.git"
+installs = true
+tags = ["geostatistics", "dataset", "images", "multiple-point-statistics"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "89"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Codecs"
+owner = "dcjones"
+version = "0.5.0"
+description = "Common data encoding algorithms"
+stargazers_count = "7"
+url = "https://github.com/dcjones/Codecs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "13"
+[[contributors]]
+name = "dcjones"
+contributions = "12"
+[[contributors]]
+name = "randyzwitch"
+contributions = "11"
+[[contributors]]
+name = "abhijithch"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "mzaffalon"
+contributions = "3"
+[[contributors]]
+name = "tanmaykm"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"

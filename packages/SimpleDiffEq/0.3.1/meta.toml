@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SimpleDiffEq"
+owner = "JuliaDiffEq"
+version = "0.3.1"
+description = "Simple differential equation solvers in native Julia"
+stargazers_count = "5"
+url = "https://github.com/JuliaDiffEq/SimpleDiffEq.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "42"
+[[contributors]]
+name = "Datseris"
+contributions = "40"
+[[contributors]]
+name = "kanav99"
+contributions = "4"

@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "GraphPlot"
+owner = "JuliaGraphs"
+version = "0.3.1"
+description = "Graph visualization for Julia."
+stargazers_count = "56"
+url = "https://github.com/JuliaGraphs/GraphPlot.jl.git"
+installs = true
+tags = ["graph-visualization"]
+license = "Other"
+
+[[contributors]]
+name = "afternone"
+contributions = "132"
+[[contributors]]
+name = "sbromberger"
+contributions = "24"
+[[contributors]]
+name = "juliohm"
+contributions = "7"
+[[contributors]]
+name = "simonschoelly"
+contributions = "6"
+[[contributors]]
+name = "stevengj"
+contributions = "4"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "bovine3dom"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "goropikari"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "MetaProgTools"
+owner = "madsjulia"
+version = "0.4.0"
+description = "Meta Programming Tools"
+stargazers_count = "0"
+url = "https://github.com/madsjulia/MetaProgTools.jl.git"
+installs = true
+tags = ["mads", "analyses", "julia", "meta-programming", "decision-support", "high-performance-computing"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "25"
+[[contributors]]
+name = "omalled"
+contributions = "13"

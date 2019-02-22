@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "InverseDistanceWeighting"
+owner = "juliohm"
+version = "0.2.0"
+description = "Inverse distance estimation solver for the GeoStats.jl framework"
+stargazers_count = "1"
+url = "https://github.com/juliohm/InverseDistanceWeighting.jl.git"
+installs = true
+tags = ["estimation", "nearest-neighbors", "distance", "weighting", "kdtree"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "37"

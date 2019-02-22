@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CUDAapi"
+owner = "JuliaGPU"
+version = "0.5.4"
+description = "Reusable components for CUDA API development."
+stargazers_count = "5"
+url = "https://github.com/JuliaGPU/CUDAapi.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "maleadt"
+contributions = "198"
+[[contributors]]
+name = "musm"
+contributions = "3"
+[[contributors]]
+name = "bors[bot]"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "una-dinosauria"
+contributions = "2"
+[[contributors]]
+name = "nsmith5"
+contributions = "1"

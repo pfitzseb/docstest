@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "InteractiveFixedEffectModels"
+owner = "matthieugomez"
+version = "0.3.4"
+description = "Interactive Fixed Effect Models — Bai (2009)"
+stargazers_count = "12"
+url = "https://github.com/matthieugomez/InteractiveFixedEffectModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "135"

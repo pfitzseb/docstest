@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "MittagLeffler"
+owner = "jlapeyre"
+version = "0.1.1"
+description = "Mittag-Leffler function"
+stargazers_count = "1"
+url = "https://github.com/jlapeyre/MittagLeffler.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "33"
+[[contributors]]
+name = "moustachio-belvedere"
+contributions = "1"

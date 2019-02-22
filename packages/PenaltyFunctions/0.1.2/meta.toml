@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "PenaltyFunctions"
+owner = "JuliaML"
+version = "0.1.2"
+description = "Julia package of regularization functions for machine learning"
+stargazers_count = "16"
+url = "https://github.com/JuliaML/PenaltyFunctions.jl.git"
+installs = true
+tags = ["julia", "regularization", "machine-learning", "penalties"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "111"
+[[contributors]]
+name = "Evizero"
+contributions = "15"
+[[contributors]]
+name = "ahwillia"
+contributions = "4"
+[[contributors]]
+name = "tbreloff"
+contributions = "4"
+[[contributors]]
+name = "Ayush-iitkgp"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

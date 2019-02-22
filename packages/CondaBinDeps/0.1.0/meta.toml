@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "CondaBinDeps"
+owner = "JuliaPackaging"
+version = "0.1.0"
+description = "Conda BinDeps provider for Julia"
+stargazers_count = "1"
+url = "https://github.com/JuliaPackaging/CondaBinDeps.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Luthaf"
+contributions = "66"
+[[contributors]]
+name = "stevengj"
+contributions = "31"
+[[contributors]]
+name = "isuruf"
+contributions = "31"
+[[contributors]]
+name = "dhoegh"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "oxinabox"
+contributions = "2"
+[[contributors]]
+name = "waldyrious"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "meggart"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

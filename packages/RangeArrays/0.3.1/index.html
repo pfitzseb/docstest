@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · RangeArrays.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>RangeArrays.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="RangeArrays-1" href="#RangeArrays-1">RangeArrays</a></h1><p><a href="https://travis-ci.org/JuliaArrays/RangeArrays.jl"><img src="https://travis-ci.org/JuliaArrays/RangeArrays.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/mbauman/rangearrays-jl"><img src="https://ci.appveyor.com/api/projects/status/nhlhndm60n7p77m3?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaArrays/RangeArrays.jl?branch=master"><img src="https://coveralls.io/repos/github/JuliaArrays/RangeArrays.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><p>The goal of RangeArrays is to provide efficient and convenient array data structures where the columns of the arrays are generated (on the fly) by Ranges.</p><p>Two different types of range matrices are currently supported:</p><ul><li><code>RangeMatrix</code>: makes a vector of ranges behave as a matrix; all ranges must be the same length.</li><li><code>RepeatedRangeMatrix</code>: one range is repeated multiple times at offsets specified in a vector.</li></ul><p>In all cases, indexing is specialized such that it will return an appropriate range or RangeArray if it can.</p><pre><code class="language-jl">julia&gt; R = RangeMatrix(1:5,11:15,-2:2)
+5x3 RangeArrays.RangeMatrix{Int64,Array{UnitRange{Int64},1}}:
+ 1  11  -2
+ 2  12  -1
+ 3  13   0
+ 4  14   1
+ 5  15   2
+
+julia&gt; R[2:3,:]
+2x3 RangeArrays.RangeMatrix{Int64,Array{UnitRange{Int64},1}}:
+ 2  12  -1
+ 3  13   0
+
+julia&gt; RR = RepeatedRangeMatrix(.1:.1:1.0, [0.0,5.0,-20.2,3.3])
+10x4 RangeArrays.RepeatedRangeMatrix{Float64,FloatRange{Float64},Array{Float64,1}}:
+ 0.1  5.1  -20.1  3.4
+ 0.2  5.2  -20.0  3.5
+ 0.3  5.3  -19.9  3.6
+ 0.4  5.4  -19.8  3.7
+ 0.5  5.5  -19.7  3.8
+ 0.6  5.6  -19.6  3.9
+ 0.7  5.7  -19.5  4.0
+ 0.8  5.8  -19.4  4.1
+ 0.9  5.9  -19.3  4.2
+ 1.0  6.0  -19.2  4.3
+
+julia&gt; RR[8:-2:2, end]
+4.1:-0.2:3.5</code></pre><p>There is a similar structure available in <a href="http://github.com/mbauman/RaggedArrays.jl">mbauman/RaggedArrays.jl</a>, which allows for ranges of varying lengths.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

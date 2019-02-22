@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "MIToS"
+owner = "diegozea"
+version = "2.3.3"
+description = "Mutual Information Tools for protein Sequence analysis in Julia"
+stargazers_count = "26"
+url = "https://github.com/diegozea/MIToS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "diegozea"
+contributions = "502"
+[[contributors]]
+name = "Cristinot"
+contributions = "3"
+[[contributors]]
+name = "Elin-"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ellisvalentiner"
+contributions = "1"
+[[contributors]]
+name = "javieriserte"
+contributions = "1"
+[[contributors]]
+name = "cossio"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

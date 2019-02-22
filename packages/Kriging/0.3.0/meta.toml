@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Kriging"
+owner = "madsjulia"
+version = "0.3.0"
+description = "Gaussian process regression"
+stargazers_count = "3"
+url = "https://github.com/madsjulia/Kriging.jl.git"
+installs = true
+tags = ["geostatistics", "kriging", "krige", "gaussian-processes", "spatial-analysis", "variogram", "covariance"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "15"
+[[contributors]]
+name = "omalled"
+contributions = "10"

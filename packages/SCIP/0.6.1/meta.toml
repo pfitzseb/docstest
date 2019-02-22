@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SCIP"
+owner = "SCIP-Interfaces"
+version = "0.6.1"
+description = "Julia interface to SCIP solver"
+stargazers_count = "22"
+url = "https://github.com/SCIP-Interfaces/SCIP.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "leethargo"
+contributions = "366"
+[[contributors]]
+name = "fserra"
+contributions = "18"
+[[contributors]]
+name = "Ayush-iitkgp"
+contributions = "16"
+[[contributors]]
+name = "mlubin"
+contributions = "11"
+[[contributors]]
+name = "matbesancon"
+contributions = "7"
+[[contributors]]
+name = "chkwon"
+contributions = "2"
+[[contributors]]
+name = "YankaiCao"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "TrafficAssignment"
+owner = "chkwon"
+version = "0.5.0"
+description = "Julia package for finding traffic user equilibrium flow"
+stargazers_count = "8"
+url = "https://github.com/chkwon/TrafficAssignment.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "chkwon"
+contributions = "112"
+[[contributors]]
+name = "sbromberger"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

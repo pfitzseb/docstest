@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RegressionTables"
+owner = "jmboehm"
+version = "0.2.0"
+description = "Journal-style regression tables"
+stargazers_count = "27"
+url = "https://github.com/jmboehm/RegressionTables.jl.git"
+installs = true
+tags = ["regression", "economics", "regression-tables"]
+license = "MIT License"
+
+[[contributors]]
+name = "jmboehm"
+contributions = "61"
+[[contributors]]
+name = "matthieugomez"
+contributions = "2"
+[[contributors]]
+name = "Ken-B"
+contributions = "2"

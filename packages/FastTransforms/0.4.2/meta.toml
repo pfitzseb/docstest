@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "FastTransforms"
+owner = "MikaelSlevinsky"
+version = "0.4.2"
+description = "Julia package for fast orthogonal polynomial transforms"
+stargazers_count = "52"
+url = "https://github.com/MikaelSlevinsky/FastTransforms.jl.git"
+installs = true
+tags = ["jacobi", "chebyshev", "padua", "gaunt", "legendre", "julia", "spherical-harmonics", "structured-linear-algebra"]
+license = "Other"
+
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "136"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "82"
+[[contributors]]
+name = "MikeAClarke"
+contributions = "15"
+[[contributors]]
+name = "ajt60gaibb"
+contributions = "8"
+[[contributors]]
+name = "daanhb"
+contributions = "2"
+[[contributors]]
+name = "macd"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

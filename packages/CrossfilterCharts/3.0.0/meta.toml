@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "CrossfilterCharts"
+owner = "tawheeler"
+version = "3.0.0"
+description = "A Julia package for automagical DC.js linked charts in your IJulia notebook"
+stargazers_count = "15"
+url = "https://github.com/tawheeler/CrossfilterCharts.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tawheeler"
+contributions = "89"
+[[contributors]]
+name = "session-id"
+contributions = "49"
+[[contributors]]
+name = "Lil-Liu"
+contributions = "7"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

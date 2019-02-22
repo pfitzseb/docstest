@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "SolidStateDetectors"
+owner = "JuliaHEP"
+version = "0.1.1"
+description = "Solid state detector field and charge drift simulation in Julia"
+stargazers_count = "1"
+url = "https://github.com/JuliaHEP/SolidStateDetectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lmh91"
+contributions = "24"
+[[contributors]]
+name = "oschulz"
+contributions = "8"

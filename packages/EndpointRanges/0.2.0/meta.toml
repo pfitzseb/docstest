@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "EndpointRanges"
+owner = "JuliaArrays"
+version = "0.2.0"
+description = "Julia package for doing arithmetic on endpoints in array indexing"
+stargazers_count = "7"
+url = "https://github.com/JuliaArrays/EndpointRanges.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "21"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

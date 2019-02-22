@@ -1,0 +1,20 @@
+license_url = ""
+name = "Pipe"
+owner = "oxinabox"
+version = "1.1.0"
+description = "An enhancement to julia piping syntax"
+stargazers_count = "24"
+url = "https://github.com/oxinabox/Pipe.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "40"
+[[contributors]]
+name = "FNj"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

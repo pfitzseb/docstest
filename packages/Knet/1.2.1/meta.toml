@@ -1,0 +1,87 @@
+license_url = ""
+doctype = "real"
+name = "Knet"
+owner = "denizyuret"
+version = "1.2.1"
+description = "Koç University deep learning framework."
+stargazers_count = "818"
+url = "https://github.com/denizyuret/Knet.jl.git"
+installs = true
+tags = ["knet", "deep-learning", "julia", "machine-learning", "neural-networks", "data-science"]
+license = "Other"
+
+[[contributors]]
+name = "denizyuret"
+contributions = "2215"
+[[contributors]]
+name = "ilkerkesen"
+contributions = "55"
+[[contributors]]
+name = "cangumeli"
+contributions = "36"
+[[contributors]]
+name = "ozanarkancan"
+contributions = "31"
+[[contributors]]
+name = "EnisBerk"
+contributions = "24"
+[[contributors]]
+name = "eeyrdkl"
+contributions = "20"
+[[contributors]]
+name = "ekinakyurek"
+contributions = "16"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "11"
+[[contributors]]
+name = "maleadt"
+contributions = "9"
+[[contributors]]
+name = "ereday"
+contributions = "5"
+[[contributors]]
+name = "kuruonur1"
+contributions = "4"
+[[contributors]]
+name = "kirnap"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "quaertym"
+contributions = "2"
+[[contributors]]
+name = "ahmetumutdurmus"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "daehyok"
+contributions = "1"
+[[contributors]]
+name = "emreyolcu"
+contributions = "1"
+[[contributors]]
+name = "Hades32"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "rfourquet"
+contributions = "1"
+[[contributors]]
+name = "DoguD"
+contributions = "1"
+[[contributors]]
+name = "melikesofta"
+contributions = "1"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "1"
+[[contributors]]
+name = "undefdev"
+contributions = "1"

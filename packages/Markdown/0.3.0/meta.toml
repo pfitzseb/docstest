@@ -1,0 +1,23 @@
+license_url = ""
+name = "Markdown"
+owner = "JuliaAttic"
+version = "0.3.0"
+description = "Markdown parsing for Julia"
+stargazers_count = "29"
+url = "https://github.com/JuliaAttic/Markdown.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "161"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "5"
+[[contributors]]
+name = "dpo"
+contributions = "1"
+[[contributors]]
+name = "prcastro"
+contributions = "1"

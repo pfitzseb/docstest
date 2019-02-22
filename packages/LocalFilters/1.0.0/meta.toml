@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LocalFilters"
+owner = "emmt"
+version = "1.0.0"
+description = "Multi-dimensional local filters (convolution, mathematical morphology, etc.) for Julia."
+stargazers_count = "3"
+url = "https://github.com/emmt/LocalFilters.jl.git"
+installs = true
+tags = ["multi-dimensional", "convolution", "mathematical-morphology", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "emmt"
+contributions = "94"

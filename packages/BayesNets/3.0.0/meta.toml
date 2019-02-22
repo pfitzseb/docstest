@@ -1,0 +1,81 @@
+license_url = ""
+doctype = "default"
+name = "BayesNets"
+owner = "sisl"
+version = "3.0.0"
+description = "Bayesian Networks for Julia"
+stargazers_count = "75"
+url = "https://github.com/sisl/BayesNets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tawheeler"
+contributions = "170"
+[[contributors]]
+name = "mykelk"
+contributions = "37"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "16"
+[[contributors]]
+name = "tcfuji"
+contributions = "13"
+[[contributors]]
+name = "zsunberg"
+contributions = "12"
+[[contributors]]
+name = "hamzaelsaawy"
+contributions = "10"
+[[contributors]]
+name = "Shushman"
+contributions = "7"
+[[contributors]]
+name = "ermueller2000"
+contributions = "5"
+[[contributors]]
+name = "sbromberger"
+contributions = "4"
+[[contributors]]
+name = "AnthonyPerez"
+contributions = "2"
+[[contributors]]
+name = "hpoit"
+contributions = "2"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "neosado"
+contributions = "2"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "bakkot"
+contributions = "1"
+[[contributors]]
+name = "dressel"
+contributions = "1"
+[[contributors]]
+name = "RatanRSur"
+contributions = "1"
+[[contributors]]
+name = "ShadovvMoon"
+contributions = "1"
+[[contributors]]
+name = "abrahambotros"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"
+[[contributors]]
+name = "gregramel"
+contributions = "1"

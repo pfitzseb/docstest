@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · MLDataPattern.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>MLDataPattern.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.BalancedObs" href="#MLDataPattern.BalancedObs"><code>MLDataPattern.BalancedObs</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">BalancedObs([f], data, [count], [obsdim])</code></pre><p><strong>Description</strong></p><p>Create an iterator that generates <code>count</code> randomly sampled observations from <code>data</code>. In the case <code>count</code> is not provided, it will generate random samples indefinitely.</p><p>In contrast to <a href="#MLDataPattern.RandomObs"><code>RandomObs</code></a>, <code>BalancedObs</code> expects <code>data</code> to be a labeled data container. It uses the label distribution of <code>data</code> to make sure every label has an equal probability to be sampled from.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>f</code></strong> : Optional. A function that should be applied to each   observation individually in order to extract or compute the   target for that observation. This function is only used once   during construction to determine which label each observation   belongs to.</p></li><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a>,   <a href="#StatsBase.nobs"><code>nobs</code></a>, and optionally <a href="@ref"><code>gettargets</code></a> (see   Details for more information).</p></li><li><p><strong><code>count</code></strong> : Optional. The number of randomly sampled   observations that the iterator will generate before stopping.   If omitted, the iterator will generate randomly sampled   observations forever.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Details</strong></p><p>For <code>BalancedObs</code> to work on some data structure, the type of the given variable <code>data</code> must implement the labeled data container interface. See <code>?DataSubset</code> for more info.</p><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia"># load first 55 observations of the iris data as example
+# - 50 observations for &quot;setosa&quot;
+# -  5 observations for &quot;versicolor&quot;
+X, Y = MLDataUtils.load_iris(55)
+
+# go over 100 balanced samples observations in X
+num_versicolor = 0
+for (x,y) in BalancedObs((X,Y), 100) # also: BalancedObs((X,Y), count = 100)
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+    @assert length(x) == 4
+    # count how many times we sample a versicolor observation
+    num_versicolor += y[] == &quot;versicolor&quot; ? 1 : 0
+end
+println(num_versicolor) # around 50
+
+# if no count it provided the iterator will generate samples forever
+for (x,y) in BalancedObs((X,Y))
+    # this loop will never stop unless break is used
+    if true; break; end
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.RandomObs"><code>RandomObs</code></a>, <a href="#LearnBase.targets"><code>targets</code></a>, <a href="#MLDataPattern.RandomBatches"><code>RandomBatches</code></a>, <a href="#MLDataPattern.ObsView"><code>ObsView</code></a>, <a href="#MLDataPattern.BatchView"><code>BatchView</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a>, <a href="#MLDataPattern.BufferGetObs"><code>BufferGetObs</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.BatchView" href="#MLDataPattern.BatchView"><code>MLDataPattern.BatchView</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">BatchView(data, [size|maxsize], [count], [obsdim])</code></pre><p><strong>Description</strong></p><p>Create a view of the given <code>data</code> that represents it as a vector of batches. Each batch will contain an equal amount of observations in them. The number of batches and the batch-size can be specified using (keyword) parameters <code>count</code> and <code>size</code>. In the case that the size of the dataset is not dividable by the specified (or inferred) <code>size</code>, the remaining observations will be ignored with a warning.</p><p>Note that any data access is delayed until <code>getindex</code> is called, and even <code>getindex</code> returns the result of <a href="#LearnBase.datasubset"><code>datasubset</code></a> which in general avoids data movement until <a href="#LearnBase.getobs"><code>getobs</code></a> is called.</p><p>If used as an iterator, the object will iterate over the dataset once, effectively denoting an epoch. Each iteration will return a mini-batch of constant <a href="#StatsBase.nobs"><code>nobs</code></a>, which effectively allows to iterator over <a href="@ref"><code>data</code></a> one batch at a time.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>size</code></strong> : The batch-size of each batch. I.e. the number of   observations that each batch must contain.</p></li><li><p><strong><code>maxsize</code></strong> : The maximum batch-size of each batch. I.e. the   number of observations that each batch should contain. If the   number of total observation is not divideable by the size it   will be reduced until it is.</p></li><li><p><strong><code>count</code></strong> : The number of batches that the view will contain.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Methods</strong></p><p>Aside from the <code>AbstractArray</code> interface following additional methods are provided.</p><ul><li><p><strong><code>getobs(data::BatchView, batchindices)</code></strong> :   Returns a <code>Vector</code> of the batches specified by <code>batchindices</code>.</p></li><li><p><strong><code>nobs(data::BatchView)</code></strong> :   Returns the total number of observations in <code>data</code>. Note that   unless the batch-size is 1, this number will differ from   <code>length</code>.</p></li></ul><p><strong>Details</strong></p><p>For <code>BatchView</code> to work on some data structure, the type of the given variable <code>data</code> must implement the data container interface. See <code>?DataSubset</code> for more info.</p><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia">using MLDataUtils
+X, Y = MLDataUtils.load_iris()
+
+A = batchview(X, size = 30)
+@assert typeof(A) &lt;: BatchView &lt;: AbstractVector
+@assert eltype(A) &lt;: SubArray{Float64,2}
+@assert length(A) == 5 # Iris has 150 observations
+@assert size(A[1]) == (4,30) # Iris has 4 features
+
+# 5 batches of size 30 observations
+for x in batchview(X, size = 30)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert nobs(x) === 30
+end
+
+# 7 batches of size 20 observations
+# Note that the iris dataset has 150 observations,
+# which means that with a batchsize of 20, the last
+# 10 observations will be ignored
+for (x,y) in batchview((X,Y), size = 20)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert typeof(y) &lt;: SubArray{String,1}
+    @assert nobs(x) === nobs(y) === 20
+end
+
+# 10 batches of size 15 observations
+for (x,y) in batchview((X,Y), maxsize = 20)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert typeof(y) &lt;: SubArray{String,1}
+    @assert nobs(x) === nobs(y) === 15
+end
+
+# randomly assign observations to one and only one batch.
+for (x,y) in batchview(shuffleobs((X,Y)))
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert typeof(y) &lt;: SubArray{String,1}
+end
+
+# iterate over the first 2 batches of 15 observation each
+for (x,y) in batchview((X,Y), size=15, count=2)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert typeof(y) &lt;: SubArray{String,1}
+    @assert size(x) == (4, 15)
+    @assert size(y) == (15,)
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.eachbatch"><code>eachbatch</code></a>, <a href="#MLDataPattern.ObsView"><code>ObsView</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="#LearnBase.getobs"><code>getobs</code></a>, <a href="#StatsBase.nobs"><code>nobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.BufferGetObs" href="#MLDataPattern.BufferGetObs"><code>MLDataPattern.BufferGetObs</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">BufferGetObs(iterator, [buffer])</code></pre><p>A stateful iterator that stores the output of <code>iterate(iterator,state)</code> into <code>buffer</code> using <code>getobs!(buffer, ...)</code>. Depending on the type of data provided by <code>iterator</code> this may be more memory efficient than <code>getobs(...)</code>. In the case of array data, for example, this allows for cache-efficient processing of each element without allocating a temporary array.</p><p>Note that not all types of data support buffering, because it is the author&#39;s choice to opt-in and implement a custom <code>getobs!</code>. For those types that do not provide a custom <code>getobs!</code>, the buffer will be ignored and the result of <code>getobs(...)</code> returned.</p><p>see <a href="#MLDataPattern.eachobs"><code>eachobs</code></a> and <a href="#MLDataPattern.eachbatch"><code>eachbatch</code></a> for concrete examples.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.DataSubset" href="#MLDataPattern.DataSubset"><code>MLDataPattern.DataSubset</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">DataSubset(data, [indices], [obsdim])</code></pre><p><strong>Description</strong></p><p>Used to represent a subset of some <code>data</code> of arbitrary type by storing which observation-indices the subset spans. Furthermore, subsequent subsettings are accumulated without needing to access actual data.</p><p>The main purpose for the existence of <code>DataSubset</code> is to delay data access and movement until an actual batch of data (or single observation) is needed for some computation. This is particularily useful when the data is not located in memory, but on the hard drive or some remote location. In such a scenario one wants to load the required data only when needed.</p><p>This type is usually not constructed manually, but instead instantiated by calling <a href="#LearnBase.datasubset"><code>datasubset</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, or <a href="#MLDataPattern.splitobs"><code>splitobs</code></a></p><p>In case <code>data</code> is some <code>Tuple</code>, the constructor will be mapped over its elements. That means that the constructor returns a <code>Tuple</code> of <code>DataSubset</code> instead of a <code>DataSubset</code> of <code>Tuple</code>.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>indices</code></strong> : Optional. The index or indices of the   observation(s) in <code>data</code> that the subset should represent.   Can be of type <code>Int</code> or some subtype of <code>AbstractVector</code>.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of <code>data</code>,   <code>obsdim</code> can be used to specify which dimension of <code>data</code>   denotes the observations. It can be specified in a type-stable   manner as a positional argument (see <code>?LearnBase.ObsDim</code>), or   more conveniently as a smart keyword argument.</p></li></ul><p><strong>Methods</strong></p><ul><li><p><strong><code>getindex</code></strong> : Returns the observation(s) of the given   index/indices as a new <code>DataSubset</code>. No data is copied aside   from the required indices.</p></li><li><p><strong><code>nobs</code></strong> : Returns the total number observations in the subset   (<strong>not</strong> the whole data set underneath).</p></li><li><p><strong><code>getobs</code></strong> : Returns the underlying data that the   <code>DataSubset</code> represents at the given relative indices. Note   that these indices are in &quot;subset space&quot;, and in general will   not directly correspond to the same indices in the underlying   data set.</p></li></ul><p><strong>Details</strong></p><p>For <code>DataSubset</code> to work on some data structure, the desired type <code>MyType</code> must implement the following interface:</p><ul><li><p><code>LearnBase.getobs(data::MyType, idx, [obsdim::ObsDimension])</code> :   Should return the observation(s) indexed by <code>idx</code>.   In what form is up to the user.   Note that <code>idx</code> can be of type <code>Int</code> or <code>AbstractVector</code>.</p></li><li><p><code>LearnBase.nobs(data::MyType, [obsdim::ObsDimension])</code> :   Should return the total number of observations in <code>data</code></p></li></ul><p>The following methods can also be provided and are optional:</p><ul><li><p><code>LearnBase.getobs(data::MyType)</code> :   By default this function is the identity function.   If that is not the behaviour that you want for your type,   you need to provide this method as well.</p></li><li><p><code>LearnBase.datasubset(data::MyType, idx, obsdim::ObsDimension)</code> :   If your custom type has its own kind of subset type, you can   return it here. An example for such a case are <code>SubArray</code> for   representing a subset of some <code>AbstractArray</code>.   Note: If your type has no use for <code>obsdim</code> then dispatch on   <code>::ObsDim.Undefined</code> in the signature.</p></li><li><p><code>LearnBase.getobs!(buffer, data::MyType, [idx], [obsdim::ObsDimension])</code> :   Inplace version of <code>getobs(data, idx, obsdim)</code>. If this method   is provided for <code>MyType</code>, then <code>eachobs</code> and <code>eachbatch</code>   (among others) can preallocate a buffer that is then reused   every iteration. Note: <code>buffer</code> should be equivalent to the   return value of <code>getobs(::MyType, ...)</code>, since this is how   <code>buffer</code> is preallocated by default.</p></li><li><p><code>LearnBase.gettargets(data::MyType, idx, [obsdim::ObsDimension])</code> :   If <code>MyType</code> has a special way to query targets without   needing to invoke <code>getobs</code>, then you can provide your own   logic here. This can be useful when the targets of your are   always loaded as metadata, while the data itself remains on   the hard disk until actually needed.</p></li></ul><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia">X, y = MLDataUtils.load_iris()
+
+# The iris set has 150 observations and 4 features
+@assert size(X) == (4,150)
+
+# Represents the 80 observations as a DataSubset
+subset = DataSubset(X, 21:100)
+@assert nobs(subset) == 80
+@assert typeof(subset) &lt;: DataSubset
+# getobs indexes into the subset
+@assert getobs(subset, 1:10) == X[:, 21:30]
+
+# You can also work with data that uses some other dimension
+# to denote the observations.
+@assert size(X&#39;) == (150,4)
+subset = DataSubset(X&#39;, 21:100, obsdim = :first) # or &quot;obsdim = 1&quot;
+@assert nobs(subset) == 80
+
+# To specify the obsdim in a type-stable way, use positional arguments
+# provided by the submodule `ObsDim`.
+@inferred DataSubset(X&#39;, 21:100, ObsDim.First())
+
+# Subsets also works for tuple of data. (useful for labeled data)
+subset = DataSubset((X,y), 1:100)
+@assert nobs(subset) == 100
+@assert typeof(subset) &lt;: Tuple # Tuple of DataSubset
+
+# The lowercase version tries to avoid boxing into DataSubset
+# for types that provide a custom &quot;subset&quot;, such as arrays.
+# Here it instead creates a native SubArray.
+subset = datasubset(X, 1:100)
+@assert nobs(subset) == 100
+@assert typeof(subset) &lt;: SubArray
+
+# Also works for tuples of arbitrary length
+subset = datasubset((X,y), 1:100)
+@assert nobs(subset) == 100
+@assert typeof(subset) &lt;: Tuple # tuple of SubArray
+
+# Split dataset into training and test split
+train, test = splitobs(shuffleobs((X,y)), at = 0.7)
+@assert typeof(train) &lt;: Tuple # of SubArray
+@assert typeof(test)  &lt;: Tuple # of SubArray
+@assert nobs(train) == 105
+@assert nobs(test) == 45</code></pre><p><strong>see also</strong></p><p><a href="#LearnBase.datasubset"><code>datasubset</code></a>,  <a href="#LearnBase.getobs"><code>getobs</code></a>, <a href="#StatsBase.nobs"><code>nobs</code></a>, <a href="#MLDataPattern.splitobs"><code>splitobs</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="@ref"><code>KFolds</code></a>, <a href="#MLDataPattern.BatchView"><code>BatchView</code></a>, <a href="#MLDataPattern.ObsView"><code>ObsView</code></a>,</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.FoldsView" href="#MLDataPattern.FoldsView"><code>MLDataPattern.FoldsView</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">FoldsView(data, train_indices, val_indices, [obsdim])</code></pre><p><strong>Description</strong></p><p>Create a vector-like representation of <code>data</code> where each individual element is partition of <code>data</code> in the form of a tuple of two data subsets (a training- and a validation subset).</p><p>The purpose of <code>FoldsView</code> is to apply a precomputed sequence of subset assignment indices to some data container in a convenient manner. By itself, <code>FoldsView</code> is agnostic to any particular repartitioning strategy (such as k-folds). Instead, the assignments, <code>train_indices</code> and <code>val_indices</code>, need to be precomputed by such a strategy and then passed to <code>FoldsView</code> with a concrete <code>data</code> container. The resulting object can then be queried for its individual folds using <code>getindex</code>, or simply iterated over.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>train_indices</code></strong> : Vector of integer vectors containing the   sequence of training assignments. This means that each   element is a vector of indices that describe each <em>training</em>   subset. The length of this vector must match <code>val_indices</code>.</p></li><li><p><strong><code>val_indices</code></strong> : Vector of integer vectors containing the   sequence of validation assignments. This means that each   element is a vector of indices that describe each   <em>validation</em> subset. The length of this vector must match   <code>train_indices</code>.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Details</strong></p><p>For <code>FoldsView</code> to work on some data structure, the desired type <code>MyType</code> must implement the following interface:</p><ul><li><p><code>LearnBase.getobs(data::MyType, idx, [obsdim::ObsDimension])</code> :   Should return the observation(s) indexed by <code>idx</code>.   In what form is up to the user.   Note that <code>idx</code> can be of type <code>Int</code> or <code>AbstractVector</code>.</p></li><li><p><code>LearnBase.nobs(data::MyType, [obsdim::ObsDimension])</code> :   Should return the total number of observations in <code>data</code></p></li></ul><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-none"># Load iris data for demonstration purposes
+X, y = MLDataUtils.load_iris()
+
+# Compute train- and validation-partition indices using kfolds
+train_idx, val_idx = kfolds(nobs(X), 10)
+
+# These two vectors contain the indices vector for each partitioning
+@assert typeof(train_idx) &lt;: Vector{Vector{Int64}}
+@assert typeof(val_idx)   &lt;: Vector{UnitRange{Int64}}
+@assert length(train_idx) == length(val_idx) == 10
+
+# Using the repartitioning as an oterator
+for (train_X, val_X) in FoldsView(X, train_idx, val_idx)
+    @assert size(train_X) == (4, 135)
+    @assert size(val_X) == (4, 15)
+end
+
+# Calling kfolds with the dataset will create
+# the FoldsView for you automatically.
+# Thus this code is equivalent to above
+for (train_X, val_X) in kfolds(X, 10)
+    @assert size(train_X) == (4, 135)
+    @assert size(val_X) == (4, 15)
+end
+
+# leavout is a shortcut for setting k = nobs(X)
+for (train_X, val_X) in leaveout(X)
+    @assert size(val_X) == (4, 1)
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.kfolds"><code>kfolds</code></a>, <a href="#MLDataPattern.leaveout"><code>leaveout</code></a>, <a href="#MLDataPattern.splitobs"><code>splitobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a></p></div></div></section><pre><code class="language-none">MLDataPattern.LabeledSlidingWindow</code></pre><pre><code class="language-none">MLDataPattern.MLDataPattern</code></pre><pre><code class="language-none">MLDataPattern.ObsDim</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.ObsView" href="#MLDataPattern.ObsView"><code>MLDataPattern.ObsView</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ObsView(data, [obsdim])</code></pre><p><strong>Description</strong></p><p>Create a view of the given <code>data</code> in the form of a vector of individual observations. Any data access is delayed until <code>getindex</code> is called, and even <code>getindex</code> returns the result of <a href="#LearnBase.datasubset"><code>datasubset</code></a> which in general avoids data movement until <a href="#LearnBase.getobs"><code>getobs</code></a> is called.</p><p>If used as an iterator, the view will iterate over the dataset once, effectively denoting an epoch. Each iteration will return a lazy subset to the current observation.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Methods</strong></p><p>Aside from the <code>AbstractArray</code> interface following additional methods are provided:</p><ul><li><p><strong><code>getobs(data::ObsView, indices::AbstractVector)</code></strong> :   Returns a <code>Vector</code> of indivdual observations specified by   <code>indices</code>.</p></li><li><p><strong><code>nobs(data::ObsView)</code></strong> :   Returns the number of observations in <code>data</code> that the   iterator will go over.</p></li></ul><p><strong>Details</strong></p><p>For <code>ObsView</code> to work on some data structure, the type of the given variable <code>data</code> must implement the data container interface. See <code>?DataSubset</code> for more info.</p><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia">X, Y = MLDataUtils.load_iris()
+
+A = obsview(X)
+@assert typeof(A) &lt;: ObsView &lt;: AbstractVector
+@assert eltype(A) &lt;: SubArray{Float64,1}
+@assert length(A) == 150 # Iris has 150 observations
+@assert size(A[1]) == (4,) # Iris has 4 features
+
+for x in obsview(X)
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+end
+
+# iterate over each individual labeled observation
+for (x,y) in obsview((X,Y))
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+    @assert typeof(y) &lt;: String
+end
+
+# same but in random order
+for (x,y) in obsview(shuffleobs((X,Y)))
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+    @assert typeof(y) &lt;: String
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.eachobs"><code>eachobs</code></a>, <a href="#MLDataPattern.BatchView"><code>BatchView</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="#LearnBase.getobs"><code>getobs</code></a>, <a href="#StatsBase.nobs"><code>nobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.RandomBatches" href="#MLDataPattern.RandomBatches"><code>MLDataPattern.RandomBatches</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">RandomBatches(data, [size], [count], [obsdim])</code></pre><p><strong>Description</strong></p><p>Create an iterator that generates <code>count</code> randomly sampled batches from <code>data</code> with a batch-size of <code>size</code> . In the case <code>count</code> is not provided, it will generate random batches indefinitely.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>size</code></strong> : Optional. The batch-size of each batch.   I.e. the number of randomly sampled observations in each batch</p></li><li><p><strong><code>count</code></strong> : Optional. The number of randomly sampled batches   that the iterator will generate before stopping. If omitted,   the iterator will generate randomly sampled batches forever.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Details</strong></p><p>For <code>RandomBatches</code> to work on some data structure, the type of given variable <code>data</code> must implement the data container interface. See <code>?DataSubset</code> for more info.</p><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia">X, Y = MLDataUtils.load_iris()
+
+# go over 500 randomly sampled batches of batchsize 10
+i = 0
+for x in RandomBatches(X, 10, 500) # also: RandomObs(X, size = 10, count = 500)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert size(x) == (4,10)
+    i += 1
+end
+@assert i == 500
+
+# if no count it provided the iterator will generate samples forever
+for x in RandomBatches(X, 10)
+    # this loop will never stop unless break is used
+    if true; break; end
+end
+
+# also works for multiple data arguments (e.g. labeled data)
+for (x,y) in RandomBatches((X,Y), 10, 500)
+    @assert typeof(x) &lt;: SubArray{Float64,2}
+    @assert typeof(y) &lt;: SubArray{String,1}
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.RandomObs"><code>RandomObs</code></a>, <a href="#MLDataPattern.BatchView"><code>BatchView</code></a>, <a href="#MLDataPattern.ObsView"><code>ObsView</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a>, <a href="#MLDataPattern.BufferGetObs"><code>BufferGetObs</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.RandomObs" href="#MLDataPattern.RandomObs"><code>MLDataPattern.RandomObs</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">RandomObs(data, [count], [obsdim])</code></pre><p><strong>Description</strong></p><p>Create an iterator that generates <code>count</code> randomly sampled observations from <code>data</code>. In the case <code>count</code> is not provided, it will generate random samples indefinitely.</p><p><strong>Arguments</strong></p><ul><li><p><strong><code>data</code></strong> : The object describing the dataset. Can be of any   type as long as it implements <a href="#LearnBase.getobs"><code>getobs</code></a> and   <a href="#StatsBase.nobs"><code>nobs</code></a> (see Details for more information).</p></li><li><p><strong><code>count</code></strong> : Optional. The number of randomly sampled   observations that the iterator will generate before stopping.   If omitted, the iterator will generate randomly sampled   observations forever.</p></li><li><p><strong><code>obsdim</code></strong> : Optional. If it makes sense for the type of   <code>data</code>, <code>obsdim</code> can be used to specify which dimension of   <code>data</code> denotes the observations. It can be specified in a   type-stable manner as a positional argument (see   <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword   argument.</p></li></ul><p><strong>Details</strong></p><p>For <code>RandomObs</code> to work on some data structure, the type of the given variable <code>data</code> must implement the data container interface. See <code>?DataSubset</code> for more info.</p><p><strong>Author(s)</strong></p><ul><li>Christof Stocker (Github: https://github.com/Evizero)</li><li>Tom Breloff (Github: https://github.com/tbreloff)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia">X, Y = MLDataUtils.load_iris()
+
+# go over 500 randomly sampled observations in X
+i = 0
+for x in RandomObs(X, 500) # also: RandomObs(X, count = 500)
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+    @assert length(x) == 4
+    i += 1
+end
+@assert i == 500
+
+# if no count it provided the iterator will generate samples forever
+for x in RandomObs(X)
+    # this loop will never stop unless break is used
+    if true; break; end
+end
+
+# also works for multiple data arguments (e.g. labeled data)
+for (x,y) in RandomObs((X,Y), count = 100)
+    @assert typeof(x) &lt;: SubArray{Float64,1}
+    @assert typeof(y) &lt;: String
+end</code></pre><p><strong>see also</strong></p><p><a href="#MLDataPattern.BalancedObs"><code>BalancedObs</code></a>, <a href="#MLDataPattern.RandomBatches"><code>RandomBatches</code></a>, <a href="#MLDataPattern.ObsView"><code>ObsView</code></a>, <a href="#MLDataPattern.BatchView"><code>BatchView</code></a>, <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a>, <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a>, <a href="#MLDataPattern.BufferGetObs"><code>BufferGetObs</code></a></p></div></div></section><pre><code class="language-none">MLDataPattern.SlidingWindow</code></pre><pre><code class="language-none">MLDataPattern.UnlabeledSlidingWindow</code></pre><pre><code class="language-none">MLDataPattern.WindowBatchView</code></pre><pre><code class="language-none">MLDataPattern.__getobs</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern._batchrange" href="#MLDataPattern._batchrange"><code>MLDataPattern._batchrange</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Helper function to translate a batch-index into a range of observations.</p></div></div></section><pre><code class="language-none">MLDataPattern._check_nobs</code></pre><pre><code class="language-none">MLDataPattern._check_nobs_error</code></pre><pre><code class="language-none">MLDataPattern._check_windowargs</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern._compute_batch_settings" href="#MLDataPattern._compute_batch_settings"><code>MLDataPattern._compute_batch_settings</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Helper function to compute sensible and compatible values for the <code>size</code> and <code>count</code></p></div></div></section><pre><code class="language-none">MLDataPattern._datastr</code></pre><pre><code class="language-none">MLDataPattern._getobs</code></pre><pre><code class="language-none">MLDataPattern._getobs_eltype</code></pre><pre><code class="language-none">MLDataPattern._getobs_error</code></pre><pre><code class="language-none">MLDataPattern._gettarget</code></pre><pre><code class="language-none">MLDataPattern._gettargets</code></pre><pre><code class="language-none">MLDataPattern._gettargets_dispatch_idx</code></pre><pre><code class="language-none">MLDataPattern._getwindowbatch</code></pre><pre><code class="language-none">MLDataPattern._ispos</code></pre><pre><code class="language-none">MLDataPattern._length</code></pre><pre><code class="language-none">MLDataPattern._length_str</code></pre><pre><code class="language-none">MLDataPattern._next_idx</code></pre><pre><code class="language-none">MLDataPattern._targets</code></pre><pre><code class="language-none">MLDataPattern._toVal</code></pre><pre><code class="language-none">MLDataPattern._view</code></pre><pre><code class="language-none">MLDataPattern._windowsettings</code></pre><pre><code class="language-none">MLDataPattern.allowcontainer</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.batchsize" href="#MLDataPattern.batchsize"><code>MLDataPattern.batchsize</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">batchsize(data) -&gt; Int</code></pre><p>Return the fixed size of each batch in <code>data</code>.</p></div></div></section><pre><code class="language-none">MLDataPattern.batchview</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="LearnBase.datasubset" href="#LearnBase.datasubset"><code>LearnBase.datasubset</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">datasubset(data, [indices], [obsdim])</code></pre><p>Returns a lazy subset of the observations in <code>data</code> that correspond to the given <code>indices</code>. No data will be copied except of the indices. It is similar to calling <code>DataSubset(data, [indices], [obsdim])</code>, but returns a <code>SubArray</code> if the type of <code>data</code> is <code>Array</code> or <code>SubArray</code>. Furthermore, this function may be extended for custom types of <code>data</code> that also want to provide their own subset-type.</p><p>If instead you want to get the subset of observations corresponding to the given <code>indices</code> in their native type, use <code>getobs</code>.</p><p>If it makes sense for the type of <code>data</code>, <code>obsdim</code> can be used to specify which dimension of <code>data</code> denotes the observations. It can be specified in a type-stable manner as a positional argument (see <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword argument.</p><p>see <code>DataSubset</code> for more information.</p></div></div></section><pre><code class="language-none">MLDataPattern.default_batch_size</code></pre><pre><code class="language-none">MLDataPattern.downsample</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.eachbatch" href="#MLDataPattern.eachbatch"><code>MLDataPattern.eachbatch</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">eachbatch(data, [size], [count], [obsdim])</code></pre><p>Iterate over <code>data</code> one batch at a time. If supported by the type of <code>data</code>, a buffer will be preallocated and reused for memory efficiency.</p><p>IMPORTANT: Avoid using <code>collect</code>, because in general each iteration could return the same object with mutated values. If that behaviour is undesired use <code>BatchView</code> instead.</p><p>The (constant) batch-size can be either provided directly using <code>size</code> or indirectly using <code>count</code>, which derives <code>size</code> based on <code>nobs</code>. In the case that the size of the dataset is not dividable by the specified (or inferred) <code>size</code>, the remaining observations will be ignored.</p><pre><code class="language-julia">X = rand(4,150)
+for x in eachbatch(X, size = 10) # or: eachbatch(X, count = 15)
+    # loop entered 15 times
+    @assert typeof(x) &lt;: Matrix{Float64}
+    @assert size(x) == (4,10)
+end</code></pre><p>In the case of arrays it is assumed that the observations are represented by the last array dimension. This can be overwritten.</p><pre><code class="language-julia"># This time flip the dimensions of the matrix
+X = rand(150,4)
+A = eachbatch(X, size = 10, obsdim = 1)
+# The behaviour remains the same as before
+@assert eltype(A) &lt;: Array{Float64,2}
+@assert length(A) == 15</code></pre><p>Multiple variables are supported (e.g. for labeled data)</p><pre><code class="language-julia">for (x,y) in eachbatch((X,Y))
+    # ...
+end</code></pre><p>Note that internally <code>eachbatch(data, ...)</code> maps to <code>BufferGetObs(batchview(data, ...))</code>.</p><pre><code class="language-julia">@assert typeof(eachbatch(X)) &lt;: BufferGetObs
+@assert typeof(eachbatch(X).iter) &lt;: BatchView</code></pre><p>This means that the following code:</p><pre><code class="language-julia">for batch in eachbatch(data, batchsize, obsdim)
+    # ...
+end</code></pre><p>is roughly equivalent to:</p><pre><code class="language-julia">batch = getobs(data, collect(1:batchsize), obsdim) # use first element to preallocate buffer
+for _ in batchview(data, batchsize, obsdim)
+    getobs!(batch, _) # reuse buffer each iteration
+    # ...
+end</code></pre><p>see <a href="#MLDataPattern.BufferGetObs"><code>BufferGetObs</code></a>, <a href="@ref"><code>batchview</code></a>, and <a href="#LearnBase.getobs!"><code>getobs!</code></a> for more info. also see <a href="#MLDataPattern.eachobs"><code>eachobs</code></a> for a single-observation version.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.eachobs" href="#MLDataPattern.eachobs"><code>MLDataPattern.eachobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">eachobs(data, [obsdim])</code></pre><p>Iterate over <code>data</code> one observation at a time. If supported by the type of <code>data</code>, a buffer will be preallocated and reused for memory efficiency.</p><p>IMPORTANT: Avoid using <code>collect</code>, because in general each iteration could return the same object with mutated values. If that behaviour is undesired use <code>obsview</code> instead.</p><pre><code class="language-julia">X = rand(4,100)
+for x in eachobs(X)
+    # loop entered 100 times
+    @assert typeof(x) &lt;: Vector{Float64}
+    @assert size(x) == (4,)
+end</code></pre><p>In the case of arrays it is assumed that the observations are represented by the last array dimension. This can be overwritten.</p><pre><code class="language-julia"># This time flip the dimensions of the matrix
+X = rand(100,4)
+A = eachobs(X, obsdim=1)
+# The behaviour remains the same as before
+@assert eltype(A) &lt;: Array{Float64,1}
+@assert length(A) == 100</code></pre><p>Multiple variables are supported (e.g. for labeled data)</p><pre><code class="language-julia">for (x,y) in eachobs((X,Y))
+    # ...
+end</code></pre><p>Note that internally <code>eachobs(data, obsdim)</code> maps to <code>BufferGetObs(obsview(data, obsdim))</code>.</p><pre><code class="language-julia">@assert typeof(eachobs(X)) &lt;: BufferGetObs
+@assert typeof(eachobs(X).iter) &lt;: ObsView</code></pre><p>This means that the following code:</p><pre><code class="language-julia">for obs in eachobs(data, obsdim)
+    # ...
+end</code></pre><p>is roughly equivalent to:</p><pre><code class="language-julia">obs = getobs(data, 1, obsdim) # use first element to preallocate buffer
+for _ in obsview(data, obsdim)
+    getobs!(obs, _) # reuse buffer each iteration
+    # ...
+end</code></pre><p>see <a href="#MLDataPattern.BufferGetObs"><code>BufferGetObs</code></a>, <a href="@ref"><code>obsview</code></a>, and <a href="#LearnBase.getobs!"><code>getobs!</code></a> for more info. also see <a href="#MLDataPattern.eachbatch"><code>eachbatch</code></a> for a mini-batch version.</p></div></div></section><pre><code class="language-none">MLDataPattern.eachtarget</code></pre><pre><code class="language-none">MLDataPattern.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="LearnBase.getobs" href="#LearnBase.getobs"><code>LearnBase.getobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">getobs(data, [idx], [obsdim])</code></pre><p>Return the observation(s) in <code>data</code> that correspond to the given index/indices in <code>idx</code>. Note that <code>idx</code> can be of type <code>Int</code> or <code>AbstractVector</code>.</p><p>The returned observation(s) should be in the form intended to be passed as-is to some learning algorithm. There is no strict requirement that dictates what form or type that is. We do, however, expect it to be consistent for <code>idx</code> being an integer, as well as <code>idx</code> being an abstract vector, respectively.</p><p>If it makes sense for the type of <code>data</code>, <code>obsdim</code> can be used to specify which dimension of <code>data</code> denotes the observations. It can be specified in a type-stable manner as a positional argument (see <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword argument.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="LearnBase.getobs!" href="#LearnBase.getobs!"><code>LearnBase.getobs!</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">getobs!(buffer, data, [idx], [obsdim]) -&gt; buffer</code></pre><p>Write the observation(s) from <code>data</code> that correspond to the given index/indices in <code>idx</code> into <code>buffer</code>. Note that <code>idx</code> can be of type <code>Int</code> or <code>AbstractVector</code>.</p><p>Unless explicitly implemented for <code>data</code> it defaults to returning <code>getobs(data, idx, obsdim)</code> in which case <code>buffer</code> is ignored.</p><p>If it makes sense for the type of <code>data</code>, <code>obsdim</code> can be used to specify which dimension of <code>data</code> denotes the observations. It can be specified in a type-stable manner as a positional argument (see <code>?LearnBase.ObsDim</code>), or more conveniently as a smart keyword argument.</p></div></div></section><pre><code class="language-none">MLDataPattern.getobs_targetfun</code></pre><pre><code class="language-none">MLDataPattern.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.kfolds" href="#MLDataPattern.kfolds"><code>MLDataPattern.kfolds</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">kfolds(n::Integer, [k = 5]) -&gt; Tuple</code></pre><p>Compute the train/validation assignments for <code>k</code> repartitions of <code>n</code> observations, and return them in the form of two vectors. The first vector contains the index-vectors for the training subsets, and the second vector the index-vectors for the validation subsets respectively. A general rule of thumb is to use either <code>k = 5</code> or <code>k = 10</code>. The following code snippet generates the indices assignments for <code>k = 5</code></p><pre><code class="language-julia">julia&gt; train_idx, val_idx = kfolds(10, 5);</code></pre><p>Each observation is assigned to the validation subset once (and only once). Thus, a union over all validation index-vectors reproduces the full range <code>1:n</code>. Note that there is no random assignment of observations to subsets, which means that adjacent observations are likely to be part of the same validation subset.</p><pre><code class="language-julia">julia&gt; train_idx
+5-element Array{Array{Int64,1},1}:
+ [3,4,5,6,7,8,9,10]
+ [1,2,5,6,7,8,9,10]
+ [1,2,3,4,7,8,9,10]
+ [1,2,3,4,5,6,9,10]
+ [1,2,3,4,5,6,7,8]
+
+julia&gt; val_idx
+5-element Array{UnitRange{Int64},1}:
+ 1:2
+ 3:4
+ 5:6
+ 7:8
+ 9:10</code></pre></div></div><div><div><pre><code class="language-none">kfolds(data, [k = 5], [obsdim]) -&gt; FoldsView</code></pre><p>Repartition a <code>data</code> container <code>k</code> times using a <code>k</code> folds strategy and return the sequence of folds as a lazy <a href="#MLDataPattern.FoldsView"><code>FoldsView</code></a>. The resulting <code>FoldsView</code> can then be indexed into or iterated over. Either way, only data subsets are created. That means that no actual data is copied until <a href="#LearnBase.getobs"><code>getobs</code></a> is invoked.</p><p>Conceptually, a k-folds repartitioning strategy divides the given <code>data</code> into <code>k</code> roughly equal-sized parts. Each part will serve as validation set once, while the remaining parts are used for training. This results in <code>k</code> different partitions of <code>data</code>.</p><p>In the case that the size of the dataset is not dividable by the specified <code>k</code>, the remaining observations will be evenly distributed among the parts.</p><pre><code class="language-julia">for (x_train, x_val) in kfolds(X, k = 10)
+    # code called 10 times
+    # nobs(x_val) may differ up to ±1 over iterations
+end</code></pre><p>Multiple variables are supported (e.g. for labeled data)</p><pre><code class="language-julia">for ((x_train, y_train), val) in kfolds((X, Y), k = 10)
+    # ...
+end</code></pre><p>By default the folds are created using static splits. Use <a href="#MLDataPattern.shuffleobs"><code>shuffleobs</code></a> to randomly assign observations to the folds.</p><pre><code class="language-julia">for (x_train, x_val) in kfolds(shuffleobs(X), k = 10)
+    # ...
+end</code></pre><p>see <a href="#MLDataPattern.FoldsView"><code>FoldsView</code></a> for more info, or <a href="#MLDataPattern.leaveout"><code>leaveout</code></a> for a related function.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.leaveout" href="#MLDataPattern.leaveout"><code>MLDataPattern.leaveout</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">leaveout(n::Integer, [size = 1]) -&gt; Tuple</code></pre><p>Compute the train/validation assignments for <code>k ≈ n/size</code> repartitions of <code>n</code> observations, and return them in the form of two vectors. The first vector contains the index-vectors for the training subsets, and the second vector the index-vectors for the validation subsets respectively. Each validation subset will have either <code>size</code> or <code>size+1</code> observations assigned to it. The following code snippet generates the index-vectors for <code>size = 2</code>.</p><pre><code class="language-julia">julia&gt; train_idx, val_idx = leaveout(10, 2);</code></pre><p>Each observation is assigned to the validation subset once (and only once). Thus, a union over all validation index-vectors reproduces the full range <code>1:n</code>. Note that there is no random assignment of observations to subsets, which means that adjacent observations are likely to be part of the same validation subset.</p><pre><code class="language-julia">julia&gt; train_idx
+5-element Array{Array{Int64,1},1}:
+ [3,4,5,6,7,8,9,10]
+ [1,2,5,6,7,8,9,10]
+ [1,2,3,4,7,8,9,10]
+ [1,2,3,4,5,6,9,10]
+ [1,2,3,4,5,6,7,8]
+
+julia&gt; val_idx
+5-element Array{UnitRange{Int64},1}:
+ 1:2
+ 3:4
+ 5:6
+ 7:8
+ 9:10</code></pre></div></div><div><div><pre><code class="language-none">leaveout(data, [size = 1], [obsdim]) -&gt; FoldsView</code></pre><p>Repartition a <code>data</code> container using a k-fold strategy, where <code>k</code> is chosen in such a way, that each validation subset of the resulting folds contains roughly <code>size</code> observations. Defaults to <code>size = 1</code>, which is also known as &quot;leave-one-out&quot; partitioning.</p><p>The resulting sequence of folds is returned as a lazy <a href="#MLDataPattern.FoldsView"><code>FoldsView</code></a>, which can be index into or iterated over. Either way, only data subsets are created. That means no actual data is copied until <a href="#LearnBase.getobs"><code>getobs</code></a> is invoked.</p><pre><code class="language-julia">for (train, val) in leaveout(X, size = 2)
+    # if nobs(X) is dividable by 2,
+    # then nobs(val) will be 2 for each iteraton,
+    # otherwise it may be 3 for the first few iterations.
+end</code></pre><p>see <a href="#MLDataPattern.FoldsView"><code>FoldsView</code></a> for more info, or <a href="#MLDataPattern.kfolds"><code>kfolds</code></a> for a related function.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="StatsBase.nobs" href="#StatsBase.nobs"><code>StatsBase.nobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">nobs(data, [obsdim]) -&gt; Int</code></pre><p>Return the total number of observations contained in <code>data</code>.</p><p>The optional parameter <code>obsdim</code> can be used to specify which dimension denotes the observations, if that concept makes sense for the type of <code>data</code>. See <code>?LearnBase.ObsDim</code> for more information.</p></div></div></section><pre><code class="language-none">MLDataPattern.obsdim_string</code></pre><pre><code class="language-none">MLDataPattern.obsview</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.oversample" href="#MLDataPattern.oversample"><code>MLDataPattern.oversample</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">oversample([f], data, [fraction = 1], [shuffle = true], [obsdim])</code></pre><p>Generate a re-balanced version of <code>data</code> by repeatedly sampling existing observations in such a way that every class will have at least <code>fraction</code> times the number observations of the largest class. This way, all classes will have a minimum number of observations in the resulting data set relative to what largest class has in the given (original) <code>data</code>.</p><p>As an example, by default (i.e. with <code>fraction = 1</code>) the resulting dataset will be near perfectly balanced. On the other hand, with <code>fraction = 0.5</code> every class in the resulting data with have at least 50% as many observations as the largest class.</p><p>The convenience parameter <code>shuffle</code> determines if the resulting data will be shuffled after its creation; if it is not shuffled then all the repeated samples will be together at the end, sorted by class. Defaults to <code>true</code>.</p><p>The optional parameter <code>obsdim</code> can be used to specify which dimension denotes the observations, if that concept makes sense for the type of <code>data</code>. See <code>?ObsDim</code> for more information.</p><pre><code class="language-julia"># 6 observations with 3 features each
+X = rand(3, 6)
+# 2 classes, severely imbalanced
+Y = [&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;]
+
+# oversample the class &quot;a&quot; to match &quot;b&quot;
+X_bal, Y_bal = oversample((X,Y))
+
+# this results in a bigger dataset with repeated data
+@assert size(X_bal) == (3,8)
+@assert length(Y_bal) == 8
+
+# now both &quot;a&quot;, and &quot;b&quot; have 4 observations each
+@assert sum(Y_bal .== &quot;a&quot;) == 4
+@assert sum(Y_bal .== &quot;b&quot;) == 4</code></pre><p>For this function to work, the type of <code>data</code> must implement <a href="#StatsBase.nobs"><code>nobs</code></a> and <a href="#LearnBase.getobs"><code>getobs</code></a>. For example, the following code allows <code>oversample</code> to work on a <code>DataTable</code>.</p><pre><code class="language-julia"># Make DataTables.jl work
+LearnBase.getobs(data::DataTable, i) = data[i,:]
+LearnBase.nobs(data::DataTable) = nrow(data)</code></pre><p>You can use the parameter <code>f</code> to specify how to extract or retrieve the targets from each observation of the given <code>data</code>. Note that if <code>data</code> is a tuple, then it will be assumed that the last element of the tuple contains the targets and <code>f</code> will be applied to each observation in that element.</p><pre><code class="language-julia">julia&gt; data = DataTable(Any[rand(6), rand(6), [:a,:b,:b,:b,:b,:a]], [:X1,:X2,:Y])
+6×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.226582  │ 0.0443222   │ a │
+│ 2   │ 0.504629  │ 0.722906    │ b │
+│ 3   │ 0.933372  │ 0.812814    │ b │
+│ 4   │ 0.522172  │ 0.245457    │ b │
+│ 5   │ 0.505208  │ 0.11202     │ b │
+│ 6   │ 0.0997825 │ 0.000341996 │ a │
+
+julia&gt; getobs(oversample(row-&gt;row[:Y], data))
+8×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.0997825 │ 0.000341996 │ a │
+│ 2   │ 0.505208  │ 0.11202     │ b │
+│ 3   │ 0.226582  │ 0.0443222   │ a │
+│ 4   │ 0.0997825 │ 0.000341996 │ a │
+│ 5   │ 0.504629  │ 0.722906    │ b │
+│ 6   │ 0.522172  │ 0.245457    │ b │
+│ 7   │ 0.226582  │ 0.0443222   │ a │
+│ 8   │ 0.933372  │ 0.812814    │ b │</code></pre><p>see <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a> for more information on data subsets.</p><p>see also <a href="#MLDataPattern.undersample"><code>undersample</code></a> and <a href="#MLDataPattern.stratifiedobs"><code>stratifiedobs</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.randobs" href="#MLDataPattern.randobs"><code>MLDataPattern.randobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">randobs(data, [n], [obsdim])</code></pre><p>Pick a random observation or a batch of <code>n</code> random observations from <code>data</code>.</p><p>The optional (keyword) parameter <code>obsdim</code> allows one to specify which dimension denotes the observations. see <code>LearnBase.ObsDim</code> for more detail.</p><p>For this function to work, the type of <code>data</code> must implement <a href="#StatsBase.nobs"><code>nobs</code></a> and <a href="#LearnBase.getobs"><code>getobs</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.shuffleobs" href="#MLDataPattern.shuffleobs"><code>MLDataPattern.shuffleobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">shuffleobs(data, [obsdim])</code></pre><p>Return a &quot;subset&quot; of <code>data</code> that spans all observations, but has the order of the observations shuffled.</p><p>The values of <code>data</code> itself are not copied. Instead only the indices are shuffled. This function calls <a href="#LearnBase.datasubset"><code>datasubset</code></a> to accomplish that, which means that the return value is likely of a different type than <code>data</code>.</p><pre><code class="language-julia"># For Arrays the subset will be of type SubArray
+@assert typeof(shuffleobs(rand(4,10))) &lt;: SubArray
+
+# Iterate through all observations in random order
+for (x) in eachobs(shuffleobs(X))
+    ...
+end</code></pre><p>The optional (keyword) parameter <code>obsdim</code> allows one to specify which dimension denotes the observations. see <code>LearnBase.ObsDim</code> for more detail.</p><p>For this function to work, the type of <code>data</code> must implement <a href="#StatsBase.nobs"><code>nobs</code></a> and <a href="#LearnBase.getobs"><code>getobs</code></a>. See <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a> for more information.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.slidingwindow" href="#MLDataPattern.slidingwindow"><code>MLDataPattern.slidingwindow</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">slidingwindow(data, size, [stride], [obsdim]) -&gt; UnlabeledSlidingWindow</code></pre><p>Return a vector-like view of the <code>data</code> for which each element is a fixed size &quot;window&quot; of <code>size</code> adjacent observations. By default these windows are not overlapping. Note that only complete windows are included in the output, which implies that it is possible for excess observations to be omitted from the view.</p><pre><code class="language-julia-repl">julia&gt; A = slidingwindow(1:20, 6)
+3-element slidingwindow(::UnitRange{Int64}, 6) with element type SubArray{Int64,1,UnitRange{Int64},Tuple{UnitRange{Int64}},true}:
+ [1, 2, 3, 4, 5, 6]
+ [7, 8, 9, 10, 11, 12]
+ [13, 14, 15, 16, 17, 18]</code></pre><p>Note that the values of <code>data</code> itself are not copied. Instead the function <a href="#LearnBase.datasubset"><code>datasubset</code></a> is called when <code>getindex</code> is invoked. To actually get a copy of the data at some window use the function <a href="#LearnBase.getobs"><code>getobs</code></a>.</p><pre><code class="language-julia-repl">julia&gt; A[1]
+6-element SubArray{Int64,1,UnitRange{Int64},Tuple{UnitRange{Int64}},true}:
+ 1
+ ⋮
+ 6
+
+julia&gt; getobs(A, 1)
+6-element Array{Int64,1}:
+ 1
+ ⋮
+ 6</code></pre><p>The optional parameter <code>stride</code> can be used to specify the distance between the start elements of each adjacent window. By default the stride is equal to the window size.</p><pre><code class="language-julia-repl">julia&gt; slidingwindow(1:20, 6, stride = 3)
+5-element slidingwindow(::UnitRange{Int64}, 6, stride = 3) with element type SubArray{Int64,1,UnitRange{Int64},Tuple{UnitRange{Int64}},true}:
+ [1, 2, 3, 4, 5, 6]
+ [4, 5, 6, 7, 8, 9]
+ [7, 8, 9, 10, 11, 12]
+ [10, 11, 12, 13, 14, 15]
+ [13, 14, 15, 16, 17, 18]</code></pre><p>The optional (keyword) parameter <code>obsdim</code> allows one to specify which dimension denotes the observations. see <code>LearnBase.ObsDim</code> for more detail.</p></div></div><div><div><pre><code class="language-none">slidingwindow(f, data, size, [stride], [excludetarget], [obsdim]) -&gt; LabeledSlidingWindow</code></pre><p>Return a vector-like view of the <code>data</code> for which each element is a tuple of two elements:</p><ol><li><p>A fixed size &quot;window&quot; of <code>size</code> adjacent observations. By default these windows are not overlapping. This can be changed by explicitly specifying a <code>stride</code>.</p></li><li><p>A single target (or vector of targets) for the window. The content of the target(s) is defined by the label-index function <code>f</code>.</p></li></ol><p>The label-index function <code>f</code> is a unary function that takes the index of the first observation in the current window and should return the index (or indices) of the associated target(s) for that window.</p><pre><code class="language-julia-repl">julia&gt; A = slidingwindow(i-&gt;i+6, 1:20, 6)
+3-element slidingwindow(::##3#4, ::UnitRange{Int64}, 6) with element type Tuple{...}
+ ([1, 2, 3, 4, 5, 6], 7)
+ ([7, 8, 9, 10, 11, 12], 13)
+ ([13, 14, 15, 16, 17, 18], 19)</code></pre><p>Note that only complete and in-bound windows are included in the output, which implies that it is possible for excess observations to be omitted from the resulting view.</p><pre><code class="language-julia-repl">julia&gt; A = slidingwindow(i-&gt;i-1, 1:20, 6)
+2-element slidingwindow(::##5#6, ::UnitRange{Int64}, 6) with element type Tuple{...}
+ ([7, 8, 9, 10, 11, 12], 6)
+ ([13, 14, 15, 16, 17, 18], 12)</code></pre><p>As hinted above, it is also allowed for <code>f</code> to return a vector of indices. This can be useful for emulating techniques such as skip-gram.</p><pre><code class="language-julia-repl">julia&gt; data = split(&quot;The quick brown fox jumps over the lazy dog&quot;)
+9-element Array{SubString{String},1}:
+ &quot;The&quot;
+ &quot;quick&quot;
+ ⋮
+ &quot;lazy&quot;
+ &quot;dog&quot;
+
+julia&gt; A = slidingwindow(i-&gt;[i-2:i-1; i+1:i+2], data, 1)
+5-element slidingwindow(::##11#12, ::Array{SubString{String},1}, 1) with element type Tuple{...}:
+ ([&quot;brown&quot;], [&quot;The&quot;, &quot;quick&quot;, &quot;fox&quot;, &quot;jumps&quot;])
+ ([&quot;fox&quot;], [&quot;quick&quot;, &quot;brown&quot;, &quot;jumps&quot;, &quot;over&quot;])
+ ([&quot;jumps&quot;], [&quot;brown&quot;, &quot;fox&quot;, &quot;over&quot;, &quot;the&quot;])
+ ([&quot;over&quot;], [&quot;fox&quot;, &quot;jumps&quot;, &quot;the&quot;, &quot;lazy&quot;])
+ ([&quot;the&quot;], [&quot;jumps&quot;, &quot;over&quot;, &quot;lazy&quot;, &quot;dog&quot;])</code></pre><p>Should it so happen that the targets overlap with the features, then the affected observation(s) will be present in both. To change this behaviour one can set the optional parameter <code>excludetarget = true</code>. This will remove the target(s) from the feature window.</p><pre><code class="language-julia-repl">julia&gt; slidingwindow(i-&gt;i+2, data, 5, stride = 1, excludetarget = true)
+5-element slidingwindow(::##17#18, ::Array{SubString{String},1}, 5, stride = 1) with element type Tuple{...}:
+ ([&quot;The&quot;, &quot;quick&quot;, &quot;fox&quot;, &quot;jumps&quot;], &quot;brown&quot;)
+ ([&quot;quick&quot;, &quot;brown&quot;, &quot;jumps&quot;, &quot;over&quot;], &quot;fox&quot;)
+ ([&quot;brown&quot;, &quot;fox&quot;, &quot;over&quot;, &quot;the&quot;], &quot;jumps&quot;)
+ ([&quot;fox&quot;, &quot;jumps&quot;, &quot;the&quot;, &quot;lazy&quot;], &quot;over&quot;)
+ ([&quot;jumps&quot;, &quot;over&quot;, &quot;lazy&quot;, &quot;dog&quot;], &quot;the&quot;)</code></pre><p>The optional (keyword) parameter <code>obsdim</code> allows one to specify which dimension denotes the observations. see <code>LearnBase.ObsDim</code> for more detail.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.splitobs" href="#MLDataPattern.splitobs"><code>MLDataPattern.splitobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">splitobs(n::Int, [at = 0.7]) -&gt; Tuple</code></pre><p>Pre-compute the indices for two disjoint subsets and return them as a tuple of two ranges. The first range will span the first <code>at</code> fraction of possible indices, while the second range will cover the rest. These indices are applicable to any data container of size <code>n</code>.</p><pre><code class="language-julia">julia&gt; splitobs(100, at = 0.7)
+# (1:70,71:100)</code></pre></div></div><div><div><pre><code class="language-none">splitobs(data, [at = 0.7], [obsdim]) -&gt; Tuple</code></pre><p>Split the <code>data</code> into multiple subsets proportional to the value(s) of <code>at</code>.</p><p>Note that this function will perform the splits statically and thus not perform any randomization. The function creates a <code>NTuple</code> of data subsets in which the first N-1 elements/subsets contain the fraction of observations of <code>data</code> that is specified by <code>at</code>.</p><p>For example, if <code>at</code> is a <code>Float64</code> then the return-value will be a tuple with two elements (i.e. subsets), in which the first element contains the fracion of observations specified by <code>at</code> and the second element contains the rest. In the following code the first subset <code>train</code> will contain the first 70% of the observations and the second subset <code>test</code> the rest.</p><pre><code class="language-julia">train, test = splitobs(X, at = 0.7)</code></pre><p>If <code>at</code> is a tuple of <code>Float64</code> then additional subsets will be created. In this example <code>train</code> will have the first 50% of the observations, <code>val</code> will have next 30%, and <code>test</code> the last 20%</p><pre><code class="language-julia">train, val, test = splitobs(X, at = (0.5, 0.3))</code></pre><p>It is also possible to call <code>splitobs</code> with multiple data arguments as tuple, which all must have the same number of total observations. This is useful for labeled data.</p><pre><code class="language-julia">train, test = splitobs((X, y), at = 0.7)
+(x_train,y_train), (x_test,y_test) = splitobs((X, y), at = 0.7)</code></pre><p>If the observations should be randomly assigned to a subset, then you can combine the function with <code>shuffleobs</code></p><pre><code class="language-julia"># This time observations are randomly assigned.
+train, test = splitobs(shuffleobs((X,y)), at = 0.7)</code></pre><p>When working with arrays one may want to choose which dimension represents the observations. By default the last dimension is assumed, but this can be overwritten.</p><pre><code class="language-julia"># Here we say each row represents an observation
+train, test = splitobs(X, obsdim = 1)</code></pre><p>The functions also provide a type-stable API</p><pre><code class="language-julia"># By avoiding keyword arguments, the compiler can infer the return type
+train, test = splitobs((X,y), 0.7)
+train, test = splitobs((X,y), 0.7, ObsDim.First())</code></pre><p>see <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a> for more information on data subsets.</p><p>see <a href="#MLDataPattern.stratifiedobs"><code>stratifiedobs</code></a> for a related function that preserves the target distribution.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.stratifiedobs" href="#MLDataPattern.stratifiedobs"><code>MLDataPattern.stratifiedobs</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">stratifiedobs([f], data, [p = 0.7], [shuffle = true], [obsdim]) -&gt; Tuple</code></pre><p>Partition the <code>data</code> into multiple disjoint subsets proportional to the value(s) of <code>p</code>. The observations are assignmed to a data subset using stratified sampling without replacement. These subsets are then returned as a <code>Tuple</code> of subsets, where the first element contains the fraction of observations of <code>data</code> that is specified by the first float in <code>p</code>.</p><p>For example, if <code>p</code> is a <code>Float64</code> itself, then the return-value will be a tuple with two elements (i.e. subsets), in which the first element contains the fraction of observations specified by <code>p</code> and the second element contains the rest. In the following code the first subset <code>train</code> will contain around 70% of the observations and the second subset <code>test</code> the rest. The key difference to <a href="#MLDataPattern.splitobs"><code>splitobs</code></a> is that the class distribution in <code>y</code> will actively be preserved in <code>train</code> and <code>test</code>.</p><pre><code class="language-julia">train, test = stratifiedobs(y, p = 0.7)</code></pre><p>If <code>p</code> is a tuple of <code>Float64</code> then additional subsets will be created. In this example <code>train</code> will contain about 50% of the observations, <code>val</code> will contain around 30%, and <code>test</code> the remaining 20%.</p><pre><code class="language-julia">train, val, test = stratifiedobs(y, p = (0.5, 0.3))</code></pre><p>It is also possible to call <code>stratifiedobs</code> with multiple data arguments as tuple, which all must have the same number of total observations. Note that if <code>data</code> is a tuple, then it will be assumed that the last element of the tuple contains the targets.</p><pre><code class="language-julia">train, test = stratifiedobs((X, y), p = 0.7)
+(X_train,y_train), (X_test,y_test) = stratifiedobs((X, y), p = 0.7)</code></pre><p>The optional parameter <code>shuffle</code> determines if the resulting data subsets should be shuffled. If <code>false</code>, then the observations in the subsets will be grouped together according to their labels.</p><pre><code class="language-julia">julia&gt; y = [&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;] # 2 imbalanced classes
+6-element Array{String,1}:
+ &quot;a&quot;
+ &quot;b&quot;
+ &quot;b&quot;
+ &quot;b&quot;
+ &quot;b&quot;
+ &quot;a&quot;
+
+julia&gt; train, test = stratifiedobs(y, p = 0.5, shuffle = false)
+(String[&quot;b&quot;,&quot;b&quot;,&quot;a&quot;],String[&quot;b&quot;,&quot;b&quot;,&quot;a&quot;])</code></pre><p>The optional parameter <code>obsdim</code> can be used to specify which dimension denotes the observations, if that concept makes sense for the type of <code>data</code>. See <code>?ObsDim</code> for more information.</p><pre><code class="language-julia"># 2 imbalanced classes in one-of-k encoding
+julia&gt; X = [1 0; 1 0; 1 0; 1 0; 0 1; 0 1]
+6×2 Array{Int64,2}:
+ 1  0
+ 1  0
+ 1  0
+ 1  0
+ 0  1
+ 0  1
+
+julia&gt; train, test = stratifiedobs(argmax, X, p = 0.5, obsdim = 1)
+([1 0; 1 0; 0 1], [0 1; 1 0; 1 0])</code></pre><p>For this function to work, the type of <code>data</code> must implement <a href="#StatsBase.nobs"><code>nobs</code></a> and <a href="#LearnBase.getobs"><code>getobs</code></a>. For example, the following code allows <code>stratifiedobs</code> to work on a <code>DataTable</code>.</p><pre><code class="language-julia"># Make DataTables.jl work
+LearnBase.getobs(data::DataTable, i) = data[i,:]
+LearnBase.nobs(data::DataTable) = nrow(data)</code></pre><p>You can use the parameter <code>f</code> to specify how to extract or retrieve the targets from each observation of the given <code>data</code>.</p><pre><code class="language-julia">julia&gt; data = DataTable(Any[rand(6), rand(6), [:a,:b,:b,:b,:b,:a]], [:X1,:X2,:Y])
+6×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.226582  │ 0.0443222   │ a │
+│ 2   │ 0.504629  │ 0.722906    │ b │
+│ 3   │ 0.933372  │ 0.812814    │ b │
+│ 4   │ 0.522172  │ 0.245457    │ b │
+│ 5   │ 0.505208  │ 0.11202     │ b │
+│ 6   │ 0.0997825 │ 0.000341996 │ a │
+
+julia&gt; train, test = stratifiedobs(row-&gt;row[:Y], data, 0.5);
+
+julia&gt; getobs(train)
+3×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.933372  │ 0.812814    │ b │
+│ 2   │ 0.522172  │ 0.245457    │ b │
+│ 3   │ 0.0997825 │ 0.000341996 │ a │
+
+julia&gt; getobs(test)
+3×3 DataTables.DataTable
+│ Row │ X1       │ X2        │ Y │
+├─────┼──────────┼───────────┼───┤
+│ 1   │ 0.504629 │ 0.722906  │ b │
+│ 2   │ 0.226582 │ 0.0443222 │ a │
+│ 3   │ 0.505208 │ 0.11202   │ b │</code></pre><p>see <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a> for more information on data subsets.</p><p>see also <a href="#MLDataPattern.undersample"><code>undersample</code></a>, <a href="#MLDataPattern.oversample"><code>oversample</code></a>, <a href="#MLDataPattern.splitobs"><code>splitobs</code></a>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="LearnBase.targets" href="#LearnBase.targets"><code>LearnBase.targets</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">targets([f], data, [obsdim])</code></pre><p>Extract the concrete targets from <code>data</code> and return them.</p><p>This function is eager in the sense that it will always call <a href="#LearnBase.getobs"><code>getobs</code></a> unless a custom method for <a href="@ref"><code>gettargets</code></a> is implemented for the type of <code>data</code>. This will make sure that actual values are returned (in contrast to placeholders such as <code>DataSubset</code> or <code>SubArray</code>).</p><pre><code class="language-julia">julia&gt; targets(DataSubset([1,2,3]))
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3</code></pre><p>If <code>data</code> is a tuple, then the convention is that the last element of the tuple contains the targets and the function is recursed once (and only once).</p><pre><code class="language-julia">julia&gt; targets(([1,2], [3,4]))
+2-element Array{Int64,1}:
+ 3
+ 4
+
+julia&gt; targets(([1,2], ([3,4], [5,6])))
+([3,4],[5,6])</code></pre><p>If <code>f</code> is provided, then <a href="@ref"><code>gettarget</code></a> will be applied to each observation in <code>data</code> and the results will be returned as a vector.</p><pre><code class="language-julia">julia&gt; targets(argmax, [1 0 1; 0 1 0])
+3-element Array{Int64,1}:
+ 1
+ 2
+ 1</code></pre><p>The optional parameter <code>obsdim</code> can be used to specify which dimension denotes the observations, if that concept makes sense for the type of <code>data</code>. See <code>?ObsDim</code> for more information.</p><pre><code class="language-julia">julia&gt; targets(argmax, [1 0; 0 1; 1 0], obsdim=1)
+3-element Array{Int64,1}:
+ 1
+ 2
+ 1</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MLDataPattern.undersample" href="#MLDataPattern.undersample"><code>MLDataPattern.undersample</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">undersample([f], data, [shuffle = false], [obsdim])</code></pre><p>Generate a class-balanced version of <code>data</code> by subsampling its observations in such a way that the resulting number of observations will be the same number for every class. This way, all classes will have as many observations in the resulting data set as the smallest class has in the given (original) <code>data</code>.</p><p>The convenience parameter <code>shuffle</code> determines if the resulting data will be shuffled after its creation; if it is not shuffled then all the observations will be in their original order. Defaults to <code>false</code>.</p><p>The optional parameter <code>obsdim</code> can be used to specify which dimension denotes the observations, if that concept makes sense for the type of <code>data</code>. See <code>?ObsDim</code> for more information.</p><pre><code class="language-julia"># 6 observations with 3 features each
+X = rand(3, 6)
+# 2 classes, severely imbalanced
+Y = [&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;]
+
+# subsample the class &quot;b&quot; to match &quot;a&quot;
+X_bal, Y_bal = undersample((X,Y))
+
+# this results in a smaller dataset
+@assert size(X_bal) == (3,4)
+@assert length(Y_bal) == 4
+
+# now both &quot;a&quot;, and &quot;b&quot; have 2 observations each
+@assert sum(Y_bal .== &quot;a&quot;) == 2
+@assert sum(Y_bal .== &quot;b&quot;) == 2</code></pre><p>For this function to work, the type of <code>data</code> must implement <a href="#StatsBase.nobs"><code>nobs</code></a> and <a href="#LearnBase.getobs"><code>getobs</code></a>. For example, the following code allows <code>undersample</code> to work on a <code>DataTable</code>.</p><pre><code class="language-julia"># Make DataTables.jl work
+LearnBase.getobs(data::DataTable, i) = data[i,:]
+LearnBase.nobs(data::DataTable) = nrow(data)</code></pre><p>You can use the parameter <code>f</code> to specify how to extract or retrieve the targets from each observation of the given <code>data</code>. Note that if <code>data</code> is a tuple, then it will be assumed that the last element of the tuple contains the targets and <code>f</code> will be applied to each observation in that element.</p><pre><code class="language-julia">julia&gt; data = DataTable(Any[rand(6), rand(6), [:a,:b,:b,:b,:b,:a]], [:X1,:X2,:Y])
+6×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.226582  │ 0.0443222   │ a │
+│ 2   │ 0.504629  │ 0.722906    │ b │
+│ 3   │ 0.933372  │ 0.812814    │ b │
+│ 4   │ 0.522172  │ 0.245457    │ b │
+│ 5   │ 0.505208  │ 0.11202     │ b │
+│ 6   │ 0.0997825 │ 0.000341996 │ a │
+
+julia&gt; getobs(undersample(row-&gt;row[:Y], data))
+4×3 DataTables.DataTable
+│ Row │ X1        │ X2          │ Y │
+├─────┼───────────┼─────────────┼───┤
+│ 1   │ 0.226582  │ 0.0443222   │ a │
+│ 2   │ 0.504629  │ 0.722906    │ b │
+│ 3   │ 0.522172  │ 0.245457    │ b │
+│ 4   │ 0.0997825 │ 0.000341996 │ a │</code></pre><p>see <a href="#MLDataPattern.DataSubset"><code>DataSubset</code></a> for more information on data subsets.</p><p>see also <a href="#MLDataPattern.oversample"><code>oversample</code></a> and <a href="#MLDataPattern.stratifiedobs"><code>stratifiedobs</code></a>.</p></div></div></section><pre><code class="language-none">MLDataPattern.upsample</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

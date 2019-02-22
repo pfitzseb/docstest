@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "NLSProblems"
+owner = "JuliaSmoothOptimizers"
+version = "0.1.1"
+description = "Nonlinear Least Squares problems"
+stargazers_count = "0"
+url = "https://github.com/JuliaSmoothOptimizers/NLSProblems.jl.git"
+installs = true
+tags = ["julia", "julia-language", "optimization"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "abelsiqueira"
+contributions = "29"
+[[contributors]]
+name = "dpo"
+contributions = "6"
+[[contributors]]
+name = "amontoison"
+contributions = "6"

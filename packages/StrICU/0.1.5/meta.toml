@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrICU"
+owner = "JuliaString"
+version = "0.1.5"
+description = "ICU wrapper, updated for v0.6.2 and v.7, using JuliaString/Strs.jl instead of LegacyStrings.jl"
+stargazers_count = "1"
+url = "https://github.com/JuliaString/StrICU.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "79"

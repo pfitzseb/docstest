@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "InteractiveCodeSearch"
+owner = "tkf"
+version = "0.3.0"
+description = "Interactively search Julia code from terminal"
+stargazers_count = "23"
+url = "https://github.com/tkf/InteractiveCodeSearch.jl.git"
+installs = true
+tags = ["julia", "repl", "search", "interactive", "terminal", "peco", "percol", "rofi"]
+license = "Other"
+
+[[contributors]]
+name = "tkf"
+contributions = "105"

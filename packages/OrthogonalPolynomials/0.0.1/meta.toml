@@ -1,0 +1,4 @@
+name = "OrthogonalPolynomials"
+installs = false
+url = "https://github.com/miguelraz/OrthogonalPolynomials.jl.git"
+version = "0.0.1"

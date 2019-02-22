@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Octo"
+owner = "wookay"
+version = "0.1.2"
+description = "Octo.jl 🐙 is an SQL Query DSL in Julia"
+stargazers_count = "46"
+url = "https://github.com/wookay/Octo.jl.git"
+installs = true
+tags = ["julia", "sql", "query", "dsl", "repo"]
+license = "Other"
+
+[[contributors]]
+name = "wookay"
+contributions = "128"

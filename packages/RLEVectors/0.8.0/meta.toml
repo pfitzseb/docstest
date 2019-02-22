@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RLEVectors"
+owner = "phaverty"
+version = "0.8.0"
+description = "Run Length Encoded vectors for julia, inspired by BioConductor."
+stargazers_count = "11"
+url = "https://github.com/phaverty/RLEVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "phaverty"
+contributions = "337"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RiemannTheta"
+owner = "fredo-dedup"
+version = "0.1.0"
+description = "Julia implementation of the Riemann Theta function"
+stargazers_count = "1"
+url = "https://github.com/fredo-dedup/RiemannTheta.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fredo-dedup"
+contributions = "21"

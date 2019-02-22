@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Blobs"
+owner = "RelationalAI-oss"
+version = "0.3.0"
+description = "Binary blobs with on-the-fly pointer patching"
+stargazers_count = "16"
+url = "https://github.com/RelationalAI-oss/Blobs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jamii"
+contributions = "80"
+[[contributors]]
+name = "tjgreen"
+contributions = "22"
+[[contributors]]
+name = "mdashti"
+contributions = "21"
+[[contributors]]
+name = "TimSheard"
+contributions = "5"
+[[contributors]]
+name = "rbvermaa"
+contributions = "4"
+[[contributors]]
+name = "mbravenboer"
+contributions = "1"
+[[contributors]]
+name = "rgankema"
+contributions = "1"

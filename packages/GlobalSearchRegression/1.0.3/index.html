@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · GlobalSearchRegression.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>GlobalSearchRegression.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Abstract-1">Abstract</a></li><li><a class="toctext" href="#Syntax-1">Syntax</a></li><li><a class="toctext" href="#Basic-usage-1">Basic usage</a></li><li><a class="toctext" href="#Other-usage-methods:-1">Other usage methods:</a></li><li><a class="toctext" href="#Full-usage-options-1">Full usage options</a></li><li><a class="toctext" href="#Options:-1">Options:</a></li><li><a class="toctext" href="#Parallel-1">Parallel</a></li><li><a class="toctext" href="#Credits-1">Credits</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="GlobalSearchRegression-[![Build-Status](https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl.svg?branchmaster)](https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl)-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://parallelgsreg.github.io/GlobalSearchRegression.jl/)-1" href="#GlobalSearchRegression-[![Build-Status](https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl.svg?branchmaster)](https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl)-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://parallelgsreg.github.io/GlobalSearchRegression.jl/)-1">GlobalSearchRegression <a href="https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl"><img src="https://travis-ci.org/ParallelGSReg/GlobalSearchRegression.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://parallelgsreg.github.io/GlobalSearchRegression.jl/"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt/></a></a></h1><h2><a class="nav-anchor" id="Abstract-1" href="#Abstract-1">Abstract</a></h2><p>GlobalSearchRegression is an automatic model selection command for time series, cross-section and panel data regressions. By default (otherwise, users have many options to modify this simplest specification), gsreg performs alternative OLS regressions looking for the best depvar Data Generating Process, iterating over all possible combinations among explanatory variables</p><h2><a class="nav-anchor" id="Syntax-1" href="#Syntax-1">Syntax</a></h2><pre><code class="language-julia">gsreg(equation::String, data::DataFrame)
+gsreg(equation::Array{String}, data::DataFrame)
+gsreg(equation::Array{Symbol}, data::DataFrame)</code></pre><h2><a class="nav-anchor" id="Basic-usage-1" href="#Basic-usage-1">Basic usage</a></h2><p>To perform a regression analysis:</p><pre><code class="language-julia">using CSV, GlobalSearchRegression
+
+data = CSV.read(&quot;data.csv&quot;)
+
+result = gsreg(&quot;y x*&quot;, data)</code></pre><h2><a class="nav-anchor" id="Other-usage-methods:-1" href="#Other-usage-methods:-1">Other usage methods:</a></h2><pre><code class="language-julia"># Stata like
+result = gsreg(&quot;y x1 x2 x3&quot;, data)
+
+# Stata like with comma
+result = gsreg(&quot;y,x1,x2,x3&quot;, data)
+
+# R like
+result = gsreg(&quot;y ~ x1 + x2 + x3&quot;, data)
+result = gsreg(&quot;y ~ x1 + x2 + x3&quot;, data=data)
+
+# Array of strings
+result = gsreg([&quot;y&quot;, &quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;], data)
+
+# Also, with wildcard
+result = gsreg(&quot;y *&quot;, data)
+result = gsreg(&quot;y x*&quot;, data)
+result = gsreg(&quot;y x1 z*&quot;, data)
+result = gsreg(&quot;y ~ x*&quot;, data)
+result = gsreg(&quot;y ~ .&quot;, data)</code></pre><h2><a class="nav-anchor" id="Full-usage-options-1" href="#Full-usage-options-1">Full usage options</a></h2><pre><code class="language-julia">using CSV, GSReg
+
+data = CSV.read(&quot;data.csv&quot;)
+
+result = gsreg(&quot;y x*&quot;, data,
+    intercept=true,
+    outsample=10,
+    criteria=[:r2adj, :bic, :aic, :aicc, :cp, :rmse, :rmseout, :sse],
+    ttest=true,
+    method=&quot;fast&quot;, #precise
+    vectoroperation=true,
+    modelavg=true,
+    residualtest=false,
+    time=:date,
+    summary=false,
+    csv=&quot;output.csv&quot;,
+    resultscsv=&quot;output.csv&quot;,
+    orderresults=false
+)</code></pre><h2><a class="nav-anchor" id="Options:-1" href="#Options:-1">Options:</a></h2><p>intercept::Bool, outsample::Int, criteria::Array, ttest::Bool, method{fast,precise}, vectoroperation::Bool, modelavg::Bool, residualtest::Bool, time=Symbol, summary=Bool, csv=String, resultscsv=String (alias), orderresults=Boolean(false)</p><h2><a class="nav-anchor" id="Parallel-1" href="#Parallel-1">Parallel</a></h2><p>You must run julia with -p option</p><h2><a class="nav-anchor" id="Credits-1" href="#Credits-1">Credits</a></h2><p>The GSReg module, which perform regression analysis, was written primarily by <a href="https://github.com/dpanigo/">Demian Panigo</a>, <a href="https://github.com/vmari/">Valentín Mari</a> and <a href="https://github.com/adanmauri/">Adán Mauri Ungaro</a>. The GSReg module was inpired by GSReg for Stata, written by Pablo Gluzmann and <a href="https://github.com/dpanigo/">Demian Panigo</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

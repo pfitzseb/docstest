@@ -1,0 +1,4 @@
+name = "LazyCall"
+installs = false
+url = "https://github.com/bramtayl/LazyCall.jl.git"
+version = "0.5.0"

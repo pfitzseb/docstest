@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ODEInterface"
+owner = "luchr"
+version = "0.4.5"
+description = "julia package providing an interface for ODE-solvers written in Fortran"
+stargazers_count = "11"
+url = "https://github.com/luchr/ODEInterface.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "luchr"
+contributions = "128"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

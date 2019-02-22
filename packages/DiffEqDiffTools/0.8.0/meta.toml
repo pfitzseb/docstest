@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqDiffTools"
+owner = "JuliaDiffEq"
+version = "0.8.0"
+description = "Differentiation tools using the performance overloads and traits for the DiffEq common interface"
+stargazers_count = "11"
+url = "https://github.com/JuliaDiffEq/DiffEqDiffTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "58"
+[[contributors]]
+name = "dextorious"
+contributions = "36"
+[[contributors]]
+name = "YingboMa"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "JackDevine"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"

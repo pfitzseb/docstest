@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SingularSpectrumAnalysis"
+owner = "baggepinnen"
+version = "0.1.0"
+description = "A package for performing Singular Spectrum Analysis (SSA)"
+stargazers_count = "3"
+url = "https://github.com/baggepinnen/SingularSpectrumAnalysis.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "23"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

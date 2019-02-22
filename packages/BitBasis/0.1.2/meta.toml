@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "BitBasis"
+owner = "QuantumBFS"
+version = "0.1.2"
+description = "Operations and types for basis represented by bits"
+stargazers_count = "0"
+url = "https://github.com/QuantumBFS/BitBasis.jl.git"
+installs = true
+tags = ["linear-algebra", "quantum-physics", "mathematics"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "24"

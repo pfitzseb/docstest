@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "DASSL"
+owner = "JuliaDiffEq"
+version = "2.1.0"
+description = "Solves stiff differential algebraic equations (DAE) using variable stepsize backwards finite difference formula (BDF)"
+stargazers_count = "16"
+url = "https://github.com/JuliaDiffEq/DASSL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pwl"
+contributions = "87"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "33"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

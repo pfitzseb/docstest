@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/zlib"
+doctype = "default"
+name = "FreeType"
+owner = "JuliaGraphics"
+version = "2.1.1"
+description = "FreeType 2 bindings for Julia"
+stargazers_count = "8"
+url = "https://github.com/JuliaGraphics/FreeType.jl.git"
+installs = true
+tags = ["freetype", "julia"]
+license = "zlib License"
+
+[[contributors]]
+name = "jhasse"
+contributions = "37"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "37"
+[[contributors]]
+name = "Gnimuc"
+contributions = "15"
+[[contributors]]
+name = "aaalexandrov"
+contributions = "2"
+[[contributors]]
+name = "sjkelly"
+contributions = "2"
+[[contributors]]
+name = "wookay"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "real"
+name = "JuliaDB"
+owner = "JuliaComputing"
+version = "0.11.1"
+description = "Parallel analytical database in pure Julia"
+stargazers_count = "187"
+url = "https://github.com/JuliaComputing/JuliaDB.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shashi"
+contributions = "52"
+[[contributors]]
+name = "joshday"
+contributions = "43"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "24"
+[[contributors]]
+name = "piever"
+contributions = "16"
+[[contributors]]
+name = "tanmaykm"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "3"
+[[contributors]]
+name = "MikeInnes"
+contributions = "3"
+[[contributors]]
+name = "simonbyrne"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "ericphanson"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "ppalmes"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"

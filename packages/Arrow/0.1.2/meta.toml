@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Arrow"
+owner = "ExpandingMan"
+version = "0.1.2"
+description = "Julia implementation of the Apache Arrow data standard."
+stargazers_count = "31"
+url = "https://github.com/ExpandingMan/Arrow.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ExpandingMan"
+contributions = "93"
+[[contributors]]
+name = "davidanthoff"
+contributions = "4"
+[[contributors]]
+name = "sglyon"
+contributions = "2"

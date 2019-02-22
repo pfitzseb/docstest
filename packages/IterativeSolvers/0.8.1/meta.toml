@@ -1,0 +1,90 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "IterativeSolvers"
+owner = "JuliaMath"
+version = "0.8.1"
+description = "Iterative algorithms for solving linear systems, eigensystems, and singular value problems"
+stargazers_count = "141"
+url = "https://github.com/JuliaMath/IterativeSolvers.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jiahao"
+contributions = "187"
+[[contributors]]
+name = "haampie"
+contributions = "84"
+[[contributors]]
+name = "mohamed82008"
+contributions = "34"
+[[contributors]]
+name = "lopezm94"
+contributions = "26"
+[[contributors]]
+name = "andreasnoack"
+contributions = "16"
+[[contributors]]
+name = "timholy"
+contributions = "10"
+[[contributors]]
+name = "lostella"
+contributions = "7"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "7"
+[[contributors]]
+name = "tkonolige"
+contributions = "4"
+[[contributors]]
+name = "ViralBShah"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "shivin9"
+contributions = "3"
+[[contributors]]
+name = "mschauer"
+contributions = "3"
+[[contributors]]
+name = "JasonPries"
+contributions = "3"
+[[contributors]]
+name = "kshyatt"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jwmerrill"
+contributions = "1"
+[[contributors]]
+name = "jspark1105"
+contributions = "1"
+[[contributors]]
+name = "mzaffalon"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "deshtop"
+contributions = "1"
+[[contributors]]
+name = "Forgotten"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ElasticFDA"
+owner = "jdtuck"
+version = "0.5.2"
+description = "Functional Data Analysis using Square-Root Slope Framework"
+stargazers_count = "4"
+url = "https://github.com/jdtuck/ElasticFDA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jdtuck"
+contributions = "247"
+[[contributors]]
+name = "wadehenning"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

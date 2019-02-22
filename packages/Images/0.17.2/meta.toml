@@ -1,0 +1,216 @@
+license_url = ""
+doctype = "default"
+name = "Images"
+owner = "JuliaImages"
+version = "0.17.2"
+description = "An image library for Julia"
+stargazers_count = "237"
+url = "https://github.com/JuliaImages/Images.jl.git"
+installs = true
+tags = ["julia", "image-processing"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "969"
+[[contributors]]
+name = "rsrock"
+contributions = "71"
+[[contributors]]
+name = "mronian"
+contributions = "45"
+[[contributors]]
+name = "kmsquire"
+contributions = "28"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "22"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "22"
+[[contributors]]
+name = "Evizero"
+contributions = "19"
+[[contributors]]
+name = "tkelman"
+contributions = "16"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "14"
+[[contributors]]
+name = "bjarthur"
+contributions = "11"
+[[contributors]]
+name = "juliohm"
+contributions = "11"
+[[contributors]]
+name = "ihnorton"
+contributions = "11"
+[[contributors]]
+name = "staticfloat"
+contributions = "9"
+[[contributors]]
+name = "yhenon"
+contributions = "8"
+[[contributors]]
+name = "Cody-G"
+contributions = "7"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "tknopp"
+contributions = "6"
+[[contributors]]
+name = "waldyrious"
+contributions = "6"
+[[contributors]]
+name = "daniel-perry"
+contributions = "5"
+[[contributors]]
+name = "RalphAS"
+contributions = "5"
+[[contributors]]
+name = "romainFr"
+contributions = "5"
+[[contributors]]
+name = "rdeits"
+contributions = "4"
+[[contributors]]
+name = "arijitkar98"
+contributions = "4"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "pratapvardhan"
+contributions = "3"
+[[contributors]]
+name = "garborg"
+contributions = "3"
+[[contributors]]
+name = "shashi"
+contributions = "3"
+[[contributors]]
+name = "tbreloff"
+contributions = "3"
+[[contributors]]
+name = "tejus-gupta"
+contributions = "3"
+[[contributors]]
+name = "benmoran"
+contributions = "2"
+[[contributors]]
+name = "cbecker"
+contributions = "2"
+[[contributors]]
+name = "lindahua"
+contributions = "2"
+[[contributors]]
+name = "jwmerrill"
+contributions = "2"
+[[contributors]]
+name = "pfitzseb"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "stillyslalom"
+contributions = "1"
+[[contributors]]
+name = "AShedko"
+contributions = "1"
+[[contributors]]
+name = "andferrari"
+contributions = "1"
+[[contributors]]
+name = "annimesh2809"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "cmey"
+contributions = "1"
+[[contributors]]
+name = "cdsousa"
+contributions = "1"
+[[contributors]]
+name = "muhlba91"
+contributions = "1"
+[[contributors]]
+name = "ktisha"
+contributions = "1"
+[[contributors]]
+name = "sherbondy"
+contributions = "1"
+[[contributors]]
+name = "meggart"
+contributions = "1"
+[[contributors]]
+name = "Gnimuc"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "mykelk"
+contributions = "1"
+[[contributors]]
+name = "habemus-papadum"
+contributions = "1"
+[[contributors]]
+name = "lebek"
+contributions = "1"
+[[contributors]]
+name = "rennis250"
+contributions = "1"
+[[contributors]]
+name = "siddhantjain"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "twadleigh"
+contributions = "1"
+[[contributors]]
+name = "wkearn"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "yurivish"
+contributions = "1"
+[[contributors]]
+name = "aquatiko"
+contributions = "1"
+[[contributors]]
+name = "hustf"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

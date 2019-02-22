@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "FredData"
+owner = "micahjsmith"
+version = "0.3.0"
+description = "Pull data from Federal Reserve Economic Data (FRED) directly into Julia"
+stargazers_count = "26"
+url = "https://github.com/micahjsmith/FredData.jl.git"
+installs = true
+tags = ["julia", "fred-api", "economic-data", "financial-data"]
+license = "Other"
+
+[[contributors]]
+name = "micahjsmith"
+contributions = "89"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "pearlzli"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

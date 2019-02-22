@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Pukeko"
+owner = "IainNZ"
+version = "0.2.0"
+description = "Testing for Julia, simplified."
+stargazers_count = "8"
+url = "https://github.com/IainNZ/Pukeko.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "IainNZ"
+contributions = "21"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "odow"
+contributions = "2"

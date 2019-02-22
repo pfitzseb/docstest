@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Juno"
+owner = "JunoLab"
+version = "0.5.4"
+description = ""
+stargazers_count = "42"
+url = "https://github.com/JunoLab/Juno.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pfitzseb"
+contributions = "110"
+[[contributors]]
+name = "MikeInnes"
+contributions = "67"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "yha"
+contributions = "2"
+[[contributors]]
+name = "beOn"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"

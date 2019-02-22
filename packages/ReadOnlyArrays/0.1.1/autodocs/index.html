@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · ReadOnlyArrays.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ReadOnlyArrays.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ReadOnlyArrays.ReadOnlyArray" href="#ReadOnlyArrays.ReadOnlyArray"><code>ReadOnlyArrays.ReadOnlyArray</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ReadOnlyArray(a)</code></pre><p>Return a read-only view into the parent array <code>a</code>. Most iteration, indexing, abstract arrays and strided arrays interface functions defined for array <code>a</code> are transparently defined for <code>ReadOnlyArray(a)</code>. The exceptions are <code>setindex!</code> which is not allowed for <code>ReadOnlyArray</code> and <code>similar</code> which uses the default definitions for <code>AbstractArray</code> from Base. Also when used in broadcasting <code>ReadOnlyArray</code> uses default broadcast machinery.</p><p>Use <code>parent</code> function to access the parent array of <code>ReadOnlyArray</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; a = [1 2; 3 4]
+2×2 Array{Int64,2}:
+ 1  2
+ 3  4
+
+julia&gt; r = ReadOnlyArray(a)
+2×2 ReadOnlyArray{Int64,2,Array{Int64,2}}:
+ 1  2
+ 3  4
+
+julia&gt; r[1]
+1
+
+julia&gt; r[1] = 10
+ERROR: setindex! not defined for ReadOnlyArray{Int64,2,Array{Int64,2}}
+[...]</code></pre></div></div></section><pre><code class="language-none">ReadOnlyArrays.ReadOnlyArrays</code></pre><pre><code class="language-none">ReadOnlyArrays.eval</code></pre><pre><code class="language-none">ReadOnlyArrays.include</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "CodeTools"
+owner = "JunoLab"
+version = "0.6.4"
+description = ""
+stargazers_count = "8"
+url = "https://github.com/JunoLab/CodeTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "474"
+[[contributors]]
+name = "pfitzseb"
+contributions = "68"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "6"
+[[contributors]]
+name = "alyst"
+contributions = "3"
+[[contributors]]
+name = "sglyon"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "drewrobson"
+contributions = "1"
+[[contributors]]
+name = "jamii"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "nilshg"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "fredo-dedup"
+contributions = "1"
+[[contributors]]
+name = "marius311"
+contributions = "1"

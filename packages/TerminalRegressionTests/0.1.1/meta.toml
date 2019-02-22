@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "TerminalRegressionTests"
+owner = "Keno"
+version = "0.1.1"
+description = "Regression Testing for Terminal UIs"
+stargazers_count = "2"
+url = "https://github.com/Keno/TerminalRegressionTests.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"

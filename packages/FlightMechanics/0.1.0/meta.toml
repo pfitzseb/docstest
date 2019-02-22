@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "FlightMechanics"
+owner = "AlexS12"
+version = "0.1.0"
+description = "Flight mechanics utils"
+stargazers_count = "4"
+url = "https://github.com/AlexS12/FlightMechanics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "AlexS12"
+contributions = "289"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

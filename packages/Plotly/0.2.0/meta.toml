@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "Plotly"
+owner = "plotly"
+version = "0.2.0"
+description = "A Julia interface to the plot.ly plotting library and cloud services"
+stargazers_count = "46"
+url = "https://github.com/plotly/Plotly.jl.git"
+installs = true
+tags = ["julia", "plotlyjs", "plotly", "cloud", "plot"]
+license = "Other"
+
+[[contributors]]
+name = "BRONSOLO"
+contributions = "27"
+[[contributors]]
+name = "snotskie"
+contributions = "25"
+[[contributors]]
+name = "shirlenator"
+contributions = "19"
+[[contributors]]
+name = "sglyon"
+contributions = "18"
+[[contributors]]
+name = "malmaud"
+contributions = "12"
+[[contributors]]
+name = "bpostlethwaite"
+contributions = "12"
+[[contributors]]
+name = "astrieanna"
+contributions = "9"
+[[contributors]]
+name = "menyoung"
+contributions = "7"
+[[contributors]]
+name = "chriddyp"
+contributions = "7"
+[[contributors]]
+name = "jackparmer"
+contributions = "2"
+[[contributors]]
+name = "adelq"
+contributions = "1"
+[[contributors]]
+name = "0xA8D"
+contributions = "1"
+[[contributors]]
+name = "RichardLitt"
+contributions = "1"

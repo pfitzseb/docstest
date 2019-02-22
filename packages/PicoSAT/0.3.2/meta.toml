@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "PicoSAT"
+owner = "jakebolewski"
+version = "0.3.2"
+description = "Julia bindings to the SAT solver picosat"
+stargazers_count = "13"
+url = "https://github.com/jakebolewski/PicoSAT.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jakebolewski"
+contributions = "37"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "9"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

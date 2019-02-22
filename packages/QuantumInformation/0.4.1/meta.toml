@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "QuantumInformation"
+owner = "ZKSI"
+version = "0.4.1"
+description = "A Julia package for numerical computation in quantum information theory"
+stargazers_count = "17"
+url = "https://github.com/ZKSI/QuantumInformation.jl.git"
+installs = true
+tags = ["quantum-information", "quantum-computing", "random-matrix-theory"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "lpawela"
+contributions = "154"
+[[contributors]]
+name = "dkurzyk"
+contributions = "92"
+[[contributors]]
+name = "pgawron"
+contributions = "35"
+[[contributors]]
+name = "mprzewie"
+contributions = "6"
+[[contributors]]
+name = "mikegpl"
+contributions = "2"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"

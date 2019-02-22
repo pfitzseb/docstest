@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "DiffResults"
+owner = "JuliaDiff"
+version = "0.0.4"
+description = "A package which provides an API for querying differentiation results at multiple orders simultaneously"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiff/DiffResults.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "6"
+[[contributors]]
+name = "devmotion"
+contributions = "1"

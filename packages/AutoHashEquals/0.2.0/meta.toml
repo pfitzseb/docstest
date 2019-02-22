@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "AutoHashEquals"
+owner = "andrewcooke"
+version = "0.2.0"
+description = "A Julia macro to add == and hash() to composite types."
+stargazers_count = "20"
+url = "https://github.com/andrewcooke/AutoHashEquals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andrewcooke"
+contributions = "33"
+[[contributors]]
+name = "iamed2"
+contributions = "8"
+[[contributors]]
+name = "christopher-dG"
+contributions = "6"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "3"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

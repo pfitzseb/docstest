@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GenomicAnnotations"
+owner = "kdyrhage"
+version = "0.1.1"
+description = ""
+stargazers_count = "1"
+url = "https://github.com/kdyrhage/GenomicAnnotations.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "kdyrhage"
+contributions = "50"

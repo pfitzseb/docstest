@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "Mads"
+owner = "madsjulia"
+version = "0.6.3"
+description = "MADS: Model Analysis & Decision Support"
+stargazers_count = "38"
+url = "https://github.com/madsjulia/Mads.jl.git"
+installs = true
+tags = ["decision-support", "model-analysis", "calibration", "sensitivity-analysis", "uncertainty-quantification", "decision-making", "model-reduction", "surrogate-analysis", "machine-learning", "blind-source-separation", "inversion", "parameter-estimation", "groundwater", "contamination", "monitoring", "remediation", "high-performance-computing", "matrix-factorization", "data-analytics", "hpc"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "1527"
+[[contributors]]
+name = "omalled"
+contributions = "206"
+[[contributors]]
+name = "NedaV22"
+contributions = "58"
+[[contributors]]
+name = "ningtao2009"
+contributions = "54"
+[[contributors]]
+name = "daniellivingston"
+contributions = "18"
+[[contributors]]
+name = "mpilosov"
+contributions = "18"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "yednap47"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "zxdnl"
+contributions = "2"
+[[contributors]]
+name = "rNMF"
+contributions = "2"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "cnfirelin"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "ResultTypes"
+owner = "iamed2"
+version = "3.0.0"
+description = "A Result type for Julia—it's like Nullables for Exceptions"
+stargazers_count = "40"
+url = "https://github.com/iamed2/ResultTypes.jl.git"
+installs = true
+tags = ["julia", "result", "error-handling"]
+license = "Other"
+
+[[contributors]]
+name = "iamed2"
+contributions = "27"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"

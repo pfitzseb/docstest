@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RandomBooleanMatrices"
+owner = "EcoJulia"
+version = "0.1.1"
+description = "Create random boolean matrices that maintain row and column sums"
+stargazers_count = "0"
+url = "https://github.com/EcoJulia/RandomBooleanMatrices.jl.git"
+installs = true
+tags = ["julia", "ecology"]
+license = "MIT License"
+
+[[contributors]]
+name = "mkborregaard"
+contributions = "41"

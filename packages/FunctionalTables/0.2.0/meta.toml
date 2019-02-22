@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FunctionalTables"
+owner = "tpapp"
+version = "0.2.0"
+description = "Julia package for working with (potentially large) columns of data."
+stargazers_count = "0"
+url = "https://github.com/tpapp/FunctionalTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "75"

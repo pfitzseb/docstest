@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CoupledFields"
+owner = "Mattriks"
+version = "0.1.0"
+description = "Package for working with coupled Fields"
+stargazers_count = "0"
+url = "https://github.com/Mattriks/CoupledFields.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Mattriks"
+contributions = "37"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

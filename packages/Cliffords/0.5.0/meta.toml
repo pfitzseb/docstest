@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Cliffords"
+owner = "BBN-Q"
+version = "0.5.0"
+description = "Efficient calculation of Clifford circuits in Julia."
+stargazers_count = "15"
+url = "https://github.com/BBN-Q/Cliffords.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blakejohnson"
+contributions = "78"
+[[contributors]]
+name = "marcusps"
+contributions = "30"
+[[contributors]]
+name = "gribeill"
+contributions = "8"
+[[contributors]]
+name = "matthewware"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

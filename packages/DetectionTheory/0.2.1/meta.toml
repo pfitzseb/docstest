@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "DetectionTheory"
+owner = "sam81"
+version = "0.2.1"
+description = "Signal detection theory measures with Julia"
+stargazers_count = "2"
+url = "https://github.com/sam81/DetectionTheory.jl.git"
+installs = true
+tags = ["julia", "psychophysics", "signal-detection-theory", "perception", "psychology"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "sam81"
+contributions = "44"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

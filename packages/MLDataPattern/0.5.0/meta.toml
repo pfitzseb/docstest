@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "MLDataPattern"
+owner = "JuliaML"
+version = "0.5.0"
+description = "Utility package for subsetting, resampling, iteration, and partitioning of various types of data sets in Machine Learning"
+stargazers_count = "25"
+url = "https://github.com/JuliaML/MLDataPattern.jl.git"
+installs = true
+tags = ["machine-learning", "data-iteration", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "104"
+[[contributors]]
+name = "tbreloff"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hpoit"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "mdbloice"
+contributions = "1"

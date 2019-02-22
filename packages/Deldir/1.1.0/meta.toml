@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Deldir"
+owner = "robertdj"
+version = "1.1.0"
+description = "Julia wrapper for Delaunay/Voronoi library"
+stargazers_count = "3"
+url = "https://github.com/robertdj/Deldir.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "robertdj"
+contributions = "46"

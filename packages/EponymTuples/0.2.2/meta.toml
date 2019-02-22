@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "EponymTuples"
+owner = "tpapp"
+version = "0.2.2"
+description = "Julia package for deconstructing dispatch on NamedTuples."
+stargazers_count = "0"
+url = "https://github.com/tpapp/EponymTuples.jl.git"
+installs = true
+tags = ["julia", "julia-language", "macros"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "20"

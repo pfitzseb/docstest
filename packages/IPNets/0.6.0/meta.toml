@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "IPNets"
+owner = "JuliaWeb"
+version = "0.6.0"
+description = "IPv4 / IPv6 network abstractions for Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaWeb/IPNets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "63"
+[[contributors]]
+name = "maxmouchet"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

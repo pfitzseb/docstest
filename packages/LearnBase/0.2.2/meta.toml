@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "LearnBase"
+owner = "JuliaML"
+version = "0.2.2"
+description = "Abstractions for Julia Machine Learning Packages"
+stargazers_count = "13"
+url = "https://github.com/JuliaML/LearnBase.jl.git"
+installs = true
+tags = ["machine-learning", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "44"
+[[contributors]]
+name = "tbreloff"
+contributions = "15"
+[[contributors]]
+name = "joshday"
+contributions = "10"
+[[contributors]]
+name = "ahwillia"
+contributions = "8"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "neveritt"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

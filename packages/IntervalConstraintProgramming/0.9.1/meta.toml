@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "IntervalConstraintProgramming"
+owner = "JuliaIntervals"
+version = "0.9.1"
+description = "Calculate rigorously the feasible region for a set of real-valued inequalities with Julia"
+stargazers_count = "18"
+url = "https://github.com/JuliaIntervals/IntervalConstraintProgramming.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "161"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "mforets"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

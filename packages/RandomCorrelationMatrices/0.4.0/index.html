@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · RandomCorrelationMatrices.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>RandomCorrelationMatrices.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="RandomCorrelationMatrices-1" href="#RandomCorrelationMatrices-1">RandomCorrelationMatrices</a></h1><p><a href="https://travis-ci.org/IainNZ/RandomCorrelationMatrices.jl"><img src="https://travis-ci.org/IainNZ/RandomCorrelationMatrices.jl.svg?branch=master" alt="Build Status"/></a></p><p>Generate random correlation matrices, for some definition of random. Currently supports just one definition/method:</p><blockquote><p>Lewandowski, Daniel, Dorota Kurowicka, and Harry Joe. &quot;Generating random correlation matrices based on vines and extended onion method.&quot; Journal of multivariate analysis 100.9 (2009): 1989-2001. <a href="http://dx.doi.org/10.1016/j.jmva.2009.04.008">doi:10.1016/j.jmva.2009.04.008</a></p></blockquote><p>This package has two functions, <code>randcormatrix(d, η)</code> and <code>randcovmatrix(d, η, σ)</code> . <code>d</code> is the dimension, and <code>η</code> is a parameter that controls the distribution of the off-diagonal terms. <code>randcovmatrix</code> is used to generate a covariance matrix from the output of <code>randcormatrix</code>, where the standard deviation of each component is controlled by <code>σ</code>.</p><p>To get a feel for how to set <code>η</code>, consider the following output from <code>test/runtests.jl</code>, which shows some example matrices and the average range of off-diagonals:</p><pre><code class="language-none">η =&gt; 2
+ 1.00  0.07  0.59  0.78
+ 0.07  1.00  0.28 -0.03
+ 0.59  0.28  1.00  0.69
+ 0.78 -0.03  0.69  1.00
+mean(ranges) =&gt; 0.9609607012737842
+median(ranges) =&gt; 0.9522641114303307
+η =&gt; 8
+ 1.00 -0.24  0.15  0.18
+-0.24  1.00 -0.10 -0.06
+ 0.15 -0.10  1.00  0.02
+ 0.18 -0.06  0.02  1.00
+mean(ranges) =&gt; 0.5846747844778034
+median(ranges) =&gt; 0.5787807331445632
+η =&gt; 32
+ 1.00 -0.06  0.08 -0.11
+-0.06  1.00 -0.05  0.12
+ 0.08 -0.05  1.00 -0.14
+-0.11  0.12 -0.14  1.00
+mean(ranges) =&gt; 0.3094525766085337
+median(ranges) =&gt; 0.3050648782864559
+η =&gt; 128
+ 1.00  0.05 -0.00 -0.02
+ 0.05  1.00 -0.05  0.07
+-0.00 -0.05  1.00  0.03
+-0.02  0.07  0.03  1.00
+mean(ranges) =&gt; 0.15721653854980638
+median(ranges) =&gt; 0.15120529987720227</code></pre><p>Pull requests welcome for additional methods of generating random correlation matrices that are described in the literature.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

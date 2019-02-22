@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ReinforcementLearningEnvironmentDiscrete"
+owner = "JuliaReinforcementLearning"
+version = "0.2.2"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaReinforcementLearning/ReinforcementLearningEnvironmentDiscrete.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "34"
+[[contributors]]
+name = "findmyway"
+contributions = "2"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"

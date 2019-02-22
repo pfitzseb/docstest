@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Mods"
+owner = "scheinerman"
+version = "0.1.0"
+description = "Easy modular arithmetic for Julia"
+stargazers_count = "2"
+url = "https://github.com/scheinerman/Mods.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "27"

@@ -1,0 +1,29 @@
+license_url = ""
+name = "CLArrays"
+owner = "JuliaGPU"
+version = "0.1.3"
+description = "OpenCL-backed GPU Arrays"
+stargazers_count = "42"
+url = "https://github.com/JuliaGPU/CLArrays.jl.git"
+installs = false
+tags = ["gpu", "opencl", "julia", "gpu-interface"]
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "60"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "davidbp"
+contributions = "1"
+[[contributors]]
+name = "Maaarcocr"
+contributions = "1"
+[[contributors]]
+name = "maleadt"
+contributions = "1"

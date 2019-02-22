@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ULID"
+owner = "ararslan"
+version = "0.3.0"
+description = "Generate Universally Unique Lexicographically Sortable Identifiers (ULIDs) in Julia"
+stargazers_count = "0"
+url = "https://github.com/ararslan/ULID.jl.git"
+installs = true
+tags = ["julia", "ulid"]
+license = "MIT License"
+
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "larsyencken"
+contributions = "1"

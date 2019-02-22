@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "real"
+name = "YAAD"
+owner = "Roger-luo"
+version = "0.1.0"
+description = "Yet Another Automatic Differentiation Package"
+stargazers_count = "30"
+url = "https://github.com/Roger-luo/YAAD.jl.git"
+installs = true
+tags = []
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "57"

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Types of partitions · StateSpaceReconstruction.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StateSpaceReconstruction.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Overview</a></li><li><a class="toctext" href="../../embedding/">Embedding</a></li><li><span class="toctext">Rectangular partitions</span><ul><li class="current"><a class="toctext" href>Types of partitions</a><ul class="internal"><li><a class="toctext" href="#Binning-schemes-1">Binning schemes</a></li><li><a class="toctext" href="#Visualizing-partitions-1">Visualizing partitions</a></li><li><a class="toctext" href="#Visualizing-partitions-of-embeddings-1">Visualizing partitions of embeddings</a></li><li><a class="toctext" href="#Customizing-visualizations-1">Customizing visualizations</a></li></ul></li><li><a class="toctext" href="../minima_stepsizes/">Finding axis minima and step sizes</a></li><li><a class="toctext" href="../coordinate_representation/">Coordinate representation</a></li><li><a class="toctext" href="../minima_stepsizes/">Finding axis minima and step sizes</a></li><li><a class="toctext" href="../marginal_visitation_frequency/">Marginal visitation frequences</a></li></ul></li><li><span class="toctext">Simplex partitions</span><ul><li><a class="toctext" href="../../simplexpartition/simplex/">Overview</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Rectangular partitions</li><li><a href>Types of partitions</a></li></ul></nav><hr/><div id="topbar"><span>Types of partitions</span><a class="fa fa-bars" href="#"></a></div></header><h2><a class="nav-anchor" id="Binning-schemes-1" href="#Binning-schemes-1">Binning schemes</a></h2><p>Currently, there are four types of rectangular partition schemes available, controlled by the parameter <code>ϵ</code>:</p><ol><li><code>ϵ::Int</code> divides each axis into <code>ϵ</code> intervals of the same size.</li><li><code>ϵ::Float</code> divides each axis into intervals of size <code>ϵ</code>.</li><li><code>ϵ::Vector{Int}</code> divides the i-th axis into <code>ϵᵢ</code> intervals of the same size.</li><li><code>ϵ::Vector{Float64}</code> divides the i-th axis into intervals of size <code>ϵᵢ</code>.</li></ol><p>There are two ways of representing a binning: either by encoding each bin by integers (see <a href="../coordinate_representation/#Coordinate-representation-1">Coordinate representation</a>), or by referencing them by the bin origin coordinates (see <a href="../integer_representation/#Integer-encoding-representation-1">Integer encoding representation</a>).</p><h2><a class="nav-anchor" id="Visualizing-partitions-1" href="#Visualizing-partitions-1">Visualizing partitions</a></h2><p>To visualize how the different partition schemes work, you can feed the <code>plot_partition</code>  a binning scheme <code>ϵ</code> along with a three-dimensional set of points. <em>Of course, the partitions also work for data of any dimension.</em></p><pre><code class="language-julia-repl">julia&gt; using StateSpaceReconstruction, Plots
+
+julia&gt; pgfplots()
+ERROR: ArgumentError: Package PGFPlots not found in current path:
+- Run `import Pkg; Pkg.add(&quot;PGFPlots&quot;)` to install the PGFPlots package.</code></pre><pre><code class="language-julia-repl">julia&gt; A = rand(3, 100)
+3×100 Array{Float64,2}:
+ 0.547443   0.934324  0.592589  0.948677   …  0.315489  0.126299  0.920641
+ 0.0610654  0.920712  0.133595  0.614187      0.983562  0.786161  0.577239
+ 0.34109    0.387843  0.63334   0.0808731     0.880523  0.211122  0.996787</code></pre><p>Rectangular partition constructed by dividing the i-th axis interval into an integer number, <code>ϵᵢ</code>, of equal-length intervals.</p><pre><code class="language-julia-repl">julia&gt; ϵ = [1, 2, 3]
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition1.svg" alt/></p><p>Rectangular partition constructed by dividing the i-th axis into intervals of length <code>ϵᵢ</code>.</p><pre><code class="language-julia-repl">julia&gt; ϵ = [0.1, 0.3, 0.5]
+3-element Array{Float64,1}:
+ 0.1
+ 0.3
+ 0.5
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition2.svg" alt/></p><p>Rectangular partition constructed by dividing all axes into intervals of length <code>ϵ</code>.</p><pre><code class="language-julia-repl">julia&gt; ϵ = 0.3
+0.3
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition3.svg" alt/></p><p>Rectangular bins, divide all axes into <code>ϵ</code> equal-length intervals.</p><pre><code class="language-julia-repl">julia&gt; ϵ = 8
+8
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition4.svg" alt/></p><h2><a class="nav-anchor" id="Visualizing-partitions-of-embeddings-1" href="#Visualizing-partitions-of-embeddings-1">Visualizing partitions of embeddings</a></h2><p>The same works with embeddings.</p><div></div><pre><code class="language-julia-repl">julia&gt; A = rand(3, 100)
+3×100 Array{Float64,2}:
+ 0.371348  0.95776    0.00117997  0.389166  …  0.734942   0.0875567  0.714106
+ 0.336133  0.0507382  0.859468    0.438539     0.0133088  0.863053   0.231224
+ 0.308778  0.616108   0.259072    0.344202     0.166639   0.201223   0.659731
+
+julia&gt; E = embed(A, [1, 2, 3], [1, 0, -5])
+ERROR: UndefVarError: embed not defined</code></pre><p>Rectangular partition constructed by dividing the i-th axis of the embedding interval into an integer number, <code>ϵᵢ</code>, of equal-length intervals.</p><pre><code class="language-julia-repl">julia&gt; ϵ = [1, 2, 3]
+3-element Array{Int64,1}:
+ 1
+ 2
+ 3
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition1b.svg" alt/></p><p>Rectangular partition constructed by dividing the i-th axis of the embedding into intervals of length <code>ϵᵢ</code>.</p><pre><code class="language-julia-repl">julia&gt; ϵ = [0.1, 0.3, 0.5]
+3-element Array{Float64,1}:
+ 0.1
+ 0.3
+ 0.5
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition2b.svg" alt/></p><p>Rectangular partition constructed by dividing all axes of the embedding into intervals of length <code>ϵ</code>.</p><pre><code class="language-julia-repl">julia&gt; ϵ = 0.3
+0.3
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition3b.svg" alt/></p><p>Rectangular bins, divide all axes of the embedding into <code>ϵ</code> equal-length intervals.</p><pre><code class="language-julia-repl">julia&gt; ϵ = 8
+8
+
+julia&gt; plot_partition(A, ϵ);
+ERROR: UndefVarError: plot_partition not defined</code></pre><p><img src="../partition4b.svg" alt/></p><h2><a class="nav-anchor" id="Customizing-visualizations-1" href="#Customizing-visualizations-1">Customizing visualizations</a></h2><pre><code class="language-none">plot_partition</code></pre><footer><hr/><a class="previous" href="../../embedding/"><span class="direction">Previous</span><span class="title">Embedding</span></a><a class="next" href="../minima_stepsizes/"><span class="direction">Next</span><span class="title">Finding axis minima and step sizes</span></a></footer></article></body></html>

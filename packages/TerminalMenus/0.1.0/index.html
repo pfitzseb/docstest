@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TerminalMenus.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TerminalMenus.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Installation-1">Installation</a></li><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#RadioMenu-1">RadioMenu</a></li><li><a class="toctext" href="#MultiSelectMenu-1">MultiSelectMenu</a></li><li class="toplevel"><a class="toctext" href="#Customization-/-Configuation-1">Customization / Configuation</a></li><li><a class="toctext" href="#Arguments-1">Arguments</a></li><li><a class="toctext" href="#Examples-2">Examples</a></li><li class="toplevel"><a class="toctext" href="#TODO-1">TODO</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TerminalMenus-1" href="#TerminalMenus-1">TerminalMenus</a></h1><p><a href="https://travis-ci.org/nick-paul/TerminalMenus.jl"><img src="https://travis-ci.org/nick-paul/TerminalMenus.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/nick-paul/terminalmenus-jl"><img src="https://ci.appveyor.com/api/projects/status/weaqa64co5boj87g?svg=true" alt="Build status"/></a></p><p><img src="http://npaul.co/files/TerminalMenus-demo.gif" alt="Demo"/></p><p>TerminalMenus.jl enables small, low-profile interactive menus in the terminal.</p><h1><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h1><p>TerminalMenus requires Julia 0.6. Use <code>Pkg</code> to install:</p><pre><code class="language-none">Pkg.add(&quot;TerminalMenus&quot;)</code></pre><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><pre><code class="language-julia">using TerminalMenus
+
+options = [&quot;apple&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;strawberry&quot;,
+            &quot;blueberry&quot;, &quot;peach&quot;, &quot;lemon&quot;, &quot;lime&quot;]
+</code></pre><h2><a class="nav-anchor" id="RadioMenu-1" href="#RadioMenu-1">RadioMenu</a></h2><p>The RadioMenu allows the user to select one option from the list. The <code>request</code> function displays the interactive menu and returns the index of the selected choice. If a user presses &#39;q&#39; or <code>ctrl-c</code>, <code>request</code> will return a <code>-1</code>.</p><pre><code class="language-julia"># `pagesize` is the number of items to be displayed at a time.
+#  The UI will scroll if the number of options is greater
+#   than the `pagesize`
+menu = RadioMenu(options, pagesize=4)
+
+# `request` displays the menu and returns the index after the
+#   user has selected a choice
+choice = request(&quot;Choose your favorite fruit:&quot;, menu)
+
+if choice != -1
+    println(&quot;Your favorite fruit is &quot;, options[choice], &quot;!&quot;)
+else
+    println(&quot;Menu canceled.&quot;)
+end
+</code></pre><p>Output:</p><pre><code class="language-none">Choose your favorite fruit:
+^  grape
+   strawberry
+ &gt; blueberry
+v  peach
+Your favorite fruit is blueberry!</code></pre><h2><a class="nav-anchor" id="MultiSelectMenu-1" href="#MultiSelectMenu-1">MultiSelectMenu</a></h2><p>The MultiSelectMenu allows users to select many choices from a list.</p><pre><code class="language-julia"># here we use the default `pagesize` 10
+menu = MultiSelectMenu(options)
+
+# `request` returns a `Set` of selected indices
+# if the menu us canceled (ctrl-c or q), return an empty set
+choices = request(&quot;Select the fruits you like:&quot;, menu)
+
+if length(choices) &gt; 0
+    println(&quot;You like the following fruits:&quot;)
+    for i in choices
+        println(&quot;  - &quot;, options[i])
+    end
+else
+    println(&quot;Menu canceled.&quot;)
+end</code></pre><p>Output:</p><pre><code class="language-none">Select the fruits you like:
+[press: d=done, a=all, n=none]
+   [ ] apple
+ &gt; [X] orange
+   [X] grape
+   [ ] strawberry
+   [ ] blueberry
+   [X] peach
+   [ ] lemon
+   [ ] lime
+You like the following fruits:
+  - orange
+  - grape
+  - peach</code></pre><h1><a class="nav-anchor" id="Customization-/-Configuation-1" href="#Customization-/-Configuation-1">Customization / Configuation</a></h1><p>All interface customization is done through the keyword only <code>TerminalMenus.config()</code> function.</p><h2><a class="nav-anchor" id="Arguments-1" href="#Arguments-1">Arguments</a></h2><ul><li><code>charset::Symbol=:na</code>: ui characters to use (<code>:ascii</code> or <code>:unicode</code>); overridden by other arguments</li><li><code>cursor::Char=&#39;&gt;&#39;|&#39;→&#39;</code>: character to use for cursor</li><li><code>up_arrow::Char=&#39;^&#39;|&#39;↑&#39;</code>: character to use for up arrow</li><li><code>down_arrow::Char=&#39;v&#39;|&#39;↓&#39;</code>: character to use for down arrow</li><li><code>checked::String=&quot;[X]&quot;|&quot;✓&quot;</code>: string to use for checked</li><li><code>unchecked::String=&quot;[ ]&quot;|&quot;⬚&quot;)</code>: string to use for unchecked</li><li><code>scroll::Symbol=:na</code>: If <code>:wrap</code> then wrap the cursor around top and bottom, if :<code>nowrap</code> do not wrap cursor</li><li><code>supress_output::Bool=false</code>: For testing. If true, menu will not be printed to console.</li><li><code>ctrl_c_interrupt::Bool=true</code>: If <code>false</code>, return empty on ^C, if <code>true</code> throw InterruptException() on ^C</li></ul><h2><a class="nav-anchor" id="Examples-2" href="#Examples-2">Examples</a></h2><pre><code class="language-julia">julia&gt; menu = MultiSelectMenu(options, pagesize=5);
+
+julia&gt; request(menu) # ASCII is used by default
+[press: d=done, a=all, n=none]
+   [ ] apple
+   [X] orange
+   [ ] grape
+ &gt; [X] strawberry
+v  [ ] blueberry
+Set([4, 2])
+
+julia&gt; TerminalMenus.config(charset=:unicode)
+
+julia&gt; request(menu)
+[press: d=done, a=all, n=none]
+   ⬚ apple
+   ✓ orange
+   ⬚ grape
+ → ✓ strawberry
+↓  ⬚ blueberry
+Set([4, 2])
+
+julia&gt; TerminalMenus.config(checked=&quot;YEP!&quot;, unchecked=&quot;NOPE&quot;, cursor=&#39;⧐&#39;)
+
+julia&gt; request(menu)
+[press: d=done, a=all, n=none]
+   NOPE apple
+   YEP! orange
+   NOPE grape
+ ⧐ YEP! strawberry
+↓  NOPE blueberry
+Set([4, 2])
+</code></pre><h1><a class="nav-anchor" id="TODO-1" href="#TODO-1">TODO</a></h1><ul><li>Nested menus</li><li>More customization?</li></ul><hr/><p><em>The interactive menu has been tested on Ubuntu 16.04 and windows 7, 8, &amp; 10. If there are any issues on your platform, please submit an issue or a pull request.</em></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

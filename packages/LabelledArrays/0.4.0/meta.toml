@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "LabelledArrays"
+owner = "JuliaDiffEq"
+version = "0.4.0"
+description = "Arrays which also have a label for each element"
+stargazers_count = "18"
+url = "https://github.com/JuliaDiffEq/LabelledArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "43"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "13"
+[[contributors]]
+name = "YingboMa"
+contributions = "9"
+[[contributors]]
+name = "devmotion"
+contributions = "4"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "rafaqz"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

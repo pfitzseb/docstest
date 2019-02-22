@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "FourierFlows"
+owner = "FourierFlows"
+version = "0.3.0"
+description = "Tools for solving partial differential equations on periodic domains using Fourier-based pseudospectral methods."
+stargazers_count = "24"
+url = "https://github.com/FourierFlows/FourierFlows.jl.git"
+installs = true
+tags = ["julia", "partial-differential-equations", "spectral-methods", "cfd", "fluid-dy", "fluid-si"]
+license = "Other"
+
+[[contributors]]
+name = "glwagner"
+contributions = "527"
+[[contributors]]
+name = "navidcy"
+contributions = "511"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

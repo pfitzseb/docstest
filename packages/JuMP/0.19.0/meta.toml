@@ -1,0 +1,159 @@
+license_url = ""
+doctype = "real"
+name = "JuMP"
+owner = "JuliaOpt"
+version = "0.19.0"
+description = "Modeling language for Mathematical Optimization (linear, mixed-integer, conic, semidefinite, nonlinear)"
+stargazers_count = "699"
+url = "https://github.com/JuliaOpt/JuMP.jl.git"
+installs = true
+tags = ["optimization", "julia", "modeling-language"]
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "1598"
+[[contributors]]
+name = "blegat"
+contributions = "732"
+[[contributors]]
+name = "joehuchette"
+contributions = "554"
+[[contributors]]
+name = "IainNZ"
+contributions = "398"
+[[contributors]]
+name = "odow"
+contributions = "96"
+[[contributors]]
+name = "tkelman"
+contributions = "27"
+[[contributors]]
+name = "ccoffrin"
+contributions = "14"
+[[contributors]]
+name = "joaquimg"
+contributions = "11"
+[[contributors]]
+name = "yuyichao"
+contributions = "7"
+[[contributors]]
+name = "jrevels"
+contributions = "5"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "5"
+[[contributors]]
+name = "yeesian"
+contributions = "5"
+[[contributors]]
+name = "chkwon"
+contributions = "4"
+[[contributors]]
+name = "mohamed82008"
+contributions = "4"
+[[contributors]]
+name = "anriseth"
+contributions = "3"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "3"
+[[contributors]]
+name = "kdheepak"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "emreyamangil"
+contributions = "2"
+[[contributors]]
+name = "cossio"
+contributions = "2"
+[[contributors]]
+name = "sbebo"
+contributions = "2"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "joeltay"
+contributions = "2"
+[[contributors]]
+name = "IssamT"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "cmaes"
+contributions = "1"
+[[contributors]]
+name = "coreysharris"
+contributions = "1"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "Peiffap"
+contributions = "1"
+[[contributors]]
+name = "ianfiske"
+contributions = "1"
+[[contributors]]
+name = "jlepird"
+contributions = "1"
+[[contributors]]
+name = "joshualeond"
+contributions = "1"
+[[contributors]]
+name = "Ken-B"
+contributions = "1"
+[[contributors]]
+name = "mforets"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"
+[[contributors]]
+name = "madanim"
+contributions = "1"
+[[contributors]]
+name = "rtwalker"
+contributions = "1"
+[[contributors]]
+name = "shoibalc"
+contributions = "1"
+[[contributors]]
+name = "freeboson"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "dojt"
+contributions = "1"
+[[contributors]]
+name = "dschein"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "ndinsmore"
+contributions = "1"
+[[contributors]]
+name = "petershintech"
+contributions = "1"

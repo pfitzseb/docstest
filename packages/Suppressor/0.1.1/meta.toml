@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Suppressor"
+owner = "JuliaIO"
+version = "0.1.1"
+description = "Julia macros for suppressing and/or capturing output (STDOUT), warnings (STDERR) or both streams at the same time."
+stargazers_count = "31"
+url = "https://github.com/JuliaIO/Suppressor.jl.git"
+installs = true
+tags = ["julia-language", "suppressor-capture", "syntactic-macros"]
+license = "Other"
+
+[[contributors]]
+name = "SalchiPapa"
+contributions = "13"
+[[contributors]]
+name = "ssfrr"
+contributions = "5"
+[[contributors]]
+name = "iamed2"
+contributions = "4"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

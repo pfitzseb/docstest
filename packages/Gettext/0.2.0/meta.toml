@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Gettext"
+owner = "Julia-i18n"
+version = "0.2.0"
+description = "i18n for Julia"
+stargazers_count = "7"
+url = "https://github.com/Julia-i18n/Gettext.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "garrison"
+contributions = "28"

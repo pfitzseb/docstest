@@ -1,0 +1,96 @@
+license_url = ""
+doctype = "real"
+name = "TimeSeries"
+owner = "JuliaStats"
+version = "0.14.0"
+description = "Time series toolkit for Julia"
+stargazers_count = "121"
+url = "https://github.com/JuliaStats/TimeSeries.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "iblis17"
+contributions = "91"
+[[contributors]]
+name = "GordStephen"
+contributions = "59"
+[[contributors]]
+name = "milktrader"
+contributions = "47"
+[[contributors]]
+name = "dourouc05"
+contributions = "18"
+[[contributors]]
+name = "mkborregaard"
+contributions = "12"
+[[contributors]]
+name = "daehyok"
+contributions = "7"
+[[contributors]]
+name = "quinnj"
+contributions = "6"
+[[contributors]]
+name = "femtotrader"
+contributions = "6"
+[[contributors]]
+name = "iht"
+contributions = "4"
+[[contributors]]
+name = "multidis"
+contributions = "3"
+[[contributors]]
+name = "ancapdev"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "strickek"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "brilhana"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "BenjaminBorn"
+contributions = "1"
+[[contributors]]
+name = "ElevatorDeLuxe"
+contributions = "1"
+[[contributors]]
+name = "ianfiske"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "bovine3dom"
+contributions = "1"
+[[contributors]]
+name = "vcangadi1"
+contributions = "1"
+[[contributors]]
+name = "merl-dev"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

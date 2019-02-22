@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Maxima"
+owner = "nsmith5"
+version = "0.1.0"
+description = "Symbolic Computations in Julia using Maxima"
+stargazers_count = "21"
+url = "https://github.com/nsmith5/Maxima.jl.git"
+installs = true
+tags = ["maxima", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "nsmith5"
+contributions = "132"
+[[contributors]]
+name = "chakravala"
+contributions = "5"
+[[contributors]]
+name = "odysseus9672"
+contributions = "2"
+[[contributors]]
+name = "fedxa"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

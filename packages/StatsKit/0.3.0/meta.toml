@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "StatsKit"
+owner = "JuliaStats"
+version = "0.3.0"
+description = "Stats meta-package"
+stargazers_count = "19"
+url = "https://github.com/JuliaStats/StatsKit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "12"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"

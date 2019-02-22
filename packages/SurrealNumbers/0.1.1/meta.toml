@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SurrealNumbers"
+owner = "mroughan"
+version = "0.1.1"
+description = "Implementation of Conway's Surreal Numbers"
+stargazers_count = "3"
+url = "https://github.com/mroughan/SurrealNumbers.jl.git"
+installs = true
+tags = ["math", "numbers", "analysis", "graphs", "surreal", "hyperreal", "dag", "ordinal", "number"]
+license = "Other"
+
+[[contributors]]
+name = "mroughan"
+contributions = "118"

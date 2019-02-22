@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "AtlasRobot"
+owner = "tkoolen"
+version = "0.3.0"
+description = "URDF and meshes for the Boston Dynamics Atlas robot (v5)"
+stargazers_count = "0"
+url = "https://github.com/tkoolen/AtlasRobot.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "18"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "drcbot"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "ParallelDataTransfer"
+owner = "ChrisRackauckas"
+version = "0.5.0"
+description = "A bunch of helper functions for transferring data between worker processes"
+stargazers_count = "68"
+url = "https://github.com/ChrisRackauckas/ParallelDataTransfer.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "57"
+[[contributors]]
+name = "baggepinnen"
+contributions = "4"
+[[contributors]]
+name = "dylanfesta"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "sbchisholm"
+contributions = "1"

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Embedding · StateSpaceReconstruction.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StateSpaceReconstruction.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Overview</a></li><li class="current"><a class="toctext" href>Embedding</a><ul class="internal"><li><a class="toctext" href="#What-are-embeddings?-1">What are embeddings?</a></li><li><a class="toctext" href="#Fully-customizable-embedding-1">Fully customizable embedding</a></li><li><a class="toctext" href="#Simple-examples-1">Simple examples</a></li><li><a class="toctext" href="#Full-control-over-the-embedding-1">Full control over the embedding</a></li></ul></li><li><span class="toctext">Rectangular partitions</span><ul><li><a class="toctext" href="../partition/binningtypes/">Types of partitions</a></li><li><a class="toctext" href="../partition/minima_stepsizes/">Finding axis minima and step sizes</a></li><li><a class="toctext" href="../partition/coordinate_representation/">Coordinate representation</a></li><li><a class="toctext" href="../partition/minima_stepsizes/">Finding axis minima and step sizes</a></li><li><a class="toctext" href="../partition/marginal_visitation_frequency/">Marginal visitation frequences</a></li></ul></li><li><span class="toctext">Simplex partitions</span><ul><li><a class="toctext" href="../simplexpartition/simplex/">Overview</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Embedding</a></li></ul></nav><hr/><div id="topbar"><span>Embedding</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Reconstructions/embeddings-1" href="#Reconstructions/embeddings-1">Reconstructions/embeddings</a></h1><h2><a class="nav-anchor" id="What-are-embeddings?-1" href="#What-are-embeddings?-1">What are embeddings?</a></h2><p>If you haven&#39;t heard about state space reconstructions (SSR), or embeddings, visit the <a href="https://en.wikipedia.org/wiki/Takens%27s_theorem">Wikipedia page</a> on Takens&#39; theorem.</p><h2><a class="nav-anchor" id="Fully-customizable-embedding-1" href="#Fully-customizable-embedding-1">Fully customizable embedding</a></h2><p>Positive, zero and negative lags are possible. Negative lags are takes as &quot;past affects future&quot;, and positive lags  as &quot;future affects past&quot;.</p><h2><a class="nav-anchor" id="Simple-examples-1" href="#Simple-examples-1">Simple examples</a></h2><p>For those familiar with SSR, performing reconstructions is easy as pie. The constructors accept arrays, vectors of vectors, vectors of <code>SVector</code>, <code>SArray</code>, and <code>Dataset</code> instances from <code>DynamicalSystems.jl</code>.</p><p>The constructors accept both column-major arrays (points are column vectors) and row-major arrays (points are rows) arrays. Upon embedding, they are all converted to column-major format.</p><p>First, some trivial examples.</p><pre><code class="language-julia-repl">julia&gt; using StateSpaceReconstruction, StaticArrays, DynamicalSystems
+ERROR: ArgumentError: Package DynamicalSystems not found in current path:
+- Run `import Pkg; Pkg.add(&quot;DynamicalSystems&quot;)` to install the DynamicalSystems package.</code></pre><p>Simulate a three-dimensional orbit consisting of 100 points. We&#39;ll represent the orbit as a regular array, as an <code>SMatrix</code> and as a <code>Dataset</code>.</p><pre><code class="language-julia-repl">julia&gt; A = rand(3, 100)
+3×100 Array{Float64,2}:
+ 0.15474   0.302313  0.466022  0.664447   …  0.544892  0.319884  0.422716
+ 0.931831  0.379863  0.331273  0.349432      0.658917  0.525761  0.751381
+ 0.576334  0.303094  0.292581  0.0927751     0.906987  0.397559  0.663422
+
+julia&gt; S = SMatrix{3,100}(A)
+3×100 StaticArrays.SArray{Tuple{3,100},Float64,2,300}:
+ 0.15474   0.302313  0.466022  0.664447   …  0.544892  0.319884  0.422716
+ 0.931831  0.379863  0.331273  0.349432      0.658917  0.525761  0.751381
+ 0.576334  0.303094  0.292581  0.0927751     0.906987  0.397559  0.663422
+
+julia&gt; D = Dataset(A)
+ERROR: UndefVarError: Dataset not defined</code></pre><p>Embed the raw orbits, performing no coordinate lagging.</p><pre><code class="language-julia-repl">julia&gt; E_A = embed(A)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed1.svg" alt/></p><p><code>Dataset</code> instances from <code>DynamicalSystems.jl</code> can also be embedded.</p><pre><code class="language-julia-repl">julia&gt; E_D = embed(D)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed2.svg" alt/></p><p>Instances of <code>SMatrix</code> work just as well.</p><pre><code class="language-julia-repl">julia&gt; E_S = embed(S)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed3.svg" alt/></p><p>Verify that all three embeddings are the same, regardless of which data type we&#39;re starting from.</p><pre><code class="language-julia-repl">julia&gt; E_A == E_D == E_S
+ERROR: UndefVarError: E_A not defined</code></pre><h2><a class="nav-anchor" id="Full-control-over-the-embedding-1" href="#Full-control-over-the-embedding-1">Full control over the embedding</a></h2><p>One can also specify exactly how the variables of the data should appear in the final embedding, and which embedding lag should be used for each variable. Each variable of the data can appear multiple times in the final embedding with different lags.</p><pre><code class="language-julia-repl">julia&gt; using StateSpaceReconstruction, StaticArrays, DynamicalSystems
+ERROR: ArgumentError: Package DynamicalSystems not found in current path:
+- Run `import Pkg; Pkg.add(&quot;DynamicalSystems&quot;)` to install the DynamicalSystems package.</code></pre><pre><code class="language-julia-repl">julia&gt; using StateSpaceReconstruction, StaticArrays, DynamicalSystems
+ERROR: ArgumentError: Package DynamicalSystems not found in current path:
+- Run `import Pkg; Pkg.add(&quot;DynamicalSystems&quot;)` to install the DynamicalSystems package.
+
+julia&gt; A = rand(3, 100)
+3×100 Array{Float64,2}:
+ 0.338759   0.00414162  0.731406  0.240456  …  0.967941  0.941891  0.323099
+ 0.384116   0.552501    0.518568  0.797414     0.863937  0.694236  0.280222
+ 0.0507703  0.939194    0.657833  0.375649     0.762103  0.807082  0.780864
+
+julia&gt; S = SMatrix{3,100}(A)
+3×100 StaticArrays.SArray{Tuple{3,100},Float64,2,300}:
+ 0.338759   0.00414162  0.731406  0.240456  …  0.967941  0.941891  0.323099
+ 0.384116   0.552501    0.518568  0.797414     0.863937  0.694236  0.280222
+ 0.0507703  0.939194    0.657833  0.375649     0.762103  0.807082  0.780864
+
+julia&gt; D = Dataset(A)
+ERROR: UndefVarError: Dataset not defined</code></pre><p>Embed the orbits, this time using coordinate lagging. Now, let <span>$x$</span>, <span>$y$</span> and <span>$z$</span> be variables 1, 2 and 3 of the dataset <code>A</code>.  We&#39;ll create embeddings of the form <span>$E = \{(x(t+1), x(t), y(t), y(t-1), z(t))\}$</span>. This means we will have to specify which variable will appear as which variables in the final embedding.</p><pre><code class="language-julia-repl">julia&gt; which_pos = [1, 1, 2, 2, 3]
+5-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 2
+ 3
+
+julia&gt; embed_lags = [1, 0, 0, -1, 1]
+5-element Array{Int64,1}:
+  1
+  0
+  0
+ -1
+  1</code></pre><p>Using these positions and lags, we&#39;ll get 5-dimensional embeddings. In the plots below, the first three coordinate axes are plotted.</p><pre><code class="language-julia-repl">julia&gt; E_A = embed(A, which_pos, embed_lags)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed1b.svg" alt/></p><pre><code class="language-julia-repl">julia&gt; E_D = embed(D, which_pos, embed_lags)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed2b.svg" alt/></p><pre><code class="language-julia-repl">julia&gt; E_S = embed(S, which_pos, embed_lags)
+ERROR: UndefVarError: embed not defined</code></pre><p><img src="embed3b.svg" alt/></p><p>Verify that all three embeddings are the same, regardless of which data type we&#39;re starting from.</p><pre><code class="language-julia-repl">julia&gt; E_A == E_D == E_S
+ERROR: UndefVarError: E_A not defined</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Overview</span></a><a class="next" href="../partition/binningtypes/"><span class="direction">Next</span><span class="title">Types of partitions</span></a></footer></article></body></html>

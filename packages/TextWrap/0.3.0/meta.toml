@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "TextWrap"
+owner = "carlobaldassi"
+version = "0.3.0"
+description = "Julia package for wrapping text into paragraphs."
+stargazers_count = "6"
+url = "https://github.com/carlobaldassi/TextWrap.jl.git"
+installs = true
+tags = ["textwrap", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "carlobaldassi"
+contributions = "51"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "4"
+[[contributors]]
+name = "sjkelly"
+contributions = "3"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

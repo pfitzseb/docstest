@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BitIntegers"
+owner = "rfourquet"
+version = "0.1.0"
+description = "Fixed-width integers similar to builtin ones"
+stargazers_count = "5"
+url = "https://github.com/rfourquet/BitIntegers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rfourquet"
+contributions = "35"

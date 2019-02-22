@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ErlangTerm"
+owner = "helgee"
+version = "0.1.0"
+description = "(De-)serialize Julia data in Erlang's external term format"
+stargazers_count = "0"
+url = "https://github.com/helgee/ErlangTerm.jl.git"
+installs = true
+tags = ["julia", "erlang", "elixir"]
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "17"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GrowableArrays"
+owner = "ChrisRackauckas"
+version = "0.1.0"
+description = "Provides an array type designed for efficient appending and ease of use."
+stargazers_count = "5"
+url = "https://github.com/ChrisRackauckas/GrowableArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "27"
+[[contributors]]
+name = "gragusa"
+contributions = "8"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

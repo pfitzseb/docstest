@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Hilbert"
+owner = "fpreiswerk"
+version = "0.1.0"
+description = "Julia implementation of the discrete analytic signal, computed using the Hilbert transform."
+stargazers_count = "4"
+url = "https://github.com/fpreiswerk/Hilbert.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tlnagy"
+contributions = "3"
+[[contributors]]
+name = "fpreiswerk"
+contributions = "3"

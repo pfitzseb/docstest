@@ -1,0 +1,7 @@
+name = "Jive"
+stargazers_count = "11"
+doctype = "default"
+installs = true
+url = "https://github.com/wookay/Jive.jl.git"
+version = "0.1.9"
+description = "some useful steps in tests 👣"

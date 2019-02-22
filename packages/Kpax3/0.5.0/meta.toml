@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Kpax3"
+owner = "albertopessia"
+version = "0.5.0"
+description = "Bayesian bi-clustering of categorical data"
+stargazers_count = "6"
+url = "https://github.com/albertopessia/Kpax3.jl.git"
+installs = true
+tags = ["bi-clustering", "mcmc-sampler", "bayesian-cluster-analysis", "clustering", "co-clustering", "population-genomics", "genomics", "categorical-data", "multivariate-data", "multivariate-analysis", "cluster-analysis"]
+license = "MIT License"
+
+[[contributors]]
+name = "albertopessia"
+contributions = "106"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "Alberto-P"
+contributions = "1"

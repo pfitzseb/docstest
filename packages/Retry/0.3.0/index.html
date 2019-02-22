@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Retry.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Retry.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Exception-Handling-In-Julia-1">Exception Handling In Julia</a></li><li><a class="toctext" href="#@protected-try-1"><code>@protected try</code></a></li><li><a class="toctext" href="#@repeat-n-try-1"><code>@repeat n try</code></a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Retry-1" href="#Retry-1">Retry</a></h1><p>Macros for simplified exception handling.</p><p><code>@repeat try</code>, <code>@retry</code>, <code>@delay_retry</code>, <code>@protected try</code>, <code>@ignore</code>.</p><p><a href="https://travis-ci.org/samoconnor/Retry.jl"><img src="https://travis-ci.org/samoconnor/Retry.jl.svg" alt="Build Status"/></a></p><h2><a class="nav-anchor" id="Exception-Handling-In-Julia-1" href="#Exception-Handling-In-Julia-1">Exception Handling In Julia</a></h2><p>Julia&#39;s <code>try/catch</code> statement catches all exceptions regardless of type or error code.</p><p>The <a href="http://docs.julialang.org/en/latest/manual/control-flow/#the-try-catch-statement">examples in the Julia manual</a> involve mathematical errors that occur in the immediate context of the <code>try</code> block. The examples assume that there is no possibility of unexpected exceptions and hence no need to <code>rethrow()</code>. For many technical computing tasks this is probably reasonable.</p><p>However, typical systems-programming tasks must deal with with multi-layered distributed service stacks, interfaces to external systems and resource contention. These problems demand fine-grained exception filtering, simple expression of retry loops and confidence that unexpected exceptions are not unintentionally caught and ignored.</p><p>Julia&#39;s <code>catch</code> block can include conditional logic to take appropriate action according to error type/code; and to rethrow exceptions that are not handled. However, this approach can seem cumbersome in comparison to the richer exception handling mechanisms provided in some systems programming languages. A simple careless omission of <code>retrhow()</code> at the end of a catch block causes all exceptions to be ignored resulting in behaviour that can be very hard to debug.</p><h2><a class="nav-anchor" id="@protected-try-1" href="#@protected-try-1"><code>@protected try</code></a></h2><p>The <code>@protected try</code> macro extends <code>try/catch</code> to:</p><ul><li>automatically insert <code>rethow()</code> at the end of the <code>catch</code> block, and</li><li>provide an unambiguous syntax for handling specific errors.</li></ul><p>Consider the following call to Create an authentication profile for an AWS EC2 virtual machine.</p><pre><code class="language-julia">try 
+
+    iam(aws, Action = &quot;CreateInstanceProfile&quot;, InstanceProfileName = name)
+
+catch e
+    if !(typeof(e) == AWSException &amp;&amp; e.code == &quot;EntityAlreadyExists&quot;)
+        rethrow(e)
+    end
+end</code></pre><p><code>@protected try</code> allows this to be simplified to:</p><pre><code class="language-julia">@protected try 
+
+    iam(aws, Action = &quot;CreateInstanceProfile&quot;, InstanceProfileName = name)
+
+catch e
+    @ignore if e.code == &quot;EntityAlreadyExists&quot; end
+end</code></pre><p>Note that the <code>@ignore if</code> statement does not check <code>typeof(e)</code> before accessing <code>e.code</code>. The <code>@ignore if</code> condition is wrapped in an inner <code>try/catch</code> block such that any exceptions thrown by the condition are treated the same as the condition being <code>false</code>. The code generated by <code>@protected try</code> is:</p><pre><code class="language-julia">try
+
+    iam(aws, Action = &quot;CreateInstanceProfile&quot;, InstanceProfileName = name)
+
+catch e
+    try
+        if e.code == &quot;EntityAlreadyExists&quot;
+            e = nothing
+        end
+    end
+    e == nothing || rethrow(e)
+end</code></pre><h2><a class="nav-anchor" id="@repeat-n-try-1" href="#@repeat-n-try-1"><code>@repeat n try</code></a></h2><p>The <code>@repeat n try</code> macro retains the automatic <code>rethrow()</code> and <code>@ignore if</code> features of <code>@protected try</code> and adds support for automatic retry.</p><p>The following example tries four times to download an object from S3. If the object was only recently created, the storage replica serving the  <code>GET</code> request may not yet have a copy of it, so it is sometimes necessary to retry the request. The <code>@delay_retry if</code> statement implements an <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">exponential backoff algorithm</a> with randomised jitter to provide timely retries while avoiding un-due load on the server.</p><pre><code class="language-julia">@repeat 4 try
+
+   return s3(aws, &quot;GET&quot;, bucket, path)
+
+catch e
+    @delay_retry if e.code in [&quot;NoSuchBucket&quot;, &quot;NoSuchKey&quot;] end
+end
+</code></pre><p>If an exception is still raised on the fourth attempt <code>rethrow()</code> is called so the exception can be dealt with by a different stack frame.</p><p>The code generated by the example above is:</p><pre><code class="language-julia">begin
+
+    delay = 0.05
+    result = false
+
+    for i = 1:4
+
+        result = try
+
+            return s3(aws,&quot;GET&quot;,bucket,path)
+
+        catch e
+
+            try
+                if e.code in [&quot;NoSuchBucket&quot;,&quot;NoSuchKey&quot;]
+                    if (i &lt; 4)
+                        sleep(delay * (0.8 + (0.4 * rand())))
+                        delay *= 10
+                        continue
+                    end
+                end
+            catch
+            end
+
+            e == nothing || rethrow(e)
+        end
+        break
+    end
+
+    result
+end</code></pre><p>The next example deals with two different temporary network/server exceptions that warrant a delayed retry; and another that can be re-tried immediately by re-directing to a different server.</p><pre><code class="language-julia">@repeat 4 try 
+
+    return http_attempt(request)
+
+catch e
+
+    @delay_retry if typeof(e) == UVError end
+
+    @delay_retry if http_status(e) &lt; 200 &amp;&amp;
+                    http_status(e) &gt;= 500 end
+
+    @retry if http_status(e) in [301, 302, 307]
+        request.uri = URI(headers(e)[&quot;Location&quot;])
+    end
+
+end
+</code></pre><p>The final example deals with creating an SQS queue. If the queue already exists it must be deleted before creation is re-tried.</p><pre><code class="language-julia">@repeat 4 try
+
+    r = sqs(aws, Action = &quot;CreateQueue&quot;, QueueName = name)
+    return = XML(r)[:QueueUrl]
+
+catch e
+
+    @retry if e.code == &quot;QueueAlreadyExists&quot;
+        sqs_delete_queue(aws, name)
+    end
+
+    @retry if e.code == &quot;AWS.SimpleQueueService.QueueDeletedRecently&quot;
+        println(&quot;&quot;&quot;Waiting 1 minute to re-create Queue &quot;$name&quot;...&quot;&quot;&quot;)
+        sleep(60)
+    end
+end
+</code></pre><p><em>The examples above are taken from <a href="https://github.com/samoconnor/OCAWS.jl">OCAWS.jl</a></em></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PhotoOrganizer"
+owner = "GlenHertz"
+version = "0.1.0"
+description = "Utility for organizing your photos/videos (file renaming, adding directory structure)"
+stargazers_count = "1"
+url = "https://github.com/GlenHertz/PhotoOrganizer.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "GlenHertz"
+contributions = "6"

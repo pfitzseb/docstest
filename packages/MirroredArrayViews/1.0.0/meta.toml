@@ -1,0 +1,7 @@
+name = "MirroredArrayViews"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/slmcbane/MirroredArrayViews.jl.git"
+version = "1.0.0"
+description = "Light AbstractArray subtype that is a view of a parent array mirrored in one dimension"

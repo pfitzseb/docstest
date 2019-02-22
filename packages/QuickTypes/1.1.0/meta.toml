@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "QuickTypes"
+owner = "cstjean"
+version = "1.1.0"
+description = "Concise type definitions"
+stargazers_count = "23"
+url = "https://github.com/cstjean/QuickTypes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cstjean"
+contributions = "87"
+[[contributors]]
+name = "tkf"
+contributions = "6"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"

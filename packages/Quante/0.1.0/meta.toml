@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Quante"
+owner = "jarvist"
+version = "0.1.0"
+description = "Quantum-chemistry methods in Julia. Based on Rick Muller's PyQuante2"
+stargazers_count = "0"
+url = "https://github.com/jarvist/Quante.jl.git"
+installs = true
+tags = ["hartree-fock", "quantum-chemistry", "electronic-structure"]
+license = "Other"
+
+[[contributors]]
+name = "jarvist"
+contributions = "26"

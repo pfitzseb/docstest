@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ValueHistories.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ValueHistories.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Overview-1">Overview</a></li><li><a class="toctext" href="#License-1">License</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ValueHistories-1" href="#ValueHistories-1">ValueHistories</a></h1><p><em>Utility package for efficient tracking of optimization histories, training curves or other information of arbitrary types and at arbitrarily spaced sampling times</em></p><table><tr><th><strong>Package Status</strong></th><th><strong>Package Evaluator</strong></th><th><strong>Build Status</strong></th></tr><tr><td><a href="LICENSE.md"><img src="http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat" alt="License"/></a></td><td><a href="http://pkg.julialang.org/?pkg=ValueHistories"><img src="http://pkg.julialang.org/badges/ValueHistories_0.5.svg" alt="ValueHistories"/></a> <a href="http://pkg.julialang.org/?pkg=ValueHistories"><img src="http://pkg.julialang.org/badges/ValueHistories_0.6.svg" alt="ValueHistories"/></a></td><td><a href="https://travis-ci.org/JuliaML/ValueHistories.jl"><img src="https://travis-ci.org/JuliaML/ValueHistories.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/Evizero/valuehistories-jl/branch/master"><img src="https://ci.appveyor.com/api/projects/status/8v1n9hqfnn5jslyn/branch/master?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaML/ValueHistories.jl?branch=master"><img src="https://coveralls.io/repos/github/JuliaML/ValueHistories.jl/badge.svg?branch=master" alt="Coverage Status"/></a></td></tr></table><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>This package is registered in <code>METADATA.jl</code> and can be installed as usual</p><pre><code class="language-julia">Pkg.add(&quot;ValueHistories&quot;)
+using ValueHistories</code></pre><h2><a class="nav-anchor" id="Overview-1" href="#Overview-1">Overview</a></h2><p>We provide two basic approaches for logging information over time or iterations. The sample points do not have to be equally spaced as long as time/iteration is strictly increasing.</p><ul><li><strong>Univalue histories</strong>: Intended for tracking the evolution of</li></ul><p>a single value over time.</p><ul><li><strong>Multivalue histories</strong>: Track an arbitrary amount of values over</li></ul><p>time, each of which can be of a different type and associated with a label</p><p><em>Note that both approaches are typestable.</em></p><h3><a class="nav-anchor" id="Univalue-Histories-1" href="#Univalue-Histories-1">Univalue Histories</a></h3><p>This package provide two different concrete implementations</p><ul><li><code>QHistory</code>: Logs the values using a <code>Dequeue</code></li><li><code>History</code>: Logs the values using a <code>Vector</code></li></ul><p>Supported operations for univalue histories:</p><ul><li><code>push!(history, iteration, value)</code>: Appends a value to the history</li><li><code>get(history)</code>: Returns all available observations as two vectors. The first vector contains the iterations and the second vector contains the values.</li><li><code>enumerate(history)</code> Returns an enumerator over the observations (as tuples)</li><li><code>first(history)</code>: First stored observation (as tuple)</li><li><code>last(history)</code>: Last stored observation (as tuple)</li><li><code>length(history)</code>: Number of stored observations</li><li><code>increment!(history, iteration, value)</code>: Similar to <code>push!</code> but increments the <code>value</code> if the <code>iteration</code> already exists. Only supported by <code>History</code>.</li></ul><p>Here is a little example code showing the basic usage:</p><pre><code class="language-julia">using Primes
+
+# Specify the type of value you wish to track
+history = QHistory(Float64)
+
+for i = 1:100
+  # Store some value of the specified type
+  # Note how the sampling times are not equally spaced
+  isprime(i) &amp;&amp; push!(history, i, sin(.1*i))
+end
+
+# Access stored values as arrays
+x, y = get(history)
+@assert typeof(x) &lt;: Vector{Int}
+@assert typeof(y) &lt;: Vector{Float64}
+
+# You can also enumerate over the observations
+for (x, y) in enumerate(history)
+  @assert typeof(x) &lt;: Int
+  @assert typeof(y) &lt;: Float64
+end
+
+# Let&#39;s see how this prints to the REPL
+history</code></pre><pre><code class="language-none">QHistory
+    types: Int64, Float64
+    length: 25</code></pre><p>For easy visualisation we also provide recipes for <code>Plots.jl</code>. Note that this is only supported for <code>Real</code> types.</p><pre><code class="language-julia">using Plots
+plot(history, legend=false)</code></pre><p><img src="https://rawgithub.com/JuliaML/FileStorage/master/ValueHistories/qhistory.svg" alt="qhistory"/></p><h3><a class="nav-anchor" id="Multivalue-Histories-1" href="#Multivalue-Histories-1">Multivalue Histories</a></h3><p>Multivalue histories are more or less a dynamic collection of a number of univalue histories. Each individual univalue history is associated with a symbol <code>key</code>. If the user stores a value under a <code>key</code> that has no univalue history associated with it, then a new one is allocated and specialized for the given type.</p><p>Supported operations for multivalue histories:</p><ul><li><code>push!(history, key, iteration, value)</code>: Appends a value to the multivalue history</li><li><code>get(history, key)</code>: Returns all available observations as two vectors. The first vector contains the iterations and the second vector contains the values.</li><li><code>enumerate(history, key)</code> Returns an enumerator over the observations (as tuples)</li><li><code>first(history, key)</code>: First stored observation (as tuple)</li><li><code>last(history, key)</code>: Last stored observation (as tuple)</li><li><code>length(history, key)</code>: Number of stored observations</li><li><code>increment!(history, key, iteration, value)</code>: Similar to <code>push!</code> but increments the <code>value</code> if the <code>key</code> and <code>iteration</code> combination already exists.</li></ul><p>Here is a little example code showing the basic usage:</p><pre><code class="language-julia">history = MVHistory()
+
+for i=1:100
+    x = 0.1i
+
+    # Store any kind of value without losing type stability
+    # The first push! to a key defines the tracked type
+    #   push!(history, key, iter, value)
+    push!(history, :mysin, x, sin(x))
+    push!(history, :mystring, i, &quot;i=$i&quot;)
+
+    # Sampling times can be arbitrarily spaced
+    # Note how we store the sampling time as a Float32 this time
+    isprime(i) &amp;&amp; push!(history, :mycos, Float32(x), cos(x))
+end
+
+# Access stored values as arrays
+x, y = get(history, :mysin)
+@assert length(x) == length(y) == 100
+@assert typeof(x) &lt;: Vector{Float64}
+@assert typeof(y) &lt;: Vector{Float64}
+
+# Each key can be queried individually
+x, y = get(history, :mystring)
+@assert length(x) == length(y) == 100
+@assert typeof(x) &lt;: Vector{Int64}
+@assert typeof(y) &lt;: Vector{String}
+@assert y[1] == &quot;i=1&quot;
+
+# You can also enumerate over the observations
+for (x, y) in enumerate(history, :mycos)
+  @assert typeof(x) &lt;: Float32
+  @assert typeof(y) &lt;: Float64
+end
+
+# Let&#39;s see how this prints to the REPL
+history</code></pre><pre><code class="language-none">MVHistory{ValueHistories.History{I,V}}
+  :mysin =&gt; 100 elements {Float64,Float64}
+  :mystring =&gt; 100 elements {Int64,String}
+  :mycos =&gt; 25 elements {Float32,Float64}</code></pre><p>For easy visualisation we also provide recipes for <code>Plots.jl</code>. Note that this is only supported for <code>Real</code> types.</p><pre><code class="language-julia">using Plots
+plot(history)</code></pre><p><img src="https://rawgithub.com/JuliaML/FileStorage/master/ValueHistories/mvhistory.svg" alt="mvhistory"/></p><h2><a class="nav-anchor" id="License-1" href="#License-1">License</a></h2><p>This code is free to use under the terms of the MIT license.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

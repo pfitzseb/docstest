@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "GenericSVD"
+owner = "JuliaLinearAlgebra"
+version = "0.2.1"
+description = "Singular Value Decomposition for generic number types"
+stargazers_count = "28"
+url = "https://github.com/JuliaLinearAlgebra/GenericSVD.jl.git"
+installs = true
+tags = ["julia", "math", "svd"]
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "26"
+[[contributors]]
+name = "RalphAS"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

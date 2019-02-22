@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SemidefiniteOptInterface"
+owner = "JuliaOpt"
+version = "0.5.0"
+description = "A MathOptInterface extension for Semidefinite programming solvers"
+stargazers_count = "4"
+url = "https://github.com/JuliaOpt/SemidefiniteOptInterface.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "133"
+[[contributors]]
+name = "daviddelaat"
+contributions = "1"

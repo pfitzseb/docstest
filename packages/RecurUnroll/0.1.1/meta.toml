@@ -1,0 +1,4 @@
+name = "RecurUnroll"
+installs = false
+url = "https://github.com/bramtayl/RecurUnroll.jl.git"
+version = "0.1.1"

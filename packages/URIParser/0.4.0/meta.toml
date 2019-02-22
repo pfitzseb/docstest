@@ -1,0 +1,84 @@
+license_url = ""
+doctype = "default"
+name = "URIParser"
+owner = "JuliaWeb"
+version = "0.4.0"
+description = "Uniform Resource Identifier (URI) parser in Julia"
+stargazers_count = "5"
+url = "https://github.com/JuliaWeb/URIParser.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "malmaud"
+contributions = "26"
+[[contributors]]
+name = "Keno"
+contributions = "21"
+[[contributors]]
+name = "IainNZ"
+contributions = "12"
+[[contributors]]
+name = "yuyichao"
+contributions = "7"
+[[contributors]]
+name = "samoconnor"
+contributions = "6"
+[[contributors]]
+name = "musm"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "tanmaykm"
+contributions = "5"
+[[contributors]]
+name = "quinnj"
+contributions = "4"
+[[contributors]]
+name = "jiahao"
+contributions = "4"
+[[contributors]]
+name = "s2maki"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "garborg"
+contributions = "2"
+[[contributors]]
+name = "toblux"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "porterjamesj"
+contributions = "1"
+[[contributors]]
+name = "JonathanAnderson"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "mdcfrancis"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"

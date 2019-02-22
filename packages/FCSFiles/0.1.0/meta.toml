@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FCSFiles"
+owner = "tlnagy"
+version = "0.1.0"
+description = "Read Flow Cytometry Standard (FCS) files in Julia"
+stargazers_count = "4"
+url = "https://github.com/tlnagy/FCSFiles.jl.git"
+installs = true
+tags = ["julia", "fcs", "flow-cytometry", "flow-cytometry-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "tlnagy"
+contributions = "15"

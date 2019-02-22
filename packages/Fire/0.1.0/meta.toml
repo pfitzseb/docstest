@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Fire"
+owner = "ylxdzsw"
+version = "0.1.0"
+description = "Fire.jl is a library for automatically generating command line interfaces (CLIs) for julia functions."
+stargazers_count = "22"
+url = "https://github.com/ylxdzsw/Fire.jl.git"
+installs = true
+tags = ["cli", "julia", "macro-fu"]
+license = "Other"
+
+[[contributors]]
+name = "ylxdzsw"
+contributions = "12"
+[[contributors]]
+name = "tkelman"
+contributions = "6"

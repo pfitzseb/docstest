@@ -1,0 +1,45 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LibGEOS"
+owner = "JuliaGeo"
+version = "0.4.1"
+description = "Julia package for manipulation and analysis of planar geometric objects"
+stargazers_count = "10"
+url = "https://github.com/JuliaGeo/LibGEOS.jl.git"
+installs = true
+tags = ["julia", "geo", "geos", "vector", "gis", "geometry", "computational-geometry", "geospatial"]
+license = "MIT License"
+
+[[contributors]]
+name = "yeesian"
+contributions = "57"
+[[contributors]]
+name = "visr"
+contributions = "24"
+[[contributors]]
+name = "garborg"
+contributions = "6"
+[[contributors]]
+name = "evetion"
+contributions = "4"
+[[contributors]]
+name = "OmriTreidel"
+contributions = "4"
+[[contributors]]
+name = "meggart"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "felixcremer"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "jaakkor2"
+contributions = "1"

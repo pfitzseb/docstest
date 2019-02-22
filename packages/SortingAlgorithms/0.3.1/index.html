@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SortingAlgorithms.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SortingAlgorithms.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Sorting-Algorithms-1" href="#Sorting-Algorithms-1">Sorting Algorithms</a></h1><p><a href="http://pkg.julialang.org/?pkg=SortingAlgorithms"><img src="http://pkg.julialang.org/badges/SortingAlgorithms_0.4.svg" alt="SortingAlgorithms"/></a> <a href="http://pkg.julialang.org/?pkg=SortingAlgorithms"><img src="http://pkg.julialang.org/badges/SortingAlgorithms_0.5.svg" alt="SortingAlgorithms"/></a> <a href="http://pkg.julialang.org/?pkg=SortingAlgorithms"><img src="http://pkg.julialang.org/badges/SortingAlgorithms_0.6.svg" alt="SortingAlgorithms"/></a> <a href="https://travis-ci.org/JuliaLang/SortingAlgorithms.jl"><img src="https://travis-ci.org/JuliaLang/SortingAlgorithms.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/r/JuliaLang/SortingAlgorithms.jl"><img src="https://coveralls.io/repos/JuliaLang/SortingAlgorithms.jl/badge.svg" alt="Coverage Status"/></a></p><p>The <code>SortingAlgorithms</code> package provides three sorting algorithms that can be used with Julia&#39;s <a href="https://docs.julialang.org/en/stable/stdlib/sort/">standard sorting API</a>:</p><ul><li>[HeapSort] – an unstable, general purpose, in-place, O(n log n) comparison sort that works by heapifying an array and repeatedly taking the maximal element from the heap.</li><li>[TimSort] – a stable, general purpose, hybrid, O(n log n) comparison sort that adapts to different common patterns of partially ordered input data.</li><li>[RadixSort] – a stable, special case, in-place, O(n) non-comparison sort that works by sorting data with fixed size, one digit at a time.</li></ul><p>[HeapSort]:  http://en.wikipedia.org/wiki/Heapsort [TimSort]:   http://en.wikipedia.org/wiki/Timsort [RadixSort]: http://en.wikipedia.org/wiki/Radix_sort</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><pre><code class="language-jl">	julia&gt; using SortingAlgorithms
+
+	julia&gt; words = map(chomp,[readlines(open(&quot;/usr/share/dict/words&quot;))...])
+	235886-element Array{ASCIIString,1}:
+	 &quot;A&quot;
+	 &quot;a&quot;
+	 &quot;aa&quot;
+	 &quot;aal&quot;
+	 &quot;aalii&quot;
+	 ⋮
+	 &quot;zythem&quot;
+	 &quot;Zythia&quot;
+	 &quot;zythum&quot;
+	 &quot;Zyzomys&quot;
+	 &quot;Zyzzogeton&quot;
+
+	julia&gt; sort!(words, alg=TimSort)
+	235886-element Array{ASCIIString,1}:
+	 &quot;A&quot;
+	 &quot;Aani&quot;
+	 &quot;Aaron&quot;
+	 &quot;Aaronic&quot;
+	 &quot;Aaronical&quot;
+	 ⋮
+	 &quot;zymotize&quot;
+	 &quot;zymotoxic&quot;
+	 &quot;zymurgy&quot;
+	 &quot;zythem&quot;
+	 &quot;zythum&quot;
+
+	julia&gt; sort!(words, alg=TimSort, by=length)
+	235886-element Array{ASCIIString,1}:
+	 &quot;A&quot;
+	 &quot;B&quot;
+	 &quot;C&quot;
+	 &quot;D&quot;
+	 &quot;E&quot;
+	 ⋮
+	 &quot;formaldehydesulphoxylate&quot;
+	 &quot;pathologicopsychological&quot;
+	 &quot;scientificophilosophical&quot;
+	 &quot;tetraiodophenolphthalein&quot;
+	 &quot;thyroparathyroidectomize&quot;
+
+	julia&gt; sort!(words, alg=HeapSort)
+	235886-element Array{ASCIIString,1}:
+	 &quot;A&quot;
+	 &quot;Aani&quot;
+	 &quot;Aaron&quot;
+	 &quot;Aaronic&quot;
+	 &quot;Aaronical&quot;
+	 ⋮
+	 &quot;zymotize&quot;
+	 &quot;zymotoxic&quot;
+	 &quot;zymurgy&quot;
+	 &quot;zythem&quot;
+	 &quot;zythum&quot;
+
+	julia&gt; sort!(words, alg=HeapSort, by=length)
+	235886-element Array{ASCIIString,1}:
+	 &quot;L&quot;
+	 &quot;p&quot;
+	 &quot;U&quot;
+	 &quot;I&quot;
+	 &quot;q&quot;
+	 ⋮
+	 &quot;pathologicopsychological&quot;
+	 &quot;formaldehydesulphoxylate&quot;
+	 &quot;scientificophilosophical&quot;
+	 &quot;tetraiodophenolphthalein&quot;
+	 &quot;thyroparathyroidectomize&quot;
+
+	julia&gt; sort!(words, alg=RadixSort)
+	ERROR: Radix sort only sorts bits types (got ASCIIString)
+	 in error at error.jl:21
+	 in sort! at /Users/stefan/.julia/SortingAlgorithms/src/SortingAlgorithms.jl:54
+	 in sort! at sort.jl:328
+	 in sort! at sort.jl:329
+
+	julia&gt; floats = randn(1000)
+	1000-element Array{Float64,1}:
+	  1.729
+	  0.907196
+	  0.461481
+	 -0.204763
+	 -0.16022
+	  ⋮
+	  0.700683
+	 -0.236204
+	 -2.15634
+	 -0.316188
+	 -0.171478
+
+	julia&gt; sort!(floats, alg=RadixSort)
+	1000-element Array{Float64,1}:
+	 -2.86255
+	 -2.72041
+	 -2.58234
+	 -2.57259
+	 -2.53046
+	  ⋮
+	  3.08307
+	  3.12902
+	  3.15075
+	  3.20058
+	  3.23942</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

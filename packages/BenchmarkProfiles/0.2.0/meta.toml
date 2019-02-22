@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "BenchmarkProfiles"
+owner = "JuliaSmoothOptimizers"
+version = "0.2.0"
+description = "Performance and data profiles"
+stargazers_count = "6"
+url = "https://github.com/JuliaSmoothOptimizers/BenchmarkProfiles.jl.git"
+installs = true
+tags = ["performance-profile", "julia", "julia-language", "optimization"]
+license = "Other"
+
+[[contributors]]
+name = "dpo"
+contributions = "33"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "3"
+[[contributors]]
+name = "anriseth"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Goysa2"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

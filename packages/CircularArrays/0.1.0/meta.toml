@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CircularArrays"
+owner = "Vexatos"
+version = "0.1.0"
+description = "Multi-dimensional arrays with fixed size and circular indexing."
+stargazers_count = "0"
+url = "https://github.com/Vexatos/CircularArrays.jl.git"
+installs = true
+tags = ["julia", "data-structures", "circular-arrays", "utilities", "circular"]
+license = "MIT License"
+
+[[contributors]]
+name = "Vexatos"
+contributions = "2"

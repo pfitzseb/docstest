@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LinearFractional"
+owner = "focusenergy"
+version = "0.5.2"
+description = "Linear fractional programming with Julia and JuMP"
+stargazers_count = "0"
+url = "https://github.com/focusenergy/LinearFractional.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ianfiske"
+contributions = "31"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"

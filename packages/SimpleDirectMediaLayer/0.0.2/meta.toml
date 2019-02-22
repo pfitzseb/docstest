@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "SimpleDirectMediaLayer"
+owner = "jonathanBieler"
+version = "0.0.2"
+description = "SDL2"
+stargazers_count = "12"
+url = "https://github.com/jonathanBieler/SimpleDirectMediaLayer.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jonathanBieler"
+contributions = "50"
+[[contributors]]
+name = "NHDaly"
+contributions = "33"
+[[contributors]]
+name = "dalum"
+contributions = "1"
+[[contributors]]
+name = "henrik-m"
+contributions = "1"

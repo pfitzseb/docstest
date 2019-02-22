@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · NetworkLayout.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>NetworkLayout.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.Buchheim" href="#NetworkLayout.Buchheim"><code>NetworkLayout.Buchheim</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>Using the algorithm proposed in the paper, &quot;Improving Walker&#39;s Algorithm to Run in Linear Time&quot; by Christoph Buchheim, Michael Junger, Sebastian Leipert (http://dirk.jivas.de/papers/buchheim02improving.pdf)</p><p>Arguments tree    Adjacency List that represents the given tree</p><p>Returns positions     co-ordinates of the layout</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.Circular" href="#NetworkLayout.Circular"><code>NetworkLayout.Circular</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>This function wrap from <a href="https://github.com/networkx/networkx">NetworkX</a> Position nodes on a circle. <strong>Parameters</strong> <em>adj_matrix</em> a graph <strong>Returns</strong> <em>locs<em>x, locs</em>y</em> Locations of the nodes. Can be any units you want, but will be normalized and centered anyway <strong>Examples</strong></p><pre><code class="language-none">julia&gt; g = simple_house_graph()
+julia&gt; locs_x, locs_y = circular_layout(g)</code></pre></div></div></section><pre><code class="language-none">NetworkLayout.NetworkLayout</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.SFDP" href="#NetworkLayout.SFDP"><code>NetworkLayout.SFDP</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>Using the Spring-Electric model suggested by Yifan Hu (http://yifanhu.net/PUB/graph<em>draw</em>small.pdf) Forces are calculated as :         f<em>attr(i,j) = ||xi - xj||^2 / K ,     i&lt;-&gt;j         f</em>repln(i,j) = -CK^2 / ||xi - xj|| ,  i!=j Arguments :   adj_matrix      Sparse/Full Adjacency matrix of the graph   tol             Tolerance distance - Minimum distance between 2 nodes   C, K            Constants that help scale the layout Output :   positions       Co-ordinates for the nodes</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.Shell" href="#NetworkLayout.Shell"><code>NetworkLayout.Shell</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>This function is copy from <a href="https://github.com/IainNZ">IainNZ</a>&#39;s <a href="https://github.com/IainNZ/GraphLayout.jl">GraphLayout.jl</a> Position nodes in concentric circles. <strong>Parameters</strong> <em>adj_matrix</em> a graph <em>nlist</em> Vector of Vector, Vector of node Vector for each shell. <strong>Examples</strong></p><pre><code class="language-none">julia&gt; g = graphfamous(&quot;karate&quot;)
+julia&gt; nlist = Array(Vector{Int}, 2)
+julia&gt; nlist[1] = [1:5]
+julia&gt; nlist[2] = [6:num_vertiecs(g)]
+julia&gt; locs_x, locs_y = shell_layout(g, nlist)</code></pre></div></div></section><pre><code class="language-none">NetworkLayout.Spectral</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.Spring" href="#NetworkLayout.Spring"><code>NetworkLayout.Spring</code></a> — <span class="docstring-category">Module</span>.</div><div><div><pre><code class="language-none">Use the spring/repulsion model of Fruchterman and Reingold (1991):
+    Attractive force:  f_a(d) =  d^2 / k
+    Repulsive force:  f_r(d) = -k^2 / d
+where d is distance between two vertices and the optimal distance
+between vertices k is defined as C * sqrt( area / num_vertices )
+where C is a parameter we can adjust
+
+Arguments:
+adj_matrix    Adjacency matrix of some type. Non-zero of the eltype
+              of the matrix is used to determine if a link exists,
+              but currently no sense of magnitude
+C             Constant to fiddle with density of resulting layout
+iterations    Number of iterations we apply the forces
+initialtemp   Initial &quot;temperature&quot;, controls movement per iteration</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="NetworkLayout.Stress" href="#NetworkLayout.Stress"><code>NetworkLayout.Stress</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p>Compute graph layout using stress majorization</p><p>Inputs:</p><pre><code class="language-none">δ: Matrix of pairwise distances
+p: Dimension of embedding (default: 2)
+weights: Matrix of weights. If not specified, defaults to
+       weights[i,j] = δ[i,j]^-2 if δ[i,j] is nonzero, or 0 otherwise
+X0: Initial guess for the layout. Coordinates are given in rows.
+    If not specified, default to random matrix of Gaussians</code></pre><p>Additional optional keyword arguments control the convergence of the algorithm and the additional output as requested:</p><pre><code class="language-none">iterations:   Maximum number of iterations. Default: 400size(X0, 1)^2
+abstols:      Absolute tolerance for convergence of stress.
+              The iterations terminate if the difference between two
+              successive stresses is less than abstol.
+              Default: √(eps(eltype(X0))
+reltols:      Relative tolerance for convergence of stress.
+              The iterations terminate if the difference between two
+              successive stresses relative to the current stress is less than
+              reltol. Default: √(eps(eltype(X0))
+abstolx:      Absolute tolerance for convergence of layout.
+              The iterations terminate if the Frobenius norm of two successive
+              layouts is less than abstolx. Default: √(eps(eltype(X0))</code></pre><p>Output:</p><pre><code class="language-none">The final layout positions.</code></pre><p>Reference:</p><pre><code class="language-none">The main equation to solve is (8) of:
+
+@incollection{
+    author = {Emden R Gansner and Yehuda Koren and Stephen North},
+    title = {Graph Drawing by Stress Majorization}
+    year={2005},
+    isbn={978-3-540-24528-5},
+    booktitle={Graph Drawing},
+    seriesvolume={3383},
+    series={Lecture Notes in Computer Science},
+    editor={Pach, J&#39;anos},
+    doi={10.1007/978-3-540-31843-9_25},
+    publisher={Springer Berlin Heidelberg},
+    pages={239--250},
+}</code></pre></div></div></section><pre><code class="language-none">NetworkLayout.eval</code></pre><pre><code class="language-none">NetworkLayout.include</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

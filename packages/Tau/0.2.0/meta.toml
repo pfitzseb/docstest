@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Tau"
+owner = "JuliaMath"
+version = "0.2.0"
+description = "A simple module providing definition of the Tau constant"
+stargazers_count = "12"
+url = "https://github.com/JuliaMath/Tau.jl.git"
+installs = true
+tags = ["tau", "julia", "math", "mathematics", "trigonometry", "number", "circle", "constant"]
+license = "Other"
+
+[[contributors]]
+name = "waldyrious"
+contributions = "45"
+[[contributors]]
+name = "Aerlinger"
+contributions = "14"
+[[contributors]]
+name = "giordano"
+contributions = "6"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"

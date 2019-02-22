@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "Triangle"
+owner = "cvdlab"
+version = "0.2.0"
+description = "A Julia interface to Jonathan Richard Shewchuk's Triangle library."
+stargazers_count = "2"
+url = "https://github.com/cvdlab/Triangle.jl.git"
+installs = true
+tags = ["julia", "julia-language", "julia-wrapper", "julia-package", "triangle", "triangulation", "delaunay-triangulation", "delaunay-refinement", "delaunay", "voronoi", "constrained-delaunay-triangulation"]
+license = "Other"
+
+[[contributors]]
+name = "furio"
+contributions = "115"
+[[contributors]]
+name = "fossabot"
+contributions = "1"

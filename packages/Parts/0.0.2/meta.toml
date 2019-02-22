@@ -1,0 +1,4 @@
+name = "Parts"
+installs = false
+url = "https://github.com/bramtayl/Parts.jl.git"
+version = "0.0.2"

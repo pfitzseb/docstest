@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "DelayDiffEq"
+owner = "JuliaDiffEq"
+version = "5.1.1"
+description = "DiffEq solvers for delay differential equations"
+stargazers_count = "10"
+url = "https://github.com/JuliaDiffEq/DelayDiffEq.jl.git"
+installs = true
+tags = ["delay-differential-equations", "differentialequations", "dde"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "220"
+[[contributors]]
+name = "devmotion"
+contributions = "107"
+[[contributors]]
+name = "YingboMa"
+contributions = "16"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

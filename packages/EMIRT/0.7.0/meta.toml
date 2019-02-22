@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "EMIRT"
+owner = "seung-lab"
+version = "0.7.0"
+description = "Electronic Microscopy Image Reconstruction Toolbox using julia language"
+stargazers_count = "1"
+url = "https://github.com/seung-lab/EMIRT.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jingpengw"
+contributions = "234"
+[[contributors]]
+name = "macrintr"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

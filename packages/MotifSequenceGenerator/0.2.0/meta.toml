@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MotifSequenceGenerator"
+owner = "JuliaMusic"
+version = "0.2.0"
+description = "Generate random sequences of motifs, under the constrain that the sequence has some given total length."
+stargazers_count = "0"
+url = "https://github.com/JuliaMusic/MotifSequenceGenerator.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Datseris"
+contributions = "22"

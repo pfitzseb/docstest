@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "StructDualDynProg"
+owner = "JuliaStochOpt"
+version = "0.2.0"
+description = "Implementation of SDDP (Stochastic Dual Dynamic Programming) using the StructJuMP modeling interface"
+stargazers_count = "16"
+url = "https://github.com/JuliaStochOpt/StructDualDynProg.jl.git"
+installs = true
+tags = ["julia", "dynamic-programming", "optimization"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "259"
+[[contributors]]
+name = "frapac"
+contributions = "5"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"

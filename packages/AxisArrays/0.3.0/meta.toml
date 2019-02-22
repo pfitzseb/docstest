@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "AxisArrays"
+owner = "JuliaArrays"
+version = "0.3.0"
+description = "Performant arrays where each dimension can have a named axis with values"
+stargazers_count = "73"
+url = "https://github.com/JuliaArrays/AxisArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mbauman"
+contributions = "114"
+[[contributors]]
+name = "timholy"
+contributions = "78"
+[[contributors]]
+name = "iamed2"
+contributions = "28"
+[[contributors]]
+name = "GordStephen"
+contributions = "17"
+[[contributors]]
+name = "ajkeller34"
+contributions = "16"
+[[contributors]]
+name = "tshort"
+contributions = "9"
+[[contributors]]
+name = "richardreeve"
+contributions = "4"
+[[contributors]]
+name = "jakebolewski"
+contributions = "3"
+[[contributors]]
+name = "Balinus"
+contributions = "2"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "lantiga"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"

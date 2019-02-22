@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "MultivariatePolynomials"
+owner = "JuliaAlgebra"
+version = "0.2.8"
+description = "Multivariate polynomials interface"
+stargazers_count = "34"
+url = "https://github.com/JuliaAlgebra/MultivariatePolynomials.jl.git"
+installs = true
+tags = ["julia", "polynomials", "multivariate-polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "292"
+[[contributors]]
+name = "saschatimme"
+contributions = "59"
+[[contributors]]
+name = "rdeits"
+contributions = "23"
+[[contributors]]
+name = "daviddelaat"
+contributions = "3"
+[[contributors]]
+name = "joehuchette"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "PBrdng"
+contributions = "1"

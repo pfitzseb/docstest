@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Yeppp.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Yeppp.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Yeppp-bindings-for-Julia-1" href="#Yeppp-bindings-for-Julia-1">Yeppp bindings for Julia</a></h1><p>Linux: <a href="https://travis-ci.org/JuliaMath/Yeppp.jl"><img src="https://travis-ci.org/JuliaMath/Yeppp.jl.svg?branch=master" alt="Build Status"/></a></p><p>Windows: <a href="https://ci.appveyor.com/project/panlanfeng/yeppp-jl-2y32h"><img src="https://ci.appveyor.com/api/projects/status/yxtppqel13q8d8td?svg=true" alt="Build status"/></a></p><p><a href="https://coveralls.io/r/JuliaMath/Yeppp.jl?branch=master"><img src="https://coveralls.io/repos/JuliaMath/Yeppp.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://codecov.io/github/JuliaMath/Yeppp.jl?branch=master"><img src="http://codecov.io/github/JuliaMath/Yeppp.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p><a href="http://www.yeppp.info">Yeppp!</a> is a high-performance SIMD-optimized mathematical library. This Julia package makes it possible to call Yeppp from Julia.</p><p>Install this package by</p><pre><code class="language-julia">Pkg.add(&quot;Yeppp&quot;)</code></pre><p>For common 64-bit platforms, this will download dependencies automatically. For some other platforms such as the PowerPC 64 architecture, you may still be able to use this package by <a href="http://bitbucket.org/MDukhan/yeppp/downloads/yeppp-1.0.0.zip">downloading Yeppp!</a> and extracting from the <code>binaries</code> folder the file(s) specific to your OS. Check the platforms supported by Yeppp! <a href="https://bitbucket.org/MDukhan/yeppp">here</a>. Make sure the extracted files are available on the system library search path or in the current directory.  For example, in Julia&#39;s <code>bin</code> folder.</p><p>See example usage below. Yeppp&#39;s vectorized log is 3x faster than the one in Base, which is written in Julia.</p><pre><code class="language-julia">using Yeppp
+
+x = rand(10^7)
+ty = @elapsed Yeppp.log!(similar(x), x)
+t  = @elapsed log(x)
+t/ty</code></pre><p>The following functions are available for <code>Array{Float64}</code>. Inputs are in <code>x</code>, and outputs are in <code>y</code>.</p><pre><code class="language-julia">dot(x1, x2)
+sum(x)
+sumabs(x)
+sumabs2(x)
+negate!(x)
+max!(y, x1, x2)
+min!(y, x1, x2)
+add!(y, x1, x2)
+subtract!(y, x1, x2)
+multiply!(y, x1, x2)
+
+log!(y, x)
+exp!(y, x)
+evalpoly!(y, x_coeff, x)
+
+sin!(y, x)
+cos!(y, x)
+tan!(y, x)</code></pre><p>See the <a href="http://docs.yeppp.info/c/modules.html">Yeppp! documentation</a> for the full set of functions available in Yeppp!.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

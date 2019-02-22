@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "LineSearches"
+owner = "JuliaNLSolvers"
+version = "7.0.1"
+description = "Line search methods for optimization and root-finding"
+stargazers_count = "36"
+url = "https://github.com/JuliaNLSolvers/LineSearches.jl.git"
+installs = true
+tags = ["line-search", "optimization-methods", "backtracking", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "anriseth"
+contributions = "151"
+[[contributors]]
+name = "pkofod"
+contributions = "28"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "5"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "3"
+[[contributors]]
+name = "benkuhn"
+contributions = "3"
+[[contributors]]
+name = "mohamed82008"
+contributions = "3"
+[[contributors]]
+name = "cortner"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "dankolbman"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "chriselrod"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ComplexPhasePortrait"
+owner = "JuliaHolomorphic"
+version = "0.0.1"
+description = "Complex phase portraits for Julia."
+stargazers_count = "8"
+url = "https://github.com/JuliaHolomorphic/ComplexPhasePortrait.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ehkropf"
+contributions = "23"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "12"

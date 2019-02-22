@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "SCS"
+owner = "JuliaOpt"
+version = "0.5.1"
+description = "Julia Wrapper for SCS (https://github.com/cvxgrp/scs)"
+stargazers_count = "26"
+url = "https://github.com/JuliaOpt/SCS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "78"
+[[contributors]]
+name = "blegat"
+contributions = "58"
+[[contributors]]
+name = "karanveerm"
+contributions = "47"
+[[contributors]]
+name = "tkelman"
+contributions = "21"
+[[contributors]]
+name = "madeleineudell"
+contributions = "16"
+[[contributors]]
+name = "dourouc05"
+contributions = "11"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "8"
+[[contributors]]
+name = "kalmarek"
+contributions = "7"
+[[contributors]]
+name = "joehuchette"
+contributions = "5"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "jennyhong"
+contributions = "3"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "bodono"
+contributions = "2"
+[[contributors]]
+name = "chriscoey"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "marcusps"
+contributions = "1"
+[[contributors]]
+name = "nangeschnappt"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

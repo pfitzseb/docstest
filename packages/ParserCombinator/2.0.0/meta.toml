@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "ParserCombinator"
+owner = "andrewcooke"
+version = "2.0.0"
+description = "A parser combinator library for Julia"
+stargazers_count = "46"
+url = "https://github.com/andrewcooke/ParserCombinator.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andrewcooke"
+contributions = "249"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "3"
+[[contributors]]
+name = "sbromberger"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

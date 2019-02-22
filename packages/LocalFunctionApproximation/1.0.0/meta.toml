@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LocalFunctionApproximation"
+owner = "sisl"
+version = "1.0.0"
+description = "Scalar-valued local function approximation across a real-valued vector space"
+stargazers_count = "0"
+url = "https://github.com/sisl/LocalFunctionApproximation.jl.git"
+installs = true
+tags = ["interpolation"]
+license = "Other"
+
+[[contributors]]
+name = "Shushman"
+contributions = "34"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "3"

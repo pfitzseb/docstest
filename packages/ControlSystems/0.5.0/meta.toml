@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "ControlSystems"
+owner = "JuliaControl"
+version = "0.5.0"
+description = "A Control Systems Toolbox for Julia"
+stargazers_count = "116"
+url = "https://github.com/JuliaControl/ControlSystems.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mfalt"
+contributions = "252"
+[[contributors]]
+name = "baggepinnen"
+contributions = "229"
+[[contributors]]
+name = "olof3"
+contributions = "25"
+[[contributors]]
+name = "jcrist"
+contributions = "14"
+[[contributors]]
+name = "jleny"
+contributions = "13"
+[[contributors]]
+name = "albheim"
+contributions = "10"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "adityam"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "neveritt"
+contributions = "1"
+[[contributors]]
+name = "pilwonhur"
+contributions = "1"

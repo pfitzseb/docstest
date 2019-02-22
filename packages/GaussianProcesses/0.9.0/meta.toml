@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "GaussianProcesses"
+owner = "STOR-i"
+version = "0.9.0"
+description = "A Julia package for Gaussian Processes"
+stargazers_count = "84"
+url = "https://github.com/STOR-i/GaussianProcesses.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "chris-nemeth"
+contributions = "340"
+[[contributors]]
+name = "fairbrot"
+contributions = "276"
+[[contributors]]
+name = "maximerischard"
+contributions = "99"
+[[contributors]]
+name = "jbrea"
+contributions = "28"
+[[contributors]]
+name = "devmotion"
+contributions = "21"
+[[contributors]]
+name = "bisraelsen"
+contributions = "9"
+[[contributors]]
+name = "scheidan"
+contributions = "2"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "dressel"
+contributions = "1"
+[[contributors]]
+name = "MichaelChirico"
+contributions = "1"
+[[contributors]]
+name = "SamuelWiqvist"
+contributions = "1"

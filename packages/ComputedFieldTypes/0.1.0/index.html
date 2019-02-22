@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ComputedFieldTypes.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ComputedFieldTypes.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ComputedFieldTypes-1" href="#ComputedFieldTypes-1">ComputedFieldTypes</a></h1><p>Build types in Julia where some fields have computed types.</p><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><p>Note that the following is not idiomatic Julia, and is probably not the most efficient solutions. They are simply intended as demonstrations of <code>ComputedFieldTypes</code>.</p><p>For simple cases, a default constructor will be added, if none is specified:</p><pre><code class="language-julia">@computed struct A{V &lt;: AbstractVector}
+    a::eltype(V)
+end
+a = A{Vector{Int}}(3.0)
+a.a === Int(3)</code></pre><p>It is also possible to declare your own constructor, with extra type variables, parameterized, etc.:</p><pre><code class="language-julia">@computed struct B{N, M, T}
+    a::NTuple{N + M, T}
+    B(x::T) = new{N, M, T}(ntuple(i -&gt; x, N + M))
+    B{S}(x::S) = B{N, M, T}(convert(T, x))
+end
+
+@computed struct C{T &lt;: Number}
+    a::typeof(one(T) / one(T))
+    C() = new(0)
+    function C(x)
+        return new(x)
+    end
+end</code></pre><p>If you need a fully expanded type definition (for example, for use as a field of another <code>@computed</code> type), you can call <code>fulltype(T)</code> on any Type <code>T</code>. Note, however, that since this is not the canonical form, it does not have any constructors defined for it.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

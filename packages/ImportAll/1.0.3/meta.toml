@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ImportAll"
+owner = "NTimmons"
+version = "1.0.3"
+description = "@importall(package) macro for Julia"
+stargazers_count = "1"
+url = "https://github.com/NTimmons/ImportAll.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "NTimmons"
+contributions = "4"

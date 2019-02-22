@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BitFloats"
+owner = "rfourquet"
+version = "0.0.1"
+description = "Float80 and Float128 types provided by LLVM"
+stargazers_count = "1"
+url = "https://github.com/rfourquet/BitFloats.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rfourquet"
+contributions = "45"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Transducers"
+owner = "tkf"
+version = "0.2.1"
+description = "Efficient and type-stable transducers for Julia"
+stargazers_count = "49"
+url = "https://github.com/tkf/Transducers.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "tkf"
+contributions = "254"
+[[contributors]]
+name = "jw3126"
+contributions = "4"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SMCExamples"
+owner = "awllee"
+version = "0.6.0"
+description = "Example models for use with SequentialMonteCarlo.jl"
+stargazers_count = "3"
+url = "https://github.com/awllee/SMCExamples.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "awllee"
+contributions = "31"

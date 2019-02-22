@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "IterativeRefinement"
+owner = "RalphAS"
+version = "0.1.0"
+description = "Multi-precision iterative refinement for linear matrix systems"
+stargazers_count = "0"
+url = "https://github.com/RalphAS/IterativeRefinement.jl.git"
+installs = true
+tags = ["linear-algebra", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "RalphAS"
+contributions = "2"

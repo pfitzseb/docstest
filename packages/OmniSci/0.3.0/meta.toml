@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "OmniSci"
+owner = "omnisci"
+version = "0.3.0"
+description = "Julia client for OmniSci GPU-accelerated SQL engine and analytics platform"
+stargazers_count = "9"
+url = "https://github.com/omnisci/OmniSci.jl.git"
+installs = true
+tags = ["gpu", "database", "data-science", "julia-language", "julialang", "julia-package", "sql", "cuda"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "69"
+[[contributors]]
+name = "simoneves"
+contributions = "3"
+[[contributors]]
+name = "andrewseidl"
+contributions = "2"

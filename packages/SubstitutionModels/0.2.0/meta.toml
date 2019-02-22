@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "SubstitutionModels"
+owner = "BioJulia"
+version = "0.2.0"
+description = "Biological Sequence Substitution Models for Julia"
+stargazers_count = "7"
+url = "https://github.com/BioJulia/SubstitutionModels.jl.git"
+installs = true
+tags = ["substitution-models", "bioinformatics", "phylogenetics"]
+license = "Other"
+
+[[contributors]]
+name = "jangevaare"
+contributions = "31"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

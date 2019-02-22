@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "ColorSchemeTools"
+owner = "JuliaGraphics"
+version = "0.1.0"
+description = "tools for working with color schemes, color maps, gradients"
+stargazers_count = "0"
+url = "https://github.com/JuliaGraphics/ColorSchemeTools.jl.git"
+installs = true
+tags = ["colors", "color-scheme", "colorschemes", "colorscheme-generator", "graphics"]
+license = "Other"
+
+[[contributors]]
+name = "cormullion"
+contributions = "27"

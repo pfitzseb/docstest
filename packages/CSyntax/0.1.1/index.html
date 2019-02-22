@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · CSyntax.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CSyntax.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Submodules-1">Submodules</a></li><li><a class="toctext" href="#TODO?-1">TODO?</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="CSyntax-1" href="#CSyntax-1">CSyntax</a></h1><p><a href="https://travis-ci.com/Gnimuc/CSyntax.jl"><img src="https://travis-ci.com/Gnimuc/CSyntax.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/Gnimuc/CSyntax-jl"><img src="https://ci.appveyor.com/api/projects/status/github/Gnimuc/CSyntax.jl?svg=true" alt="Build Status"/></a> <a href="https://codecov.io/gh/Gnimuc/CSyntax.jl"><img src="https://codecov.io/gh/Gnimuc/CSyntax.jl/branch/master/graph/badge.svg" alt="Codecov"/></a></p><p>This package provides several macros for making life easier when translating C code to Julia.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><pre><code class="language-none">pkg&gt; add CSyntax</code></pre><h2><a class="nav-anchor" id="Submodules-1" href="#Submodules-1">Submodules</a></h2><h3><a class="nav-anchor" id="CRef-1" href="#CRef-1">CRef</a></h3><p>This module provides a macro <code>@cref</code>/<code>@c</code> for emulating C&#39;s <code>&amp;</code>(address) operator:</p><pre><code class="language-julia">julia&gt; using CSyntax.CRef
+
+julia&gt; function foo(x)
+           x[] += 1
+           return x
+       end
+foo (generic function with 1 method)
+
+julia&gt; x = 0
+0
+
+julia&gt; @cref foo(&amp;x)
+Base.RefValue{Int64}(1)
+
+julia&gt; x
+1</code></pre><p>It&#39;s very useful when calling C-bindings from Julia. Comparing the following Julia code</p><pre><code class="language-julia">vbo = GLuint(0)
+@c glGenBuffers(1, &amp;vbo)
+glBindBuffer(GL_ARRAY_BUFFER, vbo)
+glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), points, GL_STATIC_DRAW)</code></pre><p>to</p><pre><code class="language-c">GLuint vbo;
+glGenBuffers(1, &amp;vbo);
+glBindBuffer(GL_ARRAY_BUFFER, vbo);
+glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), points, GL_STATIC_DRAW);</code></pre><p>they&#39;re nearly identical aside from the <code>@c</code> macro. Without this, one need to manually edit the code at least 3 more times and life will be quickly burned in the hell:</p><pre><code class="language-julia">vboID = Ref{GLuint}(0)
+glGenBuffers(1, vboID)
+glBindBuffer(GL_ARRAY_BUFFER, vboID[])
+# segment faults are waiting for you unless you dereference vboID correctly in every place hereafter</code></pre><h3><a class="nav-anchor" id="CFor-1" href="#CFor-1">CFor</a></h3><p>This submodule provides a <code>@cfor</code> macro for emulating C&#39;s for-loops syntax:</p><pre><code class="language-julia">julia&gt; using CSyntax.CFor
+
+julia&gt; x = 0
+0
+
+julia&gt; @cfor i=0 i&lt;10 i+=1 begin
+           global x += 1
+       end
+
+julia&gt; x
+10
+
+# @cfor with @++
+julia&gt; using CSyntax: @++
+
+julia&gt; @cfor i=0 i&lt;10 @++(i) begin
+           i &gt; 5 &amp;&amp; continue  # well, this is actually illegal in C
+           global x += 1
+       end
+
+julia&gt; x
+16
+
+julia&gt; let
+           global j
+           @cfor nothing (j &gt; 3) j-=1 begin
+               global x += 1
+           end
+       end
+
+julia&gt; x
+23</code></pre><h3><a class="nav-anchor" id="CSwitch-1" href="#CSwitch-1">CSwitch</a></h3><p>This submodule provides C-like switch statement with the &quot;falling through&quot; behavior. It is inspired by <a href="https://github.com/dcjones"><code>dcjones</code></a>&#39;s package <a href="https://github.com/dcjones/Switch.jl">Switch.jl</a> which has died out since Julia v0.5. Anyway, it has been resurrected here.</p><pre><code class="language-julia">julia&gt; using CSyntax.CSwitch
+
+julia&gt; @enum test t=1 f=2
+
+julia&gt; tester = t
+t::test = 1
+
+julia&gt; @cswitch tester begin
+           @case t
+               x = 1
+               break
+           @case f
+               x = 2
+               break
+       end
+
+julia&gt; x
+1</code></pre><h3><a class="nav-anchor" id="CEnum-1" href="#CEnum-1">CEnum</a></h3><p><a href="https://github.com/JuliaInterop/CEnum.jl">CEnum.jl</a> is also integrated in this package.</p><pre><code class="language-julia">julia&gt; @enum Foo a = 1 b = 2 c = 1
+ERROR: LoadError: ArgumentError: values for Enum Foo are not unique
+Stacktrace:
+ [1] @enum(::LineNumberNode, ::Module, ::Any, ::Vararg{Any,N} where N) at ./Enums.jl:128
+in expression starting at REPL[12]:1
+
+julia&gt; using CSyntax.CEnum
+
+julia&gt; @cenum(Bar, d = 1, e = 2, f = 1)
+
+julia&gt; d == f
+true</code></pre><h2><a class="nav-anchor" id="TODO?-1" href="#TODO?-1">TODO?</a></h2><ul><li>[ ] <code>@cmacro</code>? how to correctly handle recursive macro expansion rules?</li><li>[ ] <code>@cdo-while</code>? it&#39;s very trivial to implement but not very useful I guess</li><li>[ ] <code>@cstar</code>? <code>*</code> aka the so called indirection operator</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

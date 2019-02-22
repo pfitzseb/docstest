@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+doctype = "default"
+name = "BasisMatrices"
+owner = "QuantEcon"
+version = "0.6.0"
+description = "Routines for constructing BasisMatrices of different types (Chebyshev polynomials, B-Splines, piecewise linear, complete monomials, Smolyak...)"
+stargazers_count = "18"
+url = "https://github.com/QuantEcon/BasisMatrices.jl.git"
+installs = true
+tags = []
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "sglyon"
+contributions = "202"
+[[contributors]]
+name = "albep"
+contributions = "34"
+[[contributors]]
+name = "cc7768"
+contributions = "10"
+[[contributors]]
+name = "vgregory757"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "benhemingway"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

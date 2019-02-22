@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Shoco"
+owner = "ararslan"
+version = "0.3.0"
+description = "Julia wrapper for the shoco string compression C library"
+stargazers_count = "5"
+url = "https://github.com/ararslan/Shoco.jl.git"
+installs = true
+tags = ["julia", "compression", "strings"]
+license = "MIT License"
+
+[[contributors]]
+name = "ararslan"
+contributions = "30"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

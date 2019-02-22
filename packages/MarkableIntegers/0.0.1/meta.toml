@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MarkableIntegers"
+owner = "JeffreySarnoff"
+version = "0.0.1"
+description = "Ints that are markable, unmarkable and remarkable"
+stargazers_count = "0"
+url = "https://github.com/JeffreySarnoff/MarkableIntegers.jl.git"
+installs = true
+tags = ["julia", "enhanced", "integers", "numbers"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "106"

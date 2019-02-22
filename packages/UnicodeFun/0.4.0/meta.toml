@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "UnicodeFun"
+owner = "SimonDanisch"
+version = "0.4.0"
+description = "Functions to transform text into unicode symbols, e.g. latex --> unicode"
+stargazers_count = "7"
+url = "https://github.com/SimonDanisch/UnicodeFun.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "33"
+[[contributors]]
+name = "jagot"
+contributions = "9"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

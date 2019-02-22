@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "SHA"
+owner = "staticfloat"
+version = "0.5.7"
+description = "A performant, 100% native-julia SHA1, SHA2, and SHA3 implementation"
+stargazers_count = "24"
+url = "https://github.com/staticfloat/SHA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "55"
+[[contributors]]
+name = "tkelman"
+contributions = "8"
+[[contributors]]
+name = "yuyichao"
+contributions = "8"
+[[contributors]]
+name = "musm"
+contributions = "7"
+[[contributors]]
+name = "jakebolewski"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "oxinabox"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "gdkrmr"
+contributions = "2"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "vinctux"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "ylxdzsw"
+contributions = "1"

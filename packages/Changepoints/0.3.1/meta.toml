@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Changepoints"
+owner = "STOR-i"
+version = "0.3.1"
+description = "A Julia package for the detection of multiple changepoints in time series."
+stargazers_count = "12"
+url = "https://github.com/STOR-i/Changepoints.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fairbrot"
+contributions = "99"
+[[contributors]]
+name = "bardwell"
+contributions = "81"
+[[contributors]]
+name = "gdkrmr"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

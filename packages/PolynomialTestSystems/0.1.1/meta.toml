@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "PolynomialTestSystems"
+owner = "JuliaHomotopyContinuation"
+version = "0.1.1"
+description = "A collection of systems of polynomials for benchmarking, testing etc."
+stargazers_count = "0"
+url = "https://github.com/JuliaHomotopyContinuation/PolynomialTestSystems.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "saschatimme"
+contributions = "10"

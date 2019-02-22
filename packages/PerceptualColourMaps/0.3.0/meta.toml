@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "PerceptualColourMaps"
+owner = "peterkovesi"
+version = "0.3.0"
+description = "Perceptually Uniform Colour Maps for Julia"
+stargazers_count = "44"
+url = "https://github.com/peterkovesi/PerceptualColourMaps.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "peterkovesi"
+contributions = "18"
+[[contributors]]
+name = "visr"
+contributions = "9"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

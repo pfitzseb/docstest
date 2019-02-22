@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "YAJL"
+owner = "christopher-dG"
+version = "0.1.0"
+description = "JSON stream processing with YAJL in Julia"
+stargazers_count = "0"
+url = "https://github.com/christopher-dG/YAJL.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "christopher-dG"
+contributions = "19"

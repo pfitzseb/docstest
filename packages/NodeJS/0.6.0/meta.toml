@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "NodeJS"
+owner = "davidanthoff"
+version = "0.6.0"
+description = "Node.js installation for julia"
+stargazers_count = "5"
+url = "https://github.com/davidanthoff/NodeJS.jl.git"
+installs = true
+tags = ["julia", "nodejs"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "76"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"
+[[contributors]]
+name = "eschnett"
+contributions = "1"

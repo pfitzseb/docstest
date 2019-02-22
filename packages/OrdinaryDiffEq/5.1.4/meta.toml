@@ -1,0 +1,111 @@
+license_url = ""
+doctype = "default"
+name = "OrdinaryDiffEq"
+owner = "JuliaDiffEq"
+version = "5.1.4"
+description = "DiffEq solvers for ordinary differential equations"
+stargazers_count = "75"
+url = "https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl.git"
+installs = true
+tags = ["ordinary-differential-equations", "differentialequations", "ode", "event-handling", "adaptive", "high-performance"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1415"
+[[contributors]]
+name = "YingboMa"
+contributions = "469"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "244"
+[[contributors]]
+name = "devmotion"
+contributions = "127"
+[[contributors]]
+name = "sipah00"
+contributions = "119"
+[[contributors]]
+name = "ranocha"
+contributions = "93"
+[[contributors]]
+name = "deeepeshthakur"
+contributions = "63"
+[[contributors]]
+name = "kanav99"
+contributions = "30"
+[[contributors]]
+name = "saurabhkgp21"
+contributions = "26"
+[[contributors]]
+name = "dgan181"
+contributions = "16"
+[[contributors]]
+name = "dextorious"
+contributions = "16"
+[[contributors]]
+name = "tkf"
+contributions = "14"
+[[contributors]]
+name = "tyfff"
+contributions = "10"
+[[contributors]]
+name = "gabrielgellner"
+contributions = "9"
+[[contributors]]
+name = "timkittel"
+contributions = "7"
+[[contributors]]
+name = "EllarBooher"
+contributions = "5"
+[[contributors]]
+name = "jagot"
+contributions = "5"
+[[contributors]]
+name = "rudrasohan"
+contributions = "4"
+[[contributors]]
+name = "arnav-t"
+contributions = "4"
+[[contributors]]
+name = "Datseris"
+contributions = "3"
+[[contributors]]
+name = "Phiro333"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "2"
+[[contributors]]
+name = "JonasIsensee"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "tkoolen"
+contributions = "2"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "dawbarton"
+contributions = "1"
+[[contributors]]
+name = "korsbo"
+contributions = "1"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "1"

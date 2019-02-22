@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "UnitfulIntegration"
+owner = "ajkeller34"
+version = "0.1.0"
+description = "Unitful quantity-valued functions in your integrals"
+stargazers_count = "1"
+url = "https://github.com/ajkeller34/UnitfulIntegration.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ajkeller34"
+contributions = "9"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

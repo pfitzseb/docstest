@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "PowerSystems"
+owner = "NREL"
+version = "0.2.0"
+description = "Data structures in Julia to enable power systems analysis"
+stargazers_count = "26"
+url = "https://github.com/NREL/PowerSystems.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jd-lara"
+contributions = "472"
+[[contributors]]
+name = "kdheepak"
+contributions = "137"
+[[contributors]]
+name = "claytonpbarrows"
+contributions = "114"
+[[contributors]]
+name = "sourabhdalvi"
+contributions = "27"
+[[contributors]]
+name = "jjstickel"
+contributions = "13"

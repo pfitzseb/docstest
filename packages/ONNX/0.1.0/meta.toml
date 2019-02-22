@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ONNX"
+owner = "FluxML"
+version = "0.1.0"
+description = "Read ONNX graphs in Julia"
+stargazers_count = "24"
+url = "https://github.com/FluxML/ONNX.jl.git"
+installs = true
+tags = ["onnx", "flux", "julia", "machine-learning", "deep-learning"]
+license = "Other"
+
+[[contributors]]
+name = "ayush1999"
+contributions = "117"
+[[contributors]]
+name = "MikeInnes"
+contributions = "15"
+[[contributors]]
+name = "philtomson"
+contributions = "11"

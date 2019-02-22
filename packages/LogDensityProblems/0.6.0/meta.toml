@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "LogDensityProblems"
+owner = "tpapp"
+version = "0.6.0"
+description = "A common framework for implementing and using log densities for inference."
+stargazers_count = "2"
+url = "https://github.com/tpapp/LogDensityProblems.jl.git"
+installs = true
+tags = ["julia", "bayesian-inference", "bayesian", "bayesian-methods", "bayesian-data-analysis", "mcmc"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "83"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"

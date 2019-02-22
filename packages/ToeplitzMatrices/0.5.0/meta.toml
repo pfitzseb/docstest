@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ToeplitzMatrices"
+owner = "JuliaMatrices"
+version = "0.5.0"
+description = "Fast matrix multiplication and division for Toeplitz matrices in Julia"
+stargazers_count = "12"
+url = "https://github.com/JuliaMatrices/ToeplitzMatrices.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "29"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "20"
+[[contributors]]
+name = "kuanxu"
+contributions = "3"
+[[contributors]]
+name = "willtebbutt"
+contributions = "2"
+[[contributors]]
+name = "maximerischard"
+contributions = "2"
+[[contributors]]
+name = "JeffFessler"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "vincentcp"
+contributions = "1"

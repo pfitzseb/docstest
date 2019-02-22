@@ -1,0 +1,84 @@
+license_url = ""
+doctype = "default"
+name = "Interact"
+owner = "JuliaGizmos"
+version = "0.8.0"
+description = "Interactive widgets to play with your Julia code"
+stargazers_count = "256"
+url = "https://github.com/JuliaGizmos/Interact.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shashi"
+contributions = "198"
+[[contributors]]
+name = "piever"
+contributions = "52"
+[[contributors]]
+name = "JobJob"
+contributions = "48"
+[[contributors]]
+name = "jiahao"
+contributions = "9"
+[[contributors]]
+name = "stevengj"
+contributions = "8"
+[[contributors]]
+name = "dpsanders"
+contributions = "7"
+[[contributors]]
+name = "korsbo"
+contributions = "6"
+[[contributors]]
+name = "rdeits"
+contributions = "6"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "wookay"
+contributions = "3"
+[[contributors]]
+name = "FavioVazquez"
+contributions = "2"
+[[contributors]]
+name = "mohamed82008"
+contributions = "2"
+[[contributors]]
+name = "blandry"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "babaq"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "bluesmoon"
+contributions = "1"
+[[contributors]]
+name = "skleinbo"
+contributions = "1"
+[[contributors]]
+name = "srenatus"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

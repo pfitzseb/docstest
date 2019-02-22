@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "AsyPlots"
+owner = "sswatson"
+version = "0.2.0"
+description = "A Julia package for making figures with Asymptote and Cairo"
+stargazers_count = "7"
+url = "https://github.com/sswatson/AsyPlots.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sswatson"
+contributions = "35"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Immerse"
+owner = "JuliaGraphics"
+version = "0.1.1"
+description = "Dive deeper into your data with interactive graphics"
+stargazers_count = "60"
+url = "https://github.com/JuliaGraphics/Immerse.jl.git"
+installs = true
+tags = ["gadfly", "julia", "interactive-graphics"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "79"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "9"
+[[contributors]]
+name = "tbreloff"
+contributions = "3"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

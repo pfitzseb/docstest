@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "real"
+name = "DistributedArrays"
+owner = "JuliaParallel"
+version = "0.6.0"
+description = "Distributed Arrays in Julia"
+stargazers_count = "93"
+url = "https://github.com/JuliaParallel/DistributedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "116"
+[[contributors]]
+name = "jakebolewski"
+contributions = "59"
+[[contributors]]
+name = "vchuravy"
+contributions = "55"
+[[contributors]]
+name = "amitmurthy"
+contributions = "45"
+[[contributors]]
+name = "tanmaykm"
+contributions = "19"
+[[contributors]]
+name = "traktofon"
+contributions = "15"
+[[contributors]]
+name = "mbauman"
+contributions = "7"
+[[contributors]]
+name = "r-barnes"
+contributions = "6"
+[[contributors]]
+name = "JosmanPS"
+contributions = "3"
+[[contributors]]
+name = "kshyatt"
+contributions = "3"
+[[contributors]]
+name = "JosephTomlinson"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

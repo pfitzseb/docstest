@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "HistogramThresholding"
+owner = "zygmuntszpak"
+version = "0.2.0"
+description = "A Julia package for determining thresholds by analyzing one-dimensional histograms"
+stargazers_count = "1"
+url = "https://github.com/zygmuntszpak/HistogramThresholding.jl.git"
+installs = true
+tags = ["imageprocessing", "otsu-threshold", "minimum-error-threshold", "intermodes-threshold", "unimodal-threshold", "entropy-threshold", "yen-threshold", "balanced-threshold"]
+license = "MIT License"
+
+[[contributors]]
+name = "betttris13"
+contributions = "47"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "45"
+[[contributors]]
+name = "Sherrinford4869"
+contributions = "15"
+[[contributors]]
+name = "bellascalzi1"
+contributions = "2"
+[[contributors]]
+name = "AbbeyMac"
+contributions = "1"
+[[contributors]]
+name = "TheCosmicStorm"
+contributions = "1"

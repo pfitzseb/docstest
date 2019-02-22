@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "PtFEM"
+owner = "PtFEM"
+version = "1.0.0"
+description = "\"Programming the Finite Element Method\" by I M Smith, D V Griffiths and L Margetts"
+stargazers_count = "9"
+url = "https://github.com/PtFEM/PtFEM.jl.git"
+installs = true
+tags = ["julia", "partial-differential-equations", "finite-elements", "toolkit"]
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "674"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

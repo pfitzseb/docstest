@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BoltzmannMachinesPlots"
+owner = "stefan-m-lenz"
+version = "1.0.0"
+description = "Adds plotting capabilities to BoltzmannMachines.jl"
+stargazers_count = "0"
+url = "https://github.com/stefan-m-lenz/BoltzmannMachinesPlots.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stefan-m-lenz"
+contributions = "21"

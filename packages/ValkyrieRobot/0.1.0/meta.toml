@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ValkyrieRobot"
+owner = "tkoolen"
+version = "0.1.0"
+description = "URDF and meshes for the NASA Valkyrie robot"
+stargazers_count = "2"
+url = "https://github.com/tkoolen/ValkyrieRobot.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "24"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

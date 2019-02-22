@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Grassmann.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Grassmann.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Direct-sum-yields-VectorSpace-parametric-type-polymorphism-1">Direct-sum yields <code>VectorSpace</code> parametric type polymorphism ⨁</a></li><li><a class="toctext" href="#Generating-elements-and-geometric-algebra-Λ(V)-1">Generating elements and geometric algebra Λ(V)</a></li><li><a class="toctext" href="#Constructing-linear-transformations-from-mixed-tensor-product-1">Constructing linear transformations from mixed tensor product ⊗</a></li><li><a class="toctext" href="#Importing-the-generators-of-the-Leech-lattice-1">Importing the generators of the Leech lattice</a></li><li><a class="toctext" href="#Symbolic-coefficients-by-declaring-an-alternative-scalar-algebra-1">Symbolic coefficients by declaring an alternative scalar algebra</a></li><li><a class="toctext" href="#References-1">References</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p>&lt;p align=&quot;center&quot;&gt;   &lt;img src=&quot;./docs/src/assets/logo.png&quot; alt=&quot;Grassmann.jl&quot;/&gt; &lt;/p&gt;</p><h1><a class="nav-anchor" id="Grassmann.jl-1" href="#Grassmann.jl-1">Grassmann.jl</a></h1><p><em>Conformal geometric product algebra based on static dual multivectors with graded-blade indexing</em></p><p><a href="https://travis-ci.org/chakravala/Grassmann.jl"><img src="https://travis-ci.org/chakravala/Grassmann.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/chakravala/grassmann-jl"><img src="https://ci.appveyor.com/api/projects/status/c36u0rgtm2rjcquk?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/chakravala/Grassmann.jl?branch=master"><img src="https://coveralls.io/repos/chakravala/Grassmann.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://codecov.io/github/chakravala/Grassmann.jl?branch=master"><img src="http://codecov.io/github/chakravala/Grassmann.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package is a work in progress providing the necessary tools to work with arbitrary dual <code>MultiVector</code> elements with optional origin. Due to the parametric type system for the generating <code>VectorSpace</code>, the Julia compiler can fully preallocate and often cache values efficiently. Both static and mutable vector types are supported.</p><p>It is currently possible to do both high-performance numerical computations with <code>Grassmann</code> and it is also currently possible to use symbolic scalar coefficients when the <code>Reduce</code> package is also loaded (compatibility instructions at bottom).</p><p>Products available for high-performance and sparse computation include <code>∧,∨,⋅,*</code> (e.g. exterior, regressive, interior, and geometric).</p><h4><a class="nav-anchor" id="Design,-code-generation-1" href="#Design,-code-generation-1">Design, code generation</a></h4><p>Due to the abstract generality of the product algebra code generation, it is possible to extend the <code>Grassmann</code> library to include additional high performance products with few extra definitions. Operations on ultra-sparse representations for very high dimensional algebras will be gaining further performance enhancements in future updates, while the standard lower dimensional algebras already are highly performant and optimized. Thanks to the design of the product algebra code generation, any additional optimizations to the type stability will automatically enhance all the different products simultaneously. Likewise, any new product formulas will be able to quickly gain from the setup of all of the existing optimizations.</p><h3><a class="nav-anchor" id="Requirements-1" href="#Requirements-1">Requirements</a></h3><p>Availability of this package and its subpackages can be automatically handled with the Julia package manager; however, when the <code>master</code> branch is used it is possible that some of the dependencies also require a development branch before the release. This may include (but is not limited to) the following packages:</p><p>This requires a merged version of <code>ComputedFieldTypes</code> at https://github.com/vtjnash/ComputedFieldTypes.jl</p><p>Interoperability of <code>TensorAlgebra</code> with other packages is automatically enabled by <a href="https://github.com/chakravala/DirectSum.jl">DirectSum.jl</a> and <a href="https://github.com/chakravala/AbstractTensors.jl">AbstractTensors.jl</a>.</p><h2><a class="nav-anchor" id="Direct-sum-yields-VectorSpace-parametric-type-polymorphism-1" href="#Direct-sum-yields-VectorSpace-parametric-type-polymorphism-1">Direct-sum yields <code>VectorSpace</code> parametric type polymorphism ⨁</a></h2><p>Let <code>N</code> be the dimension of a <code>VectorSpace{N}</code>. The metric signature of the <code>Basis{V,1}</code> elements of a vector space <code>V</code> can be specified with the <code>V&quot;...&quot;</code> constructor by using <code>+</code> and <code>-</code> to specify whether the <code>Basis{V,1}</code> element of the corresponding index squares to <code>+1</code> or <code>-1</code>. For example, <code>V&quot;+++&quot;</code> constructs a positive definite 3-dimensional <code>VectorSpace</code>.</p><pre><code class="language-Julia">julia&gt; ℝ^3 == V&quot;+++&quot; == VectorSpace(3)
+true</code></pre><p>The direct sum operator <code>⊕</code> can be used to join spaces (alternatively <code>+</code>), and <code>&#39;</code> is an involution which toggles a dual vector space with inverted signature.</p><pre><code class="language-Julia">julia&gt; V = ℝ&#39;⊕ℝ^3
+⟨-+++⟩
+
+julia&gt; V&#39;
+⟨+---⟩&#39;
+
+julia&gt; W = V⊕V&#39;
+⟨-++++---⟩*</code></pre><p>The direct sum of a <code>VectorSpace</code> and its dual <code>V⊕V&#39;</code> represents the full mother space <code>V*</code>.</p><pre><code class="language-Julia">julia&gt; collect(V) # all vector basis elements
+Grassmann.Algebra{⟨-+++⟩,16}(v, v₁, v₂, v₃, v₄, v₁₂, v₁₃, v₁₄, v₂₃, v₂₄, v₃₄, v₁₂₃, v₁₂₄, v₁₃₄, ...)
+
+julia&gt; collect(V&#39;) # all covector basis elements
+Grassmann.Algebra{⟨+---⟩&#39;,16}(w, w¹, w², w³, w⁴, w¹², w¹³, w¹⁴, w²³, w²⁴, w³⁴, w¹²³, w¹²⁴, w¹³⁴, ...)
+
+julia&gt; collect(W) # all mixed basis elements
+Grassmann.Algebra{⟨-++++---⟩*,256}(v, v₁, v₂, v₃, v₄, w¹, w², w³, w⁴, v₁₂, v₁₃, v₁₄, v₁w¹, v₁w², ...</code></pre><p>More information about <code>DirectSum</code> is available  at https://github.com/chakravala/DirectSum.jl</p><h2><a class="nav-anchor" id="Generating-elements-and-geometric-algebra-Λ(V)-1" href="#Generating-elements-and-geometric-algebra-Λ(V)-1">Generating elements and geometric algebra Λ(V)</a></h2><p>By virtue of Julia&#39;s multiple dispatch on the field type <code>T</code>, methods can specialize on the <code>Dimension{N}</code> and <code>Grade{G}</code> and <code>VectorSpace{N,D,O}</code> via the <code>TensorAlgebra</code> subtypes, such as <code>Basis{V,G}</code>, <code>SValue{V,G,B,T}</code>, <code>MValue{V,G,B,T}</code>, <code>SBlade{T,V,G}</code>, <code>MBlade{T,V,G}</code>, <code>MultiVector{T,V}</code>, and <code>MultiGrade{V}</code> types.</p><p>The elements of the <code>Algebra</code> can be generated in many ways using the <code>Basis</code> elements created by the <code>@basis</code> macro,</p><pre><code class="language-Julia">julia&gt; using Grassmann; @basis ℝ&#39;⊕ℝ^3 # equivalent to basis&quot;-+++&quot;
+(⟨-+++⟩, v, v₁, v₂, v₃, v₄, v₁₂, v₁₃, v₁₄, v₂₃, v₂₄, v₃₄, v₁₂₃, v₁₂₄, v₁₃₄, v₂₃₄, v₁₂₃₄)</code></pre><p>As a result of this macro, all of the <code>Basis{V,G}</code> elements generated by that <code>VectorSpace</code> become available in the local workspace with the specified naming. The first argument provides signature specifications, the second argument is the variable name for the <code>VectorSpace</code>, and the third and fourth argument are the the prefixes of the <code>Basis</code> vector names (and covector basis names). By default, <code>V</code> is assigned the <code>VectorSpace</code> and <code>v</code> is the prefix for the <code>Basis</code> elements. Thus,</p><pre><code class="language-Julia">julia&gt; V # Minkowski spacetime
+⟨-+++⟩
+
+julia&gt; typeof(V) # dispatch by vector space
+VectorSpace{4,0,0x0000000000000001}
+
+julia&gt; typeof(v13) # extensive type info
+Basis{⟨-+++⟩,2,0x0000000000000005}
+
+julia&gt; v13∧v2 # exterior tensor product
+-1v₁₂₃
+
+julia&gt; ans^2 # applies geometric product
+1v
+
+julia&gt; @btime h = 2v1+v3 # vector element
+  37.794 ns (3 allocations: 80 bytes)
+2v₁ + 0v₂ + 1v₃ + 0v₄
+
+julia&gt; @btime $h⋅$h # inner product
+  105.948 ns (2 allocations: 160 bytes)
+-3</code></pre><p>It is entirely possible to assign multiple different bases with different signatures without any problems. In the following command, the <code>@basis</code> macro arguments are used to assign the vector space name to <code>S</code> instead of <code>V</code> and basis elements to <code>b</code> instead of <code>v</code>, so that their local names do not interfere:</p><pre><code class="language-Julia">julia&gt; @basis &quot;++++&quot; S b;
+
+julia&gt; let k = (b1+b2)-b3
+           for j ∈ 1:9
+               k = k*(b234+b134)
+               println(k)
+       end end
+0 + 1v₁₄ + 1v₂₄ + 2v₃₄
+0 - 2v₁ - 2v₂ + 2v₃
+0 - 2v₁₄ - 2v₂₄ - 4v₃₄
+0 + 4v₁ + 4v₂ - 4v₃
+0 + 4v₁₄ + 4v₂₄ + 8v₃₄
+0 - 8v₁ - 8v₂ + 8v₃
+0 - 8v₁₄ - 8v₂₄ - 16v₃₄
+0 + 16v₁ + 16v₂ - 16v₃
+0 + 16v₁₄ + 16v₂₄ + 32v₃₄</code></pre><p>Alternatively, if you do not wish to assign these variables to your local workspace, the versatile <code>Grassmann.Algebra{N}</code> constructors can be used to contain them, which is exported to the user as the method <code>Λ(V)</code>,</p><pre><code class="language-Julia">julia&gt; G3 = Λ(3) # equivalent to Λ(V&quot;+++&quot;), Λ(ℝ^3), Λ.V3
+Grassmann.Algebra{⟨+++⟩,8}(v, v₁, v₂, v₃, v₁₂, v₁₃, v₂₃, v₁₂₃)
+
+julia&gt; G3.v13 * G3.v12
+v₂₃</code></pre><p>Another way is <code>Λ.V3</code>, then it is possible to assign the <strong>quaternion</strong> generators <code>i,j,k</code> with</p><pre><code class="language-Julia">julia&gt; i,j,k = Λ.V3.v32, Λ.V3.v13, Λ.V3.v21
+(-1v₂₃, v₁₃, -1v₁₂)
+
+julia&gt; @btime i^2, j^2, k^2, i*j*k
+  158.925 ns (5 allocations: 112 bytes)
+(-1v, -1v, -1v, -1v)</code></pre><p>The parametric type formalism in <code>Grassmann</code> is highly expressive to enable the pre-allocation of geometric algebra computations for specific sparse-subalgebras, including the representation of rotational groups, Lie bivector algebras, and affine projective geometry.</p><h3><a class="nav-anchor" id="Reaching-dimensions-with-SparseAlgebra-and-ExtendedAlgebra-1" href="#Reaching-dimensions-with-SparseAlgebra-and-ExtendedAlgebra-1">Reaching ∞ dimensions with <code>SparseAlgebra</code> and <code>ExtendedAlgebra</code></a></h3><p>It is possible to reach <code>Basis</code> elements up to <code>N=62</code> indices with <code>TensorAlgebra</code> having higher maximum dimensions than supported by Julia natively.</p><pre><code class="language-Julia">julia&gt; Λ(62)
+Grassmann.ExtendedAlgebra{⟨++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++⟩,4611686018427387904}(v, ..., v₁₂₃₄₅₆₇₈₉₀abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ)
+
+julia&gt; Λ(62).v32a87Ng
+-1v₂₃₇₈agN</code></pre><p>The 62 indices require full alpha-numeric labeling with lower-case and capital letters. This now allows you to reach up to <code>4,611,686,018,427,387,904</code> dimensions with Julia <code>using Grassmann</code>. Then the volume element is</p><pre><code class="language-Julia">v₁₂₃₄₅₆₇₈₉₀abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</code></pre><p>However, Julia is only able to allocate full <code>MultiVector</code> for <code>N≤22</code>, with sparse operations only available at higher dimension.</p><p>While <code>Grassmann.Algebra{V}</code> is a container for the <code>TensorAlgebra</code> generators of <code>V</code>, the <code>Grassmann.Algebra</code> is only cached for <code>N≤8</code>. For a <code>VectorSpace{N}</code> of dimension <code>8&lt;N≤22</code>, the <code>Grassmann.SparseAlgebra</code> type is used.</p><pre><code class="language-Julia">julia&gt; Λ(22)
+Grassmann.SparseAlgebra{⟨++++++++++++++++++++++⟩,4194304}(v, ..., v₁₂₃₄₅₆₇₈₉₀abcdefghijkl)</code></pre><p>This is the largest <code>SparseAlgebra</code> that can be generated with Julia, due to array size limitations.</p><p>To reach higher dimensions, for <code>N&gt;22</code> the <code>Grassmann.ExtendedAlgebra</code> type is used. It is suficient to work with a 64-bit representation (which is the default). And it turns out that with 61 standard keyboard characters, this fits nicely. Since 22 is the limit for the largest fully representable <code>MultiVector</code> with Julia, having a 64-bit representation still lets you extend to 44 generating <code>Basis</code> elements if you suddenly want to decide to have a dual vector space also.</p><pre><code class="language-Julia">julia&gt; V = ℝ^22
+⟨++++++++++++++++++++++⟩
+
+julia&gt; Λ(V+V&#39;)
+Grassmann.ExtendedAlgebra{⟨++++++++++++++++++++++----------------------⟩*,17592186044416}(v, ..., v₁₂₃₄₅₆₇₈₉₀abcdefghijklw¹²³⁴⁵⁶⁷⁸⁹⁰ABCDEFGHIJKL)</code></pre><p>Currently, up to <code>N=62</code> is supported with alpha-numeric indexing. This is due to the defaults of the bit depth from the computer, so if you are 32-bit it is more limited.</p><p>At 22 dimensions and lower, you have better caching, and 8 dimensions or less have extra caching. Thus, the largest Hilbert space that is fully reachable has 4,194,304 dimensions, but we can still reach out to 4,611,686,018,427,387,904 dimensions with the <code>ExtendedAlgebra</code> built in. This is approximately <code>2^117</code> times smaller than the order of the Monster group. It is still feasible to extend to a further super-extended 128-bit representation using the <code>UInt128</code> type (but this will require further modifications of internals and helper functions. To reach into infinity even further, it is theoretically possible to construct ultra-extensions also using dictionaries. Full <code>MultiVector</code> elements are not representable when <code>ExtendedAlgebra</code> is used, but the performance of the <code>Basis</code> and sparse elements should be just as fast as for lower dimensions for the current <code>SubAlgebra</code> and <code>TensorAlgebra</code> types. The sparse representations are a work in progress to be improved with time.</p><p>In order to work with a <code>TensorAlgebra{V}</code>, it is necessary for some computations to be cached. This is usually done automatically when accessed.</p><pre><code class="language-Julia">julia&gt; Λ(7) + Λ(7)&#39;
+Grassmann.SparseAlgebra{⟨+++++++-------⟩*,16384}(v, ..., v₁₂₃₄₅₆₇w¹²³⁴⁵⁶⁷)</code></pre><p>One way of declaring the cache for all 3 combinations of a <code>VectorSpace{N}</code> and its dual is to ask for the sum <code>Λ(V) + Λ(V)&#39;</code>, which is equivalent to <code>Λ(V⊕V&#39;)</code>.</p><p>The staging of the precompilation and caching is designed so that a user can smoothly transition between very high dimensional and low dimensional algebras in a single session, with varying levels of extra caching and optimizations.</p><h2><a class="nav-anchor" id="Constructing-linear-transformations-from-mixed-tensor-product-1" href="#Constructing-linear-transformations-from-mixed-tensor-product-1">Constructing linear transformations from mixed tensor product ⊗</a></h2><p>Groups such as SU(n) can be represented with the dual Grassmann’s exterior product algebra, generating a <code>2^(2n)</code>-dimensional mother algebra with geometric product from the <code>n</code>-dimensional vector space and its dual vector space. The product of the vector basis and covector basis elements form the <code>n^2</code>-dimensional bivector subspace of the full <code>(2n)!/(2(2n−2)!)</code>-dimensional bivector sub-algebra. The package <code>Grassmann</code> is working towards making the full extent of this number system available in Julia by using static compiled parametric type information to handle sparse sub-algebras, such as the (1,1)-tensor bivector algebra.</p><p>Note that <code>Λ.V3</code> gives the vector basis, and <code>Λ.C3</code> gives the covector basis:</p><pre><code class="language-Julia">julia&gt; Λ.V3
+Grassmann.Algebra{⟨+++⟩,8}(v, v₁, v₂, v₃, v₁₂, v₁₃, v₂₃, v₁₂₃)
+
+julia&gt; Λ.C3
+Grassmann.Algebra{⟨---⟩&#39;,8}(w, w¹, w², w³, w¹², w¹³, w²³, w¹²³)</code></pre><p>The following command yields a local 2D vector and covector basis,</p><pre><code class="language-Julia">julia&gt; mixedbasis&quot;2&quot;
+(⟨++--⟩*, v, v₁, v₂, w¹, w², v₁₂, v₁w¹, v₁w², v₂w¹, v₂w², w¹², v₁₂w¹, v₁₂w², v₁w¹², v₂w¹², v₁₂w¹²)
+
+julia&gt; w1+2w2
+1w¹ + 2w²
+
+julia&gt; ans(v1+v2)
+3v</code></pre><p>The sum <code>w1+2w2</code> is interpreted as a covector element of the dual vector space, which can be evaluated as a linear functional when a vector argument is input. Using these in the workspace, it is possible to use the Grassmann exterior <code>∧</code>-tensor product operation to construct elements <code>ℒ</code> of the (1,1)-bivector subspace of linear transformations from the <code>Grade{2}</code> algebra.</p><pre><code class="language-Julia">julia&gt; ℒ = ((v1+2v2)∧(3w1+4w2))(2)
+0v₁₂ + 3v₁w¹ + 4v₁w² + 6v₂w¹ + 8v₂w² + 0w¹²</code></pre><p>The element <code>ℒ</code> is a linear form which can take <code>Grade{1}</code> vectors as input,</p><pre><code class="language-Julia">julia&gt; ℒ(v1+v2)
+7v₁ + 14v₂ + 0w¹ + 0w²
+
+julia&gt; L = [1,2] * [3,4]&#39;; L * [1,1]
+2-element Array{Int64,1}:
+  7
+ 14</code></pre><p>which is a computation equivalent to a matrix computation.</p><p>This package is still a work in progress, and the API and implementation may change as more features and algebraic operations and product structure are added.</p><h2><a class="nav-anchor" id="Importing-the-generators-of-the-Leech-lattice-1" href="#Importing-the-generators-of-the-Leech-lattice-1">Importing the generators of the Leech lattice</a></h2><p>In the example below, we define a constant <code>Leech</code> which can be used to obtain linear combinations of the Leech lattice,</p><pre><code class="language-Julia">julia&gt; using Grassmann
+
+julia&gt; generator = [8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0;
+       2 2 2 2 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0;
+       2 2 0 0 2 2 0 0 2 2 0 0 2 2 0 0 0 0 0 0 0 0 0 0;
+       2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0;
+       2 0 0 2 2 0 0 2 2 0 0 2 2 0 0 2 0 0 0 0 0 0 0 0;
+       4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0;
+       2 0 2 0 2 0 0 2 2 2 0 0 0 0 0 0 2 2 0 0 0 0 0 0;
+       2 0 0 2 2 2 0 0 2 0 2 0 0 0 0 0 2 0 2 0 0 0 0 0;
+       2 2 0 0 2 0 2 0 2 0 0 2 0 0 0 0 2 0 0 2 0 0 0 0;
+       0 2 2 2 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0;
+       0 0 0 0 0 0 0 0 2 2 0 0 2 2 0 0 2 2 0 0 2 2 0 0;
+       0 0 0 0 0 0 0 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0;
+       -3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+
+julia&gt; const E24,W = Λ(24), ℝ^24+(ℝ^24)&#39;;
+
+julia&gt; const Leech = SBlade{Float64,W}(generator./sqrt(8));
+
+julia&gt; typeof(Leech)
+SBlade{Float64,⟨++++++++++++++++++++++++------------------------⟩*,2,1128}
+
+julia&gt; ndims(vectorspace(Leech))
+48</code></pre><p>The <code>Leech</code> generator matrix is contained in the 1128-dimensional bivector subalgebra of the space with 48 indices.</p><pre><code class="language-Julia">julia&gt; Leech(E24.v1)
+2.82842712474619v₁ + 0.0v₂ + 0.0v₃ + 0.0v₄ + 0.0v₅ + 0.0v₆ + 0.0v₇ + 0.0v₈ + 0.0v₉ + 0.0v₀ + 0.0va + 0.0vb + 0.0vc + 0.0vd + 0.0ve + 0.0vf + 0.0vg + 0.0vh + 0.0vi + 0.0vj + 0.0vk + 0.0vl + 0.0vm + 0.0vn + 0.0w¹ + 0.0w² + 0.0w³ + 0.0w⁴ + 0.0w⁵ + 0.0w⁶ + 0.0w⁷ + 0.0w⁸ + 0.0w⁹ + 0.0w⁰ + 0.0wA + 0.0wB + 0.0wC + 0.0wD + 0.0wE + 0.0wF + 0.0wG + 0.0wH + 0.0wI + 0.0wJ + 0.0wK + 0.0wL + 0.0wM + 0.0wN
+
+julia&gt; Leech(E24.v2)
+1.414213562373095v₁ + 1.414213562373095v₂ + 0.0v₃ + 0.0v₄ + 0.0v₅ + 0.0v₆ + 0.0v₇ + 0.0v₈ + 0.0v₉ + 0.0v₀ + 0.0va + 0.0vb + 0.0vc + 0.0vd + 0.0ve + 0.0vf + 0.0vg + 0.0vh + 0.0vi + 0.0vj + 0.0vk + 0.0vl + 0.0vm + 0.0vn + 0.0w¹ + 0.0w² + 0.0w³ + 0.0w⁴ + 0.0w⁵ + 0.0w⁶ + 0.0w⁷ + 0.0w⁸ + 0.0w⁹ + 0.0w⁰ + 0.0wA + 0.0wB + 0.0wC + 0.0wD + 0.0wE + 0.0wF + 0.0wG + 0.0wH + 0.0wI + 0.0wJ + 0.0wK + 0.0wL + 0.0wM + 0.0wN
+
+julia&gt; Leech(E24.v3)
+1.414213562373095v₁ + 0.0v₂ + 1.414213562373095v₃ + 0.0v₄ + 0.0v₅ + 0.0v₆ + 0.0v₇ + 0.0v₈ + 0.0v₉ + 0.0v₀ + 0.0va + 0.0vb + 0.0vc + 0.0vd + 0.0ve + 0.0vf + 0.0vg + 0.0vh + 0.0vi + 0.0vj + 0.0vk + 0.0vl + 0.0vm + 0.0vn + 0.0w¹ + 0.0w² + 0.0w³ + 0.0w⁴ + 0.0w⁵ + 0.0w⁶ + 0.0w⁷ + 0.0w⁸ + 0.0w⁹ + 0.0w⁰ + 0.0wA + 0.0wB + 0.0wC + 0.0wD + 0.0wE + 0.0wF + 0.0wG + 0.0wH + 0.0wI + 0.0wJ + 0.0wK + 0.0wL + 0.0wM + 0.0wN
+
+...</code></pre><p>Then a <code>TensorAlgebra</code> evaluation of <code>Leech</code> at an <code>Integer</code> linear combination would be</p><pre><code class="language-Julia">julia&gt; Leech(E24.v1 + 2*E24.v2)
+5.65685424949238v₁ + 2.82842712474619v₂ + 0.0v₃ + 0.0v₄ + 0.0v₅ + 0.0v₆ + 0.0v₇ + 0.0v₈ + 0.0v₉ + 0.0v₀ + 0.0va + 0.0vb + 0.0vc + 0.0vd + 0.0ve + 0.0vf + 0.0vg + 0.0vh + 0.0vi + 0.0vj + 0.0vk + 0.0vl + 0.0vm + 0.0vn + 0.0w¹ + 0.0w² + 0.0w³ + 0.0w⁴ + 0.0w⁵ + 0.0w⁶ + 0.0w⁷ + 0.0w⁸ + 0.0w⁹ + 0.0w⁰ + 0.0wA + 0.0wB + 0.0wC + 0.0wD + 0.0wE + 0.0wF + 0.0wG + 0.0wH + 0.0wI + 0.0wJ + 0.0wK + 0.0wL + 0.0wM + 0.0wN</code></pre><p>The <code>Grassmann</code> package is designed to smoothly handle high-dimensional bivector algebras with headroom to spare. Although some of these calculations may have an initial delay, repeated calls are fast due to built-in caching and pre-compilation.</p><p>In future updates, more emphasis will be placed on increased type-stability with more robust sparse output allocation in the computational graph and minimal footprint but maximal type-stability for intermediate results and output.</p><h2><a class="nav-anchor" id="Symbolic-coefficients-by-declaring-an-alternative-scalar-algebra-1" href="#Symbolic-coefficients-by-declaring-an-alternative-scalar-algebra-1">Symbolic coefficients by declaring an alternative scalar algebra</a></h2><pre><code class="language-Julia">julia&gt; using GaloisFields,Grassmann
+
+julia&gt; const F = GaloisField(7)
+𝔽₇
+
+julia&gt; basis&quot;2&quot;
+(⟨++⟩, v, v₁, v₂, v₁₂)
+
+julia&gt; @btime F(3)*v1
+  21.076 ns (2 allocations: 32 bytes)
+3v₁
+
+julia&gt; @btime inv($ans)
+  26.636 ns (0 allocations: 0 bytes)
+5v₁</code></pre><p>Due to the abstract generality of the code generation of the <code>Grassmann</code> product algebra, it is easily possible to extend the entire set of operations to other kinds of scalar coefficient types. By default, the coefficients are required to be <code>&lt;:Number</code>. However, if this does not suit your needs, alternative scalar product algebras can be specified with</p><pre><code class="language-Julia">generate_product_algebra(SymField,:(Sym.:*),:(Sym.:+),:(Sym.:-),:svec)</code></pre><p>where <code>SymField</code> is the desired scalar field and <code>Sym</code> is the scope which contains the scalar field algebra for <code>SymField</code>.</p><p>Currently, with the use of <code>Requires</code> it is feasible to automatically enable symbolic scalar computation with <a href="https://github.com/chakravala/Reduce.jl">Reduce.jl</a>, e.g.</p><pre><code class="language-Julia">julia&gt; using Reduce, Grassmann
+Reduce (Free CSL version, revision 4590), 11-May-18 ...</code></pre><p>Additionally, due to the interoperability of the <code>AbstractTensors</code> package, the <code>Reduce</code> package automatically bypasses mixed symbolic operations with <code>TensorAlgebra</code> elements within the <code>Reduce.Algebra</code> scope to the correct methods.</p><pre><code class="language-Julia">julia&gt; basis&quot;2&quot;
+(⟨++⟩, v, v₁, v₂, v₁₂)
+
+julia&gt; (:a*v1 + :b*v2) ∧ (:c*v1 + :d*v2)
+0.0 + (a * d - b * c)v₁₂
+
+julia&gt; (:a*v1 + :b*v2) ⋅ (:c*v1 + :d*v2)
+a * c + b * d
+
+julia&gt; (:a*v1 + :b*v2) * (:c*v1 + :d*v2)
+a * c + b * d + (a * d - b * c)v₁₂</code></pre><p>If these compatibility steps are followed, then <code>Grassmann</code> will automatically declare the product algebra to use the <code>Reduce.Algebra</code> symbolic field operation scope.</p><p>It should be straight-forward to easily substitute any other extended algebraic operations and for extended fields and pull-requests are welcome.</p><h2><a class="nav-anchor" id="References-1" href="#References-1">References</a></h2><ul><li>C. Doran, D. Hestenes, F. Sommen, and N. Van Acker, <a href="http://geocalc.clas.asu.edu/pdf/LGasSG.pdf">Lie groups as spin groups</a>, J. Math Phys. (1993)</li><li>David Hestenes, <a href="http://lomont.org/Math/GeometricAlgebra/Universal%20Geometric%20Algebra%20-%20Hestenes%20-%201988.pdf">Universal Geometric Algebra</a>, Pure and Applied (1988)</li><li>Peter Woit, <a href="http://www.math.columbia.edu/~woit/LieGroups-2012/cliffalgsandspingroups.pdf">Clifford algebras and spin groups</a>, Lecture Notes (2012)</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

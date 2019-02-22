@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ArrayAllez.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ArrayAllez.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ArrayAllez.jl-1" href="#ArrayAllez.jl-1">ArrayAllez.jl</a></h1><p><a href="https://travis-ci.org/mcabbott/ArrayAllez.jl"><img src="https://travis-ci.org/mcabbott/ArrayAllez.jl.svg?branch=master" alt="Build Status"/></a></p><pre><code class="language-none">] add ArrayAllez
+
+add  Yeppp  Flux  https://github.com/platawiec/AppleAccelerate.jl#julia07</code></pre><h3><a class="nav-anchor" id="log!-exp!-1" href="#log!-exp!-1"><code>log! ∘ exp!</code></a></h3><p>This began as a way to more conveniently choose between <a href="https://github.com/JuliaMath/Yeppp.jl">Yeppp!</a>  and <a href="https://github.com/JuliaMath/AppleAccelerate.jl">AppleAccelerate</a>. Or neither... just loops with <code>@threads</code>?</p><pre><code class="language-julia">x = rand(5);
+
+y = exp.(x)  # = exp0(x) 
+
+using Yeppp  # or using AppleAccelerate
+
+y = exp!(x)  # with ! mutates
+x = log_(y)  # with _ copies</code></pre><p>Besides <code>log!</code> and <code>exp!</code>, there is also <code>scale!</code> which understands rows/columns.  And <code>iscale!</code> which divides, and <code>inv!</code> which is an element-wise inverse. All have non-mutating versions ending <code>_</code> instead of <code>!</code>, and simple broadcast-ed versions with <code>0</code>.</p><pre><code class="language-julia">m = ones(3,7)
+v = rand(3)
+r = rand(7)&#39;
+
+scale0(m, 99)  # simply m .* 99
+scale_(m, v)   # like m .* v but using rmul!
+iscale!(m, r)  # like m ./ r but mutating.
+m</code></pre><h3><a class="nav-anchor" id="-1" href="#-1"><code>∇</code></a></h3><p>These commands all make some attempt to define <a href="https://github.com/FluxML/Flux.jl">Flux</a> gradients,  but caveat emptor. There is also an <code>exp!!</code> which mutates both its forward input and its backward gradient,  which may be a terrible idea.</p><pre><code class="language-julia">using Flux
+x = param(randn(5));
+y = exp_(x)
+
+Flux.back!(sum_(exp!(x)))
+x.data == y # true
+x.grad</code></pre><p>This package also defines gradients for <code>prod</code> (overwriting an incorrect one) and <code>cumprod</code>,  as in <a href="https://github.com/FluxML/Flux.jl/pull/524">this PR</a>. </p><h3><a class="nav-anchor" id="Array_-1" href="#Array_-1"><code>Array_</code></a></h3><p>An experiment with <a href="https://github.com/JuliaCollections/LRUCache.jl">LRUCache</a> for working space:</p><pre><code class="language-julia">x = rand(2000)&#39; # turns off below this size
+
+copy_(:copy, x)
+similar_(:sim, x)
+Array_{Float64}(:new, 5,1000) # @btime 200 ns, 32 bytes
+
+inv_(:inv, x) # most of the _ functions can opt-in</code></pre><h3><a class="nav-anchor" id="broadsum-1" href="#broadsum-1"><code>broadsum</code></a></h3><p>An attempt to keep broadcasting un-<code>materialize</code>d: </p><pre><code class="language-julia">v = rand(10^4);
+w = similar(v);
+
+sum(v .* v&#39;)  # @btime 400 ms, 760 MB
+broadsum(*, v, v&#39;)  # 7 ms, 112 bytes
+
+sum!(w, v .* v&#39;);        # 760 MB
+broadsum!(w, *, v, v&#39;);  # 96 bytes</code></pre><p>The <code>broadsum!</code> (and <code>broadsum(..., dims=...)</code> versions now use a <code>BroadcastArray</code> from  <a href="https://github.com/JuliaArrays/LazyArrays.jl#broadcasting">LazyArrays.jl</a>.  Right now that is slow for a complete <code>sum</code>, so they do something more DIY.  </p><h3><a class="nav-anchor" id="\\odot-1" href="#\\odot-1"><code>⊙ = \odot</code></a></h3><p>Matrix multiplication, on the last index of one tensor &amp; the first index of the next:</p><pre><code class="language-julia">three = rand(2,2,5);
+mat = rand(5,2);
+
+p1 = three ⊙ mat
+
+p2 = reshape(reshape(three,:,5) * mat ,2,2,2) # same
+
+using Einsum
+@einsum p3[i,j,k] := three[i,j,s] * mat[s,k]  # same</code></pre><h3><a class="nav-anchor" id="See-Also-1" href="#See-Also-1">See Also</a></h3><ul><li><p><a href="https://github.com/rprechelt/Vectorize.jl">Vectorize.jl</a> is a more comprehensive wrapper, including Intel MKL. </p></li><li><p><a href="https://github.com/Jutho/Strided.jl">Strided.jl</a> adds @threads to broadcasting. </p></li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

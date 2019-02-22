@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "LazySets"
+owner = "JuliaReach"
+version = "1.6.0"
+description = "A Julia package for calculus with convex sets"
+stargazers_count = "35"
+url = "https://github.com/JuliaReach/LazySets.jl.git"
+installs = true
+tags = ["julia", "convex-sets", "formal-verification", "reachability-analysis", "lazy-evaluation", "polyhedra"]
+license = "Other"
+
+[[contributors]]
+name = "schillic"
+contributions = "1267"
+[[contributors]]
+name = "mforets"
+contributions = "540"
+[[contributors]]
+name = "kostakoida"
+contributions = "15"
+[[contributors]]
+name = "bgarate"
+contributions = "5"
+[[contributors]]
+name = "tomerarnon"
+contributions = "5"
+[[contributors]]
+name = "nikos-kekatos"
+contributions = "3"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "viryfrederic"
+contributions = "1"

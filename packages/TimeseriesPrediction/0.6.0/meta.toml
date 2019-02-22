@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TimeseriesPrediction"
+owner = "JuliaDynamics"
+version = "0.6.0"
+description = "Prediction of timeseries using methods of nonlinear dynamics and timeseries analysis"
+stargazers_count = "33"
+url = "https://github.com/JuliaDynamics/TimeseriesPrediction.jl.git"
+installs = true
+tags = ["nonlinear", "dynamics", "timeseries", "prediction", "julia", "chaos"]
+license = "MIT License"
+
+[[contributors]]
+name = "JonasIsensee"
+contributions = "220"
+[[contributors]]
+name = "Datseris"
+contributions = "84"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

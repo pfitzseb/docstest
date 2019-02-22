@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "GenericSchur"
+owner = "RalphAS"
+version = "0.2.0"
+description = "Julia package for Schur decomposition of matrices with generic element types"
+stargazers_count = "1"
+url = "https://github.com/RalphAS/GenericSchur.jl.git"
+installs = true
+tags = ["julia", "eigenvectors", "schur-decomposition"]
+license = "Other"
+
+[[contributors]]
+name = "RalphAS"
+contributions = "12"

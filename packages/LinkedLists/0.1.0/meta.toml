@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LinkedLists"
+owner = "ChrisRackauckas"
+version = "0.1.0"
+description = "A repository for singly and doubly linked lists in Julia"
+stargazers_count = "1"
+url = "https://github.com/ChrisRackauckas/LinkedLists.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "29"
+[[contributors]]
+name = "Tuwebti"
+contributions = "2"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"

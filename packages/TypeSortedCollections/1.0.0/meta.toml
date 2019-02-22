@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "TypeSortedCollections"
+owner = "tkoolen"
+version = "1.0.0"
+description = "Type-stable operations on type-heterogeneous collections"
+stargazers_count = "12"
+url = "https://github.com/tkoolen/TypeSortedCollections.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "96"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

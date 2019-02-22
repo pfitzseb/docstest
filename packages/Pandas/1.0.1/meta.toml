@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Pandas"
+owner = "JuliaPy"
+version = "1.0.1"
+description = "A Julia front-end to Python's Pandas package."
+stargazers_count = "59"
+url = "https://github.com/JuliaPy/Pandas.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "malmaud"
+contributions = "93"
+[[contributors]]
+name = "davidanthoff"
+contributions = "7"
+[[contributors]]
+name = "tkf"
+contributions = "5"
+[[contributors]]
+name = "AStupidBear"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"

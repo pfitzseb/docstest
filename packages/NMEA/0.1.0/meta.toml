@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "NMEA"
+owner = "RobBlackwell"
+version = "0.1.0"
+description = "Julia package for parsing GPS NMEA messages"
+stargazers_count = "2"
+url = "https://github.com/RobBlackwell/NMEA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RobBlackwell"
+contributions = "10"
+[[contributors]]
+name = "zznop"
+contributions = "8"

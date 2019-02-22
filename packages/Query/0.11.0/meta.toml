@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "real"
+name = "Query"
+owner = "queryverse"
+version = "0.11.0"
+description = "Query almost anything in julia"
+stargazers_count = "146"
+url = "https://github.com/queryverse/Query.jl.git"
+installs = true
+tags = ["julia"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "451"
+[[contributors]]
+name = "Yijia-Chen"
+contributions = "14"
+[[contributors]]
+name = "floswald"
+contributions = "8"
+[[contributors]]
+name = "TonyLianLong"
+contributions = "5"
+[[contributors]]
+name = "quinnj"
+contributions = "4"
+[[contributors]]
+name = "alyst"
+contributions = "3"
+[[contributors]]
+name = "IljaK91"
+contributions = "3"
+[[contributors]]
+name = "abalkin"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "n-patel"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "yurivish"
+contributions = "1"
+[[contributors]]
+name = "bramtayl"
+contributions = "1"

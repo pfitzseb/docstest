@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "ModelingToolkit"
+owner = "JuliaDiffEq"
+version = "0.0.2"
+description = "A toolkit for modeling and creating DSLs for Scientific Computing in Julia"
+stargazers_count = "76"
+url = "https://github.com/JuliaDiffEq/ModelingToolkit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "121"
+[[contributors]]
+name = "HarrisonGrodin"
+contributions = "96"
+[[contributors]]
+name = "YingboMa"
+contributions = "36"
+[[contributors]]
+name = "AleMorales"
+contributions = "6"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "NoveltyColors"
+owner = "randyzwitch"
+version = "0.4.0"
+description = "Julia package for fun or non-standard color palettes"
+stargazers_count = "8"
+url = "https://github.com/randyzwitch/NoveltyColors.jl.git"
+installs = true
+tags = ["julialang", "julia-language", "color-palette", "color-scheme", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "29"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

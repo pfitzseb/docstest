@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StanDataFrames"
+owner = "StanJulia"
+version = "4.0.1"
+description = "A way to utilize DataFrames in order to save Stan output"
+stargazers_count = "0"
+url = "https://github.com/StanJulia/StanDataFrames.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "38"
+[[contributors]]
+name = "bparbhu"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

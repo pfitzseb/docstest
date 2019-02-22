@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "Automa"
+owner = "BioJulia"
+version = "0.7.0"
+description = "A julia code generator for regular expressions"
+stargazers_count = "51"
+url = "https://github.com/BioJulia/Automa.jl.git"
+installs = true
+tags = ["julia", "regular-expression"]
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "174"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

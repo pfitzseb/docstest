@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RawArray"
+owner = "davidssmith"
+version = "0.1.0"
+description = "Raw array (RA) file format for simple, robust, and user-friendly N-dimensional array storage"
+stargazers_count = "2"
+url = "https://github.com/davidssmith/RawArray.jl.git"
+installs = true
+tags = ["ra-format", "storage", "complex-numbers", "bytes", "rawarray", "scientific-computing", "file-format", "julia", "large-files", "large-dataset", "data-science"]
+license = "MIT License"
+
+[[contributors]]
+name = "davidssmith"
+contributions = "50"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

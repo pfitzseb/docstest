@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "DASKR"
+owner = "JuliaDiffEq"
+version = "2.4.0"
+description = "Interface to DASKR, a differential algebraic system solver"
+stargazers_count = "2"
+url = "https://github.com/JuliaDiffEq/DASKR.jl.git"
+installs = true
+tags = ["differential-equations", "differential-algebraic", "daskr"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "71"
+[[contributors]]
+name = "tshort"
+contributions = "8"
+[[contributors]]
+name = "ScottPJones"
+contributions = "7"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "jagot"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

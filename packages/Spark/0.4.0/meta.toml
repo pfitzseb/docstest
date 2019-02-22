@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "Spark"
+owner = "dfdx"
+version = "0.4.0"
+description = "Julia binding for Apache Spark"
+stargazers_count = "94"
+url = "https://github.com/dfdx/Spark.jl.git"
+installs = true
+tags = ["big-data", "spark", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "dfdx"
+contributions = "110"
+[[contributors]]
+name = "JohnAdders"
+contributions = "32"
+[[contributors]]
+name = "aviks"
+contributions = "25"
+[[contributors]]
+name = "clouds56"
+contributions = "5"
+[[contributors]]
+name = "tanmaykm"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "werthen"
+contributions = "1"

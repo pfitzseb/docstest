@@ -1,0 +1,54 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BandedMatrices"
+owner = "JuliaMatrices"
+version = "0.8.2"
+description = "A Julia package for representing banded matrices"
+stargazers_count = "38"
+url = "https://github.com/JuliaMatrices/BandedMatrices.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "272"
+[[contributors]]
+name = "randy3k"
+contributions = "33"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "6"
+[[contributors]]
+name = "mdavezac"
+contributions = "3"
+[[contributors]]
+name = "haampie"
+contributions = "2"
+[[contributors]]
+name = "pabloferz"
+contributions = "2"
+[[contributors]]
+name = "jagot"
+contributions = "2"
+[[contributors]]
+name = "clason"
+contributions = "1"
+[[contributors]]
+name = "fp4code"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "duguxy"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

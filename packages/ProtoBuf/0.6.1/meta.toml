@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "ProtoBuf"
+owner = "JuliaIO"
+version = "0.6.1"
+description = "Julia protobuf implementation"
+stargazers_count = "76"
+url = "https://github.com/JuliaIO/ProtoBuf.jl.git"
+installs = true
+tags = ["protobuf", "protocol-buffer", "protocol-buffers", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "216"
+[[contributors]]
+name = "sbchisholm"
+contributions = "17"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "4"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "ueliwechsler"
+contributions = "3"
+[[contributors]]
+name = "malmaud"
+contributions = "2"
+[[contributors]]
+name = "zhouyan"
+contributions = "2"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "msmidc"
+contributions = "1"

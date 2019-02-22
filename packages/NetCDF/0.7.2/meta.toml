@@ -1,0 +1,87 @@
+license_url = ""
+doctype = "real"
+name = "NetCDF"
+owner = "JuliaGeo"
+version = "0.7.2"
+description = "NetCDF support for the julia programming language"
+stargazers_count = "26"
+url = "https://github.com/JuliaGeo/NetCDF.jl.git"
+installs = true
+tags = ["netcdf", "julia", "io", "geo", "geospatial", "raster"]
+license = "Other"
+
+[[contributors]]
+name = "meggart"
+contributions = "225"
+[[contributors]]
+name = "visr"
+contributions = "21"
+[[contributors]]
+name = "jarlela"
+contributions = "12"
+[[contributors]]
+name = "kouketsu"
+contributions = "10"
+[[contributors]]
+name = "Luthaf"
+contributions = "7"
+[[contributors]]
+name = "metjmart"
+contributions = "5"
+[[contributors]]
+name = "jgoldfar"
+contributions = "3"
+[[contributors]]
+name = "felixcremer"
+contributions = "2"
+[[contributors]]
+name = "squaregoldfish"
+contributions = "2"
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "jannefiluren"
+contributions = "1"
+[[contributors]]
+name = "mvhulten"
+contributions = "1"
+[[contributors]]
+name = "vejmelkam"
+contributions = "1"
+[[contributors]]
+name = "koldunovn"
+contributions = "1"
+[[contributors]]
+name = "dronir"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "wenjiany"
+contributions = "1"
+[[contributors]]
+name = "aramirezreyes"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "ikselven"
+contributions = "1"

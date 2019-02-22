@@ -1,0 +1,252 @@
+license_url = ""
+doctype = "real"
+name = "StatsBase"
+owner = "JuliaStats"
+version = "0.27.0"
+description = "Basic statistics for Julia"
+stargazers_count = "203"
+url = "https://github.com/JuliaStats/StatsBase.jl.git"
+installs = true
+tags = ["julia", "statistics", "summarization", "statistical-models"]
+license = "Other"
+
+[[contributors]]
+name = "lindahua"
+contributions = "223"
+[[contributors]]
+name = "andreasnoack"
+contributions = "61"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "43"
+[[contributors]]
+name = "ararslan"
+contributions = "35"
+[[contributors]]
+name = "nalimilan"
+contributions = "26"
+[[contributors]]
+name = "simonster"
+contributions = "19"
+[[contributors]]
+name = "simonbyrne"
+contributions = "18"
+[[contributors]]
+name = "dmbates"
+contributions = "9"
+[[contributors]]
+name = "Nosferican"
+contributions = "8"
+[[contributors]]
+name = "yuyichao"
+contributions = "7"
+[[contributors]]
+name = "AlexanderFabisch"
+contributions = "6"
+[[contributors]]
+name = "rofinn"
+contributions = "6"
+[[contributors]]
+name = "devmotion"
+contributions = "5"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "oschulz"
+contributions = "5"
+[[contributors]]
+name = "martinholters"
+contributions = "4"
+[[contributors]]
+name = "MikeInnes"
+contributions = "4"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "4"
+[[contributors]]
+name = "fredrikekre"
+contributions = "3"
+[[contributors]]
+name = "garborg"
+contributions = "3"
+[[contributors]]
+name = "matthieugomez"
+contributions = "3"
+[[contributors]]
+name = "mschauer"
+contributions = "3"
+[[contributors]]
+name = "hayd"
+contributions = "2"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "bkamins"
+contributions = "2"
+[[contributors]]
+name = "tinybike"
+contributions = "2"
+[[contributors]]
+name = "quinnj"
+contributions = "2"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "jonasrauber"
+contributions = "2"
+[[contributors]]
+name = "jpata"
+contributions = "2"
+[[contributors]]
+name = "juliangehring"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "oxinabox"
+contributions = "2"
+[[contributors]]
+name = "mkborregaard"
+contributions = "2"
+[[contributors]]
+name = "skumagai"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "lbittarello"
+contributions = "2"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "BenjaminBorn"
+contributions = "1"
+[[contributors]]
+name = "bdeonovic"
+contributions = "1"
+[[contributors]]
+name = "blakejohnson"
+contributions = "1"
+[[contributors]]
+name = "cjprybol"
+contributions = "1"
+[[contributors]]
+name = "Halmoni100"
+contributions = "1"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "evanfields"
+contributions = "1"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "gummif"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "jmxpearson"
+contributions = "1"
+[[contributors]]
+name = "josefsachsconning"
+contributions = "1"
+[[contributors]]
+name = "joshday"
+contributions = "1"
+[[contributors]]
+name = "Ken-B"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "panlanfeng"
+contributions = "1"
+[[contributors]]
+name = "curiousleo"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "nignatiadis"
+contributions = "1"
+[[contributors]]
+name = "PGS62"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "randyzwitch"
+contributions = "1"
+[[contributors]]
+name = "richardreeve"
+contributions = "1"
+[[contributors]]
+name = "grero"
+contributions = "1"
+[[contributors]]
+name = "shashi"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"
+[[contributors]]
+name = "yukota"
+contributions = "1"
+[[contributors]]
+name = "c123w"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "claireh93"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "jamesonquinn"
+contributions = "1"
+[[contributors]]
+name = "scidom"
+contributions = "1"

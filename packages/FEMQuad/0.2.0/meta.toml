@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FEMQuad"
+owner = "JuliaFEM"
+version = "0.2.0"
+description = "FEMQuad.jl package contains various of integration schemes for cartesian and tetrahedral domains. The most common integration rules are tabulated and focus is on speed. Each rule has own \"label\" so we can easily implement several rules with same degree. API is very simple making is easy to utilize package in different FEM projects."
+stargazers_count = "3"
+url = "https://github.com/JuliaFEM/FEMQuad.jl.git"
+installs = true
+tags = ["fem", "integration", "integral", "numerical-integration", "tetrahedron", "quadrature"]
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "49"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "TeroFrondelius"
+contributions = "1"

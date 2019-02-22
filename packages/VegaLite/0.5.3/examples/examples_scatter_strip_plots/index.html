@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Scatter &amp; Strip Plots · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li class="current"><a class="toctext" href>Scatter &amp; Strip Plots</a><ul class="internal"><li><a class="toctext" href="#Scatterplot-1">Scatterplot</a></li><li><a class="toctext" href="#Dot-Plot-1">Dot Plot</a></li><li><a class="toctext" href="#Strip-Plot-1">Strip Plot</a></li><li><a class="toctext" href="#Colored-Scatterplot-1">Colored Scatterplot</a></li><li><a class="toctext" href="#Binned-Scatterplot-1">Binned Scatterplot</a></li><li><a class="toctext" href="#Bubble-Plot-1">Bubble Plot</a></li><li><a class="toctext" href="#Scatterplot-with-NA-Values-in-Grey-1">Scatterplot with NA Values in Grey</a></li><li><a class="toctext" href="#Scatterplot-with-Filled-Circles-1">Scatterplot with Filled Circles</a></li><li><a class="toctext" href="#Bubble-Plot-(Gapminder)-1">Bubble Plot (Gapminder)</a></li><li><a class="toctext" href="#Bubble-Plot-(Natural-Disasters)-1">Bubble Plot (Natural Disasters)</a></li><li><a class="toctext" href="#Scatter-Plot-with-Text-Marks-1">Scatter Plot with Text Marks</a></li></ul></li><li><a class="toctext" href="../examples_line_charts/">Line Charts</a></li><li><a class="toctext" href="../examples_area_Charts_streamgraphs/">Area Charts &amp; Streamgraphs</a></li><li><a class="toctext" href="../examples_table_based_plots/">Table-based Plots</a></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li><a class="toctext" href="../examples_faceting/">Faceting (Trellis Plot / Small Multiples)</a></li><li><a class="toctext" href="../examples_repeat_concatenation/">Repeat &amp; Concatenation</a></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Single-View Plots</li><li><a href>Scatter &amp; Strip Plots</a></li></ul></nav><hr/><div id="topbar"><span>Scatter &amp; Strip Plots</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Scatter-and-Strip-Plots-1" href="#Scatter-and-Strip-Plots-1">Scatter &amp; Strip Plots</a></h1><h2><a class="nav-anchor" id="Scatterplot-1" href="#Scatterplot-1">Scatterplot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:point, x=:Horsepower, y=:Miles_per_Gallon)</code></pre><h2><a class="nav-anchor" id="Dot-Plot-1" href="#Dot-Plot-1">Dot Plot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;seattle-weather&quot;) |&gt;
+@vlplot(:tick, x=:precipitation)</code></pre><h2><a class="nav-anchor" id="Strip-Plot-1" href="#Strip-Plot-1">Strip Plot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:tick, x=:Horsepower, y=&quot;Cylinders:o&quot;)</code></pre><h2><a class="nav-anchor" id="Colored-Scatterplot-1" href="#Colored-Scatterplot-1">Colored Scatterplot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:point, x=:Horsepower, y=:Miles_per_Gallon, color=:Origin, shape=:Origin)</code></pre><h2><a class="nav-anchor" id="Binned-Scatterplot-1" href="#Binned-Scatterplot-1">Binned Scatterplot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;movies&quot;) |&gt;
+@vlplot(
+    :circle,
+    x={:IMDB_Rating, bin={maxbins=10}},
+    y={:Rotten_Tomatoes_Rating, bin={maxbins=10}},
+    size=&quot;count()&quot;
+)</code></pre><h2><a class="nav-anchor" id="Bubble-Plot-1" href="#Bubble-Plot-1">Bubble Plot</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:point, x=:Horsepower, y=:Miles_per_Gallon, size=:Acceleration)</code></pre><h2><a class="nav-anchor" id="Scatterplot-with-NA-Values-in-Grey-1" href="#Scatterplot-with-NA-Values-in-Grey-1">Scatterplot with NA Values in Grey</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;movies&quot;) |&gt;
+@vlplot(
+    :point,
+    x=:IMDB_Rating,
+    y=:Rotten_Tomatoes_Rating,
+    color={
+        condition={
+            test=&quot;datum.IMDB_Rating === null || datum.Rotten_Tomatoes_Rating === null&quot;,
+            value=&quot;#aaa&quot;
+        }
+    },
+    config={invalidValues=nothing}
+)</code></pre><h2><a class="nav-anchor" id="Scatterplot-with-Filled-Circles-1" href="#Scatterplot-with-Filled-Circles-1">Scatterplot with Filled Circles</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(:circle, x=:Horsepower, y=:Miles_per_Gallon)</code></pre><h2><a class="nav-anchor" id="Bubble-Plot-(Gapminder)-1" href="#Bubble-Plot-(Gapminder)-1">Bubble Plot (Gapminder)</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;gapminder-health-income&quot;) |&gt;
+@vlplot(
+    :circle,
+    width=500,height=300,
+    selection={
+        view={typ=:interval, bind=:scales}
+    },
+    y={:health, scale={zero=false}},
+    x={:income, scale={typ=:log}},
+    size=:population,
+    color={value=&quot;#000&quot;}
+)</code></pre><h2><a class="nav-anchor" id="Bubble-Plot-(Natural-Disasters)-1" href="#Bubble-Plot-(Natural-Disasters)-1">Bubble Plot (Natural Disasters)</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;disasters&quot;) |&gt;
+@vlplot(
+    width=600,height=400,
+    transform=[
+        {filter=&quot;datum.Entity !== &#39;All natural disasters&#39;&quot;}
+    ],
+    mark={
+        :circle,
+        opacity=0.8,
+        stroke=:black,
+        strokeWidth=1
+    },
+    enc={
+        x={&quot;Year:o&quot;, axis={labelAngle=0}},
+        y={:Entity, axis={title=&quot;&quot;}},
+        size={
+            :Deaths,
+            legend={title=&quot;Annual Global Deaths&quot;},
+            scale={range=[0,5000]}
+        },
+        color={:Entity, legend=nothing}
+    }
+)</code></pre><h2><a class="nav-anchor" id="Scatter-Plot-with-Text-Marks-1" href="#Scatter-Plot-with-Text-Marks-1">Scatter Plot with Text Marks</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(
+    :text,
+    transform=[
+        {
+            calculate=&quot;datum.Origin[0]&quot;,
+            as=&quot;OriginInitial&quot;
+        }
+    ],
+    x=:Horsepower,
+    y=:Miles_per_Gallon,
+    color=:Origin,
+    text=&quot;OriginInitial:n&quot;
+)</code></pre><footer><hr/><a class="previous" href="../examples_barchartshistograms/"><span class="direction">Previous</span><span class="title">Bar Charts &amp; Histograms</span></a><a class="next" href="../examples_line_charts/"><span class="direction">Next</span><span class="title">Line Charts</span></a></footer></article></body></html>

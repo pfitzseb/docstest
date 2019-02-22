@@ -1,0 +1,7 @@
+name = "MolecularTrajectories"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/tom--lee/MolecularTrajectories.jl.git"
+version = "2.0.1"
+description = "A Julia package for reading molecular dynamics simulation trajectories."

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · MicroLogging.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>MicroLogging.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Install-1">Install</a></li><li><a class="toctext" href="#Quickstart-Example-1">Quickstart Example</a></li><li><a class="toctext" href="#MicroLogging-implementation-choices-1">MicroLogging implementation choices</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="MicroLogging-1" href="#MicroLogging-1">MicroLogging</a></h1><p><a href="https://travis-ci.org/c42f/MicroLogging.jl"><img src="https://travis-ci.org/c42f/MicroLogging.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="http://codecov.io/github/c42f/MicroLogging.jl?branch=master"><img src="http://codecov.io/github/c42f/MicroLogging.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Logging should be useful and pleasant for the average user and package developer, but should meet the efficiency and flexibility demands of production deployment.</p><p>MicroLogging is an implementation of the new logging interface introduced in <code>Base</code> in julia-0.7, and brings most of same features to julia-0.6. See the <a href="https://docs.julialang.org/en/v1/stdlib/Logging"><strong>Base Documentation</strong></a> for an overview. It may also include experimental features which will one day make it into the <code>Logging</code> standard library.</p><h2><a class="nav-anchor" id="Install-1" href="#Install-1">Install</a></h2><pre><code class="language-julia">Pkg.add(&quot;MicroLogging&quot;)</code></pre><h2><a class="nav-anchor" id="Quickstart-Example-1" href="#Quickstart-Example-1">Quickstart Example</a></h2><pre><code class="language-julia">using MicroLogging
+
+@info &quot;# Logging macros&quot;
+@debug &quot;A message for debugging (filtered out by default)&quot;
+@info &quot;Information about normal program operation&quot;
+@warn &quot;A potential problem was detected&quot;
+@error &quot;Something definitely went wrong&quot;
+x = [1 2;3 4]
+@info &quot;Support for key value pairs&quot; x a=1 b=&quot;asdf&quot;
+
+#-------------------------------------------------------------------------------
+@info &quot;# Progress logging&quot;
+for i=1:100
+    sleep(0.01)
+    @info &quot;algorithm1&quot; progress=i/100
+end
+
+#-------------------------------------------------------------------------------
+@info &quot;# Log record filtering&quot;
+@debug begin
+    error(&quot;Should not be executed unless logging at debug level&quot;)
+    &quot;A message&quot;
+end
+configure_logging(min_level=:debug)
+@debug &quot;Logging enabled at debug level and above&quot;
+for i=1:10
+    @warn &quot;Log suppression iteration $i (maxlog=2)&quot; maxlog=2
+end
+module LogTest
+    using MicroLogging
+    function f()
+        @debug &quot;Message from LogTest&quot;
+        @info  &quot;Message from LogTest&quot;
+        @warn  &quot;Message from LogTest&quot;
+        @error &quot;Message from LogTest&quot;
+    end
+end
+LogTest.f()
+configure_logging(LogTest, min_level=:error)
+@info &quot;Set log filtering to error level for LogTest module&quot;
+LogTest.f()
+
+#-------------------------------------------------------------------------------
+@info &quot;# Task-based log dispatch using dynamic scoping&quot;
+function some_operation()
+    @info &quot;Dispatches to the current task logger, or the global logger&quot;
+end
+logstream = IOBuffer()
+with_logger(SimpleLogger(logstream)) do
+    @info &quot;Logging redirected&quot;
+    some_operation()
+end
+@info &quot;Logs, captured separately in the with_logger() block&quot; logstring=strip(String(take!(logstream)))
+
+#-------------------------------------------------------------------------------
+@info &quot;# Formatting logs can&#39;t crash the application&quot;
+@info &quot;Blah $(error(&quot;An intentional error&quot;))&quot;
+
+configure_logging(min_level=:info)
+nothing</code></pre><p>The script above produces console output like the following. <code>InteractiveLogger</code> tries to put the metadata out of your way as much as possible by placing it on the right hand of the terminal.</p><p><img src="doc/micrologging_example.png" alt="Micrologging example screenshot"/></p><p>Notice that the message part of each log record is interpreted as markdown by convention to allow for readable log formatting with various backends.  If you want to transport data, you should send it through as a user defined key value pair rather than interpolating it into the log message itself.</p><h2><a class="nav-anchor" id="MicroLogging-implementation-choices-1" href="#MicroLogging-implementation-choices-1">MicroLogging implementation choices</a></h2><h3><a class="nav-anchor" id="Early-filtering-1" href="#Early-filtering-1">Early filtering</a></h3><p>The filtering of log messages should cheap enough that users feel free to leave them available rather than commenting them out or otherwise disabling them at compile time. The only way to achieve this is to filter early, before the entire log message and other log record metadata is fully determined. Thus, we have the following design challenge:</p><blockquote><p>Allow early filtering of log records <em>before</em> the record is fully constructed.</p></blockquote><p>In most logging libraries, a basic level of filtering is achieved based on an ordered <strong>log level</strong> which represents a verbosity/severity (debug, info, warning, error, etc).  Messages more verbose than the currently minimum level are filtered out.  This seems simple, effective and efficient as a first pass filter. Naturally, further filtering may also occur based on the log message or other log record metadata.</p><p>In <code>MicroLogging</code>, early filtering can be controlled using the <code>configure_logging</code> function, which configures filtering of the current logger:</p><pre><code class="language-julia">configure_logging(min_level=:debug)</code></pre><p>For even more efficiency, the <code>disable_logging()</code> function can be used to globally disable logging below a given log for all loggers.</p><h3><a class="nav-anchor" id="Logging-macros-1" href="#Logging-macros-1">Logging macros</a></h3><p>Efficiency seems to dictate that some filtering decision is done <em>before</em> any logging-specific user code is run. This implies either a logging macro to insert an early test and branch, or that the log record creation is passed as a closure. We&#39;d also like to gather information from lexical scope, and to look up/create the logger for the current module at compile time.</p><p>These considerations indicate that a macro be used, which also has the nice side effect of being visually simple:</p><pre><code class="language-julia">x = 42
+@info &quot;my value is x = $x&quot;</code></pre><p>To achieve early filtering, this example currently expands to something like</p><pre><code class="language-julia">if Info &gt;= MicroLogging._min_enabled_level[]
+    logger = $(current_logger())
+    if shouldlog(logger, Info)
+        logmsg(current_logger(), Info, &quot;my value is x = $x&quot;, #=...=#)
+    end
+end</code></pre><h3><a class="nav-anchor" id="Logging-context-and-dispatch-1" href="#Logging-context-and-dispatch-1">Logging context and dispatch</a></h3><p>Every log record has various types of context which can be associated with it. Some types of context include:</p><ul><li>static <strong>lexical context</strong> - based on the location in the code - local variables, line number, file, function, module.</li><li>dynamic <strong>caller context</strong> - the current stack trace, and data visible in it. Consider, for example, the context which can be passed with the femtolisp <code>with-bindings</code> construct.</li><li>dynamic <strong>data context</strong> - context created from data structures available at log record creation.</li></ul><p>Log context can be used in two ways.  First, to dispatch the log record to appropriate handler <em>code</em>.  Second, to enrich the log record with <em>data</em> about the state of the program.</p><blockquote><p>Which code processes a log message after it is created?</p></blockquote><p>Here we&#39;ve got to choose between lexical vs dynamic scope to look up the log handler code.  MicroLogging chooses a <em>dynamically scoped</em> log handler bound to the current task.  To understand why this might be good choice, consider the two audiences of a logging library:</p><ul><li><em>Package authors</em> want to emit logs in a simple way, without caring about how they&#39;re dispatched.</li><li><em>Application authors</em> care about a complete application as built up from many packages. They need to control how log records are dispatched, but don&#39;t get any control over how they&#39;re created.</li></ul><p>Application programmers tend to be calling functions from many different packages to achieve an overall task. With dynamic scoping for log handlers, it&#39;s easy to control log dispatch based on task:</p><pre><code class="language-julia">logger = MyLogger(#= ... =#)
+
+with_logger(logger) do
+    Package1.foo()
+    Package2.bar()
+    Package2.baz()
+end</code></pre><p>Notably, this approach works no matter how deeply nested the call tree becomes within the various functions called by <code>Package1.foo()</code>, without any thought by the author of any of the packages in use.</p><p>Most logging libraries seem to look up the log handler in lexical scope, which implies a global entry point for log dispatch.  For example, the python community seems to have settled on using <a href="https://docs.python.org/3/library/logging.html#logger-objects">per-module contexts</a> to dispatch log messages (TODO: double check how this works).</p><blockquote><p>Which metadata is automatically included with the log record?</p></blockquote><p>Some useful metadata is automatically generated with each record:</p><ul><li>Module</li><li>Location - file, line number</li><li><code>id</code> - a unique Symbol for the logger invocation</li></ul><h3><a class="nav-anchor" id="Efficiency-messages-you-never-see-should-cost-almost-nothing-1" href="#Efficiency-messages-you-never-see-should-cost-almost-nothing-1">Efficiency - messages you never see should cost almost nothing</a></h3><p>The following should be fast</p><pre><code class="language-julia">@debug begin
+    A = #=Long, complex calculation=#
+    &quot;det(A) = $(det(A))&quot;
+end</code></pre><p>... <em>FIXME</em> more to write here</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

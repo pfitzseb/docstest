@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "DrakeVisualizer"
+owner = "rdeits"
+version = "0.4.0"
+description = "Interface to the RobotLocomotion Drake Visualizer tool from Julia"
+stargazers_count = "16"
+url = "https://github.com/rdeits/DrakeVisualizer.jl.git"
+installs = true
+tags = ["julia", "robotics", "visualization"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "244"
+[[contributors]]
+name = "tkoolen"
+contributions = "14"
+[[contributors]]
+name = "blandry"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "drcbot"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "dehann"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

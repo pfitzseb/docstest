@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "FeatherFiles"
+owner = "queryverse"
+version = "0.8.1"
+description = "FileIO.jl integration for Feather files"
+stargazers_count = "2"
+url = "https://github.com/queryverse/FeatherFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "54"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

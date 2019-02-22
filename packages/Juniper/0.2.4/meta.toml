@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Juniper"
+owner = "lanl-ansi"
+version = "0.2.4"
+description = "A JuMP-based Nonlinear Integer Program Solver"
+stargazers_count = "28"
+url = "https://github.com/lanl-ansi/Juniper.jl.git"
+installs = true
+tags = ["minlp-solver", "branch-and-bound", "optimization", "julia-language", "mixed-integer-programming", "nonlinear-optimization"]
+license = "MIT License"
+
+[[contributors]]
+name = "Wikunia"
+contributions = "93"
+[[contributors]]
+name = "ccoffrin"
+contributions = "16"

@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "LIBSVM"
+owner = "mpastell"
+version = "0.3.1"
+description = "LIBSVM bindings for Julia"
+stargazers_count = "32"
+url = "https://github.com/mpastell/LIBSVM.jl.git"
+installs = true
+tags = ["svm", "libsvm", "julia", "classification", "regression"]
+license = "Other"
+
+[[contributors]]
+name = "mpastell"
+contributions = "70"
+[[contributors]]
+name = "simonster"
+contributions = "21"
+[[contributors]]
+name = "frodofine"
+contributions = "5"
+[[contributors]]
+name = "benevolent0505"
+contributions = "5"
+[[contributors]]
+name = "DilumAluthge"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "icode-seminars"
+contributions = "1"

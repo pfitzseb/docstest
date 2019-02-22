@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RequiredKeywords"
+owner = "adamslc"
+version = "0.1.1"
+description = "Create functions with required keyword arguments"
+stargazers_count = "1"
+url = "https://github.com/adamslc/RequiredKeywords.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "adamslc"
+contributions = "16"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

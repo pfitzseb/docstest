@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Area Charts &amp; Streamgraphs · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li><a class="toctext" href="../examples_scatter_strip_plots/">Scatter &amp; Strip Plots</a></li><li><a class="toctext" href="../examples_line_charts/">Line Charts</a></li><li class="current"><a class="toctext" href>Area Charts &amp; Streamgraphs</a><ul class="internal"><li><a class="toctext" href="#Area-Chart-1">Area Chart</a></li><li><a class="toctext" href="#Area-Chart-with-Overlaying-Lines-and-Point-Markers-1">Area Chart with Overlaying Lines and Point Markers</a></li><li><a class="toctext" href="#Stacked-Area-Chart-1">Stacked Area Chart</a></li><li><a class="toctext" href="#Normalized-Stacked-Area-Chart-1">Normalized Stacked Area Chart</a></li><li><a class="toctext" href="#Streamgraph-1">Streamgraph</a></li><li><a class="toctext" href="#Horizon-Graph-1">Horizon Graph</a></li></ul></li><li><a class="toctext" href="../examples_table_based_plots/">Table-based Plots</a></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li><a class="toctext" href="../examples_faceting/">Faceting (Trellis Plot / Small Multiples)</a></li><li><a class="toctext" href="../examples_repeat_concatenation/">Repeat &amp; Concatenation</a></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Single-View Plots</li><li><a href>Area Charts &amp; Streamgraphs</a></li></ul></nav><hr/><div id="topbar"><span>Area Charts &amp; Streamgraphs</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Area-Charts-and-Streamgraphs-1" href="#Area-Charts-and-Streamgraphs-1">Area Charts &amp; Streamgraphs</a></h1><h2><a class="nav-anchor" id="Area-Chart-1" href="#Area-Chart-1">Area Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;unemployment-across-industries&quot;) |&gt;
+@vlplot(
+    :area,
+    width=300, height=200,
+    x={
+        &quot;yearmonth(date):t&quot;,
+        axis={format=&quot;%Y&quot;}
+    },
+    y={
+        &quot;sum(count)&quot;,
+        axis={title=&quot;count&quot;}
+    }    
+)</code></pre><h2><a class="nav-anchor" id="Area-Chart-with-Overlaying-Lines-and-Point-Markers-1" href="#Area-Chart-with-Overlaying-Lines-and-Point-Markers-1">Area Chart with Overlaying Lines and Point Markers</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    transform=[{filter=&quot;datum.symbol===&#39;GOOG&#39;&quot;}],
+    mark={
+        :area,
+        line=true,
+        point=true
+    },
+    x=&quot;date:t&quot;,
+    y=:price
+)</code></pre><h2><a class="nav-anchor" id="Stacked-Area-Chart-1" href="#Stacked-Area-Chart-1">Stacked Area Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;unemployment-across-industries&quot;) |&gt;
+@vlplot(
+    :area,
+    width=300, hieght=200,
+    x={
+        &quot;yearmonth(date):t&quot;,
+        axis={format=&quot;%Y&quot;}
+    },
+    y=&quot;sum(count)&quot;,
+    color={
+        :series,
+        scale={scheme=&quot;category20b&quot;}
+    }
+)</code></pre><h2><a class="nav-anchor" id="Normalized-Stacked-Area-Chart-1" href="#Normalized-Stacked-Area-Chart-1">Normalized Stacked Area Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;unemployment-across-industries&quot;) |&gt;
+@vlplot(
+    :area,
+    width=300, height=200,
+    x={
+        &quot;yearmonth(date)&quot;,
+        axis={
+            domain=false,
+            format=&quot;%Y&quot;
+        }
+    },
+    y={
+        &quot;sum(count)&quot;,
+        axis=nothing,
+        stack=:normalize
+    },
+    color={
+        :series,
+        scale={scheme=&quot;category20b&quot;}
+    }
+)</code></pre><h2><a class="nav-anchor" id="Streamgraph-1" href="#Streamgraph-1">Streamgraph</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;unemployment-across-industries&quot;) |&gt;
+@vlplot(
+    :area,
+    width=300, height=200,
+    x={
+        &quot;yearmonth(date)&quot;,
+        axis={
+            domain=false,
+            format=&quot;%Y&quot;,
+            tickSize=0
+        }
+    },
+    y={
+        &quot;sum(count)&quot;,
+        axis=nothing,
+        stack=:center
+    },
+    color={
+        :series,
+        scale={scheme=&quot;category20b&quot;}
+    }
+)</code></pre><h2><a class="nav-anchor" id="Horizon-Graph-1" href="#Horizon-Graph-1">Horizon Graph</a></h2><div><pre><code class="language-julia">using VegaLite, DataFrames
+
+data = DataFrame(
+    x=1:20,
+    y=[28,55,43,91,81,53,19,87,52,48,24,49,87,66,17,27,68,16,49,15]
+)
+
+data |&gt;
+@vlplot(width=300, height=50, config={area={interpolate=:monotone}}) +
+@vlplot(
+    mark={
+        :area,
+        clip=true,
+        orient=:vertical
+    },
+    x={:x, scale={zero=false, nice=false}},
+    y={:y, scale={domain=[0,50]}},
+    opacity={value=0.6}
+) +
+@vlplot(
+    transform=[{calculate=&quot;datum.y-50&quot;, as=:ny}],
+    mark={
+        :area,
+        clip=true,
+        orient=:vertical
+    },
+    x=:x,
+    y={
+        &quot;ny:q&quot;,
+        scale={domain=[0,50]},
+        axis={title=&quot;y&quot;}
+    },
+    opacity={value=0.3}
+)</code></pre><?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg class="marks" width="358" height="95" viewBox="0 0 358 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><clipPath id="clip1"><rect x="0" y="0" width="300" height="50"></rect></clipPath><clipPath id="clip2"><rect x="0" y="0" width="300" height="50"></rect></clipPath></defs><g transform="translate(52,5)"><g class="mark-group role-frame root"><g transform="translate(0,0)"><path class="background" d="M0.5,0.5h300v50h-300Z" style="fill: none; stroke: #ddd;"></path><g><g class="mark-group role-axis"><g transform="translate(0.5,50.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(16,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(47,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(79,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(111,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(142,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(174,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(205,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(237,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(268,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(300,-50)" x2="0" y2="50" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,50)" x2="300" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,30)" x2="300" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,10)" x2="300" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-area role-mark layer_0_marks" clip-path="url(#clip1)"><path d="M300,35C294.7368421052632,18,289.4736842105263,1,284.2105263157895,1C278.94736842105266,1,273.6842105263158,34,268.42105263157896,34C263.1578947368421,34,257.89473684210526,-18,252.6315789473684,-18C247.36842105263156,-18,242.10526315789474,16.333333333333336,236.8421052631579,23C231.57894736842104,29.666666666666664,226.31578947368422,33,221.05263157894737,33C215.78947368421052,33,210.5263157894737,-4.3333333333333375,205.26315789473685,-16C200,-27.666666666666686,194.73684210526315,-37,189.4736842105263,-37C184.21052631578948,-37,178.94736842105263,-9.49999999999999,173.6842105263158,1C168.42105263157896,11.500000000000027,163.1578947368421,26,157.89473684210526,26C152.6315789473684,26,147.3684210526316,4.666666666666664,142.10526315789474,2C136.8421052631579,-0.6666666666666665,131.57894736842104,0.6666666666666665,126.3157894736842,-2C121.05263157894737,-4.666666666666664,115.78947368421052,-37,110.52631578947368,-37C105.26315789473684,-37,100,31,94.73684210526315,31C89.47368421052632,31,84.21052631578947,7.33333333333333,78.94736842105263,-3C73.68421052631578,-13.333333333333336,68.42105263157895,-24.666666666666668,63.1578947368421,-31C57.89473684210526,-37.333333333333336,52.63157894736842,-41,47.368421052631575,-41C42.10526315789473,-41,36.84210526315789,7,31.57894736842105,7C26.31578947368421,7,21.052631578947366,-5.000000000000007,15.789473684210526,-5.000000000000007C10.526315789473685,-5.000000000000007,5.263157894736842,8.499999999999996,0,21.999999999999996L0,50C5.263157894736842,50,10.526315789473685,50,15.789473684210526,50C21.052631578947366,50,26.31578947368421,50,31.57894736842105,50C36.84210526315789,50,42.10526315789473,50,47.368421052631575,50C52.63157894736842,50,57.89473684210526,50,63.1578947368421,50C68.42105263157895,50,73.68421052631578,50,78.94736842105263,50C84.21052631578947,50,89.47368421052632,50,94.73684210526315,50C100,50,105.26315789473684,50,110.52631578947368,50C115.78947368421052,50,121.05263157894737,50,126.3157894736842,50C131.57894736842104,50,136.8421052631579,50,142.10526315789474,50C147.3684210526316,50,152.6315789473684,50,157.89473684210526,50C163.1578947368421,50,168.42105263157896,50,173.6842105263158,50C178.94736842105263,50,184.21052631578948,50,189.4736842105263,50C194.73684210526315,50,200,50,205.26315789473685,50C210.5263157894737,50,215.78947368421052,50,221.05263157894737,50C226.31578947368422,50,231.57894736842104,50,236.8421052631579,50C242.10526315789474,50,247.36842105263156,50,252.6315789473684,50C257.89473684210526,50,263.1578947368421,50,268.42105263157896,50C273.6842105263158,50,278.94736842105266,50,284.2105263157895,50C289.4736842105263,50,294.7368421052632,50,300,50Z" style="fill: #4c78a8; opacity: 0.6;"></path></g><g class="mark-area role-mark layer_1_marks" clip-path="url(#clip2)"><path d="M300,85C294.7368421052632,68,289.4736842105263,51,284.2105263157895,51C278.94736842105266,51,273.6842105263158,84,268.42105263157896,84C263.1578947368421,84,257.89473684210526,32,252.6315789473684,32C247.36842105263156,32,242.10526315789474,66.33333333333333,236.8421052631579,73C231.57894736842104,79.66666666666667,226.31578947368422,83,221.05263157894737,83C215.78947368421052,83,210.5263157894737,45.666666666666664,205.26315789473685,34C200,22.333333333333314,194.73684210526315,13,189.4736842105263,13C184.21052631578948,13,178.94736842105263,40.500000000000014,173.6842105263158,51C168.42105263157896,61.50000000000003,163.1578947368421,76,157.89473684210526,76C152.6315789473684,76,147.3684210526316,54.666666666666664,142.10526315789474,52C136.8421052631579,49.333333333333336,131.57894736842104,50.666666666666664,126.3157894736842,48C121.05263157894737,45.333333333333336,115.78947368421052,13,110.52631578947368,13C105.26315789473684,13,100,81,94.73684210526315,81C89.47368421052632,81,84.21052631578947,57.33333333333333,78.94736842105263,47C73.68421052631578,36.666666666666664,68.42105263157895,25.333333333333332,63.1578947368421,19C57.89473684210526,12.666666666666668,52.63157894736842,9,47.368421052631575,9C42.10526315789473,9,36.84210526315789,57,31.57894736842105,57C26.31578947368421,57,21.052631578947366,45,15.789473684210526,45C10.526315789473685,45,5.263157894736842,58.5,0,72L0,50C5.263157894736842,50,10.526315789473685,50,15.789473684210526,50C21.052631578947366,50,26.31578947368421,50,31.57894736842105,50C36.84210526315789,50,42.10526315789473,50,47.368421052631575,50C52.63157894736842,50,57.89473684210526,50,63.1578947368421,50C68.42105263157895,50,73.68421052631578,50,78.94736842105263,50C84.21052631578947,50,89.47368421052632,50,94.73684210526315,50C100,50,105.26315789473684,50,110.52631578947368,50C115.78947368421052,50,121.05263157894737,50,126.3157894736842,50C131.57894736842104,50,136.8421052631579,50,142.10526315789474,50C147.3684210526316,50,152.6315789473684,50,157.89473684210526,50C163.1578947368421,50,168.42105263157896,50,173.6842105263158,50C178.94736842105263,50,184.21052631578948,50,189.4736842105263,50C194.73684210526315,50,200,50,205.26315789473685,50C210.5263157894737,50,215.78947368421052,50,221.05263157894737,50C226.31578947368422,50,231.57894736842104,50,236.8421052631579,50C242.10526315789474,50,247.36842105263156,50,252.6315789473684,50C257.89473684210526,50,263.1578947368421,50,268.42105263157896,50C273.6842105263158,50,278.94736842105266,50,284.2105263157895,50C289.4736842105263,50,294.7368421052632,50,300,50Z" style="fill: #4c78a8; opacity: 0.3;"></path></g><g class="mark-group role-axis"><g transform="translate(0.5,50.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(16,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(47,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(79,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(111,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(142,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(174,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(205,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(237,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(268,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(300,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="middle" transform="translate(15.789473684210526,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="middle" transform="translate(47.368421052631575,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">4</text><text text-anchor="middle" transform="translate(78.94736842105263,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">6</text><text text-anchor="middle" transform="translate(110.52631578947368,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">8</text><text text-anchor="middle" transform="translate(142.10526315789474,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">10</text><text text-anchor="middle" transform="translate(173.6842105263158,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">12</text><text text-anchor="middle" transform="translate(205.26315789473685,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">14</text><text text-anchor="middle" transform="translate(236.8421052631579,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">16</text><text text-anchor="middle" transform="translate(268.42105263157896,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">18</text><text text-anchor="end" transform="translate(300,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">20</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="300" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(150,31)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">x</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,50)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,30)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,10)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(-7,53)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0</text><text text-anchor="end" transform="translate(-7,33)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">20</text><text text-anchor="end" transform="translate(-7,13)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">40</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,50)" x2="0" y2="-50" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(-34,25) rotate(-90) translate(0,-2)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">y</text></g></g></g></g></g></g></g></g></svg></div><footer><hr/><a class="previous" href="../examples_line_charts/"><span class="direction">Previous</span><span class="title">Line Charts</span></a><a class="next" href="../examples_table_based_plots/"><span class="direction">Next</span><span class="title">Table-based Plots</span></a></footer></article></body></html>

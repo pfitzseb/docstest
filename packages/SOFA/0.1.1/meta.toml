@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SOFA"
+owner = "sisl"
+version = "0.1.1"
+description = "Unofficial wrapper of the IAU SOFA C libraries for fundamental astronomy. "
+stargazers_count = "2"
+url = "https://github.com/sisl/SOFA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "duncaneddy"
+contributions = "13"

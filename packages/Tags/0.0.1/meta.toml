@@ -1,0 +1,14 @@
+license_url = ""
+name = "Tags"
+owner = "rafaqz"
+version = "0.0.1"
+description = "Metadata for julia fields"
+stargazers_count = "4"
+url = "https://github.com/rafaqz/Tags.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rafaqz"
+contributions = "57"

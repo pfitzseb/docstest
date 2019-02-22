@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DelayEmbeddings"
+owner = "JuliaDynamics"
+version = "1.0.2"
+description = "Delay coordinates embedding, Datasets and neighborhoods"
+stargazers_count = "2"
+url = "https://github.com/JuliaDynamics/DelayEmbeddings.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Datseris"
+contributions = "31"
+[[contributors]]
+name = "heliosdrm"
+contributions = "12"

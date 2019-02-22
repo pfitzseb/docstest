@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "SparseRegression"
+owner = "joshday"
+version = "0.1.0"
+description = "Statistical Models with Regularization in Pure Julia"
+stargazers_count = "24"
+url = "https://github.com/joshday/SparseRegression.jl.git"
+installs = true
+tags = ["statistical-models", "regularization", "julia", "statistical-learning", "linear-models", "sparse-regression"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "315"
+[[contributors]]
+name = "aiorla"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

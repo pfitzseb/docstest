@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Fontconfig"
+owner = "JuliaGraphics"
+version = "0.2.0"
+description = "Basic Julia bindings for fontconfig"
+stargazers_count = "3"
+url = "https://github.com/JuliaGraphics/Fontconfig.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tlnagy"
+contributions = "25"
+[[contributors]]
+name = "dcjones"
+contributions = "8"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "dehann"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

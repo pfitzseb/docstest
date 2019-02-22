@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleGraphAlgorithms"
+owner = "scheinerman"
+version = "0.2.0"
+description = "Additional algorithms for the `SimpleGraphs` module that rely on integer programming"
+stargazers_count = "2"
+url = "https://github.com/scheinerman/SimpleGraphAlgorithms.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "84"

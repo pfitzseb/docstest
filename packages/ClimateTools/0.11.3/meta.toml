@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "ClimateTools"
+owner = "Balinus"
+version = "0.11.3"
+description = "Climate science package for Julia"
+stargazers_count = "19"
+url = "https://github.com/Balinus/ClimateTools.jl.git"
+installs = true
+tags = ["climate-indices", "climate-science", "netcdf-files", "julia", "parallel-computing", "multiple-threads", "timeseries"]
+license = "Other"
+
+[[contributors]]
+name = "Balinus"
+contributions = "817"
+[[contributors]]
+name = "DominiqueCaron"
+contributions = "70"
+[[contributors]]
+name = "Zeitsperre"
+contributions = "12"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "elnol"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

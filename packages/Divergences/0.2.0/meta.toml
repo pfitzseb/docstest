@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Divergences"
+owner = "gragusa"
+version = "0.2.0"
+description = "A Julia package for evaluation of divergences between distributions"
+stargazers_count = "4"
+url = "https://github.com/gragusa/Divergences.jl.git"
+installs = true
+tags = ["divergence", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "gragusa"
+contributions = "138"
+[[contributors]]
+name = "giob1994"
+contributions = "1"

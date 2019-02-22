@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DrawSimpleGraphs"
+owner = "scheinerman"
+version = "0.1.2"
+description = "Drawing functions for `SimpleGraphs`"
+stargazers_count = "1"
+url = "https://github.com/scheinerman/DrawSimpleGraphs.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "31"

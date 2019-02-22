@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "FreqTables"
+owner = "nalimilan"
+version = "0.3.1"
+description = "Frequency tables in Julia"
+stargazers_count = "25"
+url = "https://github.com/nalimilan/FreqTables.jl.git"
+installs = true
+tags = ["julia", "frequency-table", "contingency-table", "statistics"]
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "40"
+[[contributors]]
+name = "bkamins"
+contributions = "3"
+[[contributors]]
+name = "mcmcgrath13"
+contributions = "2"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

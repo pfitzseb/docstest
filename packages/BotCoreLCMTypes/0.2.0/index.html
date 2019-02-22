@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · BotCoreLCMTypes.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>BotCoreLCMTypes.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li><li class="toplevel"><a class="toctext" href="#Exported-Types-1">Exported Types</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="BotCoreLCMTypes-1" href="#BotCoreLCMTypes-1">BotCoreLCMTypes</a></h1><p><a href="https://travis-ci.org/JuliaRobotics/BotCoreLCMTypes.jl"><img src="https://travis-ci.org/JuliaRobotics/BotCoreLCMTypes.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://codecov.io/github/JuliaRobotics/BotCoreLCMTypes.jl?branch=master"><img src="https://codecov.io/github/JuliaRobotics/BotCoreLCMTypes.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package implements the <a href="http://lcm-proj.github.io/">LCM</a> type definitions from <a href="https://github.com/openhumanoids/bot_core_lcmtypes">openhumanoids/bot<em>core</em>lcmtypes</a> in Julia using <a href="https://github.com/JuliaRobotics/LCMCore.jl">LCMCore.jl</a>. Each lcmtype has a matching native Julia type with associated <code>encode()</code> and <code>decode()</code> methods.</p><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><pre><code class="language-julia">using BotCoreLCMTypes, LCMCore
+
+msg = vector_3d_t()
+msg.x = 1
+msg.y = 2
+msg.z = 3
+bytes = encode(msg)
+
+decoded = decode(bytes, vector_3d_t)
+@assert decoded.x == msg.x
+@assert decoded.y == msg.y
+@assert decoded.z == msg.z</code></pre><h1><a class="nav-anchor" id="Exported-Types-1" href="#Exported-Types-1">Exported Types</a></h1><pre><code class="language-julia">atlas_command_t
+force_torque_t
+gps_data_t
+gps_satellite_info_list_t
+gps_satellite_info_t
+image_metadata_t
+image_sync_t
+image_t
+images_t
+ins_t
+joint_angles_t
+joint_state_t
+kvh_raw_imu_batch_t
+kvh_raw_imu_t
+planar_lidar_t
+pointcloud2_t
+pointcloud_t
+pointfield_t
+pose_t
+position_3d_t
+quaternion_t
+raw_t
+rigid_transform_t
+robot_state_t
+robot_urdf_t
+sensor_status_t
+six_axis_force_torque_array_t
+six_axis_force_torque_t
+system_status_t
+twist_t
+utime_t
+vector_3d_t
+viewer_command_t
+viewer_draw_t
+viewer_geometry_data_t
+viewer_link_data_t
+viewer_load_robot_t</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

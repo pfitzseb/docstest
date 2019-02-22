@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · JuliennedArrays.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>JuliennedArrays.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="JuliennedArrays.Align" href="#JuliennedArrays.Align"><code>JuliennedArrays.Align</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Align(it, along...)</code></pre><pre><code class="language-julia-repl">julia&gt; using JuliennedArrays
+
+julia&gt; array = [[1, 2], [3, 4]];
+
+julia&gt; aligned = Align(array, False(), True())
+2×2 Align{Int64,2,Array{Array{Int64,1},1},Tuple{False,True}}:
+ 1  2
+ 3  4
+
+julia&gt; aligned[1, 1] = 5;
+
+julia&gt; collect(aligned)
+2×2 Array{Int64,2}:
+ 5  2
+ 3  4</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="JuliennedArrays.False" href="#JuliennedArrays.False"><code>JuliennedArrays.False</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">struct False</code></pre></div></div></section><pre><code class="language-none">JuliennedArrays.JuliennedArrays</code></pre><pre><code class="language-none">JuliennedArrays.More</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="JuliennedArrays.Slices" href="#JuliennedArrays.Slices"><code>JuliennedArrays.Slices</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Slices(array, code...)</code></pre><pre><code class="language-julia-repl">julia&gt; using JuliennedArrays
+
+julia&gt; it = [1 2; 3 4];
+
+julia&gt; Slices(it, False(), True())
+2-element Slices{SubArray{Int64,1,Array{Int64,2},Tuple{Int64,Base.OneTo{Int64}},true},1,Array{Int64,2},Tuple{False,True}}:
+ [1, 2]
+ [3, 4]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="JuliennedArrays.True" href="#JuliennedArrays.True"><code>JuliennedArrays.True</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">struct True</code></pre></div></div></section><pre><code class="language-none">JuliennedArrays.TypedBool</code></pre><pre><code class="language-none">JuliennedArrays.eval</code></pre><pre><code class="language-none">JuliennedArrays.include</code></pre><pre><code class="language-none">JuliennedArrays.not</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LittleEndianBase128"
+owner = "davidssmith"
+version = "0.3.0"
+description = "Little Endian Base 128 (LEB128) encoding and decoding module for the Julia programming language"
+stargazers_count = "0"
+url = "https://github.com/davidssmith/LittleEndianBase128.jl.git"
+installs = true
+tags = ["julia-programming-language", "decoding", "encoding", "compression", "compression-algorithm", "compression-implementations", "endian", "integer-compression"]
+license = "MIT License"
+
+[[contributors]]
+name = "davidssmith"
+contributions = "40"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

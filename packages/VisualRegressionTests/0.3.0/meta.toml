@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "VisualRegressionTests"
+owner = "JuliaPlots"
+version = "0.3.0"
+description = "Automated integrated regression tests for graphics libraries"
+stargazers_count = "10"
+url = "https://github.com/JuliaPlots/VisualRegressionTests.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "juliohm"
+contributions = "20"
+[[contributors]]
+name = "tbreloff"
+contributions = "18"
+[[contributors]]
+name = "daschw"
+contributions = "10"
+[[contributors]]
+name = "Evizero"
+contributions = "3"
+[[contributors]]
+name = "mkborregaard"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrAPI"
+owner = "JuliaString"
+version = "0.1.9"
+description = "New API for string handling"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrAPI.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "44"

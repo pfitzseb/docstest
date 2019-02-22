@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "WignerSymbols"
+owner = "Jutho"
+version = "0.1.2"
+description = "A Julia package for computing Wigner symbols and related quantities"
+stargazers_count = "12"
+url = "https://github.com/Jutho/WignerSymbols.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "43"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"

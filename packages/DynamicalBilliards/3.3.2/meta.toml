@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "DynamicalBilliards"
+owner = "JuliaDynamics"
+version = "3.3.2"
+description = "An easy-to-use, modular, performant and extendable Julia package for dynamical billiards in two dimensions."
+stargazers_count = "44"
+url = "https://github.com/JuliaDynamics/DynamicalBilliards.jl.git"
+installs = true
+tags = ["billiards", "billiard-systems", "julia", "particles", "models", "physics", "geometry", "chaos", "julialang", "lyapunov-spectrum"]
+license = "Other"
+
+[[contributors]]
+name = "Datseris"
+contributions = "777"
+[[contributors]]
+name = "lhupe"
+contributions = "112"
+[[contributors]]
+name = "dapias"
+contributions = "13"
+[[contributors]]
+name = "AnAverageHuman"
+contributions = "4"
+[[contributors]]
+name = "KristofferC"
+contributions = "3"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "Sleort"
+contributions = "1"

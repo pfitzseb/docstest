@@ -1,0 +1,81 @@
+license_url = ""
+doctype = "default"
+name = "GZip"
+owner = "JuliaIO"
+version = "0.5.0"
+description = "A Julia interface for gzip functions in zlib"
+stargazers_count = "9"
+url = "https://github.com/JuliaIO/GZip.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "39"
+[[contributors]]
+name = "yuyichao"
+contributions = "16"
+[[contributors]]
+name = "ararslan"
+contributions = "7"
+[[contributors]]
+name = "jiahao"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "6"
+[[contributors]]
+name = "quinnj"
+contributions = "5"
+[[contributors]]
+name = "jakebolewski"
+contributions = "4"
+[[contributors]]
+name = "simonster"
+contributions = "4"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "abhijithch"
+contributions = "3"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "alyst"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "nlhepler"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"

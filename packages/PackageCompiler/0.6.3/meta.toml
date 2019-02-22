@@ -1,0 +1,81 @@
+license_url = ""
+doctype = "default"
+name = "PackageCompiler"
+owner = "JuliaLang"
+version = "0.6.3"
+description = "Compile your Julia Package"
+stargazers_count = "288"
+url = "https://github.com/JuliaLang/PackageCompiler.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lucatrv"
+contributions = "114"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "95"
+[[contributors]]
+name = "ViralBShah"
+contributions = "38"
+[[contributors]]
+name = "NHDaly"
+contributions = "27"
+[[contributors]]
+name = "vtjnash"
+contributions = "22"
+[[contributors]]
+name = "tkoolen"
+contributions = "4"
+[[contributors]]
+name = "phlavenk"
+contributions = "3"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "andyferris"
+contributions = "1"
+[[contributors]]
+name = "asinghvi17"
+contributions = "1"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "Ken-B"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "raphbacher"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "tlienart"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "invalid-email-address"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jdchn"
+contributions = "1"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "1"

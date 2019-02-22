@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "real"
+name = "SQLite"
+owner = "JuliaDatabases"
+version = "0.7.0"
+description = "A Julia interface to the SQLite library"
+stargazers_count = "79"
+url = "https://github.com/JuliaDatabases/SQLite.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "148"
+[[contributors]]
+name = "Sean1708"
+contributions = "81"
+[[contributors]]
+name = "IainNZ"
+contributions = "19"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "felipenoris"
+contributions = "5"
+[[contributors]]
+name = "simonbyrne"
+contributions = "3"
+[[contributors]]
+name = "aviks"
+contributions = "2"
+[[contributors]]
+name = "crayxt"
+contributions = "2"
+[[contributors]]
+name = "lindahua"
+contributions = "2"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "2"
+[[contributors]]
+name = "mlubin"
+contributions = "2"
+[[contributors]]
+name = "nsmith5"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "binarybana"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "paulogeyer"
+contributions = "1"
+[[contributors]]
+name = "squaregoldfish"
+contributions = "1"

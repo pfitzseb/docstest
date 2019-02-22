@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "OpenEphysLoader"
+owner = "galenlynch"
+version = "0.2.4"
+description = "A set of tools to load data written by the OpenEphys GUI"
+stargazers_count = "4"
+url = "https://github.com/galenlynch/OpenEphysLoader.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "galenlynch"
+contributions = "177"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

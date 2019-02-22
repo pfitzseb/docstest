@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "WiltonInts84"
+owner = "krcools"
+version = "0.2.1"
+description = "Integrals of arbitrary powers of R over flat triangles"
+stargazers_count = "0"
+url = "https://github.com/krcools/WiltonInts84.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "58"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

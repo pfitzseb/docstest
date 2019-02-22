@@ -1,0 +1,81 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Clang"
+owner = "JuliaInterop"
+version = "0.7.0"
+description = "Julia interface to libclang and C wrapper generator"
+stargazers_count = "85"
+url = "https://github.com/JuliaInterop/Clang.jl.git"
+installs = true
+tags = ["libclang", "wrapper-generator", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "ihnorton"
+contributions = "361"
+[[contributors]]
+name = "Gnimuc"
+contributions = "85"
+[[contributors]]
+name = "kmsquire"
+contributions = "21"
+[[contributors]]
+name = "timholy"
+contributions = "13"
+[[contributors]]
+name = "yuyichao"
+contributions = "10"
+[[contributors]]
+name = "KDr2"
+contributions = "8"
+[[contributors]]
+name = "nolta"
+contributions = "7"
+[[contributors]]
+name = "grollinger"
+contributions = "6"
+[[contributors]]
+name = "vtjnash"
+contributions = "6"
+[[contributors]]
+name = "jpata"
+contributions = "6"
+[[contributors]]
+name = "stemann"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "3"
+[[contributors]]
+name = "jgoldfar"
+contributions = "3"
+[[contributors]]
+name = "amitmurthy"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"
+[[contributors]]
+name = "zhmz90"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "nicoleepp"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

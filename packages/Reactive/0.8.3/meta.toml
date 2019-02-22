@@ -1,0 +1,111 @@
+license_url = ""
+doctype = "default"
+name = "Reactive"
+owner = "JuliaGizmos"
+version = "0.8.3"
+description = "Reactive programming primitives for Julia"
+stargazers_count = "145"
+url = "https://github.com/JuliaGizmos/Reactive.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shashi"
+contributions = "233"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "38"
+[[contributors]]
+name = "timholy"
+contributions = "16"
+[[contributors]]
+name = "JobJob"
+contributions = "12"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "AlainLich"
+contributions = "3"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "3"
+[[contributors]]
+name = "yakir12"
+contributions = "3"
+[[contributors]]
+name = "sjkelly"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "TsurHerman"
+contributions = "2"
+[[contributors]]
+name = "aplavin"
+contributions = "1"
+[[contributors]]
+name = "NOTtheMessiah"
+contributions = "1"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "dpsanders"
+contributions = "1"
+[[contributors]]
+name = "dldx"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ffreyer"
+contributions = "1"
+[[contributors]]
+name = "hgeorgako"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "mschauer"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "Paethon"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jaakkor2"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"

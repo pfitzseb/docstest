@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "DandelionWebSockets"
+owner = "dandeliondeathray"
+version = "0.2.0"
+description = "A Julia package for client side WebSockets."
+stargazers_count = "17"
+url = "https://github.com/dandeliondeathray/DandelionWebSockets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "erikedin"
+contributions = "351"
+[[contributors]]
+name = "iblis17"
+contributions = "17"
+[[contributors]]
+name = "hlaaftana"
+contributions = "3"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"

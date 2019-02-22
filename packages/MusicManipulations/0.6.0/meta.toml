@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MusicManipulations"
+owner = "JuliaMusic"
+version = "0.6.0"
+description = "Manipulate music data, humanize, quantize and enhance performances with Julia"
+stargazers_count = "12"
+url = "https://github.com/JuliaMusic/MusicManipulations.jl.git"
+installs = true
+tags = ["julia", "music", "humanizer", "midi", "quantizer", "music-manipulation"]
+license = "MIT License"
+
+[[contributors]]
+name = "Datseris"
+contributions = "93"
+[[contributors]]
+name = "ljahn"
+contributions = "23"
+[[contributors]]
+name = "johncwok"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

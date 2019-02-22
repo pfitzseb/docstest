@@ -1,0 +1,7 @@
+name = "Reproducible"
+stargazers_count = "3"
+doctype = "default"
+installs = true
+url = "https://github.com/joshday/Reproducible.jl.git"
+version = "0.1.1"
+description = "Lightweight reproducible reports for Julia"

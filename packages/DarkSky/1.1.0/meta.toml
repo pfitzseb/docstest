@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DarkSky"
+owner = "ellisvalentiner"
+version = "1.1.0"
+description = "A Julia wrapper for Dark Sky weather data API"
+stargazers_count = "3"
+url = "https://github.com/ellisvalentiner/DarkSky.jl.git"
+installs = true
+tags = ["darksky-api", "julialang", "darksky", "forecastio", "hacktoberfest", "hacktoberfest2018"]
+license = "MIT License"
+
+[[contributors]]
+name = "ellisvalentiner"
+contributions = "53"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "paescuj"
+contributions = "1"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "TravelingSalesmanHeuristics"
+owner = "evanfields"
+version = "0.3.1"
+description = "Julia package for simple traveling salesman problem heuristics"
+stargazers_count = "20"
+url = "https://github.com/evanfields/TravelingSalesmanHeuristics.jl.git"
+installs = true
+tags = ["julia", "tsp", "heuristic", "traveling-salesman"]
+license = "Other"
+
+[[contributors]]
+name = "evanfields"
+contributions = "55"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "Wikunia"
+contributions = "1"
+[[contributors]]
+name = "rrsk"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

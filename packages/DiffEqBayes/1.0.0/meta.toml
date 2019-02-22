@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqBayes"
+owner = "JuliaDiffEq"
+version = "1.0.0"
+description = "Extension functionality which uses Stan.jl, DynamicHMC.jl, and Turing.jl to estimate the parameters to differential equations"
+stargazers_count = "26"
+url = "https://github.com/JuliaDiffEq/DiffEqBayes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "95"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "50"
+[[contributors]]
+name = "Ayush-iitkgp"
+contributions = "19"
+[[contributors]]
+name = "xukai92"
+contributions = "5"
+[[contributors]]
+name = "mauro3"
+contributions = "5"
+[[contributors]]
+name = "marcjwilliams1"
+contributions = "1"

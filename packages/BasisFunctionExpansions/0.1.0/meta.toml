@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "BasisFunctionExpansions"
+owner = "baggepinnen"
+version = "0.1.0"
+description = "Basis Function Expansions for Julia"
+stargazers_count = "6"
+url = "https://github.com/baggepinnen/BasisFunctionExpansions.jl.git"
+installs = true
+tags = ["approximation", "linear-regression", "time-series-analysis", "function-expansion", "function-approximation", "julia-package"]
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "65"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

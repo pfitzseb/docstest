@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "Nettle"
+owner = "staticfloat"
+version = "0.4.0"
+description = "Julia wrapper around nettle cryptographic hashing/encryption library providing MD5, SHA1, SHA2 hashing and HMAC functionality, as well as AES encryption/decryption"
+stargazers_count = "16"
+url = "https://github.com/staticfloat/Nettle.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "85"
+[[contributors]]
+name = "HatsuneMiku"
+contributions = "17"
+[[contributors]]
+name = "mortenpi"
+contributions = "10"
+[[contributors]]
+name = "tkelman"
+contributions = "8"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "samoconnor"
+contributions = "5"
+[[contributors]]
+name = "stevengj"
+contributions = "4"
+[[contributors]]
+name = "jayvn"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "ihnorton"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "samschlegel"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "wookay"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "binarybana"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"

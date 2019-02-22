@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqMonteCarlo"
+owner = "JuliaDiffEq"
+version = "0.14.0"
+description = "Monte Carlo simulation routines for JuliaDiffEq solvers"
+stargazers_count = "7"
+url = "https://github.com/JuliaDiffEq/DiffEqMonteCarlo.jl.git"
+installs = true
+tags = ["differentialequations", "monte-carlo-simulation"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "99"
+[[contributors]]
+name = "elevien"
+contributions = "7"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "dextorious"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

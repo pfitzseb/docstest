@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "DataAssim"
+owner = "Alexander-Barth"
+version = "0.3.0"
+description = "Implementation of various ensemble Kalman Filter data assimilation methods in Julia"
+stargazers_count = "7"
+url = "https://github.com/Alexander-Barth/DataAssim.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "78"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

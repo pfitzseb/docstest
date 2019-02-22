@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Preconditioners.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Preconditioners.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Advanced-AMG-preconditioners-1">Advanced AMG preconditioners</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Preconditioners-1" href="#Preconditioners-1">Preconditioners</a></h1><p><a href="https://travis-ci.org/mohamed82008/Preconditioners.jl"><img src="https://travis-ci.org/mohamed82008/Preconditioners.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/mohamed82008/Preconditioners.jl?branch=master"><img src="http://codecov.io/github/mohamed82008/Preconditioners.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">
+A = sprand(1000, 1000, 0.01)
+A = A + A&#39; + 30I
+
+# Diagonal preconditioner
+p = DiagonalPreconditioner(A)
+
+# Incomplete Cholesky preconditioner with cut-off level 2
+p = CholeskyPreconditioner(A, 2)
+
+# Algebraic multigrid preconditioner (AMG)
+# Ruge-Stuben variant
+p = AMGPreconditioner{RugeStuben}(A)
+# Smoothed aggregation
+p = AMGPreconditioner{SmoothedAggregation}(A)
+
+# Solve the system of equations
+b = A*ones(1000)
+x = cg(A, b, Pl=p)
+
+A = sprand(1000, 1000, 0.01)
+A = A + A&#39; + 30I
+# Updates the preconditioner with the new matrix A
+UpdatePreconditioner!(p, A)
+</code></pre><h2><a class="nav-anchor" id="Advanced-AMG-preconditioners-1" href="#Advanced-AMG-preconditioners-1">Advanced AMG preconditioners</a></h2><p>More advanced AMG preconditioners are also possible by building the <code>MultiLevel</code> struct that <code>AMGPreconditioner</code> wraps yourself using the package <a href="https://github.com/JuliaLinearAlgebra/AlgebraicMultigrid.jl">AMG.jl</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

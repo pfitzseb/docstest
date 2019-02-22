@@ -1,0 +1,192 @@
+license_url = ""
+doctype = "default"
+name = "BinDeps"
+owner = "JuliaPackaging"
+version = "0.8.10"
+description = "Tool for building binary dependencies for Julia modules"
+stargazers_count = "41"
+url = "https://github.com/JuliaPackaging/BinDeps.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "86"
+[[contributors]]
+name = "tkelman"
+contributions = "62"
+[[contributors]]
+name = "staticfloat"
+contributions = "42"
+[[contributors]]
+name = "ararslan"
+contributions = "20"
+[[contributors]]
+name = "musm"
+contributions = "20"
+[[contributors]]
+name = "yuyichao"
+contributions = "20"
+[[contributors]]
+name = "ViralBShah"
+contributions = "10"
+[[contributors]]
+name = "timholy"
+contributions = "8"
+[[contributors]]
+name = "vtjnash"
+contributions = "8"
+[[contributors]]
+name = "ihnorton"
+contributions = "8"
+[[contributors]]
+name = "kmsquire"
+contributions = "8"
+[[contributors]]
+name = "mlubin"
+contributions = "7"
+[[contributors]]
+name = "stevengj"
+contributions = "6"
+[[contributors]]
+name = "iblis17"
+contributions = "5"
+[[contributors]]
+name = "jiahao"
+contributions = "4"
+[[contributors]]
+name = "nkottary"
+contributions = "4"
+[[contributors]]
+name = "andreasnoack"
+contributions = "3"
+[[contributors]]
+name = "garrison"
+contributions = "3"
+[[contributors]]
+name = "oxinabox"
+contributions = "3"
+[[contributors]]
+name = "nolta"
+contributions = "3"
+[[contributors]]
+name = "nalimilan"
+contributions = "3"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "3"
+[[contributors]]
+name = "andrioni"
+contributions = "2"
+[[contributors]]
+name = "lobingera"
+contributions = "2"
+[[contributors]]
+name = "matthb2"
+contributions = "2"
+[[contributors]]
+name = "cmey"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "helgee"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "kbarbary"
+contributions = "2"
+[[contributors]]
+name = "ninjin"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "alanhdu"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "colbec"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "iglpdc"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "porterjamesj"
+contributions = "1"
+[[contributors]]
+name = "jayschwa"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "panlanfeng"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "chezou"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "Ph0non"
+contributions = "1"
+[[contributors]]
+name = "randy3k"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "vchuravy"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "andrewcooke"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"
+[[contributors]]
+name = "greenflash1357"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"

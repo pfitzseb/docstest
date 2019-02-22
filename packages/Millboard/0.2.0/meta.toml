@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Millboard"
+owner = "wookay"
+version = "0.2.0"
+description = "Displaying data in tables for Julia"
+stargazers_count = "4"
+url = "https://github.com/wookay/Millboard.jl.git"
+installs = true
+tags = ["julia", "tablized-data", "markdown", "grid"]
+license = "Other"
+
+[[contributors]]
+name = "wookay"
+contributions = "33"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

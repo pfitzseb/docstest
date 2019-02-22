@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "LombScargle"
+owner = "JuliaAstro"
+version = "0.4.0"
+description = "Compute Lomb-Scargle periodogram, suitable for unevenly sampled data.  It supports multi-threading"
+stargazers_count = "5"
+url = "https://github.com/JuliaAstro/LombScargle.jl.git"
+installs = true
+tags = ["lomb-scargle-periodogram", "periodogram", "julia", "time-series", "astronomy", "signal-processing", "periodic", "astrophysics"]
+license = "Other"
+
+[[contributors]]
+name = "giordano"
+contributions = "218"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

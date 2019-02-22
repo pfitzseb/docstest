@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · GaussianRandomFields.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>GaussianRandomFields.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">GaussianRandomFields.AbstractCovarianceFunction</code></pre><pre><code class="language-none">GaussianRandomFields.AnisotropicCovarianceStructure</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.AnisotropicExponential" href="#GaussianRandomFields.AnisotropicExponential"><code>GaussianRandomFields.AnisotropicExponential</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">AnisotropicExponential(A, σ=1)</code></pre><p>Create an anisotropic exponential covariance structure with anisotropy matrix A and (optional) marginal standard deviation <code>σ</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; A = [1 0.5; 0.5 1]
+2×2 Array{Float64,2}:
+ 1.0  0.5
+ 1.0  0.5
+
+julia&gt; a1 = AnisotropicExponential(A)
+anisotropic exponential (A=[1.0 0.5; 0.5 1.0], σ=1.0)
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.Cholesky" href="#GaussianRandomFields.Cholesky"><code>GaussianRandomFields.Cholesky</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Cholesky &lt;: GaussianRandomFieldGenerator</code></pre><p>A <a href="@ref"><code>GaussiandRandomFieldGenerator</code></a> based on a Cholesky factorization of the covariance matrix.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; grf = GaussianRandomField(c,Cholesky(),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a Cholesky decomposition
+
+julia&gt; plot(grf) 
+[...]
+</code></pre><p>Note that the Cholesky factorization requires the covariance matrix to be <code>Symmetric</code> and positive definite. If the covariance matrix is not <code>Symmetric</code>, a warning will be thrown but the method will try to continue with an approximate symmetric matrix. If the covariance matrix is not positive definite, an error will be thrown. Try using the <code>Spectral</code> method in that case.</p><p>See also: <a href="#GaussianRandomFields.Spectral"><code>Spectral</code></a>, <a href="#GaussianRandomFields.KarhunenLoeve"><code>KarhunenLoeve</code></a>, <a href="#GaussianRandomFields.CirculantEmbedding"><code>CirculantEmbedding</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.CirculantEmbedding" href="#GaussianRandomFields.CirculantEmbedding"><code>GaussianRandomFields.CirculantEmbedding</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>CirculantEmbedding &lt;: GaussianRandomFieldGenerator</p><p>A <a href="@ref"><code>GaussiandRandomFieldGenerator</code></a> that uses FFT to compute samples of the Gaussian random field. Circulant embedding can only be applied if the points are specified on a structured grid.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; grf = GaussianRandomField(c,CirculantEmbedding(),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a circulant embedding
+
+julia&gt; contourf(grf)
+[...]
+
+julia&gt; plot_eigenvalues(grf)
+[...]
+</code></pre><p>With appropriate ordering, the covariance matrix of a Gaussian random field is a (nested block) Toeplitz matrix. This matrix can be embedded into a larger (nested block) circulant matrix, whose eigenvalues can be rapidly computed using FFT. A difficulty here is that although the covariance matrix is positive semi-definite, its circulant extension in general is not. As a remedy, one can add so-called <em>ghost points</em> outside the domain of interest using the optional flag <code>padding</code>.</p><pre><code class="language-julia-repl">julia&gt; m = Matern(1,1)
+Matérn (λ=1.0, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(1,m)
+1d Matérn covariance function (λ=1.0, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts = range(0,stop = 1,length = 256)
+0.0:0.00392156862745098:1.0
+
+julia&gt; grf = GaussianRandomField(c,CirculantEmbedding(),pts)
+WARNING: negative eigenvalue -0.001465931113950698 detected, Gaussian random field will be approximated (ignoring all negative eigenvalues)
+WARNING: increase padding if possible
+Gaussian random field with 1d Matérn covariance function (λ=1.0, ν=1.0, σ=1.0, p=2.0) on a 256-point structured grid, using a circulant embedding
+
+julia&gt; grf = GaussianRandomField(c,CirculantEmbedding(),pts,padding=5)
+Gaussian random field with 1d Matérn covariance function (λ=1.0, ν=1.0, σ=1.0, p=2.0) on a 256-point structured grid, using a circulant embedding
+</code></pre><p>For faster sampling (but slower initialization), use the optional argument <code>measure</code> (default=true).</p><p>See also: <a href="#GaussianRandomFields.Cholesky"><code>Cholesky</code></a>, <a href="#GaussianRandomFields.Spectral"><code>Spectral</code></a>, <a href="#GaussianRandomFields.KarhunenLoeve"><code>KarhunenLoeve</code></a></p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.CovarianceFunction" href="#GaussianRandomFields.CovarianceFunction"><code>GaussianRandomFields.CovarianceFunction</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">CovarianceFunction(d, cov)</code></pre><p>Create a covariance function in <code>d</code> dimensions with covariance structure <code>cov</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+</code></pre></div></div></section><pre><code class="language-none">GaussianRandomFields.CovarianceStructure</code></pre><pre><code class="language-none">GaussianRandomFields.EOLE</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.Exponential" href="#GaussianRandomFields.Exponential"><code>GaussianRandomFields.Exponential</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Exponential(λ, σ=1, p=2)</code></pre><p>Create an exponential covariance structure with correlation length <code>λ</code>, (optional) marginal standard deviation <code>σ</code> and (optional) <code>p</code>-norm.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; e1 = Exponential(0.1)
+exponential (λ=0.1, σ=1.0, p=2.0)
+
+julia&gt; e2 = Exponential(0.1, σ=2)
+exponential (λ=0.1, σ=2.0, p=2.0)
+</code></pre></div></div></section><pre><code class="language-none">GaussianRandomFields.FiniteElemGRF</code></pre><pre><code class="language-none">GaussianRandomFields.FiniteElemSpectralGRF</code></pre><pre><code class="language-none">GaussianRandomFields.GaussLegendre</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.Gaussian" href="#GaussianRandomFields.Gaussian"><code>GaussianRandomFields.Gaussian</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Gaussian(λ, σ=1, p=2)</code></pre><p>Create a Gaussian (squared exponential) covariance structure with correlation length <code>λ</code>, (optional) marginal standard deviation <code>σ</code> and (optional) <code>p</code>-norm.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; g1 = Gaussian(0.1)
+Gaussian (λ=0.1, σ=1.0, p=2.0)
+
+julia&gt; g2 = Gaussian(0.1, σ=2.)
+Gaussian (λ=0.1, σ=2.0, p=2.0)
+</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.GaussianRandomField" href="#GaussianRandomFields.GaussianRandomField"><code>GaussianRandomFields.GaussianRandomField</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">GaussianRandomField(mean,cov,method,pts...)
+GaussianRandomField(cov,method,pts...)
+GaussianRandomField(mean,cov,method,nodes,elements)
+GaussianRandomField(cov,method,nodes,elements)</code></pre><p>Compute a Gaussian random field with mean <code>mean</code> and covariance structure <code>cov</code> defined in the points <code>pts</code>, and computed using the method <code>method</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; mn = ones(length(pts1),length(pts2))
+
+julia&gt; grf = GaussianRandomField(mn,c,Cholesky(),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a Cholesky decomposition
+</code></pre><p>If no <code>mean</code> is specified, a zero-mean Gaussian random field is assumed.</p><pre><code class="language-julia-repl">julia&gt; grf = GaussianRandomField(c,Cholesky(),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a Cholesky decomposition
+</code></pre><p>The  Gaussian random field sampler <code>method</code> can be <code>Cholesky()</code>, <code>Spectral()</code>, <code>KarhunenLoeve(n)</code> (where <code>n</code> is the number of terms in the expansion), or <code>CirculantEmbedding()</code>. The dimension of the points must match the dimension of the covariance function <code>cov</code>. The points can be specified as arguments of type <code>AbstractVector</code>, in which case a tensor (Kronecker) product is assumed, or as a Finite Element mesh with node table <code>nodes</code> and element table <code>elements</code>.</p><pre><code class="language-julia-repl">julia&gt; grf = GaussianRandomField(c,KarhunenLoeve(500),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a KL expansion with 500 terms
+</code></pre><p>For separable Gaussian random fields with a KL expansion, provide a <a href="#GaussianRandomFields.SeparableCovarianceFunction"><code>SeparableCovarianceFunction</code></a>. Note that the number of terms <code>n</code> in <code>KarhunenLoeve(n)</code> refers to the total number of terms.</p><pre><code class="language-julia-repl">julia&gt; e1 = Exponential(0.1); e2 = Exponential(0.01);
+
+julia&gt; scov = SeparableCovarianceFunction(e1,e2)
+2d separable covariance function [ exponential (λ=0.1, σ=1.0, p=2.0), exponential (λ=0.01, σ=1.0, p=2.0) ]
+
+julia&gt; grf = GaussianRandomField(scov,KarhunenLoeve(500),pts1,pts2)
+Gaussian random field with 2d separable covariance function [ exponential (λ=0.1, σ=1.0, p=2.0), exponential (λ=0.01, σ=1.0, p=2.0) ] on a 51x51 structured grid, using a KL expansion with 500 terms
+
+julia&gt; plot_eigenfunction(grf,3); show()
+[...]
+</code></pre><p>Also anisotropic Gaussian random fields can be computed. For example, the anisotropic exponential covariance function needs a positive definite matrix <code>A</code>. The size of the off-diagonal elements of <code>A</code> determine the degree of anisotropy.</p><pre><code class="language-julia-repl">julia&gt; a = AnisotropicExponential([1 0.8;0.8 1])
+anisotropic exponential (A=[1.0 0.8; 0.8 1.0], σ=1.0)
+
+julia&gt; acov = CovarianceFunction(2,a)
+2d anisotropic covariance function exponential (A=[1.0 0.8; 0.8 1.0], σ=1.0)
+
+julia&gt; pts = range(0,stop = 10,length = 128)
+0.0:0.07874015748031496:10.0
+
+julia&gt; grf = GaussianRandomField(acov,CirculantEmbedding(),pts,pts)
+WARNING: negative eigenvalue -1.2245106889248049e-18 detected, Gaussian random field will be approximated (ignoring all negative eigenvalues)
+WARNING: increase padding if possible
+Gaussian random field with 2d anisotropic covariance function exponential (A=[1.0 0.8; 0.8 1.0], σ=1.0) on a 128x128 structured grid, using a circulant embedding
+
+julia&gt; contourf(grf)
+[...]
+</code></pre><p>Samples from the random field can be computed using the <code>sample</code> function.</p><pre><code class="language-julia-repl">julia&gt; sample(grf)
+[...]
+</code></pre><p>See also: <a href="#GaussianRandomFields.Cholesky"><code>Cholesky</code></a>, <a href="#GaussianRandomFields.Spectral"><code>Spectral</code></a>, <a href="#GaussianRandomFields.KarhunenLoeve"><code>KarhunenLoeve</code></a>, <a href="#GaussianRandomFields.CirculantEmbedding"><code>CirculantEmbedding</code></a>, <a href="#GaussianRandomFields.sample"><code>sample</code></a></p></div></div></section><pre><code class="language-none">GaussianRandomFields.GaussianRandomFieldGenerator</code></pre><pre><code class="language-none">GaussianRandomFields.GaussianRandomFields</code></pre><pre><code class="language-none">GaussianRandomFields.IsotropicCovarianceStructure</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.KarhunenLoeve" href="#GaussianRandomFields.KarhunenLoeve"><code>GaussianRandomFields.KarhunenLoeve</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">KarhunenLoeve{n} &lt;: GaussianRandomFieldGenerator</code></pre><p>A <a href="@ref"><code>GaussiandRandomFieldGenerator</code></a> using a Karhunen-Loève (KL) expansion with <code>n</code> terms. </p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; grf = GaussianRandomField(c,KarhunenLoeve(300),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a KL expansion with 300 terms
+
+julia&gt; plot_eigenvalues(grf) # plot the eigenvalue decay
+[...]
+
+julia&gt; plot_eigenfunction(grf,4) # plots the fourth eigenfunction
+[...]
+</code></pre><p>The more terms are retained in the expansion, the better the approximation will be.</p><pre><code class="language-julia-repl">julia&gt; nterms = [1 2 5 10 20 50 100 200 500 1000]
+1×10 Array{Int64,2}:
+ 1  2  5  10  20  50  100  200  500  1000
+
+julia&gt; for n in nterms
+       grf = GaussianRandomField(c,KarhunenLoeve(n),pts1,pts2)
+       @show rel_error(grf)
+       end
+rel_error(grf) = 0.7499982529722711
+rel_error(grf) = 0.49999825591379987
+rel_error(grf) = 0.4425751861338164
+rel_error(grf) = 0.35789475278408045
+rel_error(grf) = 0.16805079842673853
+rel_error(grf) = 0.11187098338277579
+rel_error(grf) = 0.05130466343704787
+rel_error(grf) = 0.017343327476498027
+rel_error(grf) = 0.0034278579378175245
+rel_error(grf) = 0.0007216777927243623
+</code></pre><p>The KL expansion is computed using the Nystrom method. Optional argument are the quadrature rule <code>quad</code> and the number of quadrature points in each direction <code>nq</code>. Possible values for <code>quad</code> are <code>GaussLegendre()</code>, <code>Midpoint()</code>, <code>Simpson()</code>, <code>Trapezoidal</code> and <code>EOLE()</code> (default). The total number of quadrature points must be larger than or equal to the requested number of terms. Default is <code>ceil(n^(1/d))</code>. This value is best left untouched.</p><pre><code class="language-julia-repl">julia&gt; grf = GaussianRandomField(c,KarhunenLoeve(300),pts1,pts2,quad=GaussLegendre())
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a KL expansion with 300 terms
+
+julia&gt; grf = GaussianRandomField(c,KarhunenLoeve(300),pts1,pts2,quad=Simpson(),nq=20)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a KL expansion with 300 terms
+</code></pre><p>See also: <a href="#GaussianRandomFields.Cholesky"><code>Cholesky</code></a>, <a href="#GaussianRandomFields.Spectral"><code>Spectral</code></a>, <a href="#GaussianRandomFields.CirculantEmbedding"><code>CirculantEmbedding</code></a></p></div></div></section><pre><code class="language-none">GaussianRandomFields.LSHAPE_P</code></pre><pre><code class="language-none">GaussianRandomFields.LSHAPE_T</code></pre><pre><code class="language-none">GaussianRandomFields.Lshape</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.Matern" href="#GaussianRandomFields.Matern"><code>GaussianRandomFields.Matern</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Matern(λ, ν, σ=1, p=2)</code></pre><p>Create a Matérn covariance structure with correlation length <code>λ</code>, smoothness <code>ν</code>, (optional) marginal standard deviation <code>σ</code> and (optional) <code>p</code>-norm.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m1 = Matern(0.1, 1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; m2 = Matern(0.1, 1.0, σ=2.0)
+Matérn (λ=0.1, ν=1.0, σ=2.0, p=2.0)
+</code></pre></div></div></section><pre><code class="language-none">GaussianRandomFields.Midpoint</code></pre><pre><code class="language-none">GaussianRandomFields.OneDimCov</code></pre><pre><code class="language-none">GaussianRandomFields.OneDimGRF</code></pre><pre><code class="language-none">GaussianRandomFields.OneDimSepCov</code></pre><pre><code class="language-none">GaussianRandomFields.OneDimSpectralGRF</code></pre><pre><code class="language-none">GaussianRandomFields.OneDimSpectralSepGRF</code></pre><pre><code class="language-none">GaussianRandomFields.QuadratureRule</code></pre><pre><code class="language-none">GaussianRandomFields.STAR_P</code></pre><pre><code class="language-none">GaussianRandomFields.STAR_T</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.SeparableCovarianceFunction" href="#GaussianRandomFields.SeparableCovarianceFunction"><code>GaussianRandomFields.SeparableCovarianceFunction</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">SeparableCovarianceFunction(cov...)
+
+Create a separable covariance function in `length(cov)` dimensions for the covariance structures `cov`. Usefull for defining anisotropic covariance functions, or if the usual KL expansion is too expensive.</code></pre><p><strong>Examples</strong></p><pre><code class="language-none">julia&gt; e = Exponential(0.1)
+exponential (λ=0.1, σ=1.0, p=2.0)
+
+julia&gt; m = Matern(0.01,1.0)
+Matérn (λ=0.01, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = SeparableCovarianceFunction([e,m])
+2d separable covariance function [ exponential (λ=0.1, σ=1.0, p=2.0), Matérn (λ=0.01, ν=1.0, σ=1.0, p=2.0) ]
+</code></pre><p>See also: <a href="#GaussianRandomFields.CovarianceFunction"><code>CovarianceFunction</code></a>, <a href="#GaussianRandomFields.KarhunenLoeve"><code>KarhunenLoeve</code></a> </p></div></div></section><pre><code class="language-none">GaussianRandomFields.Simpson</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.Spectral" href="#GaussianRandomFields.Spectral"><code>GaussianRandomFields.Spectral</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Spectral &lt;: GaussianRandomFieldGenerator</p><p>A <a href="@ref"><code>GaussiandRandomFieldGenerator</code></a> based on a spectral (eigenvalue) decomposition of the covariance matrix.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; grf = GaussianRandomField(c,Spectral(),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a Spectral decomposition
+
+julia&gt; plot(grf) 
+[...]
+</code></pre><p>This is also useful when computing Gaussian random fields on a Finite Element mesh using a truncated KL expansion. Here&#39;s an example that computes the first 10 eigenfunctions on an L-shaped domain.</p><pre><code class="language-julia-repl">julia&gt; p, t = Lshape();
+
+julia&gt; grf = grf = GaussianRandomField(CovarianceFunction(2,Matern(0.2,1.0)),Spectral(),p,t,n=10)
+Gaussian random field with 2d Matérn covariance function (λ=0.2, ν=1.0, σ=1.0, p=2.0) on a mesh with 998 points and 1861 elements, using a spectral decomposition
+
+julia&gt; tricontourf(p[:,1],p[:,2],grf.data.eigenfunc[:,1],triangles=t-1,cmap=get_cmap(&quot;viridis&quot;))
+[...]
+</code></pre><p>See also: <a href="#GaussianRandomFields.Cholesky"><code>Cholesky</code></a>, <a href="#GaussianRandomFields.KarhunenLoeve"><code>KarhunenLoeve</code></a>, <a href="#GaussianRandomFields.CirculantEmbedding"><code>CirculantEmbedding</code></a></p></div></div></section><pre><code class="language-none">GaussianRandomFields.SpectralData</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.SquaredExponential" href="#GaussianRandomFields.SquaredExponential"><code>GaussianRandomFields.SquaredExponential</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">SquaredExponential(λ, σ=1, p=2)</code></pre><p>Create a squared exponential (Gaussian) covariance structure with correlation length <code>λ</code>, (optional) marginal standard deviation <code>σ</code> and (optional) <code>p</code>-norm.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; s1 = SquaredExponential(0.1)
+Gaussian (λ=0.1, σ=1.0, p=2.0)
+
+julia&gt; s2 = SquaredExponential(0.1, σ=2.)
+Gaussian (λ=0.1, σ=2.0, p=2.0)
+</code></pre></div></div></section><pre><code class="language-none">GaussianRandomFields.ThreeDimCov</code></pre><pre><code class="language-none">GaussianRandomFields.ThreeDimGRF</code></pre><pre><code class="language-none">GaussianRandomFields.ThreeDimSepCov</code></pre><pre><code class="language-none">GaussianRandomFields.ThreeDimSpectralGRF</code></pre><pre><code class="language-none">GaussianRandomFields.ThreeDimSpectralSepGRF</code></pre><pre><code class="language-none">GaussianRandomFields.Trapezoidal</code></pre><pre><code class="language-none">GaussianRandomFields.TwoDimCov</code></pre><pre><code class="language-none">GaussianRandomFields.TwoDimGRF</code></pre><pre><code class="language-none">GaussianRandomFields.TwoDimSepCov</code></pre><pre><code class="language-none">GaussianRandomFields.TwoDimSpectralGRF</code></pre><pre><code class="language-none">GaussianRandomFields.TwoDimSpectralSepGRF</code></pre><pre><code class="language-none">GaussianRandomFields._GaussianRandomField</code></pre><pre><code class="language-none">GaussianRandomFields._plot_eigenfunction</code></pre><pre><code class="language-none">GaussianRandomFields._sample</code></pre><pre><code class="language-none">GaussianRandomFields.apply</code></pre><pre><code class="language-none">GaussianRandomFields.apply_non_symmetric!</code></pre><pre><code class="language-none">GaussianRandomFields.apply_symmetric!</code></pre><pre><code class="language-none">GaussianRandomFields.bisect_root</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.circulant_eigvals" href="#GaussianRandomFields.circulant_eigvals"><code>GaussianRandomFields.circulant_eigvals</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">circulant_eigvals(cov::CovarianceStructure, pts::NTuple{N,AbstractRange},
+                  dims::Dims{N}) where {N}</code></pre><p>Compute eigenvalues of circulant embedding with dimensions <code>dims</code> of covariance matrix of points <code>pts</code> with covariance function <code>cov</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.circulant_minsize" href="#GaussianRandomFields.circulant_minsize"><code>GaussianRandomFields.circulant_minsize</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">circulant_minsize(cov::CovarianceStructure, pts::AbstractRange,
+                  minpadding::Int, factors::Vector{Int})</code></pre><p>Return size of minimum circulant embedding of covariance matrix of points <code>pts</code> with covariance function <code>cov</code> and minimum padding <code>minpadding</code> that can be written as product of integers in <code>factors</code>.</p><p>Typically <code>factors</code> is chosen to be <code>[2]</code> or <code>[2, 3, 5, 7]</code> to speed up FFT computations.</p></div></div></section><pre><code class="language-none">GaussianRandomFields.compute_analytic</code></pre><pre><code class="language-none">GaussianRandomFields.compute_centers</code></pre><pre><code class="language-none">GaussianRandomFields.eval</code></pre><pre><code class="language-none">GaussianRandomFields.extrapolate</code></pre><pre><code class="language-none">GaussianRandomFields.findroots</code></pre><pre><code class="language-none">GaussianRandomFields.generator</code></pre><pre><code class="language-none">GaussianRandomFields.get_nodes_and_weights</code></pre><pre><code class="language-none">GaussianRandomFields.include</code></pre><pre><code class="language-none">GaussianRandomFields.middle</code></pre><pre><code class="language-none">GaussianRandomFields.plot_covariance_matrix</code></pre><pre><code class="language-none">GaussianRandomFields.plot_eigenfunction</code></pre><pre><code class="language-none">GaussianRandomFields.plot_eigenvalues</code></pre><pre><code class="language-none">GaussianRandomFields.randdim</code></pre><pre><code class="language-none">GaussianRandomFields.rel_error</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GaussianRandomFields.sample" href="#GaussianRandomFields.sample"><code>GaussianRandomFields.sample</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">sample(grf)
+sample(grf, xi=randn(randdim(grf)))</code></pre><p>Take a sample from the Gaussian Random Field <code>grf</code> using the (optional) random numbers <code>xi</code>. The vector<code>xi</code> must have appropriate length. The default value is <code>randn(randdim(grf))</code>.</p><p><strong>Examples</strong></p><pre><code class="language-none">julia&gt; m = Matern(0.1,1.0)
+Matérn (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; c = CovarianceFunction(2,m)
+2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0)
+
+julia&gt; pts1 = 0:0.02:1; pts2 = 0:0.02:1 
+0.0:0.02:1.0
+
+julia&gt; grf = GaussianRandomField(c,KarhunenLoeve(300),pts1,pts2)
+Gaussian random field with 2d Matérn covariance function (λ=0.1, ν=1.0, σ=1.0, p=2.0) on a 51x51 structured grid, using a KL expansion with 300 terms
+
+julia&gt; sample(grf)
+[...]
+
+julia&gt; sample(grf,xi=2*rand(randdim(grf))-1)
+[...]
+</code></pre></div></div></section><pre><code class="language-none">GaussianRandomFields.shape</code></pre><pre><code class="language-none">GaussianRandomFields.shortname</code></pre><pre><code class="language-none">GaussianRandomFields.showparams</code></pre><pre><code class="language-none">GaussianRandomFields.showpoints</code></pre><pre><code class="language-none">GaussianRandomFields.slice</code></pre><pre><code class="language-none">GaussianRandomFields.star</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

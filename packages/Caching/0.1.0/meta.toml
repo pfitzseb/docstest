@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Caching"
+owner = "zgornel"
+version = "0.1.0"
+description = "Memoization mechanism"
+stargazers_count = "1"
+url = "https://github.com/zgornel/Caching.jl.git"
+installs = true
+tags = ["disk", "macros", "julia", "compression", "memoize", "serialization", "hashtable"]
+license = "MIT License"
+
+[[contributors]]
+name = "zgornel"
+contributions = "52"

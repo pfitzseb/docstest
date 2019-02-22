@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "CAOS"
+owner = "bcbi"
+version = "0.1.1"
+description = "Implementation of characteristic attribute organization system (CAOS) algorithm in Julia"
+stargazers_count = "1"
+url = "https://github.com/bcbi/CAOS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fernandogelin"
+contributions = "86"
+[[contributors]]
+name = "jasonk33"
+contributions = "29"
+[[contributors]]
+name = "paulstey"
+contributions = "8"

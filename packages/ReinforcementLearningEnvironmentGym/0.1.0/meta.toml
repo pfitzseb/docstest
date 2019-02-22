@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ReinforcementLearningEnvironmentGym"
+owner = "JuliaReinforcementLearning"
+version = "0.1.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaReinforcementLearning/ReinforcementLearningEnvironmentGym.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "15"
+[[contributors]]
+name = "findmyway"
+contributions = "7"

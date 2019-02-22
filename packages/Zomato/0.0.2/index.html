@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Zomato.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Zomato.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a> <a href="https://travis-ci.org/rahulkp220/Zomato.jl"><img src="https://travis-ci.org/rahulkp220/Zomato.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://github.com/rahulkp220/Zomato.jl/graphs/contributors"><img src="https://img.shields.io/github/contributors/rahulkp220/Zomato.jl.svg" alt="GitHub contributors"/></a> <a href="https://github.com/rahulkp220/Zomato.jl/issues/"><img src="https://img.shields.io/github/issues/rahulkp220/Zomato.jl.svg" alt="GitHub issues"/></a> <a href="https://github.com/rahulkp220/Zomato.jl"><img src="https://badge.fury.io/gh/rahulkp220%2FZomato.jl.svg" alt="GitHub version"/></a></p><p><a href="https://github.com/rahulkp220/"><img src="http://ForTheBadge.com/images/badges/built-with-love.svg" alt="ForTheBadge built-with-love"/></a></p><h1><a class="nav-anchor" id="Zomato.jl-1" href="#Zomato.jl-1">Zomato.jl</a></h1><p>An unofficial Julia wrapper for Zomato&#39;s API :fire: However, the official documentation can be reached <a href="https://developers.zomato.com/documentation">here</a></p><h3><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h3><pre><code class="language-julia">julia&gt; import Pkg
+julia&gt; Pkg.clone(&quot;https://github.com/rahulkp220/Zomato.jl&quot;)</code></pre><h3><a class="nav-anchor" id="How-it-works?-1" href="#How-it-works?-1">How it works?</a></h3><p>As per Zomato&#39;s official guidelines, access to restaurant information and search on Zomato is limited to 1000 calls per day. Hence the limit should be kept in mind.</p><pre><code class="language-julia"># authenticate
+julia&gt; auth = Zomato.authenticate(&quot;API-KEY&quot;)
+Zomato(https://developers.zomato.com/api/v2.1/)
+
+# get the categories
+julia&gt; Zomato.get(auth, CategoriesAPI)
+[ Info: fetching categories...
+Dict{String,Any} with 1 entry:
+  &quot;categories&quot; =&gt; Any[Dict{String,Any}(&quot;categories&quot;=&gt;Dict{String,Any}(&quot;name&quot;=&gt;&quot;Delivery&quot;,&quot;id&quot;=&gt;1)), Dict{String,Any}(&quot;categories&quot;=&gt;Dict{String,Any}(&quot;name&quot;=&gt;…
+
+# get city wise details
+julia&gt; Zomato.get(auth, CitiesAPI, q=&quot;london&quot;)
+[ Info: fetching city details...
+Dict{String,Any} with 4 entries:
+  &quot;location_suggestions&quot; =&gt; Any[Dict{String,Any}(&quot;is_state&quot;=&gt;0,&quot;state_name&quot;=&gt;&quot;England and Wales&quot;,&quot;name&quot;=&gt;&quot;London&quot;,&quot;id&quot;=&gt;61,&quot;state_code&quot;=&gt;&quot;England and Wales&quot;…
+  &quot;has_total&quot;            =&gt; 0
+  &quot;status&quot;               =&gt; &quot;success&quot;
+  &quot;has_more&quot;             =&gt; 0</code></pre><h3><a class="nav-anchor" id="Documentation-1" href="#Documentation-1">Documentation</a></h3><p>Each function has an extensive API documentation, a sample of which is given below.</p><pre><code class="language-none">help?&gt;Zomato.get(z::Zomato.Auth, ::Type{Zomato.CitiesAPI}; kwargs...)
+  Get city details
+  ==================
+
+  Find the Zomato ID and other details for a city . 
+  You can obtain the Zomato City ID in one of the following ways:
+
+    •    City Name in the Search Query - 
+    Returns list of cities matching the query
+
+    •    Using coordinates - 
+    Identifies the city details based on the coordinates of any location inside a city
+
+  If you already know the Zomato City ID, this API can be used to get other details of the city.
+
+  See https://developers.zomato.com/documentation#!/common/cities
+
+  Arguments
+  ===========
+
+  Parameter Description                      Parameter Type Data Type
+  ––––––––– –––––––––––––––––––––––––––––––– –––––––––––––– –––––––––
+  q         query by city name               query          String
+  lat       latitude                         query          Float
+  lon       longitude                        query          Float
+  city_ids  comma separated city_id values   query          String
+  count     number of max results to display query          Int</code></pre><h3><a class="nav-anchor" id="Facing-issues?-:scream:-1" href="#Facing-issues?-:scream:-1">Facing issues? :scream:</a></h3><ul><li>Open a PR with the detailed expaination of the issue</li><li>Reach me out <a href="https://www.rahullakhanpal.in">here</a></li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,75 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MAT"
+owner = "JuliaIO"
+version = "0.5.0"
+description = "Julia module for reading MATLAB files"
+stargazers_count = "114"
+url = "https://github.com/JuliaIO/MAT.jl.git"
+installs = true
+tags = ["mat", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "simonster"
+contributions = "130"
+[[contributors]]
+name = "timholy"
+contributions = "20"
+[[contributors]]
+name = "yuyichao"
+contributions = "16"
+[[contributors]]
+name = "dawbarton"
+contributions = "5"
+[[contributors]]
+name = "mforets"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "jdlangs"
+contributions = "2"
+[[contributors]]
+name = "rened"
+contributions = "2"
+[[contributors]]
+name = "tanmaykm"
+contributions = "2"
+[[contributors]]
+name = "rofinn"
+contributions = "2"
+[[contributors]]
+name = "brendano"
+contributions = "1"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "darwindarak"
+contributions = "1"
+[[contributors]]
+name = "drewrobson"
+contributions = "1"
+[[contributors]]
+name = "biogeo"
+contributions = "1"
+[[contributors]]
+name = "jaakkor2"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "gdestouet"
+contributions = "1"

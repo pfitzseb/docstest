@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "PlotThemes"
+owner = "JuliaPlots"
+version = "0.3.0"
+description = "Themes for the Julia plotting package Plots.jl"
+stargazers_count = "44"
+url = "https://github.com/JuliaPlots/PlotThemes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pkofod"
+contributions = "19"
+[[contributors]]
+name = "daschw"
+contributions = "15"
+[[contributors]]
+name = "mkborregaard"
+contributions = "13"
+[[contributors]]
+name = "tbreloff"
+contributions = "8"
+[[contributors]]
+name = "pfitzseb"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "greimel"
+contributions = "1"

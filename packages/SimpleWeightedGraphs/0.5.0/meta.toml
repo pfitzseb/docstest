@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "SimpleWeightedGraphs"
+owner = "JuliaGraphs"
+version = "0.5.0"
+description = "Simple weighted graphs. Requires LightGraphs.jl."
+stargazers_count = "20"
+url = "https://github.com/JuliaGraphs/SimpleWeightedGraphs.jl.git"
+installs = true
+tags = ["lightgraphs", "weighted-edges", "weighted-graphs", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "51"
+[[contributors]]
+name = "ranjanan"
+contributions = "7"
+[[contributors]]
+name = "dourouc05"
+contributions = "4"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "3"
+[[contributors]]
+name = "VPetukhov"
+contributions = "3"
+[[contributors]]
+name = "scheidan"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "bubblingoak"
+contributions = "1"

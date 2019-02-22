@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Kwonly"
+owner = "tkf"
+version = "0.1.0"
+description = "Macro to generate keyword-only version of a function"
+stargazers_count = "1"
+url = "https://github.com/tkf/Kwonly.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkf"
+contributions = "45"

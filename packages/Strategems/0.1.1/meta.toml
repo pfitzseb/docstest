@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Strategems"
+owner = "dysonance"
+version = "0.1.1"
+description = "Quantitative systematic trading strategy development and backtesting in Julia"
+stargazers_count = "48"
+url = "https://github.com/dysonance/Strategems.jl.git"
+installs = true
+tags = ["trading-strategies", "julia", "systematic-trading-strategies", "strategy-development", "trading-logic", "trading", "time-series", "blotter", "quantitative-finance", "quantitative-trading", "finance", "backtest", "backtesting-trading-strategies", "backtesting", "backtester", "backtesting-engine", "optimization"]
+license = "Other"
+
+[[contributors]]
+name = "dysonance"
+contributions = "151"
+[[contributors]]
+name = "femtotrader"
+contributions = "15"

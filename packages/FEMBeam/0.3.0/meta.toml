@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FEMBeam"
+owner = "JuliaFEM"
+version = "0.3.0"
+description = "Beam implementation for JuliaEFM"
+stargazers_count = "1"
+url = "https://github.com/JuliaFEM/FEMBeam.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "16"
+[[contributors]]
+name = "vjamsa"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

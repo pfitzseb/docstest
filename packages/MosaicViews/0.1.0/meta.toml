@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MosaicViews"
+owner = "JuliaArrays"
+version = "0.1.0"
+description = "Julia package for lazily viewing a 3D or 4D array as an expanded 2D array in the form of a mosaic of matrix slices"
+stargazers_count = "3"
+url = "https://github.com/JuliaArrays/MosaicViews.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "17"

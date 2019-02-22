@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "PhysOcean"
+owner = "gher-ulg"
+version = "0.4.2"
+description = "Utility functions for physical oceanography (properties of seawater, air-sea heat fluxes,...)"
+stargazers_count = "4"
+url = "https://github.com/gher-ulg/PhysOcean.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "74"
+[[contributors]]
+name = "jmbeckers"
+contributions = "17"
+[[contributors]]
+name = "ctroupin"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

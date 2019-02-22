@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FEMBase"
+owner = "JuliaFEM"
+version = "0.2.1"
+description = "JuliaFEM base package (core functionality)"
+stargazers_count = "7"
+url = "https://github.com/JuliaFEM/FEMBase.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "39"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

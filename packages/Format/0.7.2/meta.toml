@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "Format"
+owner = "JuliaString"
+version = "0.7.2"
+description = "A Julia package to provide C and Python-like formatting support"
+stargazers_count = "3"
+url = "https://github.com/JuliaString/Format.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "155"
+[[contributors]]
+name = "jmkuhn"
+contributions = "34"
+[[contributors]]
+name = "lindahua"
+contributions = "28"
+[[contributors]]
+name = "tonyhffong"
+contributions = "7"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "odow"
+contributions = "3"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "czlee"
+contributions = "2"
+[[contributors]]
+name = "kleinhenz"
+contributions = "2"
+[[contributors]]
+name = "tbreloff"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "scidom"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

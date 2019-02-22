@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Neo4j"
+owner = "glesica"
+version = "2.0.0"
+description = "A reasonably functional Neo4j driver for the Julia programming language."
+stargazers_count = "20"
+url = "https://github.com/glesica/Neo4j.jl.git"
+installs = true
+tags = ["neo4j", "julia", "database-driver", "graph-database", "mit-license"]
+license = "Other"
+
+[[contributors]]
+name = "glesica"
+contributions = "54"
+[[contributors]]
+name = "StefanHaunsberger"
+contributions = "18"
+[[contributors]]
+name = "GearsAD"
+contributions = "9"
+[[contributors]]
+name = "dehann"
+contributions = "8"
+[[contributors]]
+name = "bovine3dom"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

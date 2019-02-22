@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RandomV06"
+owner = "danspielman"
+version = "0.0.2"
+description = "The pseudorandom generators from Julia 0.6, for use in Julia 0.7"
+stargazers_count = "0"
+url = "https://github.com/danspielman/RandomV06.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "danspielman"
+contributions = "16"

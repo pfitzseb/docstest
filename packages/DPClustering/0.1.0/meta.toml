@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DPClustering"
+owner = "marcjwilliams1"
+version = "0.1.0"
+description = "Dirichilet process clustering for cancer sequencing data"
+stargazers_count = "4"
+url = "https://github.com/marcjwilliams1/DPClustering.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "marcjwilliams1"
+contributions = "56"

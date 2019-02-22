@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "IndentWrappers"
+owner = "tpapp"
+version = "0.1.0"
+description = "Wrapper type for indentation management for plain text printing."
+stargazers_count = "0"
+url = "https://github.com/tpapp/IndentWrappers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "6"

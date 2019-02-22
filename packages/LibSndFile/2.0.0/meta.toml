@@ -1,0 +1,42 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LibSndFile"
+owner = "JuliaAudio"
+version = "2.0.0"
+description = "Julia Interface to libsndfile"
+stargazers_count = "11"
+url = "https://github.com/JuliaAudio/LibSndFile.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ssfrr"
+contributions = "222"
+[[contributors]]
+name = "bauglir"
+contributions = "7"
+[[contributors]]
+name = "zhemao"
+contributions = "4"
+[[contributors]]
+name = "calder"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "r9y9"
+contributions = "2"
+[[contributors]]
+name = "haberdashPI"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "JohnHBrock"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

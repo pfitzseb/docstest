@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "QueryOperators"
+owner = "queryverse"
+version = "0.7.0"
+description = "Query operators for julia"
+stargazers_count = "4"
+url = "https://github.com/queryverse/QueryOperators.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "90"
+[[contributors]]
+name = "n-patel"
+contributions = "15"
+[[contributors]]
+name = "Yijia-Chen"
+contributions = "11"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "SignedDistanceFields"
+owner = "JuliaGraphics"
+version = "0.4.0"
+description = "Simple and efficient SDF calculation."
+stargazers_count = "5"
+url = "https://github.com/JuliaGraphics/SignedDistanceFields.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "yurivish"
+contributions = "50"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "23"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

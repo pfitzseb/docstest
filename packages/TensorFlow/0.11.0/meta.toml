@@ -1,0 +1,114 @@
+license_url = ""
+doctype = "real"
+name = "TensorFlow"
+owner = "malmaud"
+version = "0.11.0"
+description = "A Julia wrapper for TensorFlow"
+stargazers_count = "538"
+url = "https://github.com/malmaud/TensorFlow.jl.git"
+installs = true
+tags = ["wrapper", "gpu", "julia", "tensorflow", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "malmaud"
+contributions = "745"
+[[contributors]]
+name = "oxinabox"
+contributions = "278"
+[[contributors]]
+name = "kshyatt"
+contributions = "52"
+[[contributors]]
+name = "adamryczkowski"
+contributions = "35"
+[[contributors]]
+name = "gustafsson"
+contributions = "21"
+[[contributors]]
+name = "MikeInnes"
+contributions = "18"
+[[contributors]]
+name = "yeesian"
+contributions = "14"
+[[contributors]]
+name = "baggepinnen"
+contributions = "8"
+[[contributors]]
+name = "pevnak"
+contributions = "7"
+[[contributors]]
+name = "staticfloat"
+contributions = "6"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "MoonCoral"
+contributions = "5"
+[[contributors]]
+name = "asimshankar"
+contributions = "4"
+[[contributors]]
+name = "kevin-w-li"
+contributions = "4"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "LMescheder"
+contributions = "3"
+[[contributors]]
+name = "smist09"
+contributions = "3"
+[[contributors]]
+name = "byronbest"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "soar-tm-discovery"
+contributions = "2"
+[[contributors]]
+name = "gdkrmr"
+contributions = "2"
+[[contributors]]
+name = "hpoit"
+contributions = "2"
+[[contributors]]
+name = "wookay"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "karenl7"
+contributions = "2"
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "1"
+[[contributors]]
+name = "colbec"
+contributions = "1"
+[[contributors]]
+name = "domluna"
+contributions = "1"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "lruthotto"
+contributions = "1"
+[[contributors]]
+name = "mcreel"
+contributions = "1"
+[[contributors]]
+name = "RatanRSur"
+contributions = "1"
+[[contributors]]
+name = "william-silversmith"
+contributions = "1"

@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "real"
+name = "LLVM"
+owner = "maleadt"
+version = "1.0.0"
+description = "Julia wrapper for the LLVM C API"
+stargazers_count = "40"
+url = "https://github.com/maleadt/LLVM.jl.git"
+installs = true
+tags = ["julia", "julia-library", "llvm-bindings", "llvm"]
+license = "Other"
+
+[[contributors]]
+name = "maleadt"
+contributions = "557"
+[[contributors]]
+name = "KristofferC"
+contributions = "6"
+[[contributors]]
+name = "bors[bot]"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "gaika"
+contributions = "1"
+[[contributors]]
+name = "TheOnlySilverClaw"
+contributions = "1"
+[[contributors]]
+name = "rai-nhdaly"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Jfire.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Jfire.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Jfire-1" href="#Jfire-1">Jfire</a></h1><h4><a class="nav-anchor" id="Why-Jfire-br-1" href="#Why-Jfire-br-1">Why Jfire &lt;br&gt;</a></h4><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;inspired by python-fire(https://github.com/google/python-fire) and Fire(https://github.com/ylxdzsw/Fire.jl) &lt;br&gt;</p><h4><a class="nav-anchor" id="Installbr-1" href="#Installbr-1">Install&lt;br&gt;</a></h4><pre><code class="language-none">julia&gt; ] 
+julia&gt; add Jfire # need julia 0.7.0+</code></pre><h4><a class="nav-anchor" id="Featurebr-1" href="#Featurebr-1">Feature&lt;br&gt;</a></h4><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1. support call single/multiple Function or single/multiple Module. &lt;br&gt;</p><h4><a class="nav-anchor" id="Thanksbr-1" href="#Thanksbr-1">Thanks&lt;br&gt;</a></h4><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;thanks the  people: I learned from https://discourse.julialang.org/t/how-to-set-variable-to-key-of-keyword-arguments-of-function/18995/7, after that, I tried to write Jfire. &lt;br&gt;</p><h4><a class="nav-anchor" id="Dependencebr-1" href="#Dependencebr-1">Dependence&lt;br&gt;</a></h4><pre><code class="language-none">julia 0.7.0/1.0.3/1.1.0-rc1</code></pre><h4><a class="nav-anchor" id="Usagebr-1" href="#Usagebr-1">Usage&lt;br&gt;</a></h4><p>doc/myth.jl is an example call from single Module:&lt;br&gt;</p><pre><code class="language-none">using Jfire
+
+module myth
+export hello
+function hello(;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;, number::Number=3)
+	println(&quot;hello, $name. $greet. $number&quot;)
+end
+end
+
+if abspath(PROGRAM_FILE) == @__FILE__
+	Jfire.Fire(myth, time=true, color=:yellow, info=false)
+end</code></pre><p>then run :</p><pre><code class="language-none">$ julia myth.jl hello --name world --number Int::5
+hello, world. how is the weather?. 5
+  0.032762 seconds (69.26 k allocations: 3.502 MiB)</code></pre><p>doc/myths.jl is an example call from multiple Module:&lt;br&gt;</p><pre><code class="language-none">using Jfire
+
+module myth1
+export hello1
+function hello1(;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;, number::Number=3)
+	println(&quot;hello, $name. $greet. $number&quot;)
+end
+end
+
+module myth2
+export hello2
+function hello2(;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;, number::Float32=3.0)
+	println(&quot;hello, $name. $greet. $number&quot;)
+end
+end
+
+if abspath(PROGRAM_FILE) == @__FILE__
+	ms = (myth1, myth2)
+	Jfire.Fire(ms, info=false,  time=false)
+end</code></pre><p>then run :</p><pre><code class="language-none">$ julia myths.jl  myth1.hello1 --name world --number Int::5
+hello, world. how is the weather?. 5</code></pre><p>doc/func.jl is an example call from single Function:&lt;br&gt;</p><pre><code class="language-none">using Jfire
+function myth_func1(wow::String;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;)
+	println(&quot;$wow, hello, $name ~ $greet&quot;)
+end
+if abspath(PROGRAM_FILE) == @__FILE__
+	Jfire.Fire(myth_func1, info=false)
+end</code></pre><p>then run :</p><pre><code class="language-none">$ julia  func.jl wow
+wow, hello, myth ~ how is the weather?</code></pre><p>doc/funcs.jl is an example call from multiple Function:&lt;br&gt;</p><pre><code class="language-none">using Jfire
+function myth_func1(wow;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;, fishing::Bool=true)
+	if fishing
+		fish = &quot;&quot;
+	else
+		fish = &quot;not&quot;
+	end
+	println(&quot;$wow, hello, $name ~ $greet, I will $fish go fishing today~&quot;)
+end
+function myth_func2(wow;name::String=&quot;myth&quot;, greet::String=&quot;how is the weather?&quot;)
+	println(&quot;$wow, hello, $name ~ $greet&quot;)
+end
+
+if abspath(PROGRAM_FILE) == @__FILE__
+	Jfire.Fire((myth_func1,myth_func2), time=true, color=:yellow)
+end</code></pre><p>then run :</p><pre><code class="language-none">$ julia  funcs.jl  myth_func1 well --greet &#39;nice day&#39; --fishing Bool::true
+[33mJfire version 0.1.0[39m
+[33m2019-01-22T12:51:52.847 ... start fire[39m
+position arguments: (&quot;well&quot;,)
+optional arguments: (greet = &quot;nice day&quot;, fishing = true)
+
+well, hello, myth ~ nice day, I will  go fishing today~
+  0.024783 seconds (41.69 k allocations: 2.172 MiB, 27.47% gc time)
+[33m2019-01-22T12:51:53.6 ... end fire[39m</code></pre><p>&lt;br&gt; detail test script is doc/test.sh&lt;br&gt;</p><h4><a class="nav-anchor" id="Support-function-parameter-types:br-1" href="#Support-function-parameter-types:br-1">Support function parameter types:&lt;br&gt;</a></h4><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;default is String,you also can specify the type, like –parameter Int::32, support julia build-in type which is argument of parse(), like Int,Float32,Float64,etc&lt;br&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position arguments or optional keywords argument&lt;br&gt;</p><h4><a class="nav-anchor" id="Not-support-function-parameter-types:br-1" href="#Not-support-function-parameter-types:br-1">Not support function parameter types:&lt;br&gt;</a></h4><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;–help&lt;br&gt;</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

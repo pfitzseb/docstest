@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "ScikitLearn"
+owner = "cstjean"
+version = "0.5.0"
+description = "Julia implementation of the scikit-learn API"
+stargazers_count = "262"
+url = "https://github.com/cstjean/ScikitLearn.jl.git"
+installs = true
+tags = ["julia", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "cstjean"
+contributions = "317"
+[[contributors]]
+name = "PastelBelem8"
+contributions = "1"
+[[contributors]]
+name = "ksteimel"
+contributions = "1"
+[[contributors]]
+name = "pwl"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "ValdarT"
+contributions = "1"

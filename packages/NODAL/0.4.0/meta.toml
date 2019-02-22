@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "NODAL"
+owner = "phrb"
+version = "0.4.0"
+description = "NODAL is an Open Distributed Autotuning Library in Julia"
+stargazers_count = "20"
+url = "https://github.com/phrb/NODAL.jl.git"
+installs = true
+tags = ["julia-language", "julia", "autotuning", "stochastic-optimizers", "high-performance-computing", "autotuners", "autonomous-search"]
+license = "Other"
+
+[[contributors]]
+name = "phrb"
+contributions = "280"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

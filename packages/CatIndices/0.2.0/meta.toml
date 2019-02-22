@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CatIndices"
+owner = "JuliaArrays"
+version = "0.2.0"
+description = "Julia package for indices-aware array concatenation and growth"
+stargazers_count = "2"
+url = "https://github.com/JuliaArrays/CatIndices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "18"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

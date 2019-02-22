@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ReusableFunctions"
+owner = "madsjulia"
+version = "0.5.0"
+description = "Automated storage and retrieval of results for functions calls"
+stargazers_count = "0"
+url = "https://github.com/madsjulia/ReusableFunctions.jl.git"
+installs = true
+tags = ["mads", "julia", "retrieval", "decision-support", "restarts", "checkpoint-restart", "high-performance-computing", "efficiency", "retrieve-data", "checkpoints"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "73"
+[[contributors]]
+name = "omalled"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "3"

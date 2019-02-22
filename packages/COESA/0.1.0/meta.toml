@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "COESA"
+owner = "danielmatz"
+version = "0.1.0"
+description = "The U.S. Committee on Extension to the Standard Atmosphere (COESA) atmosphere model, also known as the U.S. Standard Atmosphere, 1976."
+stargazers_count = "5"
+url = "https://github.com/danielmatz/COESA.jl.git"
+installs = true
+tags = ["atmosphere", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "danielmatz"
+contributions = "30"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "PooledArrays"
+owner = "JuliaComputing"
+version = "0.5.1"
+description = "A pooled representation of arrays for purposes of compression when there are few unique elements."
+stargazers_count = "4"
+url = "https://github.com/JuliaComputing/PooledArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "JeffBezanson"
+contributions = "18"
+[[contributors]]
+name = "shashi"
+contributions = "10"
+[[contributors]]
+name = "nalimilan"
+contributions = "7"
+[[contributors]]
+name = "joshday"
+contributions = "6"
+[[contributors]]
+name = "DilumAluthge"
+contributions = "4"
+[[contributors]]
+name = "piever"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

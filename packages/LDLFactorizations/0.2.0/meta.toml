@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/lgpl-3.0"
+doctype = "default"
+name = "LDLFactorizations"
+owner = "JuliaSmoothOptimizers"
+version = "0.2.0"
+description = "Factorization of Symmetric Matrices"
+stargazers_count = "2"
+url = "https://github.com/JuliaSmoothOptimizers/LDLFactorizations.jl.git"
+installs = true
+tags = ["factorization", "matrices", "julia", "julia-language", "linear-algebra"]
+license = "GNU Lesser General Public License v3.0"
+
+[[contributors]]
+name = "abelsiqueira"
+contributions = "7"
+[[contributors]]
+name = "dpo"
+contributions = "6"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "CollisionDetection"
+owner = "krcools"
+version = "0.1.2"
+description = "Tree data structure for log(N) collision testing"
+stargazers_count = "3"
+url = "https://github.com/krcools/CollisionDetection.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "52"
+[[contributors]]
+name = "Elkalsh"
+contributions = "23"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

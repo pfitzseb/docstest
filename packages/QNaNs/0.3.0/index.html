@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · QNaNs.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>QNaNs.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="QNaNs.jl-1" href="#QNaNs.jl-1">QNaNs.jl</a></h1><p>Simplifies the use of quiet NaNs to propagate information from within numerical computations.&amp;nbsp;&amp;nbsp; <a href="https://travis-ci.org/JeffreySarnoff/QNaNs.jl"><img src="https://travis-ci.org/JeffreySarnoff/QNaNs.jl.svg?branch=master" alt="Build Status"/></a></p><pre><code class="language-ruby">                                                       Jeffrey Sarnoff © 2016-Mar-26 at New York</code></pre><p>####Quick Look</p><pre><code class="language-julia">&gt; Pkg.add(&quot;QNaNs&quot;)</code></pre><pre><code class="language-julia">&gt; using QNaNs
+&gt; a_qnan = qnan(36)
+NaN
+&gt; payload = qnan(a_qnan)
+36
+
+&gt; typeof(a_qnan)
+Float64
+&gt; isnan(a_qnan), isnan(NaN)   # quiet NaNs areNaNs
+true, true
+
+# works with Float64, Float32 and Float16
+
+&gt; a_qnan32 = qnan(Int32(-77))
+NaN32
+&gt; payload = qnan(a_qnan32); payload, typeof(payload)
+-77, Int32
+
+&gt; qnan16 = qnan(Int16(-77)); payload16 = qnan(qnan16);
+&gt; qnan16, typeof(qnan16), payload16, typeof(payload16)
+NaN16, Float16, -77, Int16
+</code></pre><p>#####William Kahan on QNaNs</p><p>NaNs propagate through most computations. Consequently they do get used. ... they are needed only for computation, with temporal sequencing that can be hard to revise, harder to reverse. NaNs must conform to mathematically consistent rules that were deduced, not invented arbitrarily ...</p><p>NaNs [ give software the opportunity, especially when searching ] to follow an unexceptional path ( no need for exotic control structures ) to a point where an exceptional event can be appraised ... when additional evidence may have accrued ...  NaNs [have] a field of bits into which software can record, say, how and/or where the NaN came into existence. That [can be] extremely helpful [in] “Retrospective Diagnosis.”</p><p>– IEEE754 Lecture Notes (highly redacted)</p><h5><a class="nav-anchor" id="Quiet-NaNs-were-designed-to-propagate-information-from-within-numerical-computations-1" href="#Quiet-NaNs-were-designed-to-propagate-information-from-within-numerical-computations-1">Quiet NaNs were designed to propagate information from within numerical computations</a></h5><p>The payload for a Float64 qnan is an integer [-(2^51-1),(2^51-1)]   The payload for a Float32 qnan is an integer [-(2^22-1),(2^22-1)]   The payload for a Float16 qnan is an integer [-(2^9-1),(2^9-1)]  </p><p>Julia uses a payload of zero for NaN, NaN32, NaN16.</p><p>####About QNaN Propogation</p><p>A QNaN introduced into a numerical processing sequence usually will propogate along the computational path without loss of identity unless another QNaN is substituted or an second QNaN occurs in an arithmetic expression.</p><p>When two qnans are arguments to the same binary op, Julia propagates the qnan on the left hand side. </p><pre><code class="language-julia">&gt; using QNaNs
+&gt; function test()
+    lhs = qnan(-64)
+    rhs = qnan(100)
+    (qnan(lhs-rhs)==qnan(lhs), qnan(rhs/lhs)==qnan(rhs))
+  end;
+&gt; test()
+(true, true)</code></pre><p>References:</p><p><a href="http://www.eecs.berkeley.edu/~wkahan/ieee754status/IEEE754.PDF">William Kahan&#39;s IEEE754 Lecture Notes</a></p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

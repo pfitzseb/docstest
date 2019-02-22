@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "NLPModelsJuMP"
+owner = "JuliaSmoothOptimizers"
+version = "0.1.1"
+description = "Create NLPModels with JuMP"
+stargazers_count = "0"
+url = "https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl.git"
+installs = true
+tags = ["nlpmodels", "jump", "julia", "julia-language"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "abelsiqueira"
+contributions = "28"
+[[contributors]]
+name = "dpo"
+contributions = "1"

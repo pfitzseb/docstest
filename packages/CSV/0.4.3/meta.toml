@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "real"
+name = "CSV"
+owner = "JuliaData"
+version = "0.4.3"
+description = "Utility library for working with CSV and other delimited files in the Julia programming language"
+stargazers_count = "81"
+url = "https://github.com/JuliaData/CSV.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "311"
+[[contributors]]
+name = "nalimilan"
+contributions = "14"
+[[contributors]]
+name = "spurll"
+contributions = "7"
+[[contributors]]
+name = "alyst"
+contributions = "7"
+[[contributors]]
+name = "cjprybol"
+contributions = "5"
+[[contributors]]
+name = "omus"
+contributions = "4"
+[[contributors]]
+name = "andreasnoack"
+contributions = "3"
+[[contributors]]
+name = "bkamins"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "jannefiluren"
+contributions = "3"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"
+[[contributors]]
+name = "christopher-dG"
+contributions = "1"
+[[contributors]]
+name = "coreywoodfield"
+contributions = "1"
+[[contributors]]
+name = "daschw"
+contributions = "1"
+[[contributors]]
+name = "dawbarton"
+contributions = "1"
+[[contributors]]
+name = "DilumAluthge"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "nicoleepp"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

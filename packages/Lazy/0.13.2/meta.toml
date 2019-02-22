@@ -1,0 +1,102 @@
+license_url = ""
+doctype = "default"
+name = "Lazy"
+owner = "MikeInnes"
+version = "0.13.2"
+description = "I was gonna maintain this package, but then I got high"
+stargazers_count = "226"
+url = "https://github.com/MikeInnes/Lazy.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "181"
+[[contributors]]
+name = "pfitzseb"
+contributions = "9"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "abhijithch"
+contributions = "3"
+[[contributors]]
+name = "chfin"
+contributions = "3"
+[[contributors]]
+name = "findmyway"
+contributions = "3"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "3"
+[[contributors]]
+name = "schnirz"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "2"
+[[contributors]]
+name = "iblis17"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "boathit"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "alainchau"
+contributions = "1"
+[[contributors]]
+name = "cmey"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "masapir"
+contributions = "1"
+[[contributors]]
+name = "MichaeLeroy"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "rsrock"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "abnud1"
+contributions = "1"
+[[contributors]]
+name = "marius311"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"

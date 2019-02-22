@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "ArchGDAL"
+owner = "yeesian"
+version = "0.2.0"
+description = "A high level API for GDAL - Geospatial Data Abstraction Library"
+stargazers_count = "21"
+url = "https://github.com/yeesian/ArchGDAL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "yeesian"
+contributions = "34"
+[[contributors]]
+name = "evetion"
+contributions = "7"
+[[contributors]]
+name = "visr"
+contributions = "5"
+[[contributors]]
+name = "ikselven"
+contributions = "2"
+[[contributors]]
+name = "cchderrick"
+contributions = "1"
+[[contributors]]
+name = "niclasmattsson"
+contributions = "1"

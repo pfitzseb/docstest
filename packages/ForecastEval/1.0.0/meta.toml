@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ForecastEval"
+owner = "colintbowers"
+version = "1.0.0"
+description = "Forecast evaluation procedures for time-series data"
+stargazers_count = "1"
+url = "https://github.com/colintbowers/ForecastEval.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "colintbowers"
+contributions = "28"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "LabelNumerals"
+owner = "sambitdash"
+version = "0.1.0"
+description = "Numbers used as labels like page number like alpha, roman numerals or prefixed like A-1,2 etc. "
+stargazers_count = "0"
+url = "https://github.com/sambitdash/LabelNumerals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sambitdash"
+contributions = "24"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

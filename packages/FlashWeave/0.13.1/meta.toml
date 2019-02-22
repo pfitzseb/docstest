@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "FlashWeave"
+owner = "meringlab"
+version = "0.13.1"
+description = "Inference of microbial interaction networks from large-scale heterogeneous abundance data"
+stargazers_count = "12"
+url = "https://github.com/meringlab/FlashWeave.jl.git"
+installs = true
+tags = ["metagenomics", "microbiome", "probabilistic-graphical-models", "high-performance-computing", "compositional-data", "metadata", "ecological-network", "co-occurence", "julia", "bioinformatics"]
+license = "Other"
+
+[[contributors]]
+name = "jtackm"
+contributions = "299"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "EchogramImages"
+owner = "EchoJulia"
+version = "0.1.0"
+description = "Simple echogram displays of arbitrary matrices in Julia."
+stargazers_count = "0"
+url = "https://github.com/EchoJulia/EchogramImages.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RobBlackwell"
+contributions = "17"

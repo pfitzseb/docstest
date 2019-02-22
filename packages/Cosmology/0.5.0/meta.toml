@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Cosmology"
+owner = "JuliaAstro"
+version = "0.5.0"
+description = "Cosmology library for Julia"
+stargazers_count = "25"
+url = "https://github.com/JuliaAstro/Cosmology.jl.git"
+installs = true
+tags = ["julia", "cosmology", "astrophysics", "astronomy"]
+license = "MIT License"
+
+[[contributors]]
+name = "giordano"
+contributions = "27"
+[[contributors]]
+name = "kbarbary"
+contributions = "11"
+[[contributors]]
+name = "nolta"
+contributions = "8"
+[[contributors]]
+name = "SzymonPrajs"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

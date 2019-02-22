@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Kuber"
+owner = "JuliaComputing"
+version = "0.1.0"
+description = "Julia Kubernetes Client"
+stargazers_count = "7"
+url = "https://github.com/JuliaComputing/Kuber.jl.git"
+installs = true
+tags = ["julia", "kubernetes", "client-library"]
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "67"
+[[contributors]]
+name = "ViralBShah"
+contributions = "4"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"

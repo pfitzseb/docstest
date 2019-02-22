@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TiledIteration.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TiledIteration.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TiledIteration-1" href="#TiledIteration-1">TiledIteration</a></h1><p><a href="https://travis-ci.org/JuliaArrays/TiledIteration.jl"><img src="https://travis-ci.org/JuliaArrays/TiledIteration.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="http://codecov.io/github/JuliaArrays/TiledIteration.jl?branch=master"><img src="http://codecov.io/github/JuliaArrays/TiledIteration.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This Julia package handles some of the low-level details for writing cache-efficient, possibly-multithreaded code for multidimensional arrays. A &quot;tile&quot; corresponds to a chunk of a larger array, typically a region that is large enough to encompass any &quot;local&quot; computations you need to perform; some of these computations may require temporary storage.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>This package offers two basic kinds of functionality: the management of temporary buffers for processing on tiles, and the iteration over disjoint tiles of a larger array.</p><h3><a class="nav-anchor" id="Iteration-1" href="#Iteration-1">Iteration</a></h3><p>To iterate over disjoint tiles of a larger array, use a <code>TileIterator</code>:</p><pre><code class="language-julia">using TiledIteration
+
+A = rand(1000,1000);   # our big array
+for tileaxs in TileIterator(axes(A), (128,8))
+    @show tileaxs
+end</code></pre><p>This produces</p><pre><code class="language-julia">tileaxs = (1:128,1:8)
+tileaxs = (129:256,1:8)
+tileaxs = (257:384,1:8)
+tileaxs = (385:512,1:8)
+tileaxs = (513:640,1:8)
+tileaxs = (641:768,1:8)
+tileaxs = (769:896,1:8)
+tileaxs = (897:1000,1:8)
+tileaxs = (1:128,9:16)
+tileaxs = (129:256,9:16)
+tileaxs = (257:384,9:16)
+tileaxs = (385:512,9:16)
+...</code></pre><p>You can see that the total axes range is split up into chunks, which are of size <code>(128,8)</code> except at the edges of <code>A</code>. Naturally, these axes serve as the basis for processing individual chunks of the array.</p><p>As a further example, suppose you&#39;ve started julia with <code>JULIA_NUM_THREADS=4</code>; then</p><pre><code class="language-julia">function fillid!(A, tilesz)
+    tileinds_all = collect(TileIterator(axes(A), tilesz))
+    Threads.@threads for i = 1:length(tileinds_all)
+        tileaxs = tileinds_all[i]
+        A[tileaxs...] .= Threads.threadid()
+    end
+    A
+end
+
+A = zeros(Int, 8, 8)
+fillid!(A, (2,2))</code></pre><p>would yield</p><pre><code class="language-julia">8×8 Array{Int64,2}:
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4
+ 1  1  2  2  3  3  4  4</code></pre><p>See also &quot;EdgeIterator&quot; below.</p><h3><a class="nav-anchor" id="Determining-the-chunk-size-1" href="#Determining-the-chunk-size-1">Determining the chunk size</a></h3><p><a href="https://en.wikipedia.org/wiki/Stencil_code">Stencil computations</a> typically require &quot;padding&quot; values, so the inputs to a computation may be of a different size than the resulting outputs. Naturally, you can set the tile size manually; a simple convenience function, <code>padded_tilesize</code>, attempts to pick reasonable choices for you depending on the size of your kernel (stencil) and element type you&#39;ll be using:</p><pre><code class="language-julia">julia&gt; padded_tilesize(UInt8, (3,3))
+(768,18)
+
+julia&gt; padded_tilesize(UInt8, (3,3), 4)  # we want 4 of these to fit in L1 cache at once
+(512,12)
+
+julia&gt; padded_tilesize(Float64, (3,3))
+(96,18)
+
+julia&gt; padded_tilesize(Float32, (3,3,3))
+(64,6,6)</code></pre><h3><a class="nav-anchor" id="Allocating-and-managing-temporary-storage-1" href="#Allocating-and-managing-temporary-storage-1">Allocating and managing temporary storage</a></h3><p>To allocate temporary storage while working with tiles, use <code>TileBuffer</code>:</p><pre><code class="language-julia">julia&gt; tileaxs = (-1:15, 0:7)  # really this might have come from TileIterator
+
+julia&gt; buf = TileBuffer(Float32, tileaxs)
+TiledIteration.TileBuffer{Float32,2,2} with indices -1:15×0:7:
+ 0.0  0.0          2.38221f-44  0.0          0.0          0.0          9.3887f-44   0.0
+ 0.0  1.26117f-44  0.0          0.0          0.0          8.26766f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          6.02558f-44  0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          7.28675f-44  0.0          0.0          0.0
+ 0.0  1.54143f-44  0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          9.94922f-44  0.0
+ 0.0  0.0          0.0          0.0          0.0          8.82818f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          9.10844f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          1.03696f-43  0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0</code></pre><p>This returns an uninitialized buffer for use over the indicated domain. You can reuse this same storage for the next tile, even if the tile is smaller because it corresponds to the edge of the original array:</p><pre><code class="language-julia">julia&gt; pointer(buf)
+Ptr{Float32} @0x00007f79131fd550
+
+julia&gt; buf = TileBuffer(buf, (16:20, 0:7))
+TiledIteration.TileBuffer{Float32,2,2} with indices 16:20×0:7:
+ 0.0  0.0  0.0  0.0          0.0          0.0  0.0          0.0
+ 0.0  0.0  0.0  0.0          0.0          0.0  0.0          0.0
+ 0.0  0.0  0.0  0.0          1.54143f-44  0.0  0.0          0.0
+ 0.0  0.0  0.0  1.26117f-44  0.0          0.0  0.0          0.0
+ 0.0  0.0  0.0  0.0          0.0          0.0  2.38221f-44  0.0
+
+julia&gt; pointer(buf)
+Ptr{Float32} @0x00007f79131fd550</code></pre><p>When you use it again at the top of the next block of columns, it returns to its original size while still reusing the same memory:</p><pre><code class="language-julia">julia&gt; buf = TileBuffer(buf, (-1:15, 8:15))
+TiledIteration.TileBuffer{Float32,2,2} with indices -1:15×8:15:
+ 0.0  0.0          2.38221f-44  0.0          0.0          0.0          9.3887f-44   0.0
+ 0.0  1.26117f-44  0.0          0.0          0.0          8.26766f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          6.02558f-44  0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          7.28675f-44  0.0          0.0          0.0
+ 0.0  1.54143f-44  0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          9.94922f-44  0.0
+ 0.0  0.0          0.0          0.0          0.0          8.82818f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          9.10844f-44  0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          1.03696f-43  0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+ 0.0  0.0          0.0          0.0          0.0          0.0          0.0          0.0
+
+julia&gt; pointer(buf)
+Ptr{Float32} @0x00007f79131fd550</code></pre><h3><a class="nav-anchor" id="EdgeIterator-1" href="#EdgeIterator-1">EdgeIterator</a></h3><p>When performing stencil operations, oftentimes the edge of the array requires special treatment. Several approaches to handling the edges (adding explicit padding, or executing special code just when on the boundaries) can slow your algorithm down because of extra steps or branches.</p><p>This package helps support implementations which first handle the &quot;interior&quot; of an array (for example using <code>TiledIterator</code> over just the interior) using a &quot;fast path,&quot; and then handle just the edges by a (possibly) less carefully optimized algorithm. The key component of this is <code>EdgeIterator</code>:</p><pre><code class="language-julia">outerrange = CartesianIndices((-1:4, 0:3))
+innerrange = CartesianIndices(( 1:3, 1:2))
+julia&gt; for I in EdgeIterator(outerrange, innerrange)
+           @show I
+       end
+I = CartesianIndex(-1, 0)
+I = CartesianIndex(0, 0)
+I = CartesianIndex(1, 0)
+I = CartesianIndex(2, 0)
+I = CartesianIndex(3, 0)
+I = CartesianIndex(4, 0)
+I = CartesianIndex(-1, 1)
+I = CartesianIndex(0, 1)
+I = CartesianIndex(4, 1)
+I = CartesianIndex(-1, 2)
+I = CartesianIndex(0, 2)
+I = CartesianIndex(4, 2)
+I = CartesianIndex(-1, 3)
+I = CartesianIndex(0, 3)
+I = CartesianIndex(1, 3)
+I = CartesianIndex(2, 3)
+I = CartesianIndex(3, 3)
+I = CartesianIndex(4, 3)</code></pre><p>The time required to visit these edge sites is on the order of the number of edge sites, not the order of the number of sites encompassed by <code>outerrange</code>, and consequently is efficient.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

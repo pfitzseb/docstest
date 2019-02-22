@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Materials"
+owner = "JuliaFEM"
+version = "0.1.0"
+description = "Computational material models"
+stargazers_count = "4"
+url = "https://github.com/JuliaFEM/Materials.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jvaara"
+contributions = "28"
+[[contributors]]
+name = "ahojukka5"
+contributions = "25"
+[[contributors]]
+name = "ovainola"
+contributions = "5"
+[[contributors]]
+name = "TeroFrondelius"
+contributions = "1"

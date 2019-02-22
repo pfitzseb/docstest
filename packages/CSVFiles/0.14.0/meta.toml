@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CSVFiles"
+owner = "queryverse"
+version = "0.14.0"
+description = "FileIO.jl integration for CSV files"
+stargazers_count = "17"
+url = "https://github.com/queryverse/CSVFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "95"
+[[contributors]]
+name = "oxinabox"
+contributions = "4"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"

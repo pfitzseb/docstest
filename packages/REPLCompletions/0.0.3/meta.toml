@@ -1,0 +1,23 @@
+license_url = ""
+name = "REPLCompletions"
+owner = "Keno"
+version = "0.0.3"
+description = "Completions for your Julia REPL"
+stargazers_count = "9"
+url = "https://github.com/Keno/REPLCompletions.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "16"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "3"
+[[contributors]]
+name = "ivarne"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DynamicIterators"
+owner = "mschauer"
+version = "0.3.0"
+description = "Iterators with message passing and feedback loops"
+stargazers_count = "2"
+url = "https://github.com/mschauer/DynamicIterators.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "mschauer"
+contributions = "66"

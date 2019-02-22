@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Emoji_Entities"
+owner = "JuliaString"
+version = "0.3.2"
+description = "Support for using Emoji entities in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/Emoji_Entities.jl.git"
+installs = true
+tags = ["emoji", "emoji-entities", "character"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "53"
+[[contributors]]
+name = "maartenheremans"
+contributions = "2"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "StructuredOptimization"
+owner = "kul-forbes"
+version = "0.0.1"
+description = "Structured optimization in Julia"
+stargazers_count = "22"
+url = "https://github.com/kul-forbes/StructuredOptimization.jl.git"
+installs = true
+tags = ["optimization-algorithms", "large-scale", "non-smooth", "convex-optimization", "non-convex"]
+license = "Other"
+
+[[contributors]]
+name = "nantonel"
+contributions = "236"
+[[contributors]]
+name = "lostella"
+contributions = "127"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

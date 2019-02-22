@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "MathematicalSystems"
+owner = "JuliaReach"
+version = "0.3.0"
+description = "Systems definitions in Julia"
+stargazers_count = "8"
+url = "https://github.com/JuliaReach/MathematicalSystems.jl.git"
+installs = true
+tags = ["julia", "dynamical-systems"]
+license = "Other"
+
+[[contributors]]
+name = "mforets"
+contributions = "121"
+[[contributors]]
+name = "blegat"
+contributions = "25"
+[[contributors]]
+name = "schillic"
+contributions = "12"

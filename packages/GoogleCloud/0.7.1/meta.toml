@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "GoogleCloud"
+owner = "JuliaCloud"
+version = "0.7.1"
+description = "Google Cloud APIs for Julia"
+stargazers_count = "11"
+url = "https://github.com/JuliaCloud/GoogleCloud.jl.git"
+installs = true
+tags = ["julia", "googlecloud", "cloud-computing"]
+license = "Other"
+
+[[contributors]]
+name = "joshbode"
+contributions = "92"
+[[contributors]]
+name = "jingpengw"
+contributions = "24"
+[[contributors]]
+name = "JockLawrie"
+contributions = "7"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

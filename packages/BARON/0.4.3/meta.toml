@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BARON"
+owner = "joehuchette"
+version = "0.4.3"
+description = "Julia wrapper for the BARON mixed-integer nonlinear programming solver"
+stargazers_count = "5"
+url = "https://github.com/joehuchette/BARON.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "joehuchette"
+contributions = "48"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"
+[[contributors]]
+name = "tasseff"
+contributions = "3"
+[[contributors]]
+name = "bbrunaud"
+contributions = "2"
+[[contributors]]
+name = "dovahcrow"
+contributions = "1"

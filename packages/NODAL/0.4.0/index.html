@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · NODAL.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>NODAL.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p>&lt;p align=&quot;center&quot;&gt;     &lt;img src=&quot;https://github.com/phrb/NODAL.jl/blob/master/img/logo.svg&quot;          height=&quot;280&quot;&gt; &lt;/p&gt; &lt;p align=&quot;center&quot;&gt;     &lt;a href=&quot;https://badge.fury.io/gh/phrb%2FNODAL.jl&quot;&gt;         &lt;img src=&quot;https://badge.fury.io/gh/phrb%2FNODAL.jl.svg&quot;              alt=&quot;Git Version&quot;&gt;     &lt;/a&gt;     &lt;a href=&quot;http://pkg.julialang.org/?pkg=StochasticSearch&quot;&gt;         &lt;img src=&quot;http://pkg.julialang.org/badges/NODAL_0.7.svg&quot;              alt=&quot;Julia Package Version&quot;&gt;     &lt;/a&gt;     &lt;a href=&quot;https://travis-ci.org/phrb/NODAL.jl&quot;&gt;         &lt;img src=&quot;https://travis-ci.org/phrb/NODAL.jl.svg&quot;              alt=&quot;Build Status&quot;&gt;     &lt;/a&gt;     &lt;a href=&quot;https://coveralls.io/r/phrb/NODAL.jl&quot;&gt;         &lt;img src=&quot;https://coveralls.io/repos/phrb/NODAL.jl/badge.svg&quot;              alt=&quot;Coverage&quot;&gt;     &lt;/a&gt;     &lt;a href=&quot;http://nodal.readthedocs.org/en/latest/?badge=latest&quot;&gt;         &lt;img src=&quot;https://readthedocs.org/projects/nodal/badge/?version=latest&quot;              alt=&quot;Documentation Status&quot;&gt;     &lt;/a&gt; &lt;/p&gt;</p><p>NODAL provides tools for implementing parallel and distributed program autotuners.  This Julia package provides tools and optimization algorithms for implementing different Stochastic Local Search methods, such as Simulated Annealing and Tabu Search. NODAL is an ongoing project, and will implement more optimization and local search algorithms.</p><p>You can use NODAL to optimize user-defined functions with a few Stochastic Local Search basic methods, that are composed by building blocks also provided in the package. The package distributes evaluations of functions and technique executions between Julia workers. It is possible to have multiple instances of search techniques running on the same problem.</p><h3><a class="nav-anchor" id="Installing-1" href="#Installing-1">Installing</a></h3><p>NODAL runs on Julia <strong>nightly</strong>. From the Julia REPL, run:</p><pre><code class="language-jl">Pkg.add(&quot;NODAL&quot;)</code></pre><p>If you want the latest version, which may be unstable, run instead:</p><pre><code class="language-jl">Pkg.clone(&quot;NODAL&quot;)</code></pre><h3><a class="nav-anchor" id="Documentation-1" href="#Documentation-1">Documentation</a></h3><p>Please, refer to the <a href="http://stochasticsearchjl.readthedocs.org/">documentation</a> for more information and examples.</p><h3><a class="nav-anchor" id="Example:-The-Rosenbrock-Function-1" href="#Example:-The-Rosenbrock-Function-1">Example: The Rosenbrock Function</a></h3><p>The following is a very simple example, and you can find the <a href="https://github.com/phrb/NODAL.jl/blob/master/examples/rosenbrock/rosenbrock.jl">source code</a> for its latest version in the GitHub repository.</p><p>We will optimize the <a href="http://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock</a> cost function. For this we must define a <code>Configuration</code> that represents the arguments to be tuned. We also have to create and configure a tuning run. First, let&#39;s import NODAL and define the cost function:</p><pre><code class="language-julia">addprocs()
+
+import NODAL
+
+@everywhere begin
+    using NODAL
+    function rosenbrock(x::Configuration, parameters::Dict{Symbol, Any})
+        return (1.0 - x[&quot;i0&quot;].value)^2 + 100.0 * (x[&quot;i1&quot;].value - x[&quot;i0&quot;].value^2)^2
+    end
+end</code></pre><p><strong>Note</strong>:</p><blockquote><p>The Rosenbrock function is by no means a good autotuning objetive, although it is a good tool to help you get familiar with the API. NODAL certainly performs worse than most tools for this kind of function.  Look at further examples is this page for more fitting applications.</p></blockquote><p>We use the <code>addprocs()</code> function to add the default number of Julia workers, one per processing core, to our application. The <code>import</code> statement loads NODAL in the current Julia worker, and the <code>@everywhere</code> macro defines the <code>rosenbrock</code> function and the module in all Julia workers available.</p><p>Cost functions must accept a <code>Configuration</code> and a <code>Dict{Symbol, Any}</code> as input. The <code>Configuration</code> is used to define the autotuner&#39;s search space, and the parameter dictionary can store data or function configurations.</p><p>Our cost function simply ignores the parameter dictionary, and uses the <code>&quot;i0&quot;</code> and <code>&quot;i1&quot;</code> parameters of the received configuration to calculate a value. There is no restriction on the names of <code>Configuration</code> parameter.</p><p>Our configuration will have two <code>FloatParameter</code>s, which will be <code>Float64</code> values constrained to an interval. The intervals are <code>[-2.0, 2.0]</code> for both parameters, and their values start at <code>0.0</code>. Since we already used the names <code>&quot;i0&quot;</code> and <code>&quot;i1&quot;</code>, we name the parameters the same way:</p><pre><code class="language-julia">configuration = Configuration([FloatParameter(-2.0, 2.0, 0.0, &quot;i0&quot;),
+                               FloatParameter(-2.0, 2.0, 0.0, &quot;i1&quot;)],
+                               &quot;rosenbrock_config&quot;)</code></pre><p>Now we must configure a new tuning run using the <code>Run</code> type. There are many parameters to configure, but they all have default values. Since we won&#39;t be using them all, please see <code>Run</code>&#39;s <a href="https://github.com/phrb/NODAL.jl/blob/master/src/core/run.jl">source</a> for further details:</p><pre><code class="language-julia">tuning_run = Run(cost                = rosenbrock,
+                 starting_point      = configuration,
+                 stopping_criterion  = elapsed_time_criterion,
+                 report_after        = 10,
+                 reporting_criterion = elapsed_time_reporting_criterion,
+                 duration            = 60,
+                 methods             = [[:simulated_annealing 1];
+                                        [:iterative_first_improvement 1];
+                                        [:iterated_local_search 1];
+                                        [:randomized_first_improvement 1];
+                                        [:iterative_greedy_construction 1];])</code></pre><p>The <code>methods</code> array defines the search methods, and their respective number of instances, that will be used in this tuning run. This example uses one instance of every implemented search technique. The search will start at the point defined by <code>starting_point</code>.</p><p>The <code>stopping_criterion</code> parameter is a function. It tells your autotuner when to stop iterating. The two default criteria implemented are <code>elapsed_time_criterion</code> and <code>iterations_criterion</code>.  The <code>reporting_criterion</code> parameter is also function, but it tells your autotuner when to report the current results. The two default implementations are <code>elapsed_time_reporting_criterion</code> and <code>iterations_reporting_criterion</code>.  Take a look at the <a href="https://github.com/phrb/NODAL.jl/tree/master/src/core/search/tools">code</a> if you want to dive deeper.</p><p>We are ready to start autotuning, using the <code>@spawn</code> macro. For more information on how parallel and distributed computing works in Julia, please check the <a href="http://docs.julialang.org/en/latest">Julia Docs</a>.  This macro call will run the <code>optimize</code> method, which receives a tuning run configuration and runs the search techniques in the background. The autotuner will write its results to a <code>RemoteChannel</code> stored in the tuning run configuration:</p><pre><code class="language-julia">@spawn optimize(tuning_run)
+result = take!(tuning_run.channel)</code></pre><p>The tuning run will use the default neighboring and perturbation methods implemented by NODAL to find new results. Now we can process the current result. In this example we just <code>print</code> it and loop until <code>optimize</code> is done:</p><pre><code class="language-julia">print(result)
+while !result.is_final
+    result = take!(tuning_run.channel)
+    print(result)
+end</code></pre><p>Running the complete example, we get:</p><pre><code class="language-bash">$ julia --color=yes rosenbrock.jl
+[Result]
+Cost              : 1.0
+Found in Iteration: 1
+Current Iteration : 1
+Technique         : Initialize
+Function Calls    : 1
+  ***
+[Result]
+Cost              : 1.0
+Found in Iteration: 1
+Current Iteration : 3973
+Technique         : Initialize
+Function Calls    : 1
+  ***
+[Result]
+Current Iteration : 52289
+Technique         : Iterative First Improvement
+Function Calls    : 455
+  ***
+[Result]
+Cost              : 0.01301071782455056
+Found in Iteration: 10
+Current Iteration : 70282
+Technique         : Randomized First Improvement
+Function Calls    : 3940
+  ***
+[Result]
+Cost              : 0.009463518035824526
+Found in Iteration: 11
+Current Iteration : 87723
+Technique         : Randomized First Improvement
+Function Calls    : 4594
+  ***
+[Final Result]
+Cost                  : 0.009463518035824526
+Found in Iteration    : 11
+Current Iteration     : 104261
+Technique             : Randomized First Improvement
+Function Calls        : 4594
+Starting Configuration:
+  [Configuration]
+  name      : rosenbrock_config
+  parameters:
+    [NumberParameter]
+    name : i0
+    min  : -2.000000
+    max  : 2.000000
+    value: 1.100740
+    ***
+    [NumberParameter]
+    name : i1
+    min  : -2.000000
+    max  : 2.000000
+    value: 1.216979
+Minimum Configuration :
+  [Configuration]
+  name      : rosenbrock_config
+  parameters:
+    [NumberParameter]
+    name : i0
+    min  : -2.000000
+    max  : 2.000000
+    value: 0.954995
+    ***
+    [NumberParameter]
+    name : i1
+    min  : -2.000000
+    max  : 2.000000
+    value: 0.920639</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

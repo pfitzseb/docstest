@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Bedgraph"
+owner = "CiaranOMara"
+version = "1.0.3"
+description = "Read and write support for bedGraph file format."
+stargazers_count = "0"
+url = "https://github.com/CiaranOMara/Bedgraph.jl.git"
+installs = true
+tags = ["julia", "bedgraph", "dna"]
+license = "Other"
+
+[[contributors]]
+name = "CiaranOMara"
+contributions = "101"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

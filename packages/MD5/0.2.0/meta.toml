@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "MD5"
+owner = "oxinabox"
+version = "0.2.0"
+description = "A 100% native-julia MD5 implementation "
+stargazers_count = "6"
+url = "https://github.com/oxinabox/MD5.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "16"
+[[contributors]]
+name = "jw3126"
+contributions = "6"

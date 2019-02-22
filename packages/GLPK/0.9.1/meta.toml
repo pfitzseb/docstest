@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "GLPK"
+owner = "JuliaOpt"
+version = "0.9.1"
+description = "GLPK wrapper module for Julia"
+stargazers_count = "20"
+url = "https://github.com/JuliaOpt/GLPK.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "carlobaldassi"
+contributions = "88"
+[[contributors]]
+name = "mlubin"
+contributions = "45"
+[[contributors]]
+name = "odow"
+contributions = "15"
+[[contributors]]
+name = "blegat"
+contributions = "8"
+[[contributors]]
+name = "rdeits"
+contributions = "7"
+[[contributors]]
+name = "ranjanan"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "IssamT"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "sbebo"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "mtanneau"
+contributions = "1"

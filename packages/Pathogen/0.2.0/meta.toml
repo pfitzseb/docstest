@@ -1,0 +1,7 @@
+name = "Pathogen"
+stargazers_count = "3"
+doctype = "default"
+installs = true
+url = "https://github.com/jangevaare/Pathogen.jl.git"
+version = "0.2.0"
+description = "Simulation and inference utilities for the spread of infectious diseases with Julia 1.0"

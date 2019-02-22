@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "MicrostructureNoise"
+owner = "mschauer"
+version = "0.10.0"
+description = "Nonparametric Bayesian volatility learning under microstructure noise"
+stargazers_count = "0"
+url = "https://github.com/mschauer/MicrostructureNoise.jl.git"
+installs = true
+tags = ["volatility", "microstructure"]
+license = "Other"
+
+[[contributors]]
+name = "mschauer"
+contributions = "47"
+[[contributors]]
+name = "gugushvili"
+contributions = "14"

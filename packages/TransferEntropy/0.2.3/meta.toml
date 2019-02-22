@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TransferEntropy"
+owner = "kahaaga"
+version = "0.2.3"
+description = "Transfer entropy (conditional mutual information) estimators for the Julia language"
+stargazers_count = "0"
+url = "https://github.com/kahaaga/TransferEntropy.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "148"

@@ -1,0 +1,39 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LinQuadOptInterface"
+owner = "JuliaOpt"
+version = "0.6.0"
+description = "Intermediate wrapper of MOI for some linear quadratic solvers"
+stargazers_count = "16"
+url = "https://github.com/JuliaOpt/LinQuadOptInterface.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "joaquimg"
+contributions = "71"
+[[contributors]]
+name = "odow"
+contributions = "48"
+[[contributors]]
+name = "rdeits"
+contributions = "13"
+[[contributors]]
+name = "blegat"
+contributions = "4"
+[[contributors]]
+name = "IssamT"
+contributions = "2"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "1"
+[[contributors]]
+name = "mlubin"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "vitornesello"
+contributions = "1"

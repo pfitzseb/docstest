@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "SatelliteToolbox"
+owner = "JuliaSpace"
+version = "0.5.1"
+description = "A toolbox for satellite analysis written in julia language."
+stargazers_count = "39"
+url = "https://github.com/JuliaSpace/SatelliteToolbox.jl.git"
+installs = true
+tags = ["satellite", "julia", "orbit-propagators", "reference-frame", "orbit"]
+license = "Other"
+
+[[contributors]]
+name = "ronisbr"
+contributions = "467"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "crbinz"
+contributions = "1"

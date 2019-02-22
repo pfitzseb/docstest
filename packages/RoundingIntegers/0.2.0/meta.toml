@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "RoundingIntegers"
+owner = "JuliaMath"
+version = "0.2.0"
+description = "Integer types that automatically round assigned values"
+stargazers_count = "4"
+url = "https://github.com/JuliaMath/RoundingIntegers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "18"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

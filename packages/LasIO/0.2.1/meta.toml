@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "LasIO"
+owner = "visr"
+version = "0.2.1"
+description = "Julia package for reading and writing the LAS lidar format."
+stargazers_count = "8"
+url = "https://github.com/visr/LasIO.jl.git"
+installs = true
+tags = ["julia", "lidar", "las", "laz", "point-cloud", "io"]
+license = "Other"
+
+[[contributors]]
+name = "visr"
+contributions = "45"
+[[contributors]]
+name = "evetion"
+contributions = "7"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "DirkEilander"
+contributions = "1"
+[[contributors]]
+name = "LaurensJN"
+contributions = "1"
+[[contributors]]
+name = "noahstier"
+contributions = "1"

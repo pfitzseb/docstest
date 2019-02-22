@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LowLevelFloatFunctions"
+owner = "JeffreySarnoff"
+version = "0.1.0"
+description = "Manipulate sign, exponent, significand of Float64, Float32, Float16 values. "
+stargazers_count = "2"
+url = "https://github.com/JeffreySarnoff/LowLevelFloatFunctions.jl.git"
+installs = true
+tags = ["julia", "floating-point", "exponent", "significand", "exponent-bias"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "122"

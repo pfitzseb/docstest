@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Eirene"
+owner = "Eetion"
+version = "1.0.0"
+description = "Julia library for homological persistence"
+stargazers_count = "17"
+url = "https://github.com/Eetion/Eirene.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Eetion"
+contributions = "48"

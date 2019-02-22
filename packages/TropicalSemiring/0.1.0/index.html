@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TropicalSemiring.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TropicalSemiring.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TropicalSemiring-1" href="#TropicalSemiring-1">TropicalSemiring</a></h1><p><a href="https://travis-ci.org/saschatimme/TropicalSemiring.jl"><img src="https://travis-ci.org/saschatimme/TropicalSemiring.jl.svg?branch=master" alt="Build Status"/></a> ![Codecov branch][codecov-img]</p><p>This small package defines the tropical semi-ring with either the max or min convention. With the max convention this is the semi-ring (ℝ ∪ {-∞}, ⊕, ⊙) where ⊕ is the usual multiplication and ⊙ is the usual maximum. With the min convention this is the semi-ring (ℝ ∪ {∞}, ⊕, ⊙) where ⊕ is the usual multiplication and ⊙ is the usual minimum. This corresponding Julia type is</p><pre><code class="language-julia">Trop{MM&lt;:Union{Min, Max}, T&lt;:Real} &lt;: Number</code></pre><p>For the tropical addition and multiplication the usual <code>+</code> and <code>*</code> are overloaded.</p><pre><code class="language-julia">julia&gt; Trop{Max}(2) + Trop{Max}(3) == Trop{Max}(3)
+true
+julia&gt; Trop{Min}(2) + Trop{Min}(3) == Trop{Min}(2)
+true
+julia&gt; Trop{Min}(2) * Trop{Min}(3) == Trop{Min}(5)
+true
+julia&gt; Trop{Max}(2) * Trop{Max}(3) == Trop{Max}(5)
+true</code></pre><p>Note that by default we use the <strong>max convention</strong>, i.e.,</p><pre><code class="language-julia">julia&gt; Trop(2) + Trop(3)
+3</code></pre><p>You can construct ±∞ by using the <code>inf</code> method</p><pre><code class="language-julia">julia&gt; inf(Max) isa Trop{Max}
+true
+julia&gt; Trop{Max}(2) + inf(Max)
+-∞
+julia&gt; inf(Min) isa Trop{Min}
+true
+julia&gt; Trop{Min}(2) + inf(Min)
+∞
+# By default we have again the max convention
+julia&gt; inf() isa Trop{Max}
+true</code></pre><p>[codecov-img]: http://codecov.io/github/saschatimme/TropicalSemiring.jl/coverage.svg?branch=master [codecov-url]: http://codecov.io/github/saschatimme/TropicalSemiring.jl?branch=master</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

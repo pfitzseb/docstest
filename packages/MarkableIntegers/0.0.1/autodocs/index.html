@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · MarkableIntegers.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>MarkableIntegers.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MarkableIntegers.@mark!" href="#MarkableIntegers.@mark!"><code>MarkableIntegers.@mark!</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-julia">three = 3
+3
+markable_three = Unmarked(three)
+3
+isunmarked(markable_three)
+true
+@mark!(markable_three)
+3
+ismarked(markable_three)
+true</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MarkableIntegers.@unmark!" href="#MarkableIntegers.@unmark!"><code>MarkableIntegers.@unmark!</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-julia">three = 3
+3
+markable_three = Unmarked(three)
+3
+isunmarked(markable_three)
+true
+@mark!(markable_three)
+3
+ismarked(markable_three)
+true
+@unmark!(markable_three)
+3
+ismarked(markable_three)
+false</code></pre></div></div></section><pre><code class="language-none">MarkableIntegers.MarkInt</code></pre><pre><code class="language-none">MarkableIntegers.MarkInt128</code></pre><pre><code class="language-none">MarkableIntegers.MarkInt16</code></pre><pre><code class="language-none">MarkableIntegers.MarkInt32</code></pre><pre><code class="language-none">MarkableIntegers.MarkInt64</code></pre><pre><code class="language-none">MarkableIntegers.MarkInt8</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt128</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt16</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt32</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt64</code></pre><pre><code class="language-none">MarkableIntegers.MarkUInt8</code></pre><pre><code class="language-none">MarkableIntegers.MarkableInteger</code></pre><pre><code class="language-none">MarkableIntegers.MarkableIntegers</code></pre><pre><code class="language-none">MarkableIntegers.MarkableSigned</code></pre><pre><code class="language-none">MarkableIntegers.MarkableUnsigned</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MarkableIntegers.Marked" href="#MarkableIntegers.Marked"><code>MarkableIntegers.Marked</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Marked(x&lt;:Signed)   ⇢ x&lt;:MarkableSigned    &amp;&amp; ismarked(x)    Marked(x&lt;:Unsigned) ⇢ x&lt;:MarkableUnsigned  &amp;&amp; ismarked(x)</p><pre><code class="language-julia">three = 3
+3
+marked_three = Marked(three)
+3
+ismarked(marked_three)
+true
+!isunmarked(marked_three)
+true</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="MarkableIntegers.Unmarked" href="#MarkableIntegers.Unmarked"><code>MarkableIntegers.Unmarked</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Unmarked(x&lt;:Signed)   ⇢ x&lt;:MarkableSigned    &amp;&amp; isunmarked(x)    Unmarked(x&lt;:Unsigned) ⇢ x&lt;:MarkableUnsigned  &amp;&amp; isunmarked(x)</p><pre><code class="language-julia">three = 3
+3
+unmarked_three = Unmarked(three)
+3
+isunmarked(unmarked_three)
+true
+!ismarked(unmarked_three)
+true</code></pre></div></div></section><pre><code class="language-none">MarkableIntegers.all_lsbits</code></pre><pre><code class="language-none">MarkableIntegers.all_marked</code></pre><pre><code class="language-none">MarkableIntegers.all_unmarked</code></pre><pre><code class="language-none">MarkableIntegers.any_lsbits</code></pre><pre><code class="language-none">MarkableIntegers.bitand</code></pre><pre><code class="language-none">MarkableIntegers.bitor</code></pre><pre><code class="language-none">MarkableIntegers.bitsof</code></pre><pre><code class="language-none">MarkableIntegers.bitxor</code></pre><pre><code class="language-none">MarkableIntegers.checked_mod</code></pre><pre><code class="language-none">MarkableIntegers.count_ones</code></pre><pre><code class="language-none">MarkableIntegers.count_zeros</code></pre><pre><code class="language-none">MarkableIntegers.eval</code></pre><pre><code class="language-none">MarkableIntegers.find_marked</code></pre><pre><code class="language-none">MarkableIntegers.find_unmarked</code></pre><pre><code class="language-none">MarkableIntegers.include</code></pre><pre><code class="language-none">MarkableIntegers.ismarked</code></pre><pre><code class="language-none">MarkableIntegers.isunmarked</code></pre><pre><code class="language-none">MarkableIntegers.itype</code></pre><pre><code class="language-none">MarkableIntegers.ityped</code></pre><pre><code class="language-none">MarkableIntegers.lsbit</code></pre><pre><code class="language-none">MarkableIntegers.lsbitof</code></pre><pre><code class="language-none">MarkableIntegers.mark_unmarked</code></pre><pre><code class="language-none">MarkableIntegers.msbits</code></pre><pre><code class="language-none">MarkableIntegers.msbitsof</code></pre><pre><code class="language-none">MarkableIntegers.mtype</code></pre><pre><code class="language-none">MarkableIntegers.mtyped</code></pre><pre><code class="language-none">MarkableIntegers.unmark_marked</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

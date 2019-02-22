@@ -1,0 +1,39 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "XLSX"
+owner = "felipenoris"
+version = "0.4.6"
+description = "Excel file reader and writer coded in pure Julia."
+stargazers_count = "58"
+url = "https://github.com/felipenoris/XLSX.jl.git"
+installs = true
+tags = ["julia", "data", "excel", "julia-language"]
+license = "MIT License"
+
+[[contributors]]
+name = "felipenoris"
+contributions = "214"
+[[contributors]]
+name = "morris25"
+contributions = "14"
+[[contributors]]
+name = "kano31"
+contributions = "5"
+[[contributors]]
+name = "YongHee-Kim"
+contributions = "4"
+[[contributors]]
+name = "zundertj"
+contributions = "3"
+[[contributors]]
+name = "ImreSamu"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "yongheekim-dev"
+contributions = "1"
+[[contributors]]
+name = "felixrehren"
+contributions = "1"

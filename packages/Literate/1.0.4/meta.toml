@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "Literate"
+owner = "fredrikekre"
+version = "1.0.4"
+description = "Simple package for literate programming in Julia"
+stargazers_count = "101"
+url = "https://github.com/fredrikekre/Literate.jl.git"
+installs = true
+tags = ["julia", "literate-programming", "documentation-tool", "documentation-generator"]
+license = "Other"
+
+[[contributors]]
+name = "fredrikekre"
+contributions = "96"
+[[contributors]]
+name = "tkf"
+contributions = "2"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "jannefiluren"
+contributions = "1"

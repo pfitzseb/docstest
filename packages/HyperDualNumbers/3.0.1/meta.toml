@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "HyperDualNumbers"
+owner = "JuliaDiff"
+version = "3.0.1"
+description = "Julia implementation of HyperDualNumbers"
+stargazers_count = "20"
+url = "https://github.com/JuliaDiff/HyperDualNumbers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "191"
+[[contributors]]
+name = "briochemc"
+contributions = "34"
+[[contributors]]
+name = "rcalxrc08"
+contributions = "8"
+[[contributors]]
+name = "timholy"
+contributions = "5"
+[[contributors]]
+name = "pthariensflame"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

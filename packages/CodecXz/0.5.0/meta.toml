@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CodecXz"
+owner = "bicycle1885"
+version = "0.5.0"
+description = "An xz codec for TranscodingStreams.jl."
+stargazers_count = "1"
+url = "https://github.com/bicycle1885/CodecXz.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "31"

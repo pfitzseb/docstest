@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Diversity"
+owner = "richardreeve"
+version = "0.4.6"
+description = "Julia package for diversity measurement"
+stargazers_count = "10"
+url = "https://github.com/richardreeve/Diversity.jl.git"
+installs = true
+tags = ["julia", "diversity-measurement", "partitioning-diversity", "biodiversity", "phylogenetic-diversity"]
+license = "Other"
+
+[[contributors]]
+name = "richardreeve"
+contributions = "645"
+[[contributors]]
+name = "tkelman"
+contributions = "9"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"

@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "DynamicalSystems"
+owner = "JuliaDynamics"
+version = "1.0.0"
+description = "A Julia software library for chaos and nonlinear dynamics"
+stargazers_count = "148"
+url = "https://github.com/JuliaDynamics/DynamicalSystems.jl.git"
+installs = true
+tags = ["physics", "mathematics", "dynamical-systems", "julia", "lyapunov", "dimension", "nonlinear", "chaos", "julialang", "entropy", "attractor"]
+license = "Other"
+
+[[contributors]]
+name = "Datseris"
+contributions = "526"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "13"
+[[contributors]]
+name = "JonasIsensee"
+contributions = "8"
+[[contributors]]
+name = "RainerEngelken"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "imgbot[bot]"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "felixcremer"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "Balinus"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "cormullion"
+contributions = "1"

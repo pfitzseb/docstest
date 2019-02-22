@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CornerPlot"
+owner = "kilianbreathnach"
+version = "0.0.1"
+description = "Create triangular matrix of subplots showing 2D parameter samples"
+stargazers_count = "2"
+url = "https://github.com/kilianbreathnach/CornerPlot.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "kilianbreathnach"
+contributions = "5"

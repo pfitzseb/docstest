@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Planets.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Planets.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#core_radius-1"><code>core_radius</code></a></li><li><a class="toctext" href="#accretion_rate-1"><code>accretion_rate</code></a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Planets.jl-1" href="#Planets.jl-1">Planets.jl</a></h1><p>Functions related to planet formation or planet structure models.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>This package requires Julia v0.7 or later, as well as following packages: </p><ul><li><a href="https://github.com/JuliaData/DataFrames.jl">DataFrames</a></li><li><a href="https://github.com/JuliaData/CSV.jl">CSV</a></li><li><a href="https://github.com/JuliaData/Missings.jl">Missings</a></li></ul><p>To install this package run <code>] add Planets</code> on the Julia REPL.</p><h2><a class="nav-anchor" id="core_radius-1" href="#core_radius-1"><code>core_radius</code></a></h2><p>This function computes the radius of a planetary core made of either pure silicate rock, a rock-iron mix, or a rock-water mix. Cores with all three components are not supported. The function interpolates across the planet structure grid model of Zeng et al. (2016), which is publicly available from <a href="https://www.cfa.harvard.edu/~lzeng/planetmodels.html#mrtables">Li Zeng&#39;s website</a>.</p><p>Examples:</p><pre><code class="language-none">#
+# Radius of a 3.0 M_earth core with 10% water + 90% rock:
+#
+radius = core_radius(3.0, h2o=0.1) # In Earth radii.
+
+#
+# Radius of a 3.0 M_earth core with 10% iron + 90% rock:
+#
+radius = core_radius(3.0, fe=0.1) # In Earth radii.</code></pre><p>Citation:</p><pre><code class="language-none">Zeng et al (2016)
+http://adsabs.harvard.edu/abs/2016ApJ...819..127Z</code></pre><h2><a class="nav-anchor" id="accretion_rate-1" href="#accretion_rate-1"><code>accretion_rate</code></a></h2><p>Compute the gas accretion rate onto a planet, up to Neptune size, embedded in a protoplanetary disk. This function implements Equation (B36) derived in Carrera et al. (2018) which itself is adapted from Ginzburg et al. (2016).</p><p><strong>NOTE</strong>: Equation (B36) of Carrera et al. is in units of M<em>earth/Myr but this function returns values in untis of M</em>earth/year.</p><p><strong>NOTE</strong>: The accretion rate for a planet with zero atmosphere diverges. You need to initialize the planet&#39;s atmosphere to a non-zero value. Furthermore, the accretion rate is initially very high and small timesteps are required to resolve the accretion correctly.</p><p>Example:</p><pre><code class="language-none">#
+# Gas accretion rate (units: M_earth / year) for a small planet embedded
+# in a protoplanetary disk.
+#
+# Inputs:
+#
+M_core = 8.0  # Planet&#39;s core mass in Earth masses.
+M_atm = 0.02  # Planet&#39;s current H2 mass in Earth masses.
+T_disk = 500  # Local disk temperature in Kelvin.
+
+M_atm_dot = accretion_rate(M_core, M_atm, T_disk) # M_earth / year.</code></pre><p>Citation:</p><pre><code class="language-none">Carrera et al. (2018) and Ginzburg et al. (2016)
+
+http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1804.05069
+http://adsabs.harvard.edu/abs/2016ApJ...825...29G</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Robotlib"
+owner = "baggepinnen"
+version = "0.3.2"
+description = "Robotics library written in the Julia programming language"
+stargazers_count = "12"
+url = "https://github.com/baggepinnen/Robotlib.jl.git"
+installs = true
+tags = ["robotics", "toolbox", "kinematics", "jacobians", "frames", "inverse-kinematics", "kinematics-functions"]
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "114"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

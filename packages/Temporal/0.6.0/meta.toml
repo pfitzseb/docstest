@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "Temporal"
+owner = "dysonance"
+version = "0.6.0"
+description = "Time series implementation for the Julia language focused on efficiency and flexibility"
+stargazers_count = "43"
+url = "https://github.com/dysonance/Temporal.jl.git"
+installs = true
+tags = ["julia", "julia-language", "scientific-computing", "timeseries", "time-series", "econometrics", "finance", "time-series-analysis", "economics", "quantitative-finance", "quantitative-trading", "io", "data-structures", "data-analysis", "data-visualization"]
+license = "Other"
+
+[[contributors]]
+name = "dysonance"
+contributions = "348"
+[[contributors]]
+name = "femtotrader"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

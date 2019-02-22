@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BKTrees"
+owner = "zgornel"
+version = "0.0.1"
+description = "Burkhard-Keller trees implementation"
+stargazers_count = "0"
+url = "https://github.com/zgornel/BKTrees.jl.git"
+installs = true
+tags = ["julia", "bk-tree", "tree", "string-search"]
+license = "MIT License"
+
+[[contributors]]
+name = "zgornel"
+contributions = "9"

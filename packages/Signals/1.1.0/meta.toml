@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Signals"
+owner = "TsurHerman"
+version = "1.1.0"
+description = "Multi-Paradigm Dynamic Fast Functional Reactive Programming in Julia"
+stargazers_count = "19"
+url = "https://github.com/TsurHerman/Signals.jl.git"
+installs = true
+tags = ["functional-reactive-programming", "fast", "dynamic", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "TsurHerman"
+contributions = "32"
+[[contributors]]
+name = "swissr"
+contributions = "5"
+[[contributors]]
+name = "innerlee"
+contributions = "1"

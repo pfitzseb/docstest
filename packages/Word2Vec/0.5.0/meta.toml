@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Word2Vec"
+owner = "JuliaText"
+version = "0.5.0"
+description = "Julia interface to word2vec"
+stargazers_count = "33"
+url = "https://github.com/JuliaText/Word2Vec.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "zgornel"
+contributions = "17"
+[[contributors]]
+name = "sambitdash"
+contributions = "4"
+[[contributors]]
+name = "aviks"
+contributions = "3"
+[[contributors]]
+name = "weijianzhang"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

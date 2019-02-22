@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/gpl-2.0"
+doctype = "real"
+name = "DIVAnd"
+owner = "gher-ulg"
+version = "2.3.1"
+description = "DIVAnd performs an n-dimensional variational analysis of arbitrarily located observations"
+stargazers_count = "6"
+url = "https://github.com/gher-ulg/DIVAnd.jl.git"
+installs = true
+tags = ["interpolation", "data-analysis", "ocean-sciences", "julia", "toolbox", "spatial-data-analysis", "oceanography", "eosc-hub"]
+license = "GNU General Public License v2.0"
+
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "988"
+[[contributors]]
+name = "jmbeckers"
+contributions = "140"
+[[contributors]]
+name = "ctroupin"
+contributions = "131"
+[[contributors]]
+name = "meliezer"
+contributions = "7"

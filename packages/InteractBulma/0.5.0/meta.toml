@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "InteractBulma"
+owner = "piever"
+version = "0.5.0"
+description = ""
+stargazers_count = "5"
+url = "https://github.com/piever/InteractBulma.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "73"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

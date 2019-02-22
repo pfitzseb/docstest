@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "NIfTI"
+owner = "JuliaIO"
+version = "0.4.0"
+description = "Julia module for reading/writing NIfTI MRI files"
+stargazers_count = "29"
+url = "https://github.com/JuliaIO/NIfTI.jl.git"
+installs = true
+tags = ["nifti", "julia", "mri-images", "fmri", "mri"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "54"
+[[contributors]]
+name = "Tokazama"
+contributions = "6"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "AShedko"
+contributions = "1"
+[[contributors]]
+name = "ullman"
+contributions = "1"
+[[contributors]]
+name = "tknopp"
+contributions = "1"

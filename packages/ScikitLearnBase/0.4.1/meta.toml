@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ScikitLearnBase"
+owner = "cstjean"
+version = "0.4.1"
+description = "Abstract interface of ScikitLearn.jl"
+stargazers_count = "6"
+url = "https://github.com/cstjean/ScikitLearnBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cstjean"
+contributions = "58"
+[[contributors]]
+name = "bensadeghi"
+contributions = "2"

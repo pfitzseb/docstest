@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "VideoIO"
+owner = "JuliaIO"
+version = "0.5.2"
+description = "Julia bindings for libav/ffmpeg"
+stargazers_count = "33"
+url = "https://github.com/JuliaIO/VideoIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "138"
+[[contributors]]
+name = "timholy"
+contributions = "8"
+[[contributors]]
+name = "rdeits"
+contributions = "7"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "7"
+[[contributors]]
+name = "ianshmean"
+contributions = "6"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "6"
+[[contributors]]
+name = "clouds56"
+contributions = "5"
+[[contributors]]
+name = "ihnorton"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "mbeltagy"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "maxruby"
+contributions = "1"
+[[contributors]]
+name = "romainFr"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "harper-carroll"
+contributions = "1"

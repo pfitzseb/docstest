@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "PrairieIO"
+owner = "romainFr"
+version = "0.1.0"
+description = "Prairie technology microscopy format reader"
+stargazers_count = "0"
+url = "https://github.com/romainFr/PrairieIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "romainFr"
+contributions = "16"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

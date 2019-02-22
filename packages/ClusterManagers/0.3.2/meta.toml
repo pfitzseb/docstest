@@ -1,0 +1,93 @@
+license_url = ""
+doctype = "default"
+name = "ClusterManagers"
+owner = "JuliaParallel"
+version = "0.3.2"
+description = ""
+stargazers_count = "71"
+url = "https://github.com/JuliaParallel/ClusterManagers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "amitmurthy"
+contributions = "31"
+[[contributors]]
+name = "tanmaykm"
+contributions = "21"
+[[contributors]]
+name = "nlhepler"
+contributions = "12"
+[[contributors]]
+name = "andreasnoack"
+contributions = "8"
+[[contributors]]
+name = "vchuravy"
+contributions = "6"
+[[contributors]]
+name = "davidavdav"
+contributions = "5"
+[[contributors]]
+name = "lstagner"
+contributions = "5"
+[[contributors]]
+name = "dbindel"
+contributions = "4"
+[[contributors]]
+name = "floswald"
+contributions = "4"
+[[contributors]]
+name = "jabl"
+contributions = "4"
+[[contributors]]
+name = "bjarthur"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "3"
+[[contributors]]
+name = "gcamilo"
+contributions = "2"
+[[contributors]]
+name = "kshyatt"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "mdpradeep"
+contributions = "2"
+[[contributors]]
+name = "azraq27"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "akels"
+contributions = "1"
+[[contributors]]
+name = "lopezm94"
+contributions = "1"
+[[contributors]]
+name = "s2maki"
+contributions = "1"
+[[contributors]]
+name = "oscarpif"
+contributions = "1"
+[[contributors]]
+name = "ninjin"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "marius311"
+contributions = "1"

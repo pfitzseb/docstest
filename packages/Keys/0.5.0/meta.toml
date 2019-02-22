@@ -1,0 +1,4 @@
+name = "Keys"
+installs = false
+url = "https://github.com/bramtayl/Keys.jl.git"
+version = "0.5.0"

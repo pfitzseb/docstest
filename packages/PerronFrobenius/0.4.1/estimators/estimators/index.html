@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Overview · PerronFrobenius.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PerronFrobenius.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Overview</a></li><li><span class="toctext">Estimators</span><ul><li class="current"><a class="toctext" href>Overview</a><ul class="internal"><li><a class="toctext" href="#Short-time-series-(triangulation-estimator)-1">Short time series (triangulation estimator)</a></li><li><a class="toctext" href="#Long-time-series-(gridding-estimator)-1">Long time series (gridding estimator)</a></li></ul></li><li><a class="toctext" href="../direct/">Grid estimator</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Estimators</li><li><a href>Overview</a></li></ul></nav><hr/><div id="topbar"><span>Overview</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Overview-1" href="#Overview-1">Overview</a></h1><p>For short time series, the most reliable estimates of the transfer operator are obtained by using a triangulation of the state space as our partition. This approach is computationally costly because it has to compute N-dimensional simplex intersections. However, it gives robust estimates of ergodic transition probabilities down to as little as a few hundred points.</p><p>For longer time series, we use a rectangular grid to discretize the embedding. This approach is must faster, because no volume intersections have to be explicitly computed.</p><div></div><h2><a class="nav-anchor" id="Short-time-series-(triangulation-estimator)-1" href="#Short-time-series-(triangulation-estimator)-1">Short time series (triangulation estimator)</a></h2><p>Embed some random short time series (n = 30), make sure that the embedding is invariant, triangulate the embedding, and estimate the transfer operator on the states (partition elements) of the discretized state space. We then compute the invariant measure over the states from the transfer matrix.</p><pre><code class="language-julia-repl">julia&gt; ts = [diff(rand(30)) for i = 1:3]
+3-element Array{Array{Float64,1},1}:
+ [0.122275, 0.238567, 0.131249, -0.536693, 0.197047, 0.0650775, 0.231082, -0.722881, 0.384584, -0.320111  …  -0.70397, 0.0999397, 0.358403, 0.231938, -0.627783, -0.119748, 0.817728, -0.404579, 0.187407, 0.00894616]
+ [-0.25926, -0.123802, 0.297276, -0.216113, -0.4089, -0.217239, 0.401357, 0.543615, -0.773586, 0.307553  …  0.147403, -0.114649, 0.621349, -0.00359974, -0.636128, 0.160796, 0.261681, -0.0990786, 0.0677689, -0.349387]
+ [0.41023, -0.801517, 0.710731, -0.552678, 0.708497, -0.375415, 0.190858, -0.27301, -0.260724, 0.385132  …  -0.166211, 0.370719, 0.118925, -0.127908, 0.0658702, 0.330779, -0.838336, 0.397623, -0.108382, 0.372486]
+
+julia&gt; E = invariantize(embed(ts))
+ERROR: UndefVarError: embed not defined
+
+julia&gt; triang = triangulate(E)
+ERROR: UndefVarError: triangulate not defined
+
+julia&gt; TO = transferoperator(triang)
+ERROR: UndefVarError: transferoperator not defined</code></pre><pre><code class="language-julia-repl">julia&gt; # Plot the transfer operator and the invariant distribution
+       maxprob = min(1, maximum(TO.TO)*1.1) # for plotting
+ERROR: UndefVarError: TO not defined
+
+julia&gt; heatmap(TO.TO, clims=(0, maxprob));
+ERROR: UndefVarError: maxprob not defined
+
+julia&gt; xlabel!(&quot;Target simplex # (j)&quot;);
+ERROR: UndefVarError: xlabel! not defined
+
+julia&gt; ylabel!(&quot;Source simplex # (i)&quot;);
+ERROR: UndefVarError: ylabel! not defined</code></pre><p><img src="transferoperator-short-ex.svg" alt/></p><h2><a class="nav-anchor" id="Long-time-series-(gridding-estimator)-1" href="#Long-time-series-(gridding-estimator)-1">Long time series (gridding estimator)</a></h2><p>The gridding approach is fast and can be used on a large number of points in higher dimensions. Here, we compute the transfer operator for 5000 4-dimensional data points, subdividing each coordinate axis into intervals of length 0.3.</p><pre><code class="language-julia-repl">julia&gt; data = rand(4, 5000)
+4×5000 Array{Float64,2}:
+ 0.591732  0.186014  0.587496  0.299213   …  0.275191   0.343065   0.718339
+ 0.667844  0.208581  0.654193  0.0965741     0.941061   0.0464623  0.732086
+ 0.76822   0.651211  0.666608  0.492825      0.0271286  0.749298   0.186398
+ 0.846859  0.527852  0.623016  0.623186      0.243034   0.839814   0.606615
+
+julia&gt; TO = TransferOperatorEstimatorRectangularBinning(data, 0.7)
+ERROR: UndefVarError: TransferOperatorEstimatorRectangularBinning not defined
+
+julia&gt; maxprob = min(1, maximum(TO.TO)*1.1);
+ERROR: UndefVarError: TO not defined
+
+julia&gt; heatmap(TO.TO, clims=(0, maxprob));
+ERROR: UndefVarError: maxprob not defined
+
+julia&gt; xlabel!(&quot;Target box # (j)&quot;);
+ERROR: UndefVarError: xlabel! not defined
+
+julia&gt; ylabel!(&quot;Source box # (i)&quot;);
+ERROR: UndefVarError: ylabel! not defined</code></pre><p><img src="transferoperator-long-ex.svg" alt/></p><p>This also works on embeddings from <code>StateSpaceReconstruction.jl</code>:</p><pre><code class="language-julia-repl">julia&gt; data = rand(3, 3000)
+3×3000 Array{Float64,2}:
+ 0.623328  0.606013  0.479064  0.3758    …  0.632202   0.10896   0.29176
+ 0.382073  0.347064  0.649464  0.779172     0.0832989  0.321969  0.242201
+ 0.948952  0.341848  0.649866  0.72076      0.0206246  0.309742  0.0269469
+
+julia&gt; E = embed(data)
+ERROR: UndefVarError: embed not defined
+
+julia&gt; TO = TransferOperatorEstimatorRectangularBinning(E, 0.3)
+ERROR: UndefVarError: TransferOperatorEstimatorRectangularBinning not defined
+
+julia&gt; maxprob = min(1, maximum(TO.TO)*1.1);
+ERROR: UndefVarError: TO not defined
+
+julia&gt; heatmap(TO.TO, clims=(0, maxprob));
+ERROR: UndefVarError: maxprob not defined
+
+julia&gt; xlabel!(&quot;Target box # (j)&quot;);
+ERROR: UndefVarError: xlabel! not defined
+
+julia&gt; ylabel!(&quot;Source box # (i)&quot;);
+ERROR: UndefVarError: ylabel! not defined</code></pre><p><img src="transferoperator-long-ex2.svg" alt/></p><footer><hr/><a class="previous" href="../../"><span class="direction">Previous</span><span class="title">Overview</span></a><a class="next" href="../direct/"><span class="direction">Next</span><span class="title">Grid estimator</span></a></footer></article></body></html>

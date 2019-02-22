@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "FFmpegPipe"
+owner = "yakir12"
+version = "1.0.2"
+description = "Save videos from Julia"
+stargazers_count = "5"
+url = "https://github.com/yakir12/FFmpegPipe.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "yakir12"
+contributions = "17"
+[[contributors]]
+name = "perrutquist"
+contributions = "13"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "UnalignedVectors"
+owner = "JuliaArrays"
+version = "0.0.2"
+description = "Create arrays from memory buffers that lack appropriate alignment"
+stargazers_count = "2"
+url = "https://github.com/JuliaArrays/UnalignedVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "13"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

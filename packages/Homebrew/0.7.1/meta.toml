@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "default"
+name = "Homebrew"
+owner = "JuliaPackaging"
+version = "0.7.1"
+description = "OSX Binary dependency provider for Julia"
+stargazers_count = "21"
+url = "https://github.com/JuliaPackaging/Homebrew.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "190"
+[[contributors]]
+name = "tkelman"
+contributions = "14"
+[[contributors]]
+name = "jakebolewski"
+contributions = "7"
+[[contributors]]
+name = "ihnorton"
+contributions = "5"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "malmaud"
+contributions = "2"
+[[contributors]]
+name = "simonbyrne"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "Carreau"
+contributions = "1"
+[[contributors]]
+name = "currymj"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "tamasgal"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

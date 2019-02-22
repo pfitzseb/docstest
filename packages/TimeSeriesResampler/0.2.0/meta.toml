@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "TimeSeriesResampler"
+owner = "femtotrader"
+version = "0.2.0"
+description = "A Julia library to resample timeseries (from TimeSeries.jl)"
+stargazers_count = "3"
+url = "https://github.com/femtotrader/TimeSeriesResampler.jl.git"
+installs = true
+tags = ["timeseries", "julia", "resampling", "resample"]
+license = "Other"
+
+[[contributors]]
+name = "femtotrader"
+contributions = "33"
+[[contributors]]
+name = "BenjaminBorn"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "Simplices"
+owner = "kahaaga"
+version = "0.4.0"
+description = "Compute exact simplex intersections in N dimensions."
+stargazers_count = "0"
+url = "https://github.com/kahaaga/Simplices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "155"
+[[contributors]]
+name = "fredrikekre"
+contributions = "2"

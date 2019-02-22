@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "StochasticPrograms"
+owner = "martinbiel"
+version = "0.1.0"
+description = "Julia package for formulating and analyzing stochastic recourse models."
+stargazers_count = "1"
+url = "https://github.com/martinbiel/StochasticPrograms.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "martinbiel"
+contributions = "98"

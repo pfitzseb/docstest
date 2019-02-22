@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "ArnoldiMethod"
+owner = "haampie"
+version = "0.0.4"
+description = "Implicitly Restarted Arnoldi Method, natively in Julia"
+stargazers_count = "25"
+url = "https://github.com/haampie/ArnoldiMethod.jl.git"
+installs = true
+tags = ["eigenvalues", "eigenvectors", "linear-algebra"]
+license = "MIT License"
+
+[[contributors]]
+name = "haampie"
+contributions = "159"
+[[contributors]]
+name = "NymanLauri"
+contributions = "99"

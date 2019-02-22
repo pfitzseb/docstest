@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Strs"
+owner = "JuliaString"
+version = "0.2.0"
+description = "String support package for Julia"
+stargazers_count = "25"
+url = "https://github.com/JuliaString/Strs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "318"
+[[contributors]]
+name = "sschelm"
+contributions = "3"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"

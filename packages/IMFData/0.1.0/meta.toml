@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "IMFData"
+owner = "stephenbnicar"
+version = "0.1.0"
+description = "A Julia interface for retrieving data from the International Monetary Fund (IMF)."
+stargazers_count = "1"
+url = "https://github.com/stephenbnicar/IMFData.jl.git"
+installs = true
+tags = ["economic-data", "economics", "econometrics", "julia", "julia-package"]
+license = "Other"
+
+[[contributors]]
+name = "stephenbnicar"
+contributions = "23"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

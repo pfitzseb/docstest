@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "ColorSchemes"
+owner = "JuliaGraphics"
+version = "3.1.0"
+description = "colorschemes, colormaps, gradients"
+stargazers_count = "26"
+url = "https://github.com/JuliaGraphics/ColorSchemes.jl.git"
+installs = true
+tags = ["julia", "color-scheme", "colormap", "color"]
+license = "Other"
+
+[[contributors]]
+name = "cormullion"
+contributions = "137"
+[[contributors]]
+name = "lwabeke"
+contributions = "4"
+[[contributors]]
+name = "NHDaly"
+contributions = "2"
+[[contributors]]
+name = "tlienart"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

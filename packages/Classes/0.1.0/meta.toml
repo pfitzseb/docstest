@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Classes"
+owner = "rjplevin"
+version = "0.1.0"
+description = "A simple, Julian approach to inheritance of structure and methods"
+stargazers_count = "10"
+url = "https://github.com/rjplevin/Classes.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "rjplevin"
+contributions = "66"
+[[contributors]]
+name = "davidanthoff"
+contributions = "4"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"

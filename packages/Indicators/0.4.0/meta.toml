@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Indicators"
+owner = "dysonance"
+version = "0.4.0"
+description = "Financial market technical analysis & indicators in Julia"
+stargazers_count = "49"
+url = "https://github.com/dysonance/Indicators.jl.git"
+installs = true
+tags = ["julia", "julia-language", "scientific-computing", "finance", "time-series", "timeseries", "technical-analysis", "technical-indicators"]
+license = "Other"
+
+[[contributors]]
+name = "dysonance"
+contributions = "154"
+[[contributors]]
+name = "balupton"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"
+[[contributors]]
+name = "JAmosAA"
+contributions = "1"

@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "RData"
+owner = "JuliaData"
+version = "0.6.0"
+description = "Read R data files from Julia"
+stargazers_count = "21"
+url = "https://github.com/JuliaData/RData.jl.git"
+installs = true
+tags = ["julia", "julia-equivalents", "datasets", "rdata", "rds-file", "r"]
+license = "Other"
+
+[[contributors]]
+name = "alyst"
+contributions = "199"
+[[contributors]]
+name = "garborg"
+contributions = "20"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "18"
+[[contributors]]
+name = "nalimilan"
+contributions = "14"
+[[contributors]]
+name = "dmbates"
+contributions = "11"
+[[contributors]]
+name = "andreasnoack"
+contributions = "8"
+[[contributors]]
+name = "ararslan"
+contributions = "7"
+[[contributors]]
+name = "tshort"
+contributions = "7"
+[[contributors]]
+name = "simonster"
+contributions = "6"
+[[contributors]]
+name = "powerdistribution"
+contributions = "4"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "jsams"
+contributions = "2"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "HarlanH"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"

@@ -1,0 +1,210 @@
+license_url = ""
+doctype = "default"
+name = "Optim"
+owner = "JuliaNLSolvers"
+version = "0.15.3"
+description = "Optimization functions for Julia"
+stargazers_count = "390"
+url = "https://github.com/JuliaNLSolvers/Optim.jl.git"
+installs = true
+tags = ["optim", "julia", "optimization"]
+license = "Other"
+
+[[contributors]]
+name = "pkofod"
+contributions = "220"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "161"
+[[contributors]]
+name = "anriseth"
+contributions = "82"
+[[contributors]]
+name = "timholy"
+contributions = "41"
+[[contributors]]
+name = "mlubin"
+contributions = "23"
+[[contributors]]
+name = "Evizero"
+contributions = "19"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "8"
+[[contributors]]
+name = "cortner"
+contributions = "7"
+[[contributors]]
+name = "blakejohnson"
+contributions = "6"
+[[contributors]]
+name = "lindahua"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "ahwillia"
+contributions = "3"
+[[contributors]]
+name = "benkuhn"
+contributions = "3"
+[[contributors]]
+name = "jeff-regier"
+contributions = "3"
+[[contributors]]
+name = "cossio"
+contributions = "3"
+[[contributors]]
+name = "rsrock"
+contributions = "3"
+[[contributors]]
+name = "tcovert"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "alyst"
+contributions = "2"
+[[contributors]]
+name = "bdeonovic"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "macd"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "jrevels"
+contributions = "2"
+[[contributors]]
+name = "matthieugomez"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "davidssmith"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "rgiordan"
+contributions = "2"
+[[contributors]]
+name = "adityam"
+contributions = "1"
+[[contributors]]
+name = "ifesdjeen"
+contributions = "1"
+[[contributors]]
+name = "brilhana"
+contributions = "1"
+[[contributors]]
+name = "amroamroamro"
+contributions = "1"
+[[contributors]]
+name = "abieler"
+contributions = "1"
+[[contributors]]
+name = "andrewclausen"
+contributions = "1"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "dankolbman"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "hayatoikoma"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "1"
+[[contributors]]
+name = "panlanfeng"
+contributions = "1"
+[[contributors]]
+name = "lstagner"
+contributions = "1"
+[[contributors]]
+name = "mcreel"
+contributions = "1"
+[[contributors]]
+name = "ngiann"
+contributions = "1"
+[[contributors]]
+name = "nignatiadis"
+contributions = "1"
+[[contributors]]
+name = "noahstier"
+contributions = "1"
+[[contributors]]
+name = "Wikunia"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "sinemetu1"
+contributions = "1"
+[[contributors]]
+name = "lendle"
+contributions = "1"
+[[contributors]]
+name = "Ace139"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "svillemot"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "Armavica"
+contributions = "1"
+[[contributors]]
+name = "maximerischard"
+contributions = "1"

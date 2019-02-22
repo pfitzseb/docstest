@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DocumenterTools"
+owner = "JuliaDocs"
+version = "0.1.0"
+description = "Extra tools for setting up Documenter"
+stargazers_count = "3"
+url = "https://github.com/JuliaDocs/DocumenterTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "fredrikekre"
+contributions = "9"
+[[contributors]]
+name = "mortenpi"
+contributions = "9"
+[[contributors]]
+name = "simonbyrne"
+contributions = "2"
+[[contributors]]
+name = "greimel"
+contributions = "1"

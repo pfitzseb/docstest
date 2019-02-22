@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Nullables.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Nullables.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">Nullables.BINARY_OPS</code></pre><pre><code class="language-none">Nullables.EqualOrLess</code></pre><pre><code class="language-none">Nullables.NullException</code></pre><pre><code class="language-none">Nullables.NullSafeFloats</code></pre><pre><code class="language-none">Nullables.NullSafeInts</code></pre><pre><code class="language-none">Nullables.NullSafeSignedInts</code></pre><pre><code class="language-none">Nullables.NullSafeTypes</code></pre><pre><code class="language-none">Nullables.NullSafeUnsignedInts</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Nullables.Nullable" href="#Nullables.Nullable"><code>Nullables.Nullable</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Nullable(x, hasvalue::Bool=true)</code></pre><p>Wrap value <code>x</code> in an object of type <code>Nullable</code>, which indicates whether a value is present. <code>Nullable(x)</code> yields a non-empty wrapper and <code>Nullable{T}()</code> yields an empty instance of a wrapper that might contain a value of type <code>T</code>.</p><p><code>Nullable(x, false)</code> yields <code>Nullable{typeof(x)}()</code> with <code>x</code> stored in the result&#39;s <code>value</code> field.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; Nullable(1)
+Nullable{Int64}(1)
+
+julia&gt; Nullable{Int64}()
+Nullable{Int64}()
+
+julia&gt; Nullable(1, false)
+Nullable{Int64}()
+
+julia&gt; dump(Nullable(1, false))
+Nullable{Int64}
+  hasvalue: Bool false
+  value: Int64 1</code></pre></div></div></section><pre><code class="language-none">Nullables.Nullables</code></pre><pre><code class="language-none">Nullables._nullable_eltype</code></pre><pre><code class="language-none">Nullables._unsafe_get_eltype</code></pre><pre><code class="language-none">Nullables.broadcast_axes</code></pre><pre><code class="language-none">Nullables.eval</code></pre><pre><code class="language-none">Nullables.hasvalue</code></pre><pre><code class="language-none">Nullables.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Nullables.isnull" href="#Nullables.isnull"><code>Nullables.isnull</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">isnull(x::Nullable)</code></pre><p>Return whether or not <code>x</code> is null.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; x = Nullable(1, false)
+Nullable{Int64}()
+
+julia&gt; isnull(x)
+true
+
+julia&gt; x = Nullable(1, true)
+Nullable{Int64}(1)
+
+julia&gt; isnull(x)
+false
+
+julia&gt; x = 1
+1
+
+julia&gt; isnull(x)
+false</code></pre></div></div></section><pre><code class="language-none">Nullables.maptoTuple</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Nullables.null_safe_op" href="#Nullables.null_safe_op"><code>Nullables.null_safe_op</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">null_safe_op(f::Any, ::Type, ::Type...)::Bool</code></pre><p>Returns whether an operation <code>f</code> can safely be applied to any value of the passed type(s). Returns <code>false</code> by default.</p><p>Custom types should implement methods for some or all operations <code>f</code> when applicable: returning <code>true</code> means that the operation may be called on any bit pattern without throwing an error (though returning invalid or nonsensical results is not a problem). In particular, this means that the operation can be applied on the whole domain of the type <em>and on uninitialized objects</em>. As a general rule, these properties are only true for safe operations where <code>isbitstype</code> is <code>true</code>.</p><p>Types declared as safe can benefit from higher performance for operations on nullable: by always computing the result even for null values, a branch is avoided, which helps vectorization.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Nullables.nullable_returntype" href="#Nullables.nullable_returntype"><code>Nullables.nullable_returntype</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Return the given type if it is concrete, and <code>Union{}</code> otherwise.</p></div></div></section><pre><code class="language-none">Nullables.nullablehash_seed</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Nullables.unsafe_get" href="#Nullables.unsafe_get"><code>Nullables.unsafe_get</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">unsafe_get(x)</code></pre><p>Return the value of <code>x</code> for <a href="#Nullables.Nullable"><code>Nullable</code></a> <code>x</code>; return <code>x</code> for all other <code>x</code>.</p><p>This method does not check whether or not <code>x</code> is null before attempting to access the value of <code>x</code> for <code>x::Nullable</code> (hence &quot;unsafe&quot;).</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; x = Nullable(1)
+Nullable{Int64}(1)
+
+julia&gt; unsafe_get(x)
+1
+
+julia&gt; x = Nullable{String}()
+Nullable{String}()
+
+julia&gt; unsafe_get(x)
+ERROR: UndefRefError: access to undefined reference
+Stacktrace:
+ [1] unsafe_get(::Nullable{String}) at ./nullable.jl:152
+
+julia&gt; x = 1
+1
+
+julia&gt; unsafe_get(x)
+1</code></pre></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

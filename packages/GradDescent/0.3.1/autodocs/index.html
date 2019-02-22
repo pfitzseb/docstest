@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · GradDescent.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>GradDescent.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Adadelta" href="#GradDescent.Adadelta"><code>GradDescent.Adadelta</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Adadelta optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Adagrad" href="#GradDescent.Adagrad"><code>GradDescent.Adagrad</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Adagrad optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Adam" href="#GradDescent.Adam"><code>GradDescent.Adam</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Adam optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Adamax" href="#GradDescent.Adamax"><code>GradDescent.Adamax</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Adamax optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.GradDescent" href="#GradDescent.GradDescent"><code>GradDescent.GradDescent</code></a> — <span class="docstring-category">Module</span>.</div><div><div><p><em>Gradient Descent optimizers for Julia.</em></p><p><strong>Introduction</strong></p><p>This package abstracts the &quot;boilerplate&quot; code necessary for gradient descent. Gradient descent is &quot;a way to minimize an objective function <span>$J(θ)$</span> parameterized by a model&#39;s parameters <span>$θ ∈ Rᵈ$</span>&quot; (Ruder 2017). Gradient descent finds <span>$θ$</span> which minizes <span>$J$</span> by iterating over the following update</p><p><span>$θ = θ - η ∇J(θ)$</span></p><p>until convergence of <span>$θ$</span>. Certainly, the gradient calculation is model specific, however the learning rate <span>$η$</span> (at a given iteration) is not. Instead there are many different gradient descent variants which determine the learning rate. Each type of gradient descent optimizer has its own pros/cons. For most of these optimizers, the calculation of the learning rate is based on the value of the gradient (evaluated at a particular <span>$θ$</span>) and a few (unrelated to the model) hyperparameters.</p><p>The purpose of this package is to allow the user to focus on the calculation of the gradients and not worry about the code for the gradient descent optimizer. I envision a user implementing his/her gradients, experimenting with various optimizers, and modifying the gradients as necessary.</p><p><strong>Examples</strong></p><p><strong>Quadratic Function</strong></p><p>Here I demonstrate a very simple example - minimizing <span>$x²$</span>. In this example, I use &quot;Adagrad&quot;, a common gradient descent optimizer.</p><pre><code class="language-julia">using GradDescent
+
+# objective function and gradient of objective function
+J(x) = x ^ 2
+dJ(x) = 2 * x
+
+# number of epochs
+epochs = 1000
+
+# instantiation of Adagrad optimizer with learning rate of 1.0
+# note that this learning rate is likely to high for a
+# high dimensional case
+opt = Adagrad(η=1.0)
+
+# initial value for x (usually initialized with a random value)
+x = 20.0
+
+for i in 1:epochs
+    # calculate the gradient wrt to the current x
+    g = dJ(x)
+
+    # change to the current x
+    δ = update(opt, g)
+    x -= δ
+end</code></pre><p><strong>Linear Regression</strong></p><p>Next I demonstrate a more common example - determining the coefficients of a linear model. Here I use &quot;Adam&quot; an extension of &quot;Adagrad&quot;. In this example, we minimize the mean squared error of the predicted outcome and the actual outcome. The parameter space is the coefficients of the regression model.</p><pre><code class="language-julia">using GradDescent, Distributions, ReverseDiff
+
+srand(1) # set seed
+n = 1000 # number of observations
+d = 10   # number of covariates
+X = rand(Normal(), n, d) # simulated covariates
+b = rand(Normal(), d)    # generated coefficients
+ϵ = rand(Normal(0.0, 0.1), n) # noise
+Y = X * b + ϵ # observed outcome
+obj(Y, X, b) = mean((Y - X * b) .^ 2) # objective to minimize
+
+epochs = 100 # number of epochs
+
+θ = rand(Normal(), d) # initialize model parameters
+opt = Adam(α=1.0)  # initalize optimizer with learning rate 1.0
+
+for i in 1:epochs
+    # here we use automatic differentiation to calculate
+    # the gradient at a value
+    # an analytically derived gradient is not required
+    g = ReverseDiff.gradient(θ -&gt; obj(Y, X, θ), θ)
+
+    δ = update(opt, g)
+    θ -= δ
+end</code></pre><p><strong>Variational Inference</strong></p><p>Finally, I end with an example of black box variational inference (which is what initially motivated this package). Variational inference is a framework for approximating Bayesian posterior distributions using optimization. Most recent algorithms involve monte carlo estimation of gradients in conjuction with gradient ascent. Using <code>GradDescent</code>, we can focus on the gradient calculation without worrying too much about tracking learning rate parameters.</p><p>In this example we perform a full bayesian analysis on a simple model - normally distribution data with known variance. We place a &quot;noninformative&quot; Normal prior on the mean.</p><pre><code class="language-julia">using Distributions, ForwardDiff, GradDescent, StatsFuns
+
+srand(1) # set seed
+n = 1000 # number of observations
+μ_true = 3.0  # true mean
+σ_true = 1.0 # true standard deviation
+x = rand(Normal(μ_true, σ_true), n) # simulate data
+
+# prior on mean
+prior = Normal(0.0, 100.0)
+
+# initialize variational parameters
+λ = rand(Normal(), 1, 2)
+λ[2] = softplus(λ[2])
+
+# initialize optimizer
+opt = Adam(α=1.0)
+
+S = 10 # number of monte carlo simulations for gradient estimation
+epochs = 50 # number of epochs
+
+for i in 1:epochs
+    # draw S samples from q
+    z = rand(Normal(λ[1], softplus(λ[2])), S)
+
+    # joint density calculations
+    log_prior = logpdf(prior, z)
+    log_lik = map(zi -&gt; loglikelihood(Normal(zi, σ_true), x), z)
+    joint = log_prior + log_lik
+
+    # log variational densities
+    entropy = logpdf(Normal(λ[1], softplus(λ[2])), z)
+
+    # score function calculations
+    qg = ForwardDiff.jacobian(x -&gt; logpdf(Normal(x[1], x[2]),
+                                          z),
+                              [λ[1], softplus(λ[2])])
+
+    # construct monte carlo samples st the expected value is the gradient
+    # of the ELBO
+    f = qg .* (joint - entropy)
+    h = qg
+    a = sum(diag(cov(f, h))) / sum(diag(cov(h)))
+    g = mean(f - a * h, 1) # compute gradient
+
+    # perform gradient ascent step
+    δ = update(opt, g)
+    λ += δ
+
+    # truncate variational standard deviation
+    # don&#39;t allow it to be too close to 0.0
+    λ[2] = λ[2] &lt; invsoftplus(1e-5) ? invsoftplus(1e-5) : λ[2]
+end
+
+# after gradient ascent, apply softplus function
+λ[2] = softplus(λ[2])</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Momentum" href="#GradDescent.Momentum"><code>GradDescent.Momentum</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Momentum optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.Nadam" href="#GradDescent.Nadam"><code>GradDescent.Nadam</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Nadam optimizer</p></div></div></section><pre><code class="language-none">GradDescent.Optimizer</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.RMSprop" href="#GradDescent.RMSprop"><code>GradDescent.RMSprop</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct RMSprop optimizer</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.VanillaGradDescent" href="#GradDescent.VanillaGradDescent"><code>GradDescent.VanillaGradDescent</code></a> — <span class="docstring-category">Type</span>.</div><div><div><p>Construct Vanilla Gradient Descent optimizer</p></div></div></section><pre><code class="language-none">GradDescent.eval</code></pre><pre><code class="language-none">GradDescent.include</code></pre><pre><code class="language-none">GradDescent.optimizer</code></pre><pre><code class="language-none">GradDescent.params</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.t" href="#GradDescent.t"><code>GradDescent.t</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Number of epochs run</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="GradDescent.update" href="#GradDescent.update"><code>GradDescent.update</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p>Calculate change in parameters for gradient descent</p></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

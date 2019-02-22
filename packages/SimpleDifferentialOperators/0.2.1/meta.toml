@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "SimpleDifferentialOperators"
+owner = "QuantEcon"
+version = "0.2.1"
+description = "Library for simple upwind finite differences"
+stargazers_count = "3"
+url = "https://github.com/QuantEcon/SimpleDifferentialOperators.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "arnavs"
+contributions = "64"
+[[contributors]]
+name = "chiyahn"
+contributions = "30"
+[[contributors]]
+name = "jlperla"
+contributions = "2"

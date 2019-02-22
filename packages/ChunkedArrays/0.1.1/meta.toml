@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ChunkedArrays"
+owner = "ChrisRackauckas"
+version = "0.1.1"
+description = "ChunkedArrays.jl is a package for increasing the performance of arrays generated iteratively"
+stargazers_count = "2"
+url = "https://github.com/ChrisRackauckas/ChunkedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "34"

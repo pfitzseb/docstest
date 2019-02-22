@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Seaborn"
+owner = "JuliaPy"
+version = "0.3.0"
+description = "Julia wrapper for Seaborn"
+stargazers_count = "16"
+url = "https://github.com/JuliaPy/Seaborn.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "malmaud"
+contributions = "9"
+[[contributors]]
+name = "galenlynch"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

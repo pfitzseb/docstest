@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "WriteVTK"
+owner = "jipolanco"
+version = "1.0.0"
+description = "Julia module for writing VTK XML files."
+stargazers_count = "31"
+url = "https://github.com/jipolanco/WriteVTK.jl.git"
+installs = true
+tags = ["julia", "scientific-visualization", "vtk-files"]
+license = "Other"
+
+[[contributors]]
+name = "jipolanco"
+contributions = "216"
+[[contributors]]
+name = "fredrikekre"
+contributions = "25"
+[[contributors]]
+name = "Pbellive"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "juliohm"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "anders-dc"
+contributions = "1"

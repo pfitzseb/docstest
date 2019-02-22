@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Setfield.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Setfield.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.@lens" href="#Setfield.@lens"><code>Setfield.@lens</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@lens</code></pre><p>Construct a lens from a field access.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; using Setfield
+
+julia&gt; struct T;a;b;end
+
+julia&gt; t = T(&quot;A1&quot;, T(T(&quot;A3&quot;, &quot;B3&quot;), &quot;B2&quot;))
+T(&quot;A1&quot;, T(T(&quot;A3&quot;, &quot;B3&quot;), &quot;B2&quot;))
+
+julia&gt; l = @lens _.b.a.b
+(@lens _.b.a.b)
+
+julia&gt; get(t, l)
+&quot;B3&quot;
+
+julia&gt; set(t, l, 100)
+T(&quot;A1&quot;, T(T(&quot;A3&quot;, 100), &quot;B2&quot;))
+
+julia&gt; t = (&quot;one&quot;, &quot;two&quot;)
+(&quot;one&quot;, &quot;two&quot;)
+
+julia&gt; set(t, (@lens _[1]), &quot;1&quot;)
+(&quot;1&quot;, &quot;two&quot;)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.@set" href="#Setfield.@set"><code>Setfield.@set</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@set assignment</code></pre><p>Return a modified copy of deeply nested objects.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; using Setfield
+
+julia&gt; struct T;a;b end
+
+julia&gt; t = T(1,2)
+T(1, 2)
+
+julia&gt; @set t.a = 5
+T(5, 2)
+
+julia&gt; t
+T(1, 2)
+
+julia&gt; t = @set t.a = T(2,2)
+T(T(2, 2), 2)
+
+julia&gt; @set t.a.b = 3
+T(T(2, 3), 2)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.@set!" href="#Setfield.@set!"><code>Setfield.@set!</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@set! assignment</code></pre><p>Shortcut for <code>obj = @set obj...</code>.</p><p>julia&gt; t = (a=1,) (a = 1,)</p><p>julia&gt; @set! t.a=2 (a = 2,)</p><p>julia&gt; t (a = 2,)</p></div></div></section><pre><code class="language-none">Setfield.@settable</code></pre><pre><code class="language-none">Setfield.ComposedLens</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.ConstIndexLens" href="#Setfield.ConstIndexLens"><code>Setfield.ConstIndexLens</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ConstIndexLens{I}</code></pre><p>Lens with index stored in type parameter.  This is useful for type-stable <a href="#Base.get"><code>get</code></a> and <a href="#Setfield.set"><code>set</code></a> operations on tuples and named tuples.</p><p>This lens can be constructed by, e.g., <code>@lens _[$1]</code>.  Complex expression must be wrapped with <code>$(...)</code> like <code>@lens _[$(length(xs))]</code>.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Setfield
+
+julia&gt; get((1, 2.0), @lens _[$1])
+1
+
+julia&gt; Base.promote_op(get, typeof.(((1, 2.0), @lens _[$1]))...)
+Int64
+
+julia&gt; Base.promote_op(get, typeof.(((1, 2.0), @lens _[1]))...) !== Int
+true</code></pre></div></div></section><pre><code class="language-none">Setfield.Experimental</code></pre><pre><code class="language-none">Setfield.IdentityLens</code></pre><pre><code class="language-none">Setfield.IndexLens</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.Lens" href="#Setfield.Lens"><code>Setfield.Lens</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Lens</code></pre><p>A <code>Lens</code> allows to access or replace deeply nested parts of complicated objects.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; using Setfield
+
+julia&gt; struct T;a;b; end
+
+julia&gt; obj = T(&quot;AA&quot;, &quot;BB&quot;)
+T(&quot;AA&quot;, &quot;BB&quot;)
+
+julia&gt; lens = @lens _.a
+(@lens _.a)
+
+julia&gt; get(obj, lens)
+&quot;AA&quot;
+
+julia&gt; set(obj, lens, 2)
+T(2, &quot;BB&quot;)
+
+julia&gt; obj
+T(&quot;AA&quot;, &quot;BB&quot;)
+
+julia&gt; modify(lowercase, obj, lens)
+T(&quot;aa&quot;, &quot;BB&quot;)</code></pre><p><strong>Interface</strong></p><p>Concrete subtypes of <code>Lens</code> have to implement</p><ul><li><code>set(obj, lens, val)</code></li><li><code>get(obj, lens)</code></li></ul><p>These must be pure functions, that satisfy the three lens laws:</p><pre><code class="language-julia">@assert get(set(obj, lens, val), lens) == val
+        # You get what you set.
+@assert set(obj, lens, get(obj, lens)) == obj
+        # Setting what was already there changes nothing.
+@assert set(set(obj, lens, val1), lens, val2) == set(obj, lens, val2)
+        # The last set wins.</code></pre><p>See also <a href="#Setfield.@lens"><code>@lens</code></a>, <a href="#Setfield.set"><code>set</code></a>, <a href="#Base.get"><code>get</code></a>, <a href="#Setfield.modify"><code>modify</code></a>.</p></div></div></section><pre><code class="language-none">Setfield.PropertyLens</code></pre><pre><code class="language-none">Setfield.Setfield</code></pre><pre><code class="language-none">Setfield._UpdateOp</code></pre><pre><code class="language-none">Setfield.add_posonly_constructor</code></pre><pre><code class="language-none">Setfield.arg_type</code></pre><pre><code class="language-none">Setfield.argsymbol</code></pre><pre><code class="language-none">Setfield.argsymbol_typed</code></pre><pre><code class="language-none">Setfield.assert_hasfields</code></pre><pre><code class="language-none">Setfield.atset_impl</code></pre><pre><code class="language-none">Setfield.best_constructor_template</code></pre><pre><code class="language-none">Setfield.compose</code></pre><pre><code class="language-none">Setfield.constructor_has_desired_fields</code></pre><pre><code class="language-none">Setfield.constructor_of</code></pre><pre><code class="language-none">Setfield.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Base.get" href="#Base.get"><code>Base.get</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">get(obj, l::Lens)</code></pre><p>Access a deeply nested part of <code>obj</code>. See also <a href="#Setfield.Lens"><code>Lens</code></a>.</p></div></div></section><pre><code class="language-none">Setfield.get_update_op</code></pre><pre><code class="language-none">Setfield.has_atlens_support</code></pre><pre><code class="language-none">Setfield.has_posonly_constructor</code></pre><pre><code class="language-none">Setfield.include</code></pre><pre><code class="language-none">Setfield.is_interpolation</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.modify" href="#Setfield.modify"><code>Setfield.modify</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">modify(f, obj, l::Lens)</code></pre><p>Replace a deeply nested part <code>x</code> of <code>obj</code> by <code>f(x)</code>. See also <a href="#Setfield.Lens"><code>Lens</code></a>.</p></div></div></section><pre><code class="language-none">Setfield.parse_obj_lens</code></pre><pre><code class="language-none">Setfield.parse_obj_lenses</code></pre><pre><code class="language-none">Setfield.posonly_constructor</code></pre><pre><code class="language-none">Setfield.posonly_constructor_dict</code></pre><pre><code class="language-none">Setfield.print_application</code></pre><pre><code class="language-none">Setfield.print_in_atlens</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Setfield.set" href="#Setfield.set"><code>Setfield.set</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">set(obj, l::Lens, val)</code></pre><p>Replace a deeply nested part of <code>obj</code> by <code>val</code>. See also <a href="#Setfield.Lens"><code>Lens</code></a>.</p></div></div></section><pre><code class="language-none">Setfield.setproperties</code></pre><pre><code class="language-none">Setfield.settable</code></pre><pre><code class="language-none">Setfield.show_generic</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

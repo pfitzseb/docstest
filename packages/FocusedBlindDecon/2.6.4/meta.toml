@@ -1,0 +1,14 @@
+license_url = ""
+name = "FocusedBlindDecon"
+owner = "pawbz"
+version = "2.6.4"
+description = "FBD: Multi-channel blind deconvolution with focusing constraints"
+stargazers_count = "1"
+url = "https://github.com/pawbz/FocusedBlindDecon.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pawbz"
+contributions = "48"

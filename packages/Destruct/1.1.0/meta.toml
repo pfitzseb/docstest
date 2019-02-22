@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Destruct"
+owner = "spalato"
+version = "1.1.0"
+description = "Destructuring array of tuples to tuple of arrays."
+stargazers_count = "3"
+url = "https://github.com/spalato/Destruct.jl.git"
+installs = true
+tags = ["tuples", "julia", "destructuring-arrays"]
+license = "Other"
+
+[[contributors]]
+name = "spalato"
+contributions = "15"

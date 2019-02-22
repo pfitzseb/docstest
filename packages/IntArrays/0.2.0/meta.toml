@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "IntArrays"
+owner = "bicycle1885"
+version = "0.2.0"
+description = "Packed Integer Arrays"
+stargazers_count = "4"
+url = "https://github.com/bicycle1885/IntArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "67"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"

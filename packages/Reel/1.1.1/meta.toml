@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "Reel"
+owner = "shashi"
+version = "1.1.1"
+description = "computations caught on camera"
+stargazers_count = "76"
+url = "https://github.com/shashi/Reel.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tawheeler"
+contributions = "49"
+[[contributors]]
+name = "shashi"
+contributions = "10"
+[[contributors]]
+name = "Shushman"
+contributions = "8"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "5"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"
+[[contributors]]
+name = "jverzani"
+contributions = "1"

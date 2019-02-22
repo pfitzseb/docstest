@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TableTraits"
+owner = "queryverse"
+version = "0.4.1"
+description = "Traits for julia tables"
+stargazers_count = "6"
+url = "https://github.com/queryverse/TableTraits.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "47"

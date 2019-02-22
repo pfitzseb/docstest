@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "DrakeLCMTypes"
+owner = "JuliaRobotics"
+version = "0.1.0"
+description = "LCM type definitions for compatibility with RobotLocomotion/Drake in Julia"
+stargazers_count = "2"
+url = "https://github.com/JuliaRobotics/DrakeLCMTypes.jl.git"
+installs = true
+tags = ["julia", "robotics", "lcm", "message-passing"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "15"
+[[contributors]]
+name = "tkoolen"
+contributions = "2"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "DocumentFormat"
+owner = "ZacLN"
+version = "0.2.0"
+description = "Auto-formatter for Julia"
+stargazers_count = "22"
+url = "https://github.com/ZacLN/DocumentFormat.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ZacLN"
+contributions = "37"
+[[contributors]]
+name = "domluna"
+contributions = "9"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "iblis17"
+contributions = "1"

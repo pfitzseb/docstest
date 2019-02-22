@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Wavelets"
+owner = "JuliaDSP"
+version = "0.8.0"
+description = "A Julia package for fast discrete wavelet transforms and utilities"
+stargazers_count = "72"
+url = "https://github.com/JuliaDSP/Wavelets.jl.git"
+installs = true
+tags = ["wavelet", "julia", "lifting", "filter", "signal-processing"]
+license = "Other"
+
+[[contributors]]
+name = "gummif"
+contributions = "159"
+[[contributors]]
+name = "AndrewGibb"
+contributions = "7"
+[[contributors]]
+name = "ElOceanografo"
+contributions = "4"
+[[contributors]]
+name = "antholzer"
+contributions = "3"
+[[contributors]]
+name = "jfsantos"
+contributions = "2"
+[[contributors]]
+name = "cako"
+contributions = "1"
+[[contributors]]
+name = "mschauer"
+contributions = "1"
+[[contributors]]
+name = "robertdj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

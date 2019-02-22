@@ -1,0 +1,7 @@
+name = "ProjectiveVectors"
+stargazers_count = "1"
+doctype = "real"
+installs = true
+url = "https://github.com/JuliaHomotopyContinuation/ProjectiveVectors.jl.git"
+version = "0.1.0"
+description = "Data structure for elements in products of projective spaces"

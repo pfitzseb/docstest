@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · SplitApplyCombine.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SplitApplyCombine.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">SplitApplyCombine.CombineDimsArray</code></pre><pre><code class="language-none">SplitApplyCombine.GetFielder</code></pre><pre><code class="language-none">SplitApplyCombine.Groups</code></pre><pre><code class="language-none">SplitApplyCombine.Indexer</code></pre><pre><code class="language-none">SplitApplyCombine.MappedArray</code></pre><pre><code class="language-none">SplitApplyCombine.MappedIterator</code></pre><pre><code class="language-none">SplitApplyCombine.ProductArray</code></pre><pre><code class="language-none">SplitApplyCombine.SplitApplyCombine</code></pre><pre><code class="language-none">SplitApplyCombine.SplitDimsArray</code></pre><pre><code class="language-none">SplitApplyCombine._combinedims</code></pre><pre><code class="language-none">SplitApplyCombine._eltypes</code></pre><pre><code class="language-none">SplitApplyCombine._groupinds</code></pre><pre><code class="language-none">SplitApplyCombine._inneraxes</code></pre><pre><code class="language-none">SplitApplyCombine._innerjoin!</code></pre><pre><code class="language-none">SplitApplyCombine._invert!</code></pre><pre><code class="language-none">SplitApplyCombine._splitdims</code></pre><pre><code class="language-none">SplitApplyCombine.check_dims</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.combinedims" href="#SplitApplyCombine.combinedims"><code>SplitApplyCombine.combinedims</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">combinedims(array_of_arrays)</code></pre><p>Combine the dimensions of a nested array structure into a new, flat array.</p><p>This is the inverse operation of <code>splitdims</code> / <code>splitdimsview</code>.</p><p>See also <code>combinedimsview</code>, the lazy version of this function.</p><p><strong>Example</strong></p><pre><code class="language-julia">julia&gt; combinedims([[1, 2], [3, 4]])
+2×2 Array{Int64,2}:
+ 1  3
+ 2  4</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.combinedimsview" href="#SplitApplyCombine.combinedimsview"><code>SplitApplyCombine.combinedimsview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">combinedimsview(array_of_arrays)</code></pre><p>Lazily create a flat array view of a nested array structure.</p><p>This is the inverse operation of <code>splitdims</code> / <code>splitdimsview</code>.</p><p>See also <code>combinedims</code>, the eager version of this function.</p></div></div></section><pre><code class="language-none">SplitApplyCombine.default_innerdims</code></pre><pre><code class="language-none">SplitApplyCombine.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.flatten" href="#SplitApplyCombine.flatten"><code>SplitApplyCombine.flatten</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">flatten(a)</code></pre><p>Takes a collection of collections <code>a</code> and returns a collection containing all the elements of the subcollecitons of <code>a</code>. Equivalent to <code>mapmany(idenity, a)</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; flatten([1:1, 1:2, 1:3])
+6-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 1
+ 2
+ 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.group" href="#SplitApplyCombine.group"><code>SplitApplyCombine.group</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">group(by, iter)</code></pre><p>Group the elements <code>x</code> of the iterable <code>iter</code> into groups labeled by <code>by(x)</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; group(iseven, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [1, 3, 5, 7, 9]
+  true  =&gt; [2, 4, 6, 8, 10]</code></pre></div></div><div><div><pre><code class="language-none">group(by, f, iter...)</code></pre><p>Sorts the elements <code>x</code> of the iterable <code>iter</code> into groups labeled by <code>by(x)</code>, transforming each element to <code>f(x)</code>. If multiple collections (of the same length) are provided, the transformations occur elementwise.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; group(iseven, x -&gt; x ÷ 2, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [0, 1, 2, 3, 4]
+  true  =&gt; [1, 2, 3, 4, 5]</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.group2</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupcount" href="#SplitApplyCombine.groupcount"><code>SplitApplyCombine.groupcount</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupcount([by], iter)</code></pre><p>Determine the number of elements of <code>iter</code> belonging to each group.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupinds" href="#SplitApplyCombine.groupinds"><code>SplitApplyCombine.groupinds</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupinds(by, iter...)</code></pre><p>Sorts the indices <code>i</code> of <code>iter</code> into groups labeled by <code>by(iter[i])</code>. If multiple collections (with matching indices) are provided, the groups are formed elementwise.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; groupinds(iseven, [3,4,2,6,5,8])
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [1, 5]
+  true  =&gt; [2, 3, 4, 6]</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.grouplength</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupprod" href="#SplitApplyCombine.groupprod"><code>SplitApplyCombine.groupprod</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupprod(by, [f], iter)</code></pre><p>Multiply the elements of <code>iter</code> belonging to different groups, optionally mapping by <code>f</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupreduce" href="#SplitApplyCombine.groupreduce"><code>SplitApplyCombine.groupreduce</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupreduce(by, f, op, iter...; [init])</code></pre><p>Applies a <code>mapreduce</code>-like operation on the groupings labeled by passing the elements of <code>iter</code> through <code>by</code>. Mostly equivalent to <code>map(g -&gt; reduce(op, g), group(by, f, iter))</code>, but designed to be more efficient. If multiple collections (of the same length) are provided, the transformations <code>by</code> and <code>f</code> occur elementwise.</p></div></div><div><div><pre><code class="language-none">groupreduce(by, op, iter; [init])</code></pre><p>Like <code>groupreduce(by, identity, op, iter; init=init)</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; groupreduce(iseven, +, 1:10)
+Dict{Bool,Int64} with 2 entries:
+false =&gt; 25
+true  =&gt; 30</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupsum" href="#SplitApplyCombine.groupsum"><code>SplitApplyCombine.groupsum</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupsum(by, [f], iter)</code></pre><p>Sum the elements of <code>iter</code> belonging to different groups, optionally mapping by <code>f</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.groupview" href="#SplitApplyCombine.groupview"><code>SplitApplyCombine.groupview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">groupview(by, iter)</code></pre><p>Like <code>group</code>, but each grouping is a view of the input collection <code>iter</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; v = [3,4,2,6,5,8]
+6-element Array{Int64,1}:
+ 3
+ 4
+ 2
+ 6
+ 5
+ 8
+
+julia&gt; groups = groupview(iseven, v)
+SAC.Groups{Bool,Any,Array{Int64,1},Dict{Bool,Array{Int64,1}}} with 2 entries:
+  false =&gt; [3, 5]
+  true  =&gt; [4, 2, 6, 8]
+
+julia&gt; groups[false][:] = 99
+99
+
+julia&gt; v
+6-element Array{Int64,1}:
+ 99
+  4
+  2
+  6
+ 99
+  8</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.include</code></pre><pre><code class="language-none">SplitApplyCombine.inner_eltype</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.innerjoin" href="#SplitApplyCombine.innerjoin"><code>SplitApplyCombine.innerjoin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">innerjoin(lkey, rkey, f, comparison, left, right)</code></pre><p>Performs a relational-style join operation between iterables <code>left</code> and <code>right</code>, returning a collection of elements <code>f(l, r)</code> for which <code>comparison(lkey(l), rkey(r))</code> is <code>true</code> where <code>l ∈ left</code>, <code>r ∈ right.</code></p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; innerjoin(iseven, iseven, tuple, ==, [1,2,3,4], [0,1,2])
+6-element Array{Tuple{Int64,Int64},1}:
+ (1, 1)
+ (2, 0)
+ (2, 2)
+ (3, 1)
+ (4, 0)
+ (4, 2)</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.innerjoin!</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.invert" href="#SplitApplyCombine.invert"><code>SplitApplyCombine.invert</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">invert(a)</code></pre><p>Return a new nested container by reversing the order of the nested container <code>a</code>, for example turning a dictionary of arrays into an array of dictionaries, such that  <code>a[i][j] === invert(a)[j][i]</code>.</p><p>Note that in order for the keys of the inner and outer structure to be known, the input container <code>a</code> must not be empty. </p><p><strong>Examples</strong></p><pre><code class="language-julia">julia&gt; invert([[1,2,3],[4,5,6]])
+3-element Array{Array{Int64,1},1}:
+ [1, 4]
+ [2, 5]
+ [3, 6]
+
+julia&gt; invert((a = [1, 2, 3], b = [2.0, 4.0, 6.0]))
+3-element Array{NamedTuple{(:a, :b),Tuple{Int64,Float64}},1}:
+ (a = 1, b = 2.0)
+ (a = 2, b = 4.0)
+ (a = 3, b = 6.0)</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.invert!</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.leftgroupjoin" href="#SplitApplyCombine.leftgroupjoin"><code>SplitApplyCombine.leftgroupjoin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">leftgroupjoin(lkey, rkey, f, comparison, left, right)</code></pre><p>Creates a collection if groups labelled by <code>lkey(l)</code> where each group contains elements <code>f(l, r)</code> which satisfy <code>comparison(lkey(l), rkey(r))</code>. If there are no matches, the group is still created (with an empty collection).</p><p>This operation shares some similarities with an SQL left outer join.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; leftgroupjoin(iseven, iseven, tuple, ==, [1,2,3,4], [0,1,2])
+Dict{Bool,Array{Tuple{Int64,Int64},1}} with 2 entries:
+  false =&gt; Tuple{Int64,Int64}[(1, 1), (3, 1)]
+  true  =&gt; Tuple{Int64,Int64}[(2, 0), (2, 2), (4, 0), (4, 2)]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.mapmany" href="#SplitApplyCombine.mapmany"><code>SplitApplyCombine.mapmany</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">mapmany(f, a...)</code></pre><p>Like <code>map</code>, but <code>f(x)</code> for each <code>x ∈ a</code> may return an arbitrary number of values to insert into the output.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; mapmany(x -&gt; 1:x, [1,2,3])
+6-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 1
+ 2
+ 3</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.mapview" href="#SplitApplyCombine.mapview"><code>SplitApplyCombine.mapview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">mapview(f, a)</code></pre><p>Return a view of <code>a</code> where each element is mapped through function <code>f</code>. The iteration and indexing properties of <code>a</code> are preserved. Similar to <code>map(f, a)</code>, except evaluated lazily.</p><p><strong>Example</strong></p><pre><code class="language-julia">julia&gt; a = [1,2,3];
+
+julia&gt; b = mapview(-, a)
+3-element MappedArray{Int64,1,typeof(-),Array{Int64,1}}:
+ -1
+ -2
+ -3
+
+julia&gt; a[1] = 10;
+
+julia&gt; b
+3-element MappedArray{Int64,1,typeof(-),Array{Int64,1}}:
+ -10
+  -2
+  -3</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.new_eltype</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.product" href="#SplitApplyCombine.product"><code>SplitApplyCombine.product</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">product(f, a, b)</code></pre><p>Takes the Cartesian outer product of two containers and evaluates <code>f</code> on all pairings of elements. </p><p>For example, if <code>a</code> and <code>b</code> are vectors, this returns a matrix <code>out</code> such that <code>out[i,j] = f(a[i], b[j])</code> for <code>i in keys(a)</code> and <code>j in keys(b)</code>. See also <code>productview</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia">julia&gt; product(+, [1,2], [1,2,3])
+2×3 Array{Int64,2}:
+ 2  3  4
+ 3  4  5</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.product!</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.productview" href="#SplitApplyCombine.productview"><code>SplitApplyCombine.productview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">productview(f, a, b)</code></pre><p>Return a view of a Cartesian product of <code>a</code> and <code>b</code> where the output elements are <code>f</code> evaluated those of <code>a</code> and <code>b</code>. See also <code>product</code> and <code>ProductArray</code></p><p><strong>Example</strong></p><pre><code class="language-julia">julia&gt; productview(+, [1,2], [1,2,3])
+2×3 ProductArray{Int64,2,typeof(+),Array{Int64,1},Array{Int64,1}}:
+ 2  3  4
+ 3  4  5</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.single</code></pre><pre><code class="language-none">SplitApplyCombine.slice_inds</code></pre><pre><code class="language-none">SplitApplyCombine.splat_inds</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.splitdims" href="#SplitApplyCombine.splitdims"><code>SplitApplyCombine.splitdims</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">splitdims(array, [dims])</code></pre><p>Eagerly split the contents of <code>array</code> into a nested array of arrays. The outermost array contains the specified dimension(s) <code>dims</code>, which may be an integer, a tuple of integers, or defaults to the final array dimension. The nested arrays will contain all the remaining dimensions (in ascending order).</p><p>See also <code>splitdimsview</code>, which performs a similar operation lazily.</p><p><strong>Examples:</strong></p><pre><code class="language-julia">julia&gt; splitdims([1 2; 3 4])
+2-element Array{Array{Int64,1},1}:
+ [1, 3]
+ [2, 4]
+
+julia&gt; splitdims([1 2; 3 4], 1)
+2-element Array{Array{Int64,1},1}:
+ [1, 2]
+ [3, 4]</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SplitApplyCombine.splitdimsview" href="#SplitApplyCombine.splitdimsview"><code>SplitApplyCombine.splitdimsview</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">splitdimsview(array, [dims])</code></pre><p>Lazily split the contents of <code>array</code> into a nested array of arrays. The outermost array contains the specified dimension(s) <code>dims</code>, which may be an integer, a tuple of integers, or defaults to the final array dimension. The nested arrays will contain all the remaining dimensions (in ascending order).</p><p>See also <code>splitdims</code>, which performs a similar operation eagerly.</p><p><strong>Examples:</strong></p><pre><code class="language-julia">julia&gt; splitdims([1 2; 3 4])
+2-element SplitDimsArray{SubArray{Int64,1,Array{Int64,2},Tuple{Base.Slice{Base.OneTo{Int64}},Int64},true},1,(2,),Array{Int64,2}}:
+ [1, 3]
+ [2, 4]
+
+julia&gt; splitdims([1 2; 3 4], 1)
+2-element SplitDimsArray{SubArray{Int64,1,Array{Int64,2},Tuple{Int64,Base.Slice{Base.OneTo{Int64}}},true},1,(1,),Array{Int64,2}}:
+ [1, 2]
+ [3, 4]</code></pre></div></div></section><pre><code class="language-none">SplitApplyCombine.⨝</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

@@ -1,0 +1,93 @@
+license_url = ""
+doctype = "default"
+name = "CuArrays"
+owner = "JuliaGPU"
+version = "0.8.1"
+description = "A Curious Cumulation of CUDA Cuisine"
+stargazers_count = "113"
+url = "https://github.com/JuliaGPU/CuArrays.jl.git"
+installs = true
+tags = ["cuda", "gpu-programming", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "maleadt"
+contributions = "282"
+[[contributors]]
+name = "MikeInnes"
+contributions = "190"
+[[contributors]]
+name = "andreasnoack"
+contributions = "39"
+[[contributors]]
+name = "vchuravy"
+contributions = "35"
+[[contributors]]
+name = "bors[bot]"
+contributions = "23"
+[[contributors]]
+name = "jdnz"
+contributions = "11"
+[[contributors]]
+name = "kshyatt"
+contributions = "11"
+[[contributors]]
+name = "dfdx"
+contributions = "9"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "8"
+[[contributors]]
+name = "haampie"
+contributions = "6"
+[[contributors]]
+name = "mbeltagy"
+contributions = "6"
+[[contributors]]
+name = "mohamed82008"
+contributions = "6"
+[[contributors]]
+name = "tejank10"
+contributions = "6"
+[[contributors]]
+name = "avik-pal"
+contributions = "5"
+[[contributors]]
+name = "gustafsson"
+contributions = "5"
+[[contributors]]
+name = "RalphAS"
+contributions = "5"
+[[contributors]]
+name = "Roger-luo"
+contributions = "5"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "gaika"
+contributions = "2"
+[[contributors]]
+name = "jekbradbury"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "ilkerkesen"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "notriddle"
+contributions = "1"
+[[contributors]]
+name = "boathit"
+contributions = "1"
+[[contributors]]
+name = "chengchingwen"
+contributions = "1"

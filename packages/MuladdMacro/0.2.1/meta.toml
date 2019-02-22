@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "MuladdMacro"
+owner = "JuliaDiffEq"
+version = "0.2.1"
+description = "This package contains a macro for converting expressions to use muladd calls"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiffEq/MuladdMacro.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "devmotion"
+contributions = "11"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "9"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "3"
+[[contributors]]
+name = "YingboMa"
+contributions = "1"

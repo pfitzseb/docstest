@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqBiological"
+owner = "JuliaDiffEq"
+version = "3.5.3"
+description = "DiffEq related functionality for defining biological models"
+stargazers_count = "37"
+url = "https://github.com/JuliaDiffEq/DiffEqBiological.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "100"
+[[contributors]]
+name = "TorkelE"
+contributions = "76"
+[[contributors]]
+name = "isaacsas"
+contributions = "50"
+[[contributors]]
+name = "korsbo"
+contributions = "22"
+[[contributors]]
+name = "alanderos91"
+contributions = "3"
+[[contributors]]
+name = "spcornelius"
+contributions = "3"
+[[contributors]]
+name = "weilandtd"
+contributions = "3"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

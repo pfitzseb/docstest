@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "FilePathsBase"
+owner = "rofinn"
+version = "0.4.0"
+description = "Filesystem path types in julia"
+stargazers_count = "5"
+url = "https://github.com/rofinn/FilePathsBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rofinn"
+contributions = "53"
+[[contributors]]
+name = "davidanthoff"
+contributions = "33"
+[[contributors]]
+name = "omus"
+contributions = "3"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "oxinabox"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"

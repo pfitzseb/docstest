@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Cosmology.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Cosmology.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Cosmological-Models-1">Cosmological Models</a></li><li><a class="toctext" href="#Distances-1">Distances</a></li><li><a class="toctext" href="#Volumes-1">Volumes</a></li><li><a class="toctext" href="#Times-1">Times</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Cosmology-calculator-for-Julia-1" href="#Cosmology-calculator-for-Julia-1">Cosmology calculator for Julia</a></h1><p><a href="https://travis-ci.org/JuliaAstro/Cosmology.jl"><img src="https://img.shields.io/travis/JuliaAstro/Cosmology.jl.svg?style=flat-square&amp;label=build" alt="Build Status"/></a> <a href="https://coveralls.io/r/JuliaAstro/Cosmology.jl?branch=master"><img src="http://img.shields.io/coveralls/JuliaAstro/Cosmology.jl.svg?style=flat-square" alt="Coverage Status"/></a></p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>To install the package:</p><pre><code class="language-julia">pkg&gt; add Cosmology</code></pre><p>Then, to load into your session:</p><pre><code class="language-julia">julia&gt; using Cosmology</code></pre><p><code>Cosmology.jl</code> uses <a href="https://github.com/ajkeller34/Unitful.jl"><code>Unitful.jl</code></a> and <a href="https://github.com/JuliaAstro/UnitfulAstro.jl"><code>UnitfulAstro.jl</code></a> to handle units.</p><h2><a class="nav-anchor" id="Cosmological-Models-1" href="#Cosmological-Models-1">Cosmological Models</a></h2><p>First, pick a cosmological model using the <code>cosmology</code> function, which takes the following options:</p><p>&lt;table&gt;   &lt;tr&gt;     &lt;td&gt;h = 0.69&lt;/td&gt;     &lt;td&gt;Dimensionless Hubble constant&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;OmegaK = 0&lt;/td&gt;     &lt;td&gt;Curvature density, Ω&lt;sub&gt;k&lt;/sub&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;OmegaM = 0.29&lt;/td&gt;     &lt;td&gt;Matter density, Ω&lt;sub&gt;m&lt;/sub&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;OmegaR = Ω&lt;sub&gt;γ&lt;/sub&gt; + Ω&lt;sub&gt;ν&lt;/sub&gt;&lt;/td&gt;     &lt;td&gt;Radiation density, Ω&lt;sub&gt;r&lt;/sub&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;Tcmb = 2.7255&lt;/td&gt;     &lt;td&gt;CMB temperature (K), used to compute Ω&lt;sub&gt;γ&lt;/sub&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;Neff = 3.04&lt;/td&gt;     &lt;td&gt;Effective number of massless neutrino species, used to compute Ω&lt;sub&gt;ν&lt;/sub&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;w0 = -1&lt;/td&gt;     &lt;td&gt;CPL dark energy equation of state, w = w0 + wa<em>(1-a)&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;wa = 0&lt;/td&gt;     &lt;td&gt;CPL dark energy equation of state, w = w0 + wa</em>(1-a)&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt;</p><pre><code class="language-julia">julia&gt; using Cosmology
+
+julia&gt; c = cosmology()
+FlatLCDM(0.69,0.7099122024007928,0.29,8.779759920715362e-5)
+
+julia&gt; c = cosmology(OmegaK=0.1)
+OpenLCDM(0.69,0.1,0.6099122024007929,0.29,8.779759920715362e-5)
+
+julia&gt; c = cosmology(w0=-0.9, OmegaK=-0.1)
+ClosedWCDM(0.69,-0.1,0.8099122024007929,0.29,8.779759920715362e-5,-0.9,0.0)</code></pre><h2><a class="nav-anchor" id="Distances-1" href="#Distances-1">Distances</a></h2><p>&lt;table&gt;   &lt;tr&gt;     &lt;td&gt;angular<em>diameter</em>dist(cosmo,&amp;nbsp;z)&lt;/td&gt;     &lt;td&gt;Ratio of an object&#39;s proper transverse size (in Mpc) to its angular size (in radians)&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;comoving<em>radial</em>dist(cosmo,&amp;nbsp;z)&lt;/td&gt;     &lt;td&gt;Comoving radial distance to redshift z, in Mpc&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;luminosity_dist(cosmo, z)&lt;/td&gt;     &lt;td&gt;Bolometric luminosity distance, in Mpc&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;distmod(cosmo, z)&lt;/td&gt;     &lt;td&gt;Distance modulus, in units of magnitude&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt;</p><pre><code class="language-julia">julia&gt; using Cosmology
+
+julia&gt; c = cosmology(OmegaM=0.26)
+FlatLCDM(0.69,0.7399122024007928,0.26,8.779759920715362e-5)
+
+julia&gt; angular_diameter_dist(c, 1.2)
+1784.0089227105113 Mpc</code></pre><p>For each function returning a unitful number, you can specify a different unit for the result as first argument to the function:</p><pre><code class="language-julia">julia&gt; luminosity_dist(c, 1.5)
+11420.338287150073 Mpc
+
+julia&gt; luminosity_dist(u&quot;Gpc&quot;, c, 1.5)
+11.420338287150074 Gpc</code></pre><h2><a class="nav-anchor" id="Volumes-1" href="#Volumes-1">Volumes</a></h2><p>&lt;table&gt;   &lt;tr&gt;     &lt;td&gt;comoving<em>volume</em>element(cosmo,&amp;nbsp;z)&lt;/td&gt;     &lt;td&gt;Comoving volume element out to redshift z, in Gpc&lt;sup&gt;3&lt;/sup&gt;&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;comoving_volume(cosmo,&amp;nbsp;z)&lt;/td&gt;     &lt;td&gt;Comoving volume out to redshift z, in Gpc&lt;sup&gt;3&lt;/sup&gt;&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt;</p><pre><code class="language-julia">julia&gt; using Cosmology
+
+julia&gt; c = cosmology(OmegaM=0.26)
+FlatLCDM(0.69,0.7399122024007928,0.26,8.779759920715362e-5)
+
+julia&gt; comoving_volume_element(c, 2.1)
+46.74459228888612 Gpc^3
+
+julia&gt; comoving_volume(c, 0.6)
+49.3633436631307 Gpc^3
+
+julia&gt; comoving_volume(u&quot;ly^3&quot;, c, 0.6)
+1.7127035381752994e30 ly^3</code></pre><h2><a class="nav-anchor" id="Times-1" href="#Times-1">Times</a></h2><p>&lt;table&gt;   &lt;tr&gt;     &lt;td&gt;age(cosmo, z)&lt;/td&gt;     &lt;td&gt;Age of the universe at redshift z, in Gyr&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;lookback_time(cosmo, z)&lt;/td&gt;     &lt;td&gt;Difference between age at redshift 0 and age at redshift z, in Gyr&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt;</p><pre><code class="language-julia">julia&gt; using Cosmology
+
+julia&gt; c = cosmology(OmegaM=0.26)
+FlatLCDM(0.69,0.7399122024007928,0.26,8.779759920715362e-5)
+
+julia&gt; age(c, 1.2)
+5.445600787626434 Gyr
+
+julia&gt; lookback_time(u&quot;yr&quot;, c, 1.2)
+8.761660748088268e9 yr</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

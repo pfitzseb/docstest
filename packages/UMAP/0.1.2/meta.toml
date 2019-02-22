@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "UMAP"
+owner = "dillondaudert"
+version = "0.1.2"
+description = "Uniform Manifold Approximation and Projection (UMAP) implementation in Julia"
+stargazers_count = "29"
+url = "https://github.com/dillondaudert/UMAP.jl.git"
+installs = true
+tags = ["umap", "julia", "dimensionality-reduction", "visualization", "machine-learning", "topological-data-analysis"]
+license = "MIT License"
+
+[[contributors]]
+name = "dillondaudert"
+contributions = "153"

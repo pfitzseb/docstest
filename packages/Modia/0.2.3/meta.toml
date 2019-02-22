@@ -1,0 +1,39 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Modia"
+owner = "ModiaSim"
+version = "0.2.3"
+description = "Domain Specific Extension of Julia for Modeling and Simulation"
+stargazers_count = "103"
+url = "https://github.com/ModiaSim/Modia.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "HildingElmqvist"
+contributions = "92"
+[[contributors]]
+name = "MartinOtter"
+contributions = "90"
+[[contributors]]
+name = "tshort"
+contributions = "21"
+[[contributors]]
+name = "crlaugh"
+contributions = "3"
+[[contributors]]
+name = "jleugeri"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "GallLeo"
+contributions = "1"
+[[contributors]]
+name = "traversaro"
+contributions = "1"

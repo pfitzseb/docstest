@@ -1,5 +1,0 @@
-*.dylib
-*.dylib.dSYM
-*~
-*.sol
-deps.jl

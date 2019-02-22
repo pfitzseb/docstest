@@ -1,0 +1,135 @@
+license_url = "https://api.github.com/licenses/bsd-2-clause"
+doctype = "default"
+name = "Sundials"
+owner = "JuliaDiffEq"
+version = "3.0.0"
+description = "Julia interface to Sundials, including a nonlinear solver (KINSOL), ODE's (CVODE and ARKODE), and DAE's (IDA)."
+stargazers_count = "79"
+url = "https://github.com/JuliaDiffEq/Sundials.jl.git"
+installs = true
+tags = ["julia", "sundials", "cvode", "ida"]
+license = "BSD 2-Clause \"Simplified\" License"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "325"
+[[contributors]]
+name = "alyst"
+contributions = "26"
+[[contributors]]
+name = "tkelman"
+contributions = "18"
+[[contributors]]
+name = "acroy"
+contributions = "16"
+[[contributors]]
+name = "powerdistribution"
+contributions = "15"
+[[contributors]]
+name = "tshort"
+contributions = "13"
+[[contributors]]
+name = "YingboMa"
+contributions = "11"
+[[contributors]]
+name = "ivarne"
+contributions = "6"
+[[contributors]]
+name = "ScottPJones"
+contributions = "5"
+[[contributors]]
+name = "ViralBShah"
+contributions = "5"
+[[contributors]]
+name = "iraikov"
+contributions = "4"
+[[contributors]]
+name = "lstagner"
+contributions = "4"
+[[contributors]]
+name = "tkf"
+contributions = "4"
+[[contributors]]
+name = "scidom"
+contributions = "3"
+[[contributors]]
+name = "lcontento"
+contributions = "3"
+[[contributors]]
+name = "miguelraz"
+contributions = "3"
+[[contributors]]
+name = "toivoh"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "ignamv"
+contributions = "2"
+[[contributors]]
+name = "pjpmarques"
+contributions = "2"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "devmotion"
+contributions = "2"
+[[contributors]]
+name = "AleMorales"
+contributions = "1"
+[[contributors]]
+name = "axsk"
+contributions = "1"
+[[contributors]]
+name = "christianhaargaard"
+contributions = "1"
+[[contributors]]
+name = "darwindarak"
+contributions = "1"
+[[contributors]]
+name = "tribut"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "ikirill"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "njwilson23"
+contributions = "1"
+[[contributors]]
+name = "OliverEvans96"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "heflwi"
+contributions = "1"

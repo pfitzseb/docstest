@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "DataValues"
+owner = "queryverse"
+version = "0.4.7"
+description = "Missing values for julia"
+stargazers_count = "8"
+url = "https://github.com/queryverse/DataValues.jl.git"
+installs = true
+tags = ["julia", "data"]
+license = "Other"
+
+[[contributors]]
+name = "davidagold"
+contributions = "210"
+[[contributors]]
+name = "davidanthoff"
+contributions = "199"
+[[contributors]]
+name = "nalimilan"
+contributions = "43"
+[[contributors]]
+name = "quinnj"
+contributions = "10"
+[[contributors]]
+name = "bkamins"
+contributions = "9"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "8"
+[[contributors]]
+name = "ScottPJones"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "cjprybol"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "andyferris"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "RatanRSur"
+contributions = "1"

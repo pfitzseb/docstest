@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "FieldDefaults"
+owner = "rafaqz"
+version = "0.0.1"
+description = "Flexible, overridable default field values"
+stargazers_count = "2"
+url = "https://github.com/rafaqz/FieldDefaults.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rafaqz"
+contributions = "30"
+[[contributors]]
+name = "briochemc"
+contributions = "7"

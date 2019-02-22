@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+doctype = "default"
+name = "D3TypeTrees"
+owner = "claytonpbarrows"
+version = "0.1.0"
+description = "julia type hierarchy visualization"
+stargazers_count = "2"
+url = "https://github.com/claytonpbarrows/D3TypeTrees.jl.git"
+installs = true
+tags = []
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "claytonpbarrows"
+contributions = "22"

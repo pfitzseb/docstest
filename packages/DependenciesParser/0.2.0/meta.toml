@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "real"
+name = "DependenciesParser"
+owner = "Nosferican"
+version = "0.2.0"
+description = "Dependency parser for Julia"
+stargazers_count = "1"
+url = "https://github.com/Nosferican/DependenciesParser.jl.git"
+installs = true
+tags = ["julia", "julia-language", "dependencies", "dependency-parser"]
+license = "ISC License"
+
+[[contributors]]
+name = "Nosferican"
+contributions = "6"

@@ -1,0 +1,7 @@
+name = "ArrayAllez"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/mcabbott/ArrayAllez.jl.git"
+version = "0.0.2"
+description = "DIY go-faster stripes"

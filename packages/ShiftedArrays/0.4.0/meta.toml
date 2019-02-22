@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ShiftedArrays"
+owner = "piever"
+version = "0.4.0"
+description = "Lazy shifted arrays for data analysis in Julia"
+stargazers_count = "12"
+url = "https://github.com/piever/ShiftedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "46"

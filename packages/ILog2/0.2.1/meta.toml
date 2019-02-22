@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ILog2"
+owner = "jlapeyre"
+version = "0.2.1"
+description = "integer valued base 2 logarithm"
+stargazers_count = "2"
+url = "https://github.com/jlapeyre/ILog2.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "17"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "4"

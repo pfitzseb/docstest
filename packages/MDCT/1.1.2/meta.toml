@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MDCT"
+owner = "stevengj"
+version = "1.1.2"
+description = "fast modified discrete cosine transform (MDCT and IMDCT) for the Julia language"
+stargazers_count = "3"
+url = "https://github.com/stevengj/MDCT.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "stevengj"
+contributions = "18"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CSyntax"
+owner = "Gnimuc"
+version = "0.1.1"
+description = "C-like syntax for Julia"
+stargazers_count = "0"
+url = "https://github.com/Gnimuc/CSyntax.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Gnimuc"
+contributions = "15"

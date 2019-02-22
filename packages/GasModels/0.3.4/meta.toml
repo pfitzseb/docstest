@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "GasModels"
+owner = "lanl-ansi"
+version = "0.3.4"
+description = "A Julia/JuMP Package for Gas Network Optimization"
+stargazers_count = "14"
+url = "https://github.com/lanl-ansi/GasModels.jl.git"
+installs = true
+tags = ["gas-network-formulations", "optimization", "gas-flow", "network"]
+license = "Other"
+
+[[contributors]]
+name = "rb004f"
+contributions = "165"
+[[contributors]]
+name = "ccoffrin"
+contributions = "35"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "13"

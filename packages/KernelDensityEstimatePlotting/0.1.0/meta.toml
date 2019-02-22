@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "KernelDensityEstimatePlotting"
+owner = "JuliaRobotics"
+version = "0.1.0"
+description = "Plotting functions for the KernelDensityEstimate.jl package"
+stargazers_count = "0"
+url = "https://github.com/JuliaRobotics/KernelDensityEstimatePlotting.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dehann"
+contributions = "30"
+[[contributors]]
+name = "mc2922"
+contributions = "1"

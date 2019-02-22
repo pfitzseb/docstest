@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "UnivariateFunctions"
+owner = "s-baumann"
+version = "0.1.0"
+description = "A package for simple algebra, calculus and evaluation of one dimensional functions. Can be used for approximation (splines, interpolation) and algebra."
+stargazers_count = "0"
+url = "https://github.com/s-baumann/UnivariateFunctions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "s-baumann"
+contributions = "57"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Recommendation"
+owner = "takuti"
+version = "0.2.0"
+description = "Building recommender systems in Julia"
+stargazers_count = "13"
+url = "https://github.com/takuti/Recommendation.jl.git"
+installs = true
+tags = ["julia", "recommender-system", "machine-learning"]
+license = "MIT License"
+
+[[contributors]]
+name = "takuti"
+contributions = "94"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

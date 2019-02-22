@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "DataFlow"
+owner = "MikeInnes"
+version = "0.4.0"
+description = ""
+stargazers_count = "106"
+url = "https://github.com/MikeInnes/DataFlow.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "286"
+[[contributors]]
+name = "ayush1999"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Roboneet"
+contributions = "1"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "1"

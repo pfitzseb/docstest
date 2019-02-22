@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · WeightedOnlineStats.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>WeightedOnlineStats.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Usage-1">Usage</a></li><li class="toplevel"><a class="toctext" href="#Statistics-1">Statistics</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="WeightedOnlineStats.jl-1" href="#WeightedOnlineStats.jl-1"><code>WeightedOnlineStats.jl</code></a></h1><p><a href="https://travis-ci.org/gdkrmr/WeightedOnlineStats.jl"><img src="https://travis-ci.org/gdkrmr/WeightedOnlineStats.jl.svg?branch=master" alt="Build Status"/></a></p><p>An extension of <code>OnlineStatsBase.jl</code> that supports proper statistical weighting and arbitrary numerical precision.</p><h1><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h1><pre><code class="language-julia">using WeightedOnlineStats
+
+values = rand(100)
+weights = rand(100)
+
+# fit using arrays:
+o1 = fit!(WeightedMean, values, weights)
+
+# fit using an iterator that returns a tuple (value, weight):
+o2 = fit!(WeightedMean, zip(values, weights))
+
+# fit single values at a time:
+o3 = WeightedMean()
+for i in 1:length(values)
+    fit!(o3, values[i], weights[i])
+end
+
+mean(o1)
+mean(o2)
+mean(o3)</code></pre><h1><a class="nav-anchor" id="Statistics-1" href="#Statistics-1">Statistics</a></h1><p><code>WeightedOnlineStats.jl</code> currently implements the following Statistics:</p><ul><li><code>WeightedSum</code></li><li><code>WeightedMean</code></li><li><code>WeightedVariance</code></li><li><code>WeightedCovMatrix</code></li><li><code>WeightedHist</code></li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

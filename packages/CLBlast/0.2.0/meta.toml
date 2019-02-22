@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CLBlast"
+owner = "JuliaGPU"
+version = "0.2.0"
+description = "Julia wrapper of CLBlast, a \"tuned OpenCL BLAS library\"."
+stargazers_count = "6"
+url = "https://github.com/JuliaGPU/CLBlast.jl.git"
+installs = true
+tags = ["julia", "blas", "opencl", "gpu"]
+license = "Other"
+
+[[contributors]]
+name = "ranocha"
+contributions = "120"

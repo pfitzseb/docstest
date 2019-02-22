@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "JSON2"
+owner = "quinnj"
+version = "0.2.3"
+description = "Fast json marshalling/unmarshalling with Julia types"
+stargazers_count = "17"
+url = "https://github.com/quinnj/JSON2.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "24"
+[[contributors]]
+name = "visr"
+contributions = "1"

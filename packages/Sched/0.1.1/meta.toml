@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "Sched"
+owner = "scls19fr"
+version = "0.1.1"
+description = "A Julia event scheduler inspired by Python sched. https://scls19fr.github.io/Sched.jl/dev/"
+stargazers_count = "2"
+url = "https://github.com/scls19fr/Sched.jl.git"
+installs = true
+tags = ["julialang", "scheduler", "event", "event-scheduler", "julia-language", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "scls19fr"
+contributions = "34"

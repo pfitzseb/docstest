@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Rotations.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Rotations.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Rotations.jl-1" href="#Rotations.jl-1">Rotations.jl</a></h1><p><em>3D rotations made easy in Julia</em></p><p><a href="https://travis-ci.org/FugroRoames/Rotations.jl"><img src="https://travis-ci.org/FugroRoames/Rotations.jl.svg?branch=static_arrays" alt="Build Status"/></a></p><p>This package implements various 3D rotation parameterizations and defines conversions between them. At their heart, each rotation parameterization <em>is</em> a 3×3 unitary (orthogonal) matrix (based on the <a href="https://github.com/andyferris/StaticArrays.jl">StaticArrays.jl package</a>), and acts to rotate a 3-vector about the origin through matrix-vector multiplication.</p><p>While the <code>RotMatrix</code> type is a dense representation of a <code>3×3</code> matrix, we also have sparse (or computed, rather) representations such as quaternions, angle-axis parameterizations, and Euler angles.</p><p>For composing rotations about the origin with other transformations, see also the <a href="https://github.com/FugroRoames/CoordinateTransformations.jl">CoordinateTransformations.jl</a> or <a href="https://github.com/timholy/AffineTransforms.jl">AffineTransforms.jl</a> packages.</p><h3><a class="nav-anchor" id="Example-Usage-1" href="#Example-Usage-1">Example Usage</a></h3><pre><code class="language-julia">using Rotations, StaticArrays
+
+# create the null rotation (identity matrix)
+id = one(RotMatrix{3, Float64})
+
+# create a random rotation matrix (uniformly distributed over all 3D rotations)
+r = rand(RotMatrix{3}) # uses Float64 by default
+
+# create a point
+p = SVector(1.0, 2.0, 3.0) # from StaticArrays.jl, but could use any AbstractVector...
+
+# convert to a quaternion (Quat) and rotate the point
+q = Quat(r)
+p_rotated = q * p
+
+# Compose rotations
+q2 = rand(Quat)
+q3 = q * q2
+
+# Take the inverse (equivalent to transpose)
+q_inv = transpose(q)
+q_inv == inv(q)
+p ≈ q_inv * (q * p)
+q4 = q3 / q2  # q4 = q3 * inv(q2)
+q5 = q3 \ q2  # q5 = inv(q3) * q2
+
+# convert to a Stereographic quaternion projection (recommended for applications with differentiation)
+spq = SPQuat(r)
+
+# convert to the Angle-axis parameterization, or related Rodrigues vector
+aa = AngleAxis(r)
+rv = RodriguesVec(r)
+ϕ = rotation_angle(r)
+v = rotation_axis(r)
+
+# convert to Euler angles, composed of X/Y/Z axis rotations (Z applied first)
+# (all combinations of &quot;RotABC&quot; are defined)
+r_xyz = RotXYZ(r)
+
+# Rotation about the X axis by 0.1 radians
+r_x = RotX(0.1)
+
+# Composing axis rotations together automatically results in Euler parameterization
+RotX(0.1) * RotY(0.2) * RotZ(0.3) === RotXYZ(0.1, 0.2, 0.3)
+
+# Can calculate Jacobian - derivatives of rotations with respect to parameters
+j1 = Rotations.jacobian(RotMatrix, q) # How does the matrix change w.r.t the 4 Quat parameters?
+j2 = Rotations.jacobian(q, p) # How does the rotated point q*p change w.r.t. the 4 Quat parameters?
+# ... all Jacobian&#39;s involving RotMatrix, SPQuat and Quat are implemented
+# (SPQuat is ideal for optimization purposes - no constaints/singularities)</code></pre><h3><a class="nav-anchor" id="Rotation-Parameterizations-1" href="#Rotation-Parameterizations-1">Rotation Parameterizations</a></h3><ol><li><p><strong>Rotation Matrix</strong> <code>RotMatrix{N, T}</code></p><p>An N x N rotation matrix storing the rotation.  This is a simple wrapper for  a <a href="https://github.com/andyferris/StaticArrays.jl">StaticArrays</a> <code>SMatrix{N,N,T}</code>.  A rotation matrix <code>R</code> should have the property <code>I = R * R&#39;</code>, but this isn&#39;t  enforced by the constructor. On the other hand, all the types below are  guaranteed to be &quot;proper&quot; rotations for all input parameters (equivalently:  parity conserving, in <em>SO(3)</em>, <code>det(r) = 1</code>, or a rotation without  reflection).</p></li><li><p><strong>Arbitrary Axis Rotation</strong> <code>AngleAxis{T}</code></p><p>A 3D rotation with fields <code>theta</code>, <code>axis_x</code>, <code>axis_y</code>, and  <code>axis_z</code> to store the rotation angle and axis of the rotation.  Like all other types in this package, once it is constructed it acts and  behaves as a 3×3 <code>AbstractMatrix</code>. The axis will be automatically  renormalized by the constructor to be a unit vector, so that <code>theta</code> always  represents the rotation angle in radians.</p></li><li><p><strong>Quaternions</strong> <code>Quat{T}</code></p><p>A 3D rotation parameterized by a unit quaternion. Note that the constructor  will renormalize the quaternion to be a unit quaternion, and that although  they follow the same multiplicative <em>algebra</em> as quaternions, it is better  to think of <code>Quat</code> as a 3×3 matrix rather than as a quaternion <em>number</em>.</p></li><li><p><strong>Rodrigues Vector</strong> <code>RodriguesVec{T}</code></p><p>A 3D rotation encoded by an angle-axis representation as <code>angle * axis</code>.  This type is used in packages such as <a href="http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html#void%20Rodrigues%28InputArray%20src,%20OutputArray%20dst,%20OutputArray%20jacobian%29">OpenCV</a>.</p><p>Note: If you&#39;re differentiating a Rodrigues Vector check the result is what  you expect at theta = 0.  The first derivative of the rotation <em>should</em>  behave, but higher-order derivatives of it (as well as parameterization  conversions) should be tested.  The Stereographic Quaternion Projection is  the recommended three parameter format for differentiation.</p></li><li><p><strong>Stereographic Projection of a unit Quaternion</strong> <code>SPQuat{T}</code></p><p>A 3D rotation encoded by the stereographic projection of a unit quaternion.  This projection can be visualized as a pin hole camera, with the pin hole matching the quaternion <code>[-1,0,0,0]</code> and the image plane containing the origin and having normal direction <code>[1,0,0,0]</code>.  The &quot;null rotation&quot; <code>Quaternion(1.0,0,0,0)</code> then maps to the <code>SPQuat(0,0,0)</code></p><p>These are similar to the Rodrigues vector in that the axis direction is stored in an unnormalized form, and the rotation angle is encoded in the length of the axis.  This type has the nice property that the derivatives of the rotation matrix w.r.t. the <code>SPQuat</code> parameters are rational functions, making the <code>SPQuat</code> type a good choice for differentiation / optimization.</p></li><li><p><strong>Cardinal axis rotations</strong> <code>RotX{T}</code>, <code>RotY{T}</code>, <code>RotZ{T}</code></p><p>Sparse representations of 3D rotations about the X, Y, or Z axis, respectively.</p></li><li><p><strong>Two-axis rotations</strong> <code>RotXY{T}</code>, etc</p><p>Conceptually, these are compositions of two of the cardinal axis rotations above,  so that <code>RotXY(x, y) == RotX(x) * RotY(y)</code> (note that the order of application to  a vector is right-to-left, as-in matrix-matrix-vector multiplication: <code>RotXY(x, y) * v == RotX(x) * (RotY(y) * v)</code>).</p></li><li><p><strong>Euler Angles - Three-axis rotations</strong> <code>RotXYZ{T}</code>, <code>RotXYX{T}</code>, etc</p><p>A composition of 3 cardinal axis rotations is typically known as a Euler  angle parameterization of a 3D rotation. The rotations with 3 unique axes,  such as <code>RotXYZ</code>, are said to follow the <a href="https://en.wikipedia.org/wiki/Euler_angles#Tait.E2.80.93Bryan_angles"><strong>Tait Byran</strong></a> angle ordering,  while those which repeat (e.g. <code>EulerXYX</code>) are said to use <a href="https://en.wikipedia.org/wiki/Euler_angles#Conventions"><strong>Proper Euler</strong></a> angle ordering.</p><p>Like the two-angle versions, read the application of the rotations along the  static cardinal axes to a vector from right-to-left, so that <code>RotXYZ(x, y, z) * v == RotX(x) * (RotY(y) * (RotZ(z) * v))</code>.  This is the &quot;extrinsic&quot; representation of an Euler-angle rotation, though  if you prefer the &quot;intrinsic&quot; form it is easy to use the corresponding  <code>RotZYX(z, y, x)</code>.</p></li></ol><h3><a class="nav-anchor" id="Import-/-Export-1" href="#Import-/-Export-1">Import / Export</a></h3><p>All parameterizations can be converted to and from (mutable or immutable) 3×3 matrices, e.g.</p><pre><code class="language-julia">using StaticArrays, Rotations
+
+# export
+q = Quat(1.0,0,0,0)
+matrix_mutable = Array(q)
+matrix_immutable = SMatrix{3,3}(q)
+
+# import
+q2 = Quaternion(matrix_mutable)
+q3 = Quaternion(matrix_immutable)</code></pre><h3><a class="nav-anchor" id="Notes-1" href="#Notes-1">Notes</a></h3><p>This package assumes <a href="https://en.wikipedia.org/wiki/Active_and_passive_transformation">active (right handed) rotations</a> where applicable.</p><h3><a class="nav-anchor" id="Why-use-immutables-/-StaticArrays?-1" href="#Why-use-immutables-/-StaticArrays?-1">Why use immutables / StaticArrays?</a></h3><p>They&#39;re faster (Julia&#39;s <code>Array</code> and BLAS aren&#39;t great for 3x3 matrices) and don&#39;t need preallocating or garbage collection. For example, see this benchmark case where we get a 20× speedup:</p><pre><code class="language-julia">julia&gt; cd(Pkg.dir(&quot;Rotations&quot;) * &quot;/test&quot;)
+
+julia&gt; include(&quot;benchmark.jl&quot;)
+
+julia &gt; BenchMarkRotations.benchmark_mutable()
+Rotating using mutables (Base.Matrix and Base.Vector):
+  0.124035 seconds (2 allocations: 224 bytes)
+Rotating using immutables (Rotations.RotMatrix and StaticArrays.SVector):
+  0.006006 seconds</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

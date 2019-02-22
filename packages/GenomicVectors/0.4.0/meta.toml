@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GenomicVectors"
+owner = "phaverty"
+version = "0.4.0"
+description = "Computations on genome locations, inspired by BioConductor."
+stargazers_count = "3"
+url = "https://github.com/phaverty/GenomicVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "phaverty"
+contributions = "207"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

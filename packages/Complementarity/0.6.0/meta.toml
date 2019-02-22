@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Complementarity"
+owner = "chkwon"
+version = "0.6.0"
+description = "provides a modeling interface for mixed complementarity problems (MCP) and math programs with equilibrium problems (MPEC) via JuMP "
+stargazers_count = "23"
+url = "https://github.com/chkwon/Complementarity.jl.git"
+installs = true
+tags = ["equilibrium", "optimization", "mathematical-programming", "complementarity-conditions", "equilibrium-constraints", "mathematical-programs", "complementarity", "mcp"]
+license = "Other"
+
+[[contributors]]
+name = "chkwon"
+contributions = "168"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"

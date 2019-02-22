@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Phylo"
+owner = "richardreeve"
+version = "0.3.3"
+description = "Simple phylogenetic trees in Julia to work with Diversity.jl - https://github.com/richardreeve/Diversity.jl"
+stargazers_count = "8"
+url = "https://github.com/richardreeve/Phylo.jl.git"
+installs = true
+tags = ["julia", "phylogenetic-trees", "phylogenetics"]
+license = "Other"
+
+[[contributors]]
+name = "richardreeve"
+contributions = "343"
+[[contributors]]
+name = "mkborregaard"
+contributions = "12"
+[[contributors]]
+name = "claireh93"
+contributions = "10"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

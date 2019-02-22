@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LogParser"
+owner = "randyzwitch"
+version = "0.5.0"
+description = "Julia Package for Parsing Server Log Files"
+stargazers_count = "1"
+url = "https://github.com/randyzwitch/LogParser.jl.git"
+installs = true
+tags = ["log-parser", "julia", "apache-log-analysis", "apache-log", "apache-logging"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "33"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

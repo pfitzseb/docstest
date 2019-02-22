@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "CSTParser"
+owner = "ZacLN"
+version = "0.5.2"
+description = "A concrete syntax tree parser for Julia"
+stargazers_count = "46"
+url = "https://github.com/ZacLN/CSTParser.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ZacLN"
+contributions = "499"
+[[contributors]]
+name = "Keno"
+contributions = "12"
+[[contributors]]
+name = "davidanthoff"
+contributions = "6"
+[[contributors]]
+name = "KristofferC"
+contributions = "5"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"

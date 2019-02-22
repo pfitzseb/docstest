@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LazyArrays"
+owner = "JuliaArrays"
+version = "0.6.0"
+description = "Lazy arrays and linear algebra in Julia"
+stargazers_count = "27"
+url = "https://github.com/JuliaArrays/LazyArrays.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "121"
+[[contributors]]
+name = "tkf"
+contributions = "3"
+[[contributors]]
+name = "mcabbott"
+contributions = "2"
+[[contributors]]
+name = "sostock"
+contributions = "1"

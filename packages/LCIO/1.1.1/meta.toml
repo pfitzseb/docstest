@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LCIO"
+owner = "jstrube"
+version = "1.1.1"
+description = "Julia bindings to LCIO"
+stargazers_count = "3"
+url = "https://github.com/jstrube/LCIO.jl.git"
+installs = true
+tags = ["julia-language", "julia", "hep", "hep-ex"]
+license = "Other"
+
+[[contributors]]
+name = "jstrube"
+contributions = "168"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

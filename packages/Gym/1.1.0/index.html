@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Gym.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Gym.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Gym-1" href="#Gym-1">Gym</a></h1><p><a href="https://travis-ci.org/ozanarkancan/Gym.jl"><img src="https://travis-ci.org/ozanarkancan/Gym.jl.svg?branch=master" alt="Build Status"/></a></p><p>This package provides a julia interface for <a href="https://github.com/openai/gym">OpenAi gym</a>.</p><h3><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h3><p>In pkg repl,</p><pre><code class="language-julia">add Gym</code></pre><p>If you do not have a gym installation. The package will install it for you with the following command:</p><pre><code class="language-none">build Gym</code></pre><p>This makes a minimal installation of the gym. If you want to install free environments,  you should set the <code>GYM_ENVS</code> environment variable as following:</p><pre><code class="language-julia">ENV[&quot;GYM_ENVS&quot;]=&quot;atari:algorithmic:box2d:classic_control&quot;</code></pre><p>Then call the <code>build Gym</code>.</p><h3><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h3><pre><code class="language-julia">using Gym
+
+env = GymEnv(&quot;CartPole-v0&quot;)
+reward = 0
+episode_count = 10
+
+for i=1:episode_count
+    total = 0
+    ob = reset!(env)
+    render(env)#comment out this line if you do not want to visualize the environment
+    while true
+        action = sample(env.action_space)
+        ob, reward, done, information = step!(env, action)
+        total += reward
+        render(env)#comment out this line if you do not want to visualize the environment
+        done &amp;&amp; break
+    end
+    println(&quot;episode $i total Rewards: $total&quot;)
+end</code></pre><footer><hr/></footer></article></body></html>

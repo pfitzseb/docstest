@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "Graphics"
+owner = "JuliaGraphics"
+version = "0.4.0"
+description = "A holding place for Base graphics"
+stargazers_count = "4"
+url = "https://github.com/JuliaGraphics/Graphics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "13"
+[[contributors]]
+name = "jakebolewski"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "tknopp"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "chrisvoncsefalvay"
+contributions = "1"

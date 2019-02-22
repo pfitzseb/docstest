@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "RobotOS"
+owner = "jdlangs"
+version = "0.7.0"
+description = "Julia interface to ROS (Robot Operating System)"
+stargazers_count = "95"
+url = "https://github.com/jdlangs/RobotOS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jdlangs"
+contributions = "152"
+[[contributors]]
+name = "schmrlng"
+contributions = "14"
+[[contributors]]
+name = "huckl3b3rry87"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"

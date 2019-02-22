@@ -1,0 +1,7 @@
+name = "BracedErrors"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/stakaz/BracedErrors.jl.git"
+version = "0.6.0"
+description = "This package helps to automate the printing of values with errors in brackets."

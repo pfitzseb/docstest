@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "GSL"
+owner = "JuliaMath"
+version = "0.4.0"
+description = "Julia interface to the GNU Scientific Library (GSL)"
+stargazers_count = "46"
+url = "https://github.com/JuliaMath/GSL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jiahao"
+contributions = "161"
+[[contributors]]
+name = "ludvigak"
+contributions = "48"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "13"
+[[contributors]]
+name = "simonbyrne"
+contributions = "9"
+[[contributors]]
+name = "yuyichao"
+contributions = "9"
+[[contributors]]
+name = "ranjanan"
+contributions = "8"
+[[contributors]]
+name = "giordano"
+contributions = "6"
+[[contributors]]
+name = "yha"
+contributions = "5"
+[[contributors]]
+name = "jagot"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "slangangular"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "alanedelman"
+contributions = "1"

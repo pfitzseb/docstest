@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "FinEtools"
+owner = "PetrKryslUCSD"
+version = "1.0.1"
+description = "Finite  Element tools in Julia"
+stargazers_count = "21"
+url = "https://github.com/PetrKryslUCSD/FinEtools.jl.git"
+installs = true
+tags = ["julia", "finite", "element", "method"]
+license = "Other"
+
+[[contributors]]
+name = "PetrKryslUCSD"
+contributions = "1202"
+[[contributors]]
+name = "RaghuSivapuram"
+contributions = "8"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

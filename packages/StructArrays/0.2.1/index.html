@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StructArrays.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StructArrays.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Example-usage-to-store-complex-numbers-1">Example usage to store complex numbers</a></li><li><a class="toctext" href="#Example-usage-to-store-a-data-table-1">Example usage to store a data table</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StructArrays-1" href="#StructArrays-1">StructArrays</a></h1><p><a href="https://travis-ci.org/piever/StructArrays.jl"><img src="https://travis-ci.org/piever/StructArrays.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/piever/StructArrays.jl?branch=master"><img src="http://codecov.io/github/piever/StructArrays.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package introduces the type <code>StructArray</code> which is an <code>AbstractArray</code> whose elements are <code>struct</code> (for example <code>NamedTuples</code>,  or <code>ComplexF64</code>, or a custom user defined <code>struct</code>). While a <code>StructArray</code> iterates <code>structs</code>, the layout is column based (meaning each field of the <code>struct</code> is stored in a seprate <code>Array</code>).</p><p><code>Base.getproperty</code> or the dot syntax can be used to access columns, whereas rows can be accessed with <code>getindex</code>.</p><p>The package was largely inspired by the <code>Columns</code> type in <a href="https://github.com/JuliaComputing/IndexedTables.jl">IndexedTables</a> which it now replaces.</p><h2><a class="nav-anchor" id="Example-usage-to-store-complex-numbers-1" href="#Example-usage-to-store-complex-numbers-1">Example usage to store complex numbers</a></h2><pre><code class="language-julia">julia&gt; using StructArrays, Random
+
+julia&gt; Random.seed!(4);
+
+julia&gt; s = StructArray{ComplexF64}((rand(2,2), rand(2,2)))
+2×2 StructArray{Complex{Float64},2,NamedTuple{(:re, :im),Tuple{Array{Float64,2},Array{Float64,2}}}}:
+ 0.680079+0.625239im   0.92407+0.267358im
+ 0.874437+0.737254im  0.929336+0.804478im
+
+julia&gt; s[1, 1]
+0.680079235935741 + 0.6252391193298537im
+
+julia&gt; s.re
+2×2 Array{Float64,2}:
+ 0.680079  0.92407
+ 0.874437  0.929336
+
+julia&gt; fieldarrays(s) # obtain all field arrays as a named tuple
+(re = [0.680079 0.92407; 0.874437 0.929336], im = [0.625239 0.267358; 0.737254 0.804478])</code></pre><p>Note that the same approach can be used directly from an <code>Array</code> of complex numbers:</p><pre><code class="language-julia">julia&gt; StructArray([1+im, 3-2im])
+2-element StructArray{Complex{Int64},1,NamedTuple{(:re, :im),Tuple{Array{Int64,1},Array{Int64,1}}}}:
+ 1 + 1im
+ 3 - 2im</code></pre><h3><a class="nav-anchor" id="Collection-and-initialization-1" href="#Collection-and-initialization-1">Collection and initialization</a></h3><p>One can also create a <code>StructArrray</code> from an iterable of structs without creating an intermediate <code>Array</code>:</p><pre><code class="language-julia">julia&gt; StructArray(log(j+2.0*im) for j in 1:10)
+10-element StructArray{Complex{Float64},1,NamedTuple{(:re, :im),Tuple{Array{Float64,1},Array{Float64,1}}}}:
+ 0.8047189562170501 + 1.1071487177940904im
+ 1.0397207708399179 + 0.7853981633974483im
+ 1.2824746787307684 + 0.5880026035475675im
+ 1.4978661367769954 + 0.4636476090008061im
+  1.683647914993237 + 0.3805063771123649im
+ 1.8444397270569681 + 0.3217505543966422im
+  1.985145956776061 + 0.27829965900511133im
+ 2.1097538525880535 + 0.24497866312686414im
+ 2.2213256282451583 + 0.21866894587394195im
+ 2.3221954495706862 + 0.19739555984988078im</code></pre><p>Another option is to create an uninitialized <code>StructArray</code> and then fill it with data. Just like in normal arrays, this is done with the <code>undef</code> syntax:</p><pre><code class="language-julia">julia&gt; s = StructArray{ComplexF64}(undef, 2, 2)
+2×2 StructArray{Complex{Float64},2,NamedTuple{(:re, :im),Tuple{Array{Float64,2},Array{Float64,2}}}}:
+ 6.91646e-310+6.91646e-310im  6.91646e-310+6.91646e-310im
+ 6.91646e-310+6.91646e-310im  6.91646e-310+6.91646e-310im
+
+julia&gt; rand!(s)
+2×2 StructArray{Complex{Float64},2,NamedTuple{(:re, :im),Tuple{Array{Float64,2},Array{Float64,2}}}}:
+  0.446415+0.671453im  0.0797964+0.675723im
+ 0.0340059+0.420472im   0.907252+0.808263im</code></pre><h3><a class="nav-anchor" id="Using-custom-array-types-1" href="#Using-custom-array-types-1">Using custom array types</a></h3><p>StructArrays supports using custom array types. It is always possible to pass field arrays of a custom type. The &quot;custom array of structs to struct of custom arrays&quot; transformation will use the <code>similar</code> method of the custom array type. This can be useful when working on the GPU for example:</p><pre><code class="language-julia">julia&gt; using StructArrays, CuArrays
+
+julia&gt; a = CuArray(rand(Float32, 10));
+
+julia&gt; b = CuArray(rand(Float32, 10));
+
+julia&gt; StructArray{ComplexF32}((a, b))
+10-element StructArray{Complex{Float32},1,NamedTuple{(:re, :im),Tuple{CuArray{Float32,1},CuArray{Float32,1}}}}:
+   0.7539003f0 + 0.5406891f0im
+   0.2818451f0 + 0.60345674f0im
+   0.3271774f0 + 0.56674314f0im
+   0.6943406f0 + 0.8360009f0im
+   0.9609026f0 + 0.27519035f0im
+ 0.051933408f0 + 0.93443274f0im
+  0.51335454f0 + 0.90320504f0im
+   0.6588727f0 + 0.16270757f0im
+  0.20075476f0 + 0.6591008f0im
+  0.58832633f0 + 0.45309567f0im
+
+julia&gt; c = CuArray(rand(ComplexF32, 10));
+
+julia&gt; StructArray(c)
+10-element StructArray{Complex{Float32},1,NamedTuple{(:re, :im),Tuple{CuArray{Float32,1},CuArray{Float32,1}}}}:
+  0.76695776f0 + 0.31588173f0im
+   0.9804857f0 + 0.15740407f0im
+  0.85849273f0 + 0.51903546f0im
+ 0.106796384f0 + 0.9493377f0im
+  0.38152885f0 + 0.8419838f0im
+   0.8892112f0 + 0.5276251f0im
+  0.11579132f0 + 0.79168653f0im
+  0.16804445f0 + 0.40545344f0im
+  0.42822742f0 + 0.61150527f0im
+  0.29996157f0 + 0.94151044f0im</code></pre><h2><a class="nav-anchor" id="Example-usage-to-store-a-data-table-1" href="#Example-usage-to-store-a-data-table-1">Example usage to store a data table</a></h2><pre><code class="language-julia">julia&gt; t = StructArray((a = [1, 2], b = [&quot;x&quot;, &quot;y&quot;]))
+2-element StructArray{NamedTuple{(:a, :b),Tuple{Int64,String}},1,NamedTuple{(:a, :b),Tuple{Array{Int64,1},Array{String,1}}}}:
+ (a = 1, b = &quot;x&quot;)
+ (a = 2, b = &quot;y&quot;)
+
+julia&gt; t[1]
+(a = 1, b = &quot;x&quot;)
+
+julia&gt; t.a
+2-element Array{Int64,1}:
+ 1
+ 2
+
+julia&gt; push!(t, (a = 3, b = &quot;z&quot;))
+3-element StructArray{NamedTuple{(:a, :b),Tuple{Int64,String}},1,NamedTuple{(:a, :b),Tuple{Array{Int64,1},Array{String,1}}}}:
+ (a = 1, b = &quot;x&quot;)
+ (a = 2, b = &quot;y&quot;)
+ (a = 3, b = &quot;z&quot;)</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

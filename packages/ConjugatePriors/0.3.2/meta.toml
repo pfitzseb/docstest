@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "ConjugatePriors"
+owner = "JuliaStats"
+version = "0.3.2"
+description = "A Julia package to support conjugate prior distributions."
+stargazers_count = "14"
+url = "https://github.com/JuliaStats/ConjugatePriors.jl.git"
+installs = true
+tags = ["julia", "statistics", "prior-distribution"]
+license = "Other"
+
+[[contributors]]
+name = "kleinschmidt"
+contributions = "19"
+[[contributors]]
+name = "lindahua"
+contributions = "7"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "mschauer"
+contributions = "5"
+[[contributors]]
+name = "hassaku"
+contributions = "5"
+[[contributors]]
+name = "krylea"
+contributions = "4"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "KrisDM"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"

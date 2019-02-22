@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Ogg"
+owner = "staticfloat"
+version = "0.2.0"
+description = "Julia package to interface with Ogg containers and streams"
+stargazers_count = "1"
+url = "https://github.com/staticfloat/Ogg.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "30"
+[[contributors]]
+name = "omus"
+contributions = "4"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"

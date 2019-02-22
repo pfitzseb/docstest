@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · Classes.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Classes.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Home</a><ul class="internal"><li><a class="toctext" href="#The-@class-macro-1">The @class macro</a></li><li><a class="toctext" href="#The-@method-macro-1">The @method macro</a></li><li><a class="toctext" href="#Example-1">Example</a></li><li><a class="toctext" href="#Example-from-Mimi-1">Example from Mimi</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Home</a></li></ul></nav><hr/><div id="topbar"><span>Home</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Classes.jl-1" href="#Classes.jl-1">Classes.jl</a></h1><p>The key feature of the package is the management of an abstract type hierarchy that defines the subclass and superclass relationships desired of the the concrete types representing the classes. The concrete types defined for each class include all the fields defined in any declared superclass, plus the fields defined within the class declaration. The abstract type hierarchy allows methods defined for a class to be called on its subclasses, whose fields are a superset of those of its superclass.</p><p>The <code>Classes.jl</code> package comprises two macros (<code>@class</code> and <code>@method</code>) and several  exported functions, described below.</p><h2><a class="nav-anchor" id="The-@class-macro-1" href="#The-@class-macro-1">The @class macro</a></h2><p>The <code>@class</code> macro does all the real work for this package. For each class (say, <code>MyClass</code>) created  via <code>@class</code>, the following code is emitted:</p><ul><li><p>An abstract type created by prepending <code>Abstract</code> on the given class name (e.g., <code>AbstractMyClass</code>),  which is a subtype of the abstract type associated with a named superclass, if given, or <code>Classes.AbstractClass</code> if not specified.</p></li><li><p>A concrete type <code>MyClass &lt;: AbstractMyClass</code> with the fields of its superclass plus any locally defined fields.</p></li><li><p>Several methods, including constructors, initializers, and introspection methods.</p></li></ul><h3><a class="nav-anchor" id="The-&#39;mutable&#39;-keyword-1" href="#The-&#39;mutable&#39;-keyword-1">The &#39;mutable&#39; keyword</a></h3><p>Class mutability is specified  by including <code>mutable</code> before the class name, e.g., <code>@class mutable MyClass ...</code> Note that mutability is not inherited; it must be stated in each subclass if mutability is required.</p><h3><a class="nav-anchor" id="Functions-emitted-by-the-@class-macro-1" href="#Functions-emitted-by-the-@class-macro-1">Functions emitted by the @class macro</a></h3><p>The <code>@class</code> macro emits </p><h4><a class="nav-anchor" id="Constructors-1" href="#Constructors-1">Constructors</a></h4><ul><li><p>&quot;All fields&quot; constructor</p><p>This constructor takes as arguments all the fields accumulated through superclasses, in the order defined, and calls <code>new()</code> on the args. This simply duplicates the default constructor, which is necessary since we define other &quot;inner&quot; constructors and initializers.</p></li></ul><h4><a class="nav-anchor" id="Initializers-1" href="#Initializers-1">Initializers</a></h4><p>Initializers are functions that set values on an existing class instance. These come in several forms:</p><ul><li><p>&quot;All fields&quot; initializer</p><p>Similar to the &quot;all fields&quot; constructor except that it takes an object that must be a class or subclass of the defined class.</p></li><li><p>&quot;Local fields&quot; initializer</p><p>Takes an instance of the class (or subclass thereof) and initializes only the fields newly defined by the current class. This is provided to support custom initializers that can chain from subclasses to superclasses.</p></li><li><p>&quot;Superclass copy&quot; initializer</p><p>Provided primarily to support immutable classes (but available to mutable classes as well), this initializer takes as arguments all locally-defined fields plus an instance of the  immediate superclass of the present class, from which values are copied into a call to <code>new</code> on the present class.</p></li></ul><h4><a class="nav-anchor" id="Reflection-methods-1" href="#Reflection-methods-1">Reflection methods</a></h4><ul><li><p><code>isclass(T)</code></p><p>Return <code>true</code> if <code>T</code> is a concrete subclass of <code>AbstractClass</code>, or is <code>Class</code>, which is abstract.  Returns <code>false</code> otherwise.</p></li><li><p><code>issubclass(class, superclass)</code></p><p>For all superclasses of the newly defined class, a method of <code>issubclass</code> is emitted that  returns <code>true</code> for the new class and its superclasses.</p></li><li><p><code>superclass(class)</code></p><p>Returns the superclass of the newly defined class.</p></li><li><p><code>superclasses(::Type{T}) where {T &lt;: AbstractClass}</code></p><p>Returns a Vector of superclasses from the superclass of class <code>T</code> to <code>Class</code>, in order.</p></li><li><p><code>subclasses(::Type{T}) where {T &lt;: AbstractClass}</code></p><p>Returns a Vector of the subclasses for a given class <code>T</code>.</p></li><li><p><code>classof(::Type{T}) where {T &lt;: AbstractClass}</code></p><p>Computes the concrete class associated with abstract type <code>T</code>, which must  be a subclass of <code>AbstractClass</code>.</p></li><li><p><code>absclass(::Type{T}) where {T &lt;: AbstractClass}</code></p><p>Returns the abstract type associated with the concrete class <code>T</code>.</p></li></ul><h2><a class="nav-anchor" id="The-@method-macro-1" href="#The-@method-macro-1">The @method macro</a></h2><p>As defined in this package, a &quot;class method&quot; is simply a function whose first argument is a type defined by <code>@class</code>. The <code>@method</code> macro uses the shadow abstract type hierarchy to  redefine the given function so that it applies to the given class as well as its subclasses.</p><p>Thus the following <code>@method</code> invocation:</p><pre><code class="language-none">@method my_method(obj::Bar, other, stuff) = do_something(obj, other, stuff)</code></pre><p>emits the following code:</p><pre><code class="language-none">my_method(obj::AbstractBar, other, stuff) = do_something(obj, other, args)</code></pre><p>The only change is that the type of first argument is changed to the abstract supertype associated with the concrete type <code>Bar</code>, allowing subclasses of <code>Bar</code> – whose abstract supertype would by a subtype of <code>AbstractBar</code> – to use the method as well. Since  the subclass contains a superset of the fields in the superclass, this works out fine.</p><p>Subclasses can override a superclass method by redefining the method on the more specific class.</p><p>Say we define the following method on class <code>Foo</code>:</p><pre><code class="language-julia">@method get_foo(obj::Foo) = obj.foo</code></pre><p>This is equivalent to writing:</p><pre><code class="language-julia">get_foo(obj::AbstractFoo) = obj.foo</code></pre><p>Since <code>Bar &lt;: AbstractBar &lt;: AbstractFoo</code>,  the method also applies to instances of <code>Bar</code>.</p><pre><code class="language-julia">julia&gt; f = Foo(1)
+Foo(1)
+
+julia&gt; b = Bar(10, 11)
+Bar(10, 11)
+
+julia&gt; get_foo(f)
+1
+
+julia&gt; get_foo(b)
+10</code></pre><p>We can redefine <code>get_foo</code> for class <code>Bar</code> to override its inherited superclass definition:</p><pre><code class="language-julia">julia&gt; @method get_foo(obj::Bar) = obj.foo * 2
+get_foo (generic function with 2 methods)
+
+julia&gt; get_foo(b)
+20</code></pre><p>Subclasses of <code>Bar</code> now inherit this new definition, rather than the one inherited from <code>Foo</code>, since the prior class is more specialized (further down in the shadow abstract type hierarchy).</p><pre><code class="language-julia">julia&gt; @class Baz &lt;: Bar begin
+          baz::Int
+       end
+
+julia&gt; z = Baz(100, 101, 102)
+Baz(100, 101, 102)
+
+julia&gt; dump(z)
+Baz
+  foo: Int64 100
+  bar: Int64 101
+  baz: Int64 102
+  
+julia&gt; get_foo(z)
+200</code></pre><p>The user deals primarily with the concrete types; the abstract types are created and used mainly by  the <code>@class</code> and <code>@method</code> macros. However, methods can be defined directly using classes&#39; abstract  types, allowing the use of classes and inheritance in arguments besides the first one, which is the  only one handled by this macro.</p><h2><a class="nav-anchor" id="Example-1" href="#Example-1">Example</a></h2><pre><code class="language-julia">using Classes
+
+@class Foo &lt;: Class begin
+   foo::Int
+
+   Foo() = Foo(0)
+
+   # Although Foo is immutable, subclasses might not be,
+   # so it&#39;s still useful to define this method.
+   function Foo(self::AbstractFoo)
+        self.foo = 0
+    end
+end
+
+@class mutable Bar &lt;: Foo begin
+    bar::Int
+
+    # Mutable classes can use this pattern
+    function Bar(self::Union{Nothing, AbstractBar}=nothing)
+        self = (self === nothing ? new() : self)
+        superclass(Bar)(self)
+        Bar(self, 0)
+    end
+end</code></pre><p>Produces the following methods:</p><pre><code class="language-julia"># Custom constructors defined inside the @class above
+Foo()
+Foo(self::AbstractFoo)
+
+#
+# Methods emitted by @class macro for Foo
+#
+
+# all-fields constructor
+Foo(foo::Int64)
+
+# local-field initializer
+Foo(self::T, foo::Int64) where T&lt;:AbstractFoo
+
+# Custom constructor defined inside the @class above
+Bar()
+
+# Custom initializer defined inside the @class above
+Bar(self::Union{Nothing, AbstractBar})
+
+#
+# Methods emitted by @class macro for Bar
+#
+
+# all-fields constructor
+Bar(foo::Int64, bar::Int64)
+
+# local-fields initializer
+Bar(self::T, bar::Int64) where T&lt;:AbstractBar
+
+# all fields initializer
+Bar(self::T, foo::Int64, bar::Int64) where T&lt;:AbstractBar 
+
+#  Superclass-copy initializer 
+Bar(bar::Int64, s::Foo)</code></pre><h2><a class="nav-anchor" id="Example-from-Mimi-1" href="#Example-from-Mimi-1">Example from Mimi</a></h2><p>The following diagram shows the relationship between the concrete structs and abstract types create by  the <code>@class</code> macro. Solid lines indicate subtype relationships; dotted lines indicate subclass  relationships, which exist outside the julia type system.</p><p><img src="figs/Classes.png" alt="Mimi component structure"/></p><p>Each class as a corresponding &quot;shadow&quot; abstract supertype (of the same name surrounded by underscores) which  is a parent to all abstract supertypes of its subclasses. The subclasses of, say, <code>ComponentDef</code> are all  subtypes of <code>AbstractComponentDef</code>, thus methods defined as:</p><pre><code class="language-julia">@method function foo(obj::ComponentDef)
+    ...
+end</code></pre><p>are emitted as:</p><pre><code class="language-julia">function foo(obj::T) where {T &lt;: AbstractComponentDef}
+    ...
+end</code></pre><p>This allows the <code>foo</code> method to be called on any subclass of <code>ComponentDef</code>.</p><footer><hr/></footer></article></body></html>

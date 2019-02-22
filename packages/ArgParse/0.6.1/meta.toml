@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "real"
+name = "ArgParse"
+owner = "carlobaldassi"
+version = "0.6.1"
+description = "Package for parsing command-line arguments to Julia programs."
+stargazers_count = "81"
+url = "https://github.com/carlobaldassi/ArgParse.jl.git"
+installs = true
+tags = ["julia", "argparse", "argument-parsing", "argument-parser", "command-line"]
+license = "Other"
+
+[[contributors]]
+name = "carlobaldassi"
+contributions = "169"
+[[contributors]]
+name = "abhijithch"
+contributions = "7"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "4"
+[[contributors]]
+name = "lucatrv"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "christopher-dG"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "JohnHBrock"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mweastwood"
+contributions = "1"
+[[contributors]]
+name = "phaverty"
+contributions = "1"
+[[contributors]]
+name = "samkohn"
+contributions = "1"
+[[contributors]]
+name = "maleadt"
+contributions = "1"
+[[contributors]]
+name = "jbn"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "XMLDict"
+owner = "samoconnor"
+version = "0.2.0"
+description = "XMLDict implements a simple Associative interface for XML documents."
+stargazers_count = "10"
+url = "https://github.com/samoconnor/XMLDict.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "47"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "freeboson"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "codeneomatrix"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"

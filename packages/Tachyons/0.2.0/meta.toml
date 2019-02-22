@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Tachyons"
+owner = "JuliaGizmos"
+version = "0.2.0"
+description = "a wrapper for Tachyons CSS framework"
+stargazers_count = "1"
+url = "https://github.com/JuliaGizmos/Tachyons.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ranjanan"
+contributions = "8"

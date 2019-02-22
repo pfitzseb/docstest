@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RegionTrees"
+owner = "rdeits"
+version = "0.2.0"
+description = "Quadtrees, Octrees, and more in Julia"
+stargazers_count = "36"
+url = "https://github.com/rdeits/RegionTrees.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "64"
+[[contributors]]
+name = "aaronang"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"

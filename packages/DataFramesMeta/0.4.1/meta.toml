@@ -1,0 +1,75 @@
+license_url = ""
+doctype = "default"
+name = "DataFramesMeta"
+owner = "JuliaData"
+version = "0.4.1"
+description = "Metaprogramming tools for DataFrames "
+stargazers_count = "138"
+url = "https://github.com/JuliaData/DataFramesMeta.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tshort"
+contributions = "82"
+[[contributors]]
+name = "bramtayl"
+contributions = "7"
+[[contributors]]
+name = "bkamins"
+contributions = "5"
+[[contributors]]
+name = "nalimilan"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "tonyhffong"
+contributions = "2"
+[[contributors]]
+name = "bcuda-temp"
+contributions = "2"
+[[contributors]]
+name = "pdeffebach"
+contributions = "2"
+[[contributors]]
+name = "alyst"
+contributions = "1"
+[[contributors]]
+name = "davidagold"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ellisvalentiner"
+contributions = "1"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "teresy"
+contributions = "1"

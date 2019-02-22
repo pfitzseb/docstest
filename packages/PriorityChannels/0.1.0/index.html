@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · PriorityChannels.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PriorityChannels.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Difference-between-Channel-and-PriorityChannel-1">Difference between <code>Channel</code> and <code>PriorityChannel</code></a></li><li><a class="toctext" href="#Performance-1">Performance</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="PriorityChannels-1" href="#PriorityChannels-1">PriorityChannels</a></h1><p><a href="https://travis-ci.org/baggepinnen/PriorityChannels.jl"><img src="https://travis-ci.org/baggepinnen/PriorityChannels.jl.svg?branch=master" alt="Build Status"/></a></p><p>This package provides the type <code>PriorityChannel</code> (the only exported name) that mimics <a href="https://docs.julialang.org/en/v1/base/parallel/#Base.Channel"><code>Base.Channel</code></a>, but where each element is associated with a priority. <a href="https://docs.julialang.org/en/v1/base/parallel/#Base.take!-Tuple{Channel}"><code>take!</code></a> always returns the highest priority element. Internally, a <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)">heap</a> is used to keep track of priorities. Example usage:</p><pre><code class="language-julia">using PriorityChannels, Test
+c  = Channel(50)
+pc = PriorityChannel(50)
+for i = 1:50
+    e = rand(1:500)
+    put!(c,e)
+    put!(pc,e,e) # Assign same priority as element for testing purposes
+end
+elems = [take!(c) for i = 1:50]
+pelems = [take!(pc) for i = 1:50]
+@test !issorted(elems) # A regular Channel does not return ordered elements
+@test issorted(pelems) # A PriorityChannel returns elements in priority order</code></pre><h2><a class="nav-anchor" id="Difference-between-Channel-and-PriorityChannel-1" href="#Difference-between-Channel-and-PriorityChannel-1">Difference between <code>Channel</code> and <code>PriorityChannel</code></a></h2><ul><li><code>put!(pc, element, priority::Real)</code> <strong>lower</strong> number indicates a higher priority (default = 0).</li><li><code>PriorityChannel</code> can not be unbuffered (of length 0) and must have a positive length.</li><li><a href="https://docs.julialang.org/en/v1/base/parallel/#Base.take!-Tuple{Channel}"><code>take!(pc)</code></a> returns the highest priority item, <code>PriorityChannel</code> thus acts like a  <a href="https://en.wikipedia.org/wiki/Priority_queue">priority queue</a> instead of a FIFO queue like <code>Channel</code> does</li><li>Pretty much all other functionality should be the same, including all constructors.</li></ul><h2><a class="nav-anchor" id="Performance-1" href="#Performance-1">Performance</a></h2><p>To get maximum performance, initialize a concretely typed <code>PriorityChannel</code>. The constructor <code>PriorityChannel(N)</code> creates a channel of length <code>N</code> that holds type <code>Any</code> and have integer priorities. These types can be specified with the constructor <code>PriorityChannel{ElemType,PrioType}(N)</code>, e.g., <code>PriorityChannel{Int,Int}(N)</code>. There is a rather striking difference in performance between these two:</p><pre><code class="language-julia">using PriorityChannels
+N = 1_000_000
+r = rand(1:1000, N);
+const c1 = PriorityChannel(N)
+const c2 = PriorityChannel{Int,Int}(N)
+
+@time map(ri-&gt;put!(c1,ri,ri), r);
+@time map(ri-&gt;put!(c2,ri,ri), r);
+
+@time map(i-&gt;take!(c1), 1:N);
+@time map(i-&gt;take!(c2), 1:N);
+
+# Output after pre-compilation
+julia&gt; @time map(ri-&gt;put!(c1,ri,ri), r);
+  0.663640 seconds (4.33 M allocations: 150.086 MiB, 55.92% gc time)
+
+julia&gt; @time map(ri-&gt;put!(c2,ri,ri), r);
+  0.103298 seconds (60.23 k allocations: 12.643 MiB)
+
+julia&gt; @time map(i-&gt;take!(c1), 1:N);
+  3.282501 seconds (20.02 M allocations: 612.583 MiB, 27.25% gc time)
+
+julia&gt; @time map(i-&gt;take!(c2), 1:N);
+  0.313285 seconds (63.44 k allocations: 10.791 MiB, 4.67% gc time)</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

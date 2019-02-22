@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Meshing"
+owner = "JuliaGeometry"
+version = "0.4.0"
+description = "Meshing algorithms in Julia"
+stargazers_count = "8"
+url = "https://github.com/JuliaGeometry/Meshing.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sjkelly"
+contributions = "29"
+[[contributors]]
+name = "rdeits"
+contributions = "15"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

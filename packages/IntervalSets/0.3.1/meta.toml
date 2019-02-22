@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "IntervalSets"
+owner = "JuliaMath"
+version = "0.3.1"
+description = "Interval Sets for Julia"
+stargazers_count = "14"
+url = "https://github.com/JuliaMath/IntervalSets.jl.git"
+installs = true
+tags = ["julia", "interval", "ordered-set"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "33"
+[[contributors]]
+name = "mronian"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "3"
+[[contributors]]
+name = "tpapp"
+contributions = "3"
+[[contributors]]
+name = "kdw503"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"

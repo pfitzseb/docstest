@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "Contour"
+owner = "JuliaGeometry"
+version = "0.5.1"
+description = "Calculating contour curves for 2D scalar fields in Julia"
+stargazers_count = "16"
+url = "https://github.com/JuliaGeometry/Contour.jl.git"
+installs = true
+tags = ["contours", "julia", "plotting"]
+license = "Other"
+
+[[contributors]]
+name = "darwindarak"
+contributions = "40"
+[[contributors]]
+name = "KristofferC"
+contributions = "6"
+[[contributors]]
+name = "tomasaschan"
+contributions = "5"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "5"
+[[contributors]]
+name = "tpapp"
+contributions = "3"
+[[contributors]]
+name = "dcjones"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

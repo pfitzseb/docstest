@@ -1,0 +1,102 @@
+license_url = ""
+doctype = "default"
+name = "ODE"
+owner = "JuliaDiffEq"
+version = "2.3.0"
+description = "Assorted basic Ordinary Differential Equation solvers"
+stargazers_count = "87"
+url = "https://github.com/JuliaDiffEq/ODE.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "84"
+[[contributors]]
+name = "acroy"
+contributions = "31"
+[[contributors]]
+name = "ivarne"
+contributions = "10"
+[[contributors]]
+name = "ScottPJones"
+contributions = "8"
+[[contributors]]
+name = "mauro3"
+contributions = "7"
+[[contributors]]
+name = "ViralBShah"
+contributions = "7"
+[[contributors]]
+name = "vtjnash"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "marius311"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "jkozdon"
+contributions = "2"
+[[contributors]]
+name = "kshyatt"
+contributions = "2"
+[[contributors]]
+name = "mweastwood"
+contributions = "2"
+[[contributors]]
+name = "pao"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "magistere"
+contributions = "2"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "pjpmarques"
+contributions = "1"
+[[contributors]]
+name = "ryanpdwyer"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"

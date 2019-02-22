@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "StructuralInheritance"
+owner = "WschW"
+version = "0.1.1"
+description = "pseudo structural inheritance for the Julia language"
+stargazers_count = "2"
+url = "https://github.com/WschW/StructuralInheritance.jl.git"
+installs = true
+tags = ["julia", "inheritance"]
+license = "MIT License"
+
+[[contributors]]
+name = "WschW"
+contributions = "84"

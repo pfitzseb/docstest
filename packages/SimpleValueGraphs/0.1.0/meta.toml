@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleValueGraphs"
+owner = "simonschoelly"
+version = "0.1.0"
+description = "Graphs with edge values"
+stargazers_count = "2"
+url = "https://github.com/simonschoelly/SimpleValueGraphs.jl.git"
+installs = true
+tags = ["julia", "julia-language", "graph", "graph-algorithms", "weighted-graphs", "lightgraphs", "juliagraphs"]
+license = "MIT License"
+
+[[contributors]]
+name = "simonschoelly"
+contributions = "33"

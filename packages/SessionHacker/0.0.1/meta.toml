@@ -1,0 +1,4 @@
+name = "SessionHacker"
+installs = false
+url = "https://github.com/bramtayl/SessionHacker.jl.git"
+version = "0.0.1"

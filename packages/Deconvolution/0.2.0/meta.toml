@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Deconvolution"
+owner = "JuliaDSP"
+version = "0.2.0"
+description = "A Julia package for deconvolution of digital signals"
+stargazers_count = "12"
+url = "https://github.com/JuliaDSP/Deconvolution.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "giordano"
+contributions = "27"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

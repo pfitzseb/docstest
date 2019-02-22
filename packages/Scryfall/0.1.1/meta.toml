@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Scryfall"
+owner = "Moelf"
+version = "0.1.1"
+description = "A Scryfall Julia wrapper for basic functionality of https://scryfall.com --- a MtG all-in-one look-up site."
+stargazers_count = "0"
+url = "https://github.com/Moelf/Scryfall.jl.git"
+installs = true
+tags = ["julia", "julia-language", "scryfall", "scryfall-api"]
+license = "MIT License"
+
+[[contributors]]
+name = "Moelf"
+contributions = "18"

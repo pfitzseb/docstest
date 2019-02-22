@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CancerSeqSim"
+owner = "marcjwilliams1"
+version = "0.2.0"
+description = ""
+stargazers_count = "3"
+url = "https://github.com/marcjwilliams1/CancerSeqSim.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "marcjwilliams1"
+contributions = "95"
+[[contributors]]
+name = "T-Heide"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BDF"
+owner = "sam81"
+version = "0.4.1"
+description = "Module to read Biosemi BDF files with the Julia programming language"
+stargazers_count = "6"
+url = "https://github.com/sam81/BDF.jl.git"
+installs = true
+tags = ["julia-language", "julialang", "eeg", "eeg-signals", "file-format", "neuroscience", "neuroimaging"]
+license = "MIT License"
+
+[[contributors]]
+name = "sam81"
+contributions = "97"
+[[contributors]]
+name = "codles"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "1"

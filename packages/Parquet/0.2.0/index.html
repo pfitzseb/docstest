@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Parquet.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Parquet.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Parquet-1" href="#Parquet-1">Parquet</a></h1><p><a href="https://travis-ci.org/JuliaComputing/Parquet.jl"><img src="https://travis-ci.org/JuliaComputing/Parquet.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/tanmaykm/parquet-jl/branch/master"><img src="https://ci.appveyor.com/api/projects/status/vrqg01w2sj3mfk3d/branch/master?svg=true" alt="Build status"/></a></p><p>Load a <a href="https://en.wikipedia.org/wiki/Apache_Parquet">parquet file</a>. Only metadata is read initially, data is loaded in chunks on demand.</p><pre><code class="language-julia">julia&gt; using Parquet
+
+julia&gt; parfile = &quot;customer.impala.parquet&quot;
+
+julia&gt; p = ParFile(parfile)
+Parquet file: /home/tan/Work/julia/packages/Parquet/test/parquet-compatibility/parquet-testdata/impala/1.1.1-SNAPPY/customer.impala.parquet
+    version: 1
+    nrows: 150000
+    created by: impala version 1.2-INTERNAL (build a462ec42e550c75fccbff98c720f37f3ee9d55a3)
+    cached: 0 column chunks</code></pre><p>Examine the schema.</p><pre><code class="language-julia">julia&gt; nrows(p)
+150000
+
+julia&gt; ncols(p)
+8
+
+julia&gt; colnames(p)
+8-element Array{AbstractString,1}:
+ &quot;c_acctbal&quot;   
+ &quot;c_mktsegment&quot;
+ &quot;c_nationkey&quot; 
+ &quot;c_name&quot;      
+ &quot;c_address&quot;   
+ &quot;c_custkey&quot;   
+ &quot;c_phone&quot;     
+ &quot;c_comment&quot;   
+
+julia&gt; schema(p)
+Schema:
+    schema {
+      optional INT64 c_custkey
+      optional BYTE_ARRAY c_name
+      optional BYTE_ARRAY c_address
+      optional INT32 c_nationkey
+      optional BYTE_ARRAY c_phone
+      optional DOUBLE c_acctbal
+      optional BYTE_ARRAY c_mktsegment
+      optional BYTE_ARRAY c_comment
+    }</code></pre><p>Can convert the parquet schema to different forms:</p><pre><code class="language-julia">julia&gt; schema(JuliaConverter(STDOUT), p, :Customer)
+type Customer
+    Customer() = new()
+    c_custkey::Int64
+    c_name::Vector{UInt8}
+    c_address::Vector{UInt8}
+    c_nationkey::Int32
+    c_phone::Vector{UInt8}
+    c_acctbal::Float64
+    c_mktsegment::Vector{UInt8}
+    c_comment::Vector{UInt8}
+end
+
+julia&gt; schema(ThriftConverter(STDOUT), p, :Customer)
+struct Customer {
+     optional i64 c_custkey
+     optional binary c_name
+     optional binary c_address
+     optional i32 c_nationkey
+     optional binary c_phone
+     optional double c_acctbal
+     optional binary c_mktsegment
+     optional binary c_comment
+}
+
+julia&gt; schema(ProtoConverter(STDOUT), p, :Customer)
+message Customer {
+    optional sint64 c_custkey;
+    optional bytes c_name;
+    optional bytes c_address;
+    optional sint32 c_nationkey;
+    optional bytes c_phone;
+    optional double c_acctbal;
+    optional bytes c_mktsegment;
+    optional bytes c_comment;
+}</code></pre><p>Can inject the type dynamically to a module to have further methods working directly on the Julia type.</p><pre><code class="language-julia">julia&gt; schema(JuliaConverter(Main), p, :Customer)
+
+julia&gt; Base.show(io::IO, cust::Customer) = println(io, String(copy(cust.c_name)), &quot; Phone#:&quot;, String(copy(cust.c_phone)))</code></pre><p>Create cursor to iterate over records. In parallel mode, multiple remote cursors can be created and iterated on in parallel.</p><pre><code class="language-julia">julia&gt; rc = RecCursor(p, 1:5, colnames(p), JuliaBuilder(p, Customer))
+Record Cursor on /home/tan/Work/julia/packages/Parquet/test/parquet-compatibility/parquet-testdata/impala/1.1.1-SNAPPY/customer.impala.parquet
+    rows: 1:5
+    cols: c_acctbal.c_mktsegment.c_nationkey.c_name.c_address.c_custkey.c_phone.c_comment
+
+
+julia&gt; i = start(rc);
+
+julia&gt; while !done(rc, i)
+        v,i = next(rc, i)
+        show(v)
+       end
+Customer#000000033 Phone#:27-375-391-1280
+Customer#000000065 Phone#:33-733-623-5267
+Customer#000000001 Phone#:25-989-741-2988
+Customer#000000642 Phone#:32-925-597-9911
+Customer#000000161 Phone#:17-805-718-2449
+</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "JuliaRunClient"
+owner = "JuliaComputing"
+version = "0.2.2"
+description = "A client library to invoke JuliaRun HTTP APIs"
+stargazers_count = "1"
+url = "https://github.com/JuliaComputing/JuliaRunClient.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "27"
+[[contributors]]
+name = "mdpradeep"
+contributions = "5"
+[[contributors]]
+name = "nkottary"
+contributions = "4"

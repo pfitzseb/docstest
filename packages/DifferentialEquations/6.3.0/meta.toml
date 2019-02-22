@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "DifferentialEquations"
+owner = "JuliaDiffEq"
+version = "6.3.0"
+description = "Julia suite for high-performance solvers of differential equations"
+stargazers_count = "713"
+url = "https://github.com/JuliaDiffEq/DifferentialEquations.jl.git"
+installs = true
+tags = ["differential-equations", "differentialequations", "julia", "ode", "sde", "pde", "dae", "stochastic", "dde", "spde", "delay", "monte-carlo-simulation", "stochastic-processes", "stochastic-differential-equations", "delay-differential-equations", "partial-differential-equations", "differential-algebraic-equations", "simulation", "numerical-integration", "dynamical-systems"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1116"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "YingboMa"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Kvaz1r"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "c123w"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

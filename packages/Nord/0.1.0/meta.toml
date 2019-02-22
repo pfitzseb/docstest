@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Nord"
+owner = "kylecarbon"
+version = "0.1.0"
+description = "Mirror of https://gitlab.com/kylecarbon/Nord.jl."
+stargazers_count = "0"
+url = "https://github.com/kylecarbon/Nord.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kylecarbon"
+contributions = "9"

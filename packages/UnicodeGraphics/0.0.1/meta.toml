@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "UnicodeGraphics"
+owner = "rafaqz"
+version = "0.0.1"
+description = "Convert arrays to block or braile unicode - for printing in the REPL!"
+stargazers_count = "3"
+url = "https://github.com/rafaqz/UnicodeGraphics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rafaqz"
+contributions = "12"

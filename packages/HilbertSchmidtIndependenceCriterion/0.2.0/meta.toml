@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "HilbertSchmidtIndependenceCriterion"
+owner = "trappmartin"
+version = "0.2.0"
+description = "Julia implementations of the Hilbert-Schmidt Independence Criterion (HSIC)"
+stargazers_count = "2"
+url = "https://github.com/trappmartin/HilbertSchmidtIndependenceCriterion.jl.git"
+installs = true
+tags = ["independence", "hilbert-spaces", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "trappmartin"
+contributions = "14"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

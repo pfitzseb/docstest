@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Lasso"
+owner = "JuliaStats"
+version = "0.1.1"
+description = "Lasso/Elastic Net linear and generalized linear models"
+stargazers_count = "55"
+url = "https://github.com/JuliaStats/Lasso.jl.git"
+installs = true
+tags = ["lasso", "julia", "regularized-linear-regression", "l1"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "99"
+[[contributors]]
+name = "AsafManela"
+contributions = "77"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "arturgower"
+contributions = "2"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "harryscholes"
+contributions = "1"
+[[contributors]]
+name = "nignatiadis"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

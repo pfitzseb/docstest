@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "real"
+name = "IntervalArithmetic"
+owner = "JuliaIntervals"
+version = "0.15.1"
+description = "Rigorous floating-point calculations using interval arithmetic in Julia"
+stargazers_count = "43"
+url = "https://github.com/JuliaIntervals/IntervalArithmetic.jl.git"
+installs = true
+tags = ["intervals", "arithmetic", "rigorous", "validated"]
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "582"
+[[contributors]]
+name = "lbenet"
+contributions = "109"
+[[contributors]]
+name = "eeshan9815"
+contributions = "7"
+[[contributors]]
+name = "Kolaru"
+contributions = "2"
+[[contributors]]
+name = "braamvandyk"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "mforets"
+contributions = "2"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "2"
+[[contributors]]
+name = "tkoolen"
+contributions = "2"
+[[contributors]]
+name = "wormell"
+contributions = "1"
+[[contributors]]
+name = "FavioVazquez"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "kalmarek"
+contributions = "1"

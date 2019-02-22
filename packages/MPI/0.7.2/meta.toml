@@ -1,0 +1,105 @@
+license_url = "https://api.github.com/licenses/unlicense"
+doctype = "default"
+name = "MPI"
+owner = "JuliaParallel"
+version = "0.7.2"
+description = "MPI wrappers for Julia"
+stargazers_count = "104"
+url = "https://github.com/JuliaParallel/MPI.jl.git"
+installs = true
+tags = []
+license = "The Unlicense"
+
+[[contributors]]
+name = "eschnett"
+contributions = "114"
+[[contributors]]
+name = "lcw"
+contributions = "68"
+[[contributors]]
+name = "JaredCrean2"
+contributions = "39"
+[[contributors]]
+name = "jakebolewski"
+contributions = "31"
+[[contributors]]
+name = "andreasnoack"
+contributions = "23"
+[[contributors]]
+name = "kshyatt"
+contributions = "20"
+[[contributors]]
+name = "amitmurthy"
+contributions = "19"
+[[contributors]]
+name = "jkozdon"
+contributions = "14"
+[[contributors]]
+name = "barche"
+contributions = "13"
+[[contributors]]
+name = "stevengj"
+contributions = "11"
+[[contributors]]
+name = "vchuravy"
+contributions = "9"
+[[contributors]]
+name = "davidanthoff"
+contributions = "8"
+[[contributors]]
+name = "joehuchette"
+contributions = "5"
+[[contributors]]
+name = "tbole"
+contributions = "5"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "PhilipVinc"
+contributions = "2"
+[[contributors]]
+name = "tkonolige"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "joaquimg"
+contributions = "1"
+[[contributors]]
+name = "JobJob"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "ziotom78"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "michel2323"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "randy3k"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "yipihey"
+contributions = "1"
+[[contributors]]
+name = "yomichi"
+contributions = "1"
+[[contributors]]
+name = "christophernhill"
+contributions = "1"

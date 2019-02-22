@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "SimpleTraits"
+owner = "mauro3"
+version = "0.8.0"
+description = "Simple Traits for Julia"
+stargazers_count = "51"
+url = "https://github.com/mauro3/SimpleTraits.jl.git"
+installs = true
+tags = ["julia", "traits"]
+license = "Other"
+
+[[contributors]]
+name = "mauro3"
+contributions = "80"
+[[contributors]]
+name = "vtjnash"
+contributions = "6"
+[[contributors]]
+name = "timholy"
+contributions = "5"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "bramtayl"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

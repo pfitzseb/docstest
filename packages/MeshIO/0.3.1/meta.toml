@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "MeshIO"
+owner = "JuliaIO"
+version = "0.3.1"
+description = "IO for Meshes"
+stargazers_count = "14"
+url = "https://github.com/JuliaIO/MeshIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "114"
+[[contributors]]
+name = "rdeits"
+contributions = "17"
+[[contributors]]
+name = "musm"
+contributions = "4"
+[[contributors]]
+name = "dhoegh"
+contributions = "3"
+[[contributors]]
+name = "goretkin"
+contributions = "2"
+[[contributors]]
+name = "sjkelly"
+contributions = "2"
+[[contributors]]
+name = "aaronang"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "Wikunia"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

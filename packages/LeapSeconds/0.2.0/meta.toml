@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LeapSeconds"
+owner = "JuliaTime"
+version = "0.2.0"
+description = "Leap seconds in Julia"
+stargazers_count = "1"
+url = "https://github.com/JuliaTime/LeapSeconds.jl.git"
+installs = true
+tags = ["time", "utc", "julia", "leapseconds"]
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "22"

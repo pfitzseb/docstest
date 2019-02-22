@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "real"
+name = "MathProgBase"
+owner = "JuliaOpt"
+version = "0.7.7"
+description = "Solver-independent functions (i.e. linprog and mixintprog) and low-level interface for Mathematical Programming"
+stargazers_count = "72"
+url = "https://github.com/JuliaOpt/MathProgBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "286"
+[[contributors]]
+name = "joehuchette"
+contributions = "87"
+[[contributors]]
+name = "IainNZ"
+contributions = "25"
+[[contributors]]
+name = "blegat"
+contributions = "13"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "9"
+[[contributors]]
+name = "chriscoey"
+contributions = "6"
+[[contributors]]
+name = "dpo"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "joaquimg"
+contributions = "4"
+[[contributors]]
+name = "madanim"
+contributions = "3"
+[[contributors]]
+name = "karanveerm"
+contributions = "3"
+[[contributors]]
+name = "odow"
+contributions = "3"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "2"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "yeesian"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "laurentheirendt"
+contributions = "1"
+[[contributors]]
+name = "martinbiel"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "ulfworsoe"
+contributions = "1"
+[[contributors]]
+name = "vitornesello"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "ZacCranko"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "Dendriform"
+owner = "chakravala"
+version = "0.1.1"
+description = "Dendriform di-algebra algorithms to compute using Loday's arithmetic on groves of planar binary trees."
+stargazers_count = "7"
+url = "https://github.com/chakravala/Dendriform.jl.git"
+installs = true
+tags = ["abstract-algebra", "number-theory", "mathematics", "binary-trees", "combinatorics", "julia", "hopf-algebra", "discrete-mathematics", "graph-theory"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "chakravala"
+contributions = "47"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "SMTPClient"
+owner = "aviks"
+version = "0.3.1"
+description = "Send emails from Julia"
+stargazers_count = "10"
+url = "https://github.com/aviks/SMTPClient.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "iblis17"
+contributions = "35"
+[[contributors]]
+name = "Ricks-ha"
+contributions = "20"
+[[contributors]]
+name = "aviks"
+contributions = "15"
+[[contributors]]
+name = "IainNZ"
+contributions = "7"
+[[contributors]]
+name = "amellnik"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "swadey"
+contributions = "1"
+[[contributors]]
+name = "peterbrescia"
+contributions = "1"

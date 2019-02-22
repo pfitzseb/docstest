@@ -1,0 +1,126 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FFTW"
+owner = "JuliaMath"
+version = "0.2.4"
+description = "Julia bindings to the FFTW library for fast Fourier transforms"
+stargazers_count = "37"
+url = "https://github.com/JuliaMath/FFTW.jl.git"
+installs = true
+tags = ["julia", "fftw", "bindings"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffBezanson"
+contributions = "44"
+[[contributors]]
+name = "ararslan"
+contributions = "34"
+[[contributors]]
+name = "tkelman"
+contributions = "26"
+[[contributors]]
+name = "stevengj"
+contributions = "17"
+[[contributors]]
+name = "musm"
+contributions = "11"
+[[contributors]]
+name = "yuyichao"
+contributions = "9"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "7"
+[[contributors]]
+name = "staticfloat"
+contributions = "5"
+[[contributors]]
+name = "simonster"
+contributions = "5"
+[[contributors]]
+name = "timholy"
+contributions = "5"
+[[contributors]]
+name = "ViralBShah"
+contributions = "5"
+[[contributors]]
+name = "martinholters"
+contributions = "4"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "4"
+[[contributors]]
+name = "pkofod"
+contributions = "4"
+[[contributors]]
+name = "hayd"
+contributions = "3"
+[[contributors]]
+name = "pabloferz"
+contributions = "3"
+[[contributors]]
+name = "nkottary"
+contributions = "3"
+[[contributors]]
+name = "JKrehl"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "2"
+[[contributors]]
+name = "vtjnash"
+contributions = "2"
+[[contributors]]
+name = "nolta"
+contributions = "2"
+[[contributors]]
+name = "nalimilan"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "DrDaleks"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"
+[[contributors]]
+name = "favba"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "appleparan"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "maleadt"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"

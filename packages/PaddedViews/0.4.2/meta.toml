@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "PaddedViews"
+owner = "JuliaArrays"
+version = "0.4.2"
+description = "Add virtual padding to the edges of an array"
+stargazers_count = "5"
+url = "https://github.com/JuliaArrays/PaddedViews.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "23"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "RuiRojo"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "ZacCranko"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

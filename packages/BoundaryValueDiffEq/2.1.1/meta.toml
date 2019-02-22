@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "BoundaryValueDiffEq"
+owner = "JuliaDiffEq"
+version = "2.1.1"
+description = "Boundary value problem (BVP) solvers for the DifferentialEquations.jl ecosystem"
+stargazers_count = "13"
+url = "https://github.com/JuliaDiffEq/BoundaryValueDiffEq.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "YingboMa"
+contributions = "83"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "64"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "dextorious"
+contributions = "1"
+[[contributors]]
+name = "jamesjscully"
+contributions = "1"

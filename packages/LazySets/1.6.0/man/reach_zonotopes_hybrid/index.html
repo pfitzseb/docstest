@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>A Hybrid Reachability Algorithm · LazySets.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/><link href="../../assets/juliareach.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../../index.html"><img class="logo" src="../../assets/logo.png" alt="LazySets.jl logo"/></a><h1>LazySets.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Manual</span><ul><li><a class="toctext" href="../getting_started/">Getting Started</a></li><li><a class="toctext" href="../polyhedral_approximations/">Polyhedral Approximations</a></li><li><a class="toctext" href="../decompose_example/">Decomposing an Affine Map</a></li><li><a class="toctext" href="../fast_2d_LPs/">Fast 2D LPs</a></li><li><a class="toctext" href="../iterative_refinement/">Iterative Refinement</a></li><li><a class="toctext" href="../interval_hulls/">Interval Hulls</a></li><li><a class="toctext" href="../convex_hulls/">Convex Hulls</a></li><li><a class="toctext" href="../set_operations/">Operations on Sets</a></li><li><a class="toctext" href="../reach_zonotopes/">A Reachability Algorithm</a></li><li class="current"><a class="toctext" href>A Hybrid Reachability Algorithm</a><ul class="internal"><li><a class="toctext" href="#Introduction-1">Introduction</a></li><li><a class="toctext" href="#Hybrid-algorithm-1">Hybrid algorithm</a></li><li><a class="toctext" href="#Example-1">Example</a></li></ul></li><li><a class="toctext" href="../concrete_polyhedra/">Concrete Polyhedra</a></li><li><a class="toctext" href="../parallel_approximations/">Parallel Approximations</a></li></ul></li><li><span class="toctext">Library</span><ul><li><a class="toctext" href="../../lib/interfaces/">Set Interfaces</a></li><li><a class="toctext" href="../../lib/representations/">Common Set Representations</a></li><li><a class="toctext" href="../../lib/operations/">Common Set Operations</a></li><li><a class="toctext" href="../../lib/comparisons/">Comparisons</a></li><li><a class="toctext" href="../../lib/conversion/">Conversions between set representations</a></li><li><a class="toctext" href="../../lib/binary_functions/">Binary Functions on Sets</a></li><li><a class="toctext" href="../../lib/approximations/">Approximations</a></li><li><a class="toctext" href="../../lib/utils/">Utility Functions</a></li><li><a class="toctext" href="../../lib/parallel/">Parallel</a></li></ul></li><li><a class="toctext" href="../../about/">About</a></li></ul></nav><article id="docs"><header><nav><ul><li>Manual</li><li><a href>A Hybrid Reachability Algorithm</a></li></ul></nav><hr/><div id="topbar"><span>A Hybrid Reachability Algorithm</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="A-Hybrid-Reachability-Algorithm-Using-Zonotopes-1" href="#A-Hybrid-Reachability-Algorithm-Using-Zonotopes-1">A Hybrid Reachability Algorithm Using Zonotopes</a></h1><ul><li><a href="#A-Hybrid-Reachability-Algorithm-Using-Zonotopes-1">A Hybrid Reachability Algorithm Using Zonotopes</a></li><ul><li><a href="#Introduction-1">Introduction</a></li><li><a href="#Hybrid-algorithm-1">Hybrid algorithm</a></li><ul><li><a href="#Continuous-algorithm-1">Continuous algorithm</a></li><li><a href="#Plotting-results-1">Plotting results</a></li></ul><li><a href="#Example-1">Example</a></li></ul></ul><h2><a class="nav-anchor" id="Introduction-1" href="#Introduction-1">Introduction</a></h2><p>In this section we present an algorithm implemented using <code>LazySets</code> that computes the reach sets of a hybrid system of linear ordinary differential equations (ODE). This algorithm is an extension of the one presented in <a href="../reach_zonotopes/#A-Reachability-Algorithm-Using-Zonotopes-1">A Reachability Algorithm Using Zonotopes</a>.</p><p>We consider a simple case here where modes do not have invariants and transitions do not have updates. In set-based analysis like ours, it may make sense to take a transition as soon as one state in the current set of states can take it. Note that this is not equivalent to <em>must</em> semantics of hybrid automata (also called <em>urgent transitions</em>), which is defined on single trajectories. We also offer the usual <em>may</em> transitions interpretation.</p><h2><a class="nav-anchor" id="Hybrid-algorithm-1" href="#Hybrid-algorithm-1">Hybrid algorithm</a></h2><p>The hybrid algorithm maintains a queue of triples <span>$(m, X, t)$</span> where <span>$m$</span> is a mode, <span>$X$</span> is a set of states, and <span>$t$</span> is a time point. For each element in the queue the algorithm calls the <a href="#Continuous-algorithm-1">Continuous algorithm</a> to compute the reachable states in the current mode <span>$m$</span>, starting in the current states <span>$X$</span> at time <span>$t$</span>. The result is a flowpipe, i.e., a sequence of sets of states. For each of those sets we check intersection with the guards of <span>$m$</span>&#39;s outgoing transitions. Depending on the transition semantics, we add the discrete successors to the queue and continue with the next iteration until the queue is empty.</p><pre><code class="language-">using Plots, LazySets, Compat.LinearAlgebra
+import LazySets.expmat
+
+function reach_hybrid(As, Ts, init, δ, μ, T, max_order, instant_transitions)
+    # initialize queue with initial mode and states at time t=0
+    queue = [(init[1], init[2], 0.)]
+
+    res = Tuple{LazySet, Int}[]
+    while !isempty(queue)
+        init, loc, t = pop!(queue)
+        println(&quot;currently in location $loc at time $t&quot;)
+        R = reach_continuous(As[loc], init, δ, μ, T-t, max_order)
+        found_transition = false
+        for i in 1:length(R)-1
+            S = R[i]
+            push!(res, (S, loc))
+            for (guard, tgt_loc) in Ts[loc]
+                if !is_intersection_empty(S, guard)
+                    new_t = t + δ * i
+                    push!(queue, (S, tgt_loc, new_t))
+                    found_transition = true
+                    println(&quot;transition $loc -&gt; $tgt_loc at time $new_t&quot;)
+                end
+            end
+            if instant_transitions &amp;&amp; found_transition
+                break
+            end
+        end
+        if !instant_transitions || !found_transition &amp;&amp; length(R) &gt; 0
+            push!(res, (R[end], loc))
+        end
+    end
+    return res
+end
+nothing # hide</code></pre><h3><a class="nav-anchor" id="Continuous-algorithm-1" href="#Continuous-algorithm-1">Continuous algorithm</a></h3><p>This is basically the same implementation as outlined in the section <a href="../reach_zonotopes/#A-Reachability-Algorithm-Using-Zonotopes-1">A Reachability Algorithm Using Zonotopes</a>, only that this time we use concrete operations on zonotopes.</p><div><pre><code class="language-julia">function reach_continuous(A, X0, δ, μ, T, max_order)
+    # bloating factors
+    Anorm = norm(A, Inf)
+    α = (expmat(δ*Anorm) - 1 - δ*Anorm)/norm(X0, Inf)
+    β = (expmat(δ*Anorm) - 1)*μ/Anorm
+
+    # discretized system
+    n = size(A, 1)
+    ϕ = expmat(δ*A)
+    N = floor(Int, T/δ)
+
+    # preallocate array
+    R = Vector{LazySet}(undef, N)
+    if N == 0
+        return R
+    end
+
+    # initial reach set in the time interval [0, δ]
+    ϕp = (I+ϕ)/2
+    ϕm = (I-ϕ)/2
+    c = X0.center
+    gens = hcat(ϕp * X0.generators, ϕm * c, ϕm * X0.generators)
+    R[1] = minkowski_sum(Zonotope(ϕp * c, gens),
+                         Zonotope(zeros(n), Matrix((α + β)*I, n, n)))
+    if order(R[1]) &gt; max_order
+        R[1] = reduce_order(R[1], max_order)
+    end
+
+    # set recurrence for [δ, 2δ], ..., [(N-1)δ, Nδ]
+    ballβ = Zonotope(zeros(n), Matrix(β*I, n, n))
+    for i in 2:N
+        R[i] = minkowski_sum(linear_map(ϕ, R[i-1]), ballβ)
+        if order(R[i]) &gt; max_order
+            R[i] = reduce_order(R[i], max_order)
+        end
+    end
+    return R
+end</code></pre></div><h3><a class="nav-anchor" id="Plotting-results-1" href="#Plotting-results-1">Plotting results</a></h3><p>For illustration purposes it is helpful to plot the flowpipes in different colors, depending on the current mode. The following function does that for 2-mode models.</p><div><pre><code class="language-julia">function plot_res(res)
+    p = plot()
+    for i in 1:length(res)
+        if res[i][2] == 1
+            c = &quot;blue&quot;
+        elseif res[i][2] == 2
+            c = &quot;red&quot;
+        end
+        plot!(p, reduce_order(res[i][1], 2), color=c, alpha=0.1)
+    end
+    return p
+end</code></pre></div><h2><a class="nav-anchor" id="Example-1" href="#Example-1">Example</a></h2><p>We consider an extension of the example presented in <em>Reachability of uncertain linear systems using zonotopes</em>, A. Girard, HSCC. Vol. 5. 2005 to a hybrid system with two modes <span>$\ell_i$</span>, <span>$i = 1, 2$</span>, with initial states <span>$[0.9, 1.1] \times [-0.1, 0.1]$</span> and uncertain inputs from a set <span>$u$</span> with <span>$\mu = \Vert u \Vert_\infty = 0.001$</span>.</p><p>The dynamics matrices <span>$A_i$</span> are defined as follows:</p><div>\[	A_1 = \begin{pmatrix} -1 &amp; -4 \\ 4 &amp; -1 \end{pmatrix}, \qquad A_2 = \begin{pmatrix} 1 &amp; 4 \\ -4 &amp; -1 \end{pmatrix}.\]</div><p>We add a transition <span>$t_i$</span> from mode <span>$\ell_i$</span> to <span>$\ell_{3-i}$</span> with a hyperplane guard <span>$g_i$</span>:</p><div>\[	g_1 \triangleq x_1 = -0.5 \qquad g_2 \triangleq x_2 = -0.3\]</div><p><code>LazySets</code> offers an order reduction function for zonotopes, which we used here with an upper bound of 10 generators. We plot the reachable states for the time interval <span>$[0, 4]$</span> and time step <span>$δ = 0.001$</span>.</p><pre><code class="language-">    # dynamics
+    A1 = [-1 -4; 4 -1]
+    A2 = [1 4; -4 -1]
+    As = [A1, A2]
+
+    # transitions
+    t1 = [(Hyperplane([1., 0.], -0.5), 2)]
+    t2 = [(Hyperplane([0., 1.], -0.3), 1)]
+    Ts = [t1, t2]
+
+    # initial condition
+    X0 = Zonotope([1.0, 0.0], Matrix(0.1*I, 2, 2))
+    init_loc = 1
+    init = (X0, init_loc)
+
+    # input uncertainty
+    μ = 0.001
+
+    # discretization step
+    δ = 0.001
+
+    # time bound
+    T = 4.
+
+    # maximum order of zonotopes
+    max_order = 10
+
+    # take transitions only the first time they are enabled?
+    instant_transitions = true
+
+    # run analysis
+    res = reach_hybrid(As, Ts, init, δ, μ, T, max_order, instant_transitions)
+
+    # plot result
+    plot_res(res)</code></pre><footer><hr/><a class="previous" href="../reach_zonotopes/"><span class="direction">Previous</span><span class="title">A Reachability Algorithm</span></a><a class="next" href="../concrete_polyhedra/"><span class="direction">Next</span><span class="title">Concrete Polyhedra</span></a></footer></article></body></html>

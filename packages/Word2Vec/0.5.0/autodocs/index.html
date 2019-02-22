@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Word2Vec.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Word2Vec.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">Word2Vec.Word2Vec</code></pre><pre><code class="language-none">Word2Vec.WordClusters</code></pre><pre><code class="language-none">Word2Vec.WordVectors</code></pre><pre><code class="language-none">Word2Vec._from_binary</code></pre><pre><code class="language-none">Word2Vec._from_text</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.analogy" href="#Word2Vec.analogy"><code>Word2Vec.analogy</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">analogy(wv, pos, neg, n=5)</code></pre><p>Compute the analogy similarity between two lists of words. The positions and the similarity values of the top <code>n</code> similar words will be returned. For example, <code>king - man + woman = queen</code> will be <code>pos=[&quot;king&quot;, &quot;woman&quot;], neg=[&quot;man&quot;]</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.analogy_words" href="#Word2Vec.analogy_words"><code>Word2Vec.analogy_words</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">analogy_words(wv, pos, neg, n=5)</code></pre><p>Return the top <code>n</code> words computed by analogy similarity between positive words <code>pos</code> and negaive words <code>neg</code>. from the WordVectors <code>wv</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.clusters" href="#Word2Vec.clusters"><code>Word2Vec.clusters</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">clusters(wc)</code></pre><p>Return all the clusters from the WordClusters <code>wc</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.cosine" href="#Word2Vec.cosine"><code>Word2Vec.cosine</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">cosine(wv, word, n=10)</code></pre><p>Return the position of <code>n</code> (by default <code>n = 10</code>) neighbors of <code>word</code> and their cosine similarities.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.cosine_similar_words" href="#Word2Vec.cosine_similar_words"><code>Word2Vec.cosine_similar_words</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">cosine_similar_words(wv, word, n=10)</code></pre><p>Return the top <code>n</code> (by default <code>n = 10</code>) most similar words to <code>word</code> from the WordVectors <code>wv</code>.</p></div></div></section><pre><code class="language-none">Word2Vec.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.get_cluster" href="#Word2Vec.get_cluster"><code>Word2Vec.get_cluster</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">get_cluster(wc, word)</code></pre><p>Return the cluster number for a word in the vocabulary.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.get_vector" href="#Word2Vec.get_vector"><code>Word2Vec.get_vector</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">get_vector(wv, word)</code></pre><p>Return the vector representation of <code>word</code> from the WordVectors <code>wv</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.get_words" href="#Word2Vec.get_words"><code>Word2Vec.get_words</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">get_words(wc, cluster)</code></pre><p>For the WordCluster <code>wc</code>, return all the words from a given cluster number <code>cluster</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.in_vocabulary" href="#Word2Vec.in_vocabulary"><code>Word2Vec.in_vocabulary</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">in_vocabulary(wv, word)</code></pre><p>Return <code>true</code> if <code>word</code> is part of the vocabulary of the WordVector <code>wv</code> and <code>false</code> otherwise.</p></div></div><div><div><pre><code class="language-none">in_vocabulary(wc, word)</code></pre><p>For the WordCluters <code>wc</code>, return <code>true</code> if <code>word</code> is part of the vocabulary of <code>wc</code> and <code>false</code> otherwise.</p></div></div></section><pre><code class="language-none">Word2Vec.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.index" href="#Word2Vec.index"><code>Word2Vec.index</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">index(wv, word)</code></pre><p>Return the index of <code>word</code> from the WordVectors <code>wv</code>.</p></div></div><div><div><pre><code class="language-none">index(wc, word)</code></pre><p>Return the index of <code>word</code> from the WordCluaters <code>wc</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.similarity" href="#Word2Vec.similarity"><code>Word2Vec.similarity</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">similarity(wv, word1, word2)</code></pre><p>Return the cosine similarity value between two words <code>word1</code> and <code>word2</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Base.size" href="#Base.size"><code>Base.size</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">size(wv)</code></pre><p>Return the word vector length and the number of words as a tuple.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.vocabulary" href="#Word2Vec.vocabulary"><code>Word2Vec.vocabulary</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">vocabulary(wv)</code></pre><p>Return the vocabulary as a vector of words of the WordVectors <code>wv</code>.</p></div></div><div><div><pre><code class="language-none">vocabulary(wc)</code></pre><p>Return all the vocabulary of the WordClusters <code>wc</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.word2clusters" href="#Word2Vec.word2clusters"><code>Word2Vec.word2clusters</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none"> word2cluster(train, output, classes; size=100, window=5, sample=1e-3, hs=0,  negative=5, threads=1, iter=5, min_count=5, alpha=0.025, debug=2, binary=1, cbow=1, save_vocal=Nothing(), read_vocab=Nothing(), verbose=false)
+
+Parameters for training:
+    train &lt;file&gt;
+        Use text data from &lt;file&gt; to train the model
+    output &lt;file&gt;
+        Use &lt;file&gt; to save the resulting word vectors / word clusters
+    size &lt;Int&gt;
+        Set size of word vectors; default is 100
+    window &lt;Int&gt;
+        Set max skip length between words; default is 5
+    sample &lt;AbstractFloat&gt;
+        Set threshold for occurrence of words. Those that appear with
+        higher frequency in the training data will be randomly
+        down-sampled; default is 0 (off), useful value is 1e-5
+    hs &lt;Int&gt;
+        Use Hierarchical Softmax; default is 1 (0 = not used)
+    negative &lt;Int&gt;
+        Number of negative examples; default is 0, common values are 5 - 10
+        (0 = not used)
+    threads &lt;Int&gt;
+        Use &lt;Int&gt; threads (default 1)
+    iter &lt;Int&gt;
+        Run more training iterations (default 5)
+    min_count &lt;Int&gt;
+        This will discard words that appear less than &lt;Int&gt; times
+        (default 5)
+    alpha &lt;AbstractFloat&gt;
+        Set the starting learning rate; default is 0.025
+    classes &lt;Int&gt;
+        Number of word classes; if 0, output word classes rather than
+        word vectors (default 0)
+    debug &lt;Int&gt;
+        Set the debug mode (default = 2 = more info during training)
+    binary &lt;Int&gt;
+        Save the resulting vectors in binary moded; default is 0 (off)
+    cbow &lt;Int&gt;
+        Use the continuous back of words model; default is 1 (0 for skip-gram
+        model)
+    save_vocab &lt;file&gt;
+        The vocabulary will be saved to &lt;file&gt;
+    read_vocab &lt;file&gt;
+        The vocabulary will be read from &lt;file&gt;, not constructed from the
+        training data
+    verbose &lt;Bool&gt;
+        Print output from training</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.word2phrase" href="#Word2Vec.word2phrase"><code>Word2Vec.word2phrase</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none"> word2phrase(train, output; min_count=5, threshold=100, debug=2)
+
+Parameters for training:
+train &lt;file&gt;
+      Use text data from &lt;file&gt; to train the model 
+output &lt;file&gt;
+          Use &lt;file&gt; to save the resulting word vectors / 
+          word clusters / phrases
+min_count &lt;Int&gt;
+          This will discard words that appear less than &lt;int&gt; times; 
+          default is 5
+threshold &lt;AbstractFloat&gt;
+  	      The &lt;AbstractFloat&gt; value represents threshold for 
+          forming the phrases (higher means less phrases); default 100
+debug &lt;Int&gt;
+      Set the debug mode (default = 2 = more info during training)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.word2vec" href="#Word2Vec.word2vec"><code>Word2Vec.word2vec</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none"> word2vec(train, output; size=100, window=5, sample=1e-3, hs=0,  negative=5, threads=12, iter=5, min_count=5, alpha=0.025, debug=2, binary=1, cbow=1, save_vocal=Nothing(), read_vocab=Nothing(), verbose=false,)
+
+Parameters for training:
+    train &lt;file&gt;
+        Use text data from &lt;file&gt; to train the model
+    output &lt;file&gt;
+        Use &lt;file&gt; to save the resulting word vectors / word clusters
+    size &lt;Int&gt;
+        Set size of word vectors; default is 100
+    window &lt;Int&gt;
+        Set max skip length between words; default is 5
+    sample &lt;AbstractFloat&gt;
+        Set threshold for occurrence of words. Those that appear with
+        higher frequency in the training data will be randomly
+        down-sampled; default is 1e-5.
+    hs &lt;Int&gt;
+        Use Hierarchical Softmax; default is 1 (0 = not used)
+    negative &lt;Int&gt;
+        Number of negative examples; default is 0, common values are 
+        5 - 10 (0 = not used)
+    threads &lt;Int&gt;
+        Use &lt;Int&gt; threads (default 12)
+    iter &lt;Int&gt;
+        Run more training iterations (default 5)
+    min_count &lt;Int&gt;
+        This will discard words that appear less than &lt;Int&gt; times; default
+        is 5
+    alpha &lt;AbstractFloat&gt;
+        Set the starting learning rate; default is 0.025
+    debug &lt;Int&gt;
+        Set the debug mode (default = 2 = more info during training)
+    binary &lt;Int&gt;
+        Save the resulting vectors in binary moded; default is 0 (off)
+    cbow &lt;Int&gt;
+        Use the continuous back of words model; default is 1 (skip-gram
+        model)
+    save_vocab &lt;file&gt;
+        The vocabulary will be saved to &lt;file&gt;
+    read_vocab &lt;file&gt;
+        The vocabulary will be read from &lt;file&gt;, not constructed from the
+        training data
+    verbose &lt;Bool&gt;
+        Print output from training</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.wordclusters" href="#Word2Vec.wordclusters"><code>Word2Vec.wordclusters</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">wordclusters(fname)</code></pre><p>Generate a WordClusters type object from the text file <code>fname</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Word2Vec.wordvectors" href="#Word2Vec.wordvectors"><code>Word2Vec.wordvectors</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">wordvectors(filename [,type=Float64][; kind=:text, skip=false, normalize=true])</code></pre><p>Generate a WordVectors type object from a file.</p><p><strong>Arguments</strong></p><ul><li><code>filename::AbstractString</code> the embeddings file name</li><li><code>type::Type</code> type of the embedding vector elements; default <code>Float64</code></li></ul><p><strong>Keyword arguments</strong></p><ul><li><code>kind::Symbol</code> specifies whether the embeddings file is textual (<code>:text</code>)</li></ul><p>or binary (<code>:binary</code>); default <code>:text</code></p><ul><li><code>skip::Bool</code> in binary embeddings files specifies whether the newline</li></ul><p>byte is missing or not (use <code>true</code> for Google pre-trained models); default <code>false</code></p><ul><li><code>normalize:Bool</code> specifies whether to normalize the embedding vectors</li></ul><p>i.e. return unit vectors; default true</p></div></div></section><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

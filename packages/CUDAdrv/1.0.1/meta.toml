@@ -1,0 +1,50 @@
+license_url = "https://api.github.com/licenses/mit"
+name = "CUDAdrv"
+owner = "JuliaGPU"
+version = "1.0.1"
+description = "A Julia wrapper for the CUDA driver API."
+stargazers_count = "39"
+url = "https://github.com/JuliaGPU/CUDAdrv.jl.git"
+installs = false
+tags = ["julia", "julia-library", "cuda-driver-api", "cuda"]
+license = "MIT License"
+
+[[contributors]]
+name = "maleadt"
+contributions = "748"
+[[contributors]]
+name = "lindahua"
+contributions = "18"
+[[contributors]]
+name = "vchuravy"
+contributions = "15"
+[[contributors]]
+name = "una-dinosauria"
+contributions = "4"
+[[contributors]]
+name = "samuelpowell"
+contributions = "3"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "MikeInnes"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "adambrewster"
+contributions = "1"
+[[contributors]]
+name = "jmaebe"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "waltsims"
+contributions = "1"

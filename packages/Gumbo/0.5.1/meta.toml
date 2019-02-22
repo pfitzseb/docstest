@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "Gumbo"
+owner = "JuliaWeb"
+version = "0.5.1"
+description = "Julia wrapper around Google's gumbo C library for parsing HTML"
+stargazers_count = "47"
+url = "https://github.com/JuliaWeb/Gumbo.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "porterjamesj"
+contributions = "127"
+[[contributors]]
+name = "markmont"
+contributions = "14"
+[[contributors]]
+name = "jiahao"
+contributions = "8"
+[[contributors]]
+name = "aviks"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "essenciary"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "ninjin"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

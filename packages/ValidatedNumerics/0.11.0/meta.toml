@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ValidatedNumerics"
+owner = "JuliaIntervals"
+version = "0.11.0"
+description = "Rigorous floating-point calculations with interval arithmetic in Julia"
+stargazers_count = "48"
+url = "https://github.com/JuliaIntervals/ValidatedNumerics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "507"
+[[contributors]]
+name = "lbenet"
+contributions = "99"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "FavioVazquez"
+contributions = "1"

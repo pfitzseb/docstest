@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "LatticeSites"
+owner = "Roger-luo"
+version = "0.2.2"
+description = "Provides types for sites on lattices"
+stargazers_count = "0"
+url = "https://github.com/Roger-luo/LatticeSites.jl.git"
+installs = true
+tags = []
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "35"
+[[contributors]]
+name = "mbeach42"
+contributions = "1"

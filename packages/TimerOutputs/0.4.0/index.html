@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TimerOutputs.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TimerOutputs.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Example-output-1">Example output</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Settings-for-printing:-1">Settings for printing:</a></li><li><a class="toctext" href="#Flattening-1">Flattening</a></li><li><a class="toctext" href="#Resetting-1">Resetting</a></li><li><a class="toctext" href="#Indexing-into-a-table-1">Indexing into a table</a></li><li><a class="toctext" href="#Querying-data-1">Querying data</a></li><li><a class="toctext" href="#Default-Timer-1">Default Timer</a></li><li><a class="toctext" href="#Overhead-1">Overhead</a></li><li><a class="toctext" href="#Author-1">Author</a></li><li><a class="toctext" href="#Acknowledgments-1">Acknowledgments</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TimerOutputs-1" href="#TimerOutputs-1">TimerOutputs</a></h1><p><a href="https://travis-ci.org/KristofferC/TimerOutputs.jl"><img src="https://travis-ci.org/KristofferC/TimerOutputs.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://codecov.io/gh/KristofferC/TimerOutputs.jl"><img src="https://codecov.io/gh/KristofferC/TimerOutputs.jl/branch/master/graph/badge.svg" alt="codecov"/></a></p><p><code>TimerOutputs</code> is a small Julia package that is used to generate formatted output from timings made in different sections of a program. It&#39;s main functionality is the <code>@timeit</code> macro, similar to the <code>@time</code> macro in Base except one also assigns a label to the code section being timed. Multiple calls to code sections with the same label (and in the same &quot;scope&quot;) will accumulate the data for that label. After the program has executed, it is possible to print a nicely formatted table presenting how much time, allocations and number of calls were made in each section. The output can be customized as to only show the things you are interested in.</p><p>If you find this package useful please give it a star. I like stars and it also helps me know where my development time is best spent.</p><h2><a class="nav-anchor" id="Example-output-1" href="#Example-output-1">Example output</a></h2><p>An example of the output (used in a finite element simulation) is shown below</p><pre><code class="language-none"> ───────────────────────────────────────────────────────────────────────────────
+                                        Time                   Allocations
+                                ──────────────────────   ───────────────────────
+        Tot / % measured:            6.89s / 97.8%           5.20GiB / 85.0%
+
+ Section                ncalls     time   %tot     avg     alloc   %tot      avg
+ ───────────────────────────────────────────────────────────────────────────────
+ assemble                    6    3.27s  48.6%   545ms   3.65GiB  82.7%   624MiB
+   inner assemble         240k    1.92s  28.4%  7.98μs   3.14GiB  71.1%  13.7KiB
+ linear solve                5    2.73s  40.5%   546ms    108MiB  2.39%  21.6MiB
+ create sparse matrix        6    658ms  9.77%   110ms    662MiB  14.6%   110MiB
+ export                      1   78.4ms  1.16%  78.4ms   13.1MiB  0.29%  13.1MiB
+ ───────────────────────────────────────────────────────────────────────────────</code></pre><p>The first line shows the total (wall) time passed and allocations made since the start of the timer as well as the percentage of those totals spent inside timed sections. The following lines shows data for all the timed sections. The section label is shown first followed by the number of calls made to that section. Finally, the total time elapsed or allocations made in that section are shown together with the percentage of the total in that section and the average (time / allocations per call).</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>The easiest way to show how the package work is with a few examples of timing sections.</p><pre><code class="language-julia">using TimerOutputs
+
+# Create a TimerOutput, this is the main type that keeps track of everything.
+const to = TimerOutput()
+
+# Time a section code with the label &quot;sleep&quot; to the `TimerOutput` named &quot;to&quot;
+@timeit to &quot;sleep&quot; sleep(0.02)
+
+# Create a function to later time
+rands() = rand(10^7)
+
+# Time the function, @timeit returns the value being evaluated, just like Base @time
+rand_vals = @timeit to &quot;randoms&quot; rands();
+
+# Nested sections (sections with same name are not accumulated
+# if they have different parents)
+function time_test()
+    @timeit to &quot;nest 1&quot; begin
+        sleep(0.1)
+        # 3 calls to the same label
+        @timeit to &quot;level 2.1&quot; sleep(0.03)
+        @timeit to &quot;level 2.1&quot; sleep(0.03)
+        @timeit to &quot;level 2.1&quot; sleep(0.03)
+        @timeit to &quot;level 2.2&quot; sleep(0.2)
+    end
+    @timeit to &quot;nest 2&quot; begin
+        @timeit to &quot;level 2.1&quot; sleep(0.3)
+        @timeit to &quot;level 2.2&quot; sleep(0.4)
+    end
+end
+
+time_test()
+
+# exception safe
+function i_will_throw()
+    @timeit to &quot;throwing&quot; do
+        sleep(0.5)
+        throw(error(&quot;this is fine...&quot;))
+        print(&quot;nope&quot;)
+    end
+end
+
+i_will_throw()
+
+# Call to a previously used label accumulates data
+for i in 1:100
+    @timeit to &quot;sleep&quot; sleep(0.01)
+end
+
+# Can also annotate function definitions
+@timeit to funcdef(x) = x
+
+funcdef(2)</code></pre><p>Printing <code>to</code> shows a formatted table showing the number of calls, the total time spent in each section, and the percentage of the time spent in each section since <code>to</code> was created as well as averages (per call). Similar information is available for allocations:</p><pre><code class="language-none"> ──────────────────────────────────────────────────────────────────────
+                               Time                   Allocations
+                       ──────────────────────   ───────────────────────
+   Tot / % measured:        5.09s / 56.0%            106MiB / 74.6%
+
+ Section       ncalls     time   %tot     avg     alloc   %tot      avg
+ ──────────────────────────────────────────────────────────────────────
+ sleep            101    1.17s  41.2%  11.6ms   1.48MiB  1.88%  15.0KiB
+ nest 2             1    703ms  24.6%   703ms   2.38KiB  0.00%  2.38KiB
+   level 2.2        1    402ms  14.1%   402ms      368B  0.00%   368.0B
+   level 2.1        1    301ms  10.6%   301ms      368B  0.00%   368.0B
+ throwing           1    502ms  17.6%   502ms      384B  0.00%   384.0B
+ nest 1             1    396ms  13.9%   396ms   5.11KiB  0.01%  5.11KiB
+   level 2.2        1    201ms  7.06%   201ms      368B  0.00%   368.0B
+   level 2.1        3   93.5ms  3.28%  31.2ms   1.08KiB  0.00%   368.0B
+ randoms            1   77.5ms  2.72%  77.5ms   77.3MiB  98.1%  77.3MiB
+ funcdef            1   2.66μs  0.00%  2.66μs         -  0.00%        -
+ ──────────────────────────────────────────────────────────────────────</code></pre><h2><a class="nav-anchor" id="Settings-for-printing:-1" href="#Settings-for-printing:-1">Settings for printing:</a></h2><p>The <code>print_timer([io::IO = stdout], to::TimerOutput, kwargs)</code>, (or <code>show</code>) takes a number of keyword arguments to change the output. They are listed here:</p><ul><li><code>title::String</code> ─ title for the timer</li><li><code>allocations::Bool</code> ─ show the allocation columns (default <code>true</code>)</li><li><code>sortby::Symbol</code> ─ sort the sections according to <code>:time</code> (default), <code>:ncalls</code>, <code>:allocations</code> or <code>:name</code></li><li><code>linechars::Symbol</code> ─ use either <code>:unicode</code> (default) or <code>:ascii</code> to draw the horizontal lines in the table</li><li><code>compact::Bool</code> ─ hide the <code>avg</code> column (default <code>false</code>)</li></ul><h2><a class="nav-anchor" id="Flattening-1" href="#Flattening-1">Flattening</a></h2><p>If sections are nested like in the example below:</p><pre><code class="language-julia">to = TimerOutput()
+
+@timeit to &quot;nest 1&quot; begin
+    sleep(0.1)
+    @timeit to &quot;level 2.1&quot; sleep(0.1)
+    for i in 1:20; @timeit to &quot;level 2.2&quot; sleep(0.02); end
+end
+@timeit to &quot;nest 2&quot; begin
+    for i in 1:30; @timeit to &quot;level 2.1&quot; sleep(0.01); end
+    @timeit to &quot;level 2.2&quot; sleep(0.1)
+end</code></pre><p>the table is displayed as:</p><pre><code class="language-julia">julia&gt; show(to, allocations = false, compact = true)
+ ────────────────────────────────────
+ Section       ncalls     time   %tot
+ ────────────────────────────────────
+ nest 1             1    669ms  60.5%
+   level 2.2       20    423ms  38.3%
+   level 2.1        1    101ms  9.15%
+ nest 2             1    437ms  39.5%
+   level 2.1       30    335ms  30.3%
+   level 2.2        1    101ms  9.16%
+ ────────────────────────────────────</code></pre><p>It is possible to flatten this timer using the <code>TimerOutputs.flatten</code> function that accumulates the data for all sections with identical labels:</p><pre><code class="language-julia">julia&gt; to_flatten = TimerOutputs.flatten(to);
+
+julia&gt; show(to_flatten; compact = true, allocations = false)
+ ──────────────────────────────────
+ Section     ncalls     time   %tot
+ ──────────────────────────────────
+ nest 1           1    669ms  60.5%
+ level 2.2       21    525ms  47.5%
+ nest 2           1    437ms  39.5%
+ level 2.1       31    436ms  39.5%
+ ──────────────────────────────────</code></pre><h2><a class="nav-anchor" id="Resetting-1" href="#Resetting-1">Resetting</a></h2><p>A timer is reset by calling <code>reset_timer!(to::TimerOutput)</code>. This will remove all sections and reset the start of the timer to the current time / allocation values.</p><h2><a class="nav-anchor" id="Indexing-into-a-table-1" href="#Indexing-into-a-table-1">Indexing into a table</a></h2><p>Any <code>TimerOutput</code> can be indexed with the name of a section which returns a new <code>TimerOutput</code> with that section as the &quot;root&quot;. For example:</p><pre><code class="language-julia">to = TimerOutput()
+
+@timeit to &quot;nest 1&quot; begin
+    @timeit to &quot;nest 2&quot; begin
+        @timeit to &quot;nest 3.1&quot; sleep(0.1)
+        @timeit to &quot;nest 3.2&quot; sleep(0.1)
+        @timeit to &quot;nest 3.3&quot; sleep(0.1)
+    end
+    sleep(0.3)
+end</code></pre><pre><code class="language-julia">julia&gt; show(to; compact = true, allocations = false, linechars = :ascii)
+ -------------------------------------
+ Section        ncalls     time   %tot
+ -------------------------------------
+ nest 1              1    605ms   100%
+   nest 2            1    304ms  50.2%
+     nest 3.2        1    101ms  16.7%
+     nest 3.1        1    101ms  16.7%
+     nest 3.3        1    101ms  16.7%
+ -------------------------------------
+
+julia&gt; to_2 = to[&quot;nest 1&quot;][&quot;nest 2&quot;];
+
+julia&gt; show(to_2; compact = true, allocations = false, linechars = :ascii)
+ ---------------------------------
+ Section    ncalls     time   %tot
+ ---------------------------------
+ nest 3.2        1    101ms  33.3%
+ nest 3.1        1    101ms  33.3%
+ nest 3.3        1    101ms  33.3%
+ ---------------------------------</code></pre><p>The percentages showed are now relative to that &quot;root&quot;.</p><h2><a class="nav-anchor" id="Querying-data-1" href="#Querying-data-1">Querying data</a></h2><p>The (unexported) functions <code>ncalls</code>, <code>time</code>, <code>allocated</code> give the accumulated data for a section. The returned time has units in nano seconds and allocations in bytes. For example (using the <code>to</code> object from above):</p><pre><code class="language-julia">julia&gt; TimerOutputs.ncalls(to[&quot;nest 1&quot;])
+1
+
+julia&gt; TimerOutputs.time(to[&quot;nest 1&quot;][&quot;nest 2&quot;])
+350441733
+
+julia&gt; TimerOutputs.allocated(to[&quot;nest 1&quot;][&quot;nest 2&quot;])
+5280</code></pre><p>Furthermore, you can request the total time spent in the &quot;root&quot; timer:</p><pre><code class="language-julia">julia&gt; TimerOutputs.tottime(to)
+604937208
+
+julia&gt; TimerOutputs.totallocated(to)
+7632</code></pre><h2><a class="nav-anchor" id="Default-Timer-1" href="#Default-Timer-1">Default Timer</a></h2><p>It is often the case that it is enough to only use one timer. For convenience, there is therefore a version of all the functions and macros that do not take a <code>TimerOutput</code> instance and then use a global timer defined in the package. Note that this global timer is shared among all users of the package. For example:</p><pre><code class="language-julia">reset_timer!()
+
+@timeit &quot;section&quot; sleep(0.02)
+@timeit &quot;section2&quot; sleep(0.1)
+
+print_timer()</code></pre><p>which prints:</p><pre><code class="language-julia">julia&gt; print_timer()
+ ───────────────────────────────────────────────────────────────────
+                            Time                   Allocations
+                    ──────────────────────   ───────────────────────
+  Tot / % measured:      276ms / 44.3%            422KiB / 0.21%
+
+ Section    ncalls     time   %tot     avg     alloc   %tot      avg
+ ───────────────────────────────────────────────────────────────────
+ section2        1    101ms  82.7%   101ms      464B  50.0%     464B
+ section         1   21.1ms  17.3%  21.1ms      464B  50.0%     464B
+ ───────────────────────────────────────────────────────────────────</code></pre><p>The default timer object can be retrieved with <code>TimerOutputs.get_defaulttimer()</code>.</p><h2><a class="nav-anchor" id="Overhead-1" href="#Overhead-1">Overhead</a></h2><p>There is a small overhead in timing a section (0.25 μs) which means that this package is not suitable for measuring sections that finish very quickly. For proper benchmarking you want to use a more suitable tool like <a href="https://github.com/JuliaCI/BenchmarkTools.jl"><em>BenchmarkTools</em></a>.</p><p>It is sometimes desireable to be able &quot;turn on and off&quot; the <code>@timeit</code> macro. There is, however, no simple way to redefine how <code>@timeit</code> should work after precompilation. A simple solution is to define your own macro (here <code>@mytimeit</code>) that works exactly the same as <code>@timeit</code> except it can be enabled / disabled at will:</p><pre><code class="language-jl">ENABLE_TIMINGS = false
+
+macro mytimeit(exprs...)
+    if ENABLE_TIMINGS
+        return :(@timeit($(esc.(exprs)...)))
+    else
+        return esc(exprs[end])
+    end
+end</code></pre><p>This will create a macro that &quot;does nothing&quot; (just returns the expression) depending on the value of <code>ENABLE_TIMINGS</code> when the macro is expanded.</p><h2><a class="nav-anchor" id="Author-1" href="#Author-1">Author</a></h2><p>Kristoffer Carlsson - @KristofferC</p><h2><a class="nav-anchor" id="Acknowledgments-1" href="#Acknowledgments-1">Acknowledgments</a></h2><p>This package is inspired by the <code>TimerOutput</code> class in <a href="https://dealii.org/">deal.ii</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

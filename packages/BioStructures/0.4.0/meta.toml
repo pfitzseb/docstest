@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "BioStructures"
+owner = "BioJulia"
+version = "0.4.0"
+description = "A julia package to read, write and manipulate macromolecular structures"
+stargazers_count = "11"
+url = "https://github.com/BioJulia/BioStructures.jl.git"
+installs = true
+tags = ["bioinformatics", "structural-biology", "julia", "pdb", "protein-structure", "biology", "structural-bioinformatics"]
+license = "Other"
+
+[[contributors]]
+name = "jgreener64"
+contributions = "44"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "h3nnn4n"
+contributions = "1"
+[[contributors]]
+name = "tanhevg"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "RadiationSpectra"
+owner = "JuliaHEP"
+version = "0.1.1"
+description = "Toolkit for analysis of radiation spectra in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaHEP/RadiationSpectra.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lmh91"
+contributions = "21"
+[[contributors]]
+name = "oschulz"
+contributions = "8"

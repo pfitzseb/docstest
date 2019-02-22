@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "UnitfulUS"
+owner = "ajkeller34"
+version = "0.1.0"
+description = "U.S. customary units for Unitful"
+stargazers_count = "1"
+url = "https://github.com/ajkeller34/UnitfulUS.jl.git"
+installs = true
+tags = ["unitful", "units", "units-of-measure", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "ajkeller34"
+contributions = "11"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

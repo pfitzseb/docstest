@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "StringBuilders"
+owner = "davidanthoff"
+version = "0.2.0"
+description = "A StringBuilder type for julia"
+stargazers_count = "6"
+url = "https://github.com/davidanthoff/StringBuilders.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "18"
+[[contributors]]
+name = "jlapeyre"
+contributions = "2"
+[[contributors]]
+name = "yakir12"
+contributions = "2"

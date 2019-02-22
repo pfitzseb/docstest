@@ -1,0 +1,84 @@
+license_url = ""
+doctype = "default"
+name = "Distances"
+owner = "JuliaStats"
+version = "0.7.4"
+description = "A Julia package for evaluating distances(metrics) between vectors."
+stargazers_count = "116"
+url = "https://github.com/JuliaStats/Distances.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "37"
+[[contributors]]
+name = "lindahua"
+contributions = "10"
+[[contributors]]
+name = "IainNZ"
+contributions = "7"
+[[contributors]]
+name = "alyst"
+contributions = "6"
+[[contributors]]
+name = "andreasnoack"
+contributions = "6"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "5"
+[[contributors]]
+name = "rawls238"
+contributions = "4"
+[[contributors]]
+name = "juliohm"
+contributions = "4"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "nalimilan"
+contributions = "3"
+[[contributors]]
+name = "richardreeve"
+contributions = "3"
+[[contributors]]
+name = "arnavs"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "davidavdav"
+contributions = "1"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "heliosdrm"
+contributions = "1"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"
+[[contributors]]
+name = "kescobo"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "ntdef"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

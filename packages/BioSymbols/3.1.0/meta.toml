@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BioSymbols"
+owner = "BioJulia"
+version = "3.1.0"
+description = "Nucleic and amino acid primitive types and alphabets"
+stargazers_count = "6"
+url = "https://github.com/BioJulia/BioSymbols.jl.git"
+installs = true
+tags = ["biology", "bioinformatics", "biological-data-analysis", "computational-biology", "nucleotides", "nucleic-acids", "amino-acids"]
+license = "MIT License"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "11"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RayTraceEllipsoid"
+owner = "JuliaGeometry"
+version = "1.0.0"
+description = "Ray trace ellipsoid-shaped domes. Find intersection points and refract/reflect according to the refractive indices."
+stargazers_count = "7"
+url = "https://github.com/JuliaGeometry/RayTraceEllipsoid.jl.git"
+installs = true
+tags = ["ray-tracing", "ellipsoid", "reflect", "refract", "dome", "refractive-index"]
+license = "Other"
+
+[[contributors]]
+name = "yakir12"
+contributions = "30"
+[[contributors]]
+name = "skariel"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

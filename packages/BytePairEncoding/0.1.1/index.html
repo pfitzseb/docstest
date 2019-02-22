@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · BytePairEncoding.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>BytePairEncoding.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#BytePairEncoding.jl-1">BytePairEncoding.jl</a></li><li class="toplevel"><a class="toctext" href="#API-1">API</a></li><li><a class="toctext" href="#Unicode-Normalization-1">Unicode Normalization</a></li><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li><li class="toplevel"><a class="toctext" href="#Roadmap-1">Roadmap</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Table-of-Contents-1" href="#Table-of-Contents-1">Table of Contents</a></h1><ol><li><a href="#orgf71fdec">BytePairEncoding.jl</a></li><li><a href="#org57e4c00">API</a><ol><li><a href="#orga334417">Unicode Normalization</a></li></ol></li><li><a href="#org6777a55">Examples</a></li><li><a href="#orgd74ca5a">Roadmap</a></li></ol><p>&lt;a id=&quot;orgf71fdec&quot;&gt;&lt;/a&gt;</p><h1><a class="nav-anchor" id="BytePairEncoding.jl-1" href="#BytePairEncoding.jl-1">BytePairEncoding.jl</a></h1><p>Pure Julia implementation of  the Byte Pair Encoding(BPE) method  in the <a href="https://arxiv.org/abs/1508.07909">subword neural machine translation paper</a>. It&#39;s a port of  the original python package <a href="https://github.com/rsennrich/subword-nmt">subword-nmt</a>. <code>BytePairEncoding.jl</code> support different tokenize method(with the help of WordTokenizers.jl). You can simply use <code>set_tokenizer([your tokenize function])</code>  and then Learn the BPE map with it.</p><p>&lt;a id=&quot;org57e4c00&quot;&gt;&lt;/a&gt;</p><h1><a class="nav-anchor" id="API-1" href="#API-1">API</a></h1><ul><li><code>BPELearner([vocabulary files]; num_sym, min_freq, endsym, normalizer)</code> <ul><li>work as the learning configure.<ul><li><code>num_sym</code>: how many pair to generate.</li><li><code>min_freq</code>: threshold of learned pair frequency.</li><li><code>endsym</code>: the symbol for seperate internal &amp; last pair, if is set, it will automatically    invoke <code>set_endsym(endsym</code>.</li><li><code>normalizer</code>: normalizer type, default is identity(not normalized),    see next section for define normalization</li></ul></li><li><code>add!(::BPELearner, newfile)</code><ul><li>add a new file to learner.</li></ul></li><li><code>learn!(::BPELearner)</code><ul><li>learn the bpe map.</li></ul></li><li><code>emit(::BPELearner, output_filename)</code><ul><li>generate the bpe map file.</li></ul></li></ul></li><li><code>Bpe(bpefile; glossaries, merge, sepsym, endsym, normalizer)</code><ul><li>the bpe encoding related config.<ul><li><code>merge</code>: how many pair to load.</li><li><code>sepsym</code>: seperator symbol for internal pair, default is &quot;&quot;.</li><li><code>endsym</code>: end symbol of the last pair, default &quot;&lt;/w&gt;&quot;.</li><li><code>glossaries</code>: a list of glossaries, support both Regex &amp; String.</li><li><code>normalizer</code>: normalizer type,  default is identity(not normalized),    see next section for define normalization</li></ul></li><li><code>process_line(::Bpe, line)</code>: segment a given line the join as a new line,    leading &amp; trailing whitesplace will remmain.</li><li><code>segment(::Bpe, line)</code>: segment a line into a list of segments</li><li><code>segment_token(::Bpe, token::String)</code>: segment a given token or a list of tokens.</li></ul></li><li><code>set_endsym(::String)</code>: set the end symbol, default &quot;&lt;/w&gt;&quot;.</li><li><code>set_tokenizer(func)</code>: set the tokenizer fucntion , default is <code>nltk_word_tokenize</code>.</li><li><code>whitespace_tokenize(str)</code>: simply the <code>split(str)</code> function, for use with <code>set_tokenizer</code>.</li></ul><p>&lt;a id=&quot;orga334417&quot;&gt;&lt;/a&gt;</p><h2><a class="nav-anchor" id="Unicode-Normalization-1" href="#Unicode-Normalization-1">Unicode Normalization</a></h2><p>support unicode normalization</p><ul><li><code>UtfNormalizer</code><ul><li>wrapper type on Julia built-in unicode normalization function<ul><li><code>UtfNormalizer(::Symbol)</code>: support <code>:NFC</code>, <code>:NFD</code>, <code>:NFKC</code>, <code>:NFKD</code>, <code>:NFKC_CF</code></li><li><code>UtfNormalizer([option_names=all_default_false])</code>: options (stable, compat,    compose, decompose, stripignore, rejectna, newline2ls, newline2ps, newline2lf,    stripcc, casefold, lump, stripmark), usage example: <code>UtfNormalizer(stable=true, compose=true)</code></li></ul></li><li><code>normalize(::AbstractNormalizer, ::String)</code>: normalize given string with specific normalizer.</li></ul></li></ul><p>&lt;a id=&quot;org6777a55&quot;&gt;&lt;/a&gt;</p><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><pre><code class="language-none">               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type &quot;?&quot; for help, &quot;]?&quot; for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.0.2 (2018-11-08)
+ _/ |\__&#39;_|_|_|\__&#39;_|  |
+|__/                   |
+
+julia&gt; using BytePairEncoding
+
+julia&gt; using WordTokenizers
+
+julia&gt; set_tokenizer(nltk_word_tokenize)
+tokenize (generic function with 1 method)
+
+julia&gt; norm = UtfNormalizer(:NFKC)
+UtfNormalizer(14)
+
+julia&gt; vocabfiles = [&quot;./data/.....&quot;, &quot;./another/data/.....&quot; ...]
+
+julia&gt; bper = BPELearner(vocabfiles, 1000; normalizer=norm)
+BPELearner(num_sym=1000, min_freq=2, endsym=&quot;&lt;/w&gt;&quot;, normailzer=UtfNormalizer)
+
+julia&gt; learn!(bper)
+
+julia&gt; emit(bper, &quot;./bpe.out&quot;)
+&quot;./bpe.out&quot;
+
+julia&gt; bpe = Bpe(&quot;./bpe.out&quot;; normalizer=norm)
+Bpe(merge=-1, sepsym=&quot;&quot;, endsym=&quot;&lt;/w&gt;&quot;, num_glossaries=0, normalizer=UtfNormalizer)
+
+julia&gt; sample_sent =  &quot;It&#39;s interesting that technology often works as a servant for us, yet frequently we become a
+ servant to it. E-mail is a useful tool but many feel controlled by this new tool. The average business person is g
+etting about 80e-mails per day and many feel that about 80% of the messages in their \&quot;Inbox\&quot; are of little or no
+       value. So, I have four suggestions to help you to become better at \&quot;Erasing E-mail\&quot;.\n1.Get off the lists.
+ The best way to deal with a problem is to never have it. If you are receiving a lot of unwanted e-mails, ask to be
+ removed from the various lists. This would include your inclusion in unwanted lists.\n2.\&quot;Unlisted address\&quot;. Just
+ as you keep an \&quot;unlisted\&quot; telephone number that you share only with those whom you want to have direct access to
+, you might want to get a separate e-mail address only for the important communications you wish to receive.\n&quot;
+&quot;It&#39;s interesting that technology often works as a servant for us, yet frequently we become a servant to it. E-mail
+ is a useful tool but many feel controlled by this new tool. The average business person is getting about 80e-mails
+ per day and many feel that about 80% of the messages in their \&quot;Inbox\&quot; are of little or no\nvalue. So, I have fou
+r suggestions to help you to become better at \&quot;Erasing E-mail\&quot;.\n1.Get off the lists. The best way to deal with a
+ problem is to never have it. If you are receiving a lot of unwanted e-mails, ask to be removed from the various li
+sts. This would include your inclusion in unwanted lists.\n2.\&quot;Unlisted address\&quot;. Just as you keep an \&quot;unlisted\&quot;
+ telephone number that you share only with those whom you want to have direct access to, you might want to get a se
+parate e-mail address only for the important communications you wish to receive.\n&quot;
+
+julia&gt; first(split_sentences(sample_sent))
+&quot;It&#39;s interesting that technology often works as a servant for us, yet frequently we become a servant to it.&quot;
+
+julia&gt; segment(bpe, ans)
+42-element Array{String,1}:
+ &quot;I&quot;        
+ &quot;t&lt;/w&gt;&quot;    
+ &quot;&#39;&quot;        
+ &quot;s&lt;/w&gt;&quot;    
+ &quot;inter&quot;    
+ &quot;est&quot;      
+ &quot;ing&lt;/w&gt;&quot;  
+ &quot;that&lt;/w&gt;&quot; 
+ &quot;t&quot;        
+ &quot;ec&quot;       
+ &quot;h&quot;        
+ &quot;no&quot;       
+ &quot;lo&quot;       
+ &quot;g&quot;        
+ &quot;y&lt;/w&gt;&quot;    
+ &quot;of&quot;       
+ &quot;ten&lt;/w&gt;&quot;  
+ &quot;works&lt;/w&gt;&quot;
+ &quot;as&lt;/w&gt;&quot;   
+ &quot;a&lt;/w&gt;&quot;    
+ ⋮          
+ &quot;us&lt;/w&gt;&quot;   
+ &quot;,&lt;/w&gt;&quot;    
+ &quot;y&quot;        
+ &quot;et&lt;/w&gt;&quot;   
+ &quot;f&quot;        
+ &quot;re&quot;       
+ &quot;qu&quot;       
+ &quot;ent&quot;      
+ &quot;ly&lt;/w&gt;&quot;   
+ &quot;we&lt;/w&gt;&quot;   
+ &quot;b&quot;        
+ &quot;ecom&quot;     
+ &quot;e&lt;/w&gt;&quot;    
+ &quot;a&lt;/w&gt;&quot;    
+ &quot;serv&quot;     
+ &quot;ant&lt;/w&gt;&quot;  
+ &quot;to&lt;/w&gt;&quot;   
+ &quot;it&lt;/w&gt;&quot;   
+ &quot;.&lt;/w&gt;&quot;    
+
+julia&gt; for sentence ∈ split_sentences(sample_sent)
+           println(process_line(bpe, sentence))
+       end
+I t&lt;/w&gt; &#39; s&lt;/w&gt; inter est ing&lt;/w&gt; that&lt;/w&gt; t ec h no lo g y&lt;/w&gt; of ten&lt;/w&gt; works&lt;/w&gt; as&lt;/w&gt; a&lt;/w&gt; serv ant&lt;/w&gt; for&lt;
+/w&gt; us&lt;/w&gt; ,&lt;/w&gt; y et&lt;/w&gt; f re qu ent ly&lt;/w&gt; we&lt;/w&gt; b ecom e&lt;/w&gt; a&lt;/w&gt; serv ant&lt;/w&gt; to&lt;/w&gt; it&lt;/w&gt; .&lt;/w&gt;
+E - ma il&lt;/w&gt; is&lt;/w&gt; a&lt;/w&gt; us e ful&lt;/w&gt; tool&lt;/w&gt; but&lt;/w&gt; many&lt;/w&gt; fe el&lt;/w&gt; cont ro l led&lt;/w&gt; by&lt;/w&gt; this&lt;/w&gt; new&lt;/
+w&gt; tool&lt;/w&gt; .&lt;/w&gt;
+T he&lt;/w&gt; a ver age&lt;/w&gt; b us in ess&lt;/w&gt; pers on&lt;/w&gt; is&lt;/w&gt; g et ting&lt;/w&gt; about&lt;/w&gt; 8 0 e - ma il s&lt;/w&gt; p er&lt;/w&gt; day&lt;
+/w&gt; and&lt;/w&gt; many&lt;/w&gt; fe el&lt;/w&gt; that&lt;/w&gt; about&lt;/w&gt; 8 0&lt;/w&gt; %&lt;/w&gt; of&lt;/w&gt; the&lt;/w&gt; m es sa ges&lt;/w&gt; in&lt;/w&gt; their&lt;/w&gt; ` `
+&lt;/w&gt; In bo x&lt;/w&gt; &#39; &#39;&lt;/w&gt; are&lt;/w&gt; of&lt;/w&gt; l it t le&lt;/w&gt; or&lt;/w&gt; no&lt;/w&gt;
+value&lt;/w&gt; .&lt;/w&gt;
+S o&lt;/w&gt; ,&lt;/w&gt; I&lt;/w&gt; have&lt;/w&gt; f our&lt;/w&gt; su g g es tions&lt;/w&gt; to&lt;/w&gt; help&lt;/w&gt; you&lt;/w&gt; to&lt;/w&gt; b ecom e&lt;/w&gt; bet ter&lt;/w&gt;
+at&lt;/w&gt; ` `&lt;/w&gt; E r as ing&lt;/w&gt; E - ma il&lt;/w&gt; &#39; &#39;&lt;/w&gt; .&lt;/w&gt;
+1 . G et&lt;/w&gt; of f&lt;/w&gt; the&lt;/w&gt; li sts&lt;/w&gt; .&lt;/w&gt;
+T he&lt;/w&gt; b est&lt;/w&gt; way&lt;/w&gt; to&lt;/w&gt; de al&lt;/w&gt; with&lt;/w&gt; a&lt;/w&gt; pro bl em&lt;/w&gt; is&lt;/w&gt; to&lt;/w&gt; n ever&lt;/w&gt; have&lt;/w&gt; it&lt;/w&gt; .
+&lt;/w&gt;
+I f&lt;/w&gt; you&lt;/w&gt; are&lt;/w&gt; recei ving&lt;/w&gt; a&lt;/w&gt; l ot&lt;/w&gt; of&lt;/w&gt; un w an ted&lt;/w&gt; e - ma il s&lt;/w&gt; ,&lt;/w&gt; as k&lt;/w&gt; to&lt;/w&gt;
+be&lt;/w&gt; re mo ved&lt;/w&gt; from&lt;/w&gt; the&lt;/w&gt; vari ous&lt;/w&gt; li sts&lt;/w&gt; .&lt;/w&gt;
+T his&lt;/w&gt; would&lt;/w&gt; incl u de&lt;/w&gt; your&lt;/w&gt; incl us i on&lt;/w&gt; in&lt;/w&gt; un w an ted&lt;/w&gt; li sts&lt;/w&gt; .&lt;/w&gt;
+2 .&lt;/w&gt; &#39; &#39;&lt;/w&gt; U n li sted&lt;/w&gt; ad d ress&lt;/w&gt; &#39; &#39;&lt;/w&gt; .&lt;/w&gt;
+J ust&lt;/w&gt; as&lt;/w&gt; you&lt;/w&gt; ke ep&lt;/w&gt; an&lt;/w&gt; ` `&lt;/w&gt; un li sted&lt;/w&gt; &#39; &#39;&lt;/w&gt; t el e ph one&lt;/w&gt; numb er&lt;/w&gt; that&lt;/w&gt; you
+&lt;/w&gt; sh are&lt;/w&gt; only&lt;/w&gt; with&lt;/w&gt; those&lt;/w&gt; who m&lt;/w&gt; you&lt;/w&gt; want&lt;/w&gt; to&lt;/w&gt; have&lt;/w&gt; di rec t&lt;/w&gt; acc ess&lt;/w&gt; to&lt;
+/w&gt; ,&lt;/w&gt; you&lt;/w&gt; might&lt;/w&gt; want&lt;/w&gt; to&lt;/w&gt; get&lt;/w&gt; a&lt;/w&gt; se par ate&lt;/w&gt; e - ma il&lt;/w&gt; ad d ress&lt;/w&gt; only&lt;/w&gt; for&lt;/
+w&gt; the&lt;/w&gt; im por t ant&lt;/w&gt; comm un ic ations&lt;/w&gt; you&lt;/w&gt; w ish&lt;/w&gt; to&lt;/w&gt; receive&lt;/w&gt; .&lt;/w&gt;
+
+julia&gt;</code></pre><p>&lt;a id=&quot;orgd74ca5a&quot;&gt;&lt;/a&gt;</p><h1><a class="nav-anchor" id="Roadmap-1" href="#Roadmap-1">Roadmap</a></h1><ul><li>add more interface and function</li><li>add pre-learned bpe map</li><li>support for different bpe format</li><li>support custom normalization</li><li>support for google <a href="https://github.com/google/sentencepiece">sentencepiece</a></li><li>Maybe add to <a href="https://github.com/JuliaText/Embeddings.jl">Embeddings.jl</a> with <a href="https://github.com/bheinzerling/bpemb">bpemb</a>: pre-train bpe embedding</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

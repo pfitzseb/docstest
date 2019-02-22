@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SoftGlobalScope"
+owner = "stevengj"
+version = "1.0.9"
+description = "utilities for \"soft\" global scope in interactive Julia environments"
+stargazers_count = "16"
+url = "https://github.com/stevengj/SoftGlobalScope.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "19"
+[[contributors]]
+name = "dawbarton"
+contributions = "6"

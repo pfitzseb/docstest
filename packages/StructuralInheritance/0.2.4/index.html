@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StructuralInheritance.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StructuralInheritance.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Example-1">Example</a></li><li><a class="toctext" href="#Note:-on-emulating-super-constructors-1">Note: on emulating super constructors</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StructuralInheritance.jl-1" href="#StructuralInheritance.jl-1">StructuralInheritance.jl</a></h1><p>pseudo structural inheritance for the Julia language</p><p><a href="https://travis-ci.org/WschW/StructuralInheritance.jl"><img src="https://travis-ci.org/WschW/StructuralInheritance.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/WschW/StructuralInheritance.jl?branch=master"><img src="https://coveralls.io/repos/WschW/StructuralInheritance.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/WschW/StructuralInheritance.jl?branch=master"><img src="http://codecov.io/github/WschW/StructuralInheritance.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><h2><a class="nav-anchor" id="Example-1" href="#Example-1">Example</a></h2><pre><code class="language-Julia">julia&gt; using StructuralInheritance
+
+julia&gt; @protostruct struct A{T}
+           fieldFromA::T
+       end
+ProtoA
+
+julia&gt; @protostruct struct B{D} &lt;: A{Complex{D}}
+          fieldFromB::D
+       end &quot;SomeOtherPrefix&quot;
+SomeOtherPrefixB
+
+julia&gt; @protostruct struct C &lt;: B{Int}
+         fieldFromC
+       end
+ProtoC</code></pre><p>If we take a look at C we can see it inherits structure.</p><pre><code class="language-Julia">julia&gt; @doc C
+  No documentation found.
+
+  Summary
+  ≡≡≡≡≡≡≡≡≡
+
+  struct C &lt;: ProtoC
+
+  Fields
+  ≡≡≡≡≡≡≡≡
+
+  fieldFromA :: Complex{Int64}
+  fieldFromB :: Int64
+  fieldFromC :: Any
+
+  Supertype Hierarchy
+  ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+  C &lt;: ProtoC &lt;: SomeOtherPrefixB{Int64} &lt;: ProtoA{Complex{Int64}} &lt;: Any</code></pre><p>functions can be written to take advantage of the inherited structure</p><pre><code class="language-none">julia&gt; getFieldA(x::ProtoA) = x.fieldFromA
+getFieldA (generic function with 1 method)
+
+julia&gt; getFieldA(C(3 + im,2,&quot;c&#39;s new field&quot;))
+3 + 1im</code></pre><p><img src="InheritanceExampleDiagram.png" alt="Example structural inheritance diagram"/></p><h2><a class="nav-anchor" id="Note:-on-emulating-super-constructors-1" href="#Note:-on-emulating-super-constructors-1">Note: on emulating super constructors</a></h2><pre><code class="language-Julia">julia&gt; using StructuralInheritance
+
+julia&gt; @protostruct struct R
+           ff::Int
+           sf
+           R(x) = new(x,x^2)
+           R(x,y) = new(x,y)
+       end
+ProtoR
+
+julia&gt; @protostruct struct S &lt;: R
+           tf::Int
+       end
+ProtoS</code></pre><p>We can call the constructor in R and use its values to fill fields in S.</p><pre><code class="language-julia">julia&gt; S(x) = S(StructuralInheritance.totuple(R(x))...,x^3)
+S
+
+julia&gt; S(2)
+S(2, 4, 8)</code></pre><p>It is worth noting that this cannot be used with new() as new does not permit splatting.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

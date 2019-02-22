@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "MultiScaleArrays"
+owner = "JuliaDiffEq"
+version = "1.2.0"
+description = "A framework for developing multi-scale arrays for use in scientific computing packages"
+stargazers_count = "20"
+url = "https://github.com/JuliaDiffEq/MultiScaleArrays.jl.git"
+installs = true
+tags = ["multiscale", "models", "differentialequations"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "141"
+[[contributors]]
+name = "ScottPJones"
+contributions = "9"
+[[contributors]]
+name = "rafaqz"
+contributions = "7"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "HugoMH"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ImageDistances"
+owner = "JuliaImages"
+version = "0.1.1"
+description = "Distances between N-dimensional images"
+stargazers_count = "1"
+url = "https://github.com/JuliaImages/ImageDistances.jl.git"
+installs = true
+tags = ["image-processing", "distance", "images"]
+license = "Other"
+
+[[contributors]]
+name = "juliohm"
+contributions = "32"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "johnnychen94"
+contributions = "1"

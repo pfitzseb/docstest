@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "OSQP"
+owner = "oxfordcontrol"
+version = "0.5.1"
+description = "Julia interface for OSQP: The Operator Splitting QP Solver"
+stargazers_count = "17"
+url = "https://github.com/oxfordcontrol/OSQP.jl.git"
+installs = true
+tags = ["julia", "optimization", "julia-wrapper", "solver", "numerical-optimization"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "bstellato"
+contributions = "111"
+[[contributors]]
+name = "tkoolen"
+contributions = "98"
+[[contributors]]
+name = "blegat"
+contributions = "16"
+[[contributors]]
+name = "migarstka"
+contributions = "4"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "gbanjac"
+contributions = "3"
+[[contributors]]
+name = "lostella"
+contributions = "1"

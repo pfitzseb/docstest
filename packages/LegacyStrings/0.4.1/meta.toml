@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "LegacyStrings"
+owner = "JuliaStrings"
+version = "0.4.1"
+description = "Legacy Unicode string types"
+stargazers_count = "5"
+url = "https://github.com/JuliaStrings/LegacyStrings.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "6"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "6"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "stevengj"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "2"
+[[contributors]]
+name = "crstnbr"
+contributions = "2"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "martinholters"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

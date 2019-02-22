@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TabularDisplay"
+owner = "tk3369"
+version = "1.0.1"
+description = "Display a vector of things in a tabular format."
+stargazers_count = "6"
+url = "https://github.com/tk3369/TabularDisplay.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tk3369"
+contributions = "12"

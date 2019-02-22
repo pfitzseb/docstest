@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Zabbix"
+owner = "rahulkp220"
+version = "0.1.0"
+description = "Julia bindings for ZabbixAPI :fire:"
+stargazers_count = "9"
+url = "https://github.com/rahulkp220/Zabbix.jl.git"
+installs = true
+tags = ["zabbix", "zabbix-api", "julia", "julialang", "api"]
+license = "MIT License"
+
+[[contributors]]
+name = "rahulkp220"
+contributions = "34"
+[[contributors]]
+name = "jpsamaroo"
+contributions = "5"

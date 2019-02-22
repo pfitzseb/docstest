@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "Hiccup"
+owner = "JunoLab"
+version = "0.2.2"
+description = "HTML DSL AFAICT"
+stargazers_count = "11"
+url = "https://github.com/JunoLab/Hiccup.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "28"
+[[contributors]]
+name = "TotalVerb"
+contributions = "9"
+[[contributors]]
+name = "pfitzseb"
+contributions = "5"
+[[contributors]]
+name = "jgoldfar"
+contributions = "3"
+[[contributors]]
+name = "maximsch2"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "ajkeller34"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/gpl-2.0"
+doctype = "real"
+name = "JWAS"
+owner = "reworkhow"
+version = "0.5.0"
+description = "Julia for Whole-genome Analysis Software"
+stargazers_count = "15"
+url = "https://github.com/reworkhow/JWAS.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v2.0"
+
+[[contributors]]
+name = "reworkhow"
+contributions = "616"
+[[contributors]]
+name = "rohanLuigi"
+contributions = "22"
+[[contributors]]
+name = "tkelman"
+contributions = "2"

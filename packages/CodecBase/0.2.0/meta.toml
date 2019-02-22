@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CodecBase"
+owner = "bicycle1885"
+version = "0.2.0"
+description = "Base 16/32/64 codecs for TranscodingStreams.jl"
+stargazers_count = "3"
+url = "https://github.com/bicycle1885/CodecBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "23"

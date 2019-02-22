@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CMakeWrapper"
+owner = "JuliaPackaging"
+version = "0.2.2"
+description = "Build CMake packages from Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaPackaging/CMakeWrapper.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "44"
+[[contributors]]
+name = "stevengj"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

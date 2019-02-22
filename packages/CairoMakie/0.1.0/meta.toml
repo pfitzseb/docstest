@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CairoMakie"
+owner = "JuliaPlots"
+version = "0.1.0"
+description = "Cairo backend for Makie"
+stargazers_count = "3"
+url = "https://github.com/JuliaPlots/CairoMakie.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "27"

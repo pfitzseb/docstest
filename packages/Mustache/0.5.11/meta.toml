@@ -1,0 +1,81 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Mustache"
+owner = "jverzani"
+version = "0.5.11"
+description = "Port of mustache.js to julia"
+stargazers_count = "53"
+url = "https://github.com/jverzani/Mustache.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jverzani"
+contributions = "168"
+[[contributors]]
+name = "christopher-dG"
+contributions = "4"
+[[contributors]]
+name = "Kissaki"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "ncollins"
+contributions = "3"
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "dirk"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "astrieanna"
+contributions = "1"
+[[contributors]]
+name = "mpastell"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "powerdistribution"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "mbeltagy"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

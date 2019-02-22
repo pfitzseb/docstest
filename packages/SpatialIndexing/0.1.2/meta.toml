@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SpatialIndexing"
+owner = "alyst"
+version = "0.1.2"
+description = "Spatial data indexing in pure Julia (R*-trees etc)"
+stargazers_count = "4"
+url = "https://github.com/alyst/SpatialIndexing.jl.git"
+installs = true
+tags = ["r-tree", "spatial-indexing", "julia", "spatial-data", "r-star-tree"]
+license = "MIT License"
+
+[[contributors]]
+name = "alyst"
+contributions = "49"

@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "NLPModels"
+owner = "JuliaSmoothOptimizers"
+version = "0.7.2"
+description = "Data Structures for Optimization Models"
+stargazers_count = "22"
+url = "https://github.com/JuliaSmoothOptimizers/NLPModels.jl.git"
+installs = true
+tags = ["optimization", "nonlinear-programming", "nonlinear-optimization", "julia-language", "julia", "nlpmodels"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "abelsiqueira"
+contributions = "186"
+[[contributors]]
+name = "dpo"
+contributions = "123"
+[[contributors]]
+name = "amontoison"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "vepiteski"
+contributions = "1"

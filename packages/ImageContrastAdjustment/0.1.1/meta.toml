@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "ImageContrastAdjustment"
+owner = "zygmuntszpak"
+version = "0.1.1"
+description = "A Julia package for enhancing and manipulating image contrast."
+stargazers_count = "0"
+url = "https://github.com/zygmuntszpak/ImageContrastAdjustment.jl.git"
+installs = true
+tags = ["histogram-equalization", "gamma-correction", "normalization", "contrast-stretching", "midway-histogram-equalization", "histogram-matching", "histogram-specification", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "20"

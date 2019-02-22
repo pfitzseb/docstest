@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "BayesianOptimization"
+owner = "jbrea"
+version = "0.1.1"
+description = ""
+stargazers_count = "13"
+url = "https://github.com/jbrea/BayesianOptimization.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "15"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

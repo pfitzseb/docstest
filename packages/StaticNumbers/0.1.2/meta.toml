@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "StaticNumbers"
+owner = "perrutquist"
+version = "0.1.2"
+description = "Static numbers in Julia"
+stargazers_count = "2"
+url = "https://github.com/perrutquist/StaticNumbers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "perrutquist"
+contributions = "86"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"

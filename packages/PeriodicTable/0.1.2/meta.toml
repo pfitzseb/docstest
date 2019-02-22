@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "PeriodicTable"
+owner = "rahulkp220"
+version = "0.1.2"
+description = "Periodic Table for Julians! :fire:"
+stargazers_count = "17"
+url = "https://github.com/rahulkp220/PeriodicTable.jl.git"
+installs = true
+tags = ["julia", "julia-language", "periodic-table", "chemistry"]
+license = "Other"
+
+[[contributors]]
+name = "rahulkp220"
+contributions = "38"
+[[contributors]]
+name = "crstnbr"
+contributions = "8"
+[[contributors]]
+name = "stevengj"
+contributions = "6"
+[[contributors]]
+name = "lancebeet"
+contributions = "3"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "Sleort"
+contributions = "1"

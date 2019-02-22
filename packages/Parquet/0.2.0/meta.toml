@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Parquet"
+owner = "JuliaIO"
+version = "0.2.0"
+description = "Julia implementation of parquet columnar file format reader and writer "
+stargazers_count = "19"
+url = "https://github.com/JuliaIO/Parquet.jl.git"
+installs = true
+tags = ["parquet", "julia", "columnar-storage"]
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "41"
+[[contributors]]
+name = "davidanthoff"
+contributions = "7"
+[[contributors]]
+name = "femtotrader"
+contributions = "2"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "poke1024"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "zaneli"
+contributions = "1"

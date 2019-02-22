@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "Pushover"
+owner = "scls19fr"
+version = "0.1.1"
+description = "A simple Pushover client for Julia  https://scls19fr.github.io/Pushover.jl/dev"
+stargazers_count = "1"
+url = "https://github.com/scls19fr/Pushover.jl.git"
+installs = true
+tags = ["julia-language", "pushover", "notifications"]
+license = "Other"
+
+[[contributors]]
+name = "scls19fr"
+contributions = "19"

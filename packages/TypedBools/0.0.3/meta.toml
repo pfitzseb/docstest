@@ -1,0 +1,4 @@
+name = "TypedBools"
+installs = false
+url = "https://github.com/bramtayl/TypedBools.jl.git"
+version = "0.0.3"

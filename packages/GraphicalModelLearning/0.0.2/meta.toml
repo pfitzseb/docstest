@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "GraphicalModelLearning"
+owner = "lanl-ansi"
+version = "0.0.2"
+description = "Algorithms for Learning Graphical Models"
+stargazers_count = "2"
+url = "https://github.com/lanl-ansi/GraphicalModelLearning.jl.git"
+installs = true
+tags = ["graphical-models", "learning", "algorithm", "convex-optimization", "sampling"]
+license = "Other"
+
+[[contributors]]
+name = "ccoffrin"
+contributions = "42"
+[[contributors]]
+name = "marc-vuffray"
+contributions = "11"

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · PathDistribution.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PathDistribution.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Installation-1">Installation</a></li><li class="toplevel"><a class="toctext" href="#Basic-Usage-with-an-Adjacency-Matrix-1">Basic Usage with an Adjacency Matrix</a></li><li><a class="toctext" href="#Monte-Carlo-Simulation-1">Monte-Carlo Simulation</a></li><li><a class="toctext" href="#Full-Enumeration-1">Full Enumeration</a></li><li><a class="toctext" href="#Results-1">Results</a></li><li class="toplevel"><a class="toctext" href="#Another-Form-1">Another Form</a></li><li><a class="toctext" href="#Monte-Carlo-Simulation-2">Monte-Carlo Simulation</a></li><li><a class="toctext" href="#Results-2">Results</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="PathDistribution.jl-1" href="#PathDistribution.jl-1">PathDistribution.jl</a></h1><p><a href="http://pkg.julialang.org/?pkg=PathDistribution"><img src="http://pkg.julialang.org/badges/PathDistribution_0.5.svg" alt="PathDistribution"/></a> <a href="http://pkg.julialang.org/?pkg=PathDistribution"><img src="http://pkg.julialang.org/badges/PathDistribution_0.6.svg" alt="PathDistribution"/></a> <a href="http://pkg.julialang.org/?pkg=PathDistribution"><img src="http://pkg.julialang.org/badges/PathDistribution_0.7.svg" alt="PathDistribution"/></a></p><p><a href="https://travis-ci.org/chkwon/PathDistribution.jl"><img src="https://travis-ci.org/chkwon/PathDistribution.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/chkwon/pathdistribution-jl"><img src="https://ci.appveyor.com/api/projects/status/ft7mcyofj0g9mxr5?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/chkwon/PathDistribution.jl?branch=master"><img src="https://coveralls.io/repos/chkwon/PathDistribution.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p>This Julia package implements the Monte Carlo path generation method to estimate the number of simple paths between a pair of nodes in a graph, proposed by Roberts and Kroese (2007).</p><ul><li><a href="http://dx.doi.org/10.7155/jgaa.00142">Roberts, B., &amp; Kroese, D. P. (2007). Estimating the Number of <em>s</em>-<em>t</em> Paths in a Graph. <em>Journal of Graph Algorithms and Applications</em>, 11(1), 195-214.</a></li></ul><p>Extending the same idea, this package also estimate the path-length distribution. That is, we can estimate the number of paths whose length is no greater than a certain number. This idea was used in the following paper:</p><ul><li><a href="http://www.chkwon.net/papers/sun_gbr.pdf">Sun, L., Karwan, M, &amp; Kwon, C. Generalized Bounded Rationality and Robust Multi-Commodity Network Design.</a></li></ul><p>This package can also be used to fully enumerate all paths.</p><h1><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h1><p>This package requires Julia version 0.4.</p><pre><code class="language-julia">Pkg.add(&quot;PathDistribution&quot;)</code></pre><h1><a class="nav-anchor" id="Basic-Usage-with-an-Adjacency-Matrix-1" href="#Basic-Usage-with-an-Adjacency-Matrix-1">Basic Usage with an Adjacency Matrix</a></h1><p>First import the package:</p><pre><code class="language-julia">using PathDistribution</code></pre><p>Suppose we have an adjacency matrix of the form:</p><pre><code class="language-julia">adj_mtx = [ 0 1 1 1 0 1 1 1 ;
+            1 0 0 0 1 1 1 0 ;
+            1 0 0 1 1 1 1 1 ;
+            1 0 1 0 1 1 1 1 ;
+            0 1 1 1 0 1 0 0 ;
+            1 1 1 1 1 0 1 1 ;
+            1 1 1 1 0 1 0 1 ;
+            1 0 1 1 0 1 1 0 ]</code></pre><p>and the origin node is 1 the destination node is 8.</p><h2><a class="nav-anchor" id="Monte-Carlo-Simulation-1" href="#Monte-Carlo-Simulation-1">Monte-Carlo Simulation</a></h2><p>To estimate the total number of paths from the origin to the destination, we can do the following:</p><pre><code class="language-julia"># N1: number of samples in the first stage (default=5000)
+# N2: number of samples in the second stage (default=10000)
+no_path_est = monte_carlo_path_number(1, 8, adj_mtx)
+no_path_est = monte_carlo_path_number(1, 8, adj_mtx, N1, N2)</code></pre><p>To estimate the path-length distribution:</p><pre><code class="language-julia">samples = monte_carlo_path_sampling(1, size(adj_mtx,1), adj_mtx)
+x_data_est, y_data_est = estimate_cumulative_count(samples)</code></pre><p>where <code>x_data_est</code> and <code>y_data_est</code> are for estimating the cumulative count of paths by path length. That is, <code>y_data_est[i]</code> is an estimate for the number of simple paths whose length is no greater than <code>x_data_est[i]</code> between the origin and destination nodes. Note that <code>y_data_est[end]</code> is the estimated number of total paths.</p><h2><a class="nav-anchor" id="Full-Enumeration-1" href="#Full-Enumeration-1">Full Enumeration</a></h2><p>This package can also enumerate all paths explicitly. (<strong>CAUTION:</strong> It may take &quot;forever&quot; to enumerate all paths for a large network.)</p><pre><code class="language-julia">path_enums = path_enumeration(1, size(adj_mtx,1), adj_mtx)
+x_data, y_data = actual_cumulative_count(path_enums)</code></pre><p>You can access each enumerated path as follows:</p><pre><code class="language-julia">for enum in path_enums
+    println(&quot;Length = $(enum.length) : $(enum.path)&quot;)
+end
+println(&quot;The total number of paths is $(length(path_enums))&quot;)</code></pre><h2><a class="nav-anchor" id="Results-1" href="#Results-1">Results</a></h2><p>One obtains results similar to the following:</p><pre><code class="language-none">The total number of paths:
+- Full enumeration      : 397
+- Monte Carlo estimation: 395.6732706634341</code></pre><h1><a class="nav-anchor" id="Another-Form-1" href="#Another-Form-1">Another Form</a></h1><p>When you have the following form data:</p><pre><code class="language-julia">data = [
+ 1   4  79.0 ;
+ 1   2  59.0 ;
+ 2   4  31.0 ;
+ 2   3  90.0 ;
+ 2   5   9.0 ;
+ 2   6  32.0 ;
+ 3   9  89.0 ;
+ 3   8  66.0 ;
+ 3   6  68.0 ;
+ 3   7  47.0 ;
+ 4   3  14.0 ;
+ 4   9  95.0 ;
+ 4   8  88.0 ;
+ 5   3  44.0 ;
+ 5   6  83.0 ;
+ 6   7  33.0 ;
+ 6   8  37.0 ;
+ 7  11  79.0 ;
+ 7  12  10.0 ;
+ 8   7  95.0 ;
+ 8  10   0.0 ;
+ 8  12  30.0 ;
+ 9  10   5.0 ;
+ 9  11  44.0 ;
+10  13  79.0 ;
+10  14  91.0 ;
+11  14  53.0 ;
+11  15  80.0 ;
+11  13  56.0 ;
+12  15  75.0 ;
+12  14   1.0 ;
+13  14  48.0 ;
+14  15  25.0 ;
+]
+
+st = round(Int, data[:,1]) #first column of data
+en = round(Int, data[:,2]) #second column of data
+len = data[:,3] #third
+
+# Double them for two-ways.
+start_node = [st; en]
+end_node = [en; st]
+link_length = [len; len]
+
+origin = 1
+destination = 15</code></pre><h2><a class="nav-anchor" id="Monte-Carlo-Simulation-2" href="#Monte-Carlo-Simulation-2">Monte-Carlo Simulation</a></h2><p>The similar tasks as above can be done as follows:</p><pre><code class="language-julia"># Full Enumeration
+path_enums = path_enumeration(origin, destination, start_node, end_node, link_length)
+x_data, y_data = actual_cumulative_count(path_enums)
+
+# Monte-Carlo estimation
+N1 = 5000
+N2 = 10000
+samples = monte_carlo_path_sampling(origin, destination, start_node, end_node, link_length)
+samples = monte_carlo_path_sampling(origin, destination, start_node, end_node, link_length, N1, N2)
+x_data_est, y_data_est = estimate_cumulative_count(samples)
+
+println(&quot;===== Another Example =====&quot;)
+println(&quot;The total number of paths:&quot;)
+println(&quot;- Full enumeration      : $(length(path_enums))&quot;)
+println(&quot;- Monte Carlo estimation: $(y_data_est[end])&quot;)</code></pre><h2><a class="nav-anchor" id="Results-2" href="#Results-2">Results</a></h2><p>Results would look like:</p><pre><code class="language-none">===== Another Example =====
+The total number of paths:
+- Full enumeration      : 9851
+- Monte Carlo estimation: 9742.908561771697</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

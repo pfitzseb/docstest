@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "GeoStatsDevTools"
+owner = "juliohm"
+version = "0.3.9"
+description = "Developer tools for the GeoStats.jl framework"
+stargazers_count = "1"
+url = "https://github.com/juliohm/GeoStatsDevTools.jl.git"
+installs = true
+tags = ["geostatistics", "developer-tools"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "165"
+[[contributors]]
+name = "riyadm"
+contributions = "1"

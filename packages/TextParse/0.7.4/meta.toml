@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "real"
+name = "TextParse"
+owner = "JuliaComputing"
+version = "0.7.4"
+description = "A bunch of fast text parsing tools"
+stargazers_count = "30"
+url = "https://github.com/JuliaComputing/TextParse.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "77"
+[[contributors]]
+name = "shashi"
+contributions = "53"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

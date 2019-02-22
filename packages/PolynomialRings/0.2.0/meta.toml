@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "PolynomialRings"
+owner = "tkluck"
+version = "0.2.0"
+description = "A library for arithmetic and algebra with multi-variable polynomials."
+stargazers_count = "0"
+url = "https://github.com/tkluck/PolynomialRings.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkluck"
+contributions = "631"

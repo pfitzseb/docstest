@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SequentialMonteCarlo"
+owner = "awllee"
+version = "0.6.0"
+description = "A light interface to serial and multi-threaded Sequential Monte Carlo"
+stargazers_count = "8"
+url = "https://github.com/awllee/SequentialMonteCarlo.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "awllee"
+contributions = "49"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

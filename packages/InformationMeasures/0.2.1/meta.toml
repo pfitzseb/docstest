@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "InformationMeasures"
+owner = "Tchanders"
+version = "0.2.1"
+description = "Entropy, mutual information and higher order measures from information theory, with various estimators and discretisation methods."
+stargazers_count = "23"
+url = "https://github.com/Tchanders/InformationMeasures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Tchanders"
+contributions = "88"
+[[contributors]]
+name = "alavendelm"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "istvankleijn"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

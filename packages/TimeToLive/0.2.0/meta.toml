@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TimeToLive"
+owner = "christopher-dG"
+version = "0.2.0"
+description = "Time to live (TTL) cache for Julia"
+stargazers_count = "1"
+url = "https://github.com/christopher-dG/TimeToLive.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "christopher-dG"
+contributions = "15"

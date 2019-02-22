@@ -1,0 +1,75 @@
+license_url = ""
+doctype = "default"
+name = "FixedPointNumbers"
+owner = "JuliaMath"
+version = "0.5.3"
+description = "fixed point types for julia"
+stargazers_count = "14"
+url = "https://github.com/JuliaMath/FixedPointNumbers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "133"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "17"
+[[contributors]]
+name = "vchuravy"
+contributions = "15"
+[[contributors]]
+name = "rdeits"
+contributions = "10"
+[[contributors]]
+name = "yuyichao"
+contributions = "9"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "simonbyrne"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "RalphAS"
+contributions = "2"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "pwl"
+contributions = "1"
+[[contributors]]
+name = "Sacha0"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

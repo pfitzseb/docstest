@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "UnitfulAngles"
+owner = "yakir12"
+version = "0.2.0"
+description = " Angular units for Unitful"
+stargazers_count = "4"
+url = "https://github.com/yakir12/UnitfulAngles.jl.git"
+installs = true
+tags = ["unitful", "units", "units-of-measure", "julia", "angle"]
+license = "Other"
+
+[[contributors]]
+name = "yakir12"
+contributions = "27"
+[[contributors]]
+name = "waldyrious"
+contributions = "7"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"

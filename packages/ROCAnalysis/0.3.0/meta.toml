@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ROCAnalysis"
+owner = "davidavdav"
+version = "0.3.0"
+description = "Receiver Operating Characteristics and functions for evaluation probabilistic binary classifiers"
+stargazers_count = "15"
+url = "https://github.com/davidavdav/ROCAnalysis.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidavdav"
+contributions = "92"
+[[contributors]]
+name = "DilumAluthge"
+contributions = "13"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

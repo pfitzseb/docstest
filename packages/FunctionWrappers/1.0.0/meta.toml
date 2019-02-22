@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "FunctionWrappers"
+owner = "yuyichao"
+version = "1.0.0"
+description = ""
+stargazers_count = "27"
+url = "https://github.com/yuyichao/FunctionWrappers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "yuyichao"
+contributions = "24"
+[[contributors]]
+name = "tkoolen"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

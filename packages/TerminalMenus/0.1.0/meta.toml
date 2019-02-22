@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "TerminalMenus"
+owner = "nick-paul"
+version = "0.1.0"
+description = "Simple interactive menus for the terminal"
+stargazers_count = "62"
+url = "https://github.com/nick-paul/TerminalMenus.jl.git"
+installs = true
+tags = ["julia", "terminal"]
+license = "Other"
+
+[[contributors]]
+name = "nick-paul"
+contributions = "63"
+[[contributors]]
+name = "staticfloat"
+contributions = "7"
+[[contributors]]
+name = "christopher-dG"
+contributions = "6"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"

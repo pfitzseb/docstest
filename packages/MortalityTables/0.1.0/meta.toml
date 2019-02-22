@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MortalityTables"
+owner = "alecloudenback"
+version = "0.1.0"
+description = "Easily Reference and use Actuarial Tables in Julia"
+stargazers_count = "0"
+url = "https://github.com/alecloudenback/MortalityTables.jl.git"
+installs = true
+tags = ["actuarial-science", "actuarial-modeling"]
+license = "Other"
+
+[[contributors]]
+name = "alecloudenback"
+contributions = "29"

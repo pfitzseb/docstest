@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CSSUtil"
+owner = "JuliaGizmos"
+version = "0.1.0"
+description = ""
+stargazers_count = "5"
+url = "https://github.com/JuliaGizmos/CSSUtil.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ranjanan"
+contributions = "5"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

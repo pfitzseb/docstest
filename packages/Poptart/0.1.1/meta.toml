@@ -1,0 +1,7 @@
+name = "Poptart"
+stargazers_count = "5"
+doctype = "default"
+installs = true
+url = "https://github.com/wookay/Poptart.jl.git"
+version = "0.1.1"
+description = "🏂 GUI programming in Julia based on Nuklear.jl"

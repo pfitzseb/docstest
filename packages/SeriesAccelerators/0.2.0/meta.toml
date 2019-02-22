@@ -1,0 +1,7 @@
+name = "SeriesAccelerators"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/jwscook/SeriesAccelerators.jl.git"
+version = "0.2.0"
+description = "Accelerate mathematical series"

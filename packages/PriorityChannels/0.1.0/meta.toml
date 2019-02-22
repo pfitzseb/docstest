@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "PriorityChannels"
+owner = "baggepinnen"
+version = "0.1.0"
+description = "Provides a Channel where elements are associated with a priority. take! returns highest priority item."
+stargazers_count = "1"
+url = "https://github.com/baggepinnen/PriorityChannels.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "11"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Nuklear"
+owner = "Gnimuc"
+version = "0.1.1"
+description = "Julia wrapper for nuklear"
+stargazers_count = "15"
+url = "https://github.com/Gnimuc/Nuklear.jl.git"
+installs = true
+tags = ["imgui-wrapper", "nuklear"]
+license = "MIT License"
+
+[[contributors]]
+name = "Gnimuc"
+contributions = "37"

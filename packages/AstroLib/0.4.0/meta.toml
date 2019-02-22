@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "AstroLib"
+owner = "JuliaAstro"
+version = "0.4.0"
+description = "Bundle of small astronomical and astrophysical routines."
+stargazers_count = "30"
+url = "https://github.com/JuliaAstro/AstroLib.jl.git"
+installs = true
+tags = ["julia", "astronomy", "astrophysics"]
+license = "Other"
+
+[[contributors]]
+name = "giordano"
+contributions = "205"
+[[contributors]]
+name = "TestSubjector"
+contributions = "29"
+[[contributors]]
+name = "benelsen"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "helgee"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "cormullion"
+contributions = "1"

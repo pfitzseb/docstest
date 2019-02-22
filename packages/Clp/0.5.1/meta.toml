@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "Clp"
+owner = "JuliaOpt"
+version = "0.5.1"
+description = "Interface to the Coin-OR Linear Programming solver (CLP)"
+stargazers_count = "22"
+url = "https://github.com/JuliaOpt/Clp.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "93"
+[[contributors]]
+name = "joehuchette"
+contributions = "8"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "3"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "3"
+[[contributors]]
+name = "odow"
+contributions = "3"
+[[contributors]]
+name = "IssamT"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "EdvinAblad"
+contributions = "1"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "ianfiske"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"

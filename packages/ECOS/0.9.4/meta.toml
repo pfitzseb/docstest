@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "ECOS"
+owner = "JuliaOpt"
+version = "0.9.4"
+description = "Julia wrapper for the ECOS conic optimization solver"
+stargazers_count = "17"
+url = "https://github.com/JuliaOpt/ECOS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "66"
+[[contributors]]
+name = "blegat"
+contributions = "65"
+[[contributors]]
+name = "IainNZ"
+contributions = "52"
+[[contributors]]
+name = "jfsantos"
+contributions = "14"
+[[contributors]]
+name = "tkelman"
+contributions = "12"
+[[contributors]]
+name = "staticfloat"
+contributions = "5"
+[[contributors]]
+name = "joehuchette"
+contributions = "5"
+[[contributors]]
+name = "karanveerm"
+contributions = "2"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

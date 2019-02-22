@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "SymDict"
+owner = "samoconnor"
+version = "0.3.0"
+description = "Dictionaries with Symbol keys."
+stargazers_count = "2"
+url = "https://github.com/samoconnor/SymDict.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "27"
+[[contributors]]
+name = "omus"
+contributions = "5"
+[[contributors]]
+name = "jingpengw"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

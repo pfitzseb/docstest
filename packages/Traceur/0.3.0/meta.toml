@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "Traceur"
+owner = "JunoLab"
+version = "0.3.0"
+description = ""
+stargazers_count = "136"
+url = "https://github.com/JunoLab/Traceur.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pfitzseb"
+contributions = "31"
+[[contributors]]
+name = "MikeInnes"
+contributions = "21"
+[[contributors]]
+name = "jamii"
+contributions = "9"
+[[contributors]]
+name = "maleadt"
+contributions = "2"
+[[contributors]]
+name = "jrevels"
+contributions = "1"
+[[contributors]]
+name = "cossio"
+contributions = "1"

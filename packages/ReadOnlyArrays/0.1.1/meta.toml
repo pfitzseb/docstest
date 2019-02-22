@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ReadOnlyArrays"
+owner = "bkamins"
+version = "0.1.1"
+description = "A wrapper type around AbstractArray that is read-only"
+stargazers_count = "4"
+url = "https://github.com/bkamins/ReadOnlyArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bkamins"
+contributions = "9"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"

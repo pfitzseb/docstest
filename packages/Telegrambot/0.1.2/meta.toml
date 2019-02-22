@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Telegrambot"
+owner = "Moelf"
+version = "0.1.2"
+description = "A simple telegram bot wrapper for handling text command reply."
+stargazers_count = "6"
+url = "https://github.com/Moelf/Telegrambot.jl.git"
+installs = true
+tags = ["julia", "julialang", "telegram", "telegram-bot", "telegram-api"]
+license = "MIT License"
+
+[[contributors]]
+name = "Moelf"
+contributions = "28"
+[[contributors]]
+name = "simeonschaub"
+contributions = "3"

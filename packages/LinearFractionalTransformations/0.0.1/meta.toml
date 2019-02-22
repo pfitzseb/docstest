@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LinearFractionalTransformations"
+owner = "scheinerman"
+version = "0.0.1"
+description = "Linear fractional transformations of the (extended) complex plane."
+stargazers_count = "0"
+url = "https://github.com/scheinerman/LinearFractionalTransformations.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "4"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ElasticPDMats"
+owner = "jbrea"
+version = "0.2.1"
+description = ""
+stargazers_count = "1"
+url = "https://github.com/jbrea/ElasticPDMats.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "8"

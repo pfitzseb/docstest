@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Taro"
+owner = "aviks"
+version = "0.7.0"
+description = "Read and write Excel, Word and PDF documents in Julia"
+stargazers_count = "60"
+url = "https://github.com/aviks/Taro.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "aviks"
+contributions = "72"
+[[contributors]]
+name = "AsafManela"
+contributions = "5"
+[[contributors]]
+name = "randyzwitch"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "baggepinnen"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "kersulis"
+contributions = "1"

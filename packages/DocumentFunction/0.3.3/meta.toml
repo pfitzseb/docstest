@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "DocumentFunction"
+owner = "madsjulia"
+version = "0.3.3"
+description = "Document Julia Functions (methods, arguments, keywords)"
+stargazers_count = "1"
+url = "https://github.com/madsjulia/DocumentFunction.jl.git"
+installs = true
+tags = ["documentation", "documentation-tool", "documentation-generator", "julia-language", "mads", "julia", "julialang", "document-conversion"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "37"
+[[contributors]]
+name = "rssdev10"
+contributions = "1"

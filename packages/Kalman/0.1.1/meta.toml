@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "Kalman"
+owner = "mschauer"
+version = "0.1.1"
+description = "Flexible filtering and smoothing in Julia"
+stargazers_count = "12"
+url = "https://github.com/mschauer/Kalman.jl.git"
+installs = true
+tags = ["kalman-filter", "kalman-smoother", "filter", "tracking"]
+license = "Other"
+
+[[contributors]]
+name = "mschauer"
+contributions = "61"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "yakir12"
+contributions = "1"

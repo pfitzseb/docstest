@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "ExtractMacro"
+owner = "carlobaldassi"
+version = "0.3.0"
+description = "Provides a convenience Julia macro to extract fields from composite types"
+stargazers_count = "8"
+url = "https://github.com/carlobaldassi/ExtractMacro.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "carlobaldassi"
+contributions = "29"

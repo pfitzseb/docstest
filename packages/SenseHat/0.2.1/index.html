@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SenseHat.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SenseHat.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#LED-matrix-1">LED matrix</a></li><li><a class="toctext" href="#Joystick-1">Joystick</a></li><li><a class="toctext" href="#Sensors-1">Sensors</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SenseHat.jl-1" href="#SenseHat.jl-1">SenseHat.jl</a></h1><p>SenseHat.jl is a Julia library for interacting with the Raspberry Pi <a href="https://www.raspberrypi.org/products/sense-hat/">Sense HAT</a>.</p><p>SenseHat.jl requires the Raspbian <code>sense-hat</code> package:</p><pre><code class="language-none">sudo apt-get update
+sudo apt-get install sense-hat
+sudo reboot</code></pre><h2><a class="nav-anchor" id="LED-matrix-1" href="#LED-matrix-1">LED matrix</a></h2><p>The main interface is the <code>led_matrix()</code> function, which creates an 8&amp;times;8 array of RGB values (from <a href="https://github.com/JuliaGraphics/ColorTypes.jl">ColorTypes.jl</a>) which is memory-mapped to the frame buffer of the LED matrix. <code>led_clear()</code> is a convenience function for resetting the LED matrix to black.</p><pre><code class="language-none">using SenseHat
+using ColorTypes
+
+const LED = led_matrix()
+
+LED[:] = SenseHat.JULIA_LOGO
+sleep(3)
+led_clear()</code></pre><h2><a class="nav-anchor" id="Joystick-1" href="#Joystick-1">Joystick</a></h2><p>In the <code>Stick</code> module there is <code>readstick()</code> which will block until the joystick is manipulated, returning a <code>StickEvent</code>:</p><pre><code class="language-none">using SenseHat
+
+e = readstick()</code></pre><p>For querying within a loop, use a <code>Channel</code> to create a buffer of <code>StickEvent</code>.</p><pre><code class="language-none">using SenseHat
+
+c = Channel{StickEvent}(32)
+
+@async while true
+    put!(c, readstick())
+end</code></pre><h2><a class="nav-anchor" id="Sensors-1" href="#Sensors-1">Sensors</a></h2><p><code>humidity()</code>, <code>temperature()</code> and <code>pressure()</code> will read values from the corresponding sensors.</p><p>The inertial measurement unit (IMU) is not yet supported, but is coming soon. In the meantime, you can use the <a href="https://pythonhosted.org/sense-hat/">python library</a> via <a href="https://github.com/JuliaPy/PyCall.jl">PyCall.jl</a>.</p><footer><hr/></footer></article></body></html>

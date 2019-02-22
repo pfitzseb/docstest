@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DebuggerFramework"
+owner = "Keno"
+version = "0.1.2"
+description = "A framework for writing debuggers"
+stargazers_count = "8"
+url = "https://github.com/Keno/DebuggerFramework.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "25"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

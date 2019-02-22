@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "DynamicalSystemsBase"
+owner = "JuliaDynamics"
+version = "1.2.3"
+description = "Definitions of core system and data types used in library of DynamicalSystems.jl"
+stargazers_count = "12"
+url = "https://github.com/JuliaDynamics/DynamicalSystemsBase.jl.git"
+installs = true
+tags = ["chaos", "nonlinear", "dynamical-systems", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "Datseris"
+contributions = "289"
+[[contributors]]
+name = "JonasIsensee"
+contributions = "11"
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "6"
+[[contributors]]
+name = "SebastianM-C"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

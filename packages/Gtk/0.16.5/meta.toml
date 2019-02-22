@@ -1,0 +1,162 @@
+license_url = ""
+doctype = "real"
+name = "Gtk"
+owner = "JuliaGraphics"
+version = "0.16.5"
+description = "Julia interface to Gtk windowing toolkit."
+stargazers_count = "105"
+url = "https://github.com/JuliaGraphics/Gtk.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "vtjnash"
+contributions = "221"
+[[contributors]]
+name = "tknopp"
+contributions = "169"
+[[contributors]]
+name = "timholy"
+contributions = "134"
+[[contributors]]
+name = "bfredl"
+contributions = "20"
+[[contributors]]
+name = "bjarthur"
+contributions = "18"
+[[contributors]]
+name = "jverzani"
+contributions = "15"
+[[contributors]]
+name = "tkelman"
+contributions = "10"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "9"
+[[contributors]]
+name = "Element-126"
+contributions = "7"
+[[contributors]]
+name = "ihnorton"
+contributions = "7"
+[[contributors]]
+name = "wherrera10"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "6"
+[[contributors]]
+name = "mwawra"
+contributions = "5"
+[[contributors]]
+name = "lucianolorenti"
+contributions = "4"
+[[contributors]]
+name = "flo12345678"
+contributions = "4"
+[[contributors]]
+name = "sbrisson"
+contributions = "4"
+[[contributors]]
+name = "yakir12"
+contributions = "3"
+[[contributors]]
+name = "Vexatos"
+contributions = "3"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"
+[[contributors]]
+name = "simonp0420"
+contributions = "2"
+[[contributors]]
+name = "hampii"
+contributions = "2"
+[[contributors]]
+name = "jakebolewski"
+contributions = "2"
+[[contributors]]
+name = "fcard"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "Cruor"
+contributions = "1"
+[[contributors]]
+name = "daniel-perry"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "gaika"
+contributions = "1"
+[[contributors]]
+name = "jpsamaroo"
+contributions = "1"
+[[contributors]]
+name = "kemaleren"
+contributions = "1"
+[[contributors]]
+name = "kuldeepdhaka"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "TestSubjector"
+contributions = "1"
+[[contributors]]
+name = "TravisA9"
+contributions = "1"
+[[contributors]]
+name = "ufechner7"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "ikselven"
+contributions = "1"
+[[contributors]]
+name = "jordancluts"
+contributions = "1"
+[[contributors]]
+name = "lobingera"
+contributions = "1"
+[[contributors]]
+name = "saolof"
+contributions = "1"

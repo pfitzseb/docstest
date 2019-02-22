@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "DecFP"
+owner = "JuliaMath"
+version = "0.4.8"
+description = "Julia IEEE decimal floating-point via the Intel decimal-float library"
+stargazers_count = "20"
+url = "https://github.com/JuliaMath/DecFP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "52"
+[[contributors]]
+name = "quinnj"
+contributions = "31"
+[[contributors]]
+name = "jmkuhn"
+contributions = "14"
+[[contributors]]
+name = "simonbyrne"
+contributions = "9"
+[[contributors]]
+name = "abhijithch"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hyiltiz"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "nicolaspayette"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "nkottary"
+contributions = "1"

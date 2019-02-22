@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "CpuId"
+owner = "m-j-w"
+version = "0.2.2"
+description = "Ask the CPU for cache sizes, SIMD feature support, a running hypervisor, and more."
+stargazers_count = "24"
+url = "https://github.com/m-j-w/CpuId.jl.git"
+installs = true
+tags = ["julia", "julia-language", "performance-tuning"]
+license = "Other"
+
+[[contributors]]
+name = "m-j-w"
+contributions = "15"
+[[contributors]]
+name = "miguelraz"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

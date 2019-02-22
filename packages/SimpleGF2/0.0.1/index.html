@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SimpleGF2.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SimpleGF2.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Acknowledgement-1">Acknowledgement</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SimpleGF2-1" href="#SimpleGF2-1">SimpleGF2</a></h1><p><a href="https://travis-ci.org/scheinerman/SimpleGF2.jl"><img src="https://travis-ci.org/scheinerman/SimpleGF2.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/scheinerman/SimpleGF2.jl?branch=master"><img src="https://coveralls.io/repos/scheinerman/SimpleGF2.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/scheinerman/SimpleGF2.jl?branch=master"><img src="http://codecov.io/github/scheinerman/SimpleGF2.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This a basic implementation of arithmetic in GF(2). Values in GF(2) can be created like this:</p><pre><code class="language-julia">julia&gt; using SimpleGF2
+
+julia&gt; GF2(5)
+GF2(1)
+
+julia&gt; GF2(4)
+GF2(0)
+
+julia&gt; one(GF2)
+GF2(1)
+
+julia&gt; zero(GF2)
+GF2(0)</code></pre><p>Matrices can be created with <code>ones</code>, <code>zeros</code>, and <code>eye</code>. The <code>rand</code> function has been extended to return random elements of GF(2). For example:</p><pre><code class="language-julia">julia&gt; A =rand(GF2,3,5)
+3x5 Array{SimpleGF2.GF2,2}:
+ GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(0)
+ GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)</code></pre><p>To see this clearly, you can map the values integers:</p><pre><code class="language-julia">julia&gt; map(Int,A)
+3x5 Array{Int64,2}:
+ 0  1  1  0  0
+ 1  1  1  1  1
+ 0  0  0  0  1</code></pre><p>Arithmetic with scalars and arrays of GF(2) elements work as expected. For square matrices, <code>det</code> and <code>inv</code> are available too:</p><pre><code class="language-julia">julia&gt; A = triu(ones(GF2,5,5))
+5x5 Array{SimpleGF2.GF2,2}:
+ GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(1)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)
+
+julia&gt; inv(A)
+5x5 Array{SimpleGF2.GF2,2}:
+ GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(0)
+ GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(0)
+ GF2(0)  GF2(0)  GF2(1)  GF2(1)  GF2(0)
+ GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)
+
+julia&gt; A = triu(ones(GF2,4,4))
+4x4 Array{SimpleGF2.GF2,2}:
+ GF2(1)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(1)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(1)
+
+julia&gt; det(A)
+GF2(1)
+
+julia&gt; B = inv(A)
+4x4 Array{SimpleGF2.GF2,2}:
+ GF2(1)  GF2(1)  GF2(0)  GF2(0)
+ GF2(0)  GF2(1)  GF2(1)  GF2(0)
+ GF2(0)  GF2(0)  GF2(1)  GF2(1)
+ GF2(0)  GF2(0)  GF2(0)  GF2(1)
+
+julia&gt; A*B
+4x4 Array{SimpleGF2.GF2,2}:
+ GF2(1)  GF2(0)  GF2(0)  GF2(0)
+ GF2(0)  GF2(1)  GF2(0)  GF2(0)
+ GF2(0)  GF2(0)  GF2(1)  GF2(0)
+ GF2(0)  GF2(0)  GF2(0)  GF2(1)
+ ```
+
+
+## Additional functionality
+
+### Rank and nullity
+
+Given a matrix `A` the dimension of its column space and its
+null space can be computed using `rank(A)` and `nullity(A)`,
+respectively. Further, the null space of `A` is returned by
+`nullspace(A)` as a matrix whose columns are a basis for the
+null space.</code></pre><p>julia julia&gt; A = rand(GF2,4,9) 4x9 Array{SimpleGF2.GF2,2}:  GF2(1)  GF2(1)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(1)</p><p>julia&gt; rank(A) 4</p><p>julia&gt; nullity(A) 5</p><p>julia&gt; B = nullspace(A) 9x5 Array{SimpleGF2.GF2,2}:  GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(1)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(1)</p><p>julia&gt; A*B 4x5 Array{SimpleGF2.GF2,2}:  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)  GF2(0)</p><p>julia&gt; nullspace(A&#39;) 4x0 Array{SimpleGF2.GF2,2}</p><pre><code class="language-none">
+### Equation solving
+
+Given a matrix `A` and a vector `b`, the function `solve(A,b)`
+returns a vector `x` such that `A*x==b`. For example,
+here we show how to solve the pair of equations `r+s==1, s+t==1`:</code></pre><p>julia julia&gt; A = map(GF2,[1 1 0; 0 1 1]) 2x3 Array{SimpleGF2.GF2,2}:  GF2(1)  GF2(1)  GF2(0)  GF2(0)  GF2(1)  GF2(1)</p><p>julia&gt; b = map(GF2,[1,1]) 2-element Array{SimpleGF2.GF2,1}:  GF2(1)  GF2(1)</p><p>julia&gt; x = solve(A,b) 3-element Array{SimpleGF2.GF2,1}:  GF2(0)  GF2(1)  GF2(0)</p><p>julia&gt; A*x==b true</p><pre><code class="language-none">Of course, this is an underdetermined system. The function
+`solve_all` returns a solution to the system `A*x==b` and
+a basis for the null space of `A`:</code></pre><p>julia julia&gt; x,B = solve_all(A,b);</p><p>julia&gt; x 3-element Array{SimpleGF2.GF2,1}:  GF2(0)  GF2(1)  GF2(0)</p><p>julia&gt; B 3x1 Array{SimpleGF2.GF2,2}:  GF2(1)  GF2(1)  GF2(1)</p><p>julia&gt; y = x + B[:,1] 3-element Array{SimpleGF2.GF2,1}:  GF2(1)  GF2(0)  GF2(1)</p><p>julia&gt; A*y==b true</p><pre><code class="language-none">
+### Row reduced echelon form
+
+The function `rref(A)` returns the row reduced echelon form
+of the matrix `A`. Similarly, `rref!(A)` overwrites `A` with
+its row reduced echelon form.
+
+
+
+### Polynomials
+
+The `SimpleGF2` module is compatible with the `Polynomials` package.
+</code></pre><p>julia julia&gt; using Polynomials</p><p>julia&gt; x = Poly( [ GF2(0); GF2(1) ] ) Poly(x)</p><p>julia&gt; (x+1)^4 Poly(GF2(1) + x^4) ```</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Install with  <code>Pkg.clone(&quot;https://github.com/scheinerman/SimpleGF2.jl.git&quot;)</code></p><p>And then specify <code>using SimpleGF2</code> to use the <code>GF2</code> numbers.</p><h2><a class="nav-anchor" id="Acknowledgement-1" href="#Acknowledgement-1">Acknowledgement</a></h2><p>Thanks to Tara Abrishami for her contributions to this module including <code>rref</code>, <code>rref!</code>, <code>solve</code>, <code>solve_all</code>, and <code>nullspace</code>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

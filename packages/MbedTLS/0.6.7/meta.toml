@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "default"
+name = "MbedTLS"
+owner = "JuliaWeb"
+version = "0.6.7"
+description = "Wrapper around mbedtls"
+stargazers_count = "11"
+url = "https://github.com/JuliaWeb/MbedTLS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "97"
+[[contributors]]
+name = "malmaud"
+contributions = "83"
+[[contributors]]
+name = "samoconnor"
+contributions = "27"
+[[contributors]]
+name = "tkelman"
+contributions = "12"
+[[contributors]]
+name = "Keno"
+contributions = "8"
+[[contributors]]
+name = "yuyichao"
+contributions = "7"
+[[contributors]]
+name = "davidanthoff"
+contributions = "6"
+[[contributors]]
+name = "joshbode"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "Distjubo"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "musm"
+contributions = "3"
+[[contributors]]
+name = "tanmaykm"
+contributions = "3"
+[[contributors]]
+name = "vtjnash"
+contributions = "2"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "sorpaas"
+contributions = "2"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "oeuftete"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "wavexx"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"

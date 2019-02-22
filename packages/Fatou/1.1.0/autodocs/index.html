@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Fatou.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Fatou.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.Compute" href="#Fatou.Compute"><code>Fatou.Compute</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Compute(::Fatou.Define)::Union{Matrix{UInt8},Matrix{Float64}}</code></pre><p><code>Compute</code> the <code>Array</code> for <code>Fatou.FilledSet</code> as specefied by <code>Fatou.Define</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.Define" href="#Fatou.Define"><code>Fatou.Define</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Fatou.Define(E::Any;                  # primary map, (z, c) -&gt; F
+  Q::Expr     = :(abs2(z)),           # escape criterion, (z, c) -&gt; Q
+  C::Expr     = :((angle(z)/(2π))*n^p)# coloring, (z, n=iter., p=exp.) -&gt; C
+  ∂    = π/2, # Array{Float64,1}      # Bounds, [x(a),x(b),y(a),y(b)]
+  n::Integer  = 176,                  # horizontal grid points
+  N::Integer  = 35,                   # max. iterations
+  ϵ::Number   = 4,                    # basin ϵ-Limit criterion
+  iter::Bool  = false,                # toggle iteration mode
+  p::Number   = 0,                    # iteration color exponent
+  newt::Bool  = false,                # toggle Newton mode
+  m::Number   = 0,                    # Newton multiplicity factor
+  O::String   = F,                    # original Newton map
+  mandel::Bool= false,                # toggle Mandelbrot mode
+  seed::Number= 0.0+0.0im,            # Mandelbrot seed value
+  x0          = nothing,              # orbit starting point
+  orbit::Int  = 0,                    # orbit cobweb depth
+  depth::Int  = 1,                    # depth of function composition
+  cmap::String= &quot;&quot;)                   # imshow color map</code></pre><p><code>Define</code> the metadata for a <code>Fatou.FilledSet</code>.</p></div></div></section><pre><code class="language-none">Fatou.Fatou</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.FilledSet" href="#Fatou.FilledSet"><code>Fatou.FilledSet</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Fatou.FilledSet(::Fatou.Define)</code></pre><p>Compute the <code>Fatou.FilledSet</code> set using <code>Fatou.Define</code>.</p></div></div></section><pre><code class="language-none">Fatou.__init__</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.basin" href="#Fatou.basin"><code>Fatou.basin</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">basin(::Fatou.Define, ::Integer)</code></pre><p>Output the <code>j</code>-th basin of <code>Fatou.Define</code> as LaTeX. Each subsequent iteration of the Newton-Raphson method will yield a more complicated set.</p><p><strong>Examples</strong></p><pre><code class="language-Julia">julia&gt; basin(newton(&quot;z^3-1&quot;),2)
+L&quot;$\displaystyle D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}} - r_i\,\right|&lt;\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}$&quot;</code></pre></div></div></section><pre><code class="language-none">Fatou.ds</code></pre><pre><code class="language-none">Fatou.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.fatou" href="#Fatou.fatou"><code>Fatou.fatou</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">  fatou(::Fatou.Define)</code></pre><p>Compute the <code>Fatou.FilledSet</code> set using <code>Fatou.Define</code>.</p><p><strong>Examples</strong></p><pre><code class="language-Julia">julia&gt; fatou(K)</code></pre></div></div></section><pre><code class="language-none">Fatou.include</code></pre><pre><code class="language-none">Fatou.jL</code></pre><pre><code class="language-none">Fatou.jset</code></pre><pre><code class="language-none">Fatou.jset0</code></pre><pre><code class="language-none">Fatou.jsetstr</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.juliafill" href="#Fatou.juliafill"><code>Fatou.juliafill</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">juliafill(::Expr;                     # primary map, (z, c) -&gt; F
+  Q::Expr     = :(abs2(z)),           # escape criterion, (z, c) -&gt; Q
+  C::Expr     = :((angle(z)/(2π))*n^p)# coloring, (z, n=iter., p=exp.) -&gt; C
+  ∂    = π/2, # Array{Float64,1}      # Bounds, [x(a),x(b),y(a),y(b)]
+  n::Integer  = 176,                  # horizontal grid points
+  N::Integer  = 35,                   # max. iterations
+  ϵ::Number   = 4,                    # basin ϵ-Limit criterion
+  iter::Bool  = false,                # toggle iteration mode
+  p::Number   = 0,                    # iteration color exponent
+  x0          = nothing,              # orbit starting point
+  orbit::Int  = 0,                    # orbit cobweb depth
+  depth::Int  = 1,                    # depth of function composition
+  cmap::String= &quot;&quot;)                   # imshow color map</code></pre><p><code>Define</code> filled Julia basin in <code>Fatou</code></p><p><strong>Exmaples</strong></p><pre><code class="language-Julia">julia&gt; juliafill(&quot;z^2-0.06+0.67im&quot;,∂=[-1.5,1.5,-1,1],N=80,n=1501,cmap=&quot;RdGy&quot;)</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.mandelbrot" href="#Fatou.mandelbrot"><code>Fatou.mandelbrot</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">mandelbrot(::Expr;                    # primary map, (z, c) -&gt; F
+  Q::Expr     = :(abs2(z)),           # escape criterion, (z, c) -&gt; Q
+  C::Expr     = :(exp(-abs(z))*n^p),  # coloring, (z, n=iter., p=exp.) -&gt; C
+  ∂    = π/2, # Array{Float64,1}      # Bounds, [x(a),x(b),y(a),y(b)]
+  n::Integer  = 176,                  # horizontal grid points
+  N::Integer  = 35,                   # max. iterations
+  ϵ::Number   = 4,                    # basin ϵ-Limit criterion
+  iter::Bool  = false,                # toggle iteration mode
+  p::Number   = 0,                    # iteration color exponent
+  m::Number   = 0,                    # Newton multiplicity factor
+  seed::Number= 0.0+0.0im,            # Mandelbrot seed value
+  x0          = nothing,              # orbit starting point
+  orbit::Int  = 0,                    # orbit cobweb depth
+  depth::Int  = 1,                    # depth of function composition
+  cmap::String= &quot;&quot;)                   # imshow color map</code></pre><p><code>Define</code> Mandelbrot basin in <code>Fatou</code></p><p><strong>Examples</strong></p><pre><code class="language-Julia">mandelbrot(:(z^2+c),n=800,N=20,∂=[-1.91,0.51,-1.21,1.21],cmap=&quot;nipy_spectral&quot;)</code></pre></div></div></section><pre><code class="language-none">Fatou.nL</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.newton" href="#Fatou.newton"><code>Fatou.newton</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">newton(::Expr;                        # primary map, (z, c) -&gt; F
+  C::Expr     = :((angle(z)/(2π))*n^p)# coloring, (z, n=iter., p=exp.) -&gt; C
+  ∂    = π/2, # Array{Float64,1}      # Bounds, [x(a),x(b),y(a),y(b)]
+  n::Integer  = 176,                  # horizontal grid points
+  N::Integer  = 35,                   # max. iterations
+  ϵ::Number   = 4,                    # basin ϵ-Limit criterion
+  iter::Bool  = false,                # toggle iteration mode
+  p::Number   = 0,                    # iteration color exponent
+  m::Number   = 0,                    # Newton multiplicity factor
+  mandel::Bool= false,                # toggle Mandelbrot mode
+  seed::Number= 0.0+0.0im,            # Mandelbrot seed value
+  x0          = nothing,              # orbit starting point
+  orbit::Int  = 0,                    # orbit cobweb depth
+  depth::Int  = 1,                    # depth of function composition
+  cmap::String= &quot;&quot;)                   # imshow color map</code></pre><p><code>Define</code> Newton basin in <code>Fatou</code></p><p><strong>Examples</strong></p><pre><code class="language-Julia">julia&gt; newton(&quot;z^3-1&quot;,n=800,cmap=&quot;brg&quot;)</code></pre></div></div></section><pre><code class="language-none">Fatou.newton_raphson</code></pre><pre><code class="language-none">Fatou.nrset</code></pre><pre><code class="language-none">Fatou.nset0</code></pre><pre><code class="language-none">Fatou.nsetstr</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Fatou.orbit" href="#Fatou.orbit"><code>Fatou.orbit</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">orbit(K::Fatou.Define)
+orbit(u::Function, ∂, orbit, depth, n)</code></pre><p>Plot funciton compositions of the primary <code>Fatou.Define</code> function up to any <code>depth</code> including cobweb plot with an <code>orbit</code> depth from the <code>x0</code> start point.</p><p><strong>Examples</strong></p><pre><code class="language-Julia">julia&gt; juliafill(&quot;z^2-0.67&quot;,∂=[-1.25,1.5],x0=1.25,orbit=17,depth=3) |&gt; orbit</code></pre></div></div></section><pre><code class="language-none">Fatou.plot</code></pre><pre><code class="language-none">Fatou.rdpm</code></pre><pre><code class="language-none">Fatou.real_orb</code></pre><pre><code class="language-none">Fatou.recomp</code></pre><pre><code class="language-none">Fatou.set0</code></pre><pre><code class="language-none">Fatou.setj</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

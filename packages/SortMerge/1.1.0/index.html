@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SortMerge.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SortMerge.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#A-Julia-implementation-of-the-Sort-merge-algorithm.-1">A Julia implementation of the Sort-merge algorithm.</a></li><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Basic-usage-1">Basic usage</a></li><li><a class="toctext" href="#Handling-multiple-matched-entries-1">Handling multiple matched entries</a></li><li><a class="toctext" href="#Advanced-usage-1">Advanced usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SortMerge-1" href="#SortMerge-1">SortMerge</a></h1><p><a href="https://travis-ci.org/gcalderone/SortMerge.jl"><img src="https://travis-ci.org/gcalderone/SortMerge.jl.svg?branch=master" alt="Build Status"/></a></p><h2><a class="nav-anchor" id="A-Julia-implementation-of-the-Sort-merge-algorithm.-1" href="#A-Julia-implementation-of-the-Sort-merge-algorithm.-1">A Julia implementation of the Sort-merge algorithm.</a></h2><p>The <a href="https://en.wikipedia.org/wiki/Sort-merge_join">Sort-merge join</a> algorithm allows to <strong>quickly</strong> find the matching pairs in two separate arrays or collections.  The best performances are obtained when the input data are already sorted, but the package is able to sort the data if they are not.</p><p>The algorithm works out of the box with arrays of real numbers, but it can also be used with any data type stored in any type of container.  Also, it can handle customized sorting and matching criteria.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><pre><code class="language-julia">Pkg.add(&quot;SortMerge&quot;)</code></pre><h2><a class="nav-anchor" id="Basic-usage-1" href="#Basic-usage-1">Basic usage</a></h2><p>Consider the following vectors:</p><pre><code class="language-julia">A = [2,3,2,5,7,2,9,9,10,12]
+B = [2,1,7,7,4,6,10,11]</code></pre><p>The common elements can be found as follows:</p><pre><code class="language-julia">using SortMerge
+j = sortmerge(A, B)</code></pre><p>The value returned by the <code>sortmerge</code> function implements the <code>AbstractArray</code> interface, hence it can be used as a common <code>Matrix{Int}</code> containing the indices of the matching pairs, e.g:</p><pre><code class="language-julia">println(&quot;Indices of matched pairs:&quot;)
+display([j[1] j[2]])
+println(&quot;Matched pairs:&quot;)
+display([A[j[1]] B[j[2]]])</code></pre><p>or, equivalently:</p><pre><code class="language-julia">println(&quot;Indices of matched pairs:&quot;)
+for (i1, i2) in zip(j)
+    println(i1, &quot;  &quot;, i2)
+end
+println(&quot;Matched pairs:&quot;)
+for (i1, i2) in zip(j)
+    println(A[i1], &quot;  &quot;, B[i2])
+end</code></pre><p>The number of times each element in the input array has been matched can be retrieved using the <code>countmatch</code> function, returning a <code>Vector{Int}</code> whose length is the same as the input array and whose elements are the multiplicity of the matched entries:</p><pre><code class="language-julia">cm = countmatch(j, 1)
+for i in 1:length(A)
+    println(&quot;Element at index $i ($(A[i])) has been matched $(cm[i]) times&quot;)
+end</code></pre><p>Analogously, for the second array:</p><pre><code class="language-julia">cm = countmatch(j, 2)
+for i in 1:length(B)
+    println(&quot;Element at index $i ($(B[i])) has been matched $(cm[i]) times&quot;)
+end</code></pre><p>The unmatched entries can be retrieved as follows:</p><pre><code class="language-julia">println(&quot;Unmatched entries in array 1:&quot;)
+println(A[countmatch(j, 1) .== 0])
+println(&quot;Unmatched entries in array 2:&quot;)
+println(B[countmatch(j, 2) .== 0])</code></pre><p>A more computationally demanding example is as follows:</p><pre><code class="language-julia">nn = 1_000_000
+A = rand(1:nn, nn);
+B = rand(1:nn, nn);
+j = sortmerge(A, B);
+println(&quot;Check matching: &quot;, sum(abs.(A[j[1]] .- B[j[2]])) == 0)</code></pre><p>where the purpose of the last line is just to perform a simple check on the matched pairs.</p><p>Unless the <code>quiet=true</code> keyword is used, the <code>sortmerge</code> function reports a few details of the matching process which may help in finding performance bottlenecks. E.g., for the previous example:</p><pre><code class="language-none">Input  1:     632798 /    1000000  ( 63.28%)  -  max mult. 9 | sort : 0.19s
+Input  2:     631539 /    1000000  ( 63.15%)  -  max mult. 8 | sort : 0.188s
+Output  :    1000414                                         | total: 0.661s</code></pre><p>The lines marked with <code>Input 1</code> and <code>Input 2</code> report, respectively:</p><ul><li>the number of indices for which a matching pair has been found;</li><li>the total number of elements in input array;</li><li>the fraction of indices for which a matching pair has been found;</li><li>the maximum multiplicity;</li><li>the time spent sorting the array (in seconds).</li></ul><p>The last line reports:</p><ul><li>the number of matched pairs in the output;</li><li>the total elapsed time (in seconds).</li></ul><p>A significant amount of time is spent sorting the input arrays, hence the algorithm will provide much better performances if the arrays are already sorted.  Since the order is so important, and it is calculated during a call to <code>sortmerge</code>, it will not be thrown away but returned in the results.  Hence if we are going to call again <code>sortmerge</code> we can take advantage of the previous calculation to speed up calculations:</p><pre><code class="language-julia">j = sortmerge(A, B, sort1=sortperm(j, 1), sort2=sortperm(j, 2));</code></pre><p>The permutation vector that puts <code>A</code> and <code>B</code> in sorted order are retrieved with the <code>sortperm</code> function, and passed through the <code>sort1</code> and <code>sort2</code> keywords.</p><p>Finally, you will get an extra boost performance if the input arrays are already sorted, i.e.</p><pre><code class="language-julia">sortedA = A[sortperm(j, 1)]
+sortedB = B[sortperm(j, 2)]
+j = sortmerge(sortedA, sortedB, sorted=true);</code></pre><p>(the <code>sorted=true</code> keyword tells <code>sortmerge</code> that the input arrays are already sorted).</p><h2><a class="nav-anchor" id="Handling-multiple-matched-entries-1" href="#Handling-multiple-matched-entries-1">Handling multiple matched entries</a></h2><p>The <code>multimatch</code> function allows to extract matching pairs with a given multiplicity.  E.g., to find the matched pairs whose index in the <strong>first</strong> array occurs twice (multiplicity = 2):</p><pre><code class="language-julia">m = multimatch(j, 1, 2)
+display([m[1] m[2]])</code></pre><p>The matched pairs whose index in the <strong>second</strong> array (rather than <strong>first</strong>) occur three times (multiplicity = 3) is obtained as follows:</p><pre><code class="language-julia">for (i1, i2) in zip(multimatch(j, 2, 3))
+    println(i1, &quot;  &quot;, i2)
+end</code></pre><p>Another facility provided by <code>sortmerge</code> is to separate matching pairs into groups, e.g.:</p><pre><code class="language-julia">for group in multimatch(j, 1, 8, group=true)
+    println(&quot;The index &quot;, group[1][1], &quot; in the first table matches the following indices in the second:&quot;)
+    println(group[2])
+end</code></pre><h2><a class="nav-anchor" id="Advanced-usage-1" href="#Advanced-usage-1">Advanced usage</a></h2><p>As anticipated, the <strong>SortMerge</strong> package can handle any data type stored in any type of container, as well as customized sorting and matching criteria, by providing customized functions for sorting and matching elements.</p><p>The following sections will provide a few examples.</p><h3><a class="nav-anchor" id="Custom-sorting-function-1" href="#Custom-sorting-function-1">Custom sorting function</a></h3><p>The custom sorting functions must accept three arguments:</p><ul><li>the container;</li><li>the index of the first element to be compared;</li><li>the index of the second element to be compared;</li></ul><p>and must return a boolean value: <code>true</code> if the first element is smaller than the second, <code>false</code> otherwise.  The <code>sortmerge</code> accepts these functions through the <code>lt1</code>, <code>lt2</code> keywords, to sort the first and second container respectively.</p><h3><a class="nav-anchor" id="Custom-matching-function-1" href="#Custom-matching-function-1">Custom matching function</a></h3><p>The custom matching function must accept at least four arguments:</p><ul><li>the first container;</li><li>the second container;</li><li>the index in the first container of the element to be compared;</li><li>the index in the second container of the element to be compared.</li></ul><p>If the function accepts more than 4 arguments they must be passed as further arguments in the main <code>sortmerge</code> call.  Note that when this function is called the two input containers are already sorted according to the <code>lt1</code> and <code>lt2</code> functions.</p><p>The return value must be an integer with the following meaning:</p><ul><li><strong>0</strong>: the two elements match;</li><li><strong>-1</strong>: the element in the first container do not match with the element in the second container, and will not match with any of the remaining elements in the second container;</li><li><strong>1</strong>: the element in the first container do not match with the element in the second container, and will not match with any of the previous elements in the second container;</li><li>any other integer number: none of the above applies (<em>missed match</em> case).</li></ul><p>The <strong>-1</strong> and <strong>1</strong> return values are important <em>hints</em> which allows <code>sortmerge</code> to  avoid checking for a match that will never occur, ultimately resulting in very short execution times.  The <em>missed match</em> case (any integer number different from -1, 0 and 1) allows to deal with partial order relations and complex matching criteria.</p><p>The <code>sortmerge</code> accept this function through the <code>sd</code> (<em>Sign of the Difference</em>) keyword.  The name stem from the fact that for array of numbers this function should simply return the sign of the difference of two numbers.</p><h3><a class="nav-anchor" id="Use-with-[data-frames](https://github.com/JuliaData/DataFrames.jl)-1" href="#Use-with-[data-frames](https://github.com/JuliaData/DataFrames.jl)-1">Use with <a href="https://github.com/JuliaData/DataFrames.jl">data frames</a></a></h3><p>The following example shows how to match two data frames objects, according to the numbers in a specific column:</p><pre><code class="language-julia">using DataFrames
+
+# Create a data frame with prime numbers
+primes = DataFrame(:p =&gt; [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
+                          41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
+
+# ...and another one with random numbers.
+nn = 100
+numbers = DataFrame(:n =&gt; rand(1:100, nn))
+
+# Search for matching elements in the two dataframes, and print the
+# multiplicity of matching prime numbers
+j = sortmerge(numbers, primes,
+             lt1=(v, i, j) -&gt; (v[i,:n] &lt; v[j,:n]),
+             lt2=(v, i, j) -&gt; (v[i,:p] &lt; v[j,:p]),
+             sd=(v1, v2, i1, i2) -&gt; (sign(v1[i1,:n] - v2[i2,:p])))
+
+cm = countmatch(j, 2);
+for i in 1:nrow(primes)
+    println(&quot;Prime number $(primes[i,:p]) has been matched $(cm[i]) times&quot;)
+end</code></pre><p>Here we defined two custom <code>lt1</code> and <code>lt2</code> functions to sort the <code>numbers</code> and <code>prime</code> DataFrame respectively, and a custom <code>sd</code> function which uses the appropriate column names (<code>:n</code> and <code>:p</code>) for comparisons.</p><h3><a class="nav-anchor" id="Match-arrays-of-complex-numbers-1" href="#Match-arrays-of-complex-numbers-1">Match arrays of complex numbers</a></h3><p>The following example shows how to match two arrays of complex numbers, according to their distance in the complex plane.  Unlike real numbers, there is no complete order relation for the complex number, hence we must provide a custom sorting criteria.  Among the many possible ones, here we will simply sort the arrays according to their real part.  Also, we will define a custom <code>sd</code> function accepting a fifth argument, namely the <code>threshold</code> distance below which two numbers match.</p><p>The code is:</p><pre><code class="language-julia">nn = 1_000_000
+a1 = rand(nn) .+ rand(nn) .* im;
+a2 = rand(nn) .+ rand(nn) .* im;
+
+lt(v, i, j) = (real(v[i]) &lt; real(v[j]))
+function sd(v1, v2, i1, i2, threshold)
+    d = (real(v1[i1]) - real(v2[i2])) / threshold
+	(abs(d) &gt;= 1)  &amp;&amp;  (return sign(d))
+    d = abs(v1[i1] - v2[i2]) / threshold
+	(d &lt; 1)  &amp;&amp;  (return 0)
+	return 999 # missed match
+end
+j = sortmerge(a1, a2, 10. / nn, lt1=lt, lt2=lt, sd=sd)</code></pre><p>Note that since the order relation is partial the <code>sd</code> function will sometimes return a number different from -1, 0 and 1, resulting in the so called <em>missed match</em> condition (return value is 999).</p><p>You may check that the results actually consider all matching pairs by disabling all optimization hints (i.e. the -1 and 1 return values) altoghether, and compare <strong>each</strong> element in first array with <strong>each</strong> element in the second:</p><pre><code class="language-julia">function sd(v1, v2, i1, i2, threshold)
+    d = abs(v1[i1] - v2[i2]) / threshold
+	(d &lt; 1)  &amp;&amp;  (return 0)
+	return 999 # missed match
+end
+j = sortmerge(a1, a2, 10. / nn, sorted=true, sd=sd)</code></pre><p>but be prepared that the execution time will be really long!</p><p>Another possible approach is to sort the numbers by their distance from the origin, i.e.</p><pre><code class="language-julia">lt(v, i, j) = (abs2(v[i]) &lt; abs2(v[j]))
+function sd(v1, v2, i1, i2, threshold)
+    d = (abs(v1[i1]) - abs(v2[i2])) / threshold
+	(abs(d) &gt;= 1)  &amp;&amp;  (return sign(d))
+    d = abs(v1[i1] - v2[i2]) / threshold
+	(d &lt; 1)  &amp;&amp;  (return 0)
+	return 999 # missed match
+end
+j = sortmerge(a1, a2, 10. / nn, lt1=lt, lt2=lt, sd=sd)</code></pre><p>but the performance worsen since <code>abs</code> is slower than <code>real</code>.</p><h3><a class="nav-anchor" id="Match-arrays-of-geographical-coordinates-1" href="#Match-arrays-of-geographical-coordinates-1">Match arrays of geographical coordinates</a></h3><p>The following example shows how to match 2D arrays containing geographical coordinates (latitude and longitude).  We will use the <code>gcirc</code> function in the <a href="https://github.com/JuliaAstro/AstroLib.jl">Astrolib</a> package to calculate the great circle arc distances between two points:</p><pre><code class="language-julia">nn = 1_000_000
+lat1  = rand(nn) .* 180 .- 90.;
+long1 = rand(nn) .*360;
+lat2  = rand(nn) .* 180 .- 90.;
+long2 = rand(nn) .* 360;
+
+using AstroLib
+lt(v, i, j) = (v[i, 2] &lt; v[j, 2])
+function sd(v1, v2, i1, i2, threshold_arcsec)
+    threshold_deg = threshold_arcsec / 3600. # [deg]
+    d = (v1[i1, 2] - v2[i2, 2]) / threshold_deg
+    (abs(d) &gt;= 1)  &amp;&amp;  (return sign(d))
+    dd = gcirc(2, v1[i1, 1], v1[i1, 2], v2[i2, 1], v2[i2, 2])
+    (dd &lt; threshold_arcsec)  &amp;&amp;  (return 0)
+    return 999
+end
+j = sortmerge([lat1 long1], [lat2 long2], lt1=lt, lt2=lt, sd=sd, 1.)</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

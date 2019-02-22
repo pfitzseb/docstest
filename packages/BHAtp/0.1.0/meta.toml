@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BHAtp"
+owner = "BottomHoleAssemblyAnalysis"
+version = "0.1.0"
+description = "Bottom Hole Assembly building and dropping rates"
+stargazers_count = "0"
+url = "https://github.com/BottomHoleAssemblyAnalysis/BHAtp.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "112"

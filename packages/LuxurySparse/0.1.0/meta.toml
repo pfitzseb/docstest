@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LuxurySparse"
+owner = "QuantumBFS"
+version = "0.1.0"
+description = "A luxury sparse matrix package for Julia"
+stargazers_count = "1"
+url = "https://github.com/QuantumBFS/LuxurySparse.jl.git"
+installs = true
+tags = ["sparse-matrix", "permutation", "identity", "sparsematrixcoo"]
+license = "Other"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "24"
+[[contributors]]
+name = "GiggleLiu"
+contributions = "20"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "Tensors"
+owner = "KristofferC"
+version = "1.0.1"
+description = "Efficient computations with symmetric and non-symmetric tensors with support for automatic differentiation."
+stargazers_count = "42"
+url = "https://github.com/KristofferC/Tensors.jl.git"
+installs = true
+tags = ["finite-elements", "cfd", "tensor", "symmetric-tensors", "automatic-differentiation"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "102"
+[[contributors]]
+name = "fredrikekre"
+contributions = "99"
+[[contributors]]
+name = "KeitaNakamura"
+contributions = "9"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "heiderich"
+contributions = "1"
+[[contributors]]
+name = "kshyatt"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "miguelraz"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DistQuads"
+owner = "pkofod"
+version = "2.0.0"
+description = "Small wrapper for quadrature code and Distributions.jl"
+stargazers_count = "2"
+url = "https://github.com/pkofod/DistQuads.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pkofod"
+contributions = "9"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "DrWatson"
+owner = "JuliaDynamics"
+version = "0.0.2"
+description = "The perfect sidekick to your scientific inquiries"
+stargazers_count = "10"
+url = "https://github.com/JuliaDynamics/DrWatson.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Datseris"
+contributions = "48"

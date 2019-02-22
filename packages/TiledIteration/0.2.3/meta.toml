@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "TiledIteration"
+owner = "JuliaArrays"
+version = "0.2.3"
+description = "Julia package to facilitate writing mulithreaded, multidimensional, cache-efficient code"
+stargazers_count = "27"
+url = "https://github.com/JuliaArrays/TiledIteration.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "38"
+[[contributors]]
+name = "visr"
+contributions = "4"
+[[contributors]]
+name = "RalphAS"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

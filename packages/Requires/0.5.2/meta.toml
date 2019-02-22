@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Requires"
+owner = "MikeInnes"
+version = "0.5.2"
+description = "Lazy code loading for Julia"
+stargazers_count = "49"
+url = "https://github.com/MikeInnes/Requires.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "50"
+[[contributors]]
+name = "vchuravy"
+contributions = "9"
+[[contributors]]
+name = "timholy"
+contributions = "5"
+[[contributors]]
+name = "jmert"
+contributions = "3"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "tbreloff"
+contributions = "1"

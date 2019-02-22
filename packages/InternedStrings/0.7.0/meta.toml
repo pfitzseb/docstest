@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "InternedStrings"
+owner = "JuliaString"
+version = "0.7.0"
+description = "Fully transparent string interning functionality, with proper garbage collection"
+stargazers_count = "19"
+url = "https://github.com/JuliaString/InternedStrings.jl.git"
+installs = true
+tags = ["interned-strings"]
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "53"
+[[contributors]]
+name = "tlienart"
+contributions = "7"
+[[contributors]]
+name = "ScottPJones"
+contributions = "7"
+[[contributors]]
+name = "nalimilan"
+contributions = "2"
+[[contributors]]
+name = "miguelraz"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "EnhancedGJK"
+owner = "JuliaRobotics"
+version = "0.2.0"
+description = "GJK signed distance algorithm for convex bodies in Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaRobotics/EnhancedGJK.jl.git"
+installs = true
+tags = ["gjk", "julia", "geometry"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "50"
+[[contributors]]
+name = "tkoolen"
+contributions = "6"

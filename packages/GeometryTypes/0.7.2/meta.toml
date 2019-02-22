@@ -1,0 +1,75 @@
+license_url = ""
+doctype = "real"
+name = "GeometryTypes"
+owner = "JuliaGeometry"
+version = "0.7.2"
+description = "Geometry types for Julia, based on FixedSizeArrays"
+stargazers_count = "38"
+url = "https://github.com/JuliaGeometry/GeometryTypes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "261"
+[[contributors]]
+name = "sjkelly"
+contributions = "128"
+[[contributors]]
+name = "rdeits"
+contributions = "34"
+[[contributors]]
+name = "JanWeidnerPTW"
+contributions = "6"
+[[contributors]]
+name = "jw3126"
+contributions = "5"
+[[contributors]]
+name = "aaronang"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "4"
+[[contributors]]
+name = "visr"
+contributions = "4"
+[[contributors]]
+name = "edljk"
+contributions = "4"
+[[contributors]]
+name = "scls19fr"
+contributions = "4"
+[[contributors]]
+name = "jwscook"
+contributions = "3"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "jonvoxel8"
+contributions = "2"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "CrashBurnRepeat"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mohamed82008"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "AugmentedGaussianProcesses"
+owner = "theogf"
+version = "0.3.5"
+description = "Gaussian Process package based on data augmentation, sparsity and natural gradients"
+stargazers_count = "12"
+url = "https://github.com/theogf/AugmentedGaussianProcesses.jl.git"
+installs = true
+tags = ["julia", "gps", "gaussian", "process", "svm", "gpc", "natural-gradients", "gaussian-processes", "classification"]
+license = "Other"
+
+[[contributors]]
+name = "theogf"
+contributions = "221"

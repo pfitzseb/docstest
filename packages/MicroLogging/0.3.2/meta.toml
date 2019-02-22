@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "MicroLogging"
+owner = "c42f"
+version = "0.3.2"
+description = "A simple logging API for julia"
+stargazers_count = "22"
+url = "https://github.com/c42f/MicroLogging.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "c42f"
+contributions = "175"
+[[contributors]]
+name = "JoshChristie"
+contributions = "5"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"

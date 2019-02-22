@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "MappedArrays"
+owner = "JuliaArrays"
+version = "0.2.1"
+description = "Lazy in-place transformations of arrays"
+stargazers_count = "28"
+url = "https://github.com/JuliaArrays/MappedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "46"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

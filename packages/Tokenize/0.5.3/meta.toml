@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "Tokenize"
+owner = "KristofferC"
+version = "0.5.3"
+description = "Tokenization for Julia source code"
+stargazers_count = "29"
+url = "https://github.com/KristofferC/Tokenize.jl.git"
+installs = true
+tags = ["lexing", "tokenizer", "julia", "lexer"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "68"
+[[contributors]]
+name = "ZacLN"
+contributions = "54"
+[[contributors]]
+name = "pfitzseb"
+contributions = "8"
+[[contributors]]
+name = "Keno"
+contributions = "5"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "m-j-w"
+contributions = "1"

@@ -1,0 +1,7 @@
+name = "LocalDiskObjectStores"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/JockLawrie/LocalDiskObjectStores.jl.git"
+version = "0.3.0"
+description = "Object storage that uses the local file system as the storage back-end."

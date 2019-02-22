@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RandomCorrelationMatrices"
+owner = "IainNZ"
+version = "0.4.0"
+description = "Functions to generate random correlation matrices"
+stargazers_count = "1"
+url = "https://github.com/IainNZ/RandomCorrelationMatrices.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "IainNZ"
+contributions = "12"

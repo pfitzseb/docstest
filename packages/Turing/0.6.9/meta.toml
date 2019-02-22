@@ -1,0 +1,81 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Turing"
+owner = "TuringLang"
+version = "0.6.9"
+description = "The Turing language for probabilistic programming"
+stargazers_count = "375"
+url = "https://github.com/TuringLang/Turing.jl.git"
+installs = true
+tags = ["machine-learning", "probabilistic-programming", "mcmc-sampler", "julia-language", "artificial-intelligence", "bayesian-inference"]
+license = "MIT License"
+
+[[contributors]]
+name = "xukai92"
+contributions = "1269"
+[[contributors]]
+name = "yebai"
+contributions = "475"
+[[contributors]]
+name = "cpfiffer"
+contributions = "104"
+[[contributors]]
+name = "trappmartin"
+contributions = "85"
+[[contributors]]
+name = "emilemathieu"
+contributions = "80"
+[[contributors]]
+name = "mohamed82008"
+contributions = "60"
+[[contributors]]
+name = "adscib"
+contributions = "28"
+[[contributors]]
+name = "willtebbutt"
+contributions = "25"
+[[contributors]]
+name = "hessammehr"
+contributions = "14"
+[[contributors]]
+name = "evsmithx"
+contributions = "11"
+[[contributors]]
+name = "keorn"
+contributions = "3"
+[[contributors]]
+name = "KDr2"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "wesselb"
+contributions = "1"
+[[contributors]]
+name = "ae-foster"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jamesonquinn"
+contributions = "1"

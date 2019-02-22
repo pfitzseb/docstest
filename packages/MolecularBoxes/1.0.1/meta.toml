@@ -1,0 +1,12 @@
+license_url = ""
+doctype = "default"
+name = "MolecularBoxes"
+owner = "tom--lee"
+version = "1.0.1"
+description = "Tools for dealing with periodic boundary conditions used in molecular simulations."
+stargazers_count = "0"
+contributors = []
+url = "https://github.com/tom--lee/MolecularBoxes.jl.git"
+installs = true
+tags = []
+license = "Other"

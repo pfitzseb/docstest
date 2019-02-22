@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Schemata"
+owner = "JockLawrie"
+version = "1.0.2"
+description = "Schemata for tabular data sets in Julia."
+stargazers_count = "4"
+url = "https://github.com/JockLawrie/Schemata.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "JockLawrie"
+contributions = "68"

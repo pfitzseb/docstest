@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SASLib"
+owner = "tk3369"
+version = "0.6.3"
+description = "Julia library for reading SAS7BDAT data sets"
+stargazers_count = "13"
+url = "https://github.com/tk3369/SASLib.jl.git"
+installs = true
+tags = ["julia-language", "sas", "sas7bdat"]
+license = "Other"
+
+[[contributors]]
+name = "tk3369"
+contributions = "239"
+[[contributors]]
+name = "tbeason"
+contributions = "3"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "1"

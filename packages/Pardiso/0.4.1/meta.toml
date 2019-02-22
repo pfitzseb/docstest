@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Pardiso"
+owner = "JuliaSparse"
+version = "0.4.1"
+description = "Calling the PARDISO library from Julia"
+stargazers_count = "23"
+url = "https://github.com/JuliaSparse/Pardiso.jl.git"
+installs = true
+tags = ["sparse", "linear-algebra", "pardiso", "pardiso-library", "mkl-pardiso"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "90"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "Pbellive"
+contributions = "2"
+[[contributors]]
+name = "fhenneke"
+contributions = "1"

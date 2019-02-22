@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "PlotlyBase"
+owner = "sglyon"
+version = "0.2.5"
+description = "Generate plotly.js JSON in Julia -- nothing less, nothing more. "
+stargazers_count = "4"
+url = "https://github.com/sglyon/PlotlyBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sglyon"
+contributions = "36"
+[[contributors]]
+name = "asbisen"
+contributions = "2"
+[[contributors]]
+name = "ghuba"
+contributions = "2"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "sam81"
+contributions = "1"
+[[contributors]]
+name = "simonfxr"
+contributions = "1"
+[[contributors]]
+name = "VPetukhov"
+contributions = "1"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Elemental"
+owner = "JuliaParallel"
+version = "0.5.0"
+description = "Julia interface to the Elemental linear algebra library,"
+stargazers_count = "29"
+url = "https://github.com/JuliaParallel/Elemental.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "117"
+[[contributors]]
+name = "jakebolewski"
+contributions = "61"
+[[contributors]]
+name = "jiahao"
+contributions = "3"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SplitApplyCombine.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SplitApplyCombine.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Quick-start-1">Quick start</a></li><li><a class="toctext" href="#Tabular-data-1">Tabular data</a></li><li><a class="toctext" href="#Notes-1">Notes</a></li><li class="toplevel"><a class="toctext" href="#API-reference-1">API reference</a></li><li><a class="toctext" href="#Generic-operations-on-collections-1">Generic operations on collections</a></li><li><a class="toctext" href="#Grouping-1">Grouping</a></li><li><a class="toctext" href="#Joining-1">Joining</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Split,-apply,-combine-1" href="#Split,-apply,-combine-1">Split, apply, combine</a></h1><p><em>Strategies for nested data in Julia</em></p><p><a href="https://travis-ci.org/JuliaData/SplitApplyCombine.jl"><img src="https://travis-ci.org/JuliaData/SplitApplyCombine.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/andyferris/splitapplycombine-jl"><img src="https://ci.appveyor.com/api/projects/status/y8lb4487o1jll0wh?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaData/SplitApplyCombine.jl?branch=master"><img src="https://coveralls.io/repos/github/JuliaData/SplitApplyCombine.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://codecov.io/github/JuliaData/SplitApplyCombine.jl?branch=master"><img src="http://codecov.io/github/JuliaData/SplitApplyCombine.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p><em>SplitApplyCombine.jl</em> provides high-level, generic tools for manipulating data - particularly focussing on data in nested containers. An emphasis is placed on ensuring split-apply-combine strategies are easy to apply, and work reliably for arbitrary iterables and in an optimized way with the data structures included in Julia&#39;s standard library.</p><p>The tools come in the form of high-level functions that operate on iterable or indexable containers in an intuitive and simple way, extending Julia&#39;s in-built <code>map</code>, <code>reduce</code> and <code>filter</code> commands to a wider range of operations. Just like these <code>Base</code> functions, the functions here like <code>invert</code>, <code>group</code> and <code>innerjoin</code> are able to be overloaded and optimized by users and the maintainers of other packages for their own, custom data containers.</p><p>One side goal is to provide sufficient functionality to satisfy the need to manipulate &quot;relational&quot; data (meaning tables and dataframes) with basic in-built Julia data containers like <code>Vector</code>s of <code>NamedTuple</code>s and higher-level functions in a &quot;standard&quot; Julia style. Pay particular to the <code>invert</code> family of functions, which effectively allows you to switch between a &quot;struct-of-arrays&quot; and an &quot;array-of-structs&quot; interpretation of your data. I am exploring the idea of using arrays of named tuples for a fast table package in another package under development called <a href="https://github.com/andyferris/MinimumViableTables.jl">MinimumViableTables</a>), which adds acceleration indexes but otherwise attempts to use a generic &quot;native Julia&quot; interface.</p><h2><a class="nav-anchor" id="Quick-start-1" href="#Quick-start-1">Quick start</a></h2><p>You can install the package by typing <code>Pkg.clone(&quot;https://github.com/JuliaData/SplitApplyCombine.jl&quot;)</code> at the REPL.</p><p>Below are some simple examples of how a select subset of the tools can be used to split, manipulate, and combine data. A complete API reference is included at the end of this README.</p><pre><code class="language-julia">julia&gt; using SplitApplyCombine
+
+julia&gt; single([3]) # return the one-and-only element of the input
+3
+
+julia&gt; splitdims([1 2 3; 4 5 6]) # create nested arrays
+3-element Array{Array{Int64,1},1}:
+ [1, 4]
+ [2, 5]
+ [3, 6]
+
+julia&gt; combinedims([[1, 4], [2, 5], [3, 6]]) # flatten nested arrays
+2×3 Array{Int64,2}:
+ 1  2  3
+ 4  5  6
+
+ julia&gt; invert([[1,2,3],[4,5,6]]) # invert the order of nesting
+3-element Array{Array{Int64,1},1}:
+ [1, 4]
+ [2, 5]
+ [3, 6]
+
+julia&gt; group(iseven, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) # split elements into groups
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [1, 3, 5, 7, 9]
+  true  =&gt; [2, 4, 6, 8, 10]
+
+julia&gt; groupreduce(iseven, +, 1:10) # like above, but performing reduction
+Dict{Bool,Int64} with 2 entries:
+  false =&gt; 25
+  true  =&gt; 30
+
+julia&gt; innerjoin(iseven, iseven, tuple, [1,2,3,4], [0,1,2]) # combine two datasets - related to SQL `inner join`
+6-element Array{Tuple{Int64,Int64},1}:
+ (1, 1)
+ (2, 0)
+ (2, 2)
+ (3, 1)
+ (4, 0)
+ (4, 2)
+
+julia&gt; leftgroupjoin(iseven, iseven, tuple, [1,2,3,4], [0,1,2]) # efficient groupings from two datasets
+Dict{Bool,Array{Tuple{Int64,Int64},1}} with 2 entries:
+  false =&gt; Tuple{Int64,Int64}[(1, 1), (3, 1)]
+  true  =&gt; Tuple{Int64,Int64}[(2, 0), (2, 2), (4, 0), (4, 2)]</code></pre><h2><a class="nav-anchor" id="Tabular-data-1" href="#Tabular-data-1">Tabular data</a></h2><p>The primary interface for manipulating tabular data is the <em>relational algebra</em>. A <em>relation</em> is typically defined as an (unordered) collection of (unique) (named) tuples.  If relations are collections of rows, and tables are to be viewed as relations, then I suggest that tables should be viewed as collections of rows (and in particular they should iterate rows and return an entire row from <code>getindex</code>, if defined).</p><p>While simple, this already allows quite a bit of relational algebra to occur. One can then <code>filter</code> rows of a table, <code>map</code> rows of a table (to project, rename or create columns), and use <code>zip</code> and <code>product</code> iterables for more complex operations. The goal below will be to discuss functions which work well for general iterables <em>and</em> will be useful for a table that iterates rows. As a prototype to keep in mind for this work, I consider an  <code>AbstractVector{&lt;:NamedTuple}</code> to be a good model of (strongly-typed) a table/dataframe. Specialized packages may provide convenient macro-based DSLs, a greater range of functions, and implementations that focus on things such as out-of-core or distributed computing, more flexible acceleration indexing, etc. Here I&#39;m only considering the basic, bare-bones API that may be extended and built upon by other packages.</p><h2><a class="nav-anchor" id="Notes-1" href="#Notes-1">Notes</a></h2><p>This package is nascent and many of the APIs here should be considered &quot;under development&quot; for the time being. Many of the functions so far are inspired by other systems, such as LINQ. The package current supports Julia v0.6 and v0.7/v1.0. Contributions and ideas very welcome.</p><h1><a class="nav-anchor" id="API-reference-1" href="#API-reference-1">API reference</a></h1><p>The package currently implements and exports <code>single</code>, <code>splitdims</code>, <code>splitdimsview</code>, <code>combinedims</code>, <code>combinedimsview</code>, <code>mapmany</code>, <code>flatten</code>, <code>group</code>, <code>groupinds</code>, <code>groupview</code>, <code>groupreduce</code>, <code>innerjoin</code> and <code>leftgroupjoin</code>, as well as the <code>@_</code> macro. Expect this list to grow.</p><h2><a class="nav-anchor" id="Generic-operations-on-collections-1" href="#Generic-operations-on-collections-1">Generic operations on collections</a></h2><h3><a class="nav-anchor" id="single(iter)-1" href="#single(iter)-1"><code>single(iter)</code></a></h3><p>Returns the single, one-and-only element of the collection <code>iter</code>. If it contains zero elements or more than one element, an error is thrown.</p><h4><a class="nav-anchor" id="Example:-1" href="#Example:-1">Example:</a></h4><pre><code class="language-julia">julia&gt; single([3])
+3
+
+julia&gt; single([])
+ERROR: ArgumentError: Collection must have exactly one element (input was empty)
+Stacktrace:
+ [1] single(::Array{Any,1}) at /home/ferris/.julia/v0.7/SAC/src/single.jl:4
+
+julia&gt; single([3, 10])
+ERROR: ArgumentError: Collection must have exactly one element (input contained more than one element)
+Stacktrace:
+ [1] single(::Array{Int64,1}) at /home/ferris/.julia/v0.7/SAC/src/single.jl:10</code></pre><h3><a class="nav-anchor" id="splitdims(array,-[dims])-1" href="#splitdims(array,-[dims])-1"><code>splitdims(array, [dims])</code></a></h3><p>Split a multidimensional array into nested arrays of arrays, splitting the specified  dimensions <code>dims</code> to the &quot;outer&quot; array, leaving the remaining dimension in the &quot;inner&quot; array. By default, the last dimension is split into the outer array.</p><h4><a class="nav-anchor" id="Examples:-1" href="#Examples:-1">Examples:</a></h4><pre><code class="language-julia">julia&gt; splitdims([1 2; 3 4])
+2-element Array{Array{Int64,1},1}:
+ [1, 3]
+ [2, 4]
+
+julia&gt; splitdims([1 2; 3 4], 1)
+2-element Array{Array{Int64,1},1}:
+ [1, 2]
+ [3, 4]</code></pre><h3><a class="nav-anchor" id="splitdimsview(array,-[dims])-1" href="#splitdimsview(array,-[dims])-1"><code>splitdimsview(array, [dims])</code></a></h3><p>Like <code>splitdimsview(array, dims)</code> except creating a lazy view of the nested struture.</p><h3><a class="nav-anchor" id="combinedims(array)-1" href="#combinedims(array)-1"><code>combinedims(array)</code></a></h3><p>The inverse operation of <code>splitdims</code> - this will take a nested array of arrays, where  each sub-array has the same dimensions, and combine them into a single, flattened array.</p><h4><a class="nav-anchor" id="Example:-2" href="#Example:-2">Example:</a></h4><pre><code class="language-julia">julia&gt; combinedims([[1, 2], [3, 4]])
+2×2 Array{Int64,2}:
+ 1  3
+ 2  4</code></pre><h3><a class="nav-anchor" id="combinedimsview(array)-1" href="#combinedimsview(array)-1"><code>combinedimsview(array)</code></a></h3><p>Like <code>combinedims(array)</code> except creating a lazy view of the flattened struture.</p><h3><a class="nav-anchor" id="invert(a)-1" href="#invert(a)-1"><code>invert(a)</code></a></h3><p>Take a nested container <code>a</code> and return a container where the nesting is reversed, such that <code>invert(a)[i][j] === a[j][i]</code>.</p><p>Currently implemented for combinations of <code>AbstractArray</code>, <code>Tuple</code> and <code>NamedTuple</code>. It is planned to add <code>AbstractDict</code> in the future.</p><h4><a class="nav-anchor" id="Examples:-2" href="#Examples:-2">Examples:</a></h4><pre><code class="language-julia">julia&gt; invert([[1,2,3],[4,5,6]]) # invert the order of nesting
+3-element Array{Array{Int64,1},1}:
+ [1, 4]
+ [2, 5]
+ [3, 6]
+
+julia&gt; invert((a = [1, 2, 3], b = [2.0, 4.0, 6.0])) # Works between different data types
+3-element Array{NamedTuple{(:a, :b),Tuple{Int64,Float64}},1}:
+ (a = 1, b = 2.0)
+ (a = 2, b = 4.0)
+ (a = 3, b = 6.0)</code></pre><h3><a class="nav-anchor" id="invert!(out,-a)-1" href="#invert!(out,-a)-1"><code>invert!(out, a)</code></a></h3><p>A mutating version of <code>invert</code>, which stores the result in <code>out</code>.</p><h3><a class="nav-anchor" id="mapview(f,-iter)-1" href="#mapview(f,-iter)-1"><code>mapview(f, iter)</code></a></h3><p>Like <code>map</code>, but presents a view of the data contained in <code>iter</code>. The result may be wrapped in an lazily-computed output container (generally attempting to preserve arrays as <code>AbstractArray</code>, and so-on).</p><p>For immutable collections (like <code>Tuple</code> and <code>NamedTuple</code>), the operation may be performed eagerly.</p><h4><a class="nav-anchor" id="Example:-3" href="#Example:-3">Example:</a></h4><pre><code class="language-julia">julia&gt; a = [1,2,3];
+
+julia&gt; b = mapview(iseven, a)
+3-element MappedArray{Bool,1,typeof(iseven),Array{Int64,1}}:
+ false
+  true
+ false
+
+julia&gt; a[1] = 2;
+
+julia&gt; b
+3-element MappedArray{Bool,1,typeof(iseven),Array{Int64,1}}:
+  true
+  true
+ false</code></pre><h3><a class="nav-anchor" id="mapmany(f,-iters...)-1" href="#mapmany(f,-iters...)-1"><code>mapmany(f, iters...)</code></a></h3><p>Like <code>map</code>, but <code>f(x...)</code> for each <code>x ∈ zip(iters...)</code> may return an arbitrary number of  values to insert into the output.</p><h4><a class="nav-anchor" id="Example:-4" href="#Example:-4">Example:</a></h4><pre><code class="language-julia">julia&gt; mapmany(x -&gt; 1:x, [1,2,3])
+6-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 1
+ 2
+ 3</code></pre><p>(Note that, semantically, <code>filter</code> could be thought of as a special case of <code>mapmany</code>.)</p><h3><a class="nav-anchor" id="flatten(a)-1" href="#flatten(a)-1"><code>flatten(a)</code></a></h3><p>Takes a collection of collections <code>a</code> and returns a collection containing all the elements of the subcollecitons of <code>a</code>. Equivalent to <code>mapmany(identity, a)</code>.</p><h4><a class="nav-anchor" id="Example:-5" href="#Example:-5">Example:</a></h4><pre><code class="language-julia">julia&gt; flatten([1:1, 1:2, 1:3])
+6-element Array{Int64,1}:
+ 1
+ 1
+ 2
+ 1
+ 2
+ 3</code></pre><h3><a class="nav-anchor" id="product(f,-a,-b)-1" href="#product(f,-a,-b)-1"><code>product(f, a, b)</code></a></h3><p>Takes the Cartesian outer product of two containers and evaluates <code>f</code> on all pairings of elements.</p><p>For example, if <code>a</code> and <code>b</code> are vectors, this returns a matrix <code>out</code> such that <code>out[i,j] = f(a[i], b[j])</code> for <code>i in keys(a)</code> and <code>j in keys(b)</code>.</p><p>Note this interface differs slightly from <code>Iterators.product</code> where <code>f = tuple</code> is assumed.</p><h4><a class="nav-anchor" id="Example:-6" href="#Example:-6">Example:</a></h4><pre><code class="language-julia">julia&gt; product(+, [1,2], [1,2,3])
+2×3 Array{Int64,2}:
+ 2  3  4
+ 3  4  5</code></pre><h3><a class="nav-anchor" id="productview(f,-a,-b)-1" href="#productview(f,-a,-b)-1"><code>productview(f, a, b)</code></a></h3><p>Like <code>product</code>, but return a view of the Cartesian product of <code>a</code> and <code>b</code> where the output elements are <code>f</code> evaluated with the corresponding of <code>a</code> and <code>b</code>.</p><h4><a class="nav-anchor" id="Example-1" href="#Example-1">Example</a></h4><pre><code class="language-julia">julia&gt; productview(+, [1,2], [1,2,3])
+2×3 ProductArray{Int64,2,typeof(+),Array{Int64,1},Array{Int64,1}}:
+ 2  3  4
+ 3  4  5</code></pre><h2><a class="nav-anchor" id="Grouping-1" href="#Grouping-1">Grouping</a></h2><p>These operations help you split the elements of a collection according to an arbitrary function which maps each element to a group key.</p><h3><a class="nav-anchor" id="group(by,-[f-identity],-iter)-1" href="#group(by,-[f-identity],-iter)-1"><code>group(by, [f = identity], iter)</code></a></h3><p>Group the elements <code>x</code> of the iterable <code>iter</code> into groups labeled by <code>by(x)</code>, transforming each element . The default implementation creates a <code>Dict</code> of <code>Vector</code>s, but of course a table/dataframe package might extend this to return a suitable (nested) structure of tables/dataframes.</p><p>Also a <code>group(by, f, iters...)</code> method exists for the case where multiple iterables of the same length are provided.</p><h4><a class="nav-anchor" id="Examples:-3" href="#Examples:-3">Examples:</a></h4><pre><code class="language-julia">julia&gt; group(iseven, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [1, 3, 5, 7, 9]
+  true  =&gt; [2, 4, 6, 8, 10]
+
+julia&gt; names = [&quot;Andrew Smith&quot;, &quot;John Smith&quot;, &quot;Alice Baker&quot;, &quot;Robert Baker&quot;,
+                &quot;Jane Smith&quot;, &quot;Jason Bourne&quot;]
+6-element Array{String,1}:
+ &quot;Andrew Smith&quot;
+ &quot;John Smith&quot;
+ &quot;Alice Baker&quot;
+ &quot;Robert Baker&quot;
+ &quot;Jane Smith&quot;
+ &quot;Jason Bourne&quot;
+
+julia&gt; group(last, first, split.(names))
+Dict{SubString{String},Array{SubString{String},1}} with 3 entries:
+  &quot;Bourne&quot; =&gt; SubString{String}[&quot;Jason&quot;]
+  &quot;Baker&quot;  =&gt; SubString{String}[&quot;Alice&quot;, &quot;Robert&quot;]
+  &quot;Smith&quot;  =&gt; SubString{String}[&quot;Andrew&quot;, &quot;John&quot;, &quot;Jane&quot;]</code></pre><h3><a class="nav-anchor" id="groupinds(by,-iter)-1" href="#groupinds(by,-iter)-1"><code>groupinds(by, iter)</code></a></h3><p>For <em>indexable</em> collections <code>iter</code>, returns the indices/keys associated with each group. Similar to <code>group</code>, it supports multiple collections (with identical indices/keys) via the method <code>groupinds(by, iters...)</code>.</p><h4><a class="nav-anchor" id="Example:-7" href="#Example:-7">Example:</a></h4><pre><code class="language-julia">julia&gt; groupinds(iseven, [3,4,2,6,5,8])
+Dict{Bool,Array{Int64,1}} with 2 entries:
+  false =&gt; [1, 5]
+  true  =&gt; [2, 3, 4, 6]</code></pre><h3><a class="nav-anchor" id="groupview(by,-iter)-1" href="#groupview(by,-iter)-1"><code>groupview(by, iter)</code></a></h3><p>Similar to <code>group(by, iter)</code> but the grouped elements are a view of the original collection. Uses <code>groupinds</code> to construct the appropriate container.</p><h4><a class="nav-anchor" id="Example:-8" href="#Example:-8">Example:</a></h4><pre><code class="language-julia">julia&gt; v = [3,4,2,6,5,8]
+6-element Array{Int64,1}:
+ 3
+ 4
+ 2
+ 6
+ 5
+ 8
+
+julia&gt; groups = groupview(iseven, v)
+SAC.Groups{Bool,Any,Array{Int64,1},Dict{Bool,Array{Int64,1}}} with 2 entries:
+  false =&gt; [3, 5]
+  true  =&gt; [4, 2, 6, 8]
+
+julia&gt; groups[false][:] = 99
+99
+
+julia&gt; v
+6-element Array{Int64,1}:
+ 99
+  4
+  2
+  6
+ 99
+  8</code></pre><h3><a class="nav-anchor" id="groupreduce(by,-[f-identity],-op,-iter...;-[init])-1" href="#groupreduce(by,-[f-identity],-op,-iter...;-[init])-1"><code>groupreduce(by, [f = identity], op, iter...; [init])</code></a></h3><p>Applies a <code>mapreduce</code>-like operation on the groupings labeled by passing the elements of <code>iter</code> through <code>by</code>. Mostly equivalent to <code>map(g -&gt; reduce(op, g; init=init), group(by, f, iter))</code>, but designed to be more efficient. If multiple collections (of the same length) are provided, the transformations <code>by</code> and <code>f</code> occur elementwise.</p><p>We also export <code>groupcount</code>, <code>groupsum</code> and <code>groupprod</code> as special cases of the above, to determine the number of elements per group, their sum, and their product, respectively.</p><h4><a class="nav-anchor" id="Examples:-4" href="#Examples:-4">Examples:</a></h4><pre><code class="language-julia">julia&gt; groupreduce(iseven, +, 1:10)
+Dict{Bool,Int64} with 2 entries:
+  false =&gt; 25
+  true  =&gt; 30
+
+julia&gt; groupcount(iseven, 1:10)
+Dict{Bool,Int64} with 2 entries:
+  false =&gt; 5
+  true  =&gt; 5</code></pre><h2><a class="nav-anchor" id="Joining-1" href="#Joining-1">Joining</a></h2><h3><a class="nav-anchor" id="innerjoin([lkey-identity],-[rkey-identity],-[f-tuple],-[comparison-isequal],-left,-right)-1" href="#innerjoin([lkey-identity],-[rkey-identity],-[f-tuple],-[comparison-isequal],-left,-right)-1"><code>innerjoin([lkey = identity], [rkey = identity], [f = tuple], [comparison = isequal], left, right)</code></a></h3><p>WARNING: This API is a work-in-progress and may change in the future.</p><p>Performs a relational-style join operation between iterables <code>left</code> and <code>right</code>, returning a collection of elements <code>f(l, r)</code> for which <code>comparison(lkey(l), rkey(r))</code> is <code>true</code> where <code>l ∈ left</code>, <code>r ∈ right.</code></p><h4><a class="nav-anchor" id="Example:-9" href="#Example:-9">Example:</a></h4><pre><code class="language-julia">julia&gt; innerjoin(iseven, iseven, tuple, ==, [1,2,3,4], [0,1,2])
+6-element Array{Tuple{Int64,Int64},1}:
+ (1, 1)
+ (2, 0)
+ (2, 2)
+ (3, 1)
+ (4, 0)
+ (4, 2)</code></pre><h3><a class="nav-anchor" id="leftgroupjoin([lkey-identity],-[rkey-identity],-[f-tuple],-[comparison-isequal],-left,-right)-1" href="#leftgroupjoin([lkey-identity],-[rkey-identity],-[f-tuple],-[comparison-isequal],-left,-right)-1"><code>leftgroupjoin([lkey = identity], [rkey = identity], [f = tuple], [comparison = isequal], left, right)</code></a></h3><p>WARNING: This API is a work-in-progress and may change in the future.</p><p>Creates a collection if groups labelled by <code>lkey(l)</code> where each group contains elements <code>f(l, r)</code> which satisfy <code>comparison(lkey(l), rkey(r))</code>. If there rae no matches, the group is still created (with an empty collection).</p><p>This operation shares similarities with an SQL left outer join, but is more similar to LINQ&#39;s <code>GroupJoin</code>.</p><h4><a class="nav-anchor" id="Example:-10" href="#Example:-10">Example:</a></h4><pre><code class="language-julia">julia&gt; leftgroupjoin(iseven, iseven, tuple, ==, [1,2,3,4], [0,1,2])
+Dict{Bool,Array{Tuple{Int64,Int64},1}} with 2 entries:
+  false =&gt; Tuple{Int64,Int64}[(1, 1), (3, 1)]
+  true  =&gt; Tuple{Int64,Int64}[(2, 0), (2, 2), (4, 0), (4, 2)]</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

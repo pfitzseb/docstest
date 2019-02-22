@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "ProximalOperators"
+owner = "kul-forbes"
+version = "0.8.0"
+description = "Proximal operators for nonsmooth optimization in Julia"
+stargazers_count = "45"
+url = "https://github.com/kul-forbes/ProximalOperators.jl.git"
+installs = true
+tags = ["optimization", "proximal-algorithms", "proximal-operators", "julia", "julia-language", "admm", "prox"]
+license = "Other"
+
+[[contributors]]
+name = "lostella"
+contributions = "306"
+[[contributors]]
+name = "nantonel"
+contributions = "21"
+[[contributors]]
+name = "mfalt"
+contributions = "20"
+[[contributors]]
+name = "mi-volodin"
+contributions = "15"
+[[contributors]]
+name = "domagojherceg"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "baggepinnen"
+contributions = "1"
+[[contributors]]
+name = "alphaville"
+contributions = "1"

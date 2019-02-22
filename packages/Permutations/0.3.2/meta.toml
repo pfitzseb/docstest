@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Permutations"
+owner = "scheinerman"
+version = "0.3.2"
+description = "Permutations class for Julia."
+stargazers_count = "10"
+url = "https://github.com/scheinerman/Permutations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "75"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "3"
+[[contributors]]
+name = "jlapeyre"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"

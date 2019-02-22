@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "KeyedFrames"
+owner = "invenia"
+version = "0.2.5"
+description = "A DataFrame that also keeps track of its unique key"
+stargazers_count = "3"
+url = "https://github.com/invenia/KeyedFrames.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "spurll"
+contributions = "11"
+[[contributors]]
+name = "rofinn"
+contributions = "5"
+[[contributors]]
+name = "morris25"
+contributions = "1"

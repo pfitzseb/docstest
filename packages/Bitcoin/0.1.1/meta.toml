@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Bitcoin"
+owner = "roshii"
+version = "0.1.1"
+description = " GitLab mirror https://gitlab.com/braneproject/Bitcoin.jl"
+stargazers_count = "0"
+url = "https://github.com/roshii/Bitcoin.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "roshii"
+contributions = "21"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Bits"
+owner = "rfourquet"
+version = "0.1.0"
+description = "Utility functions for bits manipulation "
+stargazers_count = "0"
+url = "https://github.com/rfourquet/Bits.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rfourquet"
+contributions = "14"

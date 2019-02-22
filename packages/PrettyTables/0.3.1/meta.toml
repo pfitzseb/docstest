@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "PrettyTables"
+owner = "ronisbr"
+version = "0.3.1"
+description = "Print data in formatted tables."
+stargazers_count = "40"
+url = "https://github.com/ronisbr/PrettyTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ronisbr"
+contributions = "44"
+[[contributors]]
+name = "GlenHertz"
+contributions = "2"

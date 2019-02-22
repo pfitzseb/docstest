@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "Observables"
+owner = "JuliaGizmos"
+version = "0.2.3"
+description = "observable refs"
+stargazers_count = "15"
+url = "https://github.com/JuliaGizmos/Observables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "18"
+[[contributors]]
+name = "shashi"
+contributions = "4"
+[[contributors]]
+name = "JobJob"
+contributions = "2"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

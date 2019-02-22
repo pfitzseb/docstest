@@ -1,0 +1,4 @@
+name = "LibGit2"
+installs = false
+url = "https://github.com/jakebolewski/LibGit2.jl.git"
+version = "0.3.8"

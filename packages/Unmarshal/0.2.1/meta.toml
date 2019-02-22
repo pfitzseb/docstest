@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Unmarshal"
+owner = "lwabeke"
+version = "0.2.1"
+description = "Implements a Julia Unmarshal package, which will construct Julia objects from a marshalled string after having been parsed by another package."
+stargazers_count = "5"
+url = "https://github.com/lwabeke/Unmarshal.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lwabeke"
+contributions = "18"
+[[contributors]]
+name = "rwfocke"
+contributions = "2"
+[[contributors]]
+name = "non-Jedi"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

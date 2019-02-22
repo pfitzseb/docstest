@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StringDistances.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StringDistances.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Syntax-1">Syntax</a></li><li><a class="toctext" href="#Distances-1">Distances</a></li><li><a class="toctext" href="#Distance-Modifiers-1">Distance Modifiers</a></li><li><a class="toctext" href="#Which-distance-should-I-use?-1">Which distance should I use?</a></li><li><a class="toctext" href="#References-1">References</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="http://pkg.julialang.org/?pkg=StringDistances"><img src="http://pkg.julialang.org/badges/StringDistances_0.7.svg" alt="StringDistances"/></a> <a href="https://travis-ci.org/matthieugomez/StringDistances.jl"><img src="https://travis-ci.org/matthieugomez/StringDistances.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/r/matthieugomez/StringDistances.jl?branch=master"><img src="https://coveralls.io/repos/matthieugomez/StringDistances.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><p>This Julia package computes various distances between strings (UTF-8 encoding)</p><h2><a class="nav-anchor" id="Syntax-1" href="#Syntax-1">Syntax</a></h2><p>The function <code>compare</code> returns  a similarity score between two strings. The function always returns a score between 0 and 1, with a value of 0 being completely different and a value of 1 being completely similar.</p><pre><code class="language-julia">using StringDistances
+compare(Hamming(), &quot;martha&quot;, &quot;martha&quot;)
+#&gt; 1.0
+compare(Hamming(), &quot;martha&quot;, &quot;marhta&quot;)
+#&gt; 0.6666666666666667</code></pre><h2><a class="nav-anchor" id="Distances-1" href="#Distances-1">Distances</a></h2><h4><a class="nav-anchor" id="Edit-Distances-1" href="#Edit-Distances-1">Edit Distances</a></h4><ul><li><a href="https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance">Damerau-Levenshtein Distance</a> <code>DamerauLevenshtein()</code></li><li><a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming Distance</a> <code>Hamming()</code></li><li><a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro Distance</a> <code>Jaro()</code></li><li><a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein Distance</a> <code>Levenshtein()</code></li></ul><h4><a class="nav-anchor" id="Q-Grams-Distances-1" href="#Q-Grams-Distances-1">Q-Grams Distances</a></h4><p>Q-gram distances compare the set of all substrings of length <code>q</code> in each string.</p><ul><li>QGram Distance <code>Qgram(q)</code></li><li><a href="https://en.wikipedia.org/wiki/Cosine_similarity">Cosine Distance</a> <code>Cosine(q)</code></li><li><a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard Distance</a> <code>Jaccard(q)</code></li><li><a href="https://en.wikipedia.org/wiki/Overlap_coefficient">Overlap Distance</a> <code>Overlap(q)</code></li><li><a href="https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient">Sorensen-Dice Distance</a> <code>SorensenDice(q)</code></li></ul><h4><a class="nav-anchor" id="Others-1" href="#Others-1">Others</a></h4><ul><li><a href="https://xlinux.nist.gov/dads/HTML/ratcliffObershelp.html">RatcliffObershelp Distance</a> <code>RatcliffObershelp()</code></li></ul><h2><a class="nav-anchor" id="Distance-Modifiers-1" href="#Distance-Modifiers-1">Distance Modifiers</a></h2><p>The package includes distance &quot;modifiers&quot;, that can be applied to any distance.</p><ul><li><a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Winkler</a> boosts the similary score of strings with common prefixes.  The Winkler adjustment was originally defined for the Jaro similarity score but this package defines it for any string distance.</li></ul><pre><code class="language-julia">	compare(Jaro(), &quot;martha&quot;, &quot;marhta&quot;)
+	#&gt; 0.9444444444444445
+	compare(Winkler(Jaro()), &quot;martha&quot;, &quot;marhta&quot;)
+	#&gt; 0.9611111111111111
+
+	compare(QGram(2), &quot;william&quot;, &quot;williams&quot;)
+	#&gt; 0.9230769230769231
+	compare(Winkler(QGram(2)), &quot;william&quot;, &quot;williams&quot;)
+	#&gt; 0.9538461538461539
+	```
+
+- Modifiers from the Python library [fuzzywuzzy](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) .
+
+	- [Partial](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) returns the maximal similarity score between the shorter string and substrings of the longer string.
+
+		```julia
+		compare(Levenshtein(), &quot;New York Yankees&quot;, &quot;Yankees&quot;)
+		#&gt; 0.4375
+		compare(Partial(Levenshtein()), &quot;New York Yankees&quot;, &quot;Yankees&quot;)
+		#&gt; 1.0
+		```
+
+	- [TokenSort](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) adjusts for differences in word orders by reording words alphabetically. 
+
+		```julia
+		compare(RatcliffObershelp(), &quot;mariners vs angels&quot;, &quot;angels vs mariners&quot;)
+		#&gt; 0.44444
+		compare(TokenSort(RatcliffObershelp()),&quot;mariners vs angels&quot;, &quot;angels vs mariners&quot;)
+		#&gt; 1.0
+		```
+
+	- [TokenSet](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) adjusts for differences in word orders and word numbers by comparing the intersection of two strings with each string.
+
+		```julia
+		compare(Jaro(),&quot;mariners vs angels&quot;, &quot;los angeles angels at seattle mariners&quot;)
+		#&gt; 0.559904
+		compare(TokenSet(Jaro()),&quot;mariners vs angels&quot;, &quot;los angeles angels at seattle mariners&quot;)
+		#&gt; 0.944444
+		```
+
+
+	- [TokenMax](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) combines scores using the base distance, the `Partial`, `TokenSort` and `TokenSet` modifiers, with penalty terms depending on string lengths. This is the default distance  in [fuzzywuzzy](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) .
+
+		```julia
+		compare(TokenMax(RatcliffObershelp()),&quot;mariners vs angels&quot;, &quot;los angeles angels at seattle mariners&quot;)
+		#&gt; 0.855
+		```
+## Compare vs Evaluate
+The function `compare` returns a similarity score: a value of 0 means completely different and a value of 1 means completely similar.
+In contrast, the function `evaluate` returns the litteral distance between two strings, with a value of 0 being completely similar. some distances are between 0 and 1. Others are unbouded.
+</code></pre><p>julia compare(Levenshtein(), &quot;New York&quot;, &quot;New York&quot;) #&gt; 1.0 evaluate(Levenshtein(), &quot;New York&quot;, &quot;New York&quot;) #&gt; 0 ```</p><h2><a class="nav-anchor" id="Which-distance-should-I-use?-1" href="#Which-distance-should-I-use?-1">Which distance should I use?</a></h2><p>As a rule of thumb, </p><ul><li>Standardize strings before comparing them (cases, whitespaces, accents, abbreviations...)</li><li>Only consider using one of the Edit distances if word order matters.</li><li>The distance <code>Tokenmax(RatcliffObershelp())</code> is a good choice to link names or adresses across datasets.</li></ul><h2><a class="nav-anchor" id="References-1" href="#References-1">References</a></h2><ul><li><a href="https://journal.r-project.org/archive/2014-1/loo.pdf">The stringdist Package for Approximate String Matching</a> Mark P.J. van der Loo</li><li><a href="http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/">fuzzywuzzy</a></li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

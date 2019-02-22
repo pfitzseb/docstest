@@ -1,0 +1,12 @@
+license_url = ""
+doctype = "default"
+name = "SuperEnum"
+owner = "kindlychung"
+version = "0.1.3"
+description = "Julia enum made nicer"
+stargazers_count = "3"
+contributors = []
+url = "https://github.com/kindlychung/SuperEnum.jl.git"
+installs = true
+tags = ["enumeration", "julia", "metaprogramming"]
+license = "Other"

@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "Libz"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Fast, flexible zlib bindings."
+stargazers_count = "15"
+url = "https://github.com/BioJulia/Libz.jl.git"
+installs = true
+tags = ["julia", "zlib", "gzip"]
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "33"
+[[contributors]]
+name = "dcjones"
+contributions = "24"
+[[contributors]]
+name = "samoconnor"
+contributions = "6"
+[[contributors]]
+name = "musm"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "juliangehring"
+contributions = "1"
+[[contributors]]
+name = "kdmurray91"
+contributions = "1"
+[[contributors]]
+name = "blahah"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"

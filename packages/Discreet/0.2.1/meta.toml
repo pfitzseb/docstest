@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Discreet"
+owner = "cynddl"
+version = "0.2.1"
+description = "A Julia package to estimate discrete entropy and mutual information"
+stargazers_count = "3"
+url = "https://github.com/cynddl/Discreet.jl.git"
+installs = true
+tags = ["julia", "statistics", "entropy", "mutual-information"]
+license = "Other"
+
+[[contributors]]
+name = "cynddl"
+contributions = "14"
+[[contributors]]
+name = "tlienart"
+contributions = "8"

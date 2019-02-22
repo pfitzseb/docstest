@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "GenomicFeatures"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Tools for genomic features in Julia."
+stargazers_count = "4"
+url = "https://github.com/BioJulia/GenomicFeatures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "26"
+[[contributors]]
+name = "dcjones"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "ExcelFiles"
+owner = "queryverse"
+version = "0.9.0"
+description = "FileIO.jl integration for Excel files"
+stargazers_count = "10"
+url = "https://github.com/queryverse/ExcelFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "59"
+[[contributors]]
+name = "TonyLianLong"
+contributions = "8"
+[[contributors]]
+name = "Yijia-Chen"
+contributions = "3"
+[[contributors]]
+name = "rapus95"
+contributions = "1"
+[[contributors]]
+name = "nicoleepp"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqFinancial"
+owner = "JuliaDiffEq"
+version = "2.1.0"
+description = "Differential equation problem specifications for common financial models"
+stargazers_count = "6"
+url = "https://github.com/JuliaDiffEq/DiffEqFinancial.jl.git"
+installs = true
+tags = ["differentialequations", "financial", "sde", "stochastic"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "53"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"

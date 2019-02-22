@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GaussQuadrature"
+owner = "billmclean"
+version = "0.5.0"
+description = "Julia package to compute weights and points for the classical Gauss quadrature rules"
+stargazers_count = "7"
+url = "https://github.com/billmclean/GaussQuadrature.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "billmclean"
+contributions = "59"
+[[contributors]]
+name = "tkelman"
+contributions = "2"

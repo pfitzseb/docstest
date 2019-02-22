@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "NBodySimulator"
+owner = "JuliaDiffEq"
+version = "0.1.0"
+description = "A simulator for N-body problems, including astrophysical and molecular dynamics"
+stargazers_count = "7"
+url = "https://github.com/JuliaDiffEq/NBodySimulator.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Mikhail-Vaganov"
+contributions = "18"
+[[contributors]]
+name = "dextorious"
+contributions = "9"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "6"

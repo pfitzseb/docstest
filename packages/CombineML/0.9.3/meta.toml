@@ -1,0 +1,26 @@
+license_url = ""
+name = "CombineML"
+owner = "ppalmes"
+version = "0.9.3"
+description = "Create ensembles of machine learning models from scikit-learn, caret, and julia"
+stargazers_count = "28"
+url = "https://github.com/ppalmes/CombineML.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ppalmes"
+contributions = "68"
+[[contributors]]
+name = "bensadeghi"
+contributions = "5"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "tlienart"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

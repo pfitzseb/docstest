@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrEntities"
+owner = "JuliaString"
+version = "0.3.0"
+description = "Adds support for Emojis and HTML, LaTeX, Unicode entities to StrLiterals"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrEntities.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "37"

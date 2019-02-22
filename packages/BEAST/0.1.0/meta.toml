@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "BEAST"
+owner = "krcools"
+version = "0.1.0"
+description = "Boundary Element Analysis and Simulation Toolkit"
+stargazers_count = "3"
+url = "https://github.com/krcools/BEAST.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "krcools"
+contributions = "177"
+[[contributors]]
+name = "Elewander"
+contributions = "10"
+[[contributors]]
+name = "shakisparki"
+contributions = "7"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

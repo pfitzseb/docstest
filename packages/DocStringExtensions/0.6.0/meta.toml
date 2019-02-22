@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "DocStringExtensions"
+owner = "JuliaDocs"
+version = "0.6.0"
+description = "Extensions for Julia's docsystem."
+stargazers_count = "23"
+url = "https://github.com/JuliaDocs/DocStringExtensions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "52"
+[[contributors]]
+name = "mortenpi"
+contributions = "29"
+[[contributors]]
+name = "tkoolen"
+contributions = "7"
+[[contributors]]
+name = "fredrikekre"
+contributions = "6"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

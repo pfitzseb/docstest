@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "EzXML"
+owner = "bicycle1885"
+version = "0.9.0"
+description = "XML/HTML handling tools for primates"
+stargazers_count = "38"
+url = "https://github.com/bicycle1885/EzXML.jl.git"
+installs = true
+tags = ["xml", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "228"
+[[contributors]]
+name = "Nishya"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "clarkevans"
+contributions = "1"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "btaidm"
+contributions = "1"
+[[contributors]]
+name = "YongHee-Kim"
+contributions = "1"

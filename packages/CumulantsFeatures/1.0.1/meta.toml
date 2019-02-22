@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CumulantsFeatures"
+owner = "ZKSI"
+version = "1.0.1"
+description = "Cumulants based features selection and outlier detection"
+stargazers_count = "1"
+url = "https://github.com/ZKSI/CumulantsFeatures.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kdomino"
+contributions = "48"

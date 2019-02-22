@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "PkgBenchmark"
+owner = "JuliaCI"
+version = "0.2.0"
+description = "Easy benchmark tracking for packages"
+stargazers_count = "49"
+url = "https://github.com/JuliaCI/PkgBenchmark.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shashi"
+contributions = "31"
+[[contributors]]
+name = "KristofferC"
+contributions = "28"
+[[contributors]]
+name = "NHDaly"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "oyamad"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "goerz"
+contributions = "1"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "nkottary"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Spectra"
+owner = "charlesll"
+version = "0.4.0"
+description = "Spectra.jl aims at helping treatment of spectral (Raman, Infrared, XAS, NMR) data under the Julia language"
+stargazers_count = "12"
+url = "https://github.com/charlesll/Spectra.jl.git"
+installs = true
+tags = ["spectroscopy", "spectra", "raman", "julia", "baseline"]
+license = "Other"
+
+[[contributors]]
+name = "charlesll"
+contributions = "270"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

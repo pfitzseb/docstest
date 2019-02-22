@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "real"
+name = "Dispatcher"
+owner = "invenia"
+version = "0.5.0"
+description = "Build, distribute, and execute task graphs "
+stargazers_count = "12"
+url = "https://github.com/invenia/Dispatcher.jl.git"
+installs = true
+tags = ["julia", "task-runner", "distributed-computing", "computation-graph", "parallel"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "iamed2"
+contributions = "131"
+[[contributors]]
+name = "rofinn"
+contributions = "24"
+[[contributors]]
+name = "morris25"
+contributions = "11"
+[[contributors]]
+name = "nicoleepp"
+contributions = "11"
+[[contributors]]
+name = "omus"
+contributions = "7"
+[[contributors]]
+name = "christopher-dG"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

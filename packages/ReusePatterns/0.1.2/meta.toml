@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ReusePatterns"
+owner = "gcalderone"
+version = "0.1.2"
+description = "Implement composition and concrete subtyping in Julia."
+stargazers_count = "9"
+url = "https://github.com/gcalderone/ReusePatterns.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "50"

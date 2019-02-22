@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ReplMaker.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ReplMaker.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Example-1:-Expr-Mode-1">Example 1: Expr Mode</a></li><li><a class="toctext" href="#Example-2:-Bad-Parser-Mode-1">Example 2: Bad Parser Mode</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><a href="https://travis-ci.org/MasonProtter/ReplMaker.jl"><img src="https://travis-ci.org/MasonProtter/ReplMaker.jl.svg?branch=master" alt="Build Status"/></a></p><h1><a class="nav-anchor" id="REPLMaker-1" href="#REPLMaker-1">REPLMaker</a></h1><p>The idea here is to make a tool for people making (domain specific) languages in julia.  A user of this package will be required to give a function that parses code from whatever langauge the user has  implemented and turns it into Julia code which is then executed by Julia. LangKit will then create a repl mode where end users  just type code from the implemented language and have it be parsed into Julia code automatically. </p><p>My hope is for this to be useful to someone who implements a full language or DSL in Julia that uses syntax not supported by Julia&#39;s parser and doesn&#39;t want to deal with the headache of making their own REPL mode. </p><p>To add it,</p><pre><code class="language-none">pkg&gt; add git@github.com:MasonProtter/ReplMaker.jl.git</code></pre><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><h2><a class="nav-anchor" id="Example-1:-Expr-Mode-1" href="#Example-1:-Expr-Mode-1">Example 1: Expr Mode</a></h2><p>Suppose we want to make a very simple REPL mode which just takes whatever input we provide and returns its quoted <code>Expr</code> form. We first make a parsing function,</p><pre><code class="language-julia">julia&gt; using ReplMaker
+
+julia&gt; function parse_to_expr(s)
+           quote parse($s) end
+       end
+test_parser (generic function with 1 method)</code></pre><p>Now, we can simply provide that parser to the <code>initrepl</code> function</p><pre><code class="language-julia">julia&gt; initrepl(parse_to_expr, 
+                prompt_text=&quot;Expr&gt; &quot;,
+                prompt_color = :blue, 
+                start_key=&#39;)&#39;, 
+                mode_name=&quot;Expr_mode&quot;)
+REPL mode Expr_mode initialized. Press ) to enter and backspace to exit.</code></pre><p>As instructed, we simply press the <code>)</code> key and the <code>julia&gt;</code> prompt is replaced</p><pre><code class="language-none">Expr&gt;  </code></pre><p>and as desired, we now can enter Julia code and be shown its quoted version.</p><pre><code class="language-none">Expr&gt; 1 + 1
+:(1 + 1)
+
+Expr&gt; x ^ 2 + 5
+:(x ^ 2 + 5)</code></pre><h2><a class="nav-anchor" id="Example-2:-Bad-Parser-Mode-1" href="#Example-2:-Bad-Parser-Mode-1">Example 2: Bad Parser Mode</a></h2><p>Lets say we&#39;re feeling a bit maniacal and want an insane version of Julia where any input has multiplication and addition switched. </p><p>We first just make a function which takes expressions and if the first argument is <code>:+</code> replaces it with <code>:*</code> and vice versa. On all other inputs, this function is just an identity operation</p><pre><code class="language-julia">function switch_mult_add(expr::Expr)
+    if expr.args[1] == :+
+        expr.args[1] = :*
+        return expr
+    elseif expr.args[1] == :*
+        expr.args[1] = :+
+        return expr
+    else
+        return expr
+    end
+end
+switch_mult_add(s) = s</code></pre><p>We now just borrow the <code>postwalk</code> function from MacroTools and use it in our parsing function to recursively look through and input expression tree and apply <code>switch_mult_add</code> and use that parser in a new REPL mode.</p><pre><code class="language-julia">using MacroTools: postwalk
+
+function bad_julia_parser(s)
+    expr = parse(s)
+    postwalk(switch_mult_add, expr)
+end
+
+initrepl(bad_julia_parser, 
+         prompt_text=&quot;bad_parser&gt; &quot;,
+         prompt_color = :red, 
+         start_key=&#39;}&#39;, 
+         mode_name=&quot;bad_parser_mode&quot;)</code></pre><p>now by pressing <code>}</code> we enter <code>bad_parser_mode</code>!</p><pre><code class="language-julia">bad_parser&gt; 5 + 5
+25
+
+bad_parser&gt; (5 * 5)^2
+100</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Flatten"
+owner = "rafaqz"
+version = "0.1.0"
+description = "Flatten nested Julia types to tuples or vectors, and reconstruct them later"
+stargazers_count = "5"
+url = "https://github.com/rafaqz/Flatten.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rafaqz"
+contributions = "78"
+[[contributors]]
+name = "rdeits"
+contributions = "14"

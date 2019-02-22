@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Usage · CUDAnative.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CUDAnative.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Manual</span><ul><li class="current"><a class="toctext" href>Usage</a><ul class="internal"><li><a class="toctext" href="#Quick-start-1">Quick start</a></li><li><a class="toctext" href="#Julia-support-1">Julia support</a></li><li><a class="toctext" href="#CUDA-support-1">CUDA support</a></li></ul></li><li><a class="toctext" href="../troubleshooting/">Troubleshooting</a></li><li><a class="toctext" href="../performance/">Performance</a></li><li><a class="toctext" href="../hacking/">Hacking</a></li></ul></li><li><span class="toctext">Library</span><ul><li><a class="toctext" href="../../lib/compilation/">Compilation &amp; Execution</a></li><li><a class="toctext" href="../../lib/reflection/">Reflection</a></li><li><span class="toctext">Device Code</span><ul><li><a class="toctext" href="../../lib/device/intrinsics/">Intrinsics</a></li><li><a class="toctext" href="../../lib/device/array/">Arrays</a></li><li><a class="toctext" href="../../lib/device/libdevice/">libdevice</a></li></ul></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Manual</li><li><a href>Usage</a></li></ul></nav><hr/><div id="topbar"><span>Usage</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h1><h2><a class="nav-anchor" id="Quick-start-1" href="#Quick-start-1">Quick start</a></h2><p>First you have to write the kernel function and make sure it only uses features from the CUDA-supported subset of Julia:</p><pre><code class="language-julia">using CUDAnative
+
+function kernel_vadd(a, b, c)
+    i = (blockIdx().x-1) * blockDim().x + threadIdx().x
+    c[i] = a[i] + b[i]
+    return nothing
+end</code></pre><p>Using the <code>@cuda</code> macro, you can launch the kernel on a GPU of your choice:</p><pre><code class="language-julia">using CUDAdrv, CUDAnative, CuArrays
+using Test
+
+# CUDAdrv functionality: generate and upload data
+a = round.(rand(Float32, (3, 4)) * 100)
+b = round.(rand(Float32, (3, 4)) * 100)
+d_a = CuArray(a)
+d_b = CuArray(b)
+d_c = similar(d_a)  # output array
+
+# run the kernel and fetch results
+# syntax: @cuda [kwargs...] kernel(args...)
+@cuda threads=12 kernel_vadd(d_a, d_b, d_c)
+
+# CUDAdrv functionality: download data
+# this synchronizes the device
+c = Array(d_c)
+
+@test a+b ≈ c</code></pre><p>This code is executed in a default, global context for the first device in your system. Similar to <code>cudaSetDevice</code>, you can switch devices by calling CUDAnative&#39;s <code>device!</code> function:</p><pre><code class="language-julia"># change the active device
+device!(1)
+
+# the same, but only temporarily
+device!(2) do
+    # ...
+end</code></pre><p>To enable debug logging, launch Julia with the <code>JULIA_DEBUG</code> environment variable set to <code>CUDAnative</code>.</p><h2><a class="nav-anchor" id="Julia-support-1" href="#Julia-support-1">Julia support</a></h2><p>Only a limited subset of Julia is supported by this package. This subset is undocumented, as it is too much in flux.</p><p>In general, GPU support of Julia code is determined by the language features used by the code. Several parts of the language are downright disallowed, such as calls to the Julia runtime, or garbage allocations. Other features might get reduced in strength, eg. throwing exceptions will result in a <code>trap</code>.</p><p>If your code is incompatible with GPU execution, the compiler will mention the unsupported feature, and where the use came from:</p><pre><code class="language-none">julia&gt; foo(i) = (print(&quot;can&#39;t do this&quot;); return nothing)
+foo (generic function with 1 method)
+
+julia&gt; @cuda foo(1)
+ERROR: error compiling foo: error compiling print: generic call to unsafe_write requires the runtime language feature</code></pre><p>In addition, the JIT doesn&#39;t support certain modes of compilation. For example, recursive functions require a proper cached compilation, which is currently absent.</p><h2><a class="nav-anchor" id="CUDA-support-1" href="#CUDA-support-1">CUDA support</a></h2><p>Not all of CUDA is supported, and because of time constraints the supported subset is again undocumented. The following (incomplete) list details the support and their CUDAnative.jl names. Most are implemented in <code>intrinsics.jl</code>, so have a look at that file for a more up to date list:</p><ul><li>Indexing: <code>threadIdx().{x,y,z}</code>, <code>blockDim()</code>, <code>blockIdx()</code>, <code>gridDim()</code>, <code>warpsize()</code></li><li>Shared memory: <code>@cuStaticSharedMemory</code>, <code>@cuDynamicSharedMemory</code></li><li>Array type: <code>CuDeviceArray</code> (converted from input <code>CuArray</code>s, or shared memory)</li><li>I/O: <code>@cuprintf</code></li><li>Synchronization: <code>sync_threads</code></li><li>Communication: <code>vote_{all,any,ballot}</code></li><li>Data movement: <code>shfl_{up,down,bfly,idx}</code></li></ul><h3><a class="nav-anchor" id="libdevice-1" href="#libdevice-1"><code>libdevice</code></a></h3><p>In addition to the native intrinsics listed above, math functionality from <code>libdevice</code> is wrapped and part of CUDAnative. For now, you need to fully qualify function calls to these intrinsics, which provide similar functionality to some of the low-level math functionality of Base which would otherwise call out to <code>libm</code>.</p><footer><hr/><a class="previous" href="../../"><span class="direction">Previous</span><span class="title">Home</span></a><a class="next" href="../troubleshooting/"><span class="direction">Next</span><span class="title">Troubleshooting</span></a></footer></article></body></html>

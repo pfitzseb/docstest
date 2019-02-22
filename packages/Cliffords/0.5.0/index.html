@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Cliffords.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Cliffords.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Cliffords-1" href="#Cliffords-1">Cliffords</a></h1><p><a href="https://travis-ci.org/BBN-Q/Cliffords.jl"><img src="https://travis-ci.org/BBN-Q/Cliffords.jl.svg?branch=master" alt="Build Status"/></a></p><p>This library allows for efficient calculation of Clifford circuits by tracking the evolution of X and Z generators (the so-called <strong>tableau</strong> representation). No special effort has been made to strictly minimize the number of bits needed to store each Clifford. Rather, the goal was clarity. One unique feature compared to other such utilities is that we also efficiently track the inverse operations. This is useful to, e.g., compute &#39;undo&#39; gates in randomized benchmarking sequences.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><pre><code class="language-none">using Cliffords
+
+# single-qubit Pauli operators
+X * Y =&gt; iZ
+
+Pauli([0 1; 1 0]) =&gt; +X
+
+# multi-qubit Pauli operators
+kron(X,X) * kron(Z,Z) =&gt; -YY
+
+# Cliffords
+Clifford([1 0 0 0;
+          0 1 0 0;
+          0 0 0 1;
+          0 0 1 0]) == CNOT =&gt; true
+
+# Clifford * Pauli
+H * X =&gt; Z
+H * Z =&gt; X
+
+# Clifford * Clifford
+CNOT21 = expand(CNOT, [2,1], 2)
+CNOT * CNOT21 * CNOT == SWAP =&gt; true</code></pre><footer><hr/></footer></article></body></html>

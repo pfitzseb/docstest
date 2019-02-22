@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StochasticIntegrals"
+owner = "s-baumann"
+version = "0.1.0"
+description = "This generates covariance matrices and cholesky decompositions for a set of stochastic integrals."
+stargazers_count = "0"
+url = "https://github.com/s-baumann/StochasticIntegrals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "s-baumann"
+contributions = "50"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "GLMNet"
+owner = "JuliaStats"
+version = "0.4.0"
+description = "Julia wrapper for fitting Lasso/ElasticNet GLM models using glmnet"
+stargazers_count = "52"
+url = "https://github.com/JuliaStats/GLMNet.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "57"
+[[contributors]]
+name = "simonbyrne"
+contributions = "5"
+[[contributors]]
+name = "yixuan"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "phaverty"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

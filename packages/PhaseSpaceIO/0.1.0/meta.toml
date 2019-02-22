@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PhaseSpaceIO"
+owner = "jw3126"
+version = "0.1.0"
+description = "Read and write IAEA phase space files"
+stargazers_count = "1"
+url = "https://github.com/jw3126/PhaseSpaceIO.jl.git"
+installs = true
+tags = ["julia", "monte-carlo", "io"]
+license = "Other"
+
+[[contributors]]
+name = "jw3126"
+contributions = "42"

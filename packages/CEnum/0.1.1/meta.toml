@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CEnum"
+owner = "JuliaInterop"
+version = "0.1.1"
+description = "C-compatible enum for Julia"
+stargazers_count = "1"
+url = "https://github.com/JuliaInterop/CEnum.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Gnimuc"
+contributions = "8"

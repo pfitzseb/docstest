@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "PkgTemplates"
+owner = "invenia"
+version = "0.5.0"
+description = "Create new Julia packages, the easy way"
+stargazers_count = "70"
+url = "https://github.com/invenia/PkgTemplates.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "christopher-dG"
+contributions = "217"
+[[contributors]]
+name = "tkf"
+contributions = "8"
+[[contributors]]
+name = "iamed2"
+contributions = "5"
+[[contributors]]
+name = "morris25"
+contributions = "5"
+[[contributors]]
+name = "mortenpi"
+contributions = "4"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"

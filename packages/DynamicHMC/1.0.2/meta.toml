@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "DynamicHMC"
+owner = "tpapp"
+version = "1.0.2"
+description = "Bare-bones implementation of robust dynamic Hamiltonian Monte Carlo methods."
+stargazers_count = "62"
+url = "https://github.com/tpapp/DynamicHMC.jl.git"
+installs = true
+tags = ["julia-language", "hybrid-monte-carlo", "bayesian-inference", "bayesian-methods", "bayesian", "hamiltonian-monte-carlo", "julia", "bayesian-statistics"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "182"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

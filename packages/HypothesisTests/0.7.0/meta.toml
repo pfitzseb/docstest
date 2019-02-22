@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "real"
+name = "HypothesisTests"
+owner = "JuliaStats"
+version = "0.7.0"
+description = "Hypothesis tests for Julia"
+stargazers_count = "71"
+url = "https://github.com/JuliaStats/HypothesisTests.jl.git"
+installs = true
+tags = ["julia", "hypothesis-testing", "statistics"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "77"
+[[contributors]]
+name = "andreasnoack"
+contributions = "20"
+[[contributors]]
+name = "ararslan"
+contributions = "17"
+[[contributors]]
+name = "BigCrunsh"
+contributions = "16"
+[[contributors]]
+name = "BenjaminBorn"
+contributions = "13"
+[[contributors]]
+name = "bdeonovic"
+contributions = "12"
+[[contributors]]
+name = "wildart"
+contributions = "12"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "simonbyrne"
+contributions = "4"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "bkamins"
+contributions = "2"
+[[contributors]]
+name = "dstoeckel"
+contributions = "2"
+[[contributors]]
+name = "rawls238"
+contributions = "2"
+[[contributors]]
+name = "juliangehring"
+contributions = "2"
+[[contributors]]
+name = "nalimilan"
+contributions = "2"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "bjarthur"
+contributions = "1"
+[[contributors]]
+name = "DCLukas"
+contributions = "1"
+[[contributors]]
+name = "janmtl"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"
+[[contributors]]
+name = "grero"
+contributions = "1"
+[[contributors]]
+name = "SimonAB"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"

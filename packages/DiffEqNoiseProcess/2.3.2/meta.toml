@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqNoiseProcess"
+owner = "JuliaDiffEq"
+version = "2.3.2"
+description = "A library of noise processes for stochastic systems"
+stargazers_count = "4"
+url = "https://github.com/JuliaDiffEq/DiffEqNoiseProcess.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "115"
+[[contributors]]
+name = "YingboMa"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "danielwe"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "jagot"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"

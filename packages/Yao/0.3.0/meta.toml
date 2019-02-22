@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "Yao"
+owner = "QuantumBFS"
+version = "0.3.0"
+description = "Extensible, Efficient Quantum Algorithm Design for Humans."
+stargazers_count = "104"
+url = "https://github.com/QuantumBFS/Yao.jl.git"
+installs = true
+tags = ["quantum-computing", "quantum-algorithms", "quantum-information", "quantum-circuit", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "188"
+[[contributors]]
+name = "GiggleLiu"
+contributions = "104"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"

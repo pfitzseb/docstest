@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "CDDLib"
+owner = "JuliaPolyhedra"
+version = "0.4.1"
+description = "cdd wrapper module for Julia. cdd is a library for polyhedra manipulation such as double description and Fourier-Motzkin elimination"
+stargazers_count = "14"
+url = "https://github.com/JuliaPolyhedra/CDDLib.jl.git"
+installs = true
+tags = ["polyhedral-computations", "cdd", "polyhedra"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "180"
+[[contributors]]
+name = "rdeits"
+contributions = "11"
+[[contributors]]
+name = "oyamad"
+contributions = "4"
+[[contributors]]
+name = "mforets"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "frapac"
+contributions = "1"

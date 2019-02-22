@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MultiDimEquations"
+owner = "sylvaticus"
+version = "1.0.0"
+description = "Write multi-dimensional equations in Julia using an easy and compact syntax"
+stargazers_count = "0"
+url = "https://github.com/sylvaticus/MultiDimEquations.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "sylvaticus"
+contributions = "19"

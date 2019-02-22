@@ -1,0 +1,129 @@
+license_url = ""
+doctype = "real"
+name = "IterTools"
+owner = "JuliaCollections"
+version = "1.1.1"
+description = "Common functional iterator patterns"
+stargazers_count = "51"
+url = "https://github.com/JuliaCollections/IterTools.jl.git"
+installs = true
+tags = ["itertools", "chain", "julia", "julia-language", "julialang", "iterators", "functional-iterators"]
+license = "Other"
+
+[[contributors]]
+name = "iamed2"
+contributions = "92"
+[[contributors]]
+name = "dcjones"
+contributions = "25"
+[[contributors]]
+name = "kmsquire"
+contributions = "10"
+[[contributors]]
+name = "simonster"
+contributions = "7"
+[[contributors]]
+name = "garborg"
+contributions = "6"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "5"
+[[contributors]]
+name = "tpapp"
+contributions = "5"
+[[contributors]]
+name = "yuyichao"
+contributions = "5"
+[[contributors]]
+name = "timholy"
+contributions = "5"
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "3"
+[[contributors]]
+name = "fkastner"
+contributions = "3"
+[[contributors]]
+name = "mrtzh"
+contributions = "3"
+[[contributors]]
+name = "cormullion"
+contributions = "3"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "malmaud"
+contributions = "2"
+[[contributors]]
+name = "oxinabox"
+contributions = "2"
+[[contributors]]
+name = "mk12"
+contributions = "2"
+[[contributors]]
+name = "lendle"
+contributions = "2"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "gasagna"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "lstagner"
+contributions = "1"
+[[contributors]]
+name = "micklat"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "reinermartin"
+contributions = "1"
+[[contributors]]
+name = "roberthoenig"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "ettersi"
+contributions = "1"
+[[contributors]]
+name = "thjread"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"

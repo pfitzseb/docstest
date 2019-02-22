@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "NamedColors"
+owner = "JuliaGraphics"
+version = "0.2.0"
+description = "More color names than you ever knew you wanted"
+stargazers_count = "7"
+url = "https://github.com/JuliaGraphics/NamedColors.jl.git"
+installs = true
+tags = ["data", "color", "color-palette"]
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "36"
+[[contributors]]
+name = "visr"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "cormullion"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"

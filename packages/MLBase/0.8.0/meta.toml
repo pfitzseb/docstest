@@ -1,0 +1,60 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MLBase"
+owner = "JuliaStats"
+version = "0.8.0"
+description = "A set of functions to support the development of machine learning algorithms"
+stargazers_count = "138"
+url = "https://github.com/JuliaStats/MLBase.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "lindahua"
+contributions = "136"
+[[contributors]]
+name = "lendle"
+contributions = "7"
+[[contributors]]
+name = "jumutc"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "alexmorley"
+contributions = "2"
+[[contributors]]
+name = "simonster"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "aiorla"
+contributions = "1"
+[[contributors]]
+name = "BigCrunsh"
+contributions = "1"
+[[contributors]]
+name = "lsindoni"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "thomlake"
+contributions = "1"
+[[contributors]]
+name = "zacsketches"
+contributions = "1"

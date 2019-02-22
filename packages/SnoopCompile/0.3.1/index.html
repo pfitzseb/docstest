@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SnoopCompile.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SnoopCompile.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#userimg.jl-1"><code>userimg.jl</code></a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SnoopCompile-1" href="#SnoopCompile-1">SnoopCompile</a></h1><p><a href="https://travis-ci.org/timholy/SnoopCompile.jl"><img src="https://travis-ci.org/timholy/SnoopCompile.jl.svg?branch=master" alt="Build Status"/></a></p><p>SnoopCompile &quot;snoops&quot; on the Julia compiler, getting it to log the functions and argument-types it&#39;s compiling.  By parsing the log file, you can learn which functions are being precompiled, and even how long each one takes to compile.  You can use the package to generate &quot;precompile lists&quot; that reduce the amount of time needed for JIT compilation in packages.</p><p>SnoopCompile is not recommended for Julia beginners, and even experienced users may need several iterations to generate precompile scripts that work.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>The easiest way to describe SnoopCompile is to show a snoop script, in this case for the <code>ColorTypes</code> package:</p><pre><code class="language-julia">using SnoopCompile
+
+### Log the compiles
+# This only needs to be run once (to generate &quot;/tmp/colortypes_compiles.csv&quot;)
+
+SnoopCompile.@snoop &quot;/tmp/colortypes_compiles.csv&quot; begin
+    using ColorTypes, Pkg
+    include(joinpath(dirname(dirname(pathof(ColorTypes))), &quot;test&quot;, &quot;runtests.jl&quot;))
+end
+
+### Parse the compiles and generate precompilation scripts
+# This can be run repeatedly to tweak the scripts
+
+data = SnoopCompile.read(&quot;/tmp/colortypes_compiles.csv&quot;)
+
+pc = SnoopCompile.parcel(reverse!(data[2]))
+SnoopCompile.write(&quot;/tmp/precompile&quot;, pc)</code></pre><p>After the conclusion of this script, the <code>&quot;/tmp/precompile&quot;</code> folder will contain a number of <code>*.jl</code> files, organized by package. For each package, you could copy its corresponding <code>*.jl</code> file into the package&#39;s <code>src/</code> directory and <code>include</code> it into the package:</p><pre><code class="language-jl">module SomeModule
+
+# All the usual commands that define the module go here
+
+# ... followed by:
+
+include(&quot;precompile.jl&quot;)
+_precompile_()
+
+end # module SomeModule</code></pre><p>There&#39;s a more complete example illustrating potential options in the <code>examples/</code> directory.</p><h3><a class="nav-anchor" id="Additional-flags-1" href="#Additional-flags-1">Additional flags</a></h3><p>When calling the <code>@snoop</code> macro, a new julia process is spawned using the function <code>Base.julia_cmd()</code>. Advanced users may want to tweak the flags passed to this process to suit specific needs. This can be done by passing an array of flags of the form <code>[&quot;--flag1&quot;, &quot;--flag2&quot;]</code> as the first argument to the <code>@snoop</code> macro. For instance, if you want to pass the <code>--project=/path/to/dir</code> flag to the process, to cause the julia process to load the project specified by the path, a snoop script may look like:</p><pre><code class="language-julia">using SnoopCompile
+
+SnoopCompile.@snoop [&quot;--project=/path/to/dir&quot;] &quot;/tmp/compiles.csv&quot; begin
+    # ... statement to snoop on
+end
+
+# ... processing the precompile statements</code></pre><h2><a class="nav-anchor" id="userimg.jl-1" href="#userimg.jl-1"><code>userimg.jl</code></a></h2><p>Currently, precompilation does not cache functions from other modules; as a consequence, your speedup in execution time might be smaller than you&#39;d like. In such cases, one strategy is to generate a script for your <code>base/userimg.jl</code> file and build the packages (with precompiles) into julia itself.  Simply append/replace the last two lines of the above script with</p><pre><code class="language-jl"># Use these two lines if you want to add to your userimg.jl
+pc = SnoopCompile.format_userimg(reverse!(data[2]))
+SnoopCompile.write(&quot;/tmp/userimg_Images.jl&quot;, pc)</code></pre><p><strong>Users are warned that there are substantial negatives associated with relying on a <code>userimg.jl</code> script</strong>:</p><ul><li>Your julia build times become very long</li><li><code>Pkg.update()</code> will have no effect on packages that you&#39;ve built into julia until you next recompile julia itself. Consequently, you may not get the benefit of enhancements or bug fixes.</li><li>For a package that you sometimes develop, this strategy is very inefficient, because testing a change means rebuilding Julia as well as your package.</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

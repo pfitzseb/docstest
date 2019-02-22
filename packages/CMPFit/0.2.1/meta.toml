@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CMPFit"
+owner = "gcalderone"
+version = "0.2.1"
+description = "A Julia wrapper for the `mpfit` C-library (MINPACK minimization)."
+stargazers_count = "0"
+url = "https://github.com/gcalderone/CMPFit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "28"

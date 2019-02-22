@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "real"
+name = "Stan"
+owner = "StanJulia"
+version = "4.0.0"
+description = "Older (pre Julia 1.0) Julia package to use Stan as an external program. Replaced by CmdStan.jl"
+stargazers_count = "98"
+url = "https://github.com/StanJulia/Stan.jl.git"
+installs = true
+tags = ["julia", "stan", "mamba", "mcmc"]
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "428"
+[[contributors]]
+name = "jonalm"
+contributions = "4"
+[[contributors]]
+name = "mohamed82008"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "christophergandrud"
+contributions = "1"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "fredRos"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "maximerischard"
+contributions = "1"

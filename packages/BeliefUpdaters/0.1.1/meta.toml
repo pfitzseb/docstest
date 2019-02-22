@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BeliefUpdaters"
+owner = "JuliaPOMDP"
+version = "0.1.1"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaPOMDP/BeliefUpdaters.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "MaximeBouton"
+contributions = "15"
+[[contributors]]
+name = "zsunberg"
+contributions = "13"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "8"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

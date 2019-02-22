@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "GaloisFields"
+owner = "tkluck"
+version = "0.3.0"
+description = "Finite fields for Julia"
+stargazers_count = "5"
+url = "https://github.com/tkluck/GaloisFields.jl.git"
+installs = true
+tags = ["julia", "algebra", "finite-fields", "galois-field"]
+license = "Other"
+
+[[contributors]]
+name = "tkluck"
+contributions = "64"

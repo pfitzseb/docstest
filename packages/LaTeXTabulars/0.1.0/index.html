@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · LaTeXTabulars.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>LaTeXTabulars.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="LaTeXTabulars-1" href="#LaTeXTabulars-1">LaTeXTabulars</a></h1><p><a href="http://www.repostatus.org/#wip"><img src="http://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."/></a> <a href="https://travis-ci.org/tpapp/LaTeXTabulars.jl"><img src="https://travis-ci.org/tpapp/LaTeXTabulars.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/tpapp/LaTeXTabulars.jl?branch=master"><img src="https://coveralls.io/repos/github/tpapp/LaTeXTabulars.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://codecov.io/github/tpapp/LaTeXTabulars.jl?branch=master"><img src="http://codecov.io/github/tpapp/LaTeXTabulars.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Write tabular data from Julia in LaTeX format.</p><p>This is a <em>very thin wrapper</em>, basically for avoiding some loops and repeatedly used strings. It assumes that you know how the LaTeX <code>tabular</code> environment works, and you have formatted the cells to strings if you want anything fancy like rounding or alignment on the decimal dot.</p><p>This is how it works:</p><pre><code class="language-julia">using LaTeXTabulars
+using LaTeXStrings               # not a dependency, but works nicely
+latex_tabular(&quot;/tmp/table.tex&quot;,
+              Tabular(&quot;lcl&quot;),
+              [Rule(:top),
+               [L&quot;\alpha&quot;, L&quot;\beta&quot;, &quot;sum&quot;],
+               Rule(:mid),
+               [1, 2, 3],
+               Rule(),           # a nice \hline to make it ugly
+               [4.0 &quot;5&quot; &quot;six&quot;;   # a matrix
+                7 8 9],
+               CMidRule(1, 2),
+               [MultiColumn(2, :c, &quot;centered&quot;)], # ragged!
+               Rule(:bottom)])</code></pre><p>will write something like</p><pre><code class="language-LaTeX">\begin{tabular}{lcl}
+\toprule
+$\alpha$ &amp; $\beta$ &amp; sum \\
+\midrule
+1 &amp; 2 &amp; 3 \\
+\hline
+4.0 &amp; 5 &amp; six \\
+7 &amp; 8 &amp; 9 \\
+\cmidrule{1-2}
+\multicolumn{2}{c}{centered} \\
+\bottomrule
+\end{tabular}</code></pre><p>to <code>/tmp/table.tex</code>.</p><p>Note that the position specifier <code>lcl</code> is not checked for valid syntax or consitency with the contents, just emitted as is, allowing the use of <a href="https://ctan.org/pkg/dcolumn">dcolumn</a> or similar, and the number of cells in each line is not checked for consistency. This means that the usual LaTeX rules apply: fewer cells than position specifiers gives you a ragged table, more cells and LaTeX will complain about having to change <code>&amp;</code> to <code>\\</code>.</p><p>See <code>?latex_tabular</code> for the documentation of the syntax, and the unit tests for examples.</p><p>Rule types in <a href="https://ctan.org/pkg/booktabs">booktabs</a> are supported. Vertical rules of any kind are <em>not explicitly supported</em> and it would be difficult to convince me to add them. The documentation of <a href="https://ctan.org/pkg/booktabs">booktabs</a> should explain why. That said, if you insist, you can use a cell like <code>\vline text</code>.</p><p>The other tabular type currently implemented is <code>LongTable</code>. The code is generic, so <a href="https://en.wikibooks.org/wiki/LaTeX/Tables">other tabular-like types</a> can be easily added, just open an issue.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

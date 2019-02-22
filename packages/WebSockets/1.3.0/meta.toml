@@ -1,0 +1,99 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "WebSockets"
+owner = "JuliaWeb"
+version = "1.3.0"
+description = "A WebSockets library for Julia"
+stargazers_count = "81"
+url = "https://github.com/JuliaWeb/WebSockets.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "astrieanna"
+contributions = "40"
+[[contributors]]
+name = "hustf"
+contributions = "33"
+[[contributors]]
+name = "shashi"
+contributions = "21"
+[[contributors]]
+name = "danielmendel"
+contributions = "7"
+[[contributors]]
+name = "zachallaun"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "5"
+[[contributors]]
+name = "aviks"
+contributions = "4"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "4"
+[[contributors]]
+name = "wildart"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "MikeInnes"
+contributions = "3"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "3"
+[[contributors]]
+name = "ranjanan"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "bauglir"
+contributions = "2"
+[[contributors]]
+name = "rened"
+contributions = "2"
+[[contributors]]
+name = "cmey"
+contributions = "1"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "i-apellaniz"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "jebej"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "widged"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "sjkelly"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "zhanglix"
+contributions = "1"

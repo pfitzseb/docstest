@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "SVR"
+owner = "madsjulia"
+version = "0.4.0"
+description = "Support Vector Regression using libSVM"
+stargazers_count = "7"
+url = "https://github.com/madsjulia/SVR.jl.git"
+installs = true
+tags = ["mads", "julia", "support-vector-machine", "regression", "model-assessment", "decision-support", "machine-learning", "high-performance-computing", "model-analysis", "model-reduction", "support-vector-regression", "support-vector-machines", "uncertainty-quantification", "sensitivity-analysis", "model-selection", "model-simulation", "model-predictions", "data-modeling", "data-analytics", "data-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "montyvesselinov"
+contributions = "80"
+[[contributors]]
+name = "rssdev10"
+contributions = "3"
+[[contributors]]
+name = "rNMF"
+contributions = "2"
+[[contributors]]
+name = "omalled"
+contributions = "1"

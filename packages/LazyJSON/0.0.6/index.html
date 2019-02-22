@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · LazyJSON.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>LazyJSON.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Lazyness-1">Lazyness</a></li><li class="toplevel"><a class="toctext" href="#LazyJSON-Performance-Considerations-1">LazyJSON Performance Considerations</a></li><li><a class="toctext" href="#LazyJSON.Array-Performance-1">LazyJSON.Array Performance</a></li><li><a class="toctext" href="#LazyJSON.Object-Performance-1">LazyJSON.Object Performance</a></li><li><a class="toctext" href="#LazyJSON.Number-Performance-1">LazyJSON.Number Performance</a></li><li class="toplevel"><a class="toctext" href="#Implementation-1">Implementation</a></li><li class="toplevel"><a class="toctext" href="#Large-JSON-Texts-1">Large JSON Texts</a></li><li class="toplevel"><a class="toctext" href="#Benchmarks-1">Benchmarks</a></li><li class="toplevel"><a class="toctext" href="#TODO:-1">TODO:</a></li><li class="toplevel"><a class="toctext" href="#References-1">References</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="LazyJSON.jl-1" href="#LazyJSON.jl-1">LazyJSON.jl</a></h1><p><a href="https://travis-ci.org/samoconnor/LazyJSON.jl"><img src="https://travis-ci.org/samoconnor/LazyJSON.jl.svg" alt="Build Status"/></a> <a href="http://pkg.julialang.org/detail/LazyJSON"><img src="http://pkg.julialang.org/badges/LazyJSON_0.7.svg" alt="LazyJSON"/></a></p><p>LazyJSON is an interface for reading JSON data in Julia programs.</p><p>If you find it useful, or not, please report your experiance in the <a href="https://discourse.julialang.org/t/announce-a-different-way-to-read-json-data-lazyjson-jl/9046">discourse thread</a>.</p><p>LazyJSON provides direct access to values stored in a JSON text though standard Julia interfaces: <code>Number</code>, <code>AbstractString</code>, <code>AbstractVector</code> and <code>AbstractDict</code>.</p><p>The function <code>LazyJSON.value</code> constructs an object representing the value(s) of a JSON text.</p><pre><code class="language-julia">LazyJSON.value(jsontext::AbstractString) -&gt; Union{Bool,
+                                                  LazyJSON.Number,
+                                                  LazyJSON.String,
+                                                  LazyJSON.Array,
+                                                  LazyJSON.Object,
+                                                  Nothing}
+LazyJSON.Number &lt;: Base.Number
+LazyJSON.String &lt;: AbstractString
+LazyJSON.Array  &lt;: AbstractVector{Any}
+LazyJSON.Object &lt;: AbstractDict{AbstractString,Any}</code></pre><p>e.g.</p><pre><code class="language-julia">julia&gt; j = LazyJSON.value(&quot;&quot;&quot;{
+           &quot;foo&quot;: [1, 2, 3, &quot;four&quot;]
+           &quot;bar&quot;: null
+       }&quot;&quot;&quot;)
+LazyJSON.Object with 2 entries:
+  &quot;foo&quot; =&gt; Any[1, 2, 3, &quot;four&quot;]
+  &quot;bar&quot; =&gt; nothing
+
+julia&gt; j[&quot;foo&quot;]
+4-element LazyJSON.Array:
+ 1
+ 2
+ 3
+  &quot;four&quot;
+
+julia&gt; j[&quot;foo&quot;][4]
+&quot;four&quot;
+
+julia&gt; typeof(j[&quot;bar&quot;])
+Nothing</code></pre><p>The fields of JSON objects can also be accessed using <code>&#39;.&#39;</code> (<code>getproperty</code>) syntax.</p><p>e.g.</p><pre><code class="language-julia">julia&gt; j.foo
+4-element LazyJSON.Array:
+ 1
+ 2
+ 3
+  &quot;four&quot;</code></pre><p>JSON Objects can be converted to <code>struct</code> types.</p><p>e.g.</p><pre><code class="language-julia">julia&gt; struct Point
+           x::Int
+           y::Int
+       end
+
+julia&gt; struct Line
+           a::Point
+           b::Point
+       end
+
+julia&gt; struct Arrow
+           label::String
+           segments::Vector{Line}
+           dashed::Bool
+       end
+
+julia&gt; convert(Arrow, LazyJSON.value(&quot;&quot;&quot;{
+           &quot;label&quot;: &quot;Hello&quot;,
+           &quot;segments&quot;: [
+                {&quot;a&quot;: {&quot;x&quot;: 1, &quot;y&quot;: 1}, &quot;b&quot;: {&quot;x&quot;: 2, &quot;y&quot;: 2}},
+                {&quot;a&quot;: {&quot;x&quot;: 2, &quot;y&quot;: 2}, &quot;b&quot;: {&quot;x&quot;: 3, &quot;y&quot;: 3}}
+            ],
+            &quot;dashed&quot;: false
+       }&quot;&quot;&quot;))
+Arrow(&quot;Hello&quot;, Line[Line(Point(1, 1), Point(2, 2)), Line(Point(2, 2), Point(3, 3))], false)</code></pre><p><em>For compatibility with other JSON interfaces that have a <code>parse</code> function, <code>LazyJSON.parse</code> is provided as an alias for <code>LazyJSON.value</code>. e.g.</em></p><p>e.g.</p><pre><code class="language-julia">julia&gt; j = LazyJSON.parse(&quot;&quot;&quot;{
+           &quot;foo&quot;: [1, 2, 3, &quot;four&quot;]
+           &quot;bar&quot;: null
+       }&quot;&quot;&quot;)
+
+julia&gt; j[&quot;foo&quot;][4]
+&quot;four&quot;</code></pre><h1><a class="nav-anchor" id="Lazyness-1" href="#Lazyness-1">Lazyness</a></h1><p>LazyJSON is lazy in the sense that it assumes that its input is well formed JSON text. It does not try to detect every type of JSON syntax error. If security is a concern, JSON data of unknown providence should probably be validated before use.</p><p>LazyJSON is also lazy in the sense that it does not process any part of the JSON text until values are requested through the <code>AbstractVector</code> and <code>AbstractDict</code> interfaces.</p><p>i.e. <code>j = LazyJSON.value(jsontext)</code> does no parsing and immediately returns a thin wrapper object.</p><p><code>j[&quot;foo&quot;]</code> calls <code>get(::AbstractDict, &quot;foo&quot;)</code>, which parses just enough to find the <code>&quot;foo&quot;</code> field.</p><p><code>j[&quot;foo&quot;][4]</code> calls <code>getindex(::AbstractArray, 4)</code>, which continues paring up to the fourth item in the array.</p><p>This results in much less memory allocation compared to non-lazy parsers:</p><p>JSON.jl:</p><pre><code class="language-julia">j = String(read(&quot;ec2-2016-11-15.normal.json&quot;))
+julia&gt; function f(json)
+           v = JSON.parse(json)
+           v[&quot;shapes&quot;][&quot;scope&quot;][&quot;enum&quot;][1]
+       end
+
+julia&gt; @time f(j)
+  0.066773 seconds (66.43 k allocations: 7.087 MiB)
+&quot;Availability Zone&quot;</code></pre><p>LazyJSON.jl:</p><pre><code class="language-julia">julia&gt; function f(json)
+           v = LazyJSON.parse(json)
+           v[&quot;shapes&quot;][&quot;scope&quot;][&quot;enum&quot;][1]
+       end
+
+julia&gt; @time f(j)
+  0.001392 seconds (12 allocations: 384 bytes)
+&quot;Availability Zone&quot;</code></pre><p>LazyJSON&#39;s <code>AbstractString</code> and <code>Number</code> implementations are lazy too.</p><p>The text of a <code>LazyJSON.Number</code> is not parsed to <code>Int64</code> or <code>Float64</code> form until it is needed for a numeric operation. If the number is only used in a textual context, it need never be parsed at all. e.g.</p><pre><code class="language-julia">j = LazyJSON.value(jsontext)
+html = &quot;&quot;&quot;&lt;img width=$(j[&quot;width&quot;]), height=$(j[&quot;height&quot;])&gt;&quot;&quot;&quot;</code></pre><p>Likewise, the content of a <code>LazyJSON.String</code> is not interpreted until it is accessed. If a <code>LazyJSON.String</code> containing complex UTF16 escape sequences is compared to a UTF8 <code>Base.String</code>, and the two strings differ in the first few characters, then the comparison will terminate before the any unescaping work needs to be done.</p><h1><a class="nav-anchor" id="LazyJSON-Performance-Considerations-1" href="#LazyJSON-Performance-Considerations-1">LazyJSON Performance Considerations</a></h1><h2><a class="nav-anchor" id="LazyJSON.Array-Performance-1" href="#LazyJSON.Array-Performance-1">LazyJSON.Array Performance</a></h2><p>The <code>LazyJSON.Array</code> does not keep track of the indices of its items. Every <code>array[i]</code> access scans all the values in the array until it reaches the <code>i</code>th value. This is fast if you only need to access a single item, even near the end of the array, because the alternative of transforming the <code>LazyJSON.Array</code> into a <code>Base.Array</code> must scan the entire array and allocate new memory for each item. It is also fast to access multiple items near the start of the array. However, if you need random access to many items in a large array it is better to convert it to a <code>Base.Array</code>.</p><p>e.g.</p><pre><code class="language-none">v = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;bar&quot;][&quot;an_array&quot;]
+v = convert(Vector{Any}, v)</code></pre><p>If you need to access the items in the array sequentially, the iteration interface is very efficient, but incrementing an index is very inefficient. <code>length(::LazyJSON.Array)</code> is also inefficient, in that it must scan the whole array.</p><p>e.g.</p><pre><code class="language-julia">v = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;bar&quot;][&quot;an_array&quot;]
+for i in v ✅
+    println(i)
+end
+
+r = map(i -&gt; f(i), v) ✅
+
+i = 1
+while i &lt; length(v) ❌
+    println(v[i]) ❌
+end</code></pre><h2><a class="nav-anchor" id="LazyJSON.Object-Performance-1" href="#LazyJSON.Object-Performance-1">LazyJSON.Object Performance</a></h2><p>The performance considerations for <code>LazyJSON.Object</code> are similar to those described above for <code>LazyJSON.Array</code>. The <code>LazyJSON.Object</code> does not keep a hash table of keys. Every <code>object[&quot;key&quot;]</code> access scans all the keys in the object until it finds a match. Accessing a keys in an object with a small number of keys is efficient. Accessing a few keys in an object with many keys is effiecient. However, if you need random acess to many keys in a large object it is better to convert it to a <code>Base.Dict</code>.</p><p>e.g.</p><pre><code class="language-julia">v = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;bar&quot;][&quot;an_object_with_many_keys&quot;]
+v = convert(Dict, v)</code></pre><p><code>length(::LazyJSON.Object)</code> is inefficient, in that it must scan the whole object. If you need to access the key value pairs sequentially, the iteration interface is very efficient.</p><p>e.g.</p><pre><code class="language-julia">o = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;bar&quot;][&quot;an_object_with_many_keys&quot;]
+for (k, v) in o ✅
+    println(k, v)
+end
+
+r = filter((k, v) -&gt; contains(i, r&quot;.jpg$&quot;, o)) ✅
+
+for k in long_list_of_keys
+    println(o[k]) ❌
+end
+
+d = convert(Dict, o)
+for k in long_list_of_keys
+    println(d[k]) ✅
+end</code></pre><h2><a class="nav-anchor" id="LazyJSON.Number-Performance-1" href="#LazyJSON.Number-Performance-1">LazyJSON.Number Performance</a></h2><p>Whenever a <code>LazyJSON.Number</code> is used in a numeric operation it must be parsed from its string form into an <code>Int</code> or a <code>Float</code>. If you are only using each each numetic value once, there is no performance penalty, as the string is only parsed once. However if you need to use the numeric value many times, it is better to convert it to a normal <code>Base</code> number type.</p><p>e.g.</p><pre><code class="language-julia">i = LazyJSON.value(jsontext)[&quot;foo&quot;]
+x = origin.x + i[&quot;width&quot;],  ✅ used once in an addition operation
+y = origin.y + i[&quot;height&quot;]  ✅
+draw(i[&quot;data&quot;], x, y)
+
+
+limit = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;limit&quot;]
+i = 0
+while i &lt; limit ❌ re-parsed every time the less than operation is evaluated
+    i += 1
+    ...
+end
+limit = convert(Int, LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;limit&quot;]) ✅
+
+
+v = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;ammounts&quot;]
+total = sum(v) ✅ iteration is efficient, each number is parsed once.
+
+
+struct Foo
+    x::Int
+    y::Int
+end
+i = LazyJSON.value(jsontext)[&quot;foo&quot;]
+Foo(i[&quot;x&quot;], i[&quot;y&quot;]) ✅ converted to `Int` on assignment to struct fields.
+
+
+v = LazyJSON.value(jsontext)[&quot;foo&quot;][&quot;values&quot;]
+ints = convert(Vector{Int}, v) ✅ manual conversion when needed</code></pre><h1><a class="nav-anchor" id="Implementation-1" href="#Implementation-1">Implementation</a></h1><p>Values are represented by a reference to the JSON text <code>String</code> and the byte index of the value text. The <code>LazyJSON.value(jsontext)</code> function simply returns a <code>LazyJSON.Value</code> object with <code>s = jsontext</code> and <code>i = 1</code>.</p><pre><code class="language-none">    String: {&quot;foo&quot;: 1,    &quot;bar&quot;: [1, 2, 3, &quot;four&quot;]}
+            ▲                    ▲      ▲  ▲
+            │                    │      │  │
+            ├─────────────────┐  │      │  │
+            │ LazyJSON.Array( s, i=9)   │  │   == Any[1, 2, 3, &quot;four&quot;]
+            │                           │  │
+            ├─────────────────┐  ┌──────┘  │
+            │ LazyJSON.Number(s, i=16)     │   == 3
+            │                              │
+            ├─────────────────┐  ┌─────────┘
+            │ LazyJSON.String(s, i=19)         == &quot;four&quot;
+            │
+            └─────────────────┬──┐
+              LazyJSON.Object(s, i=1)</code></pre><p>LazyJSON does not parse and translate values into concrete Julia <code>Number</code>, <code>String</code>, <code>Array</code> or <code>Dict</code> objects. Instead it provides interface methods that conform to the protocols of <code>Base.Number</code>, <code>AbstractString</code>, <code>AbstractVector</code> and <code>AbstractDict</code>.  These methods interpret the JSON text on the fly and parse only as much as is needed return the requested values.</p><h1><a class="nav-anchor" id="Large-JSON-Texts-1" href="#Large-JSON-Texts-1">Large JSON Texts</a></h1><p>LazyJSON can process JSON files that are too big to fit in available RAM by using the <code>mmap</code> interface.</p><p>e.g.</p><pre><code class="language-julia">using Mmap
+f = open(&quot;huge_file_that_wont_fit_in_ram.json&quot;, &quot;r&quot;)
+s = String(Mmap.mmap(f))
+j = LazyJSON.value(s)
+v = j[&quot;foo&quot;][&quot;bar&quot;]</code></pre><p>The operating stytem will lazily load enough chunks of the file into RAM to reach field <code>&quot;bar&quot;</code> of opject <code>&quot;foo&quot;</code>.</p><h1><a class="nav-anchor" id="Benchmarks-1" href="#Benchmarks-1">Benchmarks</a></h1><p>For some workloads lazyness makes LazyJSON faster and less memory intensive than JSON parsers that parse the entire JSON text and allocate a tree of collection and value objects.</p><p>The <code>test/benchmark.jl</code> test uses a <a href="https://github.com/samoconnor/jsonhack/blob/master/test/ec2-2016-11-15.normal.json">1MB AWS API definition JSON file</a> to compare performance vs JSON.jl.  When accessing a value close to the start of the file the lazy parser is orders of magnitude faster than JSON.jl, for values near then end of the file, the lazy parser is about 6 times faster. (Each test case is run once for JIT warmup, then 190 times for measurement.)</p><pre><code class="language-none">Julia Version 0.7.0-DEV.3761
+JSON.jl master Tue Feb 6, 98727675b635c8428effa30a2287a9fe6370e664
+
+Access value close to start:
+LazyJSON.jl:  0.000568 seconds (3.42 k allocations: 139.531 KiB)
+JSON.jl:      6.410700 seconds (13.28 M allocations: 1.337 GiB, 3.17% gc time)
+
+
+Access 2 values close to end:
+LazyJSON.jl:  0.177059 seconds (7.79 k allocations: 347.344 KiB)
+JSON.jl:      6.417241 seconds (13.28 M allocations: 1.337 GiB, 3.18% gc time)</code></pre><p><em>Note, until recently JSON.jl was taking ~1 second for the tests above. It seems that it may be hampered deprecation of <code>IOBuffer(maxsize::Integer)</code>.</em></p><p>The <code>test/benchmark_geo.jl</code> test uses a 1.2MB GeoJSON file to compare performance vs JSON.jl. The first test extracts a country name near the middle of the file. The second test checks that the country outline polygon is at the expected coordinates.</p><pre><code class="language-none">Country name
+LazyJSON.jl:  0.004762 seconds (190 allocations: 5.938 KiB)
+JSON.jl:      1.063652 seconds (8.62 M allocations: 373.471 MiB, 11.19% gc time)
+
+Map data
+LazyJSON.jl:  0.011075 seconds (27.30 k allocations: 679.547 KiB)
+JSON.jl:      1.064750 seconds (8.62 M allocations: 373.541 MiB, 10.75% gc time)</code></pre><h1><a class="nav-anchor" id="TODO:-1" href="#TODO:-1">TODO:</a></h1><ul><li>New Lazyer parser looses some format validation, consider recovering old code validation code from <code>src/OldLazyJSON.jl</code></li></ul><h1><a class="nav-anchor" id="References-1" href="#References-1">References</a></h1><ul><li>Another lazy JSON parser: https://github.com/doubledutch/LazyJSON</li><li>RFC 7159: https://tools.ietf.org/html/rfc7159</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

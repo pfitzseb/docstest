@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "LRUCache"
+owner = "JuliaCollections"
+version = "0.2.0"
+description = "An implementation of an LRU Cache in Julia"
+stargazers_count = "3"
+url = "https://github.com/JuliaCollections/LRUCache.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jcrist"
+contributions = "9"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tk3369"
+contributions = "1"

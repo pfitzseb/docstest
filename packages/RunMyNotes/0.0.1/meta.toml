@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RunMyNotes"
+owner = "mcabbott"
+version = "0.0.1"
+description = "iterates Literate.jl"
+stargazers_count = "0"
+url = "https://github.com/mcabbott/RunMyNotes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mcabbott"
+contributions = "3"

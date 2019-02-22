@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "FEniCS"
+owner = "JuliaDiffEq"
+version = "0.2.0"
+description = "A wrapper for the FEniCS Finite Element library"
+stargazers_count = "16"
+url = "https://github.com/JuliaDiffEq/FEniCS.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ysimillides"
+contributions = "115"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "43"
+[[contributors]]
+name = "barche"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "tungli"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"

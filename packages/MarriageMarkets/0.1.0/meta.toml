@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MarriageMarkets"
+owner = "tobanw"
+version = "0.1.0"
+description = "Equilibrium marriage market models."
+stargazers_count = "4"
+url = "https://github.com/tobanw/MarriageMarkets.jl.git"
+installs = true
+tags = ["julia", "matching", "economics", "marriage-market-models", "search-and-matching"]
+license = "Other"
+
+[[contributors]]
+name = "tobanw"
+contributions = "62"

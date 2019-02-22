@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "SchumakerSpline"
+owner = "s-baumann"
+version = "1.2.0"
+description = "A shape preserving spline implementation in Julia"
+stargazers_count = "2"
+url = "https://github.com/s-baumann/SchumakerSpline.jl.git"
+installs = true
+tags = ["julia", "numerical-methods", "shape-preserving-spline"]
+license = "Other"
+
+[[contributors]]
+name = "s-baumann"
+contributions = "66"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "zhangyu-econ"
+contributions = "1"

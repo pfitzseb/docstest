@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ConvexBodyProximityQueries"
+owner = "arlk"
+version = "0.1.0"
+description = "A fast module for computing proximity queries between convex bodies in 2D/3D"
+stargazers_count = "1"
+url = "https://github.com/arlk/ConvexBodyProximityQueries.jl.git"
+installs = true
+tags = ["gjk", "collision-detection", "proximity", "minimum-distance"]
+license = "Other"
+
+[[contributors]]
+name = "arlk"
+contributions = "6"

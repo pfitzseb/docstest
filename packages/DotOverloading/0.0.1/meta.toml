@@ -1,0 +1,4 @@
+name = "DotOverloading"
+installs = false
+url = "https://github.com/bramtayl/DotOverloading.jl.git"
+version = "0.0.1"

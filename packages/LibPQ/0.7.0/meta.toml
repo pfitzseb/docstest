@@ -1,0 +1,48 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "LibPQ"
+owner = "invenia"
+version = "0.7.0"
+description = "A Julia wrapper for libpq"
+stargazers_count = "35"
+url = "https://github.com/invenia/LibPQ.jl.git"
+installs = true
+tags = ["libpq", "postgresql", "julia", "julialang", "database", "postgres", "julia-wrapper", "julia-language"]
+license = "MIT License"
+
+[[contributors]]
+name = "iamed2"
+contributions = "118"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "galenlynch"
+contributions = "4"
+[[contributors]]
+name = "cgopalan"
+contributions = "3"
+[[contributors]]
+name = "wookay"
+contributions = "3"
+[[contributors]]
+name = "quinnj"
+contributions = "3"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "kozross"
+contributions = "1"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "azure-pipelines[bot]"
+contributions = "1"
+[[contributors]]
+name = "morris25"
+contributions = "1"

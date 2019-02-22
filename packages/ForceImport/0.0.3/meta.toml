@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ForceImport"
+owner = "chakravala"
+version = "0.0.3"
+description = "Macro that force imports conflicting methods in modules"
+stargazers_count = "6"
+url = "https://github.com/chakravala/ForceImport.jl.git"
+installs = true
+tags = ["julia", "julia-language", "import", "metaprogramming", "dispatch", "scope", "macros"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "10"

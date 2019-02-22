@@ -1,0 +1,141 @@
+license_url = ""
+doctype = "default"
+name = "DataArrays"
+owner = "JuliaStats"
+version = "0.7.0"
+description = "DEPRECATED: Data structures that allow missing values"
+stargazers_count = "53"
+url = "https://github.com/JuliaStats/DataArrays.jl.git"
+installs = true
+tags = ["julia", "arrays", "missing-data", "statistics", "deprecated"]
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "128"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "66"
+[[contributors]]
+name = "nalimilan"
+contributions = "43"
+[[contributors]]
+name = "garborg"
+contributions = "33"
+[[contributors]]
+name = "andreasnoack"
+contributions = "28"
+[[contributors]]
+name = "ararslan"
+contributions = "19"
+[[contributors]]
+name = "tkelman"
+contributions = "9"
+[[contributors]]
+name = "bkamins"
+contributions = "5"
+[[contributors]]
+name = "dcjones"
+contributions = "5"
+[[contributors]]
+name = "alyst"
+contributions = "5"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "4"
+[[contributors]]
+name = "mbauman"
+contributions = "4"
+[[contributors]]
+name = "gustafsson"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "hayd"
+contributions = "2"
+[[contributors]]
+name = "jdrugo"
+contributions = "2"
+[[contributors]]
+name = "joshbode"
+contributions = "2"
+[[contributors]]
+name = "kmsquire"
+contributions = "2"
+[[contributors]]
+name = "yesimon"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "getzdan"
+contributions = "2"
+[[contributors]]
+name = "quinnj"
+contributions = "2"
+[[contributors]]
+name = "cjprybol"
+contributions = "1"
+[[contributors]]
+name = "colbec"
+contributions = "1"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "GlenHertz"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "panlanfeng"
+contributions = "1"
+[[contributors]]
+name = "LouisMagarshack"
+contributions = "1"
+[[contributors]]
+name = "martinholters"
+contributions = "1"
+[[contributors]]
+name = "nicoleepp"
+contributions = "1"
+[[contributors]]
+name = "pabloferz"
+contributions = "1"
+[[contributors]]
+name = "randy3k"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "null-a"
+contributions = "1"
+[[contributors]]
+name = "pkalikman"
+contributions = "1"

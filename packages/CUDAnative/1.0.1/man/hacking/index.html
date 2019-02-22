@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Hacking · CUDAnative.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CUDAnative.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Manual</span><ul><li><a class="toctext" href="../usage/">Usage</a></li><li><a class="toctext" href="../troubleshooting/">Troubleshooting</a></li><li><a class="toctext" href="../performance/">Performance</a></li><li class="current"><a class="toctext" href>Hacking</a><ul class="internal"><li><a class="toctext" href="#Generated-functions-1">Generated functions</a></li><li><a class="toctext" href="#Adding-intrinsics-1">Adding intrinsics</a></li></ul></li></ul></li><li><span class="toctext">Library</span><ul><li><a class="toctext" href="../../lib/compilation/">Compilation &amp; Execution</a></li><li><a class="toctext" href="../../lib/reflection/">Reflection</a></li><li><span class="toctext">Device Code</span><ul><li><a class="toctext" href="../../lib/device/intrinsics/">Intrinsics</a></li><li><a class="toctext" href="../../lib/device/array/">Arrays</a></li><li><a class="toctext" href="../../lib/device/libdevice/">libdevice</a></li></ul></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Manual</li><li><a href>Hacking</a></li></ul></nav><hr/><div id="topbar"><span>Hacking</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Hacking-1" href="#Hacking-1">Hacking</a></h1><h2><a class="nav-anchor" id="Generated-functions-1" href="#Generated-functions-1">Generated functions</a></h2><p>Generated functions are used heavily in CUDAnative.jl, in combination with LLVM.jl, to generate type-specialized code and IR. If evaluating the generator results in an error, Julia generates a dynamic call to the generator for you to inspect the error at run-time. This is a problem in the world of GPUs, where dynamic calls are prohibited. A band-aid is to print the exception during inference:</p><pre><code class="language-patch">diff --git a/base/inference.jl b/base/inference.jl
+index 6443665676..b03d78ddaa 100644
+--- a/base/inference.jl
++++ b/base/inference.jl
+@@ -2430,7 +2430,10 @@ function typeinf_frame(linfo::MethodInstance, caller, optimize::Bool, cached::Bo
+             try
+                 # user code might throw errors – ignore them
+                 src = get_staged(linfo)
+-            catch
++            catch ex
++                println(&quot;WARNING: An error occurred during generated function execution.&quot;)
++                println(ex)
++                ccall(:jlbacktrace, Void, ())
+                 return nothing
+             end
+         else</code></pre><h2><a class="nav-anchor" id="Adding-intrinsics-1" href="#Adding-intrinsics-1">Adding intrinsics</a></h2><p>Adding intrinsics to <code>CUDAnative.jl</code> can be relatively convoluted, depending on the type of intrinsic. Most of the boil down to inlining a snippet of LLVM IR, using <code>llvmcall</code> (or <code>ccall</code> with the <code>llvmcall</code> calling convention). For more complex code, use LLVM.jl to build the IR string.</p><h3><a class="nav-anchor" id="libdevice-intrinsics-1" href="#libdevice-intrinsics-1"><code>libdevice</code> intrinsics</a></h3><p>These intrinsics are represented by function calls to <code>libdevice</code>. Most of them should already be covered. There&#39;s a convenience macro, <code>@wrap</code>, simplifying the job of adding and exporting intrinsics, and converting arguments and return values. See the documentation of the macro for more details, and look at <code>src/device/libdevice.jl</code> for examples.</p><h3><a class="nav-anchor" id="LLVM-back-end-intrinsics-1" href="#LLVM-back-end-intrinsics-1">LLVM back-end intrinsics</a></h3><p>Calls to functions like <code>llvm.nvvm.barrier0</code> are backed the PTX LLVM back-end, and can be wrapped using <code>ccall</code> with the <code>llvmcall</code> calling convention. For more complex intrinsics, or when you&#39;re not actually calling an intrinsic function, you can still use <code>@wrap</code>.</p><h3><a class="nav-anchor" id="Inline-PTX-assembly-1" href="#Inline-PTX-assembly-1">Inline PTX assembly</a></h3><p>When there&#39;s no corresponding <code>libdevice</code> function or PTX back-end intrinsic exposing the required functionality, you can use inline PTX assembly via <code>llvmcall</code>. This requires you to embed the PTX assembly in LLVM IR, which is often messy.</p><p>If the source of the assembly instructions is CUDA C code, you simplify this task by first compiling the CUDA code using Clang, and adapting the resulting LLVM IR for use within <code>llvmcall</code>. For example, extracting the following function definition from the CUDA SDK:</p><pre><code class="language-cuda">__device__ unsigned int __ballot(int a)
+{
+  int result;
+  asm __volatile__ (&quot;{ \n\t&quot;
+        &quot;.reg .pred \t%%p1; \n\t&quot;
+        &quot;setp.ne.u32 \t%%p1, %1, 0; \n\t&quot;
+        &quot;vote.ballot.b32 \t%0, %%p1; \n\t&quot;
+        &quot;}&quot; : &quot;=r&quot;(result) : &quot;r&quot;(a));
+  return result;
+}</code></pre><p>We can generate the following LLVM IR by executing <code>clang++ -Xclang -fcuda-is-device -S -emit-llvm -target nvptx64 ballot.cu -o -</code> (you might need to add <a href="https://gist.github.com/eliben/b014ac17cbe5a452803f">some CUDA boilerplate</a>):</p><pre><code class="language-none">define i32 @_Z8__balloti(i32 %a) #0 {
+  %1 = alloca i32, align 4
+  %result = alloca i32, align 4
+  store i32 %a, i32* %1, align 4
+  %2 = load i32, i32* %1, align 4
+  %3 = call i32 asm sideeffect &quot;{ \0A\09.reg .pred \09%p1; \0A\09setp.ne.u32 \09%p1, $1, 0; \0A\09vote.ballot.b32 \09$0, %p1; \0A\09}&quot;, &quot;=r,r&quot;(i32 %2) #1, !srcloc !1
+  store i32 %3, i32* %result, align 4
+  %4 = load i32, i32* %result, align 4
+  ret i32 %4
+}</code></pre><p>Finally, we use LLVM.jl&#39;s <code>@asmcall</code> macro to inline this assembly and call it:</p><pre><code class="language-julia">function vote_ballot(pred::Bool)
+    return @asmcall(
+        &quot;&quot;&quot;{
+               .reg .pred %p1;
+               setp.ne.u32 %p1, \$1, 0;
+               vote.ballot.b32 \$0, %p1;
+           }&quot;&quot;&quot;, &quot;=r,r&quot;, true,
+        UInt32, Tuple{Int32}, convert(Int32, pred))
+end</code></pre><h3><a class="nav-anchor" id="Other-functionality-1" href="#Other-functionality-1">Other functionality</a></h3><p>For other functionality, like shared memory, or when some additional management is required, like storing a global variable for <code>printf</code>&#39;s formatting string, you should use LLVM.jl to build the IR code instead of hacking strings together. As this doesn&#39;t touch global state, you can even do so from a <code>@generated</code> function. Do take care however to use Julia&#39;s LLVM context for all operations.</p><footer><hr/><a class="previous" href="../performance/"><span class="direction">Previous</span><span class="title">Performance</span></a><a class="next" href="../../lib/compilation/"><span class="direction">Next</span><span class="title">Compilation &amp; Execution</span></a></footer></article></body></html>

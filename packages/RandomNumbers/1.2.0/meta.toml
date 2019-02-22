@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "RandomNumbers"
+owner = "sunoru"
+version = "1.2.0"
+description = "Random Number Generators for the Julia Language."
+stargazers_count = "47"
+url = "https://github.com/sunoru/RandomNumbers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sunoru"
+contributions = "126"
+[[contributors]]
+name = "GregPlowman"
+contributions = "9"
+[[contributors]]
+name = "currymj"
+contributions = "5"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "5"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"

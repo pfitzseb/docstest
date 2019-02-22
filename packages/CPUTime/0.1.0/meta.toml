@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "CPUTime"
+owner = "schmrlng"
+version = "0.1.0"
+description = "Julia module for CPU timing"
+stargazers_count = "11"
+url = "https://github.com/schmrlng/CPUTime.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "schmrlng"
+contributions = "20"
+[[contributors]]
+name = "robertfeldt"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

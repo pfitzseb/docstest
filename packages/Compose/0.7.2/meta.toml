@@ -1,0 +1,195 @@
+license_url = ""
+doctype = "real"
+name = "Compose"
+owner = "GiovineItalia"
+version = "0.7.2"
+description = "Declarative vector graphics"
+stargazers_count = "143"
+url = "https://github.com/GiovineItalia/Compose.jl.git"
+installs = true
+tags = ["julia", "vector-graphics", "graphics", "gadfly"]
+license = "Other"
+
+[[contributors]]
+name = "dcjones"
+contributions = "424"
+[[contributors]]
+name = "tlnagy"
+contributions = "84"
+[[contributors]]
+name = "bjarthur"
+contributions = "66"
+[[contributors]]
+name = "timholy"
+contributions = "42"
+[[contributors]]
+name = "shashi"
+contributions = "38"
+[[contributors]]
+name = "darwindarak"
+contributions = "22"
+[[contributors]]
+name = "Mattriks"
+contributions = "17"
+[[contributors]]
+name = "Keno"
+contributions = "11"
+[[contributors]]
+name = "yuyichao"
+contributions = "10"
+[[contributors]]
+name = "aviks"
+contributions = "8"
+[[contributors]]
+name = "jiahao"
+contributions = "7"
+[[contributors]]
+name = "ScottPJones"
+contributions = "6"
+[[contributors]]
+name = "Hydrotoast"
+contributions = "5"
+[[contributors]]
+name = "abhijithch"
+contributions = "4"
+[[contributors]]
+name = "jneem"
+contributions = "4"
+[[contributors]]
+name = "vchuravy"
+contributions = "4"
+[[contributors]]
+name = "iamed2"
+contributions = "3"
+[[contributors]]
+name = "glesica"
+contributions = "3"
+[[contributors]]
+name = "jaredly"
+contributions = "3"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "jwmerrill"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "2"
+[[contributors]]
+name = "Sacha0"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "tbreloff"
+contributions = "2"
+[[contributors]]
+name = "dehann"
+contributions = "2"
+[[contributors]]
+name = "catawbasam"
+contributions = "2"
+[[contributors]]
+name = "alyst"
+contributions = "1"
+[[contributors]]
+name = "AsafManela"
+contributions = "1"
+[[contributors]]
+name = "blakejohnson"
+contributions = "1"
+[[contributors]]
+name = "brian-j-smith"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "ianfiske"
+contributions = "1"
+[[contributors]]
+name = "jarmokivekas"
+contributions = "1"
+[[contributors]]
+name = "joehuchette"
+contributions = "1"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "1"
+[[contributors]]
+name = "joshjob42"
+contributions = "1"
+[[contributors]]
+name = "ktdrv"
+contributions = "1"
+[[contributors]]
+name = "microtherion"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "randyzwitch"
+contributions = "1"
+[[contributors]]
+name = "bastinat0r"
+contributions = "1"
+[[contributors]]
+name = "Paethon"
+contributions = "1"
+[[contributors]]
+name = "sawcordwell"
+contributions = "1"
+[[contributors]]
+name = "Treblesteph"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "1"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jaakkor2"
+contributions = "1"
+[[contributors]]
+name = "jverzani"
+contributions = "1"
+[[contributors]]
+name = "lucasb-eyer"
+contributions = "1"
+[[contributors]]
+name = "mbeltagy"
+contributions = "1"
+[[contributors]]
+name = "montyvesselinov"
+contributions = "1"
+[[contributors]]
+name = "msimberg"
+contributions = "1"
+[[contributors]]
+name = "trohwer"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"

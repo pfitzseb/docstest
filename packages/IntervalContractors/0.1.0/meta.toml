@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "IntervalContractors"
+owner = "JuliaIntervals"
+version = "0.1.0"
+description = "Interval contractors and inverse (reverse) functions for Julia"
+stargazers_count = "4"
+url = "https://github.com/JuliaIntervals/IntervalContractors.jl.git"
+installs = true
+tags = ["intervals", "reverse-functions", "inverse-functions", "contractors"]
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "24"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mewilhel"
+contributions = "1"

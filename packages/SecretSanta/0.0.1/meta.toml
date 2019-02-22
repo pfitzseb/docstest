@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SecretSanta"
+owner = "tasseff"
+version = "0.0.1"
+description = "A Julia package for generating Secret Santa matchings and emailing participants"
+stargazers_count = "2"
+url = "https://github.com/tasseff/SecretSanta.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "tasseff"
+contributions = "13"

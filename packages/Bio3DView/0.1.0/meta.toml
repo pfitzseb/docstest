@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Bio3DView"
+owner = "jgreener64"
+version = "0.1.0"
+description = "A julia package to view macromolecular structures in the REPL or in a Jupyter notebook/JupyterLab"
+stargazers_count = "8"
+url = "https://github.com/jgreener64/Bio3DView.jl.git"
+installs = true
+tags = ["protein-structure", "structural-bioinformatics", "jupyter-notebook", "structural-biology", "julia", "bioinformatics", "ijulia"]
+license = "Other"
+
+[[contributors]]
+name = "jgreener64"
+contributions = "56"
+[[contributors]]
+name = "CorySimon"
+contributions = "4"

@@ -1,0 +1,108 @@
+license_url = ""
+doctype = "default"
+name = "RCall"
+owner = "JuliaInterop"
+version = "0.13.1"
+description = "Embedded R within Julia"
+stargazers_count = "121"
+url = "https://github.com/JuliaInterop/RCall.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "randy3k"
+contributions = "489"
+[[contributors]]
+name = "simonbyrne"
+contributions = "113"
+[[contributors]]
+name = "dmbates"
+contributions = "79"
+[[contributors]]
+name = "ranjanan"
+contributions = "4"
+[[contributors]]
+name = "Non-Contradiction"
+contributions = "4"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "3"
+[[contributors]]
+name = "kaskarn"
+contributions = "3"
+[[contributors]]
+name = "diegozea"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "lelmiger"
+contributions = "2"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "2"
+[[contributors]]
+name = "robertfeldt"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"
+[[contributors]]
+name = "cmey"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fedxa"
+contributions = "1"
+[[contributors]]
+name = "jayvn"
+contributions = "1"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "phaverty"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "freeboson"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "funnell"
+contributions = "1"
+[[contributors]]
+name = "armgong"
+contributions = "1"
+[[contributors]]
+name = "cossio"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

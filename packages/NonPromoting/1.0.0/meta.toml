@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NonPromoting"
+owner = "eschnett"
+version = "1.0.0"
+description = "Non-promoting wrappers for arithmetic types"
+stargazers_count = "2"
+url = "https://github.com/eschnett/NonPromoting.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "eschnett"
+contributions = "7"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "ProperOrthogonalDecomposition"
+owner = "MrUrq"
+version = "0.1.0"
+description = "Julia package for performing the proper orthogonal modal decomposition technique"
+stargazers_count = "0"
+url = "https://github.com/MrUrq/ProperOrthogonalDecomposition.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MrUrq"
+contributions = "18"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

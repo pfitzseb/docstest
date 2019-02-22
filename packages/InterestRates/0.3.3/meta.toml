@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "InterestRates"
+owner = "felipenoris"
+version = "0.3.3"
+description = "Interest Rates calculation, indexing and Term Structures."
+stargazers_count = "12"
+url = "https://github.com/felipenoris/InterestRates.jl.git"
+installs = true
+tags = ["yield-curve", "rate-calculator"]
+license = "Other"
+
+[[contributors]]
+name = "felipenoris"
+contributions = "125"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "brilhana"
+contributions = "1"

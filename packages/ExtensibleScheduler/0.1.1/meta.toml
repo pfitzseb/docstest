@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "ExtensibleScheduler"
+owner = "scls19fr"
+version = "0.1.1"
+description = "An advanced and extensible Julia events scheduler. https://scls19fr.github.io/ExtensibleScheduler.jl/dev/"
+stargazers_count = "1"
+url = "https://github.com/scls19fr/ExtensibleScheduler.jl.git"
+installs = true
+tags = ["julialang", "julia-language", "julia", "scheduler", "event", "event-scheduler"]
+license = "Other"
+
+[[contributors]]
+name = "scls19fr"
+contributions = "33"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

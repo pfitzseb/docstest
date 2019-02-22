@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TSVD"
+owner = "andreasnoack"
+version = "0.3.0"
+description = "Truncated singular value decomposition with partial reorthogonalization"
+stargazers_count = "12"
+url = "https://github.com/andreasnoack/TSVD.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "59"
+[[contributors]]
+name = "dkarrasch"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

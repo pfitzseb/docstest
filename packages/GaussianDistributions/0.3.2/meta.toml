@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "GaussianDistributions"
+owner = "mschauer"
+version = "0.3.2"
+description = "Gaussian distributions as state variables and for uncertainty quantification with Unitful"
+stargazers_count = "3"
+url = "https://github.com/mschauer/GaussianDistributions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mschauer"
+contributions = "28"
+[[contributors]]
+name = "cstjean"
+contributions = "11"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

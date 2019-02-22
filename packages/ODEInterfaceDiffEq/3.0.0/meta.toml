@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "ODEInterfaceDiffEq"
+owner = "JuliaDiffEq"
+version = "3.0.0"
+description = "Adds the common API onto ODEInterface"
+stargazers_count = "5"
+url = "https://github.com/JuliaDiffEq/ODEInterfaceDiffEq.jl.git"
+installs = true
+tags = ["julia", "radau", "rodas", "hairer", "differential-equations"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "97"
+[[contributors]]
+name = "YingboMa"
+contributions = "9"
+[[contributors]]
+name = "ScottPJones"
+contributions = "4"
+[[contributors]]
+name = "Datseris"
+contributions = "2"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "1"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "TimeseriesSurrogates"
+owner = "kahaaga"
+version = "0.3.0"
+description = "A Julia library for generating surrogate data."
+stargazers_count = "3"
+url = "https://github.com/kahaaga/TimeseriesSurrogates.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "85"

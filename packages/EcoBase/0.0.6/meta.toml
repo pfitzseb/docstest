@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "EcoBase"
+owner = "EcoJulia"
+version = "0.0.6"
+description = ""
+stargazers_count = "6"
+url = "https://github.com/EcoJulia/EcoBase.jl.git"
+installs = true
+tags = ["julia", "ecology"]
+license = "Other"
+
+[[contributors]]
+name = "mkborregaard"
+contributions = "34"
+[[contributors]]
+name = "richardreeve"
+contributions = "32"

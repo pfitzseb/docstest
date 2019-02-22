@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "ArraysOfArrays"
+owner = "oschulz"
+version = "0.3.0"
+description = "Efficient storage and handling of nested arrays in Julia"
+stargazers_count = "4"
+url = "https://github.com/oschulz/ArraysOfArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oschulz"
+contributions = "74"

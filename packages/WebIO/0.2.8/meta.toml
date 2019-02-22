@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "WebIO"
+owner = "JuliaGizmos"
+version = "0.2.8"
+description = "a bridge between Julia and web technologies"
+stargazers_count = "92"
+url = "https://github.com/JuliaGizmos/WebIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "70"
+[[contributors]]
+name = "shashi"
+contributions = "57"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "34"
+[[contributors]]
+name = "JobJob"
+contributions = "33"
+[[contributors]]
+name = "travigd"
+contributions = "28"
+[[contributors]]
+name = "piever"
+contributions = "10"
+[[contributors]]
+name = "djsegal"
+contributions = "10"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"
+[[contributors]]
+name = "pfitzseb"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "schneiderl"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "vdayanand"
+contributions = "1"

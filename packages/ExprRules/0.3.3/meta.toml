@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ExprRules"
+owner = "sisl"
+version = "0.3.3"
+description = "Base functions for generating and optimizing Julia expressions from a grammar."
+stargazers_count = "1"
+url = "https://github.com/sisl/ExprRules.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rcnlee"
+contributions = "39"
+[[contributors]]
+name = "tawheeler"
+contributions = "38"
+[[contributors]]
+name = "mykelk"
+contributions = "2"

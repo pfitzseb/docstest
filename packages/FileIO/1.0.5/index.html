@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · FileIO.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>FileIO.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Adding-new-formats-1">Adding new formats</a></li><li><a class="toctext" href="#Implementing-loaders/savers-1">Implementing loaders/savers</a></li><li><a class="toctext" href="#Help-1">Help</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="FileIO-1" href="#FileIO-1">FileIO</a></h1><p><a href="https://travis-ci.org/JuliaIO/FileIO.jl"><img src="https://travis-ci.org/JuliaIO/FileIO.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/SimonDanisch/fileio-jl-t5dw5/branch/master"><img src="https://ci.appveyor.com/api/projects/status/j02repoyo75mtyjn/branch/master?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaIO/FileIO.jl?branch=master"><img src="https://coveralls.io/repos/JuliaIO/FileIO.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p>FileIO aims to provide a common framework for detecting file formats and dispatching to appropriate readers/writers.  The two core functions in this package are called <code>load</code> and <code>save</code>, and offer high-level support for formatted files (in contrast with julia&#39;s low-level <code>read</code> and <code>write</code>).  To avoid name conflicts, packages that provide support for standard file formats through functions named <code>load</code> and <code>save</code> are encouraged to extend the definitions here. <a href="docs/registry.md">Supported Files</a></p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Install FileIO via <code>Pkg.add(&quot;FileIO&quot;)</code>.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>If your format has been registered, it might be as simple as</p><pre><code class="language-jl">using FileIO
+obj = load(filename)</code></pre><p>to read data from a formatted file.  Likewise, saving might be as simple as</p><pre><code class="language-none">save(filename, obj)</code></pre><p>If you just want to inspect a file to determine its format, then</p><pre><code class="language-jl">file = query(filename)
+s = query(io)   # io is a stream</code></pre><p>will return a <code>File</code> or <code>Stream</code> object that also encodes the detected file format.</p><p>Sometimes you want to read or write files that are larger than your available memory, or might be an unknown or infinite length (e.g. reading an audio or video stream from a socket). In these cases it might not make sense to process the whole file at once, but instead process it a chunk at a time. For these situations FileIO provides the <code>loadstreaming</code> and <code>savestreaming</code> functions, which return an object that you can <code>read</code> or <code>write</code>, rather than the file data itself.</p><p>This would look something like:</p><pre><code class="language-jl">using FileIO
+audio = loadstreaming(&quot;bigfile.wav&quot;)
+try
+    while !eof(audio)
+        chunk = read(audio, 4096) # read 4096 frames
+        # process the chunk
+    end
+finally
+    close(audio)
+end</code></pre><p>or use <code>do</code> syntax to auto-close the stream:</p><pre><code class="language-jl">using FileIO
+loadstreaming(&quot;bigfile.wav&quot;) do audio
+    while !eof(audio)
+        chunk = read(audio, 4096) # read 4096 frames
+        # process the chunk
+    end
+end</code></pre><p>Note that in these cases you may want to use <code>read!</code> with a pre-allocated buffer for maximum efficiency.</p><h2><a class="nav-anchor" id="Adding-new-formats-1" href="#Adding-new-formats-1">Adding new formats</a></h2><p>You register a new format by adding <code>add_format(fmt, magic, extension)</code> to the <a href="https://github.com/JuliaIO/FileIO.jl/blob/master/src/registry.jl">registry</a>. To do so, please just open a pull request (you can just edit the file in Github). <code>fmt</code> is a <code>DataFormat</code> type, most conveniently created as <code>format&quot;IDENTIFIER&quot;</code>.  <code>magic</code> typically contains the magic bytes that identify the format.  Here are some examples:</p><pre><code class="language-jl"># A straightforward format
+add_format(format&quot;PNG&quot;, [0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a], &quot;.png&quot;)
+
+# A format that uses only ASCII characters in its magic bytes, and can
+# have one of two possible file extensions
+add_format(format&quot;NRRD&quot;, &quot;NRRD&quot;, [&quot;.nrrd&quot;,&quot;.nhdr&quot;])
+
+# A format whose magic bytes might not be at the beginning of the file,
+# necessitating a custom function `detecthdf5` to find them
+add_format(format&quot;HDF5&quot;, detecthdf5, [&quot;.h5&quot;, &quot;.hdf5&quot;])
+
+# A fictitious format that, unfortunately, provides no magic
+# bytes. Here we have to place our faith in the file extension.
+add_format(format&quot;DICEY&quot;, (), &quot;.dcy&quot;)</code></pre><p>You can also declare that certain formats require certain packages for I/O support:</p><pre><code class="language-jl">add_loader(format&quot;HDF5&quot;, :HDF5)
+add_saver(format&quot;PNG&quot;, :ImageMagick)</code></pre><p>These packages will be automatically loaded as needed. You can also define the loaders and savers in a short form like this:</p><pre><code class="language-jl">add_format(format&quot;OFF&quot;, &quot;OFF&quot;, &quot;.off&quot;, [:MeshIO])</code></pre><p>This means MeshIO supports loading and saving of the <code>off</code> format. You can add multiple loaders and specifiers like this:</p><pre><code class="language-jl">add_format(
+    format&quot;BMP&quot;,
+    UInt8[0x42,0x4d],
+    &quot;.bmp&quot;,
+    [:OSXNativeIO, LOAD, OSX],
+    [:ImageMagick]
+)</code></pre><p>This means, OSXNative has first priority (gets loaded first) and only supports loading <code>bmp</code> on <code>OSX</code>. So on windows, <code>OSXNativeIO</code> will be ignored and <code>ImageMagick</code> has first priority. You can add any combination of <code>LOAD</code>, <code>SAVE</code>, <code>OSX</code>, <code>Unix</code>, <code>Windows</code> and <code>Linux</code>.</p><p>Users are encouraged to contribute these definitions to the <code>registry.jl</code> file of this package, so that information about file formats exists in a centralized location.</p><h2><a class="nav-anchor" id="Implementing-loaders/savers-1" href="#Implementing-loaders/savers-1">Implementing loaders/savers</a></h2><p>In your package, write code like the following:</p><pre><code class="language-jl">using FileIO
+
+# See important note about scope below
+function load(f::File{format&quot;PNG&quot;})
+    open(f) do s
+        skipmagic(s)  # skip over the magic bytes
+        # You can just call the method below...
+        ret = load(s)
+        # ...or implement everything here instead
+    end
+end
+
+# You can support streams and add keywords:
+function load(s::Stream{format&quot;PNG&quot;}; keywords...)
+    # s is already positioned after the magic bytes
+    # Do the stuff to read a PNG file
+    chunklength = read(s, UInt32)
+    ...
+end
+
+function save(f::File{format&quot;PNG&quot;}, data)
+    open(f, &quot;w&quot;) do s
+        # Don&#39;t forget to write the magic bytes!
+        write(s, magic(format&quot;PNG&quot;))
+        # Do the rest of the stuff needed to save in PNG format
+    end
+end</code></pre><p>Note that these are <code>load</code> and <code>save</code>, <strong>not</strong> <code>FileIO.load</code> and <code>FileIO.save</code>. Because a given format might have multiple packages that are capable of reading it, FileIO will dispatch to these using module-scoping, e.g., <code>SomePkg.load(args...)</code>. Consequently, <strong>packages should define &quot;private&quot; <code>load</code> and <code>save</code> methods (also <code>loadstreaming</code> and <code>savestreaming</code> if you implement them), and not extend (import) FileIO&#39;s</strong>.</p><p>If you run into a naming conflict with the <code>load</code> and <code>save</code> functions (for example, you already have another function in your package that has one of these names), you can instead name your loaders <code>fileio_load</code>,  <code>fileio_save</code> etc. Note that you cannot mix and match these styles: either all your loaders have to be named <code>load</code>, or all of them should be called <code>fileio_load</code>, but you cannot use both conventions in one module.</p><p><code>load(::File)</code> and <code>save(::File)</code> should close any streams they open.  (If you use the <code>do</code> syntax, this happens for you automatically even if the code inside the <code>do</code> scope throws an error.) Conversely, <code>load(::Stream)</code> and <code>save(::Stream)</code> should not close the input stream.</p><p><code>loadstreaming</code> and <code>savestreaming</code> use the same query mechanism, but return a decoded stream that users can <code>read</code> or <code>write</code>. You should also implement a <code>close</code> method on your reader or writer type. Just like with <code>load</code> and <code>save</code>, if the user provided a filename, your <code>close</code> method should be responsible for closing any streams you opened in order to read or write the file. If you are given a <code>Stream</code>, your <code>close</code> method should only do the clean up for your reader or writer type, not close the stream.</p><pre><code class="language-jl">struct WAVReader
+    io::IO
+    ownstream::Bool
+end
+
+function Base.read(reader::WAVReader, frames::Int)
+    # read and decode audio samples from reader.io
+end
+
+function Base.close(reader::WAVReader)
+    # do whatever cleanup the reader needs
+    reader.ownstream &amp;&amp; close(reader.io)
+end
+
+# FileIO has fallback functions that make these work using `do` syntax as well,
+# and will automatically call `close` on the returned object.
+loadstreaming(f::File{format&quot;WAV&quot;}) = WAVReader(open(f), true)
+loadstreaming(s::Stream{format&quot;WAV&quot;}) = WAVReader(s, false)</code></pre><p>If you choose to implement <code>loadstreaming</code> and <code>savestreaming</code> in your package, you can easily add <code>save</code> and <code>load</code> methods in the form of:</p><pre><code class="language-jl">function save(q::Formatted{format&quot;WAV&quot;}, data, args...; kwargs...)
+    savestreaming(q, args...; kwargs...) do stream
+        write(stream, data)
+    end
+end
+
+function load(q::Formatted{format&quot;WAV&quot;}, args...; kwargs...)
+    loadstreaming(q, args...; kwargs...) do stream
+        read(stream)
+    end
+end</code></pre><h2><a class="nav-anchor" id="Help-1" href="#Help-1">Help</a></h2><p>You can get an API overview by typing <code>?FileIO</code> at the REPL prompt. Individual functions have their own help too, e.g., <code>?add_format</code>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

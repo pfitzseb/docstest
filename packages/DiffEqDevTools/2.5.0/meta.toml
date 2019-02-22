@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqDevTools"
+owner = "JuliaDiffEq"
+version = "2.5.0"
+description = "Benchmarking, testing, and development tools for differential equations"
+stargazers_count = "10"
+url = "https://github.com/JuliaDiffEq/DiffEqDevTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "157"
+[[contributors]]
+name = "YingboMa"
+contributions = "12"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "sipah00"
+contributions = "1"

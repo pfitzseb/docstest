@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/gpl-2.0"
+doctype = "default"
+name = "XSim"
+owner = "reworkhow"
+version = "0.4.0"
+description = "simulate sequence data and complicated pedigree structures"
+stargazers_count = "5"
+url = "https://github.com/reworkhow/XSim.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v2.0"
+
+[[contributors]]
+name = "reworkhow"
+contributions = "112"
+[[contributors]]
+name = "rohanLuigi"
+contributions = "9"
+[[contributors]]
+name = "chstricker"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "2"

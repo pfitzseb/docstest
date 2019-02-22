@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "FastIOBuffers"
+owner = "tkoolen"
+version = "0.2.0"
+description = "Faster alternatives to Julia's IOBuffer type"
+stargazers_count = "2"
+url = "https://github.com/tkoolen/FastIOBuffers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "14"
+[[contributors]]
+name = "rdeits"
+contributions = "6"

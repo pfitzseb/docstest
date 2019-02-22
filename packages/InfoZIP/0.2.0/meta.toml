@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "InfoZIP"
+owner = "samoconnor"
+version = "0.2.0"
+description = "ZIP Archive Interface. Wrapper for Info-ZIP (and ZipFile.jl)."
+stargazers_count = "4"
+url = "https://github.com/samoconnor/InfoZIP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "33"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "kdheepak"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

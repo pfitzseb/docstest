@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "CMake"
+owner = "JuliaPackaging"
+version = "1.1.1"
+description = "Julia package to provide access to CMake"
+stargazers_count = "5"
+url = "https://github.com/JuliaPackaging/CMake.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "50"
+[[contributors]]
+name = "stevengj"
+contributions = "9"
+[[contributors]]
+name = "aytekinar"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jayschwa"
+contributions = "1"
+[[contributors]]
+name = "adamnemecek"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "DocSeeker"
+owner = "pfitzseb"
+version = "0.2.0"
+description = "Searching for documentation in Julia"
+stargazers_count = "7"
+url = "https://github.com/pfitzseb/DocSeeker.jl.git"
+installs = true
+tags = ["julia", "documentation"]
+license = "Other"
+
+[[contributors]]
+name = "pfitzseb"
+contributions = "112"
+[[contributors]]
+name = "visr"
+contributions = "1"

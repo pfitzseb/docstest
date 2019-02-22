@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SymmetricTensors.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SymmetricTensors.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Constructor-1">Constructor</a></li><li><a class="toctext" href="#Converting-1">Converting</a></li><li><a class="toctext" href="#Fields-1">Fields</a></li><li><a class="toctext" href="#Operations-1">Operations</a></li><li><a class="toctext" href="#Random-Symmetric-Tensor-generation-1">Random Symmetric Tensor generation</a></li><li><a class="toctext" href="#getindex-and-setindex!-1">getindex and setindex!</a></li><li><a class="toctext" href="#Auxiliary-function-1">Auxiliary function</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SymmetricTensors.jl-1" href="#SymmetricTensors.jl-1">SymmetricTensors.jl</a></h1><p><a href="https://travis-ci.org/ZKSI/SymmetricTensors.jl"><img src="https://travis-ci.org/ZKSI/SymmetricTensors.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/ZKSI/SymmetricTensors.jl?branch=master"><img src="https://coveralls.io/repos/github/ZKSI/SymmetricTensors.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="https://zenodo.org/badge/latestdoi/79091776"><img src="https://zenodo.org/badge/79091776.svg" alt="DOI"/></a></p><p>SymmetricTensors.jl provides the <code>SymmetricTensors{T, N}</code> type used to store fully symmetric tensors in more efficient way, without most of redundant repetitions. It uses blocks of <code>Array{T, N}</code> stored in <code>Union{Array{Float,N}, Nothing}</code> structure. Repeated blocks are replaced by <code>Void</code>. The module introduces <code>SymmetricTensors{T, N}</code> type and some basic operations on this type. As of 01/01/2017 <a href="https://github.com/kdomino">@kdomino</a> is the lead maintainer of this package.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Within Julia, just use run</p><pre><code class="language-julia">pkg&gt; add SymmetricTensors</code></pre><p>to install the files. Julia 0.6 or later is required.</p><h2><a class="nav-anchor" id="Constructor-1" href="#Constructor-1">Constructor</a></h2><pre><code class="language-julia">julia&gt; data = ones(4,4);
+
+
+julia&gt; SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[1.0 1.0; 1.0 1.0] [1.0 1.0; 1.0 1.0]; nothing [1.0 1.0; 1.0 1.0]], 2, 2, 4, true)
+
+</code></pre><h2><a class="nav-anchor" id="Converting-1" href="#Converting-1">Converting</a></h2><p>From <code>Array{T, N}</code> to <code>SymmetricTensors{T, N}</code></p><pre><code class="language-julia">julia&gt; SymmetricTensors(data::Array{T, N}, bls::Int = 2)</code></pre><p>where bls is the size of a block</p><pre><code class="language-julia">julia&gt; data = ones(4,4);
+
+
+julia&gt; convert(SymmetricTensor, data, 2)
+SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[1.0 1.0; 1.0 1.0] [1.0 1.0; 1.0 1.0]; nothing [1.0 1.0; 1.0 1.0]], 2, 2, 4, true)
+</code></pre><p>From <code>SymmetricTensors{T, N}</code> to <code>Array{T, N}</code></p><pre><code class="language-julia">julia&gt; Array(st::SymmetricTensors{T, N})</code></pre><h2><a class="nav-anchor" id="Fields-1" href="#Fields-1">Fields</a></h2><ul><li><code>frame::ArrayNArrays{T,N}</code>: stores data, where <code>ArrayNArrays{T,N} = Array{Union{Array{T, N}, Nothing}, N}</code></li><li><code>bls::Int</code>: size of a block,</li><li><code>bln::Int</code>: number of blocks,</li><li><code>dats::Int</code>: size of data,</li><li><code>sqr::Bool</code>: shows if the last block is squared.</li></ul><h2><a class="nav-anchor" id="Operations-1" href="#Operations-1">Operations</a></h2><p>Elementwise addition: <code>+, -</code> is supported between many <code>SymmetricTensors{T, N}</code> while elementwise substraction: <code>-</code> between two <code>SymmetricTensors{T, N}</code>. Addition substraction multiplication and division <code>+, -, *, /</code> is supported between <code>SymmetricTensors{T, N}</code> and a number. </p><pre><code class="language-julia">julia&gt; x = SymmetricTensor(ones(4,4));
+
+julia&gt; y = SymmetricTensor(2*ones(4,4));
+
+julia&gt; x+y
+SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[3.0 3.0; 3.0 3.0] [3.0 3.0; 3.0 3.0]; #undef [3.0 3.0; 3.0 3.0]], 2, 2, 4, true)
+
+julia&gt; x*10
+SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[10.0 10.0; 10.0 10.0] [10.0 10.0; 10.0 10.0]; #undef [10.0 10.0; 10.0 10.0]], 2, 2, 4, true)</code></pre><p>The function diag returns a Vector{T}, of all super-diagonal elements of a SymmetricTensor.</p><pre><code class="language-julia">julia&gt; data = ones(5,5,5,5);
+
+julia&gt; st = SymmetricTensor(data);
+
+julia&gt; diag(st)
+5-element Array{Float64,1}:
+ 1.0
+ 1.0
+ 1.0
+ 1.0
+ 1.0</code></pre><h2><a class="nav-anchor" id="Random-Symmetric-Tensor-generation-1" href="#Random-Symmetric-Tensor-generation-1">Random Symmetric Tensor generation</a></h2><p>To generate random Symmetric Tensor with random elements of typer <code>T</code> form a uniform distribution on <code>[0,1)</code> use <code>rand(SymmetricTensor{T, N}, n::Int, b::Int = 2)</code>. Here n denotes data size and b denotes block size.</p><pre><code class="language-julia">julia&gt; using Random
+
+julia&gt; Random.seed!(42)
+
+julia&gt; rand(SymmetricTensor{Float64, 2}, 2)
+SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[0.533183 0.454029; 0.454029 0.0176868]], 2, 1, 2, true)
+</code></pre><h2><a class="nav-anchor" id="getindex-and-setindex!-1" href="#getindex-and-setindex!-1">getindex and setindex!</a></h2><pre><code class="language-julia">julia&gt; using Random
+
+julia&gt; Random.seed!(42)
+
+julia&gt; st = rand(SymmetricTensor{Float64, 2}, 2)
+SymmetricTensor{Float64,2}(Union{Nothing, Array{Float64,2}}[[0.533183 0.454029; 0.454029 0.0176868]], 2, 1, 2, true)
+
+julia&gt; st[1,2]
+0.4540291355871424
+
+julia&gt; st[2,1]
+0.4540291355871424</code></pre><p><code>setindex!(st::SymmetricTensor, x::Float, mulind::Int...)</code> changes all symmetric tensor&#39;s elements indexed by <code>mulind</code> to <code>x</code>.</p><pre><code class="language-julia">julia&gt; st[1,2] = 10.
+
+julia&gt; convert(Array, st)
+2×2 Array{Float64,2}:
+  0.533183  10.0      
+ 10.0        0.0176868
+</code></pre><h2><a class="nav-anchor" id="Auxiliary-function-1" href="#Auxiliary-function-1">Auxiliary function</a></h2><pre><code class="language-julia">julia&gt; unfold(data::Array{T,N}, mode::Int)</code></pre><p>unfolds <code>data</code> in a given mode</p><pre><code class="language-julia">julia&gt; a = reshape(collect(1.:8.), (2,2,2))
+2×2×2 Array{Float64,3}:
+[:, :, 1] =
+ 1.0  3.0
+ 2.0  4.0
+
+[:, :, 2] =
+ 5.0  7.0
+ 6.0  8.0
+
+julia&gt; unfold(a, 1)
+2×4 Array{Float64,2}:
+ 1.0  3.0  5.0  7.0
+ 2.0  4.0  6.0  8.0
+
+julia&gt; unfold(a, 2)
+2×4 Array{Float64,2}:
+ 1.0  2.0  5.0  6.0
+ 3.0  4.0  7.0  8.0
+
+julia&gt; unfold(a, 3)
+2×4 Array{Float64,2}:
+ 1.0  2.0  3.0  4.0
+ 5.0  6.0  7.0  8.0</code></pre><p>This project was partially financed by the National Science Centre, Poland – project number 2014/15/B/ST6/05204.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

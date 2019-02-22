@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SimpleANOVA"
+owner = "BioTurboNick"
+version = "0.3.0"
+description = "Analysis of Variance for Julia, the old-fashioned way."
+stargazers_count = "1"
+url = "https://github.com/BioTurboNick/SimpleANOVA.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "BioTurboNick"
+contributions = "125"

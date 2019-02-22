@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ImageShow"
+owner = "JuliaImages"
+version = "0.1.2"
+description = "Inline graphical display of images in Julia graphical environments"
+stargazers_count = "2"
+url = "https://github.com/JuliaImages/ImageShow.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RalphAS"
+contributions = "15"
+[[contributors]]
+name = "timholy"
+contributions = "2"

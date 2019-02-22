@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "XGrad"
+owner = "dfdx"
+version = "0.2.0"
+description = "eXpression gradients in Julia"
+stargazers_count = "2"
+url = "https://github.com/dfdx/XGrad.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dfdx"
+contributions = "44"

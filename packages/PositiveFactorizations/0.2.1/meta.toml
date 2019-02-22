@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "PositiveFactorizations"
+owner = "timholy"
+version = "0.2.1"
+description = "Positive-definite \"approximations\" to matrices"
+stargazers_count = "9"
+url = "https://github.com/timholy/PositiveFactorizations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "14"
+[[contributors]]
+name = "pkofod"
+contributions = "3"
+[[contributors]]
+name = "anriseth"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "chriselrod"
+contributions = "1"

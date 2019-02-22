@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrRegex"
+owner = "JuliaString"
+version = "0.2.0"
+description = "Regex support for Str type (from Strs.jl package)"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrRegex.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "59"

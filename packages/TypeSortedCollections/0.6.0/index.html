@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TypeSortedCollections.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TypeSortedCollections.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Use-cases-1">Use cases</a></li><li class="toplevel"><a class="toctext" href="#Iteration-order-1">Iteration order</a></li><li class="toplevel"><a class="toctext" href="#Working-with-multiple-TypeSortedCollections-1">Working with multiple <code>TypeSortedCollections</code></a></li><li class="toplevel"><a class="toctext" href="#Broadcasting-1">Broadcasting</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TypeSortedCollections-1" href="#TypeSortedCollections-1">TypeSortedCollections</a></h1><p><a href="https://travis-ci.org/tkoolen/TypeSortedCollections.jl"><img src="https://travis-ci.org/tkoolen/TypeSortedCollections.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/tkoolen/TypeSortedCollections.jl?branch=master"><img src="http://codecov.io/github/tkoolen/TypeSortedCollections.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>TypeSortedCollections provides the <code>TypeSortedCollection</code> type, which can be used to store type-heterogeneous data in a way that allows operations on the data to be performed in a type-stable manner. It does so by sorting a type-heterogeneous input collection by type upon construction, and storing these elements in a <code>Tuple</code> of concretely typed <code>Vector</code>s, one for each type. TypeSortedCollections provides type stable methods for <code>map!</code>, <code>foreach</code>, <code>broadcast!</code>, and <code>mapreduce</code> that take at least one <code>TypeSortedCollection</code>.</p><p>An example:</p><pre><code class="language-julia">julia&gt; using TypeSortedCollections
+
+julia&gt; f(x::Int64, y::Float64) = x * y
+f (generic function with 2 methods)
+
+julia&gt; f(x::Float64, y::Float64) = round(Int64, -x * y)
+f (generic function with 2 methods)
+
+julia&gt; xs = Number[1.; 2; 3];
+
+julia&gt; sortedxs = TypeSortedCollection(xs);
+
+julia&gt; ys = [1.; 2.; 3.];
+
+julia&gt; results = Vector{Int64}(length(xs));
+
+julia&gt; map!(f, results, sortedxs, ys)
+3-element Array{Int64,1}:
+ -1
+  4
+  9
+
+julia&gt; @allocated map!(f, results, sortedxs, ys)
+0</code></pre><h1><a class="nav-anchor" id="Use-cases-1" href="#Use-cases-1">Use cases</a></h1><p><code>TypeSortedCollection</code>s are appropriate when the number of different types in a heterogeneous collection is (much) smaller than the number of elements of the collection. If the number of types is approximately the same as the number of elements, a plain <code>Tuple</code> may be a better choice.</p><p>Note that construction of a <code>TypeSortedCollection</code> is of course not type stable, so the intended usage is not to construct <code>TypeSortedCollection</code>s in tight loops.</p><p>See also <a href="https://github.com/yuyichao/FunctionWrappers.jl">FunctionWrappers.jl</a> for a solution to the related problem of storing and calling multiple callables in a type-stable manner, and <a href="https://github.com/cstjean/Unrolled.jl">Unrolled.jl</a> for a macro-based solution.</p><h1><a class="nav-anchor" id="Iteration-order-1" href="#Iteration-order-1">Iteration order</a></h1><p>By default, <code>TypeSortedCollection</code>s do not preserve iteration order, in the sense that the order in which elements are processed in <code>map!</code>, <code>foreach</code>, <code>broadcast!</code>, and <code>mapreduce</code> will not be the same as if these functions were called on the original type-heterogeneous vector:</p><pre><code class="language-julia">julia&gt; xs = Number[1.; 2; 3.];
+
+julia&gt; sortedxs = TypeSortedCollection(xs);
+
+julia&gt; foreach(println, sortedxs)
+1.0
+3.0
+2</code></pre><p>If this is not desired, a <code>TypeSortedCollection</code> that <em>does</em> preserve iteration order can be constructed by passing in an additional constructor argument:</p><pre><code class="language-julia">julia&gt; xs = Number[1.; 2; 3.];
+
+julia&gt; sortedxs = TypeSortedCollection(xs, true);
+
+julia&gt; foreach(println, sortedxs)
+1.0
+2
+3.0</code></pre><p>The cost of preserving iteration order is that the number of <code>Vector</code>s stored in the <code>TypeSortedCollection</code> becomes equal to the number of contiguous subsequences of the input collection that have the same type, as opposed to simply the number of different types in the input collection. Note that calls to <code>map!</code> and <code>foreach</code> with both <code>TypeSortedCollection</code> and <code>AbstractVector</code> arguments are correctly indexed, regardless of whether iteration order is preserved:</p><pre><code class="language-julia">julia&gt; xs = Number[1.; 2; 3.];
+
+julia&gt; sortedxs = TypeSortedCollection(xs); # doesn&#39;t preserve iteration order
+
+julia&gt; results = similar(xs);
+
+julia&gt; map!(identity, results, sortedxs) # results of applying `identity` end up in the right location
+3-element Array{Number,1}:
+ 1.0
+ 2
+ 3.0</code></pre><h1><a class="nav-anchor" id="Working-with-multiple-TypeSortedCollections-1" href="#Working-with-multiple-TypeSortedCollections-1">Working with multiple <code>TypeSortedCollections</code></a></h1><p>Consider the following example:</p><pre><code class="language-julia">julia&gt; xs = Number[Float32(1); 2; 3.; 4.];
+
+julia&gt; ys = Number[1.; 2.; 3; 4];
+
+julia&gt; results = Vector{Float64}(length(xs));
+
+julia&gt; sortedxs = TypeSortedCollection(xs);
+
+julia&gt; sortedys = TypeSortedCollection(ys);
+
+julia&gt; map!(*, results, sortedxs, sortedys) # Error!</code></pre><p>The error happens because <code>xs</code> and <code>ys</code> don&#39;t have the same number of different element types. This problem can be solved by aligning the indices of <code>sortedys</code> with those of <code>sortedxs</code>:</p><pre><code class="language-julia">julia&gt; sortedys = TypeSortedCollection(ys, TypeSortedCollections.indices(sortedxs));
+
+julia&gt; map!(*, results, sortedxs, sortedys)
+4-element Array{Float64,1}:
+  1.0
+  4.0
+  9.0
+ 16.0</code></pre><h1><a class="nav-anchor" id="Broadcasting-1" href="#Broadcasting-1">Broadcasting</a></h1><p>Broadcasting (in place) is implemented for <code>AbstractVector</code> return types:</p><pre><code class="language-julia">julia&gt; x = 4;
+
+julia&gt; ys = Number[1.; 2; 3];
+
+julia&gt; sortedys = TypeSortedCollection(ys);
+
+julia&gt; results = similar(ys, Float64);
+
+julia&gt; results .= x .* sortedys
+3-element Array{Float64,1}:
+  4.0
+  8.0
+ 12.0
+
+julia&gt; @allocated results .= x .* sortedys
+0</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

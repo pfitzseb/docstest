@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TensorCast"
+owner = "mcabbott"
+version = "0.1.1"
+description = "It slices, it dices, it splices!"
+stargazers_count = "19"
+url = "https://github.com/mcabbott/TensorCast.jl.git"
+installs = true
+tags = ["tensor", "notation", "julia", "macros", "einsum", "broadcasting", "slice"]
+license = "Other"
+
+[[contributors]]
+name = "mcabbott"
+contributions = "4"

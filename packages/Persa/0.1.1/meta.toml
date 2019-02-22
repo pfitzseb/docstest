@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Persa"
+owner = "JuliaRecsys"
+version = "0.1.1"
+description = " Recommender System framework for Julia "
+stargazers_count = "7"
+url = "https://github.com/JuliaRecsys/Persa.jl.git"
+installs = true
+tags = ["recommender-systems", "collaborative-filtering", "julia", "recsys"]
+license = "Other"
+
+[[contributors]]
+name = "filipebraida"
+contributions = "138"
+[[contributors]]
+name = "opauloxavier"
+contributions = "3"

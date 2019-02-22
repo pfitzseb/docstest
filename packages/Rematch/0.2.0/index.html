@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Rematch.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Rematch.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Patterns-1">Patterns</a></li><li><a class="toctext" href="#Differences-from-[Match.jl](https://github.com/kmsquire/Match.jl)-1">Differences from Match.jl</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Rematch-1" href="#Rematch-1">Rematch</a></h1><p><a href="https://travis-ci.org/RelationalAI-oss/Rematch.jl"><img src="https://travis-ci.org/RelationalAI-oss/Rematch.jl.svg?branch=master" alt="Build Status"/></a></p><p>Pattern matching.</p><p><code>Rematch.jl</code> provides a syntax sugar for matching julia values against syntactic patterns. The <code>@match</code> macro expands a pattern-matching syntax into a series of if-elses that check the types and structure of the provided value, allowing you to more simply write checks that describe your intent.</p><pre><code class="language-julia">julia&gt; using Rematch
+
+julia&gt; struct Foo
+           x::Int64
+           y::String
+       end
+
+julia&gt; f(x) = @match x begin
+           _::String =&gt; :string
+           [a,a,a] =&gt; (:all_the_same, a)
+           [a,bs...,c] =&gt; (:at_least_2, a, bs, c)
+           Foo(x, &quot;foo&quot;) where x &gt; 1 =&gt; :foo
+       end
+f (generic function with 1 method)
+
+julia&gt; f(&quot;foo&quot;)
+:string
+
+julia&gt; f([1,1,1])
+(:all_the_same, 1)
+
+julia&gt; f([1,1])
+(:at_least_2, 1, Int64[], 1)
+
+julia&gt; f([1,2,3,4])
+(:at_least_2, 1, [2, 3], 4)
+
+julia&gt; f([1])
+ERROR: Rematch.MatchFailure([1])
+Stacktrace:
+ [1] macro expansion at /home/jamie/.julia/v0.6/Rematch/src/Rematch.jl:173 [inlined]
+ [2] f(::Array{Int64,1}) at ./REPL[3]:1
+
+julia&gt; f(Foo(2, &quot;foo&quot;))
+:foo
+
+julia&gt; f(Foo(0, &quot;foo&quot;))
+ERROR: Rematch.MatchFailure(Foo(0, &quot;foo&quot;))
+Stacktrace:
+ [1] macro expansion at /home/jamie/.julia/v0.6/Rematch/src/Rematch.jl:173 [inlined]
+ [2] f(::Foo) at ./REPL[13]:1
+
+julia&gt; f(Foo(2, &quot;not a foo&quot;))
+ERROR: Rematch.MatchFailure(Foo(2, &quot;not a foo&quot;))
+Stacktrace:
+ [1] macro expansion at /home/jamie/.julia/v0.6/Rematch/src/Rematch.jl:173 [inlined]
+ [2] f(::Foo) at ./REPL[13]:1</code></pre><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><h3><a class="nav-anchor" id="Assignment-Syntax-1" href="#Assignment-Syntax-1">Assignment Syntax</a></h3><pre><code class="language-julia">@match pattern = value</code></pre><p>If value matches pattern, binds variables and returns <code>value</code>. Otherwise, throws <code>MatchFailure</code>.</p><p>After evaluation, any variable names used within <code>pattern</code> will be bound as new variables in the enclosing scope. For example:</p><pre><code class="language-julia">julia&gt; @match Foo(x,2) = Foo(1,2)
+Foo(1,2)
+
+julia&gt; x
+1</code></pre><h3><a class="nav-anchor" id="Case-Syntax-1" href="#Case-Syntax-1">Case Syntax</a></h3><pre><code class="language-julia">@match value begin
+    pattern1 =&gt; result1
+    pattern2 =&gt; result2
+    ...
+end</code></pre><p>Returns <code>result</code> for the first matching pattern. If there are no matching patterns, throws <code>MatchFailure</code>.</p><p>Note that unlike the <em>assignment syntax</em>, this does not create any variable bindings outside the match macro.</p><h2><a class="nav-anchor" id="Patterns-1" href="#Patterns-1">Patterns</a></h2><ul><li><code>_</code> matches anything</li><li><code>foo</code> matches anything, binds value to <code>foo</code></li><li><code>Foo(x,y,z)</code> matches structs of type <code>Foo</code> with fields matching <code>x,y,z</code></li><li><code>Foo(y=1)</code> matches structs of type <code>Foo</code> whose <code>y</code> field equals <code>1</code></li><li><code>[x,y,z]</code> matches <code>AbstractArray</code>s with 3 entries matching <code>x,y,z</code></li><li><code>(x,y,z)</code> matches <code>Tuple</code>s with 3 entries matching <code>x,y,z</code></li><li><code>[x,y...,z]</code> matches <code>AbstractArray</code>s with at least 2 entries, where <code>x</code> matches the first entry, <code>z</code> matches the last entry and <code>y</code> matches the remaining entries.</li><li><code>(x,y...,z)</code> matches <code>Tuple</code>s with at least 2 entries, where <code>x</code> matches the first entry, <code>z</code> matches the last entry and <code>y</code> matches the remaining entries.</li><li><code>_::T</code> matches any subtype (<code>isa</code>) of T</li><li><code>x || y</code> matches values which match either <code>x</code> or <code>y</code> (only variables which exist in both branches will be bound)</li><li><code>x &amp;&amp; y</code> matches values which match both <code>x</code> and <code>y</code></li><li><code>x where condition</code> matches only if <code>condition</code> is true (<code>condition</code> may use any variables that occur earlier in the pattern eg <code>(x, y, z where x + y &gt; z)</code>)</li><li>Anything else is treated as a constant and tested for equality</li><li>Expressions can be interpolated in as constants via standard interpolation syntax <code>$(x)</code></li></ul><p>Patterns can be nested arbitrarily.</p><p>Repeated variables only match if they are equal (<code>==</code>). For example <code>(x,x)</code> matches <code>(1,1)</code> but not <code>(1,2)</code>.</p><h2><a class="nav-anchor" id="Differences-from-[Match.jl](https://github.com/kmsquire/Match.jl)-1" href="#Differences-from-[Match.jl](https://github.com/kmsquire/Match.jl)-1">Differences from <a href="https://github.com/kmsquire/Match.jl">Match.jl</a></a></h2><p>This package was branched from the original <a href="https://github.com/kmsquire/Match.jl">Match.jl</a>. It now differs in several ways:</p><ul><li>If no branches are matched, throws <code>MatchFailure</code> instead of returning nothing.</li><li>Matching against a struct with the wrong number of fields produces an error instead of silently failing.</li><li>Repeated variables require equality, ie <code>@match (1,2) begin (x,x) =&gt; :ok end</code> fails.</li><li>The syntax for guards is <code>x where x &gt; 1</code> instead of <code>x, if x &gt; 1 end</code> and can occur anywhere in a pattern.</li><li>Structs can be matched by field-names, allowing partial matches: <code>@match Foo(1,2) begin Foo(y=2) =&gt; :ok end</code> returns <code>:ok</code>.</li><li>Patterns support interpolation, ie <code>let x=1; @match ($x,$(x+1)) = (1,2); end</code> is a match.</li><li>No support (yet) for matching <code>Regex</code> or <code>UnitRange</code>.</li><li>No support (yet) for matching against multidimensional arrays - all array patterns use linear indexing.</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

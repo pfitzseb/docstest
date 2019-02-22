@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "FreeTypeAbstraction"
+owner = "JuliaGraphics"
+version = "0.4.2"
+description = "A Julian abstraction layer over FreeType.jl"
+stargazers_count = "6"
+url = "https://github.com/JuliaGraphics/FreeTypeAbstraction.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "61"
+[[contributors]]
+name = "bjarthur"
+contributions = "5"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "4"
+[[contributors]]
+name = "musm"
+contributions = "3"
+[[contributors]]
+name = "jhasse"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"

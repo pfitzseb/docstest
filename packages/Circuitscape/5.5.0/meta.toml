@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Circuitscape"
+owner = "Circuitscape"
+version = "5.5.0"
+description = "Algorithms from circuit theory to predict connectivity in heterogeneous landscapes"
+stargazers_count = "16"
+url = "https://github.com/Circuitscape/Circuitscape.jl.git"
+installs = true
+tags = ["landscape-ecology", "julia-language", "sparse-linear-systems", "animal-movement", "landscape-genetics", "movement-ecology", "epidemiology", "forest-fire"]
+license = "MIT License"
+
+[[contributors]]
+name = "ranjanan"
+contributions = "436"
+[[contributors]]
+name = "andreasnoack"
+contributions = "6"
+[[contributors]]
+name = "ViralBShah"
+contributions = "3"
+[[contributors]]
+name = "glaroc"
+contributions = "1"

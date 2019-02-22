@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "MCMCChain"
+owner = "TuringLang"
+version = "0.2.3"
+description = "Chain types and utility functions for MCMC simulations"
+stargazers_count = "10"
+url = "https://github.com/TuringLang/MCMCChain.jl.git"
+installs = true
+tags = ["markov-chain", "julia-language", "mcmc"]
+license = "Other"
+
+[[contributors]]
+name = "trappmartin"
+contributions = "53"
+[[contributors]]
+name = "cpfiffer"
+contributions = "8"
+[[contributors]]
+name = "mkborregaard"
+contributions = "8"
+[[contributors]]
+name = "yebai"
+contributions = "4"
+[[contributors]]
+name = "xukai92"
+contributions = "3"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

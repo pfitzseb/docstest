@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DataDepsGenerators"
+owner = "oxinabox"
+version = "0.5.0"
+description = "Utility for developers to help define DataDeps registration blocks, for reusing existing Data with DataDeps.jl"
+stargazers_count = "5"
+url = "https://github.com/oxinabox/DataDepsGenerators.jl.git"
+installs = true
+tags = ["openscience", "opendata", "data-management"]
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "134"
+[[contributors]]
+name = "SebastinSanty"
+contributions = "30"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ninjin"
+contributions = "1"

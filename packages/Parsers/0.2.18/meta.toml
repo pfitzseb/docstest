@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Parsers"
+owner = "JuliaData"
+version = "0.2.18"
+description = "fast parsing machinery for basic types in Julia"
+stargazers_count = "13"
+url = "https://github.com/JuliaData/Parsers.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "quinnj"
+contributions = "97"
+[[contributors]]
+name = "amgad-naiem"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"

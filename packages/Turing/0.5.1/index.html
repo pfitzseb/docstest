@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Turing.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Turing.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Contributing-1">Contributing</a></li><li><a class="toctext" href="#Citing-Turing.jl-1">Citing Turing.jl</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Turing.jl-1" href="#Turing.jl-1">Turing.jl</a></h1><p><a href="https://travis-ci.org/TuringLang/Turing.jl"><img src="https://travis-ci.org/TuringLang/Turing.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/TuringLang/turing-jl/branch/master"><img src="https://ci.appveyor.com/api/projects/status/gp1xtxsc3971pwi6/branch/master?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/yebai/Turing.jl?branch=master"><img src="https://coveralls.io/repos/github/yebai/Turing.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://pkg.julialang.org/detail/Turing"><img src="http://pkg.julialang.org/badges/Turing_0.7.svg" alt="Turing"/></a> <a href="http://pkg.julialang.org/detail/Turing"><img src="http://pkg.julialang.org/badges/Turing_0.6.svg" alt="Turing"/></a> <a href="http://turing.ml/docs/"><img src="https://img.shields.io/badge/doc-latest-blue.svg" alt="Documentation"/></a></p><p>News: <strong>Turing.jl is now Julia 1.0 compatible now! Be aware that some things still might fail.</strong></p><p><strong>Turing.jl</strong> is a Julia library for (<em>universal</em>) <a href="https://en.wikipedia.org/wiki/Probabilistic_programming_language">probabilistic programming</a>. Current features include:</p><ul><li>Universal probabilistic programming with an intuitive modelling interface</li><li>Hamiltonian Monte Carlo (HMC) sampling for differentiable posterior distributions</li><li>Particle MCMC sampling for complex posterior distributions involving discrete variables and stochastic control flows</li><li>Gibbs sampling that combines particle MCMC,  HMC and many other MCMC algorithms</li></ul><p>Here&#39;s a simple example showing the package in action:</p><pre><code class="language-julia">using Turing
+using Plots
+
+# Define a simple Normal model with unknown mean and variance.
+@model gdemo(x, y) = begin
+  s ~ InverseGamma(2,3)
+  m ~ Normal(0,sqrt(s))
+  x ~ Normal(m, sqrt(s))
+  y ~ Normal(m, sqrt(s))
+  return s, m
+end
+
+#  Run sampler, collect results
+c1 = sample(gdemo(1.5, 2), SMC(1000))
+c2 = sample(gdemo(1.5, 2), PG(10,1000))
+c3 = sample(gdemo(1.5, 2), HMC(1000, 0.1, 5))
+c4 = sample(gdemo(1.5, 2), Gibbs(1000, PG(10, 2, :m), HMC(2, 0.1, 5, :s)))
+c5 = sample(gdemo(1.5, 2), HMCDA(1000, 0.15, 0.65))
+c6 = sample(gdemo(1.5, 2), NUTS(1000,  0.65))
+
+# Summarise results (currently requires the master branch from MCMCChain)
+describe(c3)
+
+# Plot and save results 
+p = plot(c3)
+savefig(&quot;gdemo-plot.png&quot;)</code></pre><h2><a class="nav-anchor" id="Contributing-1" href="#Contributing-1">Contributing</a></h2><p>Turing was originally created and is now managed by Hong Ge. Current and past Turing team members include <a href="http://mlg.eng.cam.ac.uk/hong/">Hong Ge</a>, <a href="http://mlg.eng.cam.ac.uk/?portfolio=adam-scibior">Adam Scibior</a>, <a href="http://mlg.eng.cam.ac.uk/?portfolio=matej-balog">Matej Balog</a>, <a href="http://mlg.eng.cam.ac.uk/zoubin/">Zoubin Ghahramani</a>, <a href="http://mlg.eng.cam.ac.uk/?portfolio=kai-xu">Kai Xu</a>, <a href="https://github.com/evsmithx">Emma Smith</a>, <a href="http://emilemathieu.fr">Emile Mathieu</a>, <a href="http://martint.blog">Martin Trapp</a>.  You can see the full list of on Github: https://github.com/TuringLang/Turing.jl/graphs/contributors. </p><p>Turing is an open source project so if you feel you have some relevant skills and are interested in contributing then please do get in touch. See the <a href="https://github.com/yebai/Turing.jl/wiki/Contribute">Contribute wiki page</a> for details on the process. You can contribute by opening issues on Github or implementing things yourself and making a pull request. We would also appreciate example models written using Turing.</p><h2><a class="nav-anchor" id="Citing-Turing.jl-1" href="#Citing-Turing.jl-1">Citing Turing.jl</a></h2><p>To cite Turing, please refer to the technical report. Sample BibTeX entry is given below:</p><pre><code class="language-none">@inproceedings{turing18,
+  title={{T}uring: a language for flexible probabilistic inference},
+  author={Ge, Hong and Xu, Kai and Ghahramani, Zoubin},
+  booktitle={International Conference on Artificial Intelligence and Statistics},
+  pages={1682--1690},
+  year={2018}
+}</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

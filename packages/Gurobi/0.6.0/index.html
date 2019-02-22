@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Gurobi.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Gurobi.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Use-Other-Packages-1">Use Other Packages</a></li><li><a class="toctext" href="#API-Overview-1">API Overview</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Gurobi.jl-1" href="#Gurobi.jl-1">Gurobi.jl</a></h1><p>The <a href="http://www.gurobi.com">Gurobi</a> Optimizer is a commercial optimization solver for a variety of mathematical programming problems, including linear programming (LP), quadratic programming (QP), quadratically constrained programming (QCP), mixed integer linear programming (MILP), mixed-integer quadratic programming (MIQP), and mixed-integer quadratically constrained programming (MIQCP).</p><p>The Gurobi solver is considered one of the best solvers (in terms of performance and success rate of tackling hard problems) in math programming, and its performance is comparable to (and sometimes superior to) CPLEX. Academic users can obtain a Gurobi license for free.</p><p>This package is a wrapper of the Gurobi solver (through its C interface). Currently, this package supports the following types of problems:</p><ul><li>Linear programming (LP)</li><li>Mixed Integer Linear Programming (MILP)</li><li>Quadratic programming (QP)</li><li>Mixed Integer Quadratic Programming (MIQP)</li><li>Quadratically constrained quadratic programming (QCQP)</li><li>Second order cone programming (SOCP)</li><li>Mixed integer second order cone programming (MISOCP)</li></ul><p><em>The Gurobi wrapper for Julia is community driven and not officially supported by Gurobi. If you are a commercial customer interested in official support for Julia from Gurobi, let them know!</em></p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Here is the procedure to setup this package:</p><ol><li><p>Obtain a license of Gurobi and install Gurobi solver, following the instructions on <a href="http://www.gurobi.com">Gurobi&#39;s website</a>.</p><p><strong>The minimum version supported by <em>Gurobi.jl</em> is Gurobi v7.0.</strong></p></li><li><p>Install this package using <span>$Pkg.add(&quot;Gurobi&quot;)$</span>.</p></li><li><p>Make sure the <span>$GUROBI_HOME$</span> environmental variable is set to the path of the Gurobi directory. This is part of a standard installation. The Gurobi library will be searched for in <span>$GUROBI_HOME/lib$</span> on unix platforms and <span>$GUROBI_HOME\bin$</span> on Windows. If the library is not found, check that your version is listed in <span>$deps/build.jl$</span>.</p></li><li><p>Now, you can start using it.</p></li></ol><p>By default, <code>build</code>ing <em>Gurobi.jl</em> will fail if the Gurobi library is not found. This may not be desirable in certain cases, for example when part of a package&#39;s test suite uses Gurobi as an optional test dependency, but Gurobi cannot be installed on a CI server running the test suite. To support this use case, the <code>GUROBI_JL_SKIP_LIB_CHECK</code> environment variable may be set (to any value) to make <em>Gurobi.jl</em> installable (but not usable).</p><h2><a class="nav-anchor" id="Use-Other-Packages-1" href="#Use-Other-Packages-1">Use Other Packages</a></h2><p>We highly recommend that you use the <em>Gurobi.jl</em> package with higher level packages such as <a href="https://github.com/JuliaOpt/JuMP.jl">JuMP.jl</a> or <a href="https://github.com/JuliaOpt/MathProgBase.jl">MathProgBase.jl</a>.</p><p>This can be done using the <span>$GurobiSolver$</span> object. Here is how to create a <em>JuMP</em> model that uses Gurobi as the solver. Parameters are passed as keyword arguments:</p><pre><code class="language-julia">using JuMP, Gurobi
+
+m = Model(solver=GurobiSolver(Presolve=0))</code></pre><p><em>Most users should not need to use the low-level API detailed in the following sections.</em></p><h2><a class="nav-anchor" id="API-Overview-1" href="#API-Overview-1">API Overview</a></h2><p>This package provides both APIs at different levels for constructing models and solving optimization problems.</p><h4><a class="nav-anchor" id="Gurobi-Environment-1" href="#Gurobi-Environment-1">Gurobi Environment</a></h4><p>A Gurobi model is always associated with an Gurobi environment, which maintains a solver configuration. By setting parameters to this environment, one can control or tune the behavior of a Gurobi solver.</p><p>To construct a Gurobi Environment, one can write:</p><pre><code class="language-none">env = Gurobi.Env()</code></pre><p>This package provides functions to get and set parameters:</p><pre><code class="language-julia">getparam(env, name)       # get the value of a parameter
+setparam!(env, name, v)   # set the value of a parameter
+setparams!(env, name1=value1, name2=value2, ...)  # set parameters using keyword arguments</code></pre><p>You may refer to Gurobi&#39;s <a href="http://www.gurobi.com/documentation/5.0/reference-manual/node653">Parameter Reference</a> for the whole list of parameters.</p><p>Here are some simple examples</p><pre><code class="language-julia">setparam!(env, &quot;Method&quot;, 2)   # choose to use Barrier method
+setparams!(env; IterationLimit=100, Method=1) # set the maximum iterations and choose to use Simplex method</code></pre><p>These parameters may be used directly with the <span>$GurobiSolver$</span> object used by MathProgBase. For example:</p><pre><code class="language-julia">solver = GurobiSolver(Method=2)
+solver = GurobiSolver(Method=1, IterationLimit=100.)</code></pre><h4><a class="nav-anchor" id="High-level-API-1" href="#High-level-API-1">High-level API</a></h4><p>If the objective coefficients and the constraints have already been given, one may use a high-level function <span>$gurobi_model$</span> to construct a model:</p><pre><code class="language-julia">gurobi_model(env, ...)</code></pre><p>One can use keyword arguments to specify the models:</p><ul><li><span>$name$</span>:  the model name.</li><li><span>$sense$</span>: the sense of optimization (a symbol, which can be either <span>$:minimize$</span> (default) or <span>$:maximize$</span>).</li><li><span>$f$</span>:   the linear coefficient vector.</li><li><span>$H$</span>:   the quadratic coefficient matrix (can be dense or sparse).</li><li><span>$A$</span>:   the coefficient matrix of the linear inequality constraints.</li><li><span>$b$</span>:   the right-hand-side of the linear inequality constraints.</li><li><span>$Aeq$</span>:  the coefficient matrix of the equality constraints.</li><li><span>$beq$</span>:  the right-hand-side of the equality constraints.</li><li><span>$lb$</span>:   the variable lower bounds.</li><li><span>$ub$</span>:   the variable upper bounds.</li></ul><p>This function constructs a model that represents the following problem:</p><pre><code class="language-none">objective:  (1/2) x&#39; H x + f&#39; x
+
+      s.t.   A x &lt;= b
+           Aeq x = beq
+         lb &lt;= x &lt;= ub</code></pre><p>The caller <em>must</em> specify <span>$f$</span> using a non-empty vector, while other keyword arguments are optional. When <span>$H$</span> is omitted, this reduces to an LP problem. When <span>$lb$</span> is omitted, the variables are not lower bounded, and when <span>$ub$</span> is omitted, the variables are not upper bounded.</p><h4><a class="nav-anchor" id="Low-level-API-1" href="#Low-level-API-1">Low-level API</a></h4><p>This package also provides functions to build the model from scratch and gradually add variables and constraints. To construct an empty model, one can write:</p><pre><code class="language-julia">env = Gurobi.Env()    # creates a Gurobi environment
+
+model = Gurobi.Model(env, name)   # creates an empty model
+model = Gurobi.Model(env, name, sense)</code></pre><p>Here, <span>$sense$</span> is a symbol, which can be either <span>$:minimize$</span> or <span>$:maximize$</span> (default to <span>$:minimize$</span> when omitted).</p><p>Then, the following functions can be used to add variables and constraints to the model:</p><pre><code class="language-julia">## add variables
+
+add_var!(model, vtype, c)   # add an variable with coefficient c
+                            # vtype can be either of
+                            # - GRB_CONTINUOUS  (for continuous variable)
+                            # - GRB_INTEGER (for integer variable)
+                            # - GRB_BINARY (for binary variable, i.e. 0/1)
+
+add_cvar!(model, c)            # add a continuous variable
+add_cvar!(model, c, lb, ub)    # add a continuous variable with specified bounds
+
+add_ivar!(model, c)            # add an integer variable
+add_ivar!(model, c, lb, ub)    # add an integer variable with specified bounds
+
+add_bvar!(model, c)            # add a binary variable
+
+## add constraints
+
+# add a constraint with non-zero coefficients on specific variables.
+# rel can be &#39;&lt;&#39;, &#39;&gt;&#39;, or &#39;=&#39;
+add_constr!(model, inds, coeffs, rel, rhs)
+
+# add a constraint with coefficient vector for all variables.
+add_constr!(model, coeffs, rel, rhs)
+
+# add constraints using CSR format
+add_constrs!(model, cbegin, inds, coeffs, rel, rhs)
+
+# add constraints using a matrix: A x (rel) rhs
+add_constrs!(model, A, rel, rhs)  # here A can be dense or sparse
+
+# add constraints using a transposed matrix: At&#39; x (rel) rhs
+# this is usually more efficient than add_constrs!
+add_constrs_t!(model, At, rel, rhs)  # here At can be dense or sparse
+
+# add a range constraint
+add_rangeconstr!(model, inds, coeffs, lb, ub)
+
+# add range constraints using CSR format
+add_rangeconstrs!(model, cbegin, inds, coeffs, lb, ub)
+
+# add range constraints using a matrix:  lb &lt;= A x &lt;= ub
+add_rangeconstrs!(model, A, lb, ub)  # here A can be dense or sparse
+
+# add range constraints using a transposed matrix: lb &lt;= At&#39; x &lt;= ub
+# this is usually more efficient than add_rangeconstrs!
+add_rangeconstrs_t!(model, At, lb, ub)  # here At can be dense or sparse</code></pre><h4><a class="nav-anchor" id="Modify-Problem-1" href="#Modify-Problem-1">Modify Problem</a></h4><p>It is not uncommon in practice that one would like to adjust the objective coefficients and solve the problem again. This package provides a function <span>$set_objcoeffs!$</span> for this purpose:</p><pre><code class="language-julia">set_objcoeffs!(model, new_coeffs)
+ # ... one can also call add_constr! and friends to add additional constraints ...
+update_model!(model)   # changes take effect after this
+optimize(model)</code></pre><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><p>The usage of this package is straight forward. Below, we use several examples to demonstrate the use of this package to solve optimization problems.</p><h3><a class="nav-anchor" id="Linear-Programming-Examples-1" href="#Linear-Programming-Examples-1">Linear Programming Examples</a></h3><p>Problem formulation:</p><pre><code class="language-none">maximize x + y
+
+s.t. 50 x + 24 y &lt;= 2400
+     30 x + 33 y &lt;= 2100
+     x &gt;= 45, y &gt;= 5</code></pre><p>Below, we show how this problem can be constructed and solved in different ways.</p><h5><a class="nav-anchor" id="Example-1.1:-High-level-Linear-Programming-API-1" href="#Example-1.1:-High-level-Linear-Programming-API-1">Example 1.1: High-level Linear Programming API</a></h5><p>Using the <span>$gurobi_model$</span> function:</p><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+# set presolve to 0
+setparam!(env, &quot;Presolve&quot;, 0)
+
+ # construct the model
+model = gurobi_model(env;
+    name = &quot;lp_01&quot;,
+    f = ones(2),
+    A = [50. 24.; 30. 33.],
+    b = [2400., 2100.],
+    lb = [5., 45.])
+
+ # run optimization
+optimize(model)
+
+ # show results
+sol = get_solution(model)
+println(&quot;soln = $(sol)&quot;)
+
+objv = get_objval(model)
+println(&quot;objv = $(objv)&quot;)</code></pre><h5><a class="nav-anchor" id="Example-1.2:-Low-level-Linear-Programming-API-1" href="#Example-1.2:-Low-level-Linear-Programming-API-1">Example 1.2: Low-level Linear Programming API</a></h5><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+# set presolve to 0
+setparam!(env, &quot;Presolve&quot;, 0)
+
+ # creates an empty model (&quot;lp_01&quot; is the model name)
+model = Gurobi.Model(env, &quot;lp_01&quot;, :maximize)
+
+ # add variables
+ # add_cvar!(model, obj_coef, lower_bound, upper_bound)
+add_cvar!(model, 1.0, 45., Inf)  # x: x &gt;= 45
+add_cvar!(model, 1.0,  5., Inf)  # y: y &gt;= 5
+
+ # For Gurobi, you have to call update_model to have the
+ # lastest changes take effect
+update_model!(model)
+
+ # add constraints
+ # add_constr!(model, coefs, sense, rhs)
+add_constr!(model, [50., 24.], &#39;&lt;&#39;, 2400.) # 50 x + 24 y &lt;= 2400
+add_constr!(model, [30., 33.], &#39;&lt;&#39;, 2100.) # 30 x + 33 y &lt;= 2100
+update_model!(model)
+
+println(model)
+
+ # perform optimization
+optimize(model)</code></pre><p>You may also add variables and constraints in batch, as:</p><pre><code class="language-julia"> # add mutliple variables in batch
+add_cvars!(model, [1., 1.], [45., 5.], Inf)
+
+ # add multiple constraints in batch
+A = [50. 24.; 30. 33.]
+b = [2400., 2100.]
+add_constrs!(model, A, &#39;&lt;&#39;, b)</code></pre><h5><a class="nav-anchor" id="Example-1.3:-Linear-programming-(MATLAB-like-style)-1" href="#Example-1.3:-Linear-programming-(MATLAB-like-style)-1">Example 1.3: Linear programming (MATLAB-like style)</a></h5><p>You may also specify and solve the entire problem in one function call, using the solver-independent <a href="https://github.com/JuliaOpt/MathProgBase.jl">MathProgBase</a> package.</p><p>Julia code:</p><pre><code class="language-julia">using MathProgBase, Gurobi
+
+f = [1., 1.]
+A = [50. 24.; 30. 33.]
+b = [2400., 2100.]
+lb = [5., 45.]
+
+# pass params as keyword arguments to GurobiSolver
+solution = linprog(f, A, &#39;&lt;&#39;, b, lb, Inf, GurobiSolver(Presolve=0))</code></pre><h5><a class="nav-anchor" id="Example-1.4:-Linear-programming-with-JuMP-(Algebraic-model)-1" href="#Example-1.4:-Linear-programming-with-JuMP-(Algebraic-model)-1">Example 1.4: Linear programming with JuMP (Algebraic model)</a></h5><p>Using <a href="https://github.com/JuliaOpt/JuMP.jl">JuMP</a>, we can specify linear programming problems using a more natural algebraic approach.</p><pre><code class="language-julia">using JuMP, Gurobi
+
+# pass params as keyword arguments to GurobiSolver
+m = Model(solver=GurobiSolver(Presolve=0))
+
+@variable(m, x &gt;= 5)
+@variable(m, y &gt;= 45)
+
+@objective(m, Min, x + y)
+@constraint(m, 50x + 24y &lt;= 2400)
+@constraint(m, 30x + 33y &lt;= 2100)
+
+status = solve(m)
+println(&quot;Optimal objective: &quot;,getobjectivevalue(m),
+	&quot;. x = &quot;, getvalue(x), &quot; y = &quot;, getvalue(y))</code></pre><h3><a class="nav-anchor" id="Quadratic-programming-Examples-1" href="#Quadratic-programming-Examples-1">Quadratic programming Examples</a></h3><p>Problem formulation:</p><pre><code class="language-none">minimize x^2 + xy + y^2 + yz + z^2
+
+s.t.  x + 2 y + 3 z &gt;= 4
+      x +   y       &gt;= 1</code></pre><h5><a class="nav-anchor" id="Example-2.1:-High-level-Quadratic-Programming-API-1" href="#Example-2.1:-High-level-Quadratic-Programming-API-1">Example 2.1: High-level Quadratic Programming API</a></h5><p>using the function <span>$gurobi_model$</span>:</p><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+model = gurobi_model(env;
+        name = &quot;qp_01&quot;,
+        H = [2. 1. 0.; 1. 2. 1.; 0. 1. 2.],
+        f = [0., 0., 0.],
+        A = -[1. 2. 3.; 1. 1. 0.],
+        b = -[4., 1.])
+optimize(model)</code></pre><h5><a class="nav-anchor" id="Example-2.2:-Low-level-Quadratic-Programming-API-1" href="#Example-2.2:-Low-level-Quadratic-Programming-API-1">Example 2.2: Low-level Quadratic Programming API</a></h5><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+model = Gurobi.Model(env, &quot;qp_01&quot;)
+
+add_cvars!(model, [1., 1.], 0., Inf)
+update_model!(model)
+
+ # add quadratic terms: x^2, x * y, y^2
+ # add_qpterms!(model, rowinds, colinds, coeffs)
+add_qpterms!(model, [1, 1, 2], [1, 2, 2], [1., 1., 1.])
+
+ # add linear constraints
+add_constr!(model, [1., 2., 3.], &#39;&gt;&#39;, 4.)
+add_constr!(model, [1., 1., 0.], &#39;&gt;&#39;, 1.)
+update_model!(model)
+
+optimize(model)</code></pre><h3><a class="nav-anchor" id="Mixed-Integer-Programming-1" href="#Mixed-Integer-Programming-1">Mixed Integer Programming</a></h3><p>This package also supports mixed integer programming.</p><p>Problem formulation:</p><pre><code class="language-none">maximize x + 2 y + 5 z
+
+s.t.  x + y + z &lt;= 10
+      x + 2 y + z &lt;= 15
+      x is continuous: 0 &lt;= x &lt;= 5
+      y is integer: 0 &lt;= y &lt;= 10
+      z is binary</code></pre><h5><a class="nav-anchor" id="Example-3.1:-Low-level-MIP-API-1" href="#Example-3.1:-Low-level-MIP-API-1">Example 3.1: Low-level MIP API</a></h5><p>Julia code:</p><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+model = Gurobi.Model(env, &quot;mip_01&quot;, :maximize)
+
+ # add continuous variable
+add_cvar!(model, 1., 0., 5.)  # x
+
+ # add integer variable
+add_ivar!(model, 2., 0, 10)   # y
+
+ # add binary variable
+add_bvar!(model, 5.)          # z
+
+ # have the variables incorporated into the model
+update_model!(model)
+
+add_constr!(model, ones(3), &#39;&lt;&#39;, 10.)
+add_constr!(model, [1., 2., 1.], &#39;&lt;&#39;, 15.)
+
+optimize(model)</code></pre><p>Note that you can use <span>$add_ivars!$</span> and <span>$add_bvars!$</span> to add multiple integer or binary variables in batch.</p><h5><a class="nav-anchor" id="Example-3.2:-MIP-using-JuMP-with-Gurobi-1" href="#Example-3.2:-MIP-using-JuMP-with-Gurobi-1">Example 3.2: MIP using JuMP with Gurobi</a></h5><pre><code class="language-julia">using JuMP, Gurobi
+
+m = Model(solver=GurobiSolver())
+
+@variables(m,begin
+    0 &lt;= x &lt;= 5
+    0 &lt;= y &lt;= 10, Int
+    z, Bin
+end)
+
+@objective(m, Max, x + 2y + 5z)
+@constraint(m, x + y + z &lt;= 10)
+@constraint(m, x + 2y + z &lt;= 15)
+
+solve(m)</code></pre><h3><a class="nav-anchor" id="Quadratic-constraints-1" href="#Quadratic-constraints-1">Quadratic constraints</a></h3><p>The <span>$add_qconstr!$</span> function may be used to add quadratic constraints to a model.</p><p>Problem formulation:</p><pre><code class="language-none">maximize x + y
+
+s.t.  x, y &gt;= 0
+      x^2 + y^2 &lt;= 1</code></pre><p>Julia code:</p><pre><code class="language-julia">using Gurobi
+
+env = Gurobi.Env()
+
+model = Gurobi.Model(env, &quot;qcqp_01&quot;, :maximize)
+
+add_cvars!(model, [1., 1.], 0., Inf)
+update_model!(model)
+
+ # add_qpconstr!(model, linearindices, linearcoeffs, qrowinds, qcolinds, qcoeffs, sense, rhs)
+add_qconstr!(model, [], [], [1, 2], [1, 2], [1, 1.], &#39;&lt;&#39;, 1.0)
+update_model!(model)
+
+optimize(model)</code></pre><p>SOCP constraints of the form <span>$x&#39;x &lt;= y^2$</span> and <span>$x&#39;x &lt;= yz$</span> can be added using this method as well.</p><h3><a class="nav-anchor" id="Reusing-the-same-Gurobi-environment-for-multiple-solves-1" href="#Reusing-the-same-Gurobi-environment-for-multiple-solves-1">Reusing the same Gurobi environment for multiple solves</a></h3><p>When using this package via other packages such as <a href="https://github.com/JuliaOpt/MathProgBase.jl">MathProgBase.jl</a> and <a href="https://github.com/JuliaOpt/JuMP.jl">JuMP.jl</a>, the default behavior is to obtain a new Gurobi license token every time a model is created and solved. If you are using Gurobi in a setting where the number of concurrent Gurobi uses is limited (e.g. <a href="http://www.gurobi.com/products/licensing-pricing/licensing-overview">&quot;Single-Use&quot; or &quot;Floating-Use&quot; licenses</a>), you might instead prefer to obtain a single license token that is shared by all models that your program solves. You can do this by passing a Gurobi Environment object as the first parameter to <code>GurobiSolver</code>. For example, the follow code snippet solves multiple problems with JuMP using the same license token:</p><pre><code class="language-julia">using JuMP, Gurobi
+env = Gurobi.Env()
+
+m1 = Model(solver=GurobiSolver(env))
+...
+
+# The solvers can have different options too
+m2 = Model(solver=GurobiSolver(env, OutputFlag=0))
+...</code></pre><footer><hr/></footer></article></body></html>

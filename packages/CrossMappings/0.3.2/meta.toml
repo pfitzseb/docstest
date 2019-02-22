@@ -1,0 +1,7 @@
+name = "CrossMappings"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/kahaaga/CrossMappings.jl.git"
+version = "0.3.2"
+description = "A Julia package for computing cross mapping causality measures between time series."

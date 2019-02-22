@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "Cuba"
+owner = "giordano"
+version = "1.0.0"
+description = "Library for multidimensional numerical integration with four independent algorithms: Vegas, Suave, Divonne, and Cuhre."
+stargazers_count = "27"
+url = "https://github.com/giordano/Cuba.jl.git"
+installs = true
+tags = ["julia", "numerical-integration", "monte-carlo-integration", "integration", "math"]
+license = "Other"
+
+[[contributors]]
+name = "giordano"
+contributions = "158"
+[[contributors]]
+name = "afniedermayer"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

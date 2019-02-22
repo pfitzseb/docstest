@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SetRounding"
+owner = "JuliaIntervals"
+version = "0.2.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaIntervals/SetRounding.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "16"

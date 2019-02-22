@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LinearTimeVaryingModelsBase"
+owner = "baggepinnen"
+version = "0.2.1"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/baggepinnen/LinearTimeVaryingModelsBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "baggepinnen"
+contributions = "26"

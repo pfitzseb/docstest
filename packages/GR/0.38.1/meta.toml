@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "GR"
+owner = "jheinen"
+version = "0.38.1"
+description = "Plotting for Julia based on GR, a framework for visualisation applications"
+stargazers_count = "145"
+url = "https://github.com/jheinen/GR.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jheinen"
+contributions = "482"
+[[contributors]]
+name = "barche"
+contributions = "2"
+[[contributors]]
+name = "mteser"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "FlorianRhiem"
+contributions = "2"
+[[contributors]]
+name = "eugene"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "joshday"
+contributions = "1"
+[[contributors]]
+name = "mpastell"
+contributions = "1"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "dalum"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "ThoAppelsin"
+contributions = "1"
+[[contributors]]
+name = "cnliao"
+contributions = "1"
+[[contributors]]
+name = "goropikari"
+contributions = "1"
+[[contributors]]
+name = "machakann"
+contributions = "1"
+[[contributors]]
+name = "v-i-s-h"
+contributions = "1"

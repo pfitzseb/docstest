@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SummationByPartsOperators.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SummationByPartsOperators.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Basic-Operators-1">Basic Operators</a></li><li><a class="toctext" href="#Documentation-1">Documentation</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SummationByPartsOperators-1" href="#SummationByPartsOperators-1">SummationByPartsOperators</a></h1><p><a href="https://travis-ci.org/ranocha/SummationByPartsOperators.jl"><img src="https://travis-ci.org/ranocha/SummationByPartsOperators.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/ranocha/SummationByPartsOperators-jl"><img src="https://ci.appveyor.com/api/projects/status/i1saoodeqrepiodl?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/ranocha/SummationByPartsOperators.jl?branch=master"><img src="https://coveralls.io/repos/github/ranocha/SummationByPartsOperators.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://codecov.io/github/ranocha/SummationByPartsOperators.jl?branch=master"><img src="http://codecov.io/github/ranocha/SummationByPartsOperators.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>A library of classical summation-by-parts (SBP) operators used in finite difference methods to get provably stable semidiscretisations, paying special attention to boundary conditions.</p><h2><a class="nav-anchor" id="Basic-Operators-1" href="#Basic-Operators-1">Basic Operators</a></h2><p>The following derivative operators are implemented as &quot;lazy operators&quot;, i.e. no matrix is formed explicitly.</p><h3><a class="nav-anchor" id="Periodic-Domains-1" href="#Periodic-Domains-1">Periodic Domains</a></h3><ul><li><p><code>periodic_derivative_operator(derivative_order, accuracy_order, xmin, xmax, N)</code></p><p>These are classical central finite difference operators using <code>N</code> nodes on the interval <code>[xmin, xmax]</code>.</p></li><li><p><code>periodic_derivative_operator(Holoborodko2008(), derivative_order, accuracy_order, xmin, xmax, N)</code></p><p>These are central finite difference operators using <code>N</code> nodes on the interval <code>[xmin, xmax]</code> and the coefficients of <a href="http://www.holoborodko.com/pavel/numerical-methods/numerical-derivative/smooth-low-noise-differentiators/">Pavel Holoborodko</a>.</p></li><li><p><code>fourier_derivative_operator(xmin, xmax, N)</code></p><p>Fourier derivative operators are implemented using the fast Fourier transform of <a href="https://github.com/JuliaMath/FFTW.jl">FFTW.jl</a>.</p></li></ul><h3><a class="nav-anchor" id="Finite/Nonperiodic-Domains-1" href="#Finite/Nonperiodic-Domains-1">Finite/Nonperiodic Domains</a></h3><ul><li><p><code>derivative_operator(source_of_coefficients, derivative_order, accuracy_order, xmin, xmax, N)</code></p><p>Finite difference SBP operators for first and second derivatives can be obained by using <code>MattssonNordström2004()</code> as <code>source_of_coefficients</code>. Other sources of coefficients are implemented as well. To obtain a full list for all operators, use <code>subtypes(SourceOfCoefficients)</code>.</p></li><li><p><code>legendre_derivative_operator(xmin, xmax, N)</code></p><p>Use Lobatto Legendre polynomial collocation schemes on <code>N</code>, i.e. polynomials of degree <code>N-1</code>, implemented via <a href="https://github.com/ranocha/PolynomialBases.jl">PolynomialBases.jl</a>.</p></li></ul><h3><a class="nav-anchor" id="Dissipation-Operators-1" href="#Dissipation-Operators-1">Dissipation Operators</a></h3><p>Additionally, some artificial dissipation/viscosity operators are implemented. The most basic usage is <code>Di = dissipation_operator(D)</code>, where <code>D</code> can be a (periodic, Fourier, Legendre, SBP FD) derivative operator. Use <code>?dissipation_operator</code> for more details.</p><h3><a class="nav-anchor" id="Conversion-to-Other-Forms-1" href="#Conversion-to-Other-Forms-1">Conversion to Other Forms</a></h3><p>Sometimes, it can be convenient to obtain an explicit (sparse, banded) matrix form of the operators. Therefore, some conversion functions are supplied, e.g.</p><pre><code class="language-julia">julia&gt; using SummationByPartsOperators
+
+julia&gt; D = derivative_operator(MattssonNordström2004(), 1, 2, 0., 1., 5)
+SBP 1st derivative operator of order 2 {T=Float64, Parallel=Val{:serial}}
+on a grid in [0.0, 1.0] using 5 nodes
+and coefficients given in
+  Mattsson, Nordström (2004)
+  Summation by parts operators for finite difference approximations of second
+    derivaties.
+  Journal of Computational Physics 199, pp.503-540.
+
+
+julia&gt; Matrix(D)
+5×5 Array{Float64,2}:
+ -4.0   4.0   0.0   0.0  0.0
+ -2.0   0.0   2.0   0.0  0.0
+  0.0  -2.0   0.0   2.0  0.0
+  0.0   0.0  -2.0   0.0  2.0
+  0.0   0.0   0.0  -4.0  4.0
+
+julia&gt; using SparseArrays
+
+julia&gt; sparse(D)
+5×5 SparseMatrixCSC{Float64,Int64} with 10 stored entries:
+  [1, 1]  =  -4.0
+  [2, 1]  =  -2.0
+  [1, 2]  =  4.0
+  [3, 2]  =  -2.0
+  [2, 3]  =  2.0
+  [4, 3]  =  -2.0
+  [3, 4]  =  2.0
+  [5, 4]  =  -4.0
+  [4, 5]  =  2.0
+  [5, 5]  =  4.0
+
+julia&gt; using BandedMatrices
+
+julia&gt; BandedMatrix(D)
+5×5 BandedMatrix{Float64,Array{Float64,2},Base.OneTo{Int64}}:
+ -4.0   4.0    ⋅     ⋅    ⋅
+ -2.0   0.0   2.0    ⋅    ⋅
+   ⋅   -2.0   0.0   2.0   ⋅
+   ⋅     ⋅   -2.0   0.0  2.0
+   ⋅     ⋅     ⋅   -4.0  4.0</code></pre><h2><a class="nav-anchor" id="Documentation-1" href="#Documentation-1">Documentation</a></h2><p>Examples can e found in the directory <a href="https://github.com/ranocha/SummationByPartsOperators.jl/tree/master/notebooks"><code>notebooks</code></a>. In particular, examples of complete discretisations of <a href="https://github.com/ranocha/SummationByPartsOperators.jl/blob/master/notebooks/Advection_equation.ipynb">the linear advection equation</a>, <a href="https://github.com/ranocha/SummationByPartsOperators.jl/blob/master/notebooks/Heat_equation.ipynb">the heat equation</a>, and the <a href="https://github.com/ranocha/SummationByPartsOperators.jl/blob/master/notebooks/Wave_equation.ipynb">wave equation</a> are supplied. Further examples are supplied as <a href="https://github.com/ranocha/SummationByPartsOperators.jl/tree/master/test">tests</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

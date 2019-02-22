@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "CatViews"
+owner = "ahwillia"
+version = "1.0.0"
+description = "Concatenated Array views in Julia."
+stargazers_count = "31"
+url = "https://github.com/ahwillia/CatViews.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ahwillia"
+contributions = "41"
+[[contributors]]
+name = "oxinabox"
+contributions = "3"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "dskkato"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "rodonn"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

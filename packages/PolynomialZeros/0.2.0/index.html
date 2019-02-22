@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · PolynomialZeros.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>PolynomialZeros.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Details-1">Details</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="PolynomialZeros-1" href="#PolynomialZeros-1">PolynomialZeros</a></h1><p>Methods to find zeros (roots) of polynomials over given domains</p><p>Linux: <a href="https://travis-ci.org/jverzani/PolynomialZeros.jl"><img src="https://travis-ci.org/jverzani/PolynomialZeros.jl.svg?branch=master" alt="Build Status"/></a></p><p>Windows: <a href="https://ci.appveyor.com/project/jverzani/polynomialzeros-jl/branch/master"><img src="https://ci.appveyor.com/api/projects/status/ovkutr0gxrdtjxmb/branch/master?svg=true" alt="Build status"/></a></p><p>This package provides the method <code>poly_roots</code> to find roots of univariate polynomial functions over the complex numbers, the real numbers, the rationals, the integers, or Z_p. (A &quot;root&quot; is the name for a &quot;zero&quot; of a polynomial function.) The package takes advantage of other root-finding packages for polynomials within Julia (e.g., <code>PolynomialRoots</code> for numeric solutions over the complex numbers and <code>PolynomialFactors</code> for exact solutions over the rationals and integers).</p><p>The basic interface is</p><pre><code class="language-none">poly_roots(f, domain)</code></pre><p>The polynomial, <code>f</code>, is specified through a function, a vector of coefficients (<code>p0, p1, ..., pn]</code>), or as a <code>Poly{T}</code> object, from the the <code>Polynomials.jl</code> package. The domain is specified by <code>Over.C</code> (the default), <code>Over.R</code>, <code>Over.Q</code>, <code>Over.Z</code>, or <code>over.Zp{p}</code>, with variants for specifying an underlying type.</p><p>Examples:</p><pre><code class="language-none">julia&gt; poly_roots(x -&gt; x^4 - 1, Over.C)  # uses `roots` from `PolynomialRoots.jl`
+4-element Array{Complex{Float64},1}:
+  0.0+1.0im
+  1.0-0.0im
+  0.0-1.0im
+ -1.0+0.0im
+
+
+julia&gt; poly_roots(x -&gt; x^4 - 1, Over.R)  
+2-element Array{Float64,1}:
+  1.0
+  -1.0
+  
+julia&gt; poly_roots(x -&gt; x^4 - 1, Over.Q) # uses `PolynomialFactors.jl`
+2-element Array{Rational{Int64},1}:
+ -1//1
+  1//1
+
+julia&gt; poly_roots(x -&gt; x^4 - 1, Over.Z) # uses `PolynomialFactors.jl`
+2-element Array{Int64,1}:
+ -1
+  1
+
+julia&gt; poly_roots(x -&gt; x^4 - 1, Over.Zp{5}) # uses `PolynomialFactors.jl`
+4-element Array{Int64,1}:
+ 4
+ 1
+ 3
+ 2</code></pre><p>Domains can also have their underlying types specified. For example, to solve over the <code>BigFloat</code> type, we have:</p><pre><code class="language-julia">poly_roots(x -&gt; x^4 - 1, Over.CC{BigFloat})  # `CC{BigFloat}` not just `C`</code></pre><p>There are other methods for <code>Over.C</code>. This will use the AMVW method:</p><pre><code class="language-none">julia&gt; poly_roots(x -&gt; x^4 - 1, Over.C, method=:amvw) 
+4-element Array{Complex{Float64},1}:
+ -1.8966567854390553e-17 - 0.9999999999999998im
+ -1.8966567854390553e-17 + 0.9999999999999998im
+     -0.9999999999999999 + 0.0im               
+      1.0000000000000002 + 0.0im </code></pre><h2><a class="nav-anchor" id="Details-1" href="#Details-1">Details</a></h2><p>This package uses:</p><ul><li>The <code>PolynomialRoots</code> package to find roots over the complex</li></ul><p>numbers. The <code>Roots</code> package can also be used. As well, an implementation of the <a href="http://epubs.siam.org/doi/abs/10.1137/140983434">AMVW</a> algorithm can be used. The default seems to be faster and as accurate as the others.</p><ul><li>The <code>PolynomialFactors</code> package to return roots over the</li></ul><p>rationals, integers, and integers modulo a prime.</p><ul><li>As well, it provides an algorithm to find the real</li></ul><p>roots of polynomials.</p><p>The main motivation for this package was to move the polynomial specific code out of the <code>Roots</code> package. This makes the <code>Roots</code> package have fewer dependencies and a more focused task. In addition, the polynomial specific code could use some better implementations of the underlying algorithms.</p><p>In the process of doing this, making a common interface to the other root-finding packages seemed to make sense.</p><h3><a class="nav-anchor" id="Other-possibly-useful-methods-1" href="#Other-possibly-useful-methods-1">Other possibly useful methods</a></h3><p>The package also provides</p><ul><li><p><code>PolynomialZeros.AGCD.agcd</code> for computing an <em>approximate</em> GCD of polynomials <code>p</code> and <code>q</code> over <code>Poly{Float64}</code>. (This is used to reduce a polynomial over the reals to a square-free polynomial. Square-free polynomials are needed for the algorithm used. This algorithm can become unreliable for degree 15 or more polynomials.)</p></li><li><p><code>PolynomialZeros.MultRoot.multroot</code> for finding roots of <code>p</code> in <code>Poly{Float64}</code> over <code>Complex{Float64}</code> which has some advantage if <code>p</code> has high multiplicities. The <code>roots</code> function from the <code>Polynomials</code> package will find all the roots of a polynomial. Its performance degrades when the polynomial has high multiplicities. The <code>multroot</code> function is provided to handle this case a bit better. The function follows algorithms due to Zeng, &quot;Computing multiple roots of inexact polynomials&quot;, Math. Comp. 74 (2005), 869-903. </p></li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

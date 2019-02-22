@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Unidecode"
+owner = "matthieugomez"
+version = "1.0.1"
+description = "Convert Unicode Back to UTF-8"
+stargazers_count = "0"
+url = "https://github.com/matthieugomez/Unidecode.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "matthieugomez"
+contributions = "18"

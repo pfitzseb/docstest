@@ -1,0 +1,123 @@
+license_url = ""
+doctype = "default"
+name = "ZMQ"
+owner = "JuliaInterop"
+version = "1.0.0"
+description = "Julia interface to ZMQ"
+stargazers_count = "71"
+url = "https://github.com/JuliaInterop/ZMQ.jl.git"
+installs = true
+tags = ["julia", "zmq", "zeromq"]
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "75"
+[[contributors]]
+name = "aviks"
+contributions = "37"
+[[contributors]]
+name = "tkelman"
+contributions = "27"
+[[contributors]]
+name = "yuyichao"
+contributions = "17"
+[[contributors]]
+name = "Keno"
+contributions = "11"
+[[contributors]]
+name = "vtjnash"
+contributions = "7"
+[[contributors]]
+name = "staticfloat"
+contributions = "6"
+[[contributors]]
+name = "simonbyrne"
+contributions = "6"
+[[contributors]]
+name = "autozimu"
+contributions = "5"
+[[contributors]]
+name = "ihnorton"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "amitmurthy"
+contributions = "4"
+[[contributors]]
+name = "wookay"
+contributions = "4"
+[[contributors]]
+name = "kmsquire"
+contributions = "4"
+[[contributors]]
+name = "alexmorley"
+contributions = "3"
+[[contributors]]
+name = "skariel"
+contributions = "3"
+[[contributors]]
+name = "jakebolewski"
+contributions = "3"
+[[contributors]]
+name = "simonster"
+contributions = "3"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "2"
+[[contributors]]
+name = "joelfrederico"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "perimosocordiae"
+contributions = "1"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "farrellm"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "olzhas"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "dls"
+contributions = "1"
+[[contributors]]
+name = "ggggggggg"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"
+[[contributors]]
+name = "yurivict"
+contributions = "1"

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · DifferentialDynamicProgramming.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>DifferentialDynamicProgramming.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Demo-functions-1">Demo functions</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li class="toplevel"><a class="toctext" href="#Citing-1">Citing</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="DifferentialDynamicProgramming-1" href="#DifferentialDynamicProgramming-1">DifferentialDynamicProgramming</a></h1><p><a href="http://pkg.julialang.org/?pkg=DifferentialDynamicProgramming"><img src="http://pkg.julialang.org/badges/DifferentialDynamicProgramming_0.4.svg" alt="DifferentialDynamicProgramming"/></a> <a href="http://pkg.julialang.org/?pkg=DifferentialDynamicProgramming"><img src="http://pkg.julialang.org/badges/DifferentialDynamicProgramming_0.5.svg" alt="DifferentialDynamicProgramming"/></a> <a href="http://pkg.julialang.org/?pkg=DifferentialDynamicProgramming"><img src="http://pkg.julialang.org/badges/DifferentialDynamicProgramming_0.6.svg" alt="DifferentialDynamicProgramming"/></a> <a href="https://travis-ci.org/baggepinnen/DifferentialDynamicProgramming.jl"><img src="https://travis-ci.org/baggepinnen/DifferentialDynamicProgramming.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/baggepinnen/DifferentialDynamicProgramming.jl?branch=master"><img src="https://coveralls.io/repos/github/baggepinnen/DifferentialDynamicProgramming.jl/badge.png?branch=master" alt="Coverage Status"/></a></p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>The package is registered and can be added with   <code>] add DifferentialDynamicProgramming</code>   To get the latest updates, install using  </p><pre><code class="language-none">] add https://github.com/baggepinnen/LinearTimeVaryingModelsBase.jl
+add DifferentialDynamicProgramming#master</code></pre><h2><a class="nav-anchor" id="Demo-functions-1" href="#Demo-functions-1">Demo functions</a></h2><p>The following demo functions are provided</p><p><code>demo_linear()</code>     To run the iLQG DDP algorithm on a simple linear problem   <code>demoQP</code>            To solve a demo quadratic program   <code>demo_pendcart()</code>   Where a pendulum attached to a cart is simulated.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><h3><a class="nav-anchor" id="Demo-linear-1" href="#Demo-linear-1">Demo linear</a></h3><p>See demo file <code>demo_linear.jl</code> for a usage example.</p><pre><code class="language-julia"># make stable linear dynamics
+h = .01         # time step
+n = 10          # state dimension
+m = 2           # control dimension
+A = randn(n,n)
+A = A-A&#39;        # skew-symmetric = pure imaginary eigenvalues
+A = exp(h*A)    # discrete time
+B = h*randn(n,m)
+
+# quadratic costs
+Q    = h*eye(n)
+R    = .1*h*eye(m)
+
+# control limits
+lims = [] #ones(m,1)*[-1 1]*.6
+
+T    = 1000             # horizon
+x0   = ones(n,1)        # initial state
+u0   = .1*randn(m,T)    # initial controls
+
+# optimization problem
+N    = T+1
+fx   = A
+fu   = B
+cxx  = Q
+cxu  = zeros(size(B))
+cuu  = R
+
+# Specify dynamics functions
+function lin_dyn_df(x,u,Q,R)
+    u[isnan(u)] = 0
+    cx  = Q*x
+    cu  = R*u
+    fxx=fxu=fuu = []
+    return fx,fu,fxx,fxu,fuu,cx,cu,cxx,cxu,cuu
+end
+function lin_dyn_f(x,u,A,B)
+    u[isnan(u)] = 0
+    xnew = A*x + B*u
+    return xnew
+end
+
+function lin_dyn_cost(x,u,Q)
+    c = 0.5*sum(x.*(Q*x)) + 0.5*sum(u.*(R*u))
+    return c
+end
+
+f(x,u,i)     = lin_dyn_f(x,u,A,B,Q,R)
+costfun(x,u) = lin_dyn_cost(x,u,Q)
+df(x,u)      = lin_dyn_df(x,u,Q,R)
+
+# run the optimization
+
+@time x, u, L, Vx, Vxx, cost, otrace = iLQG(f, costfun ,df, x0, u0, lims=lims);</code></pre><h3><a class="nav-anchor" id="Demo-pendulum-on-cart-1" href="#Demo-pendulum-on-cart-1">Demo pendulum on cart</a></h3><p>There is an additional demo function <code>demo_pendcart()</code>, where a pendulum attached to a cart is simulated. In this example, regular LQG control fails in stabilizing the pendulum at the upright position due to control limitations. The DDP-based optimization solves this by letting the pendulum fall, and increases the energy in the pendulum during the fall such that it will stay upright after one revolution.</p><p><img src="images/states_pendcart.png" alt="window"/> <img src="images/control_pendcart.png" alt="window"/></p><h1><a class="nav-anchor" id="Citing-1" href="#Citing-1">Citing</a></h1><p>This code consists of a port and extensions of a MATLAB library provided by the autors of</p><pre><code class="language-none">BIBTeX:
+@INPROCEEDINGS{
+  author    = {Tassa, Y. and Mansard, N. and Todorov, E.},
+  booktitle = {Robotics and Automation (ICRA), 2014 IEEE International Conference on},
+  title     = {Control-Limited Differential Dynamic Programming},
+  year      = {2014}, month={May}, doi={10.1109/ICRA.2014.6907001}}
+  http://www.mathworks.com/matlabcentral/fileexchange/52069-ilqg-ddp-trajectory-optimization
+  http://www.cs.washington.edu/people/postdocs/tassa/</code></pre><p>The code above was extended with KL-divergence constrained optimization for the thesis <a href="https://www.control.lth.se/staff/fredrik-bagge-carlson/">Bagge Carlson, F.</a>, <a href="https://lup.lub.lu.se/search/publication/ffb8dc85-ce12-4f75-8f2b-0881e492f6c0">&quot;Machine Learning and System Identification for Estimation in Physical Systems&quot;</a> (PhD Thesis 2018).</p><pre><code class="language-bibtex">@thesis{bagge2018,
+  title        = {Machine Learning and System Identification for Estimation in Physical Systems},
+  author       = {Bagge Carlson, Fredrik},
+  keyword      = {Machine Learning,System Identification,Robotics,Spectral estimation,Calibration,State estimation},
+  month        = {12},
+  type         = {PhD Thesis},
+  number       = {TFRT-1122},
+  institution  = {Dept. Automatic Control, Lund University, Sweden},
+  year         = {2018},
+  url          = {https://lup.lub.lu.se/search/publication/ffb8dc85-ce12-4f75-8f2b-0881e492f6c0},
+}</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

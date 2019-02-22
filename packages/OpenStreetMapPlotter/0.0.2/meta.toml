@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "OpenStreetMapPlotter"
+owner = "juliusgeo"
+version = "0.0.2"
+description = "Plotting focused library for OpenStreetMap data"
+stargazers_count = "5"
+url = "https://github.com/juliusgeo/OpenStreetMapPlotter.jl.git"
+installs = true
+tags = ["openstreetmap", "julia", "osm", "geography", "plotting", "visualization"]
+license = "MIT License"
+
+[[contributors]]
+name = "juliusgeo"
+contributions = "59"

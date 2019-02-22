@@ -1,0 +1,165 @@
+license_url = ""
+doctype = "default"
+name = "JSON"
+owner = "JuliaIO"
+version = "0.20.0"
+description = "JSON parsing and printing"
+stargazers_count = "139"
+url = "https://github.com/JuliaIO/JSON.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "TotalVerb"
+contributions = "54"
+[[contributors]]
+name = "aviks"
+contributions = "47"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "42"
+[[contributors]]
+name = "IainNZ"
+contributions = "23"
+[[contributors]]
+name = "tkelman"
+contributions = "18"
+[[contributors]]
+name = "stevengj"
+contributions = "16"
+[[contributors]]
+name = "yuyichao"
+contributions = "13"
+[[contributors]]
+name = "kmsquire"
+contributions = "13"
+[[contributors]]
+name = "dirk"
+contributions = "11"
+[[contributors]]
+name = "jiahao"
+contributions = "10"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "9"
+[[contributors]]
+name = "KristofferC"
+contributions = "7"
+[[contributors]]
+name = "jakebolewski"
+contributions = "6"
+[[contributors]]
+name = "Keno"
+contributions = "6"
+[[contributors]]
+name = "daviddelaat"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "4"
+[[contributors]]
+name = "quinnj"
+contributions = "4"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "3"
+[[contributors]]
+name = "mweastwood"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "tanmaykm"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "alyst"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "Chief-PITA"
+contributions = "2"
+[[contributors]]
+name = "christopherdavidwhite"
+contributions = "2"
+[[contributors]]
+name = "dcjones"
+contributions = "2"
+[[contributors]]
+name = "iamed2"
+contributions = "2"
+[[contributors]]
+name = "astrieanna"
+contributions = "2"
+[[contributors]]
+name = "nolta"
+contributions = "2"
+[[contributors]]
+name = "randyzwitch"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "ivarne"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "christopher-dG"
+contributions = "1"
+[[contributors]]
+name = "EricForgy"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "pmarks"
+contributions = "1"
+[[contributors]]
+name = "swadey"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "powerdistribution"
+contributions = "1"
+[[contributors]]
+name = "YongHee-Kim"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "krrutkow"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"
+[[contributors]]
+name = "samuelcolvin"
+contributions = "1"

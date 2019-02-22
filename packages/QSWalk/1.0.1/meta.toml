@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "QSWalk"
+owner = "QuantumWalks"
+version = "1.0.1"
+description = "QSWalk.jl: simulating the evolution of open quantum systems on graphs"
+stargazers_count = "6"
+url = "https://github.com/QuantumWalks/QSWalk.jl.git"
+installs = true
+tags = ["quantum-computing", "quantum-mechanics", "quantum-walks", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "adamglos92"
+contributions = "110"
+[[contributors]]
+name = "jmiszczak"
+contributions = "94"
+[[contributors]]
+name = "mostaszewski314"
+contributions = "15"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

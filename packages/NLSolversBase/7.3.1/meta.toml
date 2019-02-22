@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "NLSolversBase"
+owner = "JuliaNLSolvers"
+version = "7.3.1"
+description = "Base package for optimization and equation solver software in JuliaNLSolvers"
+stargazers_count = "10"
+url = "https://github.com/JuliaNLSolvers/NLSolversBase.jl.git"
+installs = true
+tags = ["optimization", "equation-solver", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "pkofod"
+contributions = "58"
+[[contributors]]
+name = "anriseth"
+contributions = "16"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "iewaij"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"
+[[contributors]]
+name = "dawbarton"
+contributions = "1"
+[[contributors]]
+name = "devmotion"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

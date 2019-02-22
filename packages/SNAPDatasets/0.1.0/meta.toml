@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SNAPDatasets"
+owner = "JuliaGraphs"
+version = "0.1.0"
+description = "LightGraphs.jl-formatted graph files taken from the SNAP Datasets collection."
+stargazers_count = "1"
+url = "https://github.com/JuliaGraphs/SNAPDatasets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "8"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "Azzaare"
+contributions = "1"

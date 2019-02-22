@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "HCubature"
+owner = "stevengj"
+version = "1.3.0"
+description = "pure-Julia multidimensional h-adaptive integration"
+stargazers_count = "40"
+url = "https://github.com/stevengj/HCubature.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "49"
+[[contributors]]
+name = "pabloferz"
+contributions = "3"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "2"
+[[contributors]]
+name = "yakir12"
+contributions = "2"
+[[contributors]]
+name = "jneem"
+contributions = "1"

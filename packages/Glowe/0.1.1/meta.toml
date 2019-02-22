@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Glowe"
+owner = "zgornel"
+version = "0.1.1"
+description = "Julia interface to GloVe"
+stargazers_count = "1"
+url = "https://github.com/zgornel/Glowe.jl.git"
+installs = true
+tags = ["embeddings", "glove-embeddings", "glove-models", "glove-vectors", "julia-package"]
+license = "MIT License"
+
+[[contributors]]
+name = "zgornel"
+contributions = "16"

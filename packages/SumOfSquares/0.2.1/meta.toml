@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "SumOfSquares"
+owner = "JuliaOpt"
+version = "0.2.1"
+description = "Sum of Squares Programming for Julia"
+stargazers_count = "28"
+url = "https://github.com/JuliaOpt/SumOfSquares.jl.git"
+installs = true
+tags = ["julia", "optimization", "polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "260"
+[[contributors]]
+name = "joehuchette"
+contributions = "6"
+[[contributors]]
+name = "lkapelevich"
+contributions = "2"
+[[contributors]]
+name = "mforets"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

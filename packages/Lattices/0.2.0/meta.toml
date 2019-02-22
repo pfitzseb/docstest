@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "real"
+name = "Lattices"
+owner = "Roger-luo"
+version = "0.2.0"
+description = "A Lattice Library for Julia"
+stargazers_count = "0"
+url = "https://github.com/Roger-luo/Lattices.jl.git"
+installs = true
+tags = ["lattices", "geometry", "tiling", "julia"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "46"

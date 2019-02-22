@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "LocallyWeightedRegression"
+owner = "juliohm"
+version = "0.3.0"
+description = "Locally weighted regression solver for the GeoStats.jl framework"
+stargazers_count = "2"
+url = "https://github.com/juliohm/LocallyWeightedRegression.jl.git"
+installs = true
+tags = ["estimation", "nearest-neighbors", "kdtree", "weighting", "kernel"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "36"

@@ -1,0 +1,7 @@
+name = "BigArrays"
+stargazers_count = "1"
+doctype = "default"
+installs = true
+url = "https://github.com/seung-lab/BigArrays.jl.git"
+version = "0.8.0"
+description = "storing and accessing large Julia array locally or in cloud storage."

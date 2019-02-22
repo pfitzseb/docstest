@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Rectangle"
+owner = "sambitdash"
+version = "0.0.7"
+description = "Simple Rectangle operations in 2-D. "
+stargazers_count = "3"
+url = "https://github.com/sambitdash/Rectangle.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sambitdash"
+contributions = "99"
+[[contributors]]
+name = "JagdeepRao"
+contributions = "1"

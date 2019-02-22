@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FMMLIB2D"
+owner = "ludvigak"
+version = "0.3.0"
+description = "The fast multipole method (FMM). Julia interface to the library FMMLIB2D."
+stargazers_count = "1"
+url = "https://github.com/ludvigak/FMMLIB2D.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ludvigak"
+contributions = "30"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "TreeView"
+owner = "JuliaTeX"
+version = "0.3.1"
+description = "Draw Julia syntax trees as a graph"
+stargazers_count = "22"
+url = "https://github.com/JuliaTeX/TreeView.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "20"
+[[contributors]]
+name = "tawheeler"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mykelk"
+contributions = "1"
+[[contributors]]
+name = "rcnlee"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"

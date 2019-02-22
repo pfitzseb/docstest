@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RemoteSemaphores"
+owner = "invenia"
+version = "0.1.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/invenia/RemoteSemaphores.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "iamed2"
+contributions = "16"
+[[contributors]]
+name = "ararslan"
+contributions = "2"

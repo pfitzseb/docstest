@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqPhysics"
+owner = "JuliaDiffEq"
+version = "3.1.0"
+description = "A library for building differential equations arising from physical problems"
+stargazers_count = "22"
+url = "https://github.com/JuliaDiffEq/DiffEqPhysics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Mikhail-Vaganov"
+contributions = "47"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "33"
+[[contributors]]
+name = "YingboMa"
+contributions = "13"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

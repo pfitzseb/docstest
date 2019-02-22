@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BritishNationalGrid"
+owner = "anowacki"
+version = "0.2.4"
+description = "Convert between British National Grid coordinates and WGS84 longitude and latitude, in Julia"
+stargazers_count = "1"
+url = "https://github.com/anowacki/BritishNationalGrid.jl.git"
+installs = true
+tags = ["coordinate-transformation", "british-national-grid", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "anowacki"
+contributions = "23"

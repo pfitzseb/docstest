@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "UnsteadyFlowSolvers"
+owner = "KiranUofG"
+version = "0.7.5"
+description = "Solvers for problems involving unsteady fluid flow"
+stargazers_count = "3"
+url = "https://github.com/KiranUofG/UnsteadyFlowSolvers.jl.git"
+installs = true
+tags = ["julia", "fluid-dynamics", "fluid-simulation", "vortex"]
+license = "MIT License"
+
+[[contributors]]
+name = "KiranUofG"
+contributions = "208"
+[[contributors]]
+name = "desanga"
+contributions = "71"
+[[contributors]]
+name = "mercheer"
+contributions = "13"
+[[contributors]]
+name = "hjabird"
+contributions = "5"
+[[contributors]]
+name = "amtnz"
+contributions = "3"

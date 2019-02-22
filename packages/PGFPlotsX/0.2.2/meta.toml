@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "PGFPlotsX"
+owner = "KristofferC"
+version = "0.2.2"
+description = "Create plots in Julia using the PGFPlots LaTeX package"
+stargazers_count = "88"
+url = "https://github.com/KristofferC/PGFPlotsX.jl.git"
+installs = true
+tags = ["pgfplots", "julia", "latex", "plotting"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "86"
+[[contributors]]
+name = "KristofferC"
+contributions = "86"
+[[contributors]]
+name = "jebej"
+contributions = "6"
+[[contributors]]
+name = "fredrikekre"
+contributions = "5"
+[[contributors]]
+name = "jbrea"
+contributions = "2"
+[[contributors]]
+name = "eljungsk"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "Sleort"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

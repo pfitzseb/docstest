@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "BoundingSphere"
+owner = "JuliaFEM"
+version = "0.1.0"
+description = "Package contains algorithms to calculate smallest enclosing sphere for a given set of points in N dimensions."
+stargazers_count = "3"
+url = "https://github.com/JuliaFEM/BoundingSphere.jl.git"
+installs = true
+tags = ["julia", "bounding-sphere"]
+license = "Other"
+
+[[contributors]]
+name = "jw3126"
+contributions = "18"
+[[contributors]]
+name = "TeroFrondelius"
+contributions = "4"
+[[contributors]]
+name = "ahojukka5"
+contributions = "3"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "RandomExtensions"
+owner = "rfourquet"
+version = "0.0.1"
+description = "Extensions to the stdlib/Random module"
+stargazers_count = "5"
+url = "https://github.com/rfourquet/RandomExtensions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rfourquet"
+contributions = "33"

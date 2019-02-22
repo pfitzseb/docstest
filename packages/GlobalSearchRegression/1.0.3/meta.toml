@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "GlobalSearchRegression"
+owner = "ParallelGSReg"
+version = "1.0.3"
+description = "Julia's HPC command for automatic feature/model selection using all-subset-regression approaches"
+stargazers_count = "5"
+url = "https://github.com/ParallelGSReg/GlobalSearchRegression.jl.git"
+installs = true
+tags = ["regression-analysis"]
+license = "Other"
+
+[[contributors]]
+name = "vmari"
+contributions = "88"
+[[contributors]]
+name = "adanmauri"
+contributions = "65"
+[[contributors]]
+name = "dpanigo"
+contributions = "6"

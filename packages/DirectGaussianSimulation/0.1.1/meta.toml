@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "DirectGaussianSimulation"
+owner = "juliohm"
+version = "0.1.1"
+description = "Direct Gaussian simulation solver for the GeoStats.jl framework"
+stargazers_count = "0"
+url = "https://github.com/juliohm/DirectGaussianSimulation.jl.git"
+installs = true
+tags = ["gaussian-processes", "variogram", "covariance", "lu-decomposition"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "35"

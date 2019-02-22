@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "BoltzmannMachines"
+owner = "stefan-m-lenz"
+version = "1.1.0"
+description = "A Julia package for training and evaluating multimodal deep Boltzmann machines"
+stargazers_count = "6"
+url = "https://github.com/stefan-m-lenz/BoltzmannMachines.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stefan-m-lenz"
+contributions = "165"

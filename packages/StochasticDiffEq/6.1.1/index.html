@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StochasticDiffEq.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StochasticDiffEq.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#API-1">API</a></li><li><a class="toctext" href="#Available-Solvers-1">Available Solvers</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StochasticDiffEq.jl-1" href="#StochasticDiffEq.jl-1">StochasticDiffEq.jl</a></h1><p><a href="https://gitter.im/JuliaDiffEq/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/JuliaDiffEq/Lobby.svg" alt="Join the chat at https://gitter.im/JuliaDiffEq/Lobby"/></a> <a href="https://travis-ci.org/JuliaDiffEq/StochasticDiffEq.jl"><img src="https://travis-ci.org/JuliaDiffEq/StochasticDiffEq.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/ChrisRackauckas/stochasticdiffeq-jl"><img src="https://ci.appveyor.com/api/projects/status/k01khnd8waktsg1q?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaDiffEq/StochasticDiffEq.jl"><img src="https://coveralls.io/repos/github/JuliaDiffEq/StochasticDiffEq.jl/badge.svg" alt="Coverage Status"/></a> <a href="https://codecov.io/gh/JuliaDiffEq/StochasticDiffEq.jl"><img src="https://codecov.io/gh/JuliaDiffEq/StochasticDiffEq.jl/branch/master/graph/badge.svg" alt="codecov"/></a> <a href="http://pkg.julialang.org/?pkg=StochasticDiffEq"><img src="http://pkg.julialang.org/badges/StochasticDiffEq_0.6.svg" alt="StochasticDiffEq"/></a></p><p>StochasticDiffEq.jl is a component package in the DifferentialEquations ecosystem. It holds the stochastic differential equations solvers and utilities. While completely independent and usable on its own, users interested in using this functionality should check out <a href="https://github.com/JuliaDiffEq/DifferentialEquations.jl">DifferentialEquations.jl</a>.</p><h2><a class="nav-anchor" id="API-1" href="#API-1">API</a></h2><p>StochasticDiffEq.jl is part of the JuliaDiffEq common interface, but can be used independently of DifferentialEquations.jl. The only requirement is that the user passes an StochasticDiffEq.jl algorithm to <code>solve</code>. For example, we can solve the <a href="http://docs.juliadiffeq.org/latest/tutorials/sde_example.html">ODE tutorial from the docs</a> using the <code>SRIW1()</code> algorithm:</p><pre><code class="language-julia">using StochasticDiffEq
+α=1
+β=1
+u₀=1/2
+f(u,p,t) = α*u
+g(u,p,t) = β*u
+dt = 1//2^(4)
+tspan = (0.0,1.0)
+prob = SDEProblem(f,g,u₀,(0.0,1.0))
+sol =solve(prob,SRIW1())</code></pre><p>The options for <code>solve</code> are defined in the <a href="http://docs.juliadiffeq.org/latest/basics/common_solver_opts.html">common solver options page</a> and are thoroughly explained in <a href="http://docs.juliadiffeq.org/latest/tutorials/ode_example.html">the ODE tutorial</a>.</p><p>That example uses the out-of-place syntax <code>f(u,p,t)</code>, while the inplace syntax (more efficient for systems of equations) is shown in the Lorenz example:</p><pre><code class="language-julia">function lorenz(du,u,p,t)
+ du[1] = 10.0(u[2]-u[1])
+ du[2] = u[1]*(28.0-u[3]) - u[2]
+ du[3] = u[1]*u[2] - (8/3)*u[3]
+end
+
+function σ_lorenz(du,u,p,t)
+ du[1] = 3.0
+ du[2] = 3.0
+ du[3] = 3.0
+end
+
+prob_sde_lorenz = SDEProblem(lorenz,σ_lorenz,[1.0,0.0,0.0],(0.0,10.0))
+sol = solve(prob_sde_lorenz)
+plot(sol,vars=(1,2,3))</code></pre><p>The problems default to diagonal noise. Non-diagonal noise can be added by setting the <code>noise_prototype</code>:</p><pre><code class="language-julia">f = (du,u,p,t) -&gt; du.=1.01u
+g = function (du,u,p,t)
+  du[1,1] = 0.3u[1]
+  du[1,2] = 0.6u[1]
+  du[1,3] = 0.9u[1]
+  du[1,4] = 0.12u[2]
+  du[2,1] = 1.2u[1]
+  du[2,2] = 0.2u[2]
+  du[2,3] = 0.3u[2]
+  du[2,4] = 1.8u[2]
+end
+prob = SDEProblem(f,g,ones(2),(0.0,1.0),noise_rate_prototype=zeros(2,4))</code></pre><p>Colored noise can be set using <a href="http://docs.juliadiffeq.org/latest/features/noise_process.html">an <code>AbstractNoiseProcess</code></a>. For example, we can set the underlying noise process to a <code>GeometricBrownian</code> via:</p><pre><code class="language-julia">μ = 1.0
+σ = 2.0
+W = GeometricBrownianMotionProcess(μ,σ,0.0,1.0,1.0)
+# ...
+# Define f,g,u0,tspan for a SDEProblem
+# ...
+prob = SDEProblem(f,g,u0,tspan,noise=W)</code></pre><p>StochasticDiffEq.jl also handles solving random ordinary differential equations. This is shown <a href="http://docs.juliadiffeq.org/latest/tutorials/rode_example.html">in the RODE tutorial</a>.</p><pre><code class="language-julia">using StochasticDiffEq
+function f(u,p,t,W)
+  2u*sin(W)
+end
+u0 = 1.00
+tspan = (0.0,5.0)
+prob = RODEProblem(f,u0,tspan)
+sol = solve(prob,RandomEM(),dt=1/100)</code></pre><h2><a class="nav-anchor" id="Available-Solvers-1" href="#Available-Solvers-1">Available Solvers</a></h2><p>For the list of available solvers, please refer to the <a href="http://docs.juliadiffeq.org/latest/solvers/sde_solve.html">DifferentialEquations.jl SDE Solvers page</a> and the <a href="http://docs.juliadiffeq.org/latest/solvers/rode_solve.html">RODE Solvers page</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

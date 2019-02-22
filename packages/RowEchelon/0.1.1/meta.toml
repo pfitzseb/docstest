@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "RowEchelon"
+owner = "blegat"
+version = "0.1.1"
+description = "Small package containing the rref fonction for computing the reduced row echelon form of the matrix A"
+stargazers_count = "7"
+url = "https://github.com/blegat/RowEchelon.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "24"
+[[contributors]]
+name = "PBrdng"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

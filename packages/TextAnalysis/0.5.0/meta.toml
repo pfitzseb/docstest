@@ -1,0 +1,75 @@
+license_url = ""
+doctype = "real"
+name = "TextAnalysis"
+owner = "JuliaText"
+version = "0.5.0"
+description = "Julia package for text analysis"
+stargazers_count = "202"
+url = "https://github.com/JuliaText/TextAnalysis.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "aviks"
+contributions = "103"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "33"
+[[contributors]]
+name = "AsafManela"
+contributions = "15"
+[[contributors]]
+name = "baggepinnen"
+contributions = "12"
+[[contributors]]
+name = "tanmaykm"
+contributions = "9"
+[[contributors]]
+name = "aquatiko"
+contributions = "7"
+[[contributors]]
+name = "ayush1999"
+contributions = "7"
+[[contributors]]
+name = "nickto"
+contributions = "5"
+[[contributors]]
+name = "laschuet"
+contributions = "5"
+[[contributors]]
+name = "cchderrick"
+contributions = "4"
+[[contributors]]
+name = "schottmueller"
+contributions = "4"
+[[contributors]]
+name = "yukota"
+contributions = "3"
+[[contributors]]
+name = "abieler"
+contributions = "3"
+[[contributors]]
+name = "dgmattam"
+contributions = "2"
+[[contributors]]
+name = "nalimilan"
+contributions = "2"
+[[contributors]]
+name = "slundberg"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "Paethon"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "ultradian"
+contributions = "1"

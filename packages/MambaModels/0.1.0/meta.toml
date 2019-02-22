@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "MambaModels"
+owner = "StatisticalRethinkingJulia"
+version = "0.1.0"
+description = "Mamba versions of StatisticalRethinking models (just a few models)"
+stargazers_count = "0"
+url = "https://github.com/StatisticalRethinkingJulia/MambaModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "301"
+[[contributors]]
+name = "torkar"
+contributions = "31"
+[[contributors]]
+name = "tpapp"
+contributions = "1"

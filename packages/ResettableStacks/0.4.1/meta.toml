@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ResettableStacks"
+owner = "JuliaDiffEq"
+version = "0.4.1"
+description = "A stack implementation with a reset! function which avoids garbage collection"
+stargazers_count = "2"
+url = "https://github.com/JuliaDiffEq/ResettableStacks.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "25"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "3"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "jagot"
+contributions = "1"

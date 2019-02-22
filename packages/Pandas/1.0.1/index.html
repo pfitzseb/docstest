@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Pandas.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Pandas.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Input/Output-1">Input/Output</a></li><li><a class="toctext" href="#Performance-1">Performance</a></li><li><a class="toctext" href="#Caveats-1">Caveats</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Pandas.jl-1" href="#Pandas.jl-1">Pandas.jl</a></h1><p><img src="https://storage.googleapis.com/malmaud-stuff/pandas_logo.png?version=2" alt="Pandas.jl logo"/></p><p><a href="https://travis-ci.org/JuliaPy/Pandas.jl"><img src="https://travis-ci.org/JuliaPy/Pandas.jl.svg?branch=master" alt="Travis status"/></a></p><p>This package provides a Julia interface to the excellent <a href="http://pandas.pydata.org/pandas-docs/stable/">Pandas</a> package. It sticks closely to the Pandas API. One exception is that integer-based indexing is automatically converted from Python&#39;s 0-based indexing to Julia&#39;s 1-based indexing.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>You must have Pandas installed. Usually you can do that on the command line by typing</p><pre><code class="language-none">sudo pip install pandas</code></pre><p>It also comes with the Anaconda and Enthought Python distributions.</p><p>Then in Julia, type</p><pre><code class="language-julia">Pkg.add(&quot;Pandas&quot;)
+using Pandas</code></pre><p>No-hassle installation is also available via Docker:</p><pre><code class="language-none">docker run -it malmaud/julia_pandas</code></pre><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>In general, if <span>$df$</span> is a Pandas object (such as a dataframe or series), then the Python command <span>$df.x(y, w=z)$</span> becomes <span>$x(df, y, w=z)$</span> in Julia. <span>$df.loc[a,b,c]$</span> becomes <span>$loc(df)[a,b,c]$</span> (same for <span>$iloc$</span> and <span>$ix$</span>). Example:</p><pre><code class="language-julia">&gt;&gt; using Pandas
+&gt;&gt; df = DataFrame(Dict(:age=&gt;[27, 29, 27], :name=&gt;[&quot;James&quot;, &quot;Jill&quot;, &quot;Jake&quot;]))
+   age   name
+0   27  James
+1   29   Jill
+2   27   Jake
+
+[3 rows x 2 columns]
+&gt;&gt; describe(df)
+             age
+count   3.000000
+mean   27.666667
+std     1.154701
+min    27.000000
+25%    27.000000
+50%    27.000000
+75%    28.000000
+max    29.000000
+
+[8 rows x 1 columns]
+
+df[:age]
+0    27
+1    29
+2    27
+Name: age, dtype: int64
+
+&gt;&gt; df2 = DataFrame(Dict(:income=&gt;[45, 101, 87]), index=[&quot;Jake&quot;, &quot;James&quot;, &quot;Jill&quot;])
+&gt;&gt; df3 = merge(df, df2, left_on=&quot;name&quot;, right_index=true)
+   age   name  income
+0   27  James     101
+1   29   Jill      87
+2   27   Jake      45
+
+[3 rows x 3 columns]
+
+&gt;&gt; iloc(df3)[1:2, 2:3]
+    name  income
+0  James     101
+1   Jill      87
+
+[2 rows x 2 columns]
+
+&gt;&gt; mean(groupby(df3, &quot;age&quot;)) #Or groupby(df, &quot;age3&quot;) |&gt; mean
+     income
+age
+27       73
+29       87
+
+[2 rows x 1 columns]
+
+&gt;&gt; query(df3, :(income&gt;85)) # or query(df3, &quot;income&gt;85&quot;)
+   age   name  income
+0   27  James     101
+1   29   Jill      87
+
+[2 rows x 3 columns]
+
+&gt;&gt; Array(df3)
+3x3 Array{Any,2}:
+ 27  &quot;James&quot;  101
+ 29  &quot;Jill&quot;    87
+ 27  &quot;Jake&quot;    45
+
+ &gt;&gt; plot(df3)</code></pre><h2><a class="nav-anchor" id="Input/Output-1" href="#Input/Output-1">Input/Output</a></h2><p>Example:</p><pre><code class="language-julia">df = read_csv(&quot;my_csv_file.csv&quot;) # Read in a CSV file as a dataframe
+to_json(df, &quot;my_json_file.json&quot;) # Save a dataframe to disk in JSON format</code></pre><h2><a class="nav-anchor" id="Performance-1" href="#Performance-1">Performance</a></h2><p>Most Pandas operations on medium to large dataframes are very fast, since the overhead of calling into the Python API is small compared to the time spent inside Pandas&#39; highly efficient C implementation.</p><p>Setting and getting individual elements of a dataframe or series is slow however, since it requires a round-trip of communication with Python for each operation. Instead, use the <span>$values$</span> method to get a version of a series or homogeneous dataframe that requires no copying and is as fast to access and write to as a Julia native array. Example:</p><pre><code class="language-julia">&gt;&gt; x_series = Series(randn(10000))
+&gt;&gt; @time x[1]
+elapsed time: 0.000121945 seconds (2644 bytes allocated)
+&gt;&gt; x_values = values(x_series)
+&gt;&gt; @time x_values[1]
+elapsed time: 2.041e-6 seconds (64 bytes allocated)
+&gt;&gt; x_native = randn(10000)
+&gt;&gt; @time x[1]
+elapsed time: 2.689e-6 seconds (64 bytes allocated)</code></pre><p>Changes to the values(...) array propogate back to the underlying series/dataframe:</p><pre><code class="language-julia">&gt;&gt; iloc(x_series)[1]
+-0.38390854447454037
+&gt;&gt; x_values[1] = 10
+&gt;&gt; iloc(x_series)[1]
+10</code></pre><h2><a class="nav-anchor" id="Caveats-1" href="#Caveats-1">Caveats</a></h2><p>Panels-related functions are still unwrapped, as well as a few other obscure functions. Note that even if a function is not wrapped explicitly, it can still be called using various methods from <a href="https://github.com/stevengj/PyCall.jl">PyCall</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

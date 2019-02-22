@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StanDump"
+owner = "tpapp"
+version = "0.1.0"
+description = "Julia library for dumping data to be read by Stan."
+stargazers_count = "0"
+url = "https://github.com/tpapp/StanDump.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "20"

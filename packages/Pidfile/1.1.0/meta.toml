@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "Pidfile"
+owner = "vtjnash"
+version = "1.1.0"
+description = "Utility for creating advisory pidfiles (lock files)"
+stargazers_count = "2"
+url = "https://github.com/vtjnash/Pidfile.jl.git"
+installs = true
+tags = ["pidfile", "lockfile"]
+license = "Other"
+
+[[contributors]]
+name = "vtjnash"
+contributions = "4"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ReactionMechanismSimulator"
+owner = "mjohnson541"
+version = "0.1.0"
+description = "The amazing Reaction Mechanism Simulator for simulating large chemical kinetic mechanisms"
+stargazers_count = "2"
+url = "https://github.com/mjohnson541/ReactionMechanismSimulator.jl.git"
+installs = true
+tags = ["chemistry", "reactions", "kinetics", "simulator", "reactor"]
+license = "MIT License"
+
+[[contributors]]
+name = "mjohnson541"
+contributions = "311"

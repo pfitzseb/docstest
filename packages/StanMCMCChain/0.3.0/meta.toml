@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "StanMCMCChain"
+owner = "StanJulia"
+version = "0.3.0"
+description = "Convert CmdStan.jl output array to a MCMCChains object"
+stargazers_count = "0"
+url = "https://github.com/StanJulia/StanMCMCChain.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "49"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

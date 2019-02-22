@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "LRSLib"
+owner = "JuliaPolyhedra"
+version = "0.3.0"
+description = "lrs wrapper module for Julia"
+stargazers_count = "9"
+url = "https://github.com/JuliaPolyhedra/LRSLib.jl.git"
+installs = true
+tags = ["lrs", "polyhedral-computations"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "102"
+[[contributors]]
+name = "oyamad"
+contributions = "19"
+[[contributors]]
+name = "rdeits"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

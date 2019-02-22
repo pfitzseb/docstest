@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Yota.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Yota.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Custom-derivatives-1">Custom derivatives</a></li><li><a class="toctext" href="#Tracer-and-the-Tape-1">Tracer and the Tape</a></li><li><a class="toctext" href="#Loops,-conditions,-etc.-1">Loops, conditions, etc.</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Yötä-1" href="#Yötä-1">Yötä</a></h1><p><a href="https://travis-ci.org/dfdx/Yota.jl"><img src="https://travis-ci.org/dfdx/Yota.jl.svg?branch=master" alt="Build Status"/></a></p><p>Reverse-mode automatic differentiation for static and dynamic graphs.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><pre><code class="language-julia">mutable struct Linear{T}
+    W::AbstractArray{T,2}
+    b::AbstractArray{T}
+end
+
+forward(m::Linear, X) = m.W * X
+
+loss(m::Linear, X) = sum(forward(m, X))
+
+m = Linear(rand(3,4), rand(3))
+X = rand(4,5)
+
+val, g = grad(loss, m, X)</code></pre><p><code>g</code> is an object of type <code>GradientResult</code> holding gradients w.r.t. input variables. For scalars and tensors it returns gradient value, for structs it returns dictionary of (field path → gradient) pairs:</p><pre><code class="language-julia">julia&gt; g[1]
+Dict{Tuple{Symbol},Array{Float64,2}} with 1 entry:
+  (:W,) =&gt; [3.38128 2.97142 2.39706 1.55525; 3.38128 2.97142 2.39706 1.55525; 3.38128 2.97142 2.39706 1.55525]   # gradient w.r.t. m.W
+
+julia&gt; g[2]  # gradient w.r.t. X
+4×5 Array{Float64,2}:
+ 0.910691  0.910691  0.910691  0.910691  0.910691
+ 1.64994   1.64994   1.64994   1.64994   1.64994 
+ 1.81215   1.81215   1.81215   1.81215   1.81215 
+ 2.31594   2.31594   2.31594   2.31594   2.31594</code></pre><p><code>GradientResult</code> can be used in conjunction with <code>update!()</code> function to modify tensors and fields of (mutable) structs. To continue out previous example:</p><pre><code class="language-julia">for i=1:100
+    val, g = grad(loss, m, X)
+    println(&quot;Loss value in $(i)th epoch: $val&quot;)
+    update!(m, g[1], (x, gx) -&gt; x .- 0.01gx)    
+end</code></pre><p>(Note that our simplified loss function doesn&#39;t actually represent an error to be minimized, so loss value quickly goes below zero. For more realistic and much more complex examples see <a href="https://github.com/dfdx/Yota.jl/blob/master/examples/vae.jl">vae.jl</a>.)</p><h2><a class="nav-anchor" id="Custom-derivatives-1" href="#Custom-derivatives-1">Custom derivatives</a></h2><p>You can add custom derivatives using <code>@diffrule</code> macro. </p><pre><code class="language-julia">logistic(x) = 1 / (1 + exp(-x))
+# for an expression like `logistic(x)` where x is a Number
+# gradient w.r.t. x
+# is `(logistic(x) * (1 - logistic(x)) * ds)` where &quot;ds&quot; stands for derivative &quot;dL/dy&quot;
+@diffrule logistic(x::Number) x (logistic(x) * (1 - logistic(x)) * ds)
+
+L(x) = sum(logistic.(x))
+val, g = grad(L, rand(5))</code></pre><h2><a class="nav-anchor" id="Tracer-and-the-Tape-1" href="#Tracer-and-the-Tape-1">Tracer and the Tape</a></h2><p>Being a reverse-mode AD package, Yota works in 2 steps:</p><ol><li>Record all primitive operations onto a &quot;tape&quot;.</li><li>Go back trough the tape, recording derivatives for each operation.</li></ol><p>&quot;Tape&quot; here is simply a list of operations. You can get the tape as a <code>.tape</code> field of <code>GradientResult</code> or construct it directly using <code>trace</code> function:</p><pre><code class="language-julia">import Yota: trace
+
+val, tape = trace(L, rand(5))
+print(tape)
+
+# Tape
+#   inp %1::Array{Float64,1}
+#   const %2 = logistic::typeof(logistic)
+#   %3 = broadcast(%2, %1)::Array{Float64,1}
+#   %4 = sum(%3)::Float64</code></pre><p><code>trace</code> uses <a href="https://github.com/jrevels/Cassette.jl/">Cassette.jl</a> to collect function calls during execution. Functions are divided into 2 groups:</p><ul><li>primitive, such as <code>*</code>, <code>sum</code>, <code>sin</code>, etc. or any function for which <code>@diffrule</code> is defined. These are recorded to the tape;</li><li>non-primitive, which are traced-through down to primitive ones.  </li></ul><p>Tape can also be executed and compiled:</p><pre><code class="language-julia">using BenchmarkTools
+import Yota: play!, compile!
+
+x = rand(5)
+
+@btime play!(tape, x)
+# 3.526 μs (13 allocations: 640 bytes)
+
+compile!(tape)
+@btime play!(tape, x)
+# 492.063 ns (2 allocations: 144 bytes)</code></pre><h2><a class="nav-anchor" id="Loops,-conditions,-etc.-1" href="#Loops,-conditions,-etc.-1">Loops, conditions, etc.</a></h2><p>Tracer records operations as they are executed the first time with given arguments. For example, for a loop like this:</p><pre><code class="language-julia">function iterative(x, n)
+    for i=1:n
+        x = 2x
+    end
+    return x
+end</code></pre><p>exactly <code>n</code> iterations will be recorded to the tape and all future values of <code>n</code> will make no effect.  </p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

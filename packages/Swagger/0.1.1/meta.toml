@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Swagger"
+owner = "JuliaComputing"
+version = "0.1.1"
+description = "Swagger (OpenAPI) helper and code generator for Julia"
+stargazers_count = "5"
+url = "https://github.com/JuliaComputing/Swagger.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "64"

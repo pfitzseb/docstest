@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Grep"
+owner = "GlenHertz"
+version = "0.2.0"
+description = "Simple Julia grep for iterables/containers"
+stargazers_count = "2"
+url = "https://github.com/GlenHertz/Grep.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "GlenHertz"
+contributions = "6"

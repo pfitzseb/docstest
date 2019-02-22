@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ImageMorphology"
+owner = "JuliaImages"
+version = "0.1.1"
+description = "Morphological operations for image processing"
+stargazers_count = "3"
+url = "https://github.com/JuliaImages/ImageMorphology.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "juliohm"
+contributions = "20"
+[[contributors]]
+name = "lucianolorenti"
+contributions = "2"

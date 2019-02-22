@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "ScanImageTiffReader"
+owner = "vidriotech"
+version = "1.3.0"
+description = "Julia bindings for the ScanImage Tiff Reader"
+stargazers_count = "2"
+url = "https://github.com/vidriotech/ScanImageTiffReader.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "aliddell"
+contributions = "30"
+[[contributors]]
+name = "nclack"
+contributions = "18"

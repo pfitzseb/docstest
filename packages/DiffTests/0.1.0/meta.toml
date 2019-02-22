@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DiffTests"
+owner = "JuliaDiff"
+version = "0.1.0"
+description = "A common suite of test functions for stressing the robustness of differentiation tools."
+stargazers_count = "2"
+url = "https://github.com/JuliaDiff/DiffTests.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "9"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

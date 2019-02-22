@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · CLBlast.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CLBlast.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Current-Status-1">Current Status</a></li><li><a class="toctext" href="#Example-1">Example</a></li><li><a class="toctext" href="#Installation-1">Installation</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="CLBlast-1" href="#CLBlast-1">CLBlast</a></h1><p><a href="https://gitlab.com/JuliaGPU/CLArrays.jl/pipelines"><img src="https://gitlab.com/JuliaGPU/CLArrays.jl/badges/master/pipeline.svg" alt="Build Status"/></a> <a href="https://travis-ci.org/JuliaGPU/CLBlast.jl"><img src="https://travis-ci.org/JuliaGPU/CLBlast.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://ci.appveyor.com/project/ranocha/CLBlast-jl"><img src="https://ci.appveyor.com/api/projects/status/i1saoodeqrepiodl?svg=true" alt="Build status"/></a> <a href="https://coveralls.io/github/JuliaGPU/CLBlast.jl?branch=master"><img src="https://coveralls.io/repos/github/JuliaGPU/CLBlast.jl/badge.svg?branch=master" alt="Coverage Status"/></a> <a href="http://codecov.io/github/JuliaGPU/CLBlast.jl?branch=master"><img src="http://codecov.io/github/JuliaGPU/CLBlast.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Wrapper of <a href="https://github.com/CNugteren/CLBlast">CLBlast</a>, a &quot;tuned OpenCL BLAS library&quot;. This package has been inspired by <a href="https://github.com/JuliaGPU/CLBLAS.jl">CLBLAS.jl</a> and the BLAS module of <a href="https://github.com/JuliaLang/julia">Julia</a> and is designed similarly.</p><h2><a class="nav-anchor" id="Current-Status-1" href="#Current-Status-1">Current Status</a></h2><p>Most low-level bindings and high-level wrappers of BLAS level 1, 2, and 3 routines are implemented.</p><h2><a class="nav-anchor" id="Example-1" href="#Example-1">Example</a></h2><pre><code class="language-julia">using CLBlast, OpenCL
+@static if VERSION &lt; v&quot;0.7-&quot;
+    LA = LinAlg
+else
+    using Random, LinearAlgebra
+    LA = LinearAlgebra
+end
+
+device, context, queue = cl.create_compute_context()
+
+# setup data
+α = 1.f0
+β = 1.f0
+A = rand(Float32, 10, 8)
+B = rand(Float32, 8, 6)
+C = zeros(Float32, 10, 6)
+
+# transfer data
+A_cl = cl.CLArray(queue, A)
+B_cl = cl.CLArray(queue, B)
+C_cl = cl.CLArray(queue, C)
+
+# compute
+LA.BLAS.gemm!(&#39;N&#39;, &#39;N&#39;, α, A, B, β, C)
+CLBlast.gemm!(&#39;N&#39;, &#39;N&#39;, α, A_cl, B_cl, β, C_cl)
+
+# compare results
+@assert cl.to_host(C_cl) ≈ C</code></pre><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>Since this package is registered, you can add it using <code>]</code> (activate package mode) and</p><pre><code class="language-julia">(v0.7) pkg&gt; add CLBlast</code></pre><p>on Julia <code>v0.7</code> or newer and using</p><pre><code class="language-julia">julia&gt; Pkg.add(&quot;CLBlast&quot;)</code></pre><p>on Julia <code>v0.6</code>. During the build process, a suitable version of CLBlast will be downloaded and build. On Linux, you have to install <code>clang</code>, since the available binaries of CLBlast will fail to work with complex numbers from Julia.</p><footer><hr/></footer></article></body></html>

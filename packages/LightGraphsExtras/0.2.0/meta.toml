@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "LightGraphsExtras"
+owner = "JuliaGraphs"
+version = "0.2.0"
+description = "Additional functionality for LightGraphs.jl"
+stargazers_count = "8"
+url = "https://github.com/JuliaGraphs/LightGraphsExtras.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "26"
+[[contributors]]
+name = "matbesancon"
+contributions = "9"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "9"
+[[contributors]]
+name = "mburq"
+contributions = "3"
+[[contributors]]
+name = "Azzaare"
+contributions = "1"
+[[contributors]]
+name = "KlausC"
+contributions = "1"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Rematch"
+owner = "RelationalAI-oss"
+version = "0.2.0"
+description = "Pattern matching"
+stargazers_count = "20"
+url = "https://github.com/RelationalAI-oss/Rematch.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jamii"
+contributions = "24"
+[[contributors]]
+name = "rai-nhdaly"
+contributions = "14"
+[[contributors]]
+name = "NHDaly"
+contributions = "6"
+[[contributors]]
+name = "rbvermaa"
+contributions = "5"
+[[contributors]]
+name = "mbravenboer"
+contributions = "2"
+[[contributors]]
+name = "sjoelund"
+contributions = "1"
+[[contributors]]
+name = "mdashti"
+contributions = "1"
+[[contributors]]
+name = "raileywild"
+contributions = "1"

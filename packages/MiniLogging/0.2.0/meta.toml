@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MiniLogging"
+owner = "colinfang"
+version = "0.2.0"
+description = "A basic hierarchical logging system that is similar to \"logging\" in Python."
+stargazers_count = "3"
+url = "https://github.com/colinfang/MiniLogging.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "colinfang"
+contributions = "16"

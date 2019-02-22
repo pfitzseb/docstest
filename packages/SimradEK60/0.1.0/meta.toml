@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SimradEK60"
+owner = "EchoJulia"
+version = "0.1.0"
+description = "Read Simrad EK60 scientific echo sounder data in Julia"
+stargazers_count = "1"
+url = "https://github.com/EchoJulia/SimradEK60.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RobBlackwell"
+contributions = "39"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

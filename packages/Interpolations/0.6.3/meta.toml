@@ -1,0 +1,110 @@
+license_url = ""
+name = "Interpolations"
+owner = "JuliaMath"
+version = "0.6.3"
+description = "Fast, continuous interpolation of discrete datasets in Julia"
+stargazers_count = "137"
+url = "https://github.com/JuliaMath/Interpolations.jl.git"
+installs = false
+tags = ["julia", "interpolation", "grid", "splines"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "174"
+[[contributors]]
+name = "tomasaschan"
+contributions = "23"
+[[contributors]]
+name = "sglyon"
+contributions = "17"
+[[contributors]]
+name = "rdeits"
+contributions = "11"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "7"
+[[contributors]]
+name = "jw3126"
+contributions = "7"
+[[contributors]]
+name = "Evizero"
+contributions = "6"
+[[contributors]]
+name = "chiyahn"
+contributions = "3"
+[[contributors]]
+name = "stevengj"
+contributions = "3"
+[[contributors]]
+name = "marius311"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "dkarrasch"
+contributions = "2"
+[[contributors]]
+name = "mateuszbaran"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "yakir12"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "schmrlng"
+contributions = "1"
+[[contributors]]
+name = "TheBB"
+contributions = "1"
+[[contributors]]
+name = "felixcremer"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "ksmcreynolds"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "mprat"
+contributions = "1"
+[[contributors]]
+name = "nlw0"
+contributions = "1"
+[[contributors]]
+name = "PaulMatlashewski"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "SloanLindsey"
+contributions = "1"
+[[contributors]]
+name = "sjkelly"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "aaowens"
+contributions = "1"
+[[contributors]]
+name = "danmackinlay"
+contributions = "1"
+[[contributors]]
+name = "ric-cioffi"
+contributions = "1"

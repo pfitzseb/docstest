@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "NamedArrays"
+owner = "davidavdav"
+version = "0.9.2"
+description = "Julia type that implements a drop-in replacement of Array with named dimensions"
+stargazers_count = "37"
+url = "https://github.com/davidavdav/NamedArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidavdav"
+contributions = "223"
+[[contributors]]
+name = "diegozea"
+contributions = "20"
+[[contributors]]
+name = "nalimilan"
+contributions = "11"
+[[contributors]]
+name = "phaverty"
+contributions = "9"
+[[contributors]]
+name = "scheidan"
+contributions = "1"
+[[contributors]]
+name = "AustinPrivett"
+contributions = "1"
+[[contributors]]
+name = "joelgoop"
+contributions = "1"
+[[contributors]]
+name = "panlanfeng"
+contributions = "1"
+[[contributors]]
+name = "rodonn"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "ExtremeStats"
+owner = "juliohm"
+version = "0.1.0"
+description = "Extreme Value Statistics in Julia"
+stargazers_count = "8"
+url = "https://github.com/juliohm/ExtremeStats.jl.git"
+installs = true
+tags = ["extremes", "statistics", "maxima"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "40"

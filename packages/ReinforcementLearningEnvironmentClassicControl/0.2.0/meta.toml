@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ReinforcementLearningEnvironmentClassicControl"
+owner = "JuliaReinforcementLearning"
+version = "0.2.0"
+description = ""
+stargazers_count = "1"
+url = "https://github.com/JuliaReinforcementLearning/ReinforcementLearningEnvironmentClassicControl.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "18"
+[[contributors]]
+name = "findmyway"
+contributions = "10"

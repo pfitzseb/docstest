@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "KernelDensity"
+owner = "JuliaStats"
+version = "0.5.1"
+description = "Kernel density estimators for Julia"
+stargazers_count = "47"
+url = "https://github.com/JuliaStats/KernelDensity.jl.git"
+installs = true
+tags = ["julia", "statistics", "kernel-density-estimation"]
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "36"
+[[contributors]]
+name = "awllee"
+contributions = "16"
+[[contributors]]
+name = "axsk"
+contributions = "12"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "6"
+[[contributors]]
+name = "Element-126"
+contributions = "6"
+[[contributors]]
+name = "andreasnoack"
+contributions = "3"
+[[contributors]]
+name = "panlanfeng"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

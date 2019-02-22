@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "ParameterizedFunctions"
+owner = "JuliaDiffEq"
+version = "3.10.0"
+description = "Functions with parameters for differential equations"
+stargazers_count = "35"
+url = "https://github.com/JuliaDiffEq/ParameterizedFunctions.jl.git"
+installs = true
+tags = ["differential-equations", "jacobian", "parameters"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "195"
+[[contributors]]
+name = "YingboMa"
+contributions = "4"
+[[contributors]]
+name = "gabrielgellner"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jamesjscully"
+contributions = "1"

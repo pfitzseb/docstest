@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "Stheno"
+owner = "willtebbutt"
+version = "0.1.1"
+description = "Probabilistic Programming with Gaussian processes in Julia"
+stargazers_count = "38"
+url = "https://github.com/willtebbutt/Stheno.jl.git"
+installs = true
+tags = ["bayesian-inference", "probabilistic-programming", "approximate-inference", "gaussian-processes", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "willtebbutt"
+contributions = "188"
+[[contributors]]
+name = "devmotion"
+contributions = "1"

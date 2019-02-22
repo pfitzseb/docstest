@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "BinaryProvider"
+owner = "JuliaPackaging"
+version = "0.5.3"
+description = "A reliable binary provider for Julia"
+stargazers_count = "17"
+url = "https://github.com/JuliaPackaging/BinaryProvider.jl.git"
+installs = true
+tags = ["julia", "dependency-manager"]
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "229"
+[[contributors]]
+name = "ararslan"
+contributions = "9"
+[[contributors]]
+name = "stevengj"
+contributions = "6"
+[[contributors]]
+name = "quinnj"
+contributions = "4"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "4"
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "Roger-luo"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

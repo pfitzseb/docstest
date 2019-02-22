@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "Cbc"
+owner = "JuliaOpt"
+version = "0.5.4"
+description = "Interface to the Coin-OR Cbc solver for mixed-integer programming"
+stargazers_count = "30"
+url = "https://github.com/JuliaOpt/Cbc.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "123"
+[[contributors]]
+name = "blegat"
+contributions = "15"
+[[contributors]]
+name = "vitornesello"
+contributions = "15"
+[[contributors]]
+name = "joehuchette"
+contributions = "8"
+[[contributors]]
+name = "odow"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "3"
+[[contributors]]
+name = "IssamT"
+contributions = "3"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "2"
+[[contributors]]
+name = "philipithomas"
+contributions = "2"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "matbesancon"
+contributions = "1"
+[[contributors]]
+name = "ndinsmore"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

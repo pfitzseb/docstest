@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Optim.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Optim.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Optimization-1">Optimization</a></li><li class="toplevel"><a class="toctext" href="#Documentation-1">Documentation</a></li><li class="toplevel"><a class="toctext" href="#Installation-1">Installation</a></li><li class="toplevel"><a class="toctext" href="#Citation-1">Citation</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Optim.jl-1" href="#Optim.jl-1">Optim.jl</a></h1><p>Univariate and multivariate optimization in Julia.</p><p>Optim.jl is part of the <a href="https://github.com/JuliaNLSolvers">JuliaNLSolvers</a> family.</p><table><tr><th><strong>Documentation</strong></th><th><strong>PackageEvaluator</strong></th><th><strong>Build Status</strong></th><th><strong>Social</strong></th><th><strong>References to cite</strong></th></tr><tr><td>[![][docs-stable-img]][docs-stable-url]</td><td>[![][pkg-0.4-img]][pkg-0.4-url]</td><td>[![Build Status][build-img]][build-url]</td><td>[![][gitter-img]][gitter-url]</td><td>[![JOSS][joss-img]][joss-url]</td></tr><tr><td></td><td>[![][pkg-0.5-img]][pkg-0.5-url]</td><td>[![Build Status][winbuild-img]][winbuild-url]</td><td></td><td>[![DOI][zenodo-img]][zenodo-url]</td></tr><tr><td></td><td>[![][pkg-0.6-img]][pkg-0.6-url]</td><td>[![Codecov branch][cov-img]][cov-url]</td><td></td><td></td></tr></table><h1><a class="nav-anchor" id="Optimization-1" href="#Optimization-1">Optimization</a></h1><p>Optim.jl is a package for univariate and multivariate optimization of functions. A typical example of the usage of Optim.jl is</p><pre><code class="language-julia">using Optim
+rosenbrock(x) =  (1.0 - x[1])^2 + 100.0 * (x[2] - x[1]^2)^2
+result = optimize(rosenbrock, zeros(2), BFGS())</code></pre><p>This minimizes the <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock function</a></p><p>&lt;img src=&quot;https://user-images.githubusercontent.com/8431156/31627324-2bbc9ebc-b2ad-11e7-916f-857ad8dcb714.gif&quot; title=&quot;f(x,y) = (a-x)^2+b(y-x^2)^2&quot; /&gt;</p><p>with a = 1, b = 100 and the initial values x=0, y=0. The minimum is at (a,a^2).</p><p>The above code gives the output</p><pre><code class="language-jlcon">Results of Optimization Algorithm
+ * Algorithm: BFGS
+ * Starting Point: [0.0,0.0]
+ * Minimizer: [0.9999999926033423,0.9999999852005353]
+ * Minimum: 5.471433e-17
+ * Iterations: 16
+
+ * Convergence: true
+   * |x - x&#39;| ≤ 0.0e+00: false
+     |x - x&#39;| = 3.47e-07
+   * |f(x) - f(x&#39;)| ≤ 0.0e+00 |f(x)|: false
+     |f(x) - f(x&#39;)| = 1.20e+03 |f(x)|
+   * |g(x)| ≤ 1.0e-08: true
+     |g(x)| = 2.33e-09
+   * Stopped by an increasing objective: false
+   * Reached Maximum Number of Iterations: false
+ * Objective Calls: 53
+ * Gradient Calls: 53</code></pre><p>To get information on the keywords used to construct method instances, use the Julia REPL help prompt (<code>?</code>)</p><pre><code class="language-none">help?&gt; LBFGS
+search: LBFGS
+
+     LBFGS
+    ≡≡≡≡≡≡≡
+
+     Constructor
+    =============
+
+  LBFGS(; m::Integer = 10,
+  alphaguess = LineSearches.InitialStatic(),
+  linesearch = LineSearches.HagerZhang(),
+  P=nothing,
+  precondprep = (P, x) -&gt; nothing,
+  manifold = Flat(),
+  scaleinvH0::Bool = true &amp;&amp; (typeof(P) &lt;: Nothing))
+
+  LBFGS has two special keywords; the memory length m, and
+  the scaleinvH0 flag. The memory length determines how many
+  previous Hessian approximations to store. When scaleinvH0
+  == true, then the initial guess in the two-loop recursion
+  to approximate the inverse Hessian is the scaled identity,
+  as can be found in Nocedal and Wright (2nd edition) (sec.
+  7.2).
+
+  In addition, LBFGS supports preconditioning via the P and
+  precondprep keywords.
+
+     Description
+    =============
+
+  The LBFGS method implements the limited-memory BFGS
+  algorithm as described in Nocedal and Wright (sec. 7.2,
+  2006) and original paper by Liu &amp; Nocedal (1989). It is a
+  quasi-Newton method that updates an approximation to the
+  Hessian using past approximations as well as the gradient.
+
+     References
+    ============
+
+    •    Wright, S. J. and J. Nocedal (2006), Numerical
+        optimization, 2nd edition. Springer
+
+    •    Liu, D. C. and Nocedal, J. (1989). &quot;On the
+        Limited Memory Method for Large Scale
+        Optimization&quot;. Mathematical Programming B. 45
+        (3): 503–528</code></pre><h1><a class="nav-anchor" id="Documentation-1" href="#Documentation-1">Documentation</a></h1><p>For more details and options, see the documentation</p><ul><li>[STABLE][docs-stable-url] — most recently tagged version of the documentation.</li><li>[LATEST][docs-latest-url] — in-development version of the documentation.</li></ul><h1><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h1><p>The package is registered in <code>METADATA.jl</code> and can be installed with <code>Pkg.add</code>.</p><pre><code class="language-julia">julia&gt; Pkg.add(&quot;Optim&quot;)</code></pre><h1><a class="nav-anchor" id="Citation-1" href="#Citation-1">Citation</a></h1><p>If you use <code>Optim.jl</code> in your work, please cite the following.</p><pre><code class="language-tex">@article{mogensen2018optim,
+  author  = {Mogensen, Patrick Kofod and Riseth, Asbj{\o}rn Nilsen},
+  title   = {Optim: A mathematical optimization package for {Julia}},
+  journal = {Journal of Open Source Software},
+  year    = {2018},
+  volume  = {3},
+  number  = {24},
+  pages   = {615},
+  doi     = {10.21105/joss.00615}
+}</code></pre><p>[docs-latest-img]: https://img.shields.io/badge/docs-latest-blue.svg [docs-latest-url]: https://julianlsolvers.github.io/Optim.jl/latest</p><p>[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg [docs-stable-url]: https://julianlsolvers.github.io/Optim.jl/stable</p><p>[build-img]: https://travis-ci.org/JuliaNLSolvers/Optim.jl.svg?branch=master [build-url]: https://travis-ci.org/JuliaNLSolvers/Optim.jl</p><p>[winbuild-img]: https://ci.appveyor.com/api/projects/status/prp8ygfp4rr9tafe?svg=true [winbuild-url]: https://ci.appveyor.com/project/blegat/optim-jl</p><p>[pkg-0.4-img]: http://pkg.julialang.org/badges/Optim<em>0.4.svg [pkg-0.4-url]: http://pkg.julialang.org/?pkg=Optim&amp;ver=0.4 [pkg-0.5-img]: http://pkg.julialang.org/badges/Optim</em>0.5.svg [pkg-0.5-url]: http://pkg.julialang.org/?pkg=Optim&amp;ver=0.5 [pkg-0.6-img]: http://pkg.julialang.org/badges/Optim_0.6.svg [pkg-0.6-url]: http://pkg.julialang.org/?pkg=Optim&amp;ver=0.6</p><p>[cov-img]: https://img.shields.io/codecov/c/github/JuliaNLSolvers/Optim.jl/master.svg?maxAge=2592000 [cov-url]: https://codecov.io/gh/JuliaNLSolvers/Optim.jl</p><p>[gitter-url]: https://gitter.im/JuliaNLSolvers/Optim.jl [gitter-img]: https://badges.gitter.im/JuliaNLSolvers/Optim.jl.svg</p><p>[zenodo-url]: https://zenodo.org/badge/latestdoi/3933868 [zenodo-img]: https://zenodo.org/badge/3933868.svg</p><p>[joss-url]: https://doi.org/10.21105/joss.00615 [joss-img]: http://joss.theoj.org/papers/10.21105/joss.00615/status.svg</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

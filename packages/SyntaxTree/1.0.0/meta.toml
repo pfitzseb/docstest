@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SyntaxTree"
+owner = "chakravala"
+version = "1.0.0"
+description = "Toolset for modifying Julia AST and characteristic values"
+stargazers_count = "2"
+url = "https://github.com/chakravala/SyntaxTree.jl.git"
+installs = true
+tags = ["julia-language", "metaprogramming", "syntax-tree", "toolset", "ast", "abstract-syntax-tree", "recursion"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "18"

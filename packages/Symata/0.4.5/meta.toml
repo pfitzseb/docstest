@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Symata"
+owner = "jlapeyre"
+version = "0.4.5"
+description = "language for symbolic mathematics"
+stargazers_count = "109"
+url = "https://github.com/jlapeyre/Symata.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "1477"
+[[contributors]]
+name = "garrison"
+contributions = "5"
+[[contributors]]
+name = "Upabjojr"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "goedman"
+contributions = "1"

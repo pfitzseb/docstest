@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SimpleTropical.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SimpleTropical.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Numbers-1">Numbers</a></li><li><a class="toctext" href="#Arithmetic-1">Arithmetic</a></li><li><a class="toctext" href="#Predicates-1">Predicates</a></li><li><a class="toctext" href="#To-do-list-1">To do list</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SimpleTropical-1" href="#SimpleTropical-1">SimpleTropical</a></h1><p><a href="https://travis-ci.org/scheinerman/SimpleTropical.jl"><img src="https://travis-ci.org/scheinerman/SimpleTropical.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/scheinerman/SimpleTropical.jl?branch=master"><img src="https://coveralls.io/repos/scheinerman/SimpleTropical.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/scheinerman/SimpleTropical.jl?branch=master"><img src="http://codecov.io/github/scheinerman/SimpleTropical.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This is an implementation of tropical (min-plus) arithmetic in Julia.</p><h2><a class="nav-anchor" id="Numbers-1" href="#Numbers-1">Numbers</a></h2><p>The tropical numbers consist of the real numbers and infinity. The <code>SimpleTropical</code> module defines the <code>Tropical</code> type (which is a subtype of <code>Number</code>). Tropical numbers can be parameterized by type, but this is taken care of automatically:</p><pre><code class="language-julia">julia&gt; using SimpleTropical
+
+julia&gt; x = Tropical(3.5)
+Tropical{Float64}(3.5)
+
+julia&gt; y = Tropical{Int}(4)
+Tropical{Int64}(4)</code></pre><p>Tropical infinity is available via <code>TropicalInf</code>:</p><pre><code class="language-none">julia&gt; TropicalInf
+Tropical(∞)</code></pre><h2><a class="nav-anchor" id="Arithmetic-1" href="#Arithmetic-1">Arithmetic</a></h2><p>The <code>+</code> operation is defined as the min of the two values and <code>*</code> as the sum:</p><pre><code class="language-julia">julia&gt; x+y
+Tropical{Float64}(3.5)
+
+julia&gt; x*y
+Tropical{Float64}(7.5)</code></pre><p>The identity element for <code>+</code> is <code>TropicalInf</code> and the identity element for <code>*</code> is <code>Tropical(0)</code>:</p><pre><code class="language-julia">julia&gt; x + TropicalInf
+Tropical{Float64}(3.5)
+
+julia&gt; x * Tropical(0)
+Tropical{Float64}(3.5)</code></pre><p>No elements in tropical arithmetic have additive inverses, but they do have multiplicative inverses (except for infinity):</p><pre><code class="language-julia">julia&gt; inv(x)
+Tropical{Float64}(-3.5)
+
+julia&gt; inv(TropicalInf)
+ERROR: AssertionError: TropicalInf is not invertible</code></pre><p>Exponentiation by integers works:</p><pre><code class="language-julia">julia&gt; x^10
+Tropical{Float64}(35.0)
+
+julia&gt; x^-2
+Tropical{Float64}(-7.0)</code></pre><h2><a class="nav-anchor" id="Predicates-1" href="#Predicates-1">Predicates</a></h2><p>Use <code>isinf(X)</code> to test if a tropical number is infinity.</p><pre><code class="language-julia">julia&gt; isinf(x)
+false
+
+julia&gt; isinf(TropicalInf)
+true</code></pre><p>The usual comparison operators <code>==</code> and <code>!==</code> work as expected:</p><pre><code class="language-julia">julia&gt; Tropical(3.0) == Tropical(3)
+true
+
+julia&gt; Tropical(3.1) != Tropical(3//1)
+true</code></pre><h2><a class="nav-anchor" id="To-do-list-1" href="#To-do-list-1">To do list</a></h2><ul><li>Make the <code>Polynomials</code> module work with tropical numbers.</li></ul><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

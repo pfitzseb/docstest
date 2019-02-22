@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "ModiaMath"
+owner = "ModiaSim"
+version = "0.3.1"
+description = "Simulation engine for index-1 DAEs and other mathematical utilities for Modia and Modia3D "
+stargazers_count = "17"
+url = "https://github.com/ModiaSim/ModiaMath.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "MartinOtter"
+contributions = "131"
+[[contributors]]
+name = "crlaugh"
+contributions = "17"

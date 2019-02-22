@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "C3D"
+owner = "halleysfifthinc"
+version = "0.3.2"
+description = "A pure Julia package for working with C3D files"
+stargazers_count = "2"
+url = "https://github.com/halleysfifthinc/C3D.jl.git"
+installs = true
+tags = ["julia", "julia-package", "c3d", "biomechanics", "motion-capture"]
+license = "Other"
+
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "134"

@@ -1,0 +1,87 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SymPy"
+owner = "JuliaPy"
+version = "0.7.0"
+description = "Julia interface to SymPy via PyCall"
+stargazers_count = "90"
+url = "https://github.com/JuliaPy/SymPy.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jverzani"
+contributions = "499"
+[[contributors]]
+name = "mzaffalon"
+contributions = "21"
+[[contributors]]
+name = "dhoegh"
+contributions = "7"
+[[contributors]]
+name = "chakravala"
+contributions = "6"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "djsegal"
+contributions = "3"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "cdsousa"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "tkf"
+contributions = "2"
+[[contributors]]
+name = "pabloferz"
+contributions = "2"
+[[contributors]]
+name = "stillyslalom"
+contributions = "1"
+[[contributors]]
+name = "sylvaticus"
+contributions = "1"
+[[contributors]]
+name = "Titzi90"
+contributions = "1"
+[[contributors]]
+name = "hammer"
+contributions = "1"
+[[contributors]]
+name = "mmikhasenko"
+contributions = "1"
+[[contributors]]
+name = "Ruediger-Braun"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "dkout"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "scidom"
+contributions = "1"

@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "PGFPlots"
+owner = "JuliaTeX"
+version = "3.0.3"
+description = "This library uses the LaTeX package pgfplots to produce plots."
+stargazers_count = "86"
+url = "https://github.com/JuliaTeX/PGFPlots.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mykelk"
+contributions = "112"
+[[contributors]]
+name = "tawheeler"
+contributions = "46"
+[[contributors]]
+name = "dressel"
+contributions = "34"
+[[contributors]]
+name = "Shushman"
+contributions = "18"
+[[contributors]]
+name = "zoohair"
+contributions = "13"
+[[contributors]]
+name = "fredrikekre"
+contributions = "9"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "5"
+[[contributors]]
+name = "pkofod"
+contributions = "3"
+[[contributors]]
+name = "dgleich"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "2"
+[[contributors]]
+name = "1oly"
+contributions = "2"
+[[contributors]]
+name = "rtompa2"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "rodonn"
+contributions = "1"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"

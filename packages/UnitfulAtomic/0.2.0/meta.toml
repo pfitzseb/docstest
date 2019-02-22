@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "UnitfulAtomic"
+owner = "sostock"
+version = "0.2.0"
+description = "An extension of Unitful.jl for working with atomic units"
+stargazers_count = "1"
+url = "https://github.com/sostock/UnitfulAtomic.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sostock"
+contributions = "20"

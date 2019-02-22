@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "GroupedErrors"
+owner = "piever"
+version = "0.2.1"
+description = "Population data analysis in Julia"
+stargazers_count = "10"
+url = "https://github.com/piever/GroupedErrors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "72"

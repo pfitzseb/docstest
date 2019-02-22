@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "MatrixDepot"
+owner = "JuliaMatrices"
+version = "0.8.0"
+description = "An Extensible Test Matrix Collection for Julia"
+stargazers_count = "33"
+url = "https://github.com/JuliaMatrices/MatrixDepot.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "KlausC"
+contributions = "93"
+[[contributors]]
+name = "weijianzhang"
+contributions = "11"
+[[contributors]]
+name = "andreasnoack"
+contributions = "8"
+[[contributors]]
+name = "alexbrc"
+contributions = "3"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "synapticarbors"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

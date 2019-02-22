@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ImplicitEquations"
+owner = "jverzani"
+version = "0.5.0"
+description = "Julia package to facilitate graphing of implicit equations and inequalities"
+stargazers_count = "9"
+url = "https://github.com/jverzani/ImplicitEquations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jverzani"
+contributions = "66"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

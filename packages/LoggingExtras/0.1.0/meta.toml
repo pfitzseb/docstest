@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LoggingExtras"
+owner = "oxinabox"
+version = "0.1.0"
+description = "Additional Loggers for Julia (Demux, File, and  Filtered)"
+stargazers_count = "11"
+url = "https://github.com/oxinabox/LoggingExtras.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "17"

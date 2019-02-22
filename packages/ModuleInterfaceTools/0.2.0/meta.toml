@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ModuleInterfaceTools"
+owner = "JuliaString"
+version = "0.2.0"
+description = "Adds a macro (`@api`) to help manage a consistent API between multiple packages"
+stargazers_count = "1"
+url = "https://github.com/JuliaString/ModuleInterfaceTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "67"

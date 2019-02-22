@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CQLdriver"
+owner = "r3tex"
+version = "0.9.5"
+description = "A Julia package for interfacing with CQL compliant databases."
+stargazers_count = "5"
+url = "https://github.com/r3tex/CQLdriver.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "r3tex"
+contributions = "20"
+[[contributors]]
+name = "s439"
+contributions = "3"

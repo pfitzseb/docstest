@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "real"
+name = "JuLIP"
+owner = "libAtoms"
+version = "0.6.0"
+description = "Julia Library for Interatomic Potentials"
+stargazers_count = "27"
+url = "https://github.com/libAtoms/JuLIP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cortner"
+contributions = "366"
+[[contributors]]
+name = "jameskermode"
+contributions = "53"
+[[contributors]]
+name = "FloraPoon"
+contributions = "10"
+[[contributors]]
+name = "lifelemons"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "git4lei"
+contributions = "2"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

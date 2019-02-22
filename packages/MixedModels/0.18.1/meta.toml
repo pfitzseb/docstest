@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "MixedModels"
+owner = "dmbates"
+version = "0.18.1"
+description = "A Julia package for fitting (statistical) mixed-effects models"
+stargazers_count = "137"
+url = "https://github.com/dmbates/MixedModels.jl.git"
+installs = true
+tags = ["julia", "statistical-models", "mixed-models", "mixed-effects"]
+license = "Other"
+
+[[contributors]]
+name = "dmbates"
+contributions = "675"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "3"
+[[contributors]]
+name = "Nosferican"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "kaskarn"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "SimonAB"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

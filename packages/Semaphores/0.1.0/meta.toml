@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Semaphores"
+owner = "tanmaykm"
+version = "0.1.0"
+description = "Semaphores for inter process locking and resource counting"
+stargazers_count = "0"
+url = "https://github.com/tanmaykm/Semaphores.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "8"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TreeViews"
+owner = "pfitzseb"
+version = "0.3.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/pfitzseb/TreeViews.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pfitzseb"
+contributions = "20"

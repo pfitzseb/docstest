@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "PyDSTool"
+owner = "JuliaDiffEq"
+version = "0.5.0"
+description = "A wrapper for the PyDSTool library"
+stargazers_count = "2"
+url = "https://github.com/JuliaDiffEq/PyDSTool.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "60"
+[[contributors]]
+name = "tkf"
+contributions = "5"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "alavendelm"
+contributions = "1"

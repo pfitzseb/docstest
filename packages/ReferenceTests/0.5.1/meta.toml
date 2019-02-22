@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "ReferenceTests"
+owner = "Evizero"
+version = "0.5.1"
+description = "Utility package for comparing data against reference files"
+stargazers_count = "11"
+url = "https://github.com/Evizero/ReferenceTests.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "46"
+[[contributors]]
+name = "oxinabox"
+contributions = "6"
+[[contributors]]
+name = "RalphAS"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

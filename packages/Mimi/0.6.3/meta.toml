@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "real"
+name = "Mimi"
+owner = "anthofflab"
+version = "0.6.3"
+description = "Integrated Assessment Modeling Framework"
+stargazers_count = "15"
+url = "https://github.com/anthofflab/Mimi.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lrennels"
+contributions = "361"
+[[contributors]]
+name = "ckingdon95"
+contributions = "340"
+[[contributors]]
+name = "davidanthoff"
+contributions = "301"
+[[contributors]]
+name = "rjplevin"
+contributions = "153"
+[[contributors]]
+name = "girishbalaji"
+contributions = "46"
+[[contributors]]
+name = "swerwath"
+contributions = "25"
+[[contributors]]
+name = "jrising"
+contributions = "19"
+[[contributors]]
+name = "scls19fr"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "delgadom"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

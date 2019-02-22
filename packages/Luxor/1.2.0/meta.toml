@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "Luxor"
+owner = "JuliaGraphics"
+version = "1.2.0"
+description = "Simple drawings using vector graphics; Cairo \"for tourists!\""
+stargazers_count = "130"
+url = "https://github.com/JuliaGraphics/Luxor.jl.git"
+installs = true
+tags = ["graphics", "vector-graphics", "drawing", "diagrams", "julia", "luxor", "cairo", "simple"]
+license = "Other"
+
+[[contributors]]
+name = "cormullion"
+contributions = "593"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "avnibu"
+contributions = "1"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "mcbaron"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

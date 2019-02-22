@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "DecisionTree"
+owner = "bensadeghi"
+version = "0.8.1"
+description = "Julia implementation of Decision Tree (CART) and Random Forest algorithms"
+stargazers_count = "135"
+url = "https://github.com/bensadeghi/DecisionTree.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bensadeghi"
+contributions = "240"
+[[contributors]]
+name = "Eight1911"
+contributions = "30"
+[[contributors]]
+name = "cstjean"
+contributions = "27"
+[[contributors]]
+name = "tchiarawongs"
+contributions = "15"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "kmsquire"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "AndrewHannigan"
+contributions = "1"
+[[contributors]]
+name = "Aerlinger"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "regonn"
+contributions = "1"

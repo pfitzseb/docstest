@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "ImagineFormat"
+owner = "timholy"
+version = "0.7.1"
+description = "Read .imagine files in Julia"
+stargazers_count = "0"
+url = "https://github.com/timholy/ImagineFormat.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "39"
+[[contributors]]
+name = "Cody-G"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "mdhe1248"
+contributions = "2"
+[[contributors]]
+name = "ajkeller34"
+contributions = "1"
+[[contributors]]
+name = "kdw503"
+contributions = "1"
+[[contributors]]
+name = "HaoyangRong"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

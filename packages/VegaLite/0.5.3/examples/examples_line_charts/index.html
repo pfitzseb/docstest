@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Line Charts · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li><a class="toctext" href="../examples_scatter_strip_plots/">Scatter &amp; Strip Plots</a></li><li class="current"><a class="toctext" href>Line Charts</a><ul class="internal"><li><a class="toctext" href="#Line-Chart-1">Line Chart</a></li><li><a class="toctext" href="#Line-Chart-with-Overlaying-Point-Markers-1">Line Chart with Overlaying Point Markers</a></li><li><a class="toctext" href="#Multi-Series-Line-Chart-1">Multi Series Line Chart</a></li><li><a class="toctext" href="#Slope-Graph-1">Slope Graph</a></li><li><a class="toctext" href="#Step-Chart-1">Step Chart</a></li><li><a class="toctext" href="#Line-Chart-with-Monotone-Interpolation-1">Line Chart with Monotone Interpolation</a></li><li><a class="toctext" href="#Connected-Scatterplot-(Lines-with-Custom-Paths)-1">Connected Scatterplot (Lines with Custom Paths)</a></li><li><a class="toctext" href="#Line-Chart-with-Varying-Size-(using-the-trail-mark)-1">Line Chart with Varying Size (using the trail mark)</a></li><li><a class="toctext" href="#Line-Chart-with-Markers-and-Invalid-Values-1">Line Chart with Markers and Invalid Values</a></li><li><a class="toctext" href="#Carbon-Dioxide-in-the-Atmosphere-1">Carbon Dioxide in the Atmosphere</a></li><li><a class="toctext" href="#Line-Charts-Showing-Ranks-Over-Time-1">Line Charts Showing Ranks Over Time</a></li></ul></li><li><a class="toctext" href="../examples_area_Charts_streamgraphs/">Area Charts &amp; Streamgraphs</a></li><li><a class="toctext" href="../examples_table_based_plots/">Table-based Plots</a></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li><a class="toctext" href="../examples_faceting/">Faceting (Trellis Plot / Small Multiples)</a></li><li><a class="toctext" href="../examples_repeat_concatenation/">Repeat &amp; Concatenation</a></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Single-View Plots</li><li><a href>Line Charts</a></li></ul></nav><hr/><div id="topbar"><span>Line Charts</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Line-Charts-1" href="#Line-Charts-1">Line Charts</a></h1><h2><a class="nav-anchor" id="Line-Chart-1" href="#Line-Chart-1">Line Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    :line,
+    transform=[
+        {filter=&quot;datum.symbol==&#39;GOOG&#39;&quot;}
+    ],
+    x={&quot;date:t&quot;, axis={format=&quot;%Y&quot;}},
+    y=:price
+)</code></pre><h2><a class="nav-anchor" id="Line-Chart-with-Overlaying-Point-Markers-1" href="#Line-Chart-with-Overlaying-Point-Markers-1">Line Chart with Overlaying Point Markers</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    transform=[{filter=&quot;datum.symbol===&#39;GOOG&#39;&quot;}],
+    mark={
+        :line,
+        color=:green,
+        point={
+            color=:red
+        }
+    },
+    x=&quot;date:t&quot;,
+    y=:price
+)</code></pre><h2><a class="nav-anchor" id="Multi-Series-Line-Chart-1" href="#Multi-Series-Line-Chart-1">Multi Series Line Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    :line,
+    x={&quot;date:t&quot;, axis={format=&quot;%Y&quot;}},
+    y=:price,
+    color=:symbol
+)</code></pre><h2><a class="nav-anchor" id="Slope-Graph-1" href="#Slope-Graph-1">Slope Graph</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;barley&quot;) |&gt;
+@vlplot(
+    :line,
+    x={
+        &quot;year:o&quot;,
+        scale={
+            rangeStep=50,
+            padding=0.5
+        }
+    },
+    y=&quot;median(yield)&quot;,
+    color=:site
+)</code></pre><h2><a class="nav-anchor" id="Step-Chart-1" href="#Step-Chart-1">Step Chart</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    transform=[{filter=&quot;datum.symbol===&#39;GOOG&#39;&quot;}],
+    mark={
+        :line,
+        interpolate=&quot;step-after&quot;
+    },
+    x=&quot;date:t&quot;,
+    y=:price
+)</code></pre><h2><a class="nav-anchor" id="Line-Chart-with-Monotone-Interpolation-1" href="#Line-Chart-with-Monotone-Interpolation-1">Line Chart with Monotone Interpolation</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    transform=[{filter=&quot;datum.symbol===&#39;GOOG&#39;&quot;}],
+    mark={
+        :line,
+        interpolate=&quot;monotone&quot;
+    },
+    x=&quot;date:t&quot;,
+    y=:price
+)</code></pre><h2><a class="nav-anchor" id="Connected-Scatterplot-(Lines-with-Custom-Paths)-1" href="#Connected-Scatterplot-(Lines-with-Custom-Paths)-1">Connected Scatterplot (Lines with Custom Paths)</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;driving&quot;) |&gt;
+@vlplot(
+    mark={
+        :line,
+        point=true
+    },
+    x={
+        :miles,
+        scale={zero=false}
+    },
+    y={
+        :gas,
+        scale={zero=false}
+    },
+    order=&quot;year:t&quot;
+)</code></pre><h2><a class="nav-anchor" id="Line-Chart-with-Varying-Size-(using-the-trail-mark)-1" href="#Line-Chart-with-Varying-Size-(using-the-trail-mark)-1">Line Chart with Varying Size (using the trail mark)</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;stocks&quot;) |&gt;
+@vlplot(
+    :trail,
+    x={
+        &quot;date:t&quot;,
+        axis={format=&quot;%Y&quot;}
+    },
+    y=:price,
+    size=:price,
+    color=:symbol
+)</code></pre><h2><a class="nav-anchor" id="Line-Chart-with-Markers-and-Invalid-Values-1" href="#Line-Chart-with-Markers-and-Invalid-Values-1">Line Chart with Markers and Invalid Values</a></h2><div><pre><code class="language-julia">using VegaLite, DataFrames
+
+data = DataFrame(
+    x=[1,2,3,4,5,6,7],
+    y=[10,30,missing,15,missing,40,20]
+)
+
+data |&gt;
+@vlplot(
+    mark={
+        :line,
+        point=true
+    },
+    x=:x,
+    y=:y
+)</code></pre><?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg class="marks" width="260" height="251" viewBox="0 0 260 251" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(52,11)"><g class="mark-group role-frame root"><g transform="translate(0,0)"><path class="background" d="M0.5,0.5h200v200h-200Z" style="fill: none; stroke: #ddd;"></path><g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(33,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(67,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(100,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(133,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(167,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,200)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,150)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,100)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,50)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,0)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-line role-mark layer_0_marks"><path d="M200,100L166.66666666666669,0M100,125ZM33.33333333333333,50L0,150" style="fill: none; stroke: #4c78a8; stroke-width: 2;"></path></g><g class="mark-symbol role-mark layer_1_marks"><path transform="translate(0,150)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: #4c78a8; stroke-width: 2; opacity: 1;"></path><path transform="translate(33.33333333333333,50)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: #4c78a8; stroke-width: 2; opacity: 1;"></path><path transform="translate(100,125)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: #4c78a8; stroke-width: 2; opacity: 1;"></path><path transform="translate(166.66666666666669,0)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: #4c78a8; stroke-width: 2; opacity: 1;"></path><path transform="translate(200,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: #4c78a8; stroke-width: 2; opacity: 1;"></path></g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(33,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(67,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(100,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(133,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(167,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1</text><text text-anchor="middle" transform="translate(33.33333333333333,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="middle" transform="translate(66.66666666666666,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">3</text><text text-anchor="middle" transform="translate(100,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">4</text><text text-anchor="middle" transform="translate(133.33333333333331,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">5</text><text text-anchor="middle" transform="translate(166.66666666666669,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">6</text><text text-anchor="end" transform="translate(200,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">7</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="200" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(100,31)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">x</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,200)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,150)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,100)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,50)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,0)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(-7,203)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0</text><text text-anchor="end" transform="translate(-7,153)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">10</text><text text-anchor="end" transform="translate(-7,103)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">20</text><text text-anchor="end" transform="translate(-7,53)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">30</text><text text-anchor="end" transform="translate(-7,3)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">40</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,200)" x2="0" y2="-200" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(-34,100) rotate(-90) translate(0,-2)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">y</text></g></g></g></g></g></g></g></g></svg></div><h2><a class="nav-anchor" id="Carbon-Dioxide-in-the-Atmosphere-1" href="#Carbon-Dioxide-in-the-Atmosphere-1">Carbon Dioxide in the Atmosphere</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+@vlplot(
+    data={
+        url=dataset(&quot;co2-concentration&quot;).path,
+        format={
+            parse={Date=&quot;utc:&#39;%Y-%m-%d&#39;&quot;}
+        }
+    },
+    width=800,
+    height=500,
+    transform=[
+        {
+            calculate=&quot;year(datum.Date)&quot;,
+            as=:year
+        },
+        {
+            calculate=&quot;month(datum.Date)&quot;,
+            as=:month
+        },
+        {
+            calculate=&quot;floor(datum.year / 10) + &#39;x&#39;&quot;,
+            as=:decade
+        },
+        {
+            calculate=&quot;(datum.year % 10) + (datum.month/12)&quot;,
+            as=:scaled_date
+        }
+    ]
+) +
+@vlplot(
+    :line,
+    x={
+        &quot;scaled_date:q&quot;,
+        axis={
+            title=&quot;Year into Decade&quot;,
+            tickCount=11
+        }
+    },
+    y={
+        &quot;CO2:q&quot;,
+        axis={title=&quot;CO2 concentration in ppm&quot;},
+        scale={zero=false}
+    },
+    detail=&quot;decade:o&quot;,
+    color={&quot;decade:n&quot;, legend={offset=40}}
+) +
+(
+    @vlplot(
+        transform=[
+            {
+                aggregate=[{
+                    op=&quot;argmin&quot;,
+                    field=&quot;scaled_date&quot;,
+                    as=&quot;start&quot;
+                }, {
+                    op=&quot;argmax&quot;,
+                    field=&quot;scaled_date&quot;,
+                    as=&quot;end&quot;
+                }],
+                groupby=[&quot;decade&quot;]
+            },
+            {
+                calculate=&quot;datum.start.scaled_date&quot;,
+                as=&quot;scaled_date_start&quot;
+            },
+            {
+                calculate=&quot;datum.start.CO2&quot;,
+                as=&quot;CO2_start&quot;
+            },
+            {
+                calculate=&quot;datum.start.year&quot;,
+                as=&quot;year_start&quot;
+            },
+            {
+                calculate=&quot;datum.end.scaled_date&quot;,
+                as=&quot;scaled_date_end&quot;
+            },
+            {
+                calculate=&quot;datum.end.CO2&quot;,
+                as=&quot;CO2_end&quot;
+            },
+            {
+                calculate=&quot;datum.end.year&quot;,
+                as=&quot;year_end&quot;
+            }
+        ]
+    ) +
+    @vlplot(
+        mark={
+            :text,
+            aligh=:left,
+            baseline=:top,
+            dx=3,
+            dy=1
+        },
+        x=&quot;scaled_date_start:q&quot;,
+        y=&quot;CO2_start:q&quot;,
+        text=&quot;year_start:n&quot;
+    ) +
+    @vlplot(
+        mark={
+            :text,
+            align=:left,
+            baseline=:bottom,
+            dx=3,
+            dy=1
+        },
+        x=&quot;scaled_date_end:q&quot;,
+        y=&quot;CO2_end:q&quot;,
+        text=&quot;year_end:n&quot;
+    )
+)</code></pre><h2><a class="nav-anchor" id="Line-Charts-Showing-Ranks-Over-Time-1" href="#Line-Charts-Showing-Ranks-Over-Time-1">Line Charts Showing Ranks Over Time</a></h2><div><pre><code class="language-julia">using VegaLite, DataFrames
+
+data = DataFrame(
+    team=[&quot;Man Utd&quot;, &quot;Chelsea&quot;, &quot;Man City&quot;, &quot;Spurs&quot;, &quot;Man Utd&quot;, &quot;Chelsea&quot;,
+        &quot;Man City&quot;, &quot;Spurs&quot;, &quot;Man Utd&quot;, &quot;Chelsea&quot;, &quot;Man City&quot;, &quot;Spurs&quot;],
+    matchday=[1,1,1,1,2,2,2,2,3,3,3,3],
+    point=[3,1,1,0,6,1,0,3,9,1,0,6]
+)
+
+data |&gt;
+@vlplot(
+    transform=[{
+        sort=[{field=&quot;point&quot;, order=&quot;descending&quot;}],
+        window=[{
+            op=&quot;rank&quot;,
+            as=&quot;rank&quot;
+        }],
+        groupby=[&quot;matchday&quot;]
+    }],
+    mark={
+        :line,
+        orient=&quot;vertical&quot;
+    },
+    x=&quot;matchday:o&quot;,
+    y=&quot;rank:o&quot;,
+    color={
+        :team,
+        scale={
+            domain=[&quot;Man Utd&quot;, &quot;Chelsea&quot;, &quot;Man City&quot;, &quot;Spurs&quot;],
+            range=[&quot;#cc2613&quot;, &quot;#125dc7&quot;, &quot;#8bcdfc&quot;, &quot;#d1d1d1&quot;]
+        }
+    }
+)</code></pre><?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg class="marks" width="219" height="127" viewBox="0 0 219 127" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(52,5)"><g class="mark-group role-frame root"><g transform="translate(0,0)"><path class="background" d="M0.5,0.5h63v84h-63Z" style="fill: none; stroke: #ddd;"></path><g><g class="mark-group role-scope pathgroup"><g transform="translate(0,0)"><path class="background" d="M0,0h63v84h-63Z" style="fill: none;"></path><g><g class="mark-line role-mark marks"><path d="M52.5,10.5L31.5,10.5L10.5,10.5" style="fill: none; stroke: #cc2613; stroke-width: 2;"></path></g></g></g><g transform="translate(0,0)"><path class="background" d="M0,0h63v84h-63Z" style="fill: none;"></path><g><g class="mark-line role-mark marks"><path d="M52.5,52.5L31.5,52.5L10.5,31.5" style="fill: none; stroke: #125dc7; stroke-width: 2;"></path></g></g></g><g transform="translate(0,0)"><path class="background" d="M0,0h63v84h-63Z" style="fill: none;"></path><g><g class="mark-line role-mark marks"><path d="M52.5,73.5L31.5,73.5L10.5,31.5" style="fill: none; stroke: #8bcdfc; stroke-width: 2;"></path></g></g></g><g transform="translate(0,0)"><path class="background" d="M0,0h63v84h-63Z" style="fill: none;"></path><g><g class="mark-line role-mark marks"><path d="M52.5,31.5L31.5,31.5L10.5,73.5" style="fill: none; stroke: #d1d1d1; stroke-width: 2;"></path></g></g></g></g><g class="mark-group role-legend"><g transform="translate(81,0)"><path class="background" d="M0,0h81v77h-81Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-legend-entry"><g transform="translate(0,16)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-scope"><g transform="translate(0,0)"><path class="background" d="M0,0h81v12.5h-81Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #cc2613; stroke-width: 1.5; opacity: 1;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">Man Utd</text></g></g></g><g transform="translate(0,16)"><path class="background" d="M0,0h81v12.5h-81Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #125dc7; stroke-width: 1.5; opacity: 1;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">Chelsea</text></g></g></g><g transform="translate(0,32)"><path class="background" d="M0,0h81v12.5h-81Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #8bcdfc; stroke-width: 1.5; opacity: 1;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">Man City</text></g></g></g><g transform="translate(0,48)"><path class="background" d="M0,0h81v12.5h-81Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #d1d1d1; stroke-width: 1.5; opacity: 1;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">Spurs</text></g></g></g></g></g></g></g><g class="mark-text role-legend-title" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,9)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">team</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,84.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(11,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(32,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(53,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(10.5,7) rotate(270) translate(0,3)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1</text><text text-anchor="end" transform="translate(31.5,7) rotate(270) translate(0,3)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="end" transform="translate(52.5,7) rotate(270) translate(0,3)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">3</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="63" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(31.5,29)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">matchday</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,11)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,32)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,53)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,74)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(-7,13.5)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1</text><text text-anchor="end" transform="translate(-7,34.5)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="end" transform="translate(-7,55.5)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">3</text><text text-anchor="end" transform="translate(-7,76.5)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">4</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="0" y2="84" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(-34,42) rotate(-90) translate(0,-2)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">rank</text></g></g></g></g></g></g></g></g></svg></div><footer><hr/><a class="previous" href="../examples_scatter_strip_plots/"><span class="direction">Previous</span><span class="title">Scatter &amp; Strip Plots</span></a><a class="next" href="../examples_area_Charts_streamgraphs/"><span class="direction">Next</span><span class="title">Area Charts &amp; Streamgraphs</span></a></footer></article></body></html>

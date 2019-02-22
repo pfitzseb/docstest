@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "KrigingEstimators"
+owner = "juliohm"
+version = "0.2.1"
+description = "Kriging estimators for the GeoStats.jl framework"
+stargazers_count = "0"
+url = "https://github.com/juliohm/KrigingEstimators.jl.git"
+installs = true
+tags = ["kriging", "interpolation", "variogram", "covariance"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "43"

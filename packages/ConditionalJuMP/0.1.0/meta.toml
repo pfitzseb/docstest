@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ConditionalJuMP"
+owner = "rdeits"
+version = "0.1.0"
+description = "Automatic transformation of implications and complementarity into mixed-integer models in Julia"
+stargazers_count = "17"
+url = "https://github.com/rdeits/ConditionalJuMP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "141"
+[[contributors]]
+name = "ianfiske"
+contributions = "8"
+[[contributors]]
+name = "vtjeng"
+contributions = "3"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Zygote"
+owner = "FluxML"
+version = "0.1.0"
+description = "21st Century AD"
+stargazers_count = "233"
+url = "https://github.com/FluxML/Zygote.jl.git"
+installs = true
+tags = ["julia", "julia-compiler", "control-flow", "gradient", "machine-learning", "automatic-differentiation"]
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "352"
+[[contributors]]
+name = "willtebbutt"
+contributions = "12"
+[[contributors]]
+name = "Keno"
+contributions = "5"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "ReferenceFrameRotations"
+owner = "JuliaSpace"
+version = "0.5.0"
+description = "A toolbox to represent 3D rotations of coordinate frames for Julia language."
+stargazers_count = "8"
+url = "https://github.com/JuliaSpace/ReferenceFrameRotations.jl.git"
+installs = true
+tags = ["julia", "direction-cosine-matrices", "quaternion", "euler-angles", "dcm", "3d-rotation", "reference-frame"]
+license = "Other"
+
+[[contributors]]
+name = "ronisbr"
+contributions = "221"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

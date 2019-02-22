@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "GeoInterface"
+owner = "JuliaGeo"
+version = "0.4.0"
+description = "A Julia Protocol for Geospatial Data"
+stargazers_count = "7"
+url = "https://github.com/JuliaGeo/GeoInterface.jl.git"
+installs = true
+tags = ["julia", "geo", "geospatial", "vector", "gis"]
+license = "Other"
+
+[[contributors]]
+name = "yeesian"
+contributions = "11"
+[[contributors]]
+name = "visr"
+contributions = "10"
+[[contributors]]
+name = "cchderrick"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

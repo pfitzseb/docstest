@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "MotionCaptureJointCalibration"
+owner = "JuliaRobotics"
+version = "0.2.0"
+description = "Kinematic calibration for robots using motion capture data"
+stargazers_count = "6"
+url = "https://github.com/JuliaRobotics/MotionCaptureJointCalibration.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "76"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

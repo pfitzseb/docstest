@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "AverageShiftedHistograms"
+owner = "joshday"
+version = "0.7.1"
+description = "ASH density estimation in pure Julia"
+stargazers_count = "30"
+url = "https://github.com/joshday/AverageShiftedHistograms.jl.git"
+installs = true
+tags = ["julia", "density-estimation", "big-data", "kernel-density-estimation", "online-algorithms"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "255"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

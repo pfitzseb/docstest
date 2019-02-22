@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "PlyIO"
+owner = "FugroRoames"
+version = "1.0.0"
+description = "Read and write polygon ply files from julia"
+stargazers_count = "5"
+url = "https://github.com/FugroRoames/PlyIO.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "c42f"
+contributions = "48"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "COSMO"
+owner = "oxfordcontrol"
+version = "0.3.1"
+description = "COSMO: An ADMM-based solver for convex conic optimisation problems (LP, QP, SOCP, SDP). Written in Julia"
+stargazers_count = "33"
+url = "https://github.com/oxfordcontrol/COSMO.jl.git"
+installs = true
+tags = ["convex-optimization", "semidefinite-programming", "solver", "julia-language", "conic-programs"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "migarstka"
+contributions = "236"
+[[contributors]]
+name = "goulart-paul"
+contributions = "42"
+[[contributors]]
+name = "nrontsis"
+contributions = "13"

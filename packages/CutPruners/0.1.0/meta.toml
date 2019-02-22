@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "CutPruners"
+owner = "JuliaPolyhedra"
+version = "0.1.0"
+description = "Modular framework for cut pruning algorithms"
+stargazers_count = "4"
+url = "https://github.com/JuliaPolyhedra/CutPruners.jl.git"
+installs = true
+tags = ["julia", "pruning", "polyhedra"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "45"
+[[contributors]]
+name = "frapac"
+contributions = "28"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "odow"
+contributions = "1"
+[[contributors]]
+name = "trigaut"
+contributions = "1"

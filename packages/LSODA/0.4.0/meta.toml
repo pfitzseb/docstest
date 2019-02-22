@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "LSODA"
+owner = "rveltz"
+version = "0.4.0"
+description = "A julia interface to the LSODA solver "
+stargazers_count = "4"
+url = "https://github.com/rveltz/LSODA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "47"
+[[contributors]]
+name = "rveltz"
+contributions = "38"
+[[contributors]]
+name = "sdwfrost"
+contributions = "18"
+[[contributors]]
+name = "ScottPJones"
+contributions = "3"
+[[contributors]]
+name = "Vaibhavdixit02"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

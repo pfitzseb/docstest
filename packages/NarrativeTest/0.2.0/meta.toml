@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "NarrativeTest"
+owner = "rbt-lang"
+version = "0.2.0"
+description = "Julia library for functional testing."
+stargazers_count = "3"
+url = "https://github.com/rbt-lang/NarrativeTest.jl.git"
+installs = true
+tags = ["julia", "testing", "functional-testing", "doctest"]
+license = "Other"
+
+[[contributors]]
+name = "xitology"
+contributions = "54"

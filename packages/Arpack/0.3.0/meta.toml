@@ -1,0 +1,63 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Arpack"
+owner = "JuliaLinearAlgebra"
+version = "0.3.0"
+description = ""
+stargazers_count = "15"
+url = "https://github.com/JuliaLinearAlgebra/Arpack.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "41"
+[[contributors]]
+name = "dahong67"
+contributions = "8"
+[[contributors]]
+name = "Sacha0"
+contributions = "8"
+[[contributors]]
+name = "fredrikekre"
+contributions = "6"
+[[contributors]]
+name = "lostella"
+contributions = "5"
+[[contributors]]
+name = "rfourquet"
+contributions = "3"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "simonbyrne"
+contributions = "2"
+[[contributors]]
+name = "tanmaykm"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "dkarrasch"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

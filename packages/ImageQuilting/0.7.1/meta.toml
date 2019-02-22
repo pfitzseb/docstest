@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "real"
+name = "ImageQuilting"
+owner = "juliohm"
+version = "0.7.1"
+description = "Fast 3D image quilting simulation solver for the GeoStats.jl framework"
+stargazers_count = "18"
+url = "https://github.com/juliohm/ImageQuilting.jl.git"
+installs = true
+tags = ["geostatistics", "computer-vision", "image-processing", "graph-theory", "multiple-point-statistics", "texture-synthesis"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "442"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NetworkLearning"
+owner = "zgornel"
+version = "0.1.1"
+description = "Baseline collective classification library"
+stargazers_count = "2"
+url = "https://github.com/zgornel/NetworkLearning.jl.git"
+installs = true
+tags = ["julia", "classification", "graph-learning", "learners", "collective-classification", "inference", "adjacency-matrix"]
+license = "MIT License"
+
+[[contributors]]
+name = "zgornel"
+contributions = "59"

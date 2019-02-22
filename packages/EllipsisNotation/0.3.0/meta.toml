@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "EllipsisNotation"
+owner = "ChrisRackauckas"
+version = "0.3.0"
+description = "Implements the notation `..` for indexing arrays."
+stargazers_count = "15"
+url = "https://github.com/ChrisRackauckas/EllipsisNotation.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "34"
+[[contributors]]
+name = "antimon2"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ranocha"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

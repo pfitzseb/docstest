@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "RecipesBase"
+owner = "JuliaPlots"
+version = "0.5.0"
+description = "Base package for defining transformation recipes on user types for Plots.jl"
+stargazers_count = "35"
+url = "https://github.com/JuliaPlots/RecipesBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tbreloff"
+contributions = "33"
+[[contributors]]
+name = "mkborregaard"
+contributions = "20"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "16"
+[[contributors]]
+name = "daschw"
+contributions = "15"
+[[contributors]]
+name = "jw3126"
+contributions = "4"
+[[contributors]]
+name = "wkearn"
+contributions = "3"
+[[contributors]]
+name = "arturgower"
+contributions = "2"
+[[contributors]]
+name = "joshday"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "darwindarak"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "kevincheng97"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"

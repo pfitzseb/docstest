@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "Languages"
+owner = "JuliaText"
+version = "0.3.0"
+description = "A package for working with human languages"
+stargazers_count = "15"
+url = "https://github.com/JuliaText/Languages.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "aviks"
+contributions = "37"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "10"
+[[contributors]]
+name = "zgornel"
+contributions = "7"
+[[contributors]]
+name = "nickto"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "AsafManela"
+contributions = "1"
+[[contributors]]
+name = "dpshelio"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "abieler"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "FixedPolynomials"
+owner = "JuliaAlgebra"
+version = "0.3.2"
+description = "A package for fast evaluation of multivariate polynomials."
+stargazers_count = "5"
+url = "https://github.com/JuliaAlgebra/FixedPolynomials.jl.git"
+installs = true
+tags = ["julia", "multivariate-polynomials", "polynomials"]
+license = "Other"
+
+[[contributors]]
+name = "saschatimme"
+contributions = "110"
+[[contributors]]
+name = "blegat"
+contributions = "1"

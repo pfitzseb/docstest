@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "SIUnits"
+owner = "Keno"
+version = "0.1.0"
+description = "Efficient unit-checked computation"
+stargazers_count = "64"
+url = "https://github.com/Keno/SIUnits.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "63"
+[[contributors]]
+name = "timholy"
+contributions = "22"
+[[contributors]]
+name = "mbauman"
+contributions = "15"
+[[contributors]]
+name = "mweastwood"
+contributions = "7"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "christianpeel"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "rickhg12hs"
+contributions = "1"

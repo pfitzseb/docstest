@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CommonSubexpressions"
+owner = "rdeits"
+version = "0.2.0"
+description = "Naïve combined subexpression elimination in Julia"
+stargazers_count = "11"
+url = "https://github.com/rdeits/CommonSubexpressions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "41"
+[[contributors]]
+name = "jrevels"
+contributions = "1"

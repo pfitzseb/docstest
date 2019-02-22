@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "CloudWatchLogs"
+owner = "invenia"
+version = "0.2.1"
+description = "AWS CloudWatch Logs integration for Julia using Memento.jl"
+stargazers_count = "1"
+url = "https://github.com/invenia/CloudWatchLogs.jl.git"
+installs = true
+tags = ["cloudwatch-logs", "logging", "julia", "julia-language", "julialang"]
+license = "MIT License"
+
+[[contributors]]
+name = "iamed2"
+contributions = "32"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ReinforcementLearningEnvironmentAtari"
+owner = "JuliaReinforcementLearning"
+version = "0.1.0"
+description = ""
+stargazers_count = "1"
+url = "https://github.com/JuliaReinforcementLearning/ReinforcementLearningEnvironmentAtari.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "15"
+[[contributors]]
+name = "findmyway"
+contributions = "10"
+[[contributors]]
+name = "JobJob"
+contributions = "1"

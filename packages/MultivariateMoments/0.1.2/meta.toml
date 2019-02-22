@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "MultivariateMoments"
+owner = "JuliaAlgebra"
+version = "0.1.2"
+description = "Extension of MultivariatePolynomials to moments of multivariate measures"
+stargazers_count = "5"
+url = "https://github.com/JuliaAlgebra/MultivariateMoments.jl.git"
+installs = true
+tags = ["julia", "moments", "multivariate-measures"]
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "66"

@@ -1,0 +1,96 @@
+license_url = ""
+doctype = "default"
+name = "ODBC"
+owner = "JuliaDatabases"
+version = "0.8.1"
+description = "An ODBC interface for the Julia programming language"
+stargazers_count = "43"
+url = "https://github.com/JuliaDatabases/ODBC.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "305"
+[[contributors]]
+name = "bmharsha"
+contributions = "44"
+[[contributors]]
+name = "kmsquire"
+contributions = "8"
+[[contributors]]
+name = "jakebolewski"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "6"
+[[contributors]]
+name = "nicoleepp"
+contributions = "5"
+[[contributors]]
+name = "mdpradeep"
+contributions = "5"
+[[contributors]]
+name = "omus"
+contributions = "4"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "4"
+[[contributors]]
+name = "abhijithch"
+contributions = "4"
+[[contributors]]
+name = "staples6"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "3"
+[[contributors]]
+name = "nkottary"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "2"
+[[contributors]]
+name = "cnliao"
+contributions = "2"
+[[contributors]]
+name = "ranjanan"
+contributions = "2"
+[[contributors]]
+name = "augustinyiptong"
+contributions = "1"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "CarlCochran"
+contributions = "1"
+[[contributors]]
+name = "DanBerge"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fiatflux"
+contributions = "1"
+[[contributors]]
+name = "pingles"
+contributions = "1"
+[[contributors]]
+name = "paulogeyer"
+contributions = "1"
+[[contributors]]
+name = "ronisbr"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "pascalr0410"
+contributions = "1"

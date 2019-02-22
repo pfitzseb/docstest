@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ReadWriteDlm2.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ReadWriteDlm2.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Function-readdlm2()-1">Function <code>readdlm2()</code></a></li><li><a class="toctext" href="#Function-writedlm2()-1">Function <code>writedlm2()</code></a></li><li><a class="toctext" href="#More-Examples-1">More Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ReadWriteDlm2-1" href="#ReadWriteDlm2-1">ReadWriteDlm2</a></h1><h3><a class="nav-anchor" id="CSV-IO-Supporting-Decimal-Comma,-Date,-DateTime,-Time,-Complex,-Missing-and-Rational-1" href="#CSV-IO-Supporting-Decimal-Comma,-Date,-DateTime,-Time,-Complex,-Missing-and-Rational-1">CSV IO Supporting Decimal Comma, Date, DateTime, Time, Complex, Missing and Rational</a></h3><p><a href="http://pkg.julialang.org/?pkg=ReadWriteDlm2"><img src="http://pkg.julialang.org/badges/ReadWriteDlm2_0.6.svg" alt="ReadWriteDlm2"/></a> <a href="http://pkg.julialang.org/?pkg=ReadWriteDlm2=0.7"><img src="http://pkg.julialang.org/badges/ReadWriteDlm2_0.7.svg" alt="ReadWriteDlm2"/></a> <a href="https://travis-ci.org/strickek/ReadWriteDlm2.jl"><img src="https://travis-ci.org/strickek/ReadWriteDlm2.jl.svg?branch=master" alt="Build Status"/></a>   <a href="https://ci.appveyor.com/project/strickek/readwritedlm2-jl/branch/master"><img src="https://ci.appveyor.com/api/projects/status/ojv8nnuw63kh9yba/branch/master?svg=true" alt="Build status"/></a>  <a href="http://codecov.io/github/strickek/ReadWriteDlm2.jl?branch=master"><img src="http://codecov.io/github/strickek/ReadWriteDlm2.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p><code>ReadWriteDlm2</code> functions <code>readdlm2()</code>, <code>writedlm2()</code>, <code>readcsv2()</code> and <code>writecsv2()</code> are similar to those of stdlib.DelimitedFiles, but with additional support for <code>Date</code>, <code>DateTime</code>, <code>Time</code>, <code>Complex</code>, <code>Rational</code>, <code>Missing</code> types and special decimal marks.</p><ul><li><p>For &quot;decimal dot&quot; users the functions <code>readcsv2()</code> and <code>writecsv2()</code> have the respective defaults: Delimiter is <code>&#39;,&#39;</code> (fixed) and <code>decimal=&#39;.&#39;</code>.</p></li><li><p>The basic idea of <code>readdlm2()</code> and <code>writedlm2()</code> is to support the <a href="https://commons.wikimedia.org/wiki/File:DecimalSeparator.svg?uselang=en#file">decimal comma countries</a>. These functions use <code>&#39;;&#39;</code> as default delimiter and <code>&#39;,&#39;</code> as default decimal mark. &quot;Decimal dot&quot; users of these functions need to define <code>decimal=&#39;.&#39;</code>.</p></li><li><p>This documentation is for Julia 0.7 (<a href="https://github.com/strickek/ReadWriteDlm2.jl/blob/v0.6.2/README.md">-&gt; Julia 0.6</a>).</p></li></ul><h3><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h3><p>This package is registered and can be installed within the <a href="https://docs.julialang.org/en/latest/stdlib/Pkg/"><code>Pkg</code> REPL-mode</a>: Type <code>]</code> in the REPL and then:</p><pre><code class="language-none">pkg&gt; add ReadWriteDlm2</code></pre><h3><a class="nav-anchor" id="Basic-Example([-more](#more-examples)):-How-To-Use-ReadWriteDlm2-1" href="#Basic-Example([-more](#more-examples)):-How-To-Use-ReadWriteDlm2-1">Basic Example(<a href="#more-examples">-&gt; more</a>): How To Use <code>ReadWriteDlm2</code></a></h3><pre><code class="language-none">julia&gt; using ReadWriteDlm2, Dates               # activate modules ReadWriteDlm2 und Dates
+
+julia&gt; a = Any[1 1.2; &quot;text&quot; Date(2017,1,1)];   # create array with: Int, Float64, String and Date type
+
+julia&gt; writedlm2(&quot;test.csv&quot;, a)                 # test.csv(decimal comma): &quot;1;1,2\ntext;2017-01-01\n&quot;
+
+julia&gt; readdlm2(&quot;test.csv&quot;)                     # read `CSV` data: All four types are parsed correctly!
+2×2 Array{Any,2}:
+ 1        1.2
+  &quot;text&quot;   2017-01-01</code></pre><h2><a class="nav-anchor" id="Function-readdlm2()-1" href="#Function-readdlm2()-1">Function <code>readdlm2()</code></a></h2><p>Read a matrix from <code>source</code>. The <code>source</code> can be a text file, stream or byte array. Each line, separated by <code>eol</code> (default is <code>&#39;\n&#39;</code>), gives one row. The columns are separated by <code>&#39;;&#39;</code>, another <code>delim</code> can be defined.</p><pre><code class="language-none">readdlm2(source; options...)
+readdlm2(source, T::Type; options...)
+readdlm2(source, delim::Char; options...)
+readdlm2(source, delim::Char, T::Type; options...)
+readdlm2(source, delim::Char, eol::Char; options...)
+readdlm2(source, delim::Char, T::Type, eol::Char; options...)</code></pre><p>Pre-processing of <code>source</code> with regex substitution changes the decimal marks from <code>d,d</code> to <code>d.d</code>. For default <code>rs</code> the keyword argument <code>decimal=&#39;,&#39;</code> sets the decimal Char in the <code>r</code>-string of <code>rs</code>. When a special regex substitution tuple <code>rs=(r.., s..)</code> is defined, the argument <code>decimal</code> is not used (  <a href="#writedlm2-and-readdlm2-with-special-decimal">-&gt; Example</a>). Pre-processing can be switched off with: <code>rs=()</code>.</p><p>In addition to stdlib <code>readdlm()</code>, data is also parsed for <code>Dates</code> formats (ISO), the<code>Time</code> format <code>HH:MM[:SS[.s{1,9}]]</code> and for complex and rational numbers. To deactivate parsing dates/time set: <code>dfs=&quot;&quot;, dtfs=&quot;&quot;</code>. <code>locale</code> defines the language of day (<code>E</code>, <code>e</code>) and month (<code>U</code>, <code>u</code>) names.</p><p>The result will be a (heterogeneous) array of default element type <code>Any</code>. Other (abstract) types for the array elements could be defined. If data is empty, a <code>0×0 Array{T,2}</code> is returned. If <code>dfheader=true</code> instead of <code>header=true</code>, the first row of data will be read as header and returned in a tuple for DataFrames <code>(data_cells::Array{T,2}, header_cells::Array{Symbol,1})</code>.</p><h3><a class="nav-anchor" id="Additional-Keyword-Arguments-readdlm2()-1" href="#Additional-Keyword-Arguments-readdlm2()-1">Additional Keyword Arguments <code>readdlm2()</code></a></h3><ul><li><code>decimal=&#39;,&#39;</code>: Decimal mark Char used by default <code>rs</code>, irrelevant if <code>rs</code>-tuple is not the default one</li><li><code>rs=(r&quot;(\d),(\d)&quot;, s&quot;\1.\2&quot;)</code>: <a href="https://docs.julialang.org/en/latest/manual/strings/#Regular-Expressions-1">Regex</a> (r,s)-tuple, the default change d,d to d.d if <code>decimal=&#39;,&#39;</code></li><li><code>dtfs=&quot;yyyy-mm-ddTHH:MM:SS.s&quot;</code>: <a href="https://docs.julialang.org/en/latest/stdlib/Dates/#Dates.DateFormat">Format string</a> for DateTime parsing</li><li><code>dfs=&quot;yyyy-mm-dd&quot;</code>: <a href="https://docs.julialang.org/en/latest/stdlib/Dates/#Dates.DateFormat">Format string</a> for Date parsing</li><li><code>locale=&quot;english&quot;</code>: Language for parsing dates names, default is english</li><li><code>dfheader=false</code>: Return header in format for DataFrames if <code>true</code></li><li><code>missingstring=&quot;na&quot;</code>: How missing values are represented, default is <code>&quot;na&quot;</code></li></ul><h3><a class="nav-anchor" id="Function-readcsv2()-1" href="#Function-readcsv2()-1">Function <code>readcsv2()</code></a></h3><pre><code class="language-none">readcsv2(source, T::Type=Any; opts...)</code></pre><p>Equivalent to <code>readdlm2()</code> with delimiter <code>&#39;,&#39;</code> and <code>decimal=&#39;.&#39;</code>.</p><h3><a class="nav-anchor" id="Documentation-For-Base-readdlm()-1" href="#Documentation-For-Base-readdlm()-1">Documentation For Base <code>readdlm()</code></a></h3><p>More information about Base functionality and (keyword) arguments - which are also supported by <code>readdlm2()</code> and <code>readcsv2()</code> - is available in the <a href="https://docs.julialang.org/en/latest/stdlib/DelimitedFiles/#DelimitedFiles.readdlm-Tuple{Any,AbstractChar,Type,AbstractChar}">documentation for readdlm()</a>.</p><h3><a class="nav-anchor" id="Compare-Default-Functionality-readdlm()-readdlm2()-readcsv2()-1" href="#Compare-Default-Functionality-readdlm()-readdlm2()-readcsv2()-1">Compare Default Functionality <code>readdlm()</code> - <code>readdlm2()</code> - <code>readcsv2()</code></a></h3><table><tr><th>Module</th><th>Function</th><th>Delimiter</th><th>Dec. Mark</th><th>Element Type</th><th>Extended Parsing</th></tr><tr><td>DelimitedFiles</td><td><code>readdlm()</code></td><td><code>&#39; &#39;</code></td><td><code>&#39;.&#39;</code></td><td>Float64/Any</td><td>No (String)</td></tr><tr><td>ReadWriteDlm2</td><td><code>readdlm2()</code></td><td><code>&#39;;&#39;</code></td><td><code>&#39;,&#39;</code></td><td>Any</td><td>Yes</td></tr><tr><td>ReadWriteDlm2</td><td><code>readcsv2()</code></td><td><code>&#39;,&#39;</code></td><td><code>&#39;.&#39;</code></td><td>Any</td><td>Yes</td></tr></table><h2><a class="nav-anchor" id="Function-writedlm2()-1" href="#Function-writedlm2()-1">Function <code>writedlm2()</code></a></h2><p>Write <code>A</code> (a vector, matrix, or an iterable collection of iterable rows) as text to <code>f</code> (either a filename AbstractString or an IO stream). The columns are separated by <code>&#39;;&#39;</code>, another <code>delim</code> (Char or String) can be defined.</p><pre><code class="language-none">writedlm2(f, A; options...)
+writedlm2(f, A, delim; options...)</code></pre><p>By default, a pre-processing of values takes place. Before writing as strings, decimal marks are changed from <code>&#39;.&#39;</code> to <code>&#39;,&#39;</code>. With a keyword argument another decimal mark can be defined. To switch off this pre-processing set: <code>decimal=&#39;.&#39;</code>.</p><p>In <code>writedlm2()</code> the output format for <code>Date</code> and <code>DateTime</code> data can be defined with format strings. Defaults are the ISO formats. Day (<code>E</code>, <code>e</code>) and month (<code>U</code>, <code>u</code>) names are written in the <code>locale</code> language. For writing <code>Complex</code> numbers the imaginary component suffix can be selected with the <code>imsuffix=</code> keyword argument. </p><h3><a class="nav-anchor" id="Additional-Keyword-Arguments-writedlm2()-1" href="#Additional-Keyword-Arguments-writedlm2()-1">Additional Keyword Arguments <code>writedlm2()</code></a></h3><ul><li><code>decimal=&#39;,&#39;</code>: Character for writing decimal marks, default is a comma</li><li><code>dtfs=&quot;yyyy-mm-ddTHH:MM:SS.s&quot;</code>: <a href="https://docs.julialang.org/en/latest/stdlib/Dates/#Dates.DateFormat">Format string</a>,  DateTime write format</li><li><code>dfs=&quot;yyyy-mm-dd&quot;</code>: <a href="https://docs.julialang.org/en/latest/stdlib/Dates/#Dates.DateFormat">Format string</a>, Date write format</li><li><code>locale=&quot;english&quot;</code>: Language for writing date names, default is english</li><li><code>imsuffix=&quot;im&quot;</code>: Complex - imaginary component suffix <code>&quot;im&quot;</code>(=default), <code>&quot;i&quot;</code> or <code>&quot;j&quot;</code></li><li><code>missingstring=&quot;na&quot;</code>: How missing values are written, default is <code>&quot;na&quot;</code></li></ul><h3><a class="nav-anchor" id="Function-writecsv2()-1" href="#Function-writecsv2()-1">Function <code>writecsv2()</code></a></h3><pre><code class="language-none">writecsv2(f, A; opts...)</code></pre><p>Equivalent to <code>writedlm2()</code> with fixed delimiter <code>&#39;,&#39;</code> and <code>decimal=&#39;.&#39;</code>.</p><h3><a class="nav-anchor" id="Compare-Default-Functionality-writedlm()-writedlm2()-writecsv2()-1" href="#Compare-Default-Functionality-writedlm()-writedlm2()-writecsv2()-1">Compare Default Functionality <code>writedlm()</code> - <code>writedlm2()</code> - <code>writecsv2()</code></a></h3><table><tr><th>Module</th><th>Function</th><th>Delimiter</th><th>Decimal Mark</th></tr><tr><td>DelimitedFiles</td><td><code>writedlm()</code></td><td><code>&#39;\t&#39;</code></td><td><code>&#39;.&#39;</code></td></tr><tr><td>ReadWriteDlm2</td><td><code>writedlm2()</code></td><td><code>&#39;;&#39;</code></td><td><code>&#39;,&#39;</code></td></tr><tr><td>ReadWriteDlm2</td><td><code>writecsv2()</code></td><td><code>&#39;,&#39;</code></td><td><code>&#39;.&#39;</code></td></tr></table><h2><a class="nav-anchor" id="More-Examples-1" href="#More-Examples-1">More Examples</a></h2><h4><a class="nav-anchor" id="writecsv2()-And-readcsv2()-1" href="#writecsv2()-And-readcsv2()-1"><code>writecsv2()</code> And <code>readcsv2()</code></a></h4><pre><code class="language-none">julia&gt; using ReadWriteDlm2
+
+julia&gt; a = Any[1 complex(1.5,2.7);1.0 1//3];   # create array with: Int, Complex, Float64 and Rational type
+
+julia&gt; writecsv2(&quot;test.csv&quot;, a)                # test.csv(decimal dot): &quot;1,1.5 + 2.7im\n1.0,1//3\n&quot;
+
+julia&gt; readcsv2(&quot;test.csv&quot;)                    # read CSV data: All four types are parsed correctly!
+2×2 Array{Any,2}:
+ 1    1.5+2.7im
+ 1.0    1//3</code></pre><h4><a class="nav-anchor" id="writedlm2()-And-readdlm2()-With-Special-decimal-1" href="#writedlm2()-And-readdlm2()-With-Special-decimal-1"><code>writedlm2()</code> And <code>readdlm2()</code> With Special <code>decimal=</code></a></h4><pre><code class="language-none">julia&gt; using ReadWriteDlm2
+
+julia&gt; a = Float64[1.1 1.2;2.1 2.2]
+2×2 Array{Float64,2}:
+ 1.1  1.2
+ 2.1  2.2
+
+julia&gt; writedlm2(&quot;test.csv&quot;, a; decimal=&#39;€&#39;)     # &#39;€&#39; is decimal Char in &#39;test.csv&#39;
+
+julia&gt; readdlm2(&quot;test.csv&quot;, Float64; decimal=&#39;€&#39;)      # a) standard: use keyword argument
+2×2 Array{Float64,2}:
+ 1.1  1.2
+ 2.1  2.2
+
+julia&gt; readdlm2(&quot;test.csv&quot;, Float64; rs=(r&quot;(\d)€(\d)&quot;, s&quot;\1.\2&quot;))    # b) more flexible: rs-Regex-Tupel
+2×2 Array{Float64,2}:
+ 1.1  1.2
+ 2.1  2.2</code></pre><h4><a class="nav-anchor" id="writedlm2()-And-readdlm2()-With-Union{Missing,-Float64}-1" href="#writedlm2()-And-readdlm2()-With-Union{Missing,-Float64}-1"><code>writedlm2()</code> And <code>readdlm2()</code> With <code>Union{Missing, Float64}</code></a></h4><pre><code class="language-none">julia&gt; using ReadWriteDlm2
+
+julia&gt; a = Union{Missing, Float64}[1.1 0/0;missing 2.2;1/0 -1/0]
+3×2 Array{Union{Missing, Float64},2}:
+   1.1        NaN
+    missing     2.2
+ Inf         -Inf
+
+julia&gt; writedlm2(&quot;test.csv&quot;, a; missingstring=&quot;???&quot;)     # use &quot;???&quot; for missing data
+
+julia&gt; read(&quot;test.csv&quot;, String)
+&quot;1,1;NaN\n???;2,2\nInf;-Inf\n&quot;
+
+julia&gt; readdlm2(&quot;test.csv&quot;, Union{Missing, Float64}; missingstring=&quot;???&quot;)
+3×2 Array{Union{Missing, Float64},2}:
+   1.1        NaN
+    missing     2.2
+ Inf         -Inf</code></pre><h4><a class="nav-anchor" id="Date-And-DateTime-With-locale&quot;french&quot;-1" href="#Date-And-DateTime-With-locale&quot;french&quot;-1"><code>Date</code> And <code>DateTime</code> With <code>locale=&quot;french&quot;</code></a></h4><pre><code class="language-none">julia&gt; using ReadWriteDlm2, Dates
+
+julia&gt; Dates.LOCALES[&quot;french&quot;] = Dates.DateLocale(
+           [&quot;janvier&quot;, &quot;février&quot;, &quot;mars&quot;, &quot;avril&quot;, &quot;mai&quot;, &quot;juin&quot;,
+               &quot;juillet&quot;, &quot;août&quot;, &quot;septembre&quot;, &quot;octobre&quot;, &quot;novembre&quot;, &quot;décembre&quot;],
+           [&quot;janv&quot;, &quot;févr&quot;, &quot;mars&quot;, &quot;avril&quot;, &quot;mai&quot;, &quot;juin&quot;,
+               &quot;juil&quot;, &quot;août&quot;, &quot;sept&quot;, &quot;oct&quot;, &quot;nov&quot;, &quot;déc&quot;],
+           [&quot;lundi&quot;, &quot;mardi&quot;, &quot;mercredi&quot;, &quot;jeudi&quot;, &quot;vendredi&quot;, &quot;samedi&quot;, &quot;dimanche&quot;],
+           [&quot;lu&quot;, &quot;ma&quot;, &quot;me&quot;, &quot;je&quot;, &quot;ve&quot;, &quot;sa&quot;, &quot;di&quot;],
+           );
+
+julia&gt; a = hcat([Date(2017,1,1), DateTime(2017,1,1,5,59,1,898), 1, 1.0, &quot;text&quot;])
+5x1 Array{Any,2}:
+  2017-01-01
+  2017-01-01T05:59:01.898
+ 1
+ 1.0
+  &quot;text&quot;
+
+julia&gt; writedlm2(&quot;test.csv&quot;, a; dfs=&quot;E, d.U yyyy&quot;, dtfs=&quot;e, d.u yyyy H:M:S,s&quot;, locale=&quot;french&quot;)
+
+julia&gt; read(&quot;test.csv&quot;, String)  # to see what have been written in &quot;test.csv&quot; file
+&quot;dimanche, 1.janvier 2017\ndi, 1.janv 2017 5:59:1,898\n1\n1,0\ntext\n&quot;
+
+julia&gt; readdlm2(&quot;test.csv&quot;; dfs=&quot;E, d.U yyyy&quot;, dtfs=&quot;e, d.u yyyy H:M:S,s&quot;, locale=&quot;french&quot;)
+5×1 Array{Any,2}:
+  2017-01-01
+  2017-01-01T05:59:01.898
+ 1
+ 1.0
+  &quot;text&quot;</code></pre><h4><a class="nav-anchor" id="readdlm2()-And-DataFrames-(With-Header)-1" href="#readdlm2()-And-DataFrames-(With-Header)-1"><code>readdlm2()</code> And <code>DataFrames</code> (With Header)</a></h4><p>See <a href="https://github.com/JuliaData/DataFrames.jl">-&gt; <code>DataFrames</code></a> for installation and more information.</p><pre><code class="language-none">julia&gt; using ReadWriteDlm2, Dates, DataFrames
+
+julia&gt; a = [&quot;date&quot; &quot;value&quot;; Date(2017,1,1) 1.4; Date(2017,1,2) 1.8]
+3×2 Array{Any,2}:
+ &quot;date&quot;       &quot;value&quot;
+ 2017-01-01  1.4
+ 2017-01-02  1.8
+
+julia&gt; writedlm2(&quot;test.csv&quot;, a)  # &quot;date;value\n2017-01-01;1,4\n2017-01-02;1,8\n&quot;
+
+julia&gt; df = DataFrame(readdlm2(&quot;test.csv&quot;; dfheader=true))
+2×2 DataFrame
+│ Row │ date       │ value │
+������������������������������������������
+│ 1   │ 2017-01-01 │ 1.4   │
+│ 2   │ 2017-01-02 │ 1.8   │
+
+julia&gt; mean(df[:value])
+1.6</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

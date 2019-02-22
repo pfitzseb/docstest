@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "DeferredFutures"
+owner = "invenia"
+version = "0.6.0"
+description = "Julia Futures which are initialized when written to"
+stargazers_count = "3"
+url = "https://github.com/invenia/DeferredFutures.jl.git"
+installs = true
+tags = ["julia", "futures", "parallel", "async", "channels"]
+license = "Other"
+
+[[contributors]]
+name = "iamed2"
+contributions = "36"
+[[contributors]]
+name = "morris25"
+contributions = "9"
+[[contributors]]
+name = "nicoleepp"
+contributions = "8"
+[[contributors]]
+name = "rofinn"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "MLStyle"
+owner = "thautwarm"
+version = "0.2.7"
+description = "ML language style utilities in Julia that provide (generalized) algebraic data types abstraction, highly optimized and extensible pattern matching, and killer tools for meta-programming."
+stargazers_count = "45"
+url = "https://github.com/thautwarm/MLStyle.jl.git"
+installs = true
+tags = ["pattern-matching", "algebraic-data-types", "syntax-sugar", "scalability", "statically-generated"]
+license = "MIT License"
+
+[[contributors]]
+name = "thautwarm"
+contributions = "184"
+[[contributors]]
+name = "Roger-luo"
+contributions = "12"
+[[contributors]]
+name = "findmyway"
+contributions = "6"
+[[contributors]]
+name = "passindro"
+contributions = "4"
+[[contributors]]
+name = "cherichy"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"

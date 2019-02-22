@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SLEEF"
+owner = "musm"
+version = "0.5.1"
+description = "A pure Julia port of the SLEEF math library"
+stargazers_count = "14"
+url = "https://github.com/musm/SLEEF.jl.git"
+installs = true
+tags = ["math", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "musm"
+contributions = "47"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

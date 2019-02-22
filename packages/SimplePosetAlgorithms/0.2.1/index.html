@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SimplePosetAlgorithms.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SimplePosetAlgorithms.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Functions-1">Functions</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SimplePosetAlgorithms-1" href="#SimplePosetAlgorithms-1">SimplePosetAlgorithms</a></h1><p><a href="https://travis-ci.org/scheinerman/SimplePosetAlgorithms.jl"><img src="https://travis-ci.org/scheinerman/SimplePosetAlgorithms.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="http://codecov.io/github/scheinerman/SimplePosetAlgorithms.jl?branch=master"><img src="http://codecov.io/github/scheinerman/SimplePosetAlgorithms.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Additional algorithms for the <code>SimplePoset</code> type. Relies on <code>SimpleGraphAlgorithms</code>. See that module for more information.</p><p><strong>Note</strong>: Calculations are done via an integer linear program and   there can be quite slow.</p><h2><a class="nav-anchor" id="Functions-1" href="#Functions-1">Functions</a></h2><ul><li><p><code>max_chain(P)</code> returns a maximum size chain of the <code>SimplePoset</code>.</p></li><li><p><code>max_antichain(P)</code> returns a maximum size antichain of the</p></li></ul><p><code>SimplePoset</code></p><ul><li><p><code>width(P)</code> returns the size of a largest antichain in the <code>SimplePoset</code>. [<strong>Note</strong>: The function <code>height</code> (which gives the size of a largest chain) is already defined in the <code>SimplePosets</code> module and does not rely on integer linear programming.]</p></li><li><p><code>realizer(P,d)</code> returns a realizer of <code>P</code> with <code>d</code> linear extensions,</p></li></ul><p>or throws an error if none exists. This is returned as a matrix with <code>d</code> columns.</p><ul><li><code>realize_poset(R)</code> creates a poset from a realizer. Here <code>R</code> is a</li></ul><p>matrix whose columns are the linear orders of the realizer.</p><ul><li><code>dimension(P)</code> returns the minimum size of a realizer. Use</li></ul><p><code>dimension(P,true)</code> for verbose reporting.</p><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">julia&gt; P = BooleanLattice(5)
+SimplePoset{String} (32 elements)
+
+julia&gt; max_chain(P)
+{00000,00001,01001,11001,11011,11111}
+
+julia&gt; max_antichain(P)
+{00111,01011,01101,01110,10011,10101,10110,11001,11010,11100}
+
+julia&gt; P = Divisors(30)
+SimplePoset{Int64} (8 elements)
+
+julia&gt; realizer(P,3)
+8×3 Array{Int64,2}:
+  1   1   1
+  3   2   3
+  5   5   2
+ 15  10   6
+  2   3   5
+ 10  15  15
+  6   6  10
+ 30  30  30
+
+julia&gt; realize_poset(ans) == P
+true
+
+julia&gt; P = BooleanLattice(4)
+SimplePoset{String} (16 elements)
+
+julia&gt; dimension(P,true)
+2 &lt;= dim(P) &lt;= 8	looking for a 5 realizer	confirmed
+2 &lt;= dim(P) &lt;= 5	looking for a 3 realizer	none exists
+4 &lt;= dim(P) &lt;= 5	looking for a 4 realizer	confirmed
+4 &lt;= dim(P) &lt;= 4	and we&#39;re done
+4</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

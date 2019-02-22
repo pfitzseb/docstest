@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "JDBC"
+owner = "JuliaDatabases"
+version = "0.4.0"
+description = "Julia interface to Java database drivers"
+stargazers_count = "17"
+url = "https://github.com/JuliaDatabases/JDBC.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "aviks"
+contributions = "53"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "19"
+[[contributors]]
+name = "nkottary"
+contributions = "7"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "3"
+[[contributors]]
+name = "jannefiluren"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ellisvalentiner"
+contributions = "1"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

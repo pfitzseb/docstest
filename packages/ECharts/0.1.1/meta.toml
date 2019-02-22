@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ECharts"
+owner = "randyzwitch"
+version = "0.1.1"
+description = "Julia package for the Apache ECharts v4 visualization library"
+stargazers_count = "27"
+url = "https://github.com/randyzwitch/ECharts.jl.git"
+installs = true
+tags = ["echarts", "julia-language", "visualization", "interactive-visualizations", "charting-library", "julialang"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "259"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"

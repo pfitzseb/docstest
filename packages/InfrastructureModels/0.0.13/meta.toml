@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "InfrastructureModels"
+owner = "lanl-ansi"
+version = "0.0.13"
+description = "Shared functionalities for multiple infrastructure network optimization packages"
+stargazers_count = "5"
+url = "https://github.com/lanl-ansi/InfrastructureModels.jl.git"
+installs = true
+tags = ["optimization", "network", "infrastructure"]
+license = "Other"
+
+[[contributors]]
+name = "ccoffrin"
+contributions = "79"
+[[contributors]]
+name = "jd-lara"
+contributions = "42"
+[[contributors]]
+name = "kdheepak"
+contributions = "1"

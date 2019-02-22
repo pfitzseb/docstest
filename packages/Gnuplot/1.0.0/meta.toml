@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Gnuplot"
+owner = "gcalderone"
+version = "1.0.0"
+description = "Julia interface to Gnuplot"
+stargazers_count = "6"
+url = "https://github.com/gcalderone/Gnuplot.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "74"

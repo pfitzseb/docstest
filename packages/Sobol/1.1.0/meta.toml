@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Sobol"
+owner = "stevengj"
+version = "1.1.0"
+description = "generation of Sobol low-discrepancy sequence (LDS) for the Julia language"
+stargazers_count = "17"
+url = "https://github.com/stevengj/Sobol.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "stevengj"
+contributions = "33"
+[[contributors]]
+name = "cortner"
+contributions = "1"
+[[contributors]]
+name = "JohnAdders"
+contributions = "1"
+[[contributors]]
+name = "Ken-B"
+contributions = "1"
+[[contributors]]
+name = "yakir12"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "mdg411"
+contributions = "1"

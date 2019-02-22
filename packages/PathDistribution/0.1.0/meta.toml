@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "PathDistribution"
+owner = "chkwon"
+version = "0.1.0"
+description = "This package estimates the number of paths and the path-length distribution using a Monte-Carlo simulation as well as explicitly enumerate all paths."
+stargazers_count = "3"
+url = "https://github.com/chkwon/PathDistribution.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "chkwon"
+contributions = "61"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

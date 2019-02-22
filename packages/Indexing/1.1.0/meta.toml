@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Indexing"
+owner = "andyferris"
+version = "1.1.0"
+description = "Generalized indexing for Julia"
+stargazers_count = "1"
+url = "https://github.com/andyferris/Indexing.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "15"

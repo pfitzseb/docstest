@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Espresso"
+owner = "dfdx"
+version = "0.6.0"
+description = "Expression transformation package"
+stargazers_count = "32"
+url = "https://github.com/dfdx/Espresso.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dfdx"
+contributions = "196"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

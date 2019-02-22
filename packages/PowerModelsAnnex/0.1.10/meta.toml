@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "PowerModelsAnnex"
+owner = "lanl-ansi"
+version = "0.1.10"
+description = "A PowerModels.jl Extension Package for Exploratory Work "
+stargazers_count = "7"
+url = "https://github.com/lanl-ansi/PowerModelsAnnex.jl.git"
+installs = true
+tags = ["optimization", "network", "power-network", "optimal-power-flow"]
+license = "Other"
+
+[[contributors]]
+name = "ccoffrin"
+contributions = "43"
+[[contributors]]
+name = "eperim"
+contributions = "5"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "2"
+[[contributors]]
+name = "nicoleepp"
+contributions = "2"
+[[contributors]]
+name = "ef8ymis"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"

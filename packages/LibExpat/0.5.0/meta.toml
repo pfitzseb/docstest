@@ -1,0 +1,87 @@
+license_url = ""
+doctype = "default"
+name = "LibExpat"
+owner = "JuliaIO"
+version = "0.5.0"
+description = "Julia interface to the Expat XML parser library"
+stargazers_count = "4"
+url = "https://github.com/JuliaIO/LibExpat.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "amitmurthy"
+contributions = "37"
+[[contributors]]
+name = "musm"
+contributions = "24"
+[[contributors]]
+name = "vtjnash"
+contributions = "20"
+[[contributors]]
+name = "tkelman"
+contributions = "12"
+[[contributors]]
+name = "visr"
+contributions = "11"
+[[contributors]]
+name = "ranjanan"
+contributions = "8"
+[[contributors]]
+name = "catawbasam"
+contributions = "5"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "5"
+[[contributors]]
+name = "garborg"
+contributions = "4"
+[[contributors]]
+name = "omus"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "bkamins"
+contributions = "2"
+[[contributors]]
+name = "ivarne"
+contributions = "2"
+[[contributors]]
+name = "axsk"
+contributions = "1"
+[[contributors]]
+name = "beOn"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "xhochy"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"
+[[contributors]]
+name = "yeesian"
+contributions = "1"

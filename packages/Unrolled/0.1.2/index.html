@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Unrolled.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Unrolled.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#The-@unroll-macro-1">The <code>@unroll</code> macro</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li class="toplevel"><a class="toctext" href="#Unrolled-functions-1">Unrolled functions</a></li><li class="toplevel"><a class="toctext" href="#Note-on-Val-1">Note on <code>Val</code></a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Unrolled-1" href="#Unrolled-1">Unrolled</a></h1><p><a href="https://travis-ci.org/cstjean/Unrolled.jl"><img src="https://travis-ci.org/cstjean/Unrolled.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/cstjean/Unrolled.jl?branch=master"><img src="https://coveralls.io/repos/cstjean/Unrolled.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/cstjean/Unrolled.jl?branch=master"><img src="http://codecov.io/github/cstjean/Unrolled.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Unrolled.jl provides functions to unroll loops on sequences whose length is known at compile-time (mostly <code>Tuple</code> and <a href="https://github.com/JuliaArrays/StaticArrays.jl"><code>StaticArrays</code></a>). This can significantly improve performance and type-stability.</p><h1><a class="nav-anchor" id="The-@unroll-macro-1" href="#The-@unroll-macro-1">The <code>@unroll</code> macro</a></h1><pre><code class="language-julia">julia&gt; using Unrolled
+
+julia&gt; @unroll function my_sum(seq)
+       	   # More on why we need @unroll twice later.
+	   total = zero(eltype(seq))
+           @unroll for x in seq
+               total += x
+           end
+           return total
+       end
+my_sum_unrolled_expansion_ (generic function with 1 method)
+
+julia&gt; my_sum((1, 2, 3))
+6</code></pre><p>To see what code will be executed,</p><pre><code class="language-julia"># Tuples are unrolled
+julia&gt; @code_unrolled my_sum((1,2,3))
+quote  
+    total = zero(eltype(seq))
+    begin  
+        let x = seq[1]
+            total += x
+        end
+        let x = seq[2]
+            total += x
+        end
+        let x = seq[3]
+            total += x
+        end
+    end
+    return total
+end
+
+# But not vectors, since their length is not part of Vector{Int}
+julia&gt; @code_unrolled my_sum([1,2,3])
+quote
+    total = zero(eltype(seq))
+    for x = seq
+        total += x
+    end
+    return total
+end</code></pre><p>All types for which <code>length</code> is implemented will be unrolled (this includes the fixed-size vectors from <a href="https://github.com/JuliaArrays/StaticArrays.jl">StaticArrays.jl</a> and <a href="https://github.com/SimonDanisch/FixedSizeArrays.jl">FixedSizeArrays.jl</a>)</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p><code>@unroll</code> works by generating (at compile-time) a separate function for each type combination. This is why we need (at least) two <code>@unroll</code>:</p><ul><li>One in front of the <code>function</code> definition</li><li>One in front of each <code>for</code> loop to be unrolled</li></ul><p><code>@unroll</code> can only unroll loops over the arguments of the function. For instance, this is an error:</p><pre><code class="language-julia"># Sum every number in seq except the last one
+@unroll function my_sum_but_last(seq)
+    total = zero(eltype(seq))
+    @unroll for x in seq[1:end-1]   # Bad!
+        total += x
+    end
+    return total
+end</code></pre><p>An easy work-around is to use a helper function</p><pre><code class="language-julia">@unroll function _do_sum(sub_seq) # helper for my_sum_but_last
+    total = zero(eltype(sub_seq))
+    @unroll for x in sub_seq
+        total += x
+    end
+    return total
+end
+
+# Sum every number in seq except the last one
+my_sum_but_last(seq) = _do_sum(seq[1:end-1])
+
+my_sum_but_last((1,20,3))    # 21</code></pre><p>As a special case, <code>@unroll</code> also supports iteration over <code>1:some_argument</code></p><pre><code class="language-julia">@unroll function foo(tup)
+    @unroll for x in 1:length(tup)
+        println(x)
+    end
+end
+foo((:a, :b, :c))
+&gt; 1
+&gt; 2
+&gt; 3</code></pre><h1><a class="nav-anchor" id="Unrolled-functions-1" href="#Unrolled-functions-1">Unrolled functions</a></h1><p>Unrolled.jl also provides the following unrolled functions, defined on <code>Tuple</code>s only.</p><pre><code class="language-none">unrolled_map, unrolled_reduce, unrolled_in, unrolled_any, unrolled_all, unrolled_foreach</code></pre><p>and</p><pre><code class="language-none">unrolled_filter, unrolled_intersect, unrolled_union, unrolled_setdiff</code></pre><p>The functions in this second group will only perform well when the computations can be performed entirely at compile-time (using the types). For example, <code>unrolled_filter(x-&gt;isa(x, Int), some_tuple)</code>.</p><p>In this other example, <code>unrolled_filter</code> is compiled to a constant:</p><pre><code class="language-julia">using Unrolled, Base.Test
+
+@generated positive{N}(::Val{N}) = N &gt; 0
+@inferred unrolled_filter(positive, (Val{1}(), Val{3}(), Val{-1}(), Val{5}()))</code></pre><h1><a class="nav-anchor" id="Note-on-Val-1" href="#Note-on-Val-1">Note on <code>Val</code></a></h1><p>In my experience, <code>Val</code> objects are more type-stable than <code>Val</code> types. Favor <code>Val{:x}()</code> over <code>Val{:x}</code>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

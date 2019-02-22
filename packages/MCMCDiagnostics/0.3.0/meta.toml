@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MCMCDiagnostics"
+owner = "tpapp"
+version = "0.3.0"
+description = "Markov Chain Monte Carlo convergence diagnostics in Julia"
+stargazers_count = "9"
+url = "https://github.com/tpapp/MCMCDiagnostics.jl.git"
+installs = true
+tags = ["julia", "julia-language", "bayesian", "bayesian-statistics", "bayesian-methods", "bayesian-inference"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "29"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "UnitfulAstro"
+owner = "JuliaAstro"
+version = "0.2.0"
+description = "An extension of Unitful.jl for astronomers."
+stargazers_count = "8"
+url = "https://github.com/JuliaAstro/UnitfulAstro.jl.git"
+installs = true
+tags = ["unitful", "units", "units-of-measure", "julia", "astronomy"]
+license = "Other"
+
+[[contributors]]
+name = "mweastwood"
+contributions = "28"
+[[contributors]]
+name = "giordano"
+contributions = "4"

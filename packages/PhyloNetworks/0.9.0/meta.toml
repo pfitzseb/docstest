@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "real"
+name = "PhyloNetworks"
+owner = "crsl4"
+version = "0.9.0"
+description = "A Julia package for statistical inference, data manipulation and visualization of phylogenetic networks"
+stargazers_count = "45"
+url = "https://github.com/crsl4/PhyloNetworks.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "crsl4"
+contributions = "651"
+[[contributors]]
+name = "cecileane"
+contributions = "267"
+[[contributors]]
+name = "pbastide"
+contributions = "265"
+[[contributors]]
+name = "kwsparks"
+contributions = "42"
+[[contributors]]
+name = "ChristianBorst"
+contributions = "20"
+[[contributors]]
+name = "dmbates"
+contributions = "3"
+[[contributors]]
+name = "JohnPSpaw"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"

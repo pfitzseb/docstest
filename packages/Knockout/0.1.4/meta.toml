@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Knockout"
+owner = "JuliaGizmos"
+version = "0.1.4"
+description = "a Julia wrapper for the knockoutjs library"
+stargazers_count = "2"
+url = "https://github.com/JuliaGizmos/Knockout.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "36"
+[[contributors]]
+name = "tkoolen"
+contributions = "4"

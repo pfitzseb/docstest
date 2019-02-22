@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "HTTPClient"
+owner = "JuliaWeb"
+version = "0.2.1"
+description = "HTTP client functionality (based on LibCURL.jl)"
+stargazers_count = "15"
+url = "https://github.com/JuliaWeb/HTTPClient.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "amitmurthy"
+contributions = "30"
+[[contributors]]
+name = "ranjanan"
+contributions = "7"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "5"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "srp"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "tmlbl"
+contributions = "1"
+[[contributors]]
+name = "phanalpha"
+contributions = "1"

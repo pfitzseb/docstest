@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "ImageInpainting"
+owner = "JuliaImages"
+version = "0.1.0"
+description = "Image inpainting algorithms in Julia"
+stargazers_count = "8"
+url = "https://github.com/JuliaImages/ImageInpainting.jl.git"
+installs = true
+tags = ["image-inpainting"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "24"

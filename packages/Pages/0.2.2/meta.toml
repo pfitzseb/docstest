@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Pages"
+owner = "EricForgy"
+version = "0.2.2"
+description = "A simple way to create and interact with web pages"
+stargazers_count = "21"
+url = "https://github.com/EricForgy/Pages.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "EricForgy"
+contributions = "29"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "CovarianceMatrices"
+owner = "gragusa"
+version = "0.9.0"
+description = "Heteroskedasticity and Autocorrelation Consistent Covariance Matrix Estimation for Julia."
+stargazers_count = "18"
+url = "https://github.com/gragusa/CovarianceMatrices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gragusa"
+contributions = "245"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "lbittarello"
+contributions = "1"

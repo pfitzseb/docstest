@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DeepDiffs"
+owner = "ssfrr"
+version = "1.1.0"
+description = "Compute and pretty-print diffs for data structures like arrays and dictionaries"
+stargazers_count = "28"
+url = "https://github.com/ssfrr/DeepDiffs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ssfrr"
+contributions = "25"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

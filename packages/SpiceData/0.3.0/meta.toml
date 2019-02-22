@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SpiceData"
+owner = "ma-laforge"
+version = "0.3.0"
+description = "A pure-Julia SPICE data file reader"
+stargazers_count = "3"
+url = "https://github.com/ma-laforge/SpiceData.jl.git"
+installs = true
+tags = ["spice", "reader", "simulation", "cppsim", "eda", "tr0"]
+license = "MIT License"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "17"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "TableTraitsUtils"
+owner = "queryverse"
+version = "0.4.0"
+description = "Utilities for implementing the TableTraits.jl interfaces"
+stargazers_count = "0"
+url = "https://github.com/queryverse/TableTraitsUtils.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "62"
+[[contributors]]
+name = "piever"
+contributions = "3"

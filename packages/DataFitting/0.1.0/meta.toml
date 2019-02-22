@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DataFitting"
+owner = "gcalderone"
+version = "0.1.0"
+description = "Data-driven Model Fitting in Julia"
+stargazers_count = "2"
+url = "https://github.com/gcalderone/DataFitting.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "88"

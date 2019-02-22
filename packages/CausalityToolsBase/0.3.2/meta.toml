@@ -1,0 +1,7 @@
+name = "CausalityToolsBase"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/kahaaga/CausalityToolsBase.jl.git"
+version = "0.3.2"
+description = "Base functionality used throughout the CausalityTools ecosystem"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "StringEncodings"
+owner = "JuliaStrings"
+version = "0.3.1"
+description = "String encoding conversion in Julia using iconv"
+stargazers_count = "15"
+url = "https://github.com/JuliaStrings/StringEncodings.jl.git"
+installs = true
+tags = ["character-encoding", "julia", "iconv"]
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "70"
+[[contributors]]
+name = "ScottPJones"
+contributions = "8"
+[[contributors]]
+name = "sambitdash"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Marlin-Na"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

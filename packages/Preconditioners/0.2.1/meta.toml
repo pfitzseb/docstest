@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Preconditioners"
+owner = "mohamed82008"
+version = "0.2.1"
+description = "A few preconditioners for iterative solvers."
+stargazers_count = "5"
+url = "https://github.com/mohamed82008/Preconditioners.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mohamed82008"
+contributions = "31"

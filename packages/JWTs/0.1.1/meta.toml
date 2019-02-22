@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "JWTs"
+owner = "tanmaykm"
+version = "0.1.1"
+description = "JSON Web Tokens (JWT) for Julia"
+stargazers_count = "1"
+url = "https://github.com/tanmaykm/JWTs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "15"

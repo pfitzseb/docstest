@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "NRRD"
+owner = "JuliaIO"
+version = "0.5.1"
+description = "Julia support for the Nearly Raw Raster Data (NRRD) image file format"
+stargazers_count = "2"
+url = "https://github.com/JuliaIO/NRRD.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "47"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "28"
+[[contributors]]
+name = "tlnagy"
+contributions = "4"
+[[contributors]]
+name = "Cody-G"
+contributions = "1"
+[[contributors]]
+name = "mdhe1248"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

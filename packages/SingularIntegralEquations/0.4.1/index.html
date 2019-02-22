@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SingularIntegralEquations.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SingularIntegralEquations.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Acoustic-Scattering-1">Acoustic Scattering</a></li><li class="toplevel"><a class="toctext" href="#The-Faraday-Cage-1">The Faraday Cage</a></li><li class="toplevel"><a class="toctext" href="#Riemann–Hilbert-Problems-1">Riemann–Hilbert Problems</a></li><li class="toplevel"><a class="toctext" href="#Nonlocal-Diffusion-1">Nonlocal Diffusion</a></li><li class="toplevel"><a class="toctext" href="#References-1">References</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SingularIntegralEquations.jl-1" href="#SingularIntegralEquations.jl-1">SingularIntegralEquations.jl</a></h1><p><a href="https://travis-ci.org/JuliaApproximation/SingularIntegralEquations.jl"><img src="https://travis-ci.org/JuliaApproximation/SingularIntegralEquations.jl.svg?branch=master" alt="Build Status"/></a></p><p>An experimental Julia package for solving singular integral equations.</p><h1><a class="nav-anchor" id="Acoustic-Scattering-1" href="#Acoustic-Scattering-1">Acoustic Scattering</a></h1><p><a href="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/blob/master/examples/HelmholtzDirichlet.jl">HelmholtzDirichlet.jl</a> and <a href="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/blob/master/examples/HelmholtzNeumann.jl">HelmholtzNeumann.jl</a> calculate the solution to the Helmholtz equation with Dirichlet and Neumann boundary conditions. The essential lines of code are:</p><pre><code class="language-julia">k = 50 # Set wavenumber and fundamental solution for Helmholtz equation
+g1 = (x,y) -&gt; -besselj0(k*abs(y-x))/2
+g2 = (x,y) -&gt; x == y ? -(log(k/2)+γ)/2/π + im/4 : im/4*hankelh1(0,k*abs(y-x)) - g1(x,y).*logabs(y-x)/π
+
+ui = (x,y) -&gt; exp(im*k*(x-y)/sqrt(2))    # Incident plane wave at 45°
+
+dom = ChebyshevInterval()                     # Set the domain
+sp = Space(dom)                      # Canonical space on the domain
+⨍ = DefiniteLineIntegral(dom)        # Line integration functional
+uiΓ = Fun(t-&gt;ui(real(t),imag(t)),sp) # Incident wave on Γ
+
+# Instantiate the fundamental solution
+G = GreensFun(g1,CauchyWeight(sp⊗sp,0)) + GreensFun(g2,sp⊗sp)
+
+# Solve for the density
+∂u∂n = ⨍[G]\uiΓ
+
+# What is the forward error?
+norm(⨍[G]*∂u∂n-uiΓ)
+
+# Represent the scattered field
+us = (x,y) -&gt; -logkernel(g1,∂u∂n,complex(x,y))-linesum(g2,∂u∂n,complex(x,y))</code></pre><p>Here is an example with 10 sources at the roots of unity scaled by 2 and scattered by multiple disjoint intervals and circles.</p><p><img src="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/raw/master/images/Helmholtz.gif" alt="Helmholtz Scattering"/></p><p><a href="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/blob/master/examples/GravityHelmholtz.jl">GravityHelmholtz.jl</a> calculates the solution to the gravity Helmholtz equation with Dirichlet boundary conditions.</p><p><img src="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/raw/master/images/GravityHelmholtz.gif" alt="Gravity Helmholtz Scattering"/></p><h1><a class="nav-anchor" id="The-Faraday-Cage-1" href="#The-Faraday-Cage-1">The Faraday Cage</a></h1><p><a href="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/blob/master/examples/Laplace.jl">Laplace.jl</a> calculates the solution to the Laplace equation with the origin shielded by infinitesimal plates centred at the Nth roots of unity. The essential lines of code are:</p><pre><code class="language-julia">ui = (x,y) -&gt; logabs(complex(x,y)-2)     # Single source at (2,0) of strength 2π
+
+N,r = 10,1e-1
+cr = exp.(im*2π*(0:N-1)/N)
+crl,crr = (1-2im*r)cr,(1+2im*r)cr
+dom = ∪(Segment.(crl,crr))            # Set the shielding domain
+
+sp = Space(dom)                      # Canonical space on the domain
+⨍ = DefiniteLineIntegral(dom)        # Line integration functional
+uiΓ = Fun(t-&gt;ui(real(t),imag(t)),sp) # Action of source on shields
+
+# Instantiate the fundamental solution
+G = GreensFun((x,y)-&gt;0.5,CauchyWeight(sp⊗sp,0))
+
+# The first column augments the system for global unknown constant charge φ0
+# The first row ensure constant charge φ0 on all plates
+φ0,∂u∂n=[0 ⨍;1 ⨍[G]]\[0.;uiΓ]
+
+# Represent the scattered field
+us = (x,y) -&gt; -logkernel(∂u∂n,complex(x,y))/2</code></pre><p><img src="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/raw/master/images/FaradayCage.png" alt="Faraday Cage"/></p><h1><a class="nav-anchor" id="Riemann–Hilbert-Problems-1" href="#Riemann–Hilbert-Problems-1">Riemann–Hilbert Problems</a></h1><p>SingularIntegralEquations.jl has support for Riemann–Hilbert problems and Wiener–Hopf factorizations.  <a href="https://github.com/JuliaApproximation/SingularIntegralEquations.jl/blob/master/examples/Wiener-Hopf.jl">Wiener-Hopf.jl</a> uses the Winer–Hopf factorization to calculate the UL decomposition of a scalar and a block Toeplitz operator.  The essential lines of code in the matrix case are:</p><pre><code class="language-julia">G=Fun(z-&gt;[-1 -3; -3 -1]/z +
+         [ 2  2;  1 -3] +
+         [ 2 -1;  1  2]*z,Circle())
+
+C  = Cauchy(-1)
+V  = (I+(I-G)*C)\(G-I)
+
+L  = ToeplitzOperator(inv(I+C*V))
+U  = ToeplitzOperator(I+V+C*V)</code></pre><h1><a class="nav-anchor" id="Nonlocal-Diffusion-1" href="#Nonlocal-Diffusion-1">Nonlocal Diffusion</a></h1><p>Construct the nonlocal Laplacian acting on Fourier series by computing the spectrum on-the-fly:</p><pre><code class="language-julia">α = 2.5 # ∈ [0, d+2), where d is the number of dimensions
+        # α is the strength of the singularity of the algebraic kernel
+δ = 0.1 # the horizon of the nonlocal integral operator
+L = NonlocalLaplacian(Fourier(), α, δ)</code></pre><p>Afterward, you are free to treat it as any other banded (diagonal) operator.</p><h1><a class="nav-anchor" id="References-1" href="#References-1">References</a></h1><p>R. M. Slevinsky &amp; S. Olver, &lt;a href=&quot;http://dx.doi.org/10.1016/j.jcp.2016.12.009&quot;&gt;A fast and well-conditioned spectral method for singular integral equations&lt;/a&gt;, <em>J. Comp. Phys.</em>, <strong>332</strong>:290–315, 2017.</p><p>Y. Li &amp; R. M. Slevinsky. &lt;a href=&quot;https://arxiv.org/abs/1810.07131&quot;&gt;Fast and accurate algorithms for the computation of spherically symmetric nonlocal diffusion operators on lattices&lt;/a&gt;, arXiv:1810.07131, 2018.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

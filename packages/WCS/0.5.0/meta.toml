@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "WCS"
+owner = "JuliaAstro"
+version = "0.5.0"
+description = "Astronomical World Coordinate Systems library for Julia"
+stargazers_count = "3"
+url = "https://github.com/JuliaAstro/WCS.jl.git"
+installs = true
+tags = ["julia", "wcs", "astronomy"]
+license = "MIT License"
+
+[[contributors]]
+name = "kbarbary"
+contributions = "45"
+[[contributors]]
+name = "nolta"
+contributions = "40"
+[[contributors]]
+name = "giordano"
+contributions = "32"
+[[contributors]]
+name = "jeff-regier"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"

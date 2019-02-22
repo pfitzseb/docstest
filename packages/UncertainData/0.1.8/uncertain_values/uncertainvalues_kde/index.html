@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>- · UncertainData.jl documentation</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>UncertainData.jl documentation</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">UncertainData.jl</a></li><li><span class="toctext">Uncertain values</span><ul><li><a class="toctext" href="../uncertainvalues_examples/">-</a></li><li><a class="toctext" href="../uncertainvalues_overview/">-</a></li><li class="current"><a class="toctext" href>-</a><ul class="internal"><li><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Extended-example-1">Extended example</a></li><li><a class="toctext" href="#Constructor-1">Constructor</a></li></ul></li><li><a class="toctext" href="../uncertainvalues_fitted/">-</a></li><li><a class="toctext" href="../uncertainvalues_theoreticaldistributions/">-</a></li><li><a class="toctext" href="../certainvalue/">Documentation</a></li><li><a class="toctext" href="../populations/">Documentation</a></li></ul></li><li><span class="toctext">Uncertain datasets</span><ul><li><a class="toctext" href="../../uncertain_datasets/uncertain_datasets_overview/">-</a></li><li><a class="toctext" href="../../uncertain_datasets/uncertain_index_dataset/">-</a></li><li><a class="toctext" href="../../uncertain_datasets/uncertain_value_dataset/">-</a></li><li><a class="toctext" href="../../uncertain_datasets/uncertain_dataset/">-</a></li><li><a class="toctext" href="../../uncertain_datasets/uncertain_indexvalue_dataset/">-</a></li></ul></li><li><span class="toctext">Uncertain statistics</span><ul><li><span class="toctext">Core statistics</span><ul><li><a class="toctext" href="../../uncertain_statistics/core_stats/core_statistics/">-</a></li></ul></li><li><span class="toctext">Hypothesis tests</span><ul><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/hypothesis_tests_overview/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/one_sample_t_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/equal_variance_t_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/unequal_variance_t_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/exact_kolmogorov_smirnov_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/approximate_twosample_kolmogorov_smirnov_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/jarque_bera_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/mann_whitney_u_test/">-</a></li><li><a class="toctext" href="../../uncertain_statistics/hypothesistests/anderson_darling_test/">-</a></li></ul></li></ul></li><li><span class="toctext">Sampling constraints</span><ul><li><a class="toctext" href="../../sampling_constraints/available_constraints/">-</a></li><li><a class="toctext" href="../../sampling_constraints/constrain_uncertain_values/">-</a></li><li><a class="toctext" href="../../sampling_constraints/ordered_sequence_exists/">-</a></li><li><a class="toctext" href="../../sampling_constraints/sequential_constraints/">-</a></li></ul></li><li><span class="toctext">Resampling</span><ul><li><a class="toctext" href="../../resampling/resampling_overview/">-</a></li><li><a class="toctext" href="../../resampling/resampling_uncertain_values/">-</a></li><li><a class="toctext" href="../../resampling/resampling_uncertain_datasets/">-</a></li><li><a class="toctext" href="../../resampling/resampling_uncertain_indexvalue_datasets/">-</a></li><li><a class="toctext" href="../../resampling/sequential/resampling_uncertaindatasets_sequential/">Is a particular constraint applicable?</a></li><li><a class="toctext" href="../../resampling/sequential/resampling_indexvalue_sequential/">Resampling syntax</a></li><li><a class="toctext" href="../../resampling/sequential/strictly_increasing/">Documentation</a></li><li><a class="toctext" href="../../resampling/sequential/strictly_decreasing/">Documentation</a></li><li><a class="toctext" href="../../resampling/interpolation/interpolation/">Supported interpolations</a></li><li><a class="toctext" href="../../resampling/interpolation/gridded/">Grids</a></li></ul></li><li><span class="toctext">Mathematics</span><ul><li><a class="toctext" href="../../mathematics/elementary_operations/">Elementary mathematical operations</a></li><li><a class="toctext" href="../../mathematics/trig_functions/">Trigonometric functions</a></li></ul></li><li><a class="toctext" href="../../implementing_algorithms_for_uncertaindata/">-</a></li><li><a class="toctext" href="../../changelog/">-</a></li></ul></nav><article id="docs"><header><nav><ul><li>Uncertain values</li><li><a href>-</a></li></ul></nav><hr/><div id="topbar"><span>-</span><a class="fa fa-bars" href="#"></a></div></header><p>When your data have an empirical distribution that doesn&#39;t follow any obvious theoretical distribution, the data may be represented by a kernel density estimate.</p><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">using Distributions, UncertainData
+
+# Create a normal distribution
+d = Normal()
+
+# Draw a 1000-point sample from the distribution.
+some_sample = rand(d, 1000)
+
+# Use the implicit KDE constructor to create the uncertain value
+uv = UncertainValue(v::Vector)</code></pre><pre><code class="language-julia">using Distributions, UncertainData, KernelDensity
+
+# Create a normal distribution
+d = Normal()
+
+# Draw a 1000-point sample from the distribution.
+some_sample = rand(d, 1000)
+
+# Use the explicit KDE constructor to create the uncertain value.
+# This constructor follows the same convention as when fitting distributions
+# to empirical data, so this is the recommended way to construct KDE estimates.
+uv = UncertainValue(UnivariateKDE, v::Vector)</code></pre><pre><code class="language-julia">using Distributions, UncertainData, KernelDensity
+
+# Create a normal distribution
+d = Normal()
+
+# Draw a 1000-point sample from the distribution.
+some_sample = rand(d, 1000)
+
+# Use the explicit KDE constructor to create the uncertain value, specifying
+# that we want to use normal distributions as the kernel. The kernel can be
+# any valid kernel from Distributions.jl, and the default is to use normal
+# distributions.
+uv = UncertainValue(UnivariateKDE, v::Vector; kernel = Normal)</code></pre><pre><code class="language-julia">using Distributions, UncertainData, KernelDensity
+
+# Create a normal distribution
+d = Normal()
+
+# Draw a 1000-point sample from the distribution.
+some_sample = rand(d, 1000)
+
+# Use the explicit KDE constructor to create the uncertain value, specifying
+# the number of points we want to use for the kernel density estimate. Fast
+# Fourier transforms are used behind the scenes, so the number of points
+# should be a power of 2 (the default is 2048 points).
+uv = UncertainValue(UnivariateKDE, v::Vector; npoints = 1024)</code></pre><h2><a class="nav-anchor" id="Extended-example-1" href="#Extended-example-1">Extended example</a></h2><p>Let&#39;s create a bimodal distribution, then sample 10000 values from it.</p><pre><code class="language-julia">using Distributions
+
+n1 = Normal(-3.0, 1.2)
+n2 = Normal(8.0, 1.2)
+n3 = Normal(0.0, 2.5)
+
+# Use a mixture model to create a bimodal distribution
+M = MixtureModel([n1, n2, n3])
+
+# Sample the mixture model.
+samples_empirical = rand(M, Int(1e4));</code></pre><p><img src="imgs/bimodal_empirical.svg" alt/></p><p>It is not obvious which distribution to fit to such data.</p><p>A kernel density estimate, however, will always be a decent representation of the data, because it doesn&#39;t follow a specific distribution and adapts to the data values.</p><p>To create a kernel density estimate, simply call the <code>UncertainValue(v::Vector{Number})</code> constructor with a vector containing the sample:</p><pre><code class="language-julia">uv = UncertainValue(samples_empirical)</code></pre><p>The plot below compares the empirical histogram (here represented as a density plot) with our kernel density estimate.</p><pre><code class="language-julia">using Plots, StatPlots, UncertainData
+uv = UncertainValue(samples_empirical)
+density(mvals, label = &quot;10000 mixture model (M) samples&quot;)
+density!(rand(uv, Int(1e4)),
+    label = &quot;10000 samples from KDE estimate to M&quot;)
+xlabel!(&quot;data value&quot;)
+ylabel!(&quot;probability density&quot;)</code></pre><p><img src="imgs/KDEUncertainValue.svg" alt/></p><h2><a class="nav-anchor" id="Constructor-1" href="#Constructor-1">Constructor</a></h2><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="UncertainData.UncertainValues.UncertainValue-Union{Tuple{Array{T,1}}, Tuple{T}, Tuple{D}} where T where D&lt;:Distribution" href="#UncertainData.UncertainValues.UncertainValue-Union{Tuple{Array{T,1}}, Tuple{T}, Tuple{D}} where T where D&lt;:Distribution"><code>UncertainData.UncertainValues.UncertainValue</code></a> — <span class="docstring-category">Method</span>.</div><div><div><pre><code class="language-none">UncertainValue(data::Vector{T};
+    kernel::Type{D} = Normal,
+    npoints::Int=2048) where {D &lt;: Distributions.Distribution, T}</code></pre><p>Construct an uncertain value by a kernel density estimate to <code>data</code>.</p><p>Fast Fourier transforms are used in the kernel density estimation, so the number of points should be a power of 2 (default = 2048).</p></div></div></section><h3><a class="nav-anchor" id="Additional-keyword-arguments-and-examples-1" href="#Additional-keyword-arguments-and-examples-1">Additional keyword arguments and examples</a></h3><p>If the only argument to the <code>UncertainValue</code> constructor is a vector of values, the default behaviour is to represent the distribution by a kernel density estimate (KDE), i.e. <code>UncertainValue(data)</code>. Gaussian kernels are used by default. The syntax <code>UncertainValue(UnivariateKDE, data)</code> will also work if <code>KernelDensity.jl</code> is loaded.</p><footer><hr/><a class="previous" href="../uncertainvalues_overview/"><span class="direction">Previous</span><span class="title">-</span></a><a class="next" href="../uncertainvalues_fitted/"><span class="direction">Next</span><span class="title">-</span></a></footer></article></body></html>

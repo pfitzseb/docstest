@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Mongoc"
+owner = "felipenoris"
+version = "0.1.3"
+description = "MongoDB driver for the Julia Language"
+stargazers_count = "17"
+url = "https://github.com/felipenoris/Mongoc.jl.git"
+installs = true
+tags = ["mongodb-driver", "mongodb", "julia", "julia-language"]
+license = "MIT License"
+
+[[contributors]]
+name = "felipenoris"
+contributions = "76"
+[[contributors]]
+name = "dehann"
+contributions = "1"

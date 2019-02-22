@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqProblemLibrary"
+owner = "JuliaDiffEq"
+version = "4.1.0"
+description = "A library of premade problems for examples and testing"
+stargazers_count = "4"
+url = "https://github.com/JuliaDiffEq/DiffEqProblemLibrary.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "111"
+[[contributors]]
+name = "YingboMa"
+contributions = "18"
+[[contributors]]
+name = "isaacsas"
+contributions = "7"
+[[contributors]]
+name = "devmotion"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "1"
+[[contributors]]
+name = "miguelraz"
+contributions = "1"

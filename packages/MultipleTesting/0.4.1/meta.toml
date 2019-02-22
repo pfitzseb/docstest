@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "MultipleTesting"
+owner = "juliangehring"
+version = "0.4.1"
+description = " The MultipleTesting package offers common algorithms for p-value adjustment and combination and more…"
+stargazers_count = "14"
+url = "https://github.com/juliangehring/MultipleTesting.jl.git"
+installs = true
+tags = ["julia", "statistics", "pvalues", "multiple-testing"]
+license = "Other"
+
+[[contributors]]
+name = "juliangehring"
+contributions = "331"
+[[contributors]]
+name = "nignatiadis"
+contributions = "13"

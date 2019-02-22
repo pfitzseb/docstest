@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "ColorVectorSpace"
+owner = "JuliaGraphics"
+version = "0.6.2"
+description = "Treat colors as if they are n-vectors for the purposes of arithmetic"
+stargazers_count = "10"
+url = "https://github.com/JuliaGraphics/ColorVectorSpace.jl.git"
+installs = true
+tags = ["rgb", "images", "grayscale"]
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "114"
+[[contributors]]
+name = "mronian"
+contributions = "7"
+[[contributors]]
+name = "yuyichao"
+contributions = "6"
+[[contributors]]
+name = "bjarthur"
+contributions = "4"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "juliohm"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jw3126"
+contributions = "1"
+[[contributors]]
+name = "johnnychen94"
+contributions = "1"
+[[contributors]]
+name = "RalphAS"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"

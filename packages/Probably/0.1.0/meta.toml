@@ -1,0 +1,7 @@
+name = "Probably"
+stargazers_count = "3"
+doctype = "real"
+installs = true
+url = "https://github.com/jakobnissen/Probably.jl.git"
+version = "0.1.0"
+description = "Probabilistic data structures in Julia"

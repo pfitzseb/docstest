@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Qutilities"
+owner = "0"
+version = "0.1.0"
+description = "Assorted utilities for quantum information."
+stargazers_count = "0"
+url = "https://github.com/0/Qutilities.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "0"
+contributions = "17"

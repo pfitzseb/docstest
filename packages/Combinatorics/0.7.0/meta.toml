@@ -1,0 +1,84 @@
+license_url = ""
+doctype = "default"
+name = "Combinatorics"
+owner = "JuliaMath"
+version = "0.7.0"
+description = "A combinatorics library for Julia"
+stargazers_count = "58"
+url = "https://github.com/JuliaMath/Combinatorics.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jiahao"
+contributions = "48"
+[[contributors]]
+name = "andrioni"
+contributions = "24"
+[[contributors]]
+name = "mschauer"
+contributions = "11"
+[[contributors]]
+name = "andreasnoack"
+contributions = "6"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "3"
+[[contributors]]
+name = "ti-s"
+contributions = "3"
+[[contributors]]
+name = "ymer"
+contributions = "3"
+[[contributors]]
+name = "juliohm"
+contributions = "3"
+[[contributors]]
+name = "daviddelaat"
+contributions = "2"
+[[contributors]]
+name = "randy3k"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "davidavdav"
+contributions = "1"
+[[contributors]]
+name = "dpsanders"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "gajomi"
+contributions = "1"
+[[contributors]]
+name = "HarrisonGrodin"
+contributions = "1"
+[[contributors]]
+name = "bicycle1885"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "pbouffard"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "lmshk"
+contributions = "1"

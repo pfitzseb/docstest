@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TensorToolbox.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TensorToolbox.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Basics-1">Basics</a></li><li><a class="toctext" href="#Tensors-in-Tucker-format-1">Tensors in Tucker format</a></li><li><a class="toctext" href="#Tensors-in-Kruskal-format-1">Tensors in Kruskal format</a></li><li><a class="toctext" href="#Tensors-in-Hierarchical-Tucker-format-1">Tensors in Hierarchical Tucker format</a></li><li><a class="toctext" href="#Tensors-in-Tensor-Train-format-1">Tensors in Tensor Train format</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TensorToolbox.jl-1" href="#TensorToolbox.jl-1">TensorToolbox.jl</a></h1><p><a href="https://travis-ci.org/lanaperisa/TensorToolbox.jl"><img src="https://travis-ci.org/lanaperisa/TensorToolbox.jl.svg?branch=master" alt="Build Status"/></a></p><p>Julia package for tensors. Includes functionality for</p><ul><li>dense tensors, </li><li>tensors in Tucker format,</li><li>tensors in Kruskal (CP) format,</li><li>tensors in Hierarchical Tucker format,</li><li>tensors in Tensor Train format (work in progress).</li></ul><p>Follows the functionality of MATLAB <a href="http://www.sandia.gov/~tgkolda/TensorToolbox/index-2.6.html">Tensor toolbox</a> and <a href="https://anchp.epfl.ch/htucker">Hierarchical Tucker Toolbox</a>.</p><p>Additionally, it contains algorithms from the paper <a href="http://sma.epfl.ch/~anchpcommon/publications/ttensors_pp.pdf">Recompression of Hadamard Products of Tensors in Tucker Format</a> by D. Kressner and L. Periša.</p><h2><a class="nav-anchor" id="Basics-1" href="#Basics-1">Basics</a></h2><p>Start with</p><pre><code class="language-julia">using TensorToolbox</code></pre><p>Define tensor as multidimensional array and calculate its norm:</p><pre><code class="language-julia">X=rand(4,3,2)
+norm(X)</code></pre><p>Create identity and diagonal tensor:</p><pre><code class="language-julia">Id=neye(2,2,2)
+D=diagt([1,2,3,4])</code></pre><p>For two tensors of same size calculate their inner product:</p><pre><code class="language-julia">X=rand(3,3,3,3);Y=rand(3,3,3,3);
+innerprod(X,Y)</code></pre><p><em>Matricization</em> of a tensor:</p><pre><code class="language-julia">X=rand(4,3,2);n=1; 
+A=tenmat(X,n) #by mode n
+B=tenmat(X,row=[2,1],col=3) #by row modes [2,1] and column mode 3</code></pre><p>Fold matrix back to tensor:</p><pre><code class="language-julia">X=matten(A,n,[4,3,2]) # by mode n
+X=matten(B,[2,1],[3],[4,3,2]) # by row modes [2,1] and column mode 3</code></pre><p><em>n-mode product</em> of a tensor and a matrix or an array of matrices:</p><pre><code class="language-julia">X=rand(5,4,3);
+A=[rand(2,5),rand(2,4),rand(2,3)];
+ttm(X,A[1],1)  #X times A[1] by mode 1
+ttm(X,[A[1],A[2]],[1,2]) #X times A[1] by mode 1 and times A[2] by mode 2; same as ttm(X,A,-3)
+ttm(X,A) #X times matrices from A by each mode</code></pre><p><em>n-mode (vector) product</em> of a tensor and a vector or an array of vectors:</p><pre><code class="language-julia">X=rand(5,4,3);
+V=[rand(5),rand(4),rand(3)];
+ttv(X,V[1],1)  #X times V[1] by mode 1
+ttv(X,[V[1],V[2]],[1,2]) #X times V[1] by mode 1 and times V[2] by mode 2; same as ttm(X,V,-3)
+ttv(X,V) #X times vectors from V by each mode</code></pre><p><em>Outer product</em> of two tensors:</p><pre><code class="language-julia"> X=rand(5,4,3,2);Y=rand(2,3,4);
+ ttt(X,Y)</code></pre><p>Kronecker product of two tensors (straightforward generalization of Kronecker product of matrices):</p><pre><code class="language-julia">X=rand(5,4,3);Y=rand(2,2,2);
+tkron(X,Y)</code></pre><p>The <em>n-rank</em> and the <em>mutlilinear rank</em> of a tensor:</p><pre><code class="language-julia">X=rand(5,4,3);
+n=2;
+nrank(X,n)
+mrank(X)</code></pre><p>The HOSVD:</p><pre><code class="language-julia">X=rand(5,4,3);
+hosvd(X) #same as hosvd(X,eps_abs=1e-8)
+hosvd(X,eps_abs=1e-6) #discard singular values lower than 1e-5
+hosvd(X,eps_rel=1e-3) #discard singular values lower than 1e-3*sigma_{max}
+hosvd(X,reqrank=[2,2,2])</code></pre><p>The CP decomposition:</p><pre><code class="language-julia">X=rand(5,4,3);
+R=3; #number of components
+cp_als(X,R)  #same as cp_als(X,R,init=&quot;rand&quot;,dimorder=1:ndims(X))
+cp_als(X,R,init=[rand(5,3),rand(4,3),rand(3,3)]) #initialize factor matrices 
+cp_als(X,R,init=&quot;nvecs&quot;,dimorder=[2,1,3])</code></pre><h2><a class="nav-anchor" id="Tensors-in-Tucker-format-1" href="#Tensors-in-Tucker-format-1">Tensors in Tucker format</a></h2><p>Define tensor in Tucker format by its core tensor and factor matrices:</p><pre><code class="language-julia">F=rand(5,4,3);
+A=[rand(6,5),rand(6,4),rand(6,3)];
+ttensor(F,A)</code></pre><p>Get Tucker format of a tensor by using HOSVD:</p><pre><code class="language-julia">X=rand(8,9,7);
+hosvd(X) 
+hosvd(X,reqrank=[3,3,3]) #HOSVD with predefined multilinear rank</code></pre><p>Create random tensor in Tucker format of size 5x4x3 and mulilinear rank (2,2,2): </p><pre><code class="language-julia">X=randttensor([5,4,3],[2,2,2])</code></pre><p>Basic functions:</p><pre><code class="language-julia">size(X) 
+coresize(X)
+ndims(X)
+norm(X)
+full(X)  #Creates full tensor out of Tucker format
+reorth(X) #Orthogonalize factor matrices
+permutedims(X,[2,1,3]) </code></pre><p><em>n-mode matricization</em> of a tensor in Tucker format:</p><pre><code class="language-julia">n=1;
+tenmat(X,n)</code></pre><p>Basic operations:</p><pre><code class="language-julia">X=randttensor([5,4,3],[2,2,2]);Y=randttensor([5,4,3],[3,2,1]);
+innerprod(X,Y)
+X+Y
+X-Y
+X==Y #same as isequal(X,Y)
+3*X #same as mtimes(3,X)</code></pre><p><em>n-mode product</em> of a tensor in Tucker format and a matrix or an array of matrices:</p><pre><code class="language-julia">X=randttensor([5,4,3],[2,2,2]);
+A=[rand(2,5),rand(2,4),rand(2,3)];
+ttm(X,A[1],1)  #X times A[1] by mode 1
+ttm(X,[A[1],A[2]],[1,2]) #X times A[1] by mode 1 and times A[2] by mode 2; same as ttm(X,A,-3)
+ttm(X,A) #X times matrices from A by each mode</code></pre><p><em>n-mode (vector) product</em> of a tensor in Tucker format and a vector or an array of vectors:</p><pre><code class="language-julia">X=randttensor([5,4,3],[2,2,2]);
+V=[rand(5),rand(4),rand(3)];
+ttv(X,V[1],1)  #X times V[1] by mode 1
+ttv(X,[V[1],V[2]],[1,2]) #X times V[1] by mode 1 and times V[2] by mode 2; same as ttm(X,V,-3)
+ttv(X,V) #X times vectors from V by each mode</code></pre><p>The <em>n-rank</em> and the <em>mutlilinear rank</em> of a tensor in Tucker format:</p><pre><code class="language-julia">X=randttensor([9,8,7],[5,4,3]);
+n=2;
+nrank(X,n)
+mrank(X)</code></pre><p>HOSVD of a tensor in Tucker format:</p><pre><code class="language-julia">X=randttensor([6,7,5],[4,4,4]);
+hosvd(X)  #same as hosvd(X,eps_abs=1e-8)
+hosvd(X,eps_abs=1e-6) #discard singular values lower than 1e-5
+hosvd(X,eps_rel=1e-3) #discard singular values lower than 1e-3*sigma_{max}
+hosvd(X,reqrank=[3,3,3]) #HOSVD with predefined multilinear rank</code></pre><p>The CP decomposition:</p><pre><code class="language-julia">X=randttensor([6,7,5],[4,4,4]);
+R=3; #number of components
+cp_als(X,R)  #same as cp_als(X,R,init=&quot;rand&quot;,dimorder=1:ndims(X))
+cp_als(X,R,init=[rand(6,3),rand(7,3),rand(5,3)]) #initialize factor matrices 
+cp_als(X,R,init=&quot;nvecs&quot;,dimorder=[2,1,3])</code></pre><h2><a class="nav-anchor" id="Tensors-in-Kruskal-format-1" href="#Tensors-in-Kruskal-format-1">Tensors in Kruskal format</a></h2><p>Define tensor in Kruskal format by its factor matrices (and vector of weights):</p><pre><code class="language-julia">lambda=rand(3)
+A=[rand(5,3),rand(4,3),rand(3,3)];
+ktensor(A)
+ktensor(lambda,A)</code></pre><p>Create random tensor in Kruskal format of size 5x4x3 and with 2 components: </p><pre><code class="language-julia">X=randktensor([5,4,3],2)</code></pre><p>Basic functions:</p><pre><code class="language-julia">size(X) 
+ndims(X)
+norm(X)
+full(X)  #Creates full tensor out of Kruskal format
+permutedims(X,[2,1,3]) 
+ncomponents(X) #Number of components</code></pre><p><em>n-mode matricization</em> of a tensor in Kruskal format:</p><pre><code class="language-julia">n=1;
+tenmat(X,n)</code></pre><p>Basic operations:</p><pre><code class="language-julia">X=randktensor([5,4,3],2);Y=randktensor([5,4,3],3);
+innerprod(X,Y)
+X+Y
+X-Y
+X==Y #same as isequal(X,Y)
+3*X #same as mtimes(3,X)</code></pre><p><em>n-mode product</em> of a tensor in Kruskal format and a matrix or an array of matrices:</p><pre><code class="language-julia">X=randktensor([5,4,3],2);
+A=[rand(2,5),rand(2,4),rand(2,3)];
+ttm(X,A[1],1)  #X times A[1] by mode 1
+ttm(X,[A[1],A[2]],[1,2]) #X times A[1] by mode 1 and times A[2] by mode 2; same as ttm(X,A,-3)
+ttm(X,A) #X times matrices from A by each mode</code></pre><p><em>n-mode (vector) product</em> of a tensor in Kruskal format and a vector or an array of vectors:</p><pre><code class="language-julia">X=randktensor([5,4,3],2);
+V=[rand(5),rand(4),rand(3)];
+ttv(X,V[1],1)  #X times V[1] by mode 1
+ttv(X,[V[1],V[2]],[1,2]) #X times V[1] by mode 1 and times V[2] by mode 2; same as ttm(X,V,-3)
+ttv(X,V) #X times vectors from V by each mode</code></pre><p>Arrange the rank-1 components of a tensor in Kruskal format:</p><pre><code class="language-julia">X=randktensor([6,5,4,3],3);
+arrange(X)
+arrange!(X)</code></pre><p>Fix sign ambiguity of a tensor in Kruskal format:</p><pre><code class="language-julia">X=randktensor([6,5,4,3,4],3);
+fixsigns(X)
+fixsigns!(X)</code></pre><p>Distribute weights a tensor in Kruskal format to a specific mode:</p><pre><code class="language-julia">X=randktensor([3,3,3],3);
+n=2;
+redistribute(X,n)
+redistribute!(X,n)</code></pre><p>The CP decomposition:</p><pre><code class="language-julia">X=randktensor([6,7,5],4);
+R=3; #number of components
+cp_als(X,R)  #same as cp_als(X,R,init=&quot;rand&quot;,dimorder=1:ndims(X))
+cp_als(X,R,init=[rand(6,3),rand(7,3),rand(5,3)]) #initialize factor matrices 
+cp_als(X,R,init=&quot;nvecs&quot;,dimorder=[2,1,3])</code></pre><h2><a class="nav-anchor" id="Tensors-in-Hierarchical-Tucker-format-1" href="#Tensors-in-Hierarchical-Tucker-format-1">Tensors in Hierarchical Tucker format</a></h2><p>Define tensor in Hierarchical Tucker format by dimensional tree T, its transfer tensors and factor matrices:</p><pre><code class="language-julia">T=dimtree(3)
+B=[rand(2,3,1),rand(4,3,2)]
+A=[rand(5,4),rand(4,3),rand(3,3)]
+htensor(T,B,A)</code></pre><p>Define tensor in Hierarchical Tucker format by dimensional tree T, its transfer tensors and factor matrices:</p><pre><code class="language-julia">T=dimtree(3)
+B=[rand(2,3,1),rand(4,3,2)]
+A=[rand(5,4),rand(4,3),rand(3,3)]
+htensor(T,B,A)</code></pre><p>Get Tucker format of a tensor by using htrunc:</p><pre><code class="language-julia">X=rand(8,9,7);
+htrunc(X)
+htrunc(X,maxrank=3) #hrunc with defined maximal rank</code></pre><p>Create random tensor in Hierarchical Tucker format of size 5x4x3:</p><pre><code class="language-julia">X=randhtensor([5,4,3])</code></pre><p>Basic functions:</p><pre><code class="language-julia">size(X)
+ndims(X)
+norm(X)
+full(X)  #Creates full tensor out of Hierarchial Tucker format
+reorth(X) #Orthogonalize factor matrices</code></pre><p>Basic operations:</p><pre><code class="language-julia">X=randhtensor([5,4,3]);Y=randhtensor([5,4,3]);
+innerprod(X,Y)
+X+Y
+X-Y
+X==Y #same as isequal(X,Y)
+3*X #same as mtimes(3,X)</code></pre><p><em>n-mode product</em> of a tensor in Hierarchical Tucker format and a matrix or an array of matrices:</p><pre><code class="language-julia">X=randhtensor([5,4,3]);
+A=[rand(2,5),rand(2,4),rand(2,3)];
+ttm(X,A[1],1)  #X times A[1] by mode 1
+ttm(X,[A[1],A[2]],[1,2]) #X times A[1] by mode 1 and times A[2] by mode 2; same as ttm(X,A,-3)
+ttm(X,A) #X times matrices from A by each mode</code></pre><p><em>n-mode (vector) product</em> of a tensor in Hierarchical Tucker format and a vector or an array of vectors:</p><pre><code class="language-julia">X=randhtensor([5,4,3]);
+V=[rand(5),rand(4),rand(3)];
+ttv(X,V[1],1)  #X times V[1] by mode 1
+ttv(X,[V[1],V[2]],[1,2]) #X times V[1] by mode 1 and times V[2] by mode 2; same as ttm(X,V,-3)
+ttv(X,V) #X times vectors from V by each mode</code></pre><p>The <em>h-rank</em> of a tensor in Hierarchical Tucker format:</p><pre><code class="language-julia">X=htrunc(rand(9,8,7),maxrank=X=htrunc(rand(9,8,7),maxrank=2)
+hrank(X)</code></pre><h2><a class="nav-anchor" id="Tensors-in-Tensor-Train-format-1" href="#Tensors-in-Tensor-Train-format-1">Tensors in Tensor Train format</a></h2><p>Define tensor in TT format by its core tensors:</p><pre><code class="language-julia">G=TensorCell(undef,3)
+G[1]=rand(1,4,3)
+G[2]=rand(3,6,4)
+G[3]=rand(4,3,1)
+X=TTtensor(G)</code></pre><p>Get TT format of a tensor by using TTsvd:</p><pre><code class="language-julia">X=rand(5,4,3,2)
+TTsvd(X)
+TTsvd(X,reqrank=[2,2,2])</code></pre><p>Create random TT tensor of size 5x4x3 and TT-rank (2,2):</p><pre><code class="language-julia">X=randTTtensor([5,4,3],[2,2])</code></pre><p>Basic functions::</p><pre><code class="language-julia">size(X)
+TTrank(X)
+ndims(X)
+norm(X)
+full(X)  #Creates full tensor out of Tucker format
+reorth(X)</code></pre><p>Basic operations:</p><pre><code class="language-julia">X=randTTtensor([5,4,3],[2,2])
+Y=randTTtensor([5,4,3],[3,3])
+
+innerprod(X,Y)
+X+Y
+X-Y
+3*X</code></pre><p>TTsvd of a TT tensor:</p><pre><code class="language-julia">X=randTTtensor([7,6,5],[5,4])
+TTsvd(X,reqrank=[3,3])</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

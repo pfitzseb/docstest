@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SortMerge"
+owner = "gcalderone"
+version = "1.1.0"
+description = "A Julia implementation of the Sort-merge join algorithm."
+stargazers_count = "1"
+url = "https://github.com/gcalderone/SortMerge.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gcalderone"
+contributions = "33"

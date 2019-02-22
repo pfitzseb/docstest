@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SumProductNetworks"
+owner = "trappmartin"
+version = "0.1.2"
+description = "Sum-product networks in Julia."
+stargazers_count = "10"
+url = "https://github.com/trappmartin/SumProductNetworks.jl.git"
+installs = true
+tags = ["julia", "machine-learning", "probabilistic-modeling", "probabilistic-neural-network", "tractable-models", "deep-learning", "sum-product-networks"]
+license = "MIT License"
+
+[[contributors]]
+name = "trappmartin"
+contributions = "281"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "AuditoryFilters"
+owner = "jfsantos"
+version = "0.1.0"
+description = "Auditory filterbanks in Julia"
+stargazers_count = "12"
+url = "https://github.com/jfsantos/AuditoryFilters.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "jfsantos"
+contributions = "40"
+[[contributors]]
+name = "staticfloat"
+contributions = "7"

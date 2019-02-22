@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "EarCut"
+owner = "JuliaGeometry"
+version = "1.1.0"
+description = "Wrapper for Mapbox's earcut.hpp for polygon triangulation"
+stargazers_count = "0"
+url = "https://github.com/JuliaGeometry/EarCut.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "46"

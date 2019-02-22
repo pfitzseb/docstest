@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "CALCEPH"
+owner = "bgodard"
+version = "1.0.1"
+description = "A wrapper to CALCEPH: IMCCE planetary ephemeris access library"
+stargazers_count = "2"
+url = "https://github.com/bgodard/CALCEPH.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bgodard"
+contributions = "77"
+[[contributors]]
+name = "helgee"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mkretlow"
+contributions = "1"

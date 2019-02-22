@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LocalCoverage"
+owner = "tpapp"
+version = "0.1.0"
+description = "Trivial functions for working with coverage for packages locally."
+stargazers_count = "17"
+url = "https://github.com/tpapp/LocalCoverage.jl.git"
+installs = true
+tags = ["julia", "julia-language", "coverage-report", "coverage", "local-development"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "19"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

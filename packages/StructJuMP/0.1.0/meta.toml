@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "StructJuMP"
+owner = "StructJuMP"
+version = "0.1.0"
+description = "A block-structured optimization framework for JuMP"
+stargazers_count = "26"
+url = "https://github.com/StructJuMP/StructJuMP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "joehuchette"
+contributions = "195"
+[[contributors]]
+name = "blegat"
+contributions = "58"
+[[contributors]]
+name = "kibaekkim"
+contributions = "13"
+[[contributors]]
+name = "ktarplee"
+contributions = "12"
+[[contributors]]
+name = "cnpetra"
+contributions = "3"
+[[contributors]]
+name = "emreyamangil"
+contributions = "1"
+[[contributors]]
+name = "fqiang"
+contributions = "1"
+[[contributors]]
+name = "michel2323"
+contributions = "1"

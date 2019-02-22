@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "DataVoyager"
+owner = "queryverse"
+version = "0.3.1"
+description = "Julia wrapper for the Voyager data exploration tool"
+stargazers_count = "38"
+url = "https://github.com/queryverse/DataVoyager.jl.git"
+installs = true
+tags = ["julia", "voyage"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "54"
+[[contributors]]
+name = "jlperla"
+contributions = "1"

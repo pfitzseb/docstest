@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "real"
+name = "DiffRules"
+owner = "JuliaDiff"
+version = "0.0.10"
+description = "A simple shared suite of common derivative definitions"
+stargazers_count = "11"
+url = "https://github.com/JuliaDiff/DiffRules.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "20"
+[[contributors]]
+name = "tpapp"
+contributions = "3"
+[[contributors]]
+name = "tkoolen"
+contributions = "2"
+[[contributors]]
+name = "willtebbutt"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "jdlangs"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "mewilhel"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "wesselb"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

@@ -1,0 +1,45 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "FTPClient"
+owner = "invenia"
+version = "0.7.0"
+description = "Julia FTP client using LibCURL.jl"
+stargazers_count = "7"
+url = "https://github.com/invenia/FTPClient.jl.git"
+installs = true
+tags = ["julia", "ftp", "ftp-client"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "samuel-massinon"
+contributions = "139"
+[[contributors]]
+name = "omus"
+contributions = "79"
+[[contributors]]
+name = "morris25"
+contributions = "44"
+[[contributors]]
+name = "kano31"
+contributions = "17"
+[[contributors]]
+name = "iamed2"
+contributions = "9"
+[[contributors]]
+name = "nicoleepp"
+contributions = "8"
+[[contributors]]
+name = "rofinn"
+contributions = "7"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fchorney"
+contributions = "1"

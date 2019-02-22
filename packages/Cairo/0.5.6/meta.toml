@@ -1,0 +1,135 @@
+license_url = ""
+doctype = "default"
+name = "Cairo"
+owner = "JuliaGraphics"
+version = "0.5.6"
+description = "Bindings to the Cairo graphics library."
+stargazers_count = "33"
+url = "https://github.com/JuliaGraphics/Cairo.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "67"
+[[contributors]]
+name = "Keno"
+contributions = "37"
+[[contributors]]
+name = "lobingera"
+contributions = "35"
+[[contributors]]
+name = "tkelman"
+contributions = "20"
+[[contributors]]
+name = "ViralBShah"
+contributions = "17"
+[[contributors]]
+name = "staticfloat"
+contributions = "16"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "13"
+[[contributors]]
+name = "nolta"
+contributions = "12"
+[[contributors]]
+name = "tknopp"
+contributions = "9"
+[[contributors]]
+name = "dcjones"
+contributions = "7"
+[[contributors]]
+name = "vtjnash"
+contributions = "6"
+[[contributors]]
+name = "jakebolewski"
+contributions = "5"
+[[contributors]]
+name = "kmsquire"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "4"
+[[contributors]]
+name = "colbec"
+contributions = "4"
+[[contributors]]
+name = "rsrock"
+contributions = "4"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "4"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "cormullion"
+contributions = "4"
+[[contributors]]
+name = "ihnorton"
+contributions = "4"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "pao"
+contributions = "3"
+[[contributors]]
+name = "bjarthur"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "kdw503"
+contributions = "1"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "binarybana"
+contributions = "1"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "1"
+[[contributors]]
+name = "Kryohi"
+contributions = "1"
+[[contributors]]
+name = "the-moliver"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "garborg"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "1"
+[[contributors]]
+name = "andrewcooke"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

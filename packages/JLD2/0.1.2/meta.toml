@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "JLD2"
+owner = "simonster"
+version = "0.1.2"
+description = "HDF5-compatible file format in pure Julia"
+stargazers_count = "101"
+url = "https://github.com/simonster/JLD2.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonster"
+contributions = "165"
+[[contributors]]
+name = "staticfloat"
+contributions = "10"
+[[contributors]]
+name = "ararslan"
+contributions = "9"
+[[contributors]]
+name = "gdkrmr"
+contributions = "4"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "beOn"
+contributions = "1"
+[[contributors]]
+name = "bdeonovic"
+contributions = "1"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "bicycle1885"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

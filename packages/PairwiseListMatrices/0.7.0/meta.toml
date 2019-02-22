@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "PairwiseListMatrices"
+owner = "diegozea"
+version = "0.7.0"
+description = "Symmetric matrix as a list of the values in its upper or lower triangular part. Useful for representing pairwise measures or comparisons when the used metric or distance satisfies the symmetry condition and for adjacency matrices of undirected graphs."
+stargazers_count = "6"
+url = "https://github.com/diegozea/PairwiseListMatrices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "diegozea"
+contributions = "119"
+[[contributors]]
+name = "Elin-"
+contributions = "3"
+[[contributors]]
+name = "NPalopoli"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

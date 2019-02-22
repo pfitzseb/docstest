@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CausalityTools"
+owner = "kahaaga"
+version = "0.1.0"
+description = "Collection of algorithms related to the detection of underlying causal structure from time series data, and for the approximation of the transfer operator and invariant measures."
+stargazers_count = "11"
+url = "https://github.com/kahaaga/CausalityTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "155"
+[[contributors]]
+name = "tormolle"
+contributions = "1"

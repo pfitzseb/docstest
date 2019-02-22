@@ -1,0 +1,63 @@
+license_url = ""
+doctype = "default"
+name = "Loess"
+owner = "JuliaStats"
+version = "0.5.0"
+description = "Local regression, so smooooth!"
+stargazers_count = "23"
+url = "https://github.com/JuliaStats/Loess.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dcjones"
+contributions = "16"
+[[contributors]]
+name = "ararslan"
+contributions = "8"
+[[contributors]]
+name = "evanfields"
+contributions = "8"
+[[contributors]]
+name = "tlnagy"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "simonbyrne"
+contributions = "3"
+[[contributors]]
+name = "ranjanan"
+contributions = "3"
+[[contributors]]
+name = "Liozou"
+contributions = "2"
+[[contributors]]
+name = "randyzwitch"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "bjarthur"
+contributions = "1"
+[[contributors]]
+name = "iamed2"
+contributions = "1"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "1"
+[[contributors]]
+name = "Ken-B"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

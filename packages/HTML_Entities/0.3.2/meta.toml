@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "HTML_Entities"
+owner = "JuliaString"
+version = "0.3.2"
+description = "Support for using HTML entities in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/HTML_Entities.jl.git"
+installs = true
+tags = ["html-entities", "character"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "43"

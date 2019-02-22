@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "DFControl"
+owner = "louisponet"
+version = "0.2.0"
+description = "DFT control "
+stargazers_count = "0"
+url = "https://github.com/louisponet/DFControl.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "louisponet"
+contributions = "449"

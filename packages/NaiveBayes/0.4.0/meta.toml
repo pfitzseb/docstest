@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "NaiveBayes"
+owner = "dfdx"
+version = "0.4.0"
+description = "Naive Bayes classifier"
+stargazers_count = "14"
+url = "https://github.com/dfdx/NaiveBayes.jl.git"
+installs = true
+tags = ["machine-learning", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "dfdx"
+contributions = "35"
+[[contributors]]
+name = "OmriTreidel"
+contributions = "24"
+[[contributors]]
+name = "JoshChristie"
+contributions = "4"
+[[contributors]]
+name = "asbisen"
+contributions = "3"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "abieler"
+contributions = "2"
+[[contributors]]
+name = "joseespino"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "johnta0"
+contributions = "1"

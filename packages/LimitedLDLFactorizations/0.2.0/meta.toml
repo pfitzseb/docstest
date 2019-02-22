@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "LimitedLDLFactorizations"
+owner = "JuliaSmoothOptimizers"
+version = "0.2.0"
+description = "Limited-Memory Factorization of Symmetric Matrices"
+stargazers_count = "1"
+url = "https://github.com/JuliaSmoothOptimizers/LimitedLDLFactorizations.jl.git"
+installs = true
+tags = ["factorization", "julia", "julia-language"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "dpo"
+contributions = "7"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "4"

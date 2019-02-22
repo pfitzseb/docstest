@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "CumulantsUpdates"
+owner = "ZKSI"
+version = "1.0.1"
+description = "Updates of high order cumulant tensors"
+stargazers_count = "2"
+url = "https://github.com/ZKSI/CumulantsUpdates.jl.git"
+installs = true
+tags = ["cumulants"]
+license = "Other"
+
+[[contributors]]
+name = "kdomino"
+contributions = "153"
+[[contributors]]
+name = "pgawron"
+contributions = "3"

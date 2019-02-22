@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "DomainSets"
+owner = "JuliaApproximation"
+version = "0.0.1"
+description = "A Julia package for describing domains in Euclidean space"
+stargazers_count = "9"
+url = "https://github.com/JuliaApproximation/DomainSets.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "daanhb"
+contributions = "73"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "53"
+[[contributors]]
+name = "vincentcp"
+contributions = "51"
+[[contributors]]
+name = "roelmatthysen"
+contributions = "6"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

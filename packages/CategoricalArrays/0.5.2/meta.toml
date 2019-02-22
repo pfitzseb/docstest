@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "real"
+name = "CategoricalArrays"
+owner = "JuliaData"
+version = "0.5.2"
+description = "Arrays for working with categorical data (both nominal and ordinal) in Julia"
+stargazers_count = "27"
+url = "https://github.com/JuliaData/CategoricalArrays.jl.git"
+installs = true
+tags = ["julia", "statistics", "data"]
+license = "Other"
+
+[[contributors]]
+name = "nalimilan"
+contributions = "170"
+[[contributors]]
+name = "alyst"
+contributions = "21"
+[[contributors]]
+name = "gustafsson"
+contributions = "10"
+[[contributors]]
+name = "quinnj"
+contributions = "8"
+[[contributors]]
+name = "bkamins"
+contributions = "6"
+[[contributors]]
+name = "cjprybol"
+contributions = "3"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "2"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "2"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "cormullion"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "NumericalMethodsforEngineers"
+owner = "PtFEM"
+version = "1.0.0"
+description = "Programs modeled after \"Numerical Methods for Engineers\" by D.V. Griffiths and I.M. Smith"
+stargazers_count = "1"
+url = "https://github.com/PtFEM/NumericalMethodsforEngineers.jl.git"
+installs = true
+tags = ["julia", "numerical-methods", "partial-differential-equations", "galerkin", "finite-elements"]
+license = "Other"
+
+[[contributors]]
+name = "goedman"
+contributions = "264"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

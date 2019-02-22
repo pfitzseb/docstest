@@ -1,0 +1,39 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "JuliaFEM"
+owner = "JuliaFEM"
+version = "0.5.0"
+description = "The JuliaFEM software library is a framework that allows for the distributed processing of large Finite Element Models across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage."
+stargazers_count = "88"
+url = "https://github.com/JuliaFEM/JuliaFEM.jl.git"
+installs = true
+tags = ["fem", "finite", "element", "method", "julia", "julia-language"]
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "725"
+[[contributors]]
+name = "TeroFrondelius"
+contributions = "134"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "arilaakk"
+contributions = "2"
+[[contributors]]
+name = "ovainola"
+contributions = "2"
+[[contributors]]
+name = "maikkirapo"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "vlad-stoian"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

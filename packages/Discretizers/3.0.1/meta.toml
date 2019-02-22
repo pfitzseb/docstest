@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Discretizers"
+owner = "sisl"
+version = "3.0.1"
+description = "A Julia package for data discretization and label maps"
+stargazers_count = "10"
+url = "https://github.com/sisl/Discretizers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tawheeler"
+contributions = "75"
+[[contributors]]
+name = "yichunc"
+contributions = "6"
+[[contributors]]
+name = "Tchanders"
+contributions = "6"
+[[contributors]]
+name = "istvankleijn"
+contributions = "2"
+[[contributors]]
+name = "catawbasam"
+contributions = "2"
+[[contributors]]
+name = "mykelk"
+contributions = "2"

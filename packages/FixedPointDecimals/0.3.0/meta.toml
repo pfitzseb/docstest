@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "FixedPointDecimals"
+owner = "JuliaMath"
+version = "0.3.0"
+description = "Julia fixed-point decimals built from integers"
+stargazers_count = "4"
+url = "https://github.com/JuliaMath/FixedPointDecimals.jl.git"
+installs = true
+tags = ["decimal-numbers"]
+license = "Other"
+
+[[contributors]]
+name = "omus"
+contributions = "70"
+[[contributors]]
+name = "TotalVerb"
+contributions = "14"
+[[contributors]]
+name = "NHDaly"
+contributions = "6"
+[[contributors]]
+name = "nicoleepp"
+contributions = "5"
+[[contributors]]
+name = "rai-nhdaly"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "macd"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

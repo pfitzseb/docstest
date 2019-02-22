@@ -1,0 +1,90 @@
+license_url = ""
+doctype = "real"
+name = "BinaryBuilder"
+owner = "JuliaPackaging"
+version = "0.1.4"
+description = "Binary Dependency Builder for Julia"
+stargazers_count = "60"
+url = "https://github.com/JuliaPackaging/BinaryBuilder.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "staticfloat"
+contributions = "576"
+[[contributors]]
+name = "Keno"
+contributions = "111"
+[[contributors]]
+name = "stevengj"
+contributions = "10"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "quinnj"
+contributions = "5"
+[[contributors]]
+name = "iamed2"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "KristofferC"
+contributions = "3"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "ssfrr"
+contributions = "2"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "eschnett"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "helgee"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "juan-pablo-vielma"
+contributions = "1"
+[[contributors]]
+name = "hildebrandmw"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "randyzwitch"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"

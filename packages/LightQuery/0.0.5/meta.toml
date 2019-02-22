@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LightQuery"
+owner = "bramtayl"
+version = "0.0.5"
+description = "One query to rule them all"
+stargazers_count = "4"
+url = "https://github.com/bramtayl/LightQuery.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bramtayl"
+contributions = "127"
+[[contributors]]
+name = "scls19fr"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

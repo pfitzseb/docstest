@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Shell"
+owner = "innerlee"
+version = "0.0.1"
+description = "Run shell commands becomes easy in Julia!"
+stargazers_count = "1"
+url = "https://github.com/innerlee/Shell.jl.git"
+installs = true
+tags = ["shell", "julia-language", "package"]
+license = "Other"
+
+[[contributors]]
+name = "innerlee"
+contributions = "89"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

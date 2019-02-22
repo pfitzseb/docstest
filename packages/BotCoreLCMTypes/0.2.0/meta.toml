@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "BotCoreLCMTypes"
+owner = "JuliaRobotics"
+version = "0.2.0"
+description = "LCM type definitions for compatibility with openhumanoids/bot_core_lcmtypes in Julia"
+stargazers_count = "2"
+url = "https://github.com/JuliaRobotics/BotCoreLCMTypes.jl.git"
+installs = true
+tags = ["julia", "lcm", "message-passing", "robotics"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "35"
+[[contributors]]
+name = "tkoolen"
+contributions = "5"

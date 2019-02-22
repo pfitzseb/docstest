@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "RigidBodySim"
+owner = "JuliaRobotics"
+version = "1.0.0"
+description = "Simulation and visualization of articulated rigid body systems in Julia"
+stargazers_count = "21"
+url = "https://github.com/JuliaRobotics/RigidBodySim.jl.git"
+installs = true
+tags = ["julia", "rigid-body-dynamics", "simulation", "robotics", "robotics-simulation", "simulation-modeling", "visualization", "dynamical-systems"]
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "194"
+[[contributors]]
+name = "rdeits"
+contributions = "7"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

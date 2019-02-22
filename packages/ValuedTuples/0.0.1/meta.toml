@@ -1,0 +1,4 @@
+name = "ValuedTuples"
+installs = false
+url = "https://github.com/bramtayl/ValuedTuples.jl.git"
+version = "0.0.1"

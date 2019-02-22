@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "EarthOrientation"
+owner = "JuliaAstro"
+version = "0.4.1"
+description = "Calculate Earth orientation parameters from IERS tables in Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaAstro/EarthOrientation.jl.git"
+installs = true
+tags = ["julia", "astronomy", "earth-orientation", "astrodynamics"]
+license = "Other"
+
+[[contributors]]
+name = "helgee"
+contributions = "66"
+[[contributors]]
+name = "ronisbr"
+contributions = "3"
+[[contributors]]
+name = "crbinz"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

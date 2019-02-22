@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "TimerOutputs"
+owner = "KristofferC"
+version = "0.4.0"
+description = "Formatted output of timed sections in Julia"
+stargazers_count = "108"
+url = "https://github.com/KristofferC/TimerOutputs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "71"
+[[contributors]]
+name = "fredrikekre"
+contributions = "9"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "JobJob"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MonteCarloMarkovKernels"
+owner = "awllee"
+version = "1.0.1"
+description = "Some generic Markov kernels for Monte Carlo"
+stargazers_count = "0"
+url = "https://github.com/awllee/MonteCarloMarkovKernels.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "awllee"
+contributions = "24"

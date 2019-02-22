@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "SpinMonteCarlo"
+owner = "yomichi"
+version = "0.2.0"
+description = "Markov chain Monte Carlo solver for lattice spin systems implemented by Julialang"
+stargazers_count = "6"
+url = "https://github.com/yomichi/SpinMonteCarlo.jl.git"
+installs = true
+tags = ["julialang", "spin", "lattice", "monte-carlo"]
+license = "MIT License"
+
+[[contributors]]
+name = "yomichi"
+contributions = "235"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"

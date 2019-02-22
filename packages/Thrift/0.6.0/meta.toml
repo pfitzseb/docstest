@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Thrift"
+owner = "tanmaykm"
+version = "0.6.0"
+description = "Thrift for Julia"
+stargazers_count = "11"
+url = "https://github.com/tanmaykm/Thrift.jl.git"
+installs = true
+tags = ["thrift", "julia", "thrift-idl-compiler"]
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "115"
+[[contributors]]
+name = "randyzwitch"
+contributions = "6"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BlockBandedMatrices"
+owner = "JuliaMatrices"
+version = "0.3.3"
+description = "A Julia package for representing block-banded matrices and banded-block-banded matrices"
+stargazers_count = "21"
+url = "https://github.com/JuliaMatrices/BlockBandedMatrices.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "85"
+[[contributors]]
+name = "snowball13"
+contributions = "3"
+[[contributors]]
+name = "jagot"
+contributions = "2"
+[[contributors]]
+name = "mdavezac"
+contributions = "1"

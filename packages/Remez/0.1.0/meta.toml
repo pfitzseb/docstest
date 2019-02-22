@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Remez"
+owner = "simonbyrne"
+version = "0.1.0"
+description = "Remez algorithm for computing minimax polynomial approximations"
+stargazers_count = "8"
+url = "https://github.com/simonbyrne/Remez.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "8"
+[[contributors]]
+name = "jdh8"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

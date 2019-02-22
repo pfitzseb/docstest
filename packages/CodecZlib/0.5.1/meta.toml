@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "CodecZlib"
+owner = "bicycle1885"
+version = "0.5.1"
+description = "zlib codecs for TranscodingStreams.jl."
+stargazers_count = "15"
+url = "https://github.com/bicycle1885/CodecZlib.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "49"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"

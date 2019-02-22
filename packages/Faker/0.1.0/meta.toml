@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Faker"
+owner = "codeneomatrix"
+version = "0.1.0"
+description = "generator of fake data for julia"
+stargazers_count = "23"
+url = "https://github.com/codeneomatrix/Faker.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "codeneomatrix"
+contributions = "79"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "amellnik"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "nkottary"
+contributions = "1"

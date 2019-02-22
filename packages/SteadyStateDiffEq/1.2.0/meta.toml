@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "SteadyStateDiffEq"
+owner = "JuliaDiffEq"
+version = "1.2.0"
+description = "DiffEq solvers for steady state solutions"
+stargazers_count = "4"
+url = "https://github.com/JuliaDiffEq/SteadyStateDiffEq.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "52"
+[[contributors]]
+name = "rudrasohan"
+contributions = "4"
+[[contributors]]
+name = "tkf"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "BioServices"
+owner = "BioJulia"
+version = "0.3.2"
+description = "Julia interface to APIs for various bio-related web services"
+stargazers_count = "4"
+url = "https://github.com/BioJulia/BioServices.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mirestrepo"
+contributions = "35"
+[[contributors]]
+name = "fernandogelin"
+contributions = "21"
+[[contributors]]
+name = "bicycle1885"
+contributions = "4"
+[[contributors]]
+name = "mcmcgrath13"
+contributions = "4"
+[[contributors]]
+name = "yuifu"
+contributions = "1"

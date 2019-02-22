@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Marginal visitation frequences · StateSpaceReconstruction.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StateSpaceReconstruction.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Overview</a></li><li><a class="toctext" href="../../embedding/">Embedding</a></li><li><span class="toctext">Rectangular partitions</span><ul><li><a class="toctext" href="../binningtypes/">Types of partitions</a></li><li><a class="toctext" href="../minima_stepsizes/">Finding axis minima and step sizes</a></li><li><a class="toctext" href="../coordinate_representation/">Coordinate representation</a></li><li><a class="toctext" href="../minima_stepsizes/">Finding axis minima and step sizes</a></li><li class="current"><a class="toctext" href>Marginal visitation frequences</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Marginals-for-one-variable-at-a-time-1">Marginals for one variable at a time</a></li><li><a class="toctext" href="#Marginals-for-multiple-variables-1">Marginals for multiple variables</a></li><li><a class="toctext" href="#Joint-visitation-frequency-1">Joint visitation frequency</a></li></ul></li></ul></li><li><span class="toctext">Simplex partitions</span><ul><li><a class="toctext" href="../../simplexpartition/simplex/">Overview</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Rectangular partitions</li><li><a href>Marginal visitation frequences</a></li></ul></nav><hr/><div id="topbar"><span>Marginal visitation frequences</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Marginal-visitation-frequencies-1" href="#Marginal-visitation-frequencies-1">Marginal visitation frequencies</a></h1><p>In a system of many variables, it can be useful to find the marginal visitation frequencies after assigning a partition to the set of points. The following function computes marginal visitation frequencies along the coordinate axes specified by <code>along_which_axes</code> for a set of <code>points</code> partitioned into boxes in the manner specified by <code>ϵ</code>.</p><p>Marginal visitation frequencies may also be computed directly from the partition representation of the points in question. Here, <code>visited_bins</code> is the output of either <a href="../integer_representation/#StateSpaceReconstruction.RectangularPartitions.assign_bin_labels-Tuple{Any,Any}"><code>assign_bin_labels</code></a> or <a href="../coordinate_representation/#StateSpaceReconstruction.RectangularPartitions.assign_coordinate_labels-Tuple{Any,Any}"><code>assign_coordinate_labels</code></a>.</p><p>In both cases, visitation frequencies are calculated by counting the number of points falling in each bin (i.e. the multiplicity of the bin), then normalizing by the total number of points.</p><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="StateSpaceReconstruction.RectangularPartitions.marginal_visitation_freq" href="#StateSpaceReconstruction.RectangularPartitions.marginal_visitation_freq"><code>StateSpaceReconstruction.RectangularPartitions.marginal_visitation_freq</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">marginal_visitation_freq(along_which_axes::Union{Int, Vector{Int}, AbstractUnitRange{Int}},
+    visited_bins::Array{T, 2}) where T</code></pre><p>Calculate marginal or joint visitation frequencies for a pre-binned set of points. Each column in <code>visited_bins</code> corresponds to a unique point, and contains the coordinate or integer representation of the bin containing that point.</p><p><strong>Arguments</strong></p><ul><li><code>visited_bins</code>: Contains a representation of the boxes containing each point.</li><li><code>along_which_axes</code>: Controls which axes to take the marginal visitation   frequencies along. Setting <code>along_which_axes</code> to a range 1:D, where   D is the dimension of the corresponding state space, corresponds to taking the   joint visitation frequency (basically, a D-dimensional histogram).</li><li><code>npts</code>: The number of points in the embedding, which is used as a   normalization factor.</li></ul></div></div><div><div><pre><code class="language-none">marginal_visitation_freq(
+    along_which_axes::Union{Int, Vector{Int}, AbstractUnitRange{Int}},
+    points::Array{T, 2},
+    ϵ) where T</code></pre><p>Compute marginal visitation frequencies for a set of <code>points</code>, given a partition scheme <code>ϵ</code>. The following <code>ϵ</code> will work:</p><ul><li><code>ϵ::Int</code> divide each axis into <code>ϵ</code> intervals of the same size.</li><li><code>ϵ::Float</code> divide each axis into intervals of size <code>ϵ</code>.</li><li><code>ϵ::Vector{Int}</code> divide the i-th axis into <code>ϵᵢ</code> intervals of the same size.</li><li><code>ϵ::Vector{Float64}</code> divide the i-th axis into intervals of size <code>ϵᵢ</code>.</li></ul><p>The argument <code>along_which_axes</code> controls which axes to take the marginal visitation frequencies along. Setting <code>along_which_axes</code> to a range 1:D, where D is the dimension of the corresponding state space, corresponds to taking the joint visitation frequency.</p></div></div><div><div><pre><code class="language-none">marginal_visitation_freq(
+    along_which_axes::Union{Int, Vector{Int}, AbstractUnitRange{Int}},
+    E::AbstractEmbedding,
+    ϵ)</code></pre><p>Compute marginal visitation frequencies for an embedding, given a partition scheme <code>ϵ</code>. The following <code>ϵ</code> will work:</p><ul><li><code>ϵ::Int</code> divide each axis into <code>ϵ</code> intervals of the same size.</li><li><code>ϵ::Float</code> divide each axis into intervals of size <code>ϵ</code>.</li><li><code>ϵ::Vector{Int}</code> divide the i-th axis into <code>ϵᵢ</code> intervals of the same size.</li><li><code>ϵ::Vector{Float64}</code> divide the i-th axis into intervals of size <code>ϵᵢ</code>.</li></ul><p>The argument <code>along_which_axes</code> controls which axes to take the marginal visitation frequencies along. Setting <code>along_which_axes</code> to a range 1:D, where D is the dimension of the corresponding state space, corresponds to taking the joint visitation frequency.</p></div></div></section><div></div><h1><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h1><pre><code class="language-julia-repl">julia&gt; using StateSpaceReconstruction
+
+julia&gt; using Plots; pyplot()
+Plots.PyPlotBackend()</code></pre><h2><a class="nav-anchor" id="Marginals-for-one-variable-at-a-time-1" href="#Marginals-for-one-variable-at-a-time-1">Marginals for one variable at a time</a></h2><p>Let&#39;s create a 5D dataset of 600 points and compute the marginals for each individual coordinate axis, given a partition where each axis is divided into 7 equal-length intervals.</p><pre><code class="language-julia-repl">julia&gt; pts = rand(5, 600)
+5×600 Array{Float64,2}:
+ 0.658271  0.71041   0.381341  0.265835  …  0.168348   0.27586   0.266476
+ 0.115772  0.380796  0.831391  0.319245     0.428693   0.19563   0.163998
+ 0.416071  0.704647  0.699697  0.736895     0.161311   0.239873  0.533304
+ 0.650666  0.548348  0.952371  0.707332     0.949819   0.27861   0.293982
+ 0.204836  0.997794  0.869205  0.718819     0.0612718  0.999658  0.469512
+
+julia&gt; ϵ = 7
+7
+
+julia&gt; Ms = [marginal_visitation_freq(i, pts, ϵ) for i = 1:5]
+5-element Array{Array{Float64,1},1}:
+ [0.145, 0.13, 0.188333, 0.133333, 0.146667, 0.143333, 0.113333]
+ [0.161667, 0.133333, 0.16, 0.131667, 0.155, 0.131667, 0.126667]
+ [0.151667, 0.155, 0.141667, 0.153333, 0.148333, 0.148333, 0.101667]
+ [0.138333, 0.141667, 0.143333, 0.17, 0.158333, 0.116667, 0.131667]
+ [0.116667, 0.123333, 0.16, 0.156667, 0.178333, 0.131667, 0.133333]
+
+julia&gt; Ms = hcat(Ms...) # convert to array
+7×5 Array{Float64,2}:
+ 0.145     0.161667  0.151667  0.138333  0.116667
+ 0.13      0.133333  0.155     0.141667  0.123333
+ 0.188333  0.16      0.141667  0.143333  0.16
+ 0.133333  0.131667  0.153333  0.17      0.156667
+ 0.146667  0.155     0.148333  0.158333  0.178333
+ 0.143333  0.131667  0.148333  0.116667  0.131667
+ 0.113333  0.126667  0.101667  0.131667  0.133333
+
+julia&gt; heatmap(Ms, xlabel = &quot;Coordinate axis #&quot;, ylabel = &quot;Bin #&quot;, size = (300, 500));</code></pre><p><img src="../marginalindividual.svg" alt/></p><h2><a class="nav-anchor" id="Marginals-for-multiple-variables-1" href="#Marginals-for-multiple-variables-1">Marginals for multiple variables</a></h2><p>We can also compute the marginals of multiple variables. For this example, choose variables <code>1:2</code>, <code>2:3</code> and <code>[3, 5]</code>.</p><pre><code class="language-julia-repl">julia&gt; pts = rand(5, 600)
+5×600 Array{Float64,2}:
+ 0.532473   0.929301   0.272184   0.0322978  …  0.862129   0.601364  0.371337
+ 0.28904    0.683523   0.62497    0.954998      0.0787422  0.086587  0.621823
+ 0.0716517  0.0828589  0.768083   0.852569      0.305784   0.908849  0.831695
+ 0.869246   0.302666   0.0379592  0.294028      0.854903   0.550754  0.629725
+ 0.292737   0.194924   0.781179   0.164876      0.272396   0.501501  0.898463
+
+julia&gt; ϵ = 7
+7
+
+julia&gt; Ms = [marginal_visitation_freq(i, pts, ϵ) for i = [1:2, 2:3, [3, 5]]]
+3-element Array{Array{Float64,1},1}:
+ [0.02, 0.0133333, 0.0233333, 0.02, 0.0316667, 0.025, 0.0183333, 0.0316667, 0.00833333, 0.0216667  …  0.0266667, 0.0166667, 0.0166667, 0.0183333, 0.0133333, 0.0133333, 0.0183333, 0.0133333, 0.015, 0.015]
+ [0.025, 0.0266667, 0.0183333, 0.0216667, 0.015, 0.0166667, 0.0183333, 0.025, 0.015, 0.025  …  0.0183333, 0.02, 0.0133333, 0.0266667, 0.0233333, 0.00666667, 0.015, 0.0116667, 0.0216667, 0.0166667]
+ [0.015, 0.025, 0.0216667, 0.0166667, 0.02, 0.00666667, 0.0283333, 0.0266667, 0.0183333, 0.03  …  0.0133333, 0.0216667, 0.0183333, 0.0133333, 0.02, 0.0133333, 0.0116667, 0.025, 0.02, 0.0133333]
+
+julia&gt; Ms = hcat(Ms...) # convert to array
+49×3 Array{Float64,2}:
+ 0.02        0.025       0.015
+ 0.0133333   0.0266667   0.025
+ 0.0233333   0.0183333   0.0216667
+ 0.02        0.0216667   0.0166667
+ 0.0316667   0.015       0.02
+ 0.025       0.0166667   0.00666667
+ 0.0183333   0.0183333   0.0283333
+ 0.0316667   0.025       0.0266667
+ 0.00833333  0.015       0.0183333
+ 0.0216667   0.025       0.03
+ ⋮
+ 0.0166667   0.02        0.0216667
+ 0.0166667   0.0133333   0.0183333
+ 0.0183333   0.0266667   0.0133333
+ 0.0133333   0.0233333   0.02
+ 0.0133333   0.00666667  0.0133333
+ 0.0183333   0.015       0.0116667
+ 0.0133333   0.0116667   0.025
+ 0.015       0.0216667   0.02
+ 0.015       0.0166667   0.0133333
+
+julia&gt; heatmap(Ms, xlabel = &quot;Coordinate axis #&quot;, ylabel = &quot;Bin #&quot;, size = (300, 500));</code></pre><p><img src="../marginalmultiple.svg" alt/></p><h2><a class="nav-anchor" id="Joint-visitation-frequency-1" href="#Joint-visitation-frequency-1">Joint visitation frequency</a></h2><p>Computing the marginals for all available variables corresponds to computing the joint visitation frequency.</p><pre><code class="language-julia-repl">julia&gt; pts = rand(5, 1000)
+5×1000 Array{Float64,2}:
+ 0.892243   0.962727   0.639064   0.556492  …  0.113472  0.116687  0.850176
+ 0.78707    0.512751   0.187352   0.128484     0.36546   0.136234  0.980287
+ 0.72117    0.0318548  0.812338   0.662569     0.465699  0.851998  0.452425
+ 0.71837    0.234692   0.495911   0.728166     0.262127  0.285456  0.824883
+ 0.0253307  0.695907   0.0711254  0.585325     0.926849  0.818683  0.142057
+
+julia&gt; ϵ = 2
+2
+
+julia&gt; jointvisitfreq = marginal_visitation_freq(1:5, pts, ϵ)
+32-element Array{Float64,1}:
+ 0.036
+ 0.034
+ 0.032
+ 0.031
+ 0.034
+ 0.032
+ 0.03
+ 0.036
+ 0.032
+ 0.03
+ ⋮
+ 0.031
+ 0.031
+ 0.032
+ 0.022
+ 0.028
+ 0.027
+ 0.023
+ 0.027
+ 0.029
+
+julia&gt; bar(jointvisitfreq, size = (400, 500), legend = false)
+Plot{Plots.PyPlotBackend() n=1}
+
+julia&gt; xlabel!(&quot;State #&quot;); ylabel!(&quot;Visitation frequency&quot;);</code></pre><p><img src="../jointvisit.svg" alt/></p><p>The plot above shows the visitation frequency over the visited bins.</p><footer><hr/><a class="previous" href="../minima_stepsizes/"><span class="direction">Previous</span><span class="title">Finding axis minima and step sizes</span></a><a class="next" href="../../simplexpartition/simplex/"><span class="direction">Next</span><span class="title">Overview</span></a></footer></article></body></html>

@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/lgpl-2.1"
+doctype = "default"
+name = "KernelDensityEstimate"
+owner = "JuliaRobotics"
+version = "0.5.0"
+description = "Kernel Density Estimate with product approximation using multiscale Gibbs sampling"
+stargazers_count = "7"
+url = "https://github.com/JuliaRobotics/KernelDensityEstimate.jl.git"
+installs = true
+tags = ["multiscale-gibbs-sampling", "probabilistic-programming", "bayesian", "inference", "julialang", "gadfly"]
+license = "GNU Lesser General Public License v2.1"
+
+[[contributors]]
+name = "dehann"
+contributions = "189"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "Affie"
+contributions = "1"

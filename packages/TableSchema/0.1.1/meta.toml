@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "TableSchema"
+owner = "frictionlessdata"
+version = "0.1.1"
+description = "A Julia library for working with Table Schema."
+stargazers_count = "4"
+url = "https://github.com/frictionlessdata/TableSchema.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "loleg"
+contributions = "107"
+[[contributors]]
+name = "scls19fr"
+contributions = "5"
+[[contributors]]
+name = "pwalsh"
+contributions = "1"
+[[contributors]]
+name = "serahrono"
+contributions = "1"
+[[contributors]]
+name = "roll"
+contributions = "1"

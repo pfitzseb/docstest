@@ -1,0 +1,159 @@
+license_url = ""
+doctype = "real"
+name = "StaticArrays"
+owner = "JuliaArrays"
+version = "0.10.2"
+description = "Statically sized arrays for Julia"
+stargazers_count = "193"
+url = "https://github.com/JuliaArrays/StaticArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "244"
+[[contributors]]
+name = "c42f"
+contributions = "122"
+[[contributors]]
+name = "kshyatt"
+contributions = "62"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "54"
+[[contributors]]
+name = "tkoolen"
+contributions = "44"
+[[contributors]]
+name = "timholy"
+contributions = "26"
+[[contributors]]
+name = "martinholters"
+contributions = "25"
+[[contributors]]
+name = "mschauer"
+contributions = "22"
+[[contributors]]
+name = "pablosanjose"
+contributions = "20"
+[[contributors]]
+name = "fredrikekre"
+contributions = "19"
+[[contributors]]
+name = "wsshin"
+contributions = "19"
+[[contributors]]
+name = "bshall"
+contributions = "19"
+[[contributors]]
+name = "TsurHerman"
+contributions = "16"
+[[contributors]]
+name = "rdeits"
+contributions = "12"
+[[contributors]]
+name = "marius311"
+contributions = "11"
+[[contributors]]
+name = "schmrlng"
+contributions = "10"
+[[contributors]]
+name = "jw3126"
+contributions = "9"
+[[contributors]]
+name = "denius"
+contributions = "7"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "BeastyBlacksmith"
+contributions = "5"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "4"
+[[contributors]]
+name = "simonbyrne"
+contributions = "4"
+[[contributors]]
+name = "chethega"
+contributions = "4"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "3"
+[[contributors]]
+name = "zygmuntszpak"
+contributions = "3"
+[[contributors]]
+name = "Godisemo"
+contributions = "3"
+[[contributors]]
+name = "rafaqz"
+contributions = "3"
+[[contributors]]
+name = "YingboMa"
+contributions = "3"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "dpsanders"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "garrison"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "mweastwood"
+contributions = "2"
+[[contributors]]
+name = "gostevehoward"
+contributions = "2"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "AustinPrivett"
+contributions = "1"
+[[contributors]]
+name = "dkarrasch"
+contributions = "1"
+[[contributors]]
+name = "danielmatz"
+contributions = "1"
+[[contributors]]
+name = "TheBB"
+contributions = "1"
+[[contributors]]
+name = "GregPlowman"
+contributions = "1"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "nbaum"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "cstjean"
+contributions = "1"

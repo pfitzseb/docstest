@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · SchwarzChristoffel.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SchwarzChristoffel.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><pre><code class="language-none">SchwarzChristoffel.@compat</code></pre><pre><code class="language-none">SchwarzChristoffel.@dotcompat</code></pre><pre><code class="language-none">SchwarzChristoffel.@functorize</code></pre><pre><code class="language-none">SchwarzChristoffel.@recipe</code></pre><pre><code class="language-none">SchwarzChristoffel.@series</code></pre><pre><code class="language-none">SchwarzChristoffel.@shorthands</code></pre><pre><code class="language-none">SchwarzChristoffel.@userplot</code></pre><pre><code class="language-none">SchwarzChristoffel.ABGR</code></pre><pre><code class="language-none">SchwarzChristoffel.ADIN99</code></pre><pre><code class="language-none">SchwarzChristoffel.ADIN99d</code></pre><pre><code class="language-none">SchwarzChristoffel.ADIN99o</code></pre><pre><code class="language-none">SchwarzChristoffel.AGray</code></pre><pre><code class="language-none">SchwarzChristoffel.AGray32</code></pre><pre><code class="language-none">SchwarzChristoffel.AHSI</code></pre><pre><code class="language-none">SchwarzChristoffel.AHSL</code></pre><pre><code class="language-none">SchwarzChristoffel.AHSV</code></pre><pre><code class="language-none">SchwarzChristoffel.ALCHab</code></pre><pre><code class="language-none">SchwarzChristoffel.ALCHuv</code></pre><pre><code class="language-none">SchwarzChristoffel.ALMS</code></pre><pre><code class="language-none">SchwarzChristoffel.ALab</code></pre><pre><code class="language-none">SchwarzChristoffel.ALuv</code></pre><pre><code class="language-none">SchwarzChristoffel.ARGB</code></pre><pre><code class="language-none">SchwarzChristoffel.ARGB32</code></pre><pre><code class="language-none">SchwarzChristoffel.AXYZ</code></pre><pre><code class="language-none">SchwarzChristoffel.AYCbCr</code></pre><pre><code class="language-none">SchwarzChristoffel.AYIQ</code></pre><pre><code class="language-none">SchwarzChristoffel.AbstractBackend</code></pre><pre><code class="language-none">SchwarzChristoffel.AbstractGray</code></pre><pre><code class="language-none">SchwarzChristoffel.AbstractLayout</code></pre><pre><code class="language-none">SchwarzChristoffel.AbstractPlot</code></pre><pre><code class="language-none">SchwarzChristoffel.AbstractRGB</code></pre><pre><code class="language-none">SchwarzChristoffel.AlphaColor</code></pre><pre><code class="language-none">SchwarzChristoffel.AxyY</code></pre><pre><code class="language-none">SchwarzChristoffel.BGR</code></pre><pre><code class="language-none">SchwarzChristoffel.BGRA</code></pre><pre><code class="language-none">SchwarzChristoffel.Color</code></pre><pre><code class="language-none">SchwarzChristoffel.Color3</code></pre><pre><code class="language-none">SchwarzChristoffel.ColorAlpha</code></pre><pre><code class="language-none">SchwarzChristoffel.ColorTypes</code></pre><pre><code class="language-none">SchwarzChristoffel.Colorant</code></pre><pre><code class="language-none">SchwarzChristoffel.ColorantNormed</code></pre><pre><code class="language-none">SchwarzChristoffel.Compat</code></pre><pre><code class="language-none">SchwarzChristoffel.ConformalMap</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99A</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99d</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99dA</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99o</code></pre><pre><code class="language-none">SchwarzChristoffel.DIN99oA</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.MapTypes.DerivativeMap" href="#SchwarzChristoffel.MapTypes.DerivativeMap"><code>SchwarzChristoffel.MapTypes.DerivativeMap</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">DerivativeMap(m::ConformalMap)</code></pre><p>Constructs new conformal maps from the first and second derivatives of the conformal map <code>m</code>.</p><p>These new conformal maps can be evaluated at a single or vector of points just as  <code>m</code> is. The first entry in the tuple returned is the first derivative, the second entry is the second derivative.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; dm = DerivativeMap(m);
+
+julia&gt; ζ = [0.1,0.5-0.75im,-0.25-0.3im];
+
+julia&gt; dz, ddz = dm(ζ;inside=true);
+
+julia&gt; dz
+3-element Array{Complex{Float64},1}:
+  67.2068+76.6284im
+ -1.11666+0.544576im
+  3.99129-5.30641im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.Exterior</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.ExteriorMap" href="#SchwarzChristoffel.Exterior.ExteriorMap"><code>SchwarzChristoffel.Exterior.ExteriorMap</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">ExteriorMap(p::Polygon[;tol::Float64][,ncoeff::Int]) &lt;: ConformalMap</code></pre><p>Create a Schwarz-Christoffel map from the interior or exterior of the unit circle to the exterior of polygon <code>p</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p)
+Schwarz-Christoffel map of unit circle to exterior of polygon with 4 vertices</code></pre><p><code>ExteriorMap(p;tol=1e-12)</code> manually sets the tolerance to <code>1e-12</code> (the default is 1e-8).</p><p><code>ExteriorMap(p;ncoeff=200)</code> manually sets the number of coefficients of negative powers of the multipole expansion of the mapping to <code>200</code> (the default is 100).</p><p>The resulting map <code>m</code> can be evaluated at a single or vector of points <code>ζ</code> with <code>m(ζ[;inside::Bool])</code>. The points are assumed to lie outside the unit circle, unless the optional argument <code>inside=true</code>, in which case they are assumed to lie inside the circle.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; ζ = [0.1,0.5-0.75im,-0.25-0.3im];
+
+julia&gt; m(ζ;inside=true)
+3-element Array{Complex{Float64},1}:
+   -6.9344-7.68965im
+ 0.0439774-1.11249im
+   2.41181-0.044779im
+
+julia&gt; ζ = [1.0+3.0im,-2.0-2.0im,0.0+1.1im];
+
+julia&gt; m(ζ)
+3-element Array{Complex{Float64},1}:
+   0.81614+3.02956im
+  -2.25237-2.08523im
+ -0.333104+0.975837im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.Fractional</code></pre><pre><code class="language-none">SchwarzChristoffel.Gray</code></pre><pre><code class="language-none">SchwarzChristoffel.Gray24</code></pre><pre><code class="language-none">SchwarzChristoffel.GrayA</code></pre><pre><code class="language-none">SchwarzChristoffel.HSB</code></pre><pre><code class="language-none">SchwarzChristoffel.HSI</code></pre><pre><code class="language-none">SchwarzChristoffel.HSIA</code></pre><pre><code class="language-none">SchwarzChristoffel.HSL</code></pre><pre><code class="language-none">SchwarzChristoffel.HSLA</code></pre><pre><code class="language-none">SchwarzChristoffel.HSV</code></pre><pre><code class="language-none">SchwarzChristoffel.HSVA</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.MapTypes.InverseMap" href="#SchwarzChristoffel.MapTypes.InverseMap"><code>SchwarzChristoffel.MapTypes.InverseMap</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">InverseMap(m::ConformalMap)</code></pre><p>Constructs the inverse conformal map of the conformal map <code>m</code>.</p><p>This inverse conformal map can be evaluated at a single or vector of points. Points should be outside the body. Whether the resulting point in the circle plane is interpreted inside or outside the circle is determined by the optional argument <code>inside</code>, which defaults to <code>false</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; m⁻¹ = InverseMap(m);
+
+julia&gt; ζ = [1.0+3.0im,-2.0-2.0im,0.1+1.1im];
+
+julia&gt; m⁻¹(m(ζ))
+3-element Array{Complex{Float64},1}:
+  1.0+3.0im
+ -2.0-2.0im
+  0.1+1.1im</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.Jmoment" href="#SchwarzChristoffel.Exterior.Jmoment"><code>SchwarzChristoffel.Exterior.Jmoment</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">Jmoment(m::ConformalMap) -&gt; Float64</code></pre><p>Returns the second area moment of the shape described by the mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; Jmoment(m)
+1.5768333333333333</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.JoukowskiMap</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.KarmanTrefftzMap" href="#SchwarzChristoffel.Exterior.KarmanTrefftzMap"><code>SchwarzChristoffel.Exterior.KarmanTrefftzMap</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">KarmanTrefftzMap(ν,ϵ,δ,C[;N = 200]) &lt;: ConformalMap</code></pre><p>Create a map from the exterior of the unit circle to the exterior of a Karman-Trefftz airfoil.</p><p>The form of the mapping is</p><div>\[\frac{z-\nu C}{z+\nu C}  =
+\left(\frac{\tilde{\zeta}-C}{\tilde{\zeta}+C}\right)^\nu\]</div><p>where <span>$\tilde{\zeta}$</span> are the coordinates in an intermediate plane, in which the circle is of radius <span>$a$</span> and centered at <span>$\epsilon C e^{i\delta}$</span>:</p><div>\[\tilde{\zeta} = \epsilon C e^{i\delta} + a \zeta\]</div><p>Note that <span>$a/C \geq 1$</span> and is determined by the choices for <span>$\epsilon$</span> and <span>$\delta$</span>.</p><p>The trailing edge angle, <span>$(2-\nu)\pi$</span> is specified by <span>$\nu$</span>. The thickness is controlled by <span>$\epsilon C \cos\delta$</span> and the camber by <span>$\epsilon C \sin\delta$</span>. The airfoil chord length is approximately <span>$4C$</span>. Generally, <span>$\epsilon$</span> should be much smaller than 1 and <span>$\delta$</span> between <span>$\pi/2$</span> and <span>$\pi$</span>.</p><p>The resulting map <code>m</code> can be evaluated at a single or a vector of points <code>ζ</code> with <code>m(ζ)</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; ν = 1.9; ϵ = 0.1; δ = π; C = 0.25;
+
+julia&gt; m = KarmanTrefftzMap(ν,ϵ,δ,C)
+Karman-Trefftz map
+
+julia&gt; ζ = [1.0+3.0im,-2.0-2.0im,0.0+1.1im];
+
+julia&gt; m(ζ)
+3-element Array{Complex{Float64},1}:
+   0.268188+0.764722im
+  -0.624265-0.502634im
+ -0.0390996+0.126737im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.LCHab</code></pre><pre><code class="language-none">SchwarzChristoffel.LCHabA</code></pre><pre><code class="language-none">SchwarzChristoffel.LCHuv</code></pre><pre><code class="language-none">SchwarzChristoffel.LCHuvA</code></pre><pre><code class="language-none">SchwarzChristoffel.LMS</code></pre><pre><code class="language-none">SchwarzChristoffel.LMSA</code></pre><pre><code class="language-none">SchwarzChristoffel.Lab</code></pre><pre><code class="language-none">SchwarzChristoffel.LabA</code></pre><pre><code class="language-none">SchwarzChristoffel.Luv</code></pre><pre><code class="language-none">SchwarzChristoffel.LuvA</code></pre><pre><code class="language-none">SchwarzChristoffel.MapTypes</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Polygons.Polygon" href="#SchwarzChristoffel.Polygons.Polygon"><code>SchwarzChristoffel.Polygons.Polygon</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">Polygon(x::Vector{Float64}, y::Vector{Float64})</code></pre><p>A polygon defined by its vertices, which must be provided in counter-clockwise order.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0])
+Polygon with 4 vertices at
+             (-1.0,-1.0) (0.2,-1.0) (1.0,0.5) (-1.0,1.0)
+             interior angles/π = [0.5, 0.656, 0.422, 0.422]</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.Polygons</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.PowerMap" href="#SchwarzChristoffel.Exterior.PowerMap"><code>SchwarzChristoffel.Exterior.PowerMap</code></a> — <span class="docstring-category">Type</span>.</div><div><div><pre><code class="language-none">PowerMap(c::Vector{ComplexF64}[;N = 200]) &lt;: ConformalMap</code></pre><p>Create a power series map from the exterior of the unit circle to the exterior of a shape defined by the power series coefficients <code>c</code>.</p><p>The form of the mapping is</p><div>\[z(\zeta) = c_{1}\zeta + c_{0} + \sum_{j=1}^{N_{c}} \frac{c_{-j}}{\zeta^{j}}\]</div><p>The entries in <code>c</code> correspond as follows: <code>c[1]</code> <span>$\rightarrow c_{1}$</span>, <code>c[2]</code> <span>$\rightarrow c_{0}$</span>, <code>c[3]</code> <span>$\rightarrow c_{-1}$</span>, etc.</p><p>The resulting map <code>m</code> can be evaluated at a single or a vector of points <code>ζ</code> with <code>m(ζ)</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; c = ComplexF64[1,0,1/4];
+
+julia&gt; m = PowerMap(c)
+Power series map
+
+julia&gt; ζ = [1.0+3.0im,-2.0-2.0im,0.0+1.1im];
+
+julia&gt; m(ζ)
+3-element Array{Complex{Float64},1}:
+   1.025+2.925im
+ -2.0625-1.9375im
+     0.0+0.872727im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.PowerSeries</code></pre><pre><code class="language-none">SchwarzChristoffel.PowerSeriesDerivatives</code></pre><pre><code class="language-none">SchwarzChristoffel.RGB</code></pre><pre><code class="language-none">SchwarzChristoffel.RGB1</code></pre><pre><code class="language-none">SchwarzChristoffel.RGB24</code></pre><pre><code class="language-none">SchwarzChristoffel.RGB4</code></pre><pre><code class="language-none">SchwarzChristoffel.RGBA</code></pre><pre><code class="language-none">SchwarzChristoffel.RecipeData</code></pre><pre><code class="language-none">SchwarzChristoffel.RecipesBase</code></pre><pre><code class="language-none">SchwarzChristoffel.SchwarzChristoffel</code></pre><pre><code class="language-none">SchwarzChristoffel.Transparent3</code></pre><pre><code class="language-none">SchwarzChristoffel.TransparentColor</code></pre><pre><code class="language-none">SchwarzChristoffel.TransparentGray</code></pre><pre><code class="language-none">SchwarzChristoffel.TransparentRGB</code></pre><pre><code class="language-none">SchwarzChristoffel.XYZ</code></pre><pre><code class="language-none">SchwarzChristoffel.XYZA</code></pre><pre><code class="language-none">SchwarzChristoffel.YCbCr</code></pre><pre><code class="language-none">SchwarzChristoffel.YCbCrA</code></pre><pre><code class="language-none">SchwarzChristoffel.YIQ</code></pre><pre><code class="language-none">SchwarzChristoffel.YIQA</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.addedmass" href="#SchwarzChristoffel.Exterior.addedmass"><code>SchwarzChristoffel.Exterior.addedmass</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">addedmass(m::ConformalMap) -&gt; Array{Float64,2}</code></pre><p>Returns the added mass matrix of the shape described by the conformal mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; addedmass(m)
+3×3 Array{Float64,2}:
+  0.725129    0.0944902  -1.37387
+  0.0944902   3.67634    -0.255119
+ -1.37387    -0.255119    3.59231</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.alpha</code></pre><pre><code class="language-none">SchwarzChristoffel.alphacolor</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.area" href="#SchwarzChristoffel.Exterior.area"><code>SchwarzChristoffel.Exterior.area</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">area(m::ConformalMap) -&gt; Float64</code></pre><p>Returns the area of the shape described by the mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; area(m)
+2.9</code></pre><pre><code class="language-julia-repl">julia&gt; c = ComplexF64[1];
+
+julia&gt; m = PowerMap(c);
+
+julia&gt; area(m)
+3.141592653589793</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.base_color_type</code></pre><pre><code class="language-none">SchwarzChristoffel.base_colorant_type</code></pre><pre><code class="language-none">SchwarzChristoffel.blue</code></pre><pre><code class="language-none">SchwarzChristoffel.ccolor</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.centroid" href="#SchwarzChristoffel.Exterior.centroid"><code>SchwarzChristoffel.Exterior.centroid</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">centroid(m::ConformalMap) -&gt; ComplexF64</code></pre><p>Returns the complex centroid position of the shape described by the mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; centroid(m)
+-0.20919540229885059 - 0.04022988505747128im</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.coefficients" href="#SchwarzChristoffel.Exterior.coefficients"><code>SchwarzChristoffel.Exterior.coefficients</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">coefficients(m::ConformalMap) -&gt; Tuple{Vector{ComplexF64},Vector{ComplexF64}}</code></pre><p>Returns a tuple of vectors of the complex coefficients of the multipole expansion of the mapping <span>$z(\zeta)$</span> described by <code>m</code> as well as the coefficients of the square magnitude of the mapping <span>$|z(\zeta)|^2$</span>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; ccoeff, dcoeff = coefficients(m);</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.color</code></pre><pre><code class="language-none">SchwarzChristoffel.color_type</code></pre><pre><code class="language-none">SchwarzChristoffel.coloralpha</code></pre><pre><code class="language-none">SchwarzChristoffel.comp1</code></pre><pre><code class="language-none">SchwarzChristoffel.comp2</code></pre><pre><code class="language-none">SchwarzChristoffel.comp3</code></pre><pre><code class="language-none">SchwarzChristoffel.eval</code></pre><pre><code class="language-none">SchwarzChristoffel.gamutmax</code></pre><pre><code class="language-none">SchwarzChristoffel.gamutmin</code></pre><pre><code class="language-none">SchwarzChristoffel.gray</code></pre><pre><code class="language-none">SchwarzChristoffel.green</code></pre><pre><code class="language-none">SchwarzChristoffel.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Polygons.interiorangle" href="#SchwarzChristoffel.Polygons.interiorangle"><code>SchwarzChristoffel.Polygons.interiorangle</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">interiorangle(p::Polygon) -&gt; Vector{Float64}</code></pre><p>Returns the vector of interior angles (divided by <span>$\pi$</span>) of the polygon <code>p</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; interiorangle(p)
+4-element Array{Float64,1}:
+ 0.5
+ 0.655958
+ 0.422021
+ 0.422021</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Polygons.isinpoly" href="#SchwarzChristoffel.Polygons.isinpoly"><code>SchwarzChristoffel.Polygons.isinpoly</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">isinpoly(z::Complex128,p::Polygon) -&gt; Bool</code></pre><p>Returns <code>true</code> or <code>false</code> depending on whether <code>z</code> is inside or outside polygon <code>p</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; isinpoly(0.0+0.0im,p)
+true
+
+julia&gt; isinpoly(1.0+2.0im,p)
+false</code></pre></div></div><div><div><pre><code class="language-none">isinpoly(z::Complex128,p::Polygon,tol::Float64) -&gt; Bool</code></pre><p>Returns <code>true</code> if <code>z</code> is inside or within distance <code>tol</code> of polygon <code>p</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; isinpoly(-1.01+0.0im,p)
+false
+
+julia&gt; isinpoly(-1.01+0.0im,p,1e-2)
+true</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.mapc</code></pre><pre><code class="language-none">SchwarzChristoffel.mapreducec</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.moments" href="#SchwarzChristoffel.Exterior.moments"><code>SchwarzChristoffel.Exterior.moments</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">moments(m::ExteriorMap) -&gt; Vector{ComplexF64}</code></pre><p>Return the moments of the prevertices for exterior polygon mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; mom = moments(m);</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.myblue</code></pre><pre><code class="language-none">SchwarzChristoffel.mygreen</code></pre><pre><code class="language-none">SchwarzChristoffel.mygreen2</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Polygons.naca4" href="#SchwarzChristoffel.Polygons.naca4"><code>SchwarzChristoffel.Polygons.naca4</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">naca4(cam,pos,t[;np=20][,Zc=0.0+0.0im][,len=1.0]) -&gt; Vector{Complex128}</code></pre><p>Generates the vertices of a NACA 4-digit airfoil of chord length 1. The relative camber is specified by <code>cam</code>, the position of maximum camber (as fraction of chord) by <code>pos</code>, and the relative thickness by <code>t</code>.</p><p>The optional parameter <code>np</code> specifies the number of points on the upper or lower surface. The optional parameter <code>Zc</code> specifies the mean position of the vertices (which is set to the origin by default). The optional parameter <code>len</code> specifies the chord length.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; w = naca4(0.0,0.0,0.12);
+
+julia&gt; p = Polygon(w);</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Exterior.parameters" href="#SchwarzChristoffel.Exterior.parameters"><code>SchwarzChristoffel.Exterior.parameters</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">parameters(m::ExteriorMap) -&gt; Tuple{Vector{ComplexF64},ComplexF64}</code></pre><p>Returns a tuple of a vector of the prevertices and the complex factor of the exterior polygon mapping <code>m</code>.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; prev, C = parameters(m);
+
+julia&gt; prev
+4-element Array{Complex{Float64},1}:
+       1.0+0.0im
+  0.376406-0.926455im
+ -0.902383-0.430935im
+ -0.186756+0.982406im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.red</code></pre><pre><code class="language-none">SchwarzChristoffel.reducec</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Base.summary" href="#Base.summary"><code>Base.summary</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">summary(m::ConformalMap)</code></pre><p>Returns a summary of data for a conformal map</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; m = ExteriorMap(p);
+
+julia&gt; summary(m)
+Schwarz-Christoffel map of unit circle to exterior of polygon with 4 vertices
+   vertices: (-1.0,-1.0), (0.2,-1.0), (1.0,0.5), (-1.0,1.0),
+   interior angles/π: 0.5, 0.656, 0.422, 0.422,
+   prevertices on circle: (1.0,0.0), (0.3764,-0.9265), (-0.9024,-0.4309), (-0.1868,0.9824),
+   prevertex angles/π: -0.7291, -0.3519, 0.1291, 0.7111,
+   constant = 0.6722 + 0.7669im, accuracy = 1.0e-8,
+   number of multipole coefficients = 100</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="SchwarzChristoffel.Polygons.vertex" href="#SchwarzChristoffel.Polygons.vertex"><code>SchwarzChristoffel.Polygons.vertex</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">vertex(p::Polygon) -&gt; Vector{Complex128}</code></pre><p>Returns the vector of vertices of the polygon <code>p</code>, in complex form.</p><p><strong>Example</strong></p><pre><code class="language-julia-repl">julia&gt; p = Polygon([-1.0,0.2,1.0,-1.0],[-1.0,-1.0,0.5,1.0]);
+
+julia&gt; vertex(p)
+4-element Array{Complex{Float64},1}:
+ -1.0-1.0im
+  0.2-1.0im
+  1.0+0.5im
+ -1.0+1.0im</code></pre></div></div></section><pre><code class="language-none">SchwarzChristoffel.xyY</code></pre><pre><code class="language-none">SchwarzChristoffel.xyYA</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

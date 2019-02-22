@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "Syslogs"
+owner = "invenia"
+version = "0.2.0"
+description = "Julia syslog interface"
+stargazers_count = "2"
+url = "https://github.com/invenia/Syslogs.jl.git"
+installs = true
+tags = ["syslog", "julia", "julia-language", "logging"]
+license = "Other"
+
+[[contributors]]
+name = "rofinn"
+contributions = "11"
+[[contributors]]
+name = "iamed2"
+contributions = "9"
+[[contributors]]
+name = "ararslan"
+contributions = "6"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

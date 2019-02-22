@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "ComputationalResources"
+owner = "timholy"
+version = "0.3.0"
+description = "Julia package for selecting hardware, libraries, and algorithms for a computation"
+stargazers_count = "9"
+url = "https://github.com/timholy/ComputationalResources.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "21"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "Liozou"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

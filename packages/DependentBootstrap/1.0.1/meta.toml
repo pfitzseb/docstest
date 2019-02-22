@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DependentBootstrap"
+owner = "colintbowers"
+version = "1.0.1"
+description = "Statistical bootstrap procedures for time-series data"
+stargazers_count = "13"
+url = "https://github.com/colintbowers/DependentBootstrap.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "colintbowers"
+contributions = "77"
+[[contributors]]
+name = "jayvn"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

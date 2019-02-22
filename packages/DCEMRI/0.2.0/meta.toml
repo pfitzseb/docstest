@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "DCEMRI"
+owner = "davidssmith"
+version = "0.2.0"
+description = "DCE MRI analysis in Julia"
+stargazers_count = "18"
+url = "https://github.com/davidssmith/DCEMRI.jl.git"
+installs = true
+tags = ["julia", "dce-mri", "mat-files", "analysis", "medical-imaging", "cancer-imaging-research", "medical-image-processing"]
+license = "Other"
+
+[[contributors]]
+name = "davidssmith"
+contributions = "109"
+[[contributors]]
+name = "notZaki"
+contributions = "21"
+[[contributors]]
+name = "elijahrockers"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

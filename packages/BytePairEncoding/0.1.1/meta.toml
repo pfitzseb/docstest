@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "BytePairEncoding"
+owner = "chengchingwen"
+version = "0.1.1"
+description = "Julia implementation of Byte Pair Encoding for NLP"
+stargazers_count = "1"
+url = "https://github.com/chengchingwen/BytePairEncoding.jl.git"
+installs = true
+tags = ["nlp-library", "nlp-machine-learning", "nlp", "word-segmentation"]
+license = "MIT License"
+
+[[contributors]]
+name = "chengchingwen"
+contributions = "34"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ClassImbalance"
+owner = "bcbi"
+version = "0.3.0"
+description = "Sampling-based methods for correcting for class imbalance in two-category classification problems."
+stargazers_count = "3"
+url = "https://github.com/bcbi/ClassImbalance.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "paulstey"
+contributions = "81"
+[[contributors]]
+name = "DilumAluthge"
+contributions = "25"
+[[contributors]]
+name = "mirestrepo"
+contributions = "2"

@@ -1,0 +1,7 @@
+name = "MolecularTopologies"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/tom--lee/MolecularTopologies.jl.git"
+version = "1.1.2"
+description = "A Julia package for representing system topologies for molecular simulations."

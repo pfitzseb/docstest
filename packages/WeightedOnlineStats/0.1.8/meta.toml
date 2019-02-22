@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "WeightedOnlineStats"
+owner = "gdkrmr"
+version = "0.1.8"
+description = "Weighted versions of OnlineStats.jl"
+stargazers_count = "4"
+url = "https://github.com/gdkrmr/WeightedOnlineStats.jl.git"
+installs = true
+tags = ["julia", "online-algorithms", "statistics", "big-data", "onlinestats"]
+license = "MIT License"
+
+[[contributors]]
+name = "gdkrmr"
+contributions = "72"
+[[contributors]]
+name = "twinGu"
+contributions = "25"
+[[contributors]]
+name = "meggart"
+contributions = "2"

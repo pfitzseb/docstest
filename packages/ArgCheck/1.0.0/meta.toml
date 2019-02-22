@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ArgCheck"
+owner = "jw3126"
+version = "1.0.0"
+description = "Package for checking function arguments"
+stargazers_count = "26"
+url = "https://github.com/jw3126/ArgCheck.jl.git"
+installs = true
+tags = ["julia", "errors", "argument-checks"]
+license = "Other"
+
+[[contributors]]
+name = "jw3126"
+contributions = "43"
+[[contributors]]
+name = "donm"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

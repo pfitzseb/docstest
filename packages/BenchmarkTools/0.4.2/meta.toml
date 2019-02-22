@@ -1,0 +1,81 @@
+license_url = ""
+doctype = "default"
+name = "BenchmarkTools"
+owner = "JuliaCI"
+version = "0.4.2"
+description = "A benchmarking framework for the Julia language"
+stargazers_count = "151"
+url = "https://github.com/JuliaCI/BenchmarkTools.jl.git"
+installs = true
+tags = ["benchmark", "julia", "julia-language"]
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "140"
+[[contributors]]
+name = "ararslan"
+contributions = "9"
+[[contributors]]
+name = "stevengj"
+contributions = "5"
+[[contributors]]
+name = "KristofferC"
+contributions = "4"
+[[contributors]]
+name = "fredrikekre"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "musm"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "xorJane"
+contributions = "1"
+[[contributors]]
+name = "JeffFessler"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "adamslc"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "goerz"
+contributions = "1"
+[[contributors]]
+name = "giordano"
+contributions = "1"
+[[contributors]]
+name = "peterahrens"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "thchr"
+contributions = "1"
+[[contributors]]
+name = "maleadt"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

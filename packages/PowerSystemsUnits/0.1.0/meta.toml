@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "PowerSystemsUnits"
+owner = "invenia"
+version = "0.1.0"
+description = "PowerSystems Units for Unitful"
+stargazers_count = "0"
+url = "https://github.com/invenia/PowerSystemsUnits.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "nicoleepp"
+contributions = "7"
+[[contributors]]
+name = "iamed2"
+contributions = "1"

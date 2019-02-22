@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "FinancialDerivatives"
+owner = "JuliaQuant"
+version = "0.0.1"
+description = "Financial derivatives modeling and pricing in Julia."
+stargazers_count = "13"
+url = "https://github.com/JuliaQuant/FinancialDerivatives.jl.git"
+installs = true
+tags = ["julia", "finance", "derivatives"]
+license = "Other"
+
+[[contributors]]
+name = "brilhana"
+contributions = "21"
+[[contributors]]
+name = "femtotrader"
+contributions = "7"

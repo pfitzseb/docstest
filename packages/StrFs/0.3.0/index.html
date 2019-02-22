@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · StrFs.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>StrFs.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Overview-1">Overview</a></li><li><a class="toctext" href="#Examples-1">Examples</a></li><li><a class="toctext" href="#Related-1">Related</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="StrFs-1" href="#StrFs-1">StrFs</a></h1><p><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle"/>&lt;!– <img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle"/> <img src="https://img.shields.io/badge/lifecycle-stable-green.svg" alt="Lifecycle"/> <img src="https://img.shields.io/badge/lifecycle-retired-orange.svg" alt="Lifecycle"/> <img src="https://img.shields.io/badge/lifecycle-archived-red.svg" alt="Lifecycle"/> <img src="https://img.shields.io/badge/lifecycle-dormant-blue.svg" alt="Lifecycle"/> –&gt; <a href="https://travis-ci.com/tpapp/StrFs.jl"><img src="https://travis-ci.com/tpapp/StrFs.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/tpapp/StrFs.jl?branch=master"><img src="http://codecov.io/github/tpapp/StrFs.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>Julia packages for strings with fixed maximum number of bytes.</p><h2><a class="nav-anchor" id="Overview-1" href="#Overview-1">Overview</a></h2><p><code>StrF{S} &lt;: AbstractString</code> can be used for strings up to <code>S</code> bytes in <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> encoding. When the string has less than that many bytes, it is terminated with a <code>0x00</code>.</p><p>This mirrors the way <a href="https://www.stata.com/help.cgi?dta">Stata DTA files encode fixed length strings</a> (<code>str#</code>), but other applications may also find this useful. <code>StrF{S}</code> strings are implemented by wrapping an <code>SVector{S,UInt8}</code>, with the potential efficiency gains that entails.</p><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><pre><code class="language-julia">julia&gt; using StrFs
+
+julia&gt; gender = [strf&quot;male&quot;, strf&quot;female&quot;]
+2-element Array{StrF{6},1}:
+ &quot;male&quot;
+ &quot;female&quot;
+
+julia&gt; gender[1] == &quot;male&quot;
+true
+
+julia&gt; issorted(gender, rev = true)
+true
+
+julia&gt; motto = StrF{6}(&quot;ηβπ&quot;)          # uses all bytes
+&quot;ηβπ&quot;
+
+julia&gt; sizeof(motto)
+6
+
+julia&gt; length(motto)
+3
+
+julia&gt; motto == StrF{10}(&quot;ηβπ&quot;)        # 0x00 at byte 7
+true</code></pre><h2><a class="nav-anchor" id="Related-1" href="#Related-1">Related</a></h2><p>See <a href="https://github.com/tpapp/StataDTAFiles.jl">StataDTAFiles.jl</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

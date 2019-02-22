@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NFFT"
+owner = "tknopp"
+version = "0.3.4"
+description = "Julia implementation of the Non-equidistant Fast Fourier Transform (NFFT)"
+stargazers_count = "19"
+url = "https://github.com/tknopp/NFFT.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "tknopp"
+contributions = "49"
+[[contributors]]
+name = "robertdj"
+contributions = "32"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "6"
+[[contributors]]
+name = "giordano"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "davidssmith"
+contributions = "2"

@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "TikzGraphs"
+owner = "JuliaTeX"
+version = "1.0.1"
+description = "This library generates graph layouts using the TikZ graph layout package."
+stargazers_count = "34"
+url = "https://github.com/JuliaTeX/TikzGraphs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mykelk"
+contributions = "54"
+[[contributors]]
+name = "tawheeler"
+contributions = "13"
+[[contributors]]
+name = "sbromberger"
+contributions = "3"
+[[contributors]]
+name = "henripal"
+contributions = "2"
+[[contributors]]
+name = "bisraelsen"
+contributions = "1"
+[[contributors]]
+name = "schnirz"
+contributions = "1"
+[[contributors]]
+name = "Shushman"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

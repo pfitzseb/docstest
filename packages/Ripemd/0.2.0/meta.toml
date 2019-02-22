@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Ripemd"
+owner = "gdkrmr"
+version = "0.2.0"
+description = "Pure Julia Ripemd160 implementation"
+stargazers_count = "2"
+url = "https://github.com/gdkrmr/Ripemd.jl.git"
+installs = true
+tags = ["ripemd160", "crypo", "julia", "hash", "ripemd"]
+license = "Other"
+
+[[contributors]]
+name = "gdkrmr"
+contributions = "41"

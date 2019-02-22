@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "OpenCL"
+owner = "JuliaGPU"
+version = "0.8.0"
+description = "OpenCL Julia bindings"
+stargazers_count = "169"
+url = "https://github.com/JuliaGPU/OpenCL.jl.git"
+installs = true
+tags = ["julia", "opencl"]
+license = "Other"
+
+[[contributors]]
+name = "jakebolewski"
+contributions = "404"
+[[contributors]]
+name = "vchuravy"
+contributions = "123"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "52"
+[[contributors]]
+name = "yuyichao"
+contributions = "18"
+[[contributors]]
+name = "juliohm"
+contributions = "9"
+[[contributors]]
+name = "sambitdash"
+contributions = "6"
+[[contributors]]
+name = "maleadt"
+contributions = "6"
+[[contributors]]
+name = "lcw"
+contributions = "5"
+[[contributors]]
+name = "dfdx"
+contributions = "5"
+[[contributors]]
+name = "grollinger"
+contributions = "2"
+[[contributors]]
+name = "nstiurca"
+contributions = "2"
+[[contributors]]
+name = "ranocha"
+contributions = "2"
+[[contributors]]
+name = "davidbp"
+contributions = "1"
+[[contributors]]
+name = "daveh19"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

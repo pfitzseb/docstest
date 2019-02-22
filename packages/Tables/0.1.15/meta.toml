@@ -1,0 +1,48 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Tables"
+owner = "JuliaData"
+version = "0.1.15"
+description = "An interface for tables in Julia"
+stargazers_count = "30"
+url = "https://github.com/JuliaData/Tables.jl.git"
+installs = true
+tags = ["julia", "data", "tables", "interfaces"]
+license = "MIT License"
+
+[[contributors]]
+name = "quinnj"
+contributions = "77"
+[[contributors]]
+name = "davidanthoff"
+contributions = "2"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "andyferris"
+contributions = "1"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "erjanmx"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "JackDunnNZ"
+contributions = "1"
+[[contributors]]
+name = "joshday"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"

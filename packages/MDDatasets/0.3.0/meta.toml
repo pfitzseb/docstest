@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MDDatasets"
+owner = "ma-laforge"
+version = "0.3.0"
+description = "Multi-Dimensional Datasets for Parametric Analysis"
+stargazers_count = "0"
+url = "https://github.com/ma-laforge/MDDatasets.jl.git"
+installs = true
+tags = ["parametric-analysis", "multidimensional-data", "circuits", "cross-function", "rise-time", "fall-time", "frequency-measurment", "multidimensional-sweeps", "process-voltage-temperature", "pvt-sweeps", "continuous-time-math", "delay-measurement", "y-vs-x"]
+license = "MIT License"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "18"

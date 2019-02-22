@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "RobustShortestPath"
+owner = "chkwon"
+version = "0.3.0"
+description = "Julia package for finding robust shortest paths"
+stargazers_count = "6"
+url = "https://github.com/chkwon/RobustShortestPath.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "chkwon"
+contributions = "59"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "default"
+name = "OptimizationProblems"
+owner = "JuliaSmoothOptimizers"
+version = "0.1.0"
+description = "Optimization Problems for Julia"
+stargazers_count = "4"
+url = "https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl.git"
+installs = true
+tags = ["julia", "julia-language", "optimization"]
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "dpo"
+contributions = "30"
+[[contributors]]
+name = "amontoison"
+contributions = "12"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "9"
+[[contributors]]
+name = "Cebola94"
+contributions = "8"
+[[contributors]]
+name = "vepiteski"
+contributions = "5"
+[[contributors]]
+name = "nicoleantunes"
+contributions = "3"
+[[contributors]]
+name = "DahitoMA"
+contributions = "2"
+[[contributors]]
+name = "Goysa2"
+contributions = "1"

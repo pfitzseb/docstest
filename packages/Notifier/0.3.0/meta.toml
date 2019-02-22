@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Notifier"
+owner = "goropikari"
+version = "0.3.0"
+description = "Notification tools for Julialang"
+stargazers_count = "7"
+url = "https://github.com/goropikari/Notifier.jl.git"
+installs = true
+tags = ["julialang", "notifications", "email-notification"]
+license = "Other"
+
+[[contributors]]
+name = "goropikari"
+contributions = "85"

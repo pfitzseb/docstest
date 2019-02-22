@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BioAlignments"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Sequence alignment tools"
+stargazers_count = "6"
+url = "https://github.com/BioJulia/BioAlignments.jl.git"
+installs = true
+tags = ["bam-files", "sam-files", "sequence-alignment", "sequence-analysis", "dna-sequences", "biology", "bioinformatics", "smith-waterman-alignment", "high-throughput-sequencing", "biojulia"]
+license = "MIT License"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "18"
+[[contributors]]
+name = "jakobnissen"
+contributions = "2"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "phaverty"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

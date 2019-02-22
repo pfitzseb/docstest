@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "AxisAlgorithms"
+owner = "timholy"
+version = "0.3.0"
+description = "Efficient filtering and linear algebra routines for multidimensional arrays"
+stargazers_count = "3"
+url = "https://github.com/timholy/AxisAlgorithms.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "27"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

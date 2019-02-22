@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "SIMD"
+owner = "eschnett"
+version = "2.3.0"
+description = "Explicit SIMD vector operations for Julia"
+stargazers_count = "43"
+url = "https://github.com/eschnett/SIMD.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "eschnett"
+contributions = "101"
+[[contributors]]
+name = "tkf"
+contributions = "13"
+[[contributors]]
+name = "vchuravy"
+contributions = "9"
+[[contributors]]
+name = "KristofferC"
+contributions = "6"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "bicycle1885"
+contributions = "1"
+[[contributors]]
+name = "miguelraz"
+contributions = "1"
+[[contributors]]
+name = "nlw0"
+contributions = "1"

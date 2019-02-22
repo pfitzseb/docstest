@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "KaTeX"
+owner = "piever"
+version = "0.1.0"
+description = "Julia package to work with KaTeX"
+stargazers_count = "2"
+url = "https://github.com/piever/KaTeX.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "piever"
+contributions = "10"

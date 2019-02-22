@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "DiffBase"
+owner = "JuliaDiff"
+version = "0.3.2"
+description = "This package has been replaced by DiffRules.jl, DiffResults.jl, and DiffTests.jl."
+stargazers_count = "4"
+url = "https://github.com/JuliaDiff/DiffBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jrevels"
+contributions = "53"
+[[contributors]]
+name = "yuyichao"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "twadleigh"
+contributions = "1"

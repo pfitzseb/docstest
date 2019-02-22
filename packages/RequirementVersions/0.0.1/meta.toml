@@ -1,0 +1,4 @@
+name = "RequirementVersions"
+installs = false
+url = "https://github.com/bramtayl/RequirementVersions.jl.git"
+version = "0.0.1"

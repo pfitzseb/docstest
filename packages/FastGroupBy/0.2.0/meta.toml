@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "FastGroupBy"
+owner = "xiaodaigh"
+version = "0.2.0"
+description = "Some helper functions to make some group by operations on DataFrames and IndexedTables faster"
+stargazers_count = "1"
+url = "https://github.com/xiaodaigh/FastGroupBy.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "xiaodaigh"
+contributions = "184"

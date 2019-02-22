@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MathOptInterfaceMosek"
+owner = "JuliaOpt"
+version = "0.5.2"
+description = "MathOptInterfaceMosek is the MathOptInterface.jl implementation for the MOSEK solver"
+stargazers_count = "4"
+url = "https://github.com/JuliaOpt/MathOptInterfaceMosek.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "blegat"
+contributions = "170"
+[[contributors]]
+name = "mlubin"
+contributions = "97"
+[[contributors]]
+name = "ulfworsoe"
+contributions = "78"
+[[contributors]]
+name = "odow"
+contributions = "45"
+[[contributors]]
+name = "joaquimg"
+contributions = "31"
+[[contributors]]
+name = "chriscoey"
+contributions = "22"
+[[contributors]]
+name = "IssamT"
+contributions = "4"
+[[contributors]]
+name = "BenChung"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/lgpl-3.0"
+doctype = "default"
+name = "PSFWrite"
+owner = "ma-laforge"
+version = "0.3.0"
+description = "Pure-Julia .psf writer"
+stargazers_count = "1"
+url = "https://github.com/ma-laforge/PSFWrite.jl.git"
+installs = true
+tags = ["eda", "parameter-storage-format", "psf-data", "psf-data-writer", "circuit-simulation"]
+license = "GNU Lesser General Public License v3.0"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "10"

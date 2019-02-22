@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "MatrixNetworks"
+owner = "nassarhuda"
+version = "1.0.0"
+description = "Graph and Network algorithms in Julia"
+stargazers_count = "41"
+url = "https://github.com/nassarhuda/MatrixNetworks.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "nassarhuda"
+contributions = "281"
+[[contributors]]
+name = "dgleich"
+contributions = "67"
+[[contributors]]
+name = "kshyatt"
+contributions = "12"
+[[contributors]]
+name = "MeherChaitanyaP"
+contributions = "5"
+[[contributors]]
+name = "arbenson"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "eikmeier"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

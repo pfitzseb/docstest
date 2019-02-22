@@ -1,0 +1,7 @@
+name = "TotalLeastSquares"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/baggepinnen/TotalLeastSquares.jl.git"
+version = "0.1.1"
+description = "Solve (weighted) total least-squares problems"

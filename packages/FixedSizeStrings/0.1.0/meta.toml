@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "FixedSizeStrings"
+owner = "JuliaComputing"
+version = "0.1.0"
+description = "a type for efficiently storing short strings of known size"
+stargazers_count = "4"
+url = "https://github.com/JuliaComputing/FixedSizeStrings.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffBezanson"
+contributions = "7"

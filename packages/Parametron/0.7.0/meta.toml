@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "Parametron"
+owner = "tkoolen"
+version = "0.7.0"
+description = "Efficiently solving parameterized families of optimization problems in Julia"
+stargazers_count = "27"
+url = "https://github.com/tkoolen/Parametron.jl.git"
+installs = true
+tags = ["julia", "julia-language", "optimization", "optimization-tools", "optimization-framework", "mathematical-programming", "numerical-optimization", "modeling-language"]
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "185"
+[[contributors]]
+name = "rdeits"
+contributions = "22"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "schmrlng"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

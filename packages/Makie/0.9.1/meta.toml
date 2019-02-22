@@ -1,0 +1,78 @@
+license_url = ""
+doctype = "default"
+name = "Makie"
+owner = "JuliaPlots"
+version = "0.9.1"
+description = "High level plotting on the GPU"
+stargazers_count = "311"
+url = "https://github.com/JuliaPlots/Makie.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "658"
+[[contributors]]
+name = "anthony-wang"
+contributions = "311"
+[[contributors]]
+name = "musm"
+contributions = "11"
+[[contributors]]
+name = "mschauer"
+contributions = "4"
+[[contributors]]
+name = "asinghvi17"
+contributions = "3"
+[[contributors]]
+name = "louisponet"
+contributions = "3"
+[[contributors]]
+name = "AShedko"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "MaximeRivest"
+contributions = "2"
+[[contributors]]
+name = "mkborregaard"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "Tokazama"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "CarpeNecopinum"
+contributions = "1"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "pgbarletta"
+contributions = "1"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"
+[[contributors]]
+name = "jpsamaroo"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "tlienart"
+contributions = "1"
+[[contributors]]
+name = "ashindin"
+contributions = "1"

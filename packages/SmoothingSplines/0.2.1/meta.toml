@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "SmoothingSplines"
+owner = "nignatiadis"
+version = "0.2.1"
+description = "Cubic smoothing splines in Julia"
+stargazers_count = "11"
+url = "https://github.com/nignatiadis/SmoothingSplines.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "nignatiadis"
+contributions = "13"
+[[contributors]]
+name = "mauro3"
+contributions = "7"
+[[contributors]]
+name = "helgee"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

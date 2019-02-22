@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "MatrixMarket"
+owner = "JuliaSparse"
+version = "0.3.0"
+description = "Julia package to read MatrixMarket file format"
+stargazers_count = "9"
+url = "https://github.com/JuliaSparse/MatrixMarket.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkonolige"
+contributions = "24"
+[[contributors]]
+name = "jiahao"
+contributions = "17"
+[[contributors]]
+name = "jakebolewski"
+contributions = "10"
+[[contributors]]
+name = "ViralBShah"
+contributions = "5"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "jspark1105"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "leopoldcambier"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"

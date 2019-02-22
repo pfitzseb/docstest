@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "Laplacians"
+owner = "danspielman"
+version = "1.0.1"
+description = "Algorithms inspired by graph Laplacians: linear equation solvers, sparsification, clustering, optimization, etc."
+stargazers_count = "76"
+url = "https://github.com/danspielman/Laplacians.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "danspielman"
+contributions = "455"
+[[contributors]]
+name = "serbanstan"
+contributions = "50"
+[[contributors]]
+name = "jacksonthea"
+contributions = "20"
+[[contributors]]
+name = "raoanupb"
+contributions = "16"
+[[contributors]]
+name = "sachdevasushant"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "bnels"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

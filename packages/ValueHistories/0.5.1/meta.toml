@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "ValueHistories"
+owner = "JuliaML"
+version = "0.5.1"
+description = "Utilities to efficiently track learning curves or other optimization information"
+stargazers_count = "8"
+url = "https://github.com/JuliaML/ValueHistories.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "60"
+[[contributors]]
+name = "tbreloff"
+contributions = "9"
+[[contributors]]
+name = "baggepinnen"
+contributions = "7"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "englhardt"
+contributions = "3"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "DatName"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

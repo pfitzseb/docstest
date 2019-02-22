@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "HilbertSpaceFillingCurve"
+owner = "jonathanBieler"
+version = "0.0.2"
+description = "Hilbert Space Filling Curve for Julia"
+stargazers_count = "0"
+url = "https://github.com/jonathanBieler/HilbertSpaceFillingCurve.jl.git"
+installs = true
+tags = ["julia", "hilbert-curve"]
+license = "Other"
+
+[[contributors]]
+name = "jonathanBieler"
+contributions = "9"

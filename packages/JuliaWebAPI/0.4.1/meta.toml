@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "JuliaWebAPI"
+owner = "JuliaWeb"
+version = "0.4.1"
+description = "Julia package for deploying APIs"
+stargazers_count = "94"
+url = "https://github.com/JuliaWeb/JuliaWebAPI.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "139"
+[[contributors]]
+name = "aviks"
+contributions = "7"
+[[contributors]]
+name = "mdpradeep"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "1"
+[[contributors]]
+name = "bmharsha"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "1"
+[[contributors]]
+name = "rssdev10"
+contributions = "1"
+[[contributors]]
+name = "tk3369"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

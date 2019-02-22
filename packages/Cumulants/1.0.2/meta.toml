@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Cumulants"
+owner = "ZKSI"
+version = "1.0.2"
+description = "Multivariate cumulants of any order"
+stargazers_count = "4"
+url = "https://github.com/ZKSI/Cumulants.jl.git"
+installs = true
+tags = ["cumulants", "tensor"]
+license = "Other"
+
+[[contributors]]
+name = "kdomino"
+contributions = "107"
+[[contributors]]
+name = "lpawela"
+contributions = "23"
+[[contributors]]
+name = "pgawron"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"

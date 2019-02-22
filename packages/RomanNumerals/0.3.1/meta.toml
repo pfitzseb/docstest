@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "RomanNumerals"
+owner = "anthonyclays"
+version = "0.3.1"
+description = "Support for Roman numerals in Julia"
+stargazers_count = "5"
+url = "https://github.com/anthonyclays/RomanNumerals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "anthonyclays"
+contributions = "22"
+[[contributors]]
+name = "gpapo"
+contributions = "11"
+[[contributors]]
+name = "sambitdash"
+contributions = "4"
+[[contributors]]
+name = "cormullion"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

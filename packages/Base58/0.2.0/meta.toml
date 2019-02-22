@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Base58"
+owner = "gdkrmr"
+version = "0.2.0"
+description = "Base58 and Base58Check encoding for Julia"
+stargazers_count = "3"
+url = "https://github.com/gdkrmr/Base58.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "gdkrmr"
+contributions = "44"

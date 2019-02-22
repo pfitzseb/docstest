@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LambertW"
+owner = "jlapeyre"
+version = "0.4.3"
+description = "Lambert W mathematical function"
+stargazers_count = "7"
+url = "https://github.com/jlapeyre/LambertW.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jlapeyre"
+contributions = "120"
+[[contributors]]
+name = "jiahao"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "cossio"
+contributions = "1"
+[[contributors]]
+name = "goedman"
+contributions = "1"

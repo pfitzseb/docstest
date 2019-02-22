@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "TopicModelsVB"
+owner = "ericproffitt"
+version = "0.0.1"
+description = "A Julia package for variational Bayesian topic modeling."
+stargazers_count = "49"
+url = "https://github.com/ericproffitt/TopicModelsVB.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ericproffitt"
+contributions = "62"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

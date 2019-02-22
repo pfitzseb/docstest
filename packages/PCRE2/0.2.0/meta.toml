@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PCRE2"
+owner = "JuliaString"
+version = "0.2.0"
+description = "Wrapper for PCRE2 libraries (8, 16, 32-bit)"
+stargazers_count = "2"
+url = "https://github.com/JuliaString/PCRE2.jl.git"
+installs = true
+tags = ["pcre"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "22"

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LazyJSON"
+owner = "samoconnor"
+version = "0.1.0"
+description = "LazyJSON is an interface for reading JSON data in Julia programs."
+stargazers_count = "20"
+url = "https://github.com/samoconnor/LazyJSON.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "109"
+[[contributors]]
+name = "morris25"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "Nosferican"
+contributions = "1"
+[[contributors]]
+name = "catethos"
+contributions = "1"

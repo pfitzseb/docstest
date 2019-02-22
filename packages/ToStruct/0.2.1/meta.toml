@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ToStruct"
+owner = "yubessy"
+version = "0.2.1"
+description = "Easy way to convert dict to struct"
+stargazers_count = "2"
+url = "https://github.com/yubessy/ToStruct.jl.git"
+installs = true
+tags = ["julia", "unmarshalling"]
+license = "MIT License"
+
+[[contributors]]
+name = "yubessy"
+contributions = "34"

@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Snappy"
+owner = "bicycle1885"
+version = "0.3.0"
+description = "A fast compressor/decompressor"
+stargazers_count = "5"
+url = "https://github.com/bicycle1885/Snappy.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "24"
+[[contributors]]
+name = "davidanthoff"
+contributions = "4"
+[[contributors]]
+name = "tanmaykm"
+contributions = "3"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

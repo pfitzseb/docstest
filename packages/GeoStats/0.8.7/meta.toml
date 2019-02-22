@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "real"
+name = "GeoStats"
+owner = "juliohm"
+version = "0.8.7"
+description = "An extensible framework for high-performance geostatistics in Julia"
+stargazers_count = "68"
+url = "https://github.com/juliohm/GeoStats.jl.git"
+installs = true
+tags = ["geostatistics", "kriging", "statistics", "variogram", "spatial-data", "gaussian-processes", "covariance", "interpolation", "stochastic-processes", "stochastic-simulation", "spatial-statistics", "estimation", "multiple-point-statistics", "high-performance-computing"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "636"
+[[contributors]]
+name = "fredrikekre"
+contributions = "3"
+[[contributors]]
+name = "dldx"
+contributions = "1"
+[[contributors]]
+name = "masiddique"
+contributions = "1"
+[[contributors]]
+name = "visr"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

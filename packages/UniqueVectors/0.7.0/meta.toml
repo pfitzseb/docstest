@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "UniqueVectors"
+owner = "garrison"
+version = "0.7.0"
+description = "Vectors of unique elements, with quick reverse lookups"
+stargazers_count = "11"
+url = "https://github.com/garrison/UniqueVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "garrison"
+contributions = "92"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "tshort"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

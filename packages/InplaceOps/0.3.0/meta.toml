@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "InplaceOps"
+owner = "simonbyrne"
+version = "0.3.0"
+description = "Convenient macros for in-place matrix operations in Julia"
+stargazers_count = "31"
+url = "https://github.com/simonbyrne/InplaceOps.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "simonbyrne"
+contributions = "18"
+[[contributors]]
+name = "garrison"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "lopezm94"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "TensorToolbox"
+owner = "lanaperisa"
+version = "0.4.2"
+description = "Julia package for tensors as multidimensional arrays, tensors in Tucker format, Kruskal (CP) format and Hierarchical Tucker format. "
+stargazers_count = "17"
+url = "https://github.com/lanaperisa/TensorToolbox.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lanaperisa"
+contributions = "118"
+[[contributors]]
+name = "ararslan"
+contributions = "1"

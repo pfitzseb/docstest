@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SolveDSGE"
+owner = "RJDennis"
+version = "0.2.0"
+description = "A Julia package to solve DSGE models"
+stargazers_count = "20"
+url = "https://github.com/RJDennis/SolveDSGE.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "RJDennis"
+contributions = "58"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,60 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FITSIO"
+owner = "JuliaAstro"
+version = "0.13.0"
+description = "Flexible Image Transport System (FITS) file support for Julia"
+stargazers_count = "23"
+url = "https://github.com/JuliaAstro/FITSIO.jl.git"
+installs = true
+tags = ["julia", "cfitsio", "astronomy"]
+license = "MIT License"
+
+[[contributors]]
+name = "kbarbary"
+contributions = "164"
+[[contributors]]
+name = "giordano"
+contributions = "35"
+[[contributors]]
+name = "mweastwood"
+contributions = "20"
+[[contributors]]
+name = "nolta"
+contributions = "19"
+[[contributors]]
+name = "TestSubjector"
+contributions = "15"
+[[contributors]]
+name = "emmt"
+contributions = "14"
+[[contributors]]
+name = "ziotom78"
+contributions = "9"
+[[contributors]]
+name = "jeff-regier"
+contributions = "5"
+[[contributors]]
+name = "tkelman"
+contributions = "4"
+[[contributors]]
+name = "rgiordan"
+contributions = "3"
+[[contributors]]
+name = "andreasnoack"
+contributions = "2"
+[[contributors]]
+name = "nirinA"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "andferrari"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "FTPServer"
+owner = "invenia"
+version = "0.1.1"
+description = "Julia wrapper for pyftplib"
+stargazers_count = "0"
+url = "https://github.com/invenia/FTPServer.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "rofinn"
+contributions = "13"
+[[contributors]]
+name = "omus"
+contributions = "1"

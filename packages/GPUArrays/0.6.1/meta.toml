@@ -1,0 +1,72 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "GPUArrays"
+owner = "JuliaGPU"
+version = "0.6.1"
+description = "Array operations defined for all kind of GPU backends."
+stargazers_count = "116"
+url = "https://github.com/JuliaGPU/GPUArrays.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "406"
+[[contributors]]
+name = "maleadt"
+contributions = "117"
+[[contributors]]
+name = "vchuravy"
+contributions = "39"
+[[contributors]]
+name = "musm"
+contributions = "6"
+[[contributors]]
+name = "andreasnoack"
+contributions = "5"
+[[contributors]]
+name = "ssz66666"
+contributions = "5"
+[[contributors]]
+name = "MikeInnes"
+contributions = "5"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "4"
+[[contributors]]
+name = "ranocha"
+contributions = "4"
+[[contributors]]
+name = "schmrlng"
+contributions = "2"
+[[contributors]]
+name = "GiggleLiu"
+contributions = "2"
+[[contributors]]
+name = "dlfivefifty"
+contributions = "2"
+[[contributors]]
+name = "bors[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "randyzwitch"
+contributions = "1"
+[[contributors]]
+name = "SimiDCI"
+contributions = "1"
+[[contributors]]
+name = "tejank10"
+contributions = "1"
+[[contributors]]
+name = "americast"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

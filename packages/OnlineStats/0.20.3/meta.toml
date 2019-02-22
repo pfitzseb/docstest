@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "real"
+name = "OnlineStats"
+owner = "joshday"
+version = "0.20.3"
+description = "Single-pass algorithms for statistics"
+stargazers_count = "183"
+url = "https://github.com/joshday/OnlineStats.jl.git"
+installs = true
+tags = ["julia", "online-algorithms", "statistics", "big-data", "onlinestats", "stochastic-approximation"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "1931"
+[[contributors]]
+name = "tbreloff"
+contributions = "104"
+[[contributors]]
+name = "Hua-Zhou"
+contributions = "4"
+[[contributors]]
+name = "devmotion"
+contributions = "3"
+[[contributors]]
+name = "mauro3"
+contributions = "3"
+[[contributors]]
+name = "slundberg"
+contributions = "2"
+[[contributors]]
+name = "tpapp"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "gdkrmr"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "ElOceanografo"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

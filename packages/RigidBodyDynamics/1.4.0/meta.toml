@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "RigidBodyDynamics"
+owner = "JuliaRobotics"
+version = "1.4.0"
+description = "Julia implementation of various rigid body dynamics and kinematics algorithms"
+stargazers_count = "90"
+url = "https://github.com/JuliaRobotics/RigidBodyDynamics.jl.git"
+installs = true
+tags = ["julia", "rigid-body-dynamics", "kinematics", "dynamics", "dynamics-models", "robotics", "robotics-simulation", "robotics-algorithms", "robotics-control", "control", "featherstone", "newtons-laws", "simulation", "simulation-modeling"]
+license = "Other"
+
+[[contributors]]
+name = "tkoolen"
+contributions = "1420"
+[[contributors]]
+name = "rdeits"
+contributions = "42"
+[[contributors]]
+name = "ryanelandt"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "blandry"
+contributions = "1"

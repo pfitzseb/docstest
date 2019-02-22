@@ -1,0 +1,45 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "SimJulia"
+owner = "BenLauwens"
+version = "0.7.0"
+description = "A discrete event process oriented simulation framework written in Julia"
+stargazers_count = "81"
+url = "https://github.com/BenLauwens/SimJulia.jl.git"
+installs = true
+tags = ["julia", "discrete-event-simulation"]
+license = "MIT License"
+
+[[contributors]]
+name = "BenLauwens"
+contributions = "445"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "ajkeith"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "scls19fr"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "keorn"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jvkerckh"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "fbastin"
+contributions = "1"

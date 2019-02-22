@@ -1,0 +1,45 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GLFW"
+owner = "JuliaGL"
+version = "2.3.0"
+description = "Julia interface to GLFW, a multi-platform library for creating windows with OpenGL contexts and managing input and events."
+stargazers_count = "46"
+url = "https://github.com/JuliaGL/GLFW.jl.git"
+installs = true
+tags = ["julia", "opengl", "glfw"]
+license = "MIT License"
+
+[[contributors]]
+name = "jayschwa"
+contributions = "259"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "41"
+[[contributors]]
+name = "musm"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "sjkelly"
+contributions = "2"
+[[contributors]]
+name = "Gnimuc"
+contributions = "1"
+[[contributors]]
+name = "louisponet"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "ssfrr"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "jaakkor2"
+contributions = "1"

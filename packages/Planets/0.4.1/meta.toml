@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Planets"
+owner = "dcarrera"
+version = "0.4.1"
+description = "Functions related to planet formation or planet structure models."
+stargazers_count = "0"
+url = "https://github.com/dcarrera/Planets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dcarrera"
+contributions = "41"

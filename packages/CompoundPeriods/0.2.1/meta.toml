@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "CompoundPeriods"
+owner = "JeffreySarnoff"
+version = "0.2.1"
+description = "enhances Dates.CompoundPeriod"
+stargazers_count = "0"
+url = "https://github.com/JeffreySarnoff/CompoundPeriods.jl.git"
+installs = true
+tags = ["julia", "time", "periods"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "269"

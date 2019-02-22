@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "NeighbourLists"
+owner = "libAtoms"
+version = "0.3.0"
+description = "neighbour list for particle simulations based on matscipy"
+stargazers_count = "0"
+url = "https://github.com/libAtoms/NeighbourLists.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "cortner"
+contributions = "94"

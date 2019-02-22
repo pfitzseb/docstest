@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "MultiJuMP"
+owner = "anriseth"
+version = "0.5.0"
+description = "MultiJuMP enables the user to easily run multiobjective optimisation problems and generate Pareto fronts."
+stargazers_count = "22"
+url = "https://github.com/anriseth/MultiJuMP.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "anriseth"
+contributions = "70"
+[[contributors]]
+name = "matbesancon"
+contributions = "13"
+[[contributors]]
+name = "amgad-naiem"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

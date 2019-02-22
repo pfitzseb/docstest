@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ClosedIntervals"
+owner = "scheinerman"
+version = "0.2.0"
+description = "Closed intervals of the form [a,b]."
+stargazers_count = "2"
+url = "https://github.com/scheinerman/ClosedIntervals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "45"

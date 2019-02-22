@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "TaylorModels"
+owner = "JuliaIntervals"
+version = "0.0.1"
+description = "Rigorous function approximation using Taylor models in Julia"
+stargazers_count = "8"
+url = "https://github.com/JuliaIntervals/TaylorModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lbenet"
+contributions = "104"
+[[contributors]]
+name = "dpsanders"
+contributions = "62"
+[[contributors]]
+name = "mforets"
+contributions = "2"
+[[contributors]]
+name = "computo-fc"
+contributions = "1"

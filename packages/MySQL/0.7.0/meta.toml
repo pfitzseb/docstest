@@ -1,0 +1,69 @@
+license_url = "https://api.github.com/licenses/gpl-2.0"
+doctype = "default"
+name = "MySQL"
+owner = "JuliaDatabases"
+version = "0.7.0"
+description = "Access MySQL from Julia"
+stargazers_count = "42"
+url = "https://github.com/JuliaDatabases/MySQL.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v2.0"
+
+[[contributors]]
+name = "nkottary"
+contributions = "175"
+[[contributors]]
+name = "quinnj"
+contributions = "23"
+[[contributors]]
+name = "kafisatz"
+contributions = "10"
+[[contributors]]
+name = "ViralBShah"
+contributions = "6"
+[[contributors]]
+name = "amellnik"
+contributions = "3"
+[[contributors]]
+name = "aviks"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "3"
+[[contributors]]
+name = "bmharsha"
+contributions = "3"
+[[contributors]]
+name = "wookay"
+contributions = "2"
+[[contributors]]
+name = "mcmcgrath13"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "2"
+[[contributors]]
+name = "dmoliveira"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "JustinBritt"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "sglyon"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "unixime"
+contributions = "1"

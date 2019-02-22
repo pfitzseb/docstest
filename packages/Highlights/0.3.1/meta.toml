@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Highlights"
+owner = "JuliaDocs"
+version = "0.3.1"
+description = "A source code highlighter for Julia."
+stargazers_count = "9"
+url = "https://github.com/JuliaDocs/Highlights.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "67"
+[[contributors]]
+name = "mortenpi"
+contributions = "7"
+[[contributors]]
+name = "mpastell"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

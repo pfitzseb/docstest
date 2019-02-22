@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "HurdleDMR"
+owner = "AsafManela"
+version = "1.0.1"
+description = "Hurdle Distributed Multiple Regression (HDMR) implemented in Julia"
+stargazers_count = "5"
+url = "https://github.com/AsafManela/HurdleDMR.jl.git"
+installs = true
+tags = ["count", "hurdle", "distributed", "multinomial", "regression", "text-analysis", "text-selection", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "AsafManela"
+contributions = "139"
+[[contributors]]
+name = "jason-xuan"
+contributions = "1"

@@ -1,0 +1,183 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "HDF5"
+owner = "JuliaIO"
+version = "0.11.0"
+description = "Saving and loading data in the HDF5 file format"
+stargazers_count = "156"
+url = "https://github.com/JuliaIO/HDF5.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "timholy"
+contributions = "347"
+[[contributors]]
+name = "simonster"
+contributions = "133"
+[[contributors]]
+name = "musm"
+contributions = "70"
+[[contributors]]
+name = "tkelman"
+contributions = "29"
+[[contributors]]
+name = "eschnett"
+contributions = "20"
+[[contributors]]
+name = "mbauman"
+contributions = "16"
+[[contributors]]
+name = "ggggggggg"
+contributions = "16"
+[[contributors]]
+name = "yuyichao"
+contributions = "15"
+[[contributors]]
+name = "stevengj"
+contributions = "13"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "9"
+[[contributors]]
+name = "bjarthur"
+contributions = "7"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "6"
+[[contributors]]
+name = "petercolberg"
+contributions = "6"
+[[contributors]]
+name = "adambrewster"
+contributions = "6"
+[[contributors]]
+name = "abhijithch"
+contributions = "5"
+[[contributors]]
+name = "nicoleepp"
+contributions = "4"
+[[contributors]]
+name = "rened"
+contributions = "4"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "blakejohnson"
+contributions = "3"
+[[contributors]]
+name = "iamed2"
+contributions = "3"
+[[contributors]]
+name = "tknopp"
+contributions = "3"
+[[contributors]]
+name = "andyferris"
+contributions = "2"
+[[contributors]]
+name = "cdsousa"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "jtravs"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "powerdistribution"
+contributions = "2"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "2"
+[[contributors]]
+name = "Keno"
+contributions = "2"
+[[contributors]]
+name = "sunetos"
+contributions = "1"
+[[contributors]]
+name = "halleysfifthinc"
+contributions = "1"
+[[contributors]]
+name = "scheidan"
+contributions = "1"
+[[contributors]]
+name = "avrahamruderman"
+contributions = "1"
+[[contributors]]
+name = "ddemidov"
+contributions = "1"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "GordStephen"
+contributions = "1"
+[[contributors]]
+name = "grahamrow"
+contributions = "1"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "vtjnash"
+contributions = "1"
+[[contributors]]
+name = "aitatanit"
+contributions = "1"
+[[contributors]]
+name = "jpata"
+contributions = "1"
+[[contributors]]
+name = "jipolanco"
+contributions = "1"
+[[contributors]]
+name = "una-dinosauria"
+contributions = "1"
+[[contributors]]
+name = "Jutho"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "OmriTreidel"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "tbole"
+contributions = "1"
+[[contributors]]
+name = "vilim"
+contributions = "1"
+[[contributors]]
+name = "beekor"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "davidavdav"
+contributions = "1"
+[[contributors]]
+name = "pini-gh"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"

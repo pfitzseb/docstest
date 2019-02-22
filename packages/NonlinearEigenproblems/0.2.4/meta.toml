@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "NonlinearEigenproblems"
+owner = "nep-pack"
+version = "0.2.4"
+description = "Nonlinear eigenvalue problems in Julia: Iterative methods and benchmarks"
+stargazers_count = "18"
+url = "https://github.com/nep-pack/NonlinearEigenproblems.jl.git"
+installs = true
+tags = ["julia-language", "eigenvalues", "iterative-algorithms"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "jarlebring"
+contributions = "859"
+[[contributors]]
+name = "meleg"
+contributions = "440"
+[[contributors]]
+name = "maxbennedich"
+contributions = "419"
+[[contributors]]
+name = "eringh"
+contributions = "346"
+[[contributors]]
+name = "upadpup"
+contributions = "80"

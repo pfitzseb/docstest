@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "BlackBoxOptim"
+owner = "robertfeldt"
+version = "0.4.0"
+description = "Black-box optimization for Julia"
+stargazers_count = "109"
+url = "https://github.com/robertfeldt/BlackBoxOptim.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "robertfeldt"
+contributions = "549"
+[[contributors]]
+name = "alyst"
+contributions = "451"
+[[contributors]]
+name = "ranjanan"
+contributions = "5"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "johanbluecreek"
+contributions = "2"
+[[contributors]]
+name = "BeastyBlacksmith"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "matthieugomez"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "multidis"
+contributions = "1"

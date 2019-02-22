@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "DirectSum"
+owner = "chakravala"
+version = "0.1.0"
+description = "Abstract vector space type operations at compile-time"
+stargazers_count = "0"
+url = "https://github.com/chakravala/DirectSum.jl.git"
+installs = true
+tags = ["vector-space", "orthogonal", "metric-spaces", "signature", "type-system", "abstract-algebra", "mathematics", "julia"]
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "chakravala"
+contributions = "5"

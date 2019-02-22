@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "LaTeXTabulars"
+owner = "tpapp"
+version = "0.1.0"
+description = "Write tabular data from Julia in LaTeX format."
+stargazers_count = "12"
+url = "https://github.com/tpapp/LaTeXTabulars.jl.git"
+installs = true
+tags = ["julia", "julia-language", "latex"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "27"
+[[contributors]]
+name = "dpo"
+contributions = "2"

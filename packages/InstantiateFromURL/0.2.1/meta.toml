@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+doctype = "default"
+name = "InstantiateFromURL"
+owner = "QuantEcon"
+version = "0.2.1"
+description = ""
+stargazers_count = "6"
+url = "https://github.com/QuantEcon/InstantiateFromURL.jl.git"
+installs = true
+tags = []
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "arnavs"
+contributions = "88"
+[[contributors]]
+name = "jlperla"
+contributions = "3"
+[[contributors]]
+name = "chiyahn"
+contributions = "1"

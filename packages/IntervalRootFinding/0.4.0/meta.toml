@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "IntervalRootFinding"
+owner = "JuliaIntervals"
+version = "0.4.0"
+description = "Find all roots of a function in a guaranteed way with Julia"
+stargazers_count = "35"
+url = "https://github.com/JuliaIntervals/IntervalRootFinding.jl.git"
+installs = true
+tags = ["root-finding", "interval-arithmetic", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "dpsanders"
+contributions = "116"
+[[contributors]]
+name = "lbenet"
+contributions = "29"
+[[contributors]]
+name = "eeshan9815"
+contributions = "6"
+[[contributors]]
+name = "gwater"
+contributions = "6"
+[[contributors]]
+name = "Kolaru"
+contributions = "4"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "yashcodes"
+contributions = "1"

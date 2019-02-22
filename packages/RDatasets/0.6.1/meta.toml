@@ -1,0 +1,66 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "RDatasets"
+owner = "johnmyleswhite"
+version = "0.6.1"
+description = "Julia package for loading many of the data sets available in R"
+stargazers_count = "83"
+url = "https://github.com/johnmyleswhite/RDatasets.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "28"
+[[contributors]]
+name = "randyzwitch"
+contributions = "13"
+[[contributors]]
+name = "dmbates"
+contributions = "10"
+[[contributors]]
+name = "garborg"
+contributions = "10"
+[[contributors]]
+name = "alyst"
+contributions = "2"
+[[contributors]]
+name = "laborg"
+contributions = "2"
+[[contributors]]
+name = "daviddelaat"
+contributions = "1"
+[[contributors]]
+name = "StoneCypher"
+contributions = "1"
+[[contributors]]
+name = "juliangehring"
+contributions = "1"
+[[contributors]]
+name = "boathit"
+contributions = "1"
+[[contributors]]
+name = "nignatiadis"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "stewartwatts"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"
+[[contributors]]
+name = "powerdistribution"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "matthieugomez"
+contributions = "1"
+[[contributors]]
+name = "mneilsen"
+contributions = "1"

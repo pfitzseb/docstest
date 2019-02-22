@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Microeconometrics"
+owner = "lbittarello"
+version = "0.4.1"
+description = "Microeconometric estimation in Julia"
+stargazers_count = "10"
+url = "https://github.com/lbittarello/Microeconometrics.jl.git"
+installs = true
+tags = ["julia", "economics", "econometrics", "regression"]
+license = "Other"
+
+[[contributors]]
+name = "lbittarello"
+contributions = "151"
+[[contributors]]
+name = "kleinschmidt"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

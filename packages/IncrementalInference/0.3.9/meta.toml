@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "IncrementalInference"
+owner = "JuliaRobotics"
+version = "0.3.9"
+description = "Incremental non-parametric (and parametric) solution to factor graphs"
+stargazers_count = "20"
+url = "https://github.com/JuliaRobotics/IncrementalInference.jl.git"
+installs = true
+tags = ["factor-graphs", "bayes", "bayes-tree", "inference", "slam", "robotics", "optimization", "sum-product", "belief-propagation", "isam", "nonparametric", "parametric", "multi-modal", "julia-language", "state-estimation", "multi-hypothesis", "caesar", "algorithm", "bayes-network"]
+license = "MIT License"
+
+[[contributors]]
+name = "dehann"
+contributions = "794"
+[[contributors]]
+name = "GearsAD"
+contributions = "22"
+[[contributors]]
+name = "pvazteixeira"
+contributions = "7"
+[[contributors]]
+name = "keevindoherty"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

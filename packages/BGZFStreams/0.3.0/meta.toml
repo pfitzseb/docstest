@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "BGZFStreams"
+owner = "BioJulia"
+version = "0.3.0"
+description = "BGZF Stream"
+stargazers_count = "6"
+url = "https://github.com/BioJulia/BGZFStreams.jl.git"
+installs = true
+tags = ["julia", "bioinformatics"]
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "73"
+[[contributors]]
+name = "dcjones"
+contributions = "4"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "cth"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

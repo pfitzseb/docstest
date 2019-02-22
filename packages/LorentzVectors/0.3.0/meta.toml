@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LorentzVectors"
+owner = "Element-126"
+version = "0.3.0"
+description = ""
+stargazers_count = "2"
+url = "https://github.com/Element-126/LorentzVectors.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Element-126"
+contributions = "35"

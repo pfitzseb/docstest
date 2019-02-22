@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DimArrays"
+owner = "mcabbott"
+version = "0.2.1"
+description = "Julia arrays with dimension labels, and scaling"
+stargazers_count = "0"
+url = "https://github.com/mcabbott/DimArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mcabbott"
+contributions = "6"

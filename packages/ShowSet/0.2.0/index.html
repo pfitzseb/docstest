@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ShowSet.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ShowSet.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Conversion-to-string-1">Conversion to <code>string</code></a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ShowSet-1" href="#ShowSet-1">ShowSet</a></h1><p><a href="https://travis-ci.org/scheinerman/ShowSet.jl"><img src="https://travis-ci.org/scheinerman/ShowSet.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="https://coveralls.io/github/scheinerman/ShowSet.jl?branch=master"><img src="https://coveralls.io/repos/scheinerman/ShowSet.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a></p><p><a href="http://codecov.io/github/scheinerman/ShowSet.jl?branch=master"><img src="http://codecov.io/github/scheinerman/ShowSet.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This module makes the printing of <code>Set</code> objects in Julia nicer.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>Without the use of this module, <code>Set</code> objects display like this:</p><pre><code class="language-julia">julia&gt; BitSet([1,3,0])
+BitSet([1,3,0])
+
+julia&gt; Set([&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;])
+Set(&quot;One&quot;,&quot;Two&quot;,&quot;Three&quot;)</code></pre><p>However, after <code>using ShowSet</code> it looks like this:</p><pre><code class="language-julia">julia&gt; BitSet([1,3,0])
+{0,1,3}
+
+julia&gt; Set([&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;])
+{One,Three,Two}</code></pre><p>The elements of the <code>Set</code> object are sorted into ascending order unless Julia is unable to do so. In that case, the order of the objects is arbitrary.</p><pre><code class="language-julia">julia&gt; Set([1, &quot;hello&quot;, 4.5, 2+3im])
+{hello,2 + 3im,4.5,1}</code></pre><h2><a class="nav-anchor" id="Conversion-to-string-1" href="#Conversion-to-string-1">Conversion to <code>string</code></a></h2><p>We extend the <code>string</code> function for <code>Set</code> and <code>BitSet</code> objects to provide for their conversion into <code>String</code> objects. Some examples:</p><pre><code class="language-julia">julia&gt; A = Set([&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;]);
+
+julia&gt; string(A)
+&quot;{alpha,beta,gamma}&quot;
+
+julia&gt; B = BitSet([5,3,1]);
+
+julia&gt; string(B)
+&quot;{1,3,5}&quot;
+
+julia&gt; typeof(ans)
+String</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

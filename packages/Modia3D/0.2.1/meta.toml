@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Modia3D"
+owner = "ModiaSim"
+version = "0.2.1"
+description = "Modeling and Simulation of 3D systems"
+stargazers_count = "17"
+url = "https://github.com/ModiaSim/Modia3D.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "MartinOtter"
+contributions = "38"
+[[contributors]]
+name = "traversaro"
+contributions = "1"

@@ -1,0 +1,108 @@
+license_url = ""
+doctype = "default"
+name = "Clustering"
+owner = "JuliaStats"
+version = "0.12.2"
+description = "A Julia package for data clustering"
+stargazers_count = "128"
+url = "https://github.com/JuliaStats/Clustering.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "alyst"
+contributions = "68"
+[[contributors]]
+name = "lindahua"
+contributions = "65"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "22"
+[[contributors]]
+name = "ararslan"
+contributions = "7"
+[[contributors]]
+name = "annimesh2809"
+contributions = "7"
+[[contributors]]
+name = "kmsquire"
+contributions = "6"
+[[contributors]]
+name = "jumutc"
+contributions = "6"
+[[contributors]]
+name = "lendle"
+contributions = "5"
+[[contributors]]
+name = "wildart"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "slundberg"
+contributions = "3"
+[[contributors]]
+name = "davidavdav"
+contributions = "3"
+[[contributors]]
+name = "ianfiske"
+contributions = "3"
+[[contributors]]
+name = "pluskid"
+contributions = "2"
+[[contributors]]
+name = "cyocum"
+contributions = "2"
+[[contributors]]
+name = "jmsteitz"
+contributions = "2"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "jejomath"
+contributions = "2"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "iglpdc"
+contributions = "1"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "1"
+[[contributors]]
+name = "jeff-regier"
+contributions = "1"
+[[contributors]]
+name = "jingpengw"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "nangeschnappt"
+contributions = "1"
+[[contributors]]
+name = "OmriTreidel"
+contributions = "1"
+[[contributors]]
+name = "tlienart"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "montyvesselinov"
+contributions = "1"
+[[contributors]]
+name = "cosinequanon"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"

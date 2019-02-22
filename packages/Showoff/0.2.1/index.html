@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Showoff.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Showoff.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Showoff-1" href="#Showoff-1">Showoff</a></h1><p><a href="http://pkg.julialang.org/?pkg=Showoff"><img src="http://pkg.julialang.org/badges/Showoff_0.6.svg" alt="Showoff"/></a> <a href="http://pkg.julialang.org/?pkg=Showoff"><img src="http://pkg.julialang.org/badges/Showoff_0.7.svg" alt="Showoff"/></a> <a href="https://travis-ci.org/JuliaGraphics/Showoff.jl"><img src="https://travis-ci.org/JuliaGraphics/Showoff.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/JuliaGraphics/Showoff.jl?branch=master"><img src="https://coveralls.io/repos/github/JuliaGraphics/Showoff.jl/badge.svg?branch=master" alt="Coverage Status"/></a></p><p>Showoff provides an interface for consistently formatting an array of n things, e.g. numbers, dates, unitful values. It&#39;s used in Gadfly to label axes and keys.</p><p>It defines a function called <code>showoff</code> that takes an <code>AbstractArray</code> of some type and returns an array of strings of the same length.</p><p>If you want your type to look nice when plotted, just define a <code>showoff</code> function. Here&#39;s an example.</p><pre><code class="language-julia">using Showoff
+
+struct Percent
+    value::Float64
+end
+
+function Showoff.showoff(xs::AbstractArray{Percent})
+    return [string(x, &quot;%&quot;) for x in showoff([x.value for x in xs])]
+end</code></pre><p>Now we (and more importantly, Gadfly) can print percentages like:</p><pre><code class="language-julia">map(println, showoff([Percent(100 * rand()) for _ in 1:20]))</code></pre><pre><code class="language-none">60.505943%
+73.255897%
+97.477079%
+43.330976%
+69.023165%
+52.580184%
+13.011683%
+22.718034%
+93.843776%
+29.875979%
+64.110999%
+91.203653%
+91.534161%
+80.684188%
+81.674362%
+11.530227%
+30.498260%
+38.876922%
+35.444115%
+8.857208%</code></pre><p>Notice, that compared to <code>show</code>, these all have the same number of digits trailing the <code>.</code>, and look nice when right-aligned.</p><p>When no specialized <code>showoff</code> is defined, it falls back on the <code>show</code> function.</p><p>This package was originally written by <a href="https://github.com/dcjones">Daniel C. Jones</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

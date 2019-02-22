@@ -1,0 +1,105 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ProgressMeter"
+owner = "timholy"
+version = "0.9.0"
+description = "Progress meter for long-running computations"
+stargazers_count = "211"
+url = "https://github.com/timholy/ProgressMeter.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "timholy"
+contributions = "67"
+[[contributors]]
+name = "garrison"
+contributions = "29"
+[[contributors]]
+name = "zsunberg"
+contributions = "13"
+[[contributors]]
+name = "martinholters"
+contributions = "8"
+[[contributors]]
+name = "abahm"
+contributions = "6"
+[[contributors]]
+name = "bicycle1885"
+contributions = "5"
+[[contributors]]
+name = "robertfeldt"
+contributions = "5"
+[[contributors]]
+name = "adamslc"
+contributions = "3"
+[[contributors]]
+name = "saschatimme"
+contributions = "3"
+[[contributors]]
+name = "burrowsa"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "KristofferC"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "aaw"
+contributions = "1"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "alyst"
+contributions = "1"
+[[contributors]]
+name = "dennisprangle"
+contributions = "1"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"
+[[contributors]]
+name = "IsaacTay"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "marius311"
+contributions = "1"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "1"
+[[contributors]]
+name = "mweastwood"
+contributions = "1"
+[[contributors]]
+name = "lendle"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"
+[[contributors]]
+name = "tpapp"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"
+[[contributors]]
+name = "YongHee-Kim"
+contributions = "1"
+[[contributors]]
+name = "machakann"
+contributions = "1"

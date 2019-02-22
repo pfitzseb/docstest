@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "EffectiveWaves"
+owner = "arturgower"
+version = "0.2.0"
+description = "A package to calculate ensemble averaged waves in heterogeneous materials. The focus is on wave propagation, and reflection, from particulate and poly-crystalline materials."
+stargazers_count = "2"
+url = "https://github.com/arturgower/EffectiveWaves.jl.git"
+installs = true
+tags = ["julia-language", "waves", "effective-wavenumbers", "wave-reflection", "statistical-mechanics", "julia", "scattering", "multiple-scattering", "wave-propagation"]
+license = "MIT License"
+
+[[contributors]]
+name = "arturgower"
+contributions = "217"

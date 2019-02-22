@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CharSetEncodings"
+owner = "JuliaString"
+version = "0.2.0"
+description = "Types and Traits for Character Sets, Encodings, and Character Set Encodings"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/CharSetEncodings.jl.git"
+installs = true
+tags = ["character-set", "unicode", "character-set-encodings", "encoding", "unicode-subset"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "44"

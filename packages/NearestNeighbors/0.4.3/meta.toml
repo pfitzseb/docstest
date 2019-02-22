@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "NearestNeighbors"
+owner = "KristofferC"
+version = "0.4.3"
+description = "High performance nearest neighbor data structures and algorithms for Julia."
+stargazers_count = "101"
+url = "https://github.com/KristofferC/NearestNeighbors.jl.git"
+installs = true
+tags = ["nearest-neighbors", "datastructures", "knn-search", "range-search"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "76"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "schmrlng"
+contributions = "2"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "JoshChristie"
+contributions = "2"
+[[contributors]]
+name = "andyferris"
+contributions = "1"
+[[contributors]]
+name = "c42f"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IlyaOrson"
+contributions = "1"
+[[contributors]]
+name = "juliohm"
+contributions = "1"
+[[contributors]]
+name = "pablosanjose"
+contributions = "1"
+[[contributors]]
+name = "Shushman"
+contributions = "1"
+[[contributors]]
+name = "tlnagy"
+contributions = "1"

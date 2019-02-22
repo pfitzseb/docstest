@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "GLPKMathProgInterface"
+owner = "JuliaOpt"
+version = "0.4.4"
+description = "Interface between the GLPK.jl wrapper and MathProgBase.jl"
+stargazers_count = "16"
+url = "https://github.com/JuliaOpt/GLPKMathProgInterface.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "58"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "38"
+[[contributors]]
+name = "blegat"
+contributions = "5"
+[[contributors]]
+name = "IainNZ"
+contributions = "5"
+[[contributors]]
+name = "joehuchette"
+contributions = "5"
+[[contributors]]
+name = "czlee"
+contributions = "3"
+[[contributors]]
+name = "joaquimg"
+contributions = "3"
+[[contributors]]
+name = "leethargo"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "yeesian"
+contributions = "2"
+[[contributors]]
+name = "chriscoey"
+contributions = "1"
+[[contributors]]
+name = "sburer"
+contributions = "1"
+[[contributors]]
+name = "vitornesello"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

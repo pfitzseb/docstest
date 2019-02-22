@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Reexport.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Reexport.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Introduction-1">Introduction</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Reexport-1" href="#Reexport-1">Reexport</a></h1><p><a href="https://travis-ci.org/simonster/Reexport.jl"><img src="https://travis-ci.org/simonster/Reexport.jl.svg" alt="Build Status"/></a></p><h2><a class="nav-anchor" id="Introduction-1" href="#Introduction-1">Introduction</a></h2><p>Maybe you have a module <code>X</code> that depends on module <code>Y</code> and you want <code>using X</code> to pull in all of the symbols from <code>Y</code>. Maybe you have an outer module <code>A</code> with an inner module <code>B</code>, and you want to export all of the symbols in <code>B</code> from <code>A</code>. It would be nice to have this functionality built into Julia, but we have yet to reach an agreement on what it should look like (see <a href="https://github.com/JuliaLang/julia/issues/1986">JuliaLang/julia#1986</a>). This short macro is a stopgap we have a better solution.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p><code>@reexport using &lt;modules&gt;</code> calls <code>using &lt;modules&gt;</code> and also re-exports their symbols:</p><pre><code class="language-julia">module Y
+    ...
+end
+
+module X
+    using Reexport
+    @reexport using Y
+    # all of Y&#39;s exported symbols available here
+end
+
+using X
+# all of Y&#39;s exported symbols also available here</code></pre><p><code>@reexport module &lt;modulename&gt; ... end</code> defines <code>module &lt;modulename&gt;</code> and also re-exports its symbols:</p><pre><code class="language-julia">module A
+    using Reexport
+    @reexport module B
+    	...
+    end
+    # all of B&#39;s exported symbols available here
+end
+
+using A
+# all of B&#39;s exported symbols available here</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StataDTAFiles"
+owner = "tpapp"
+version = "0.3.0"
+description = "read and write Stata DTA files from Julia"
+stargazers_count = "0"
+url = "https://github.com/tpapp/StataDTAFiles.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "31"

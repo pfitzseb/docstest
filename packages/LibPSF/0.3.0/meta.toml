@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/lgpl-3.0"
+doctype = "default"
+name = "LibPSF"
+owner = "ma-laforge"
+version = "0.3.0"
+description = "A pure-Julia .psf simulation data file reader"
+stargazers_count = "2"
+url = "https://github.com/ma-laforge/LibPSF.jl.git"
+installs = true
+tags = ["parameter-storage-format", "eda", "circuit-simulation", "psf-data", "psf-data-reader"]
+license = "GNU Lesser General Public License v3.0"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "17"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

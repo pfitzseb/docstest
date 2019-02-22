@@ -1,0 +1,81 @@
+license_url = ""
+doctype = "default"
+name = "WinRPM"
+owner = "JuliaPackaging"
+version = "0.4.2"
+description = "RPM-md processing library"
+stargazers_count = "13"
+url = "https://github.com/JuliaPackaging/WinRPM.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tkelman"
+contributions = "42"
+[[contributors]]
+name = "vtjnash"
+contributions = "26"
+[[contributors]]
+name = "ihnorton"
+contributions = "20"
+[[contributors]]
+name = "musm"
+contributions = "17"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "7"
+[[contributors]]
+name = "Keno"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "3"
+[[contributors]]
+name = "nalimilan"
+contributions = "3"
+[[contributors]]
+name = "mlubin"
+contributions = "3"
+[[contributors]]
+name = "ranjanan"
+contributions = "3"
+[[contributors]]
+name = "amitmurthy"
+contributions = "2"
+[[contributors]]
+name = "RandomString123"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "bkamins"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "hessammehr"
+contributions = "1"
+[[contributors]]
+name = "jiahao"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tbeason"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "hustf"
+contributions = "1"
+[[contributors]]
+name = "lucatrv"
+contributions = "1"

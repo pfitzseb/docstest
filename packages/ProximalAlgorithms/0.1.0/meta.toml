@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "ProximalAlgorithms"
+owner = "kul-forbes"
+version = "0.1.0"
+description = "Proximal algorithms for nonsmooth optimization in Julia"
+stargazers_count = "26"
+url = "https://github.com/kul-forbes/ProximalAlgorithms.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "lostella"
+contributions = "41"
+[[contributors]]
+name = "nantonel"
+contributions = "11"
+[[contributors]]
+name = "pylat"
+contributions = "1"

@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "MultivariateStats"
+owner = "JuliaStats"
+version = "0.6.0"
+description = "A Julia package for multivariate statistics and data analysis (e.g. dimension reduction)"
+stargazers_count = "120"
+url = "https://github.com/JuliaStats/MultivariateStats.jl.git"
+installs = true
+tags = ["julia", "multivariate-statistics", "dimensionality-reduction"]
+license = "Other"
+
+[[contributors]]
+name = "lindahua"
+contributions = "70"
+[[contributors]]
+name = "jiahao"
+contributions = "15"
+[[contributors]]
+name = "wildart"
+contributions = "12"
+[[contributors]]
+name = "ararslan"
+contributions = "7"
+[[contributors]]
+name = "andreasnoack"
+contributions = "6"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "alexmorley"
+contributions = "1"
+[[contributors]]
+name = "jonathanBieler"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "maximsch2"
+contributions = "1"
+[[contributors]]
+name = "gdkrmr"
+contributions = "1"
+[[contributors]]
+name = "ianshmean"
+contributions = "1"
+[[contributors]]
+name = "rened"
+contributions = "1"

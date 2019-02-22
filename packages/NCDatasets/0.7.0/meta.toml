@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "NCDatasets"
+owner = "Alexander-Barth"
+version = "0.7.0"
+description = "Load and create NetCDF files in JuIlia"
+stargazers_count = "13"
+url = "https://github.com/Alexander-Barth/NCDatasets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Alexander-Barth"
+contributions = "313"
+[[contributors]]
+name = "ctroupin"
+contributions = "9"
+[[contributors]]
+name = "Balinus"
+contributions = "1"
+[[contributors]]
+name = "stevengj"
+contributions = "1"

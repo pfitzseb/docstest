@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "GroundMotion"
+owner = "geophystech"
+version = "0.3.0"
+description = "The ground motion evaluation module (earthquake seismology)"
+stargazers_count = "1"
+url = "https://github.com/geophystech/GroundMotion.jl.git"
+installs = true
+tags = ["ground-motion", "peak-ground-acceleration", "grid-data", "earthquake-seismology", "earthquake-hazard"]
+license = "Other"
+
+[[contributors]]
+name = "jamm1985"
+contributions = "89"

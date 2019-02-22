@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "AsterReader"
+owner = "JuliaFEM"
+version = "0.2.2"
+description = "AsterReader.jl is a Julia package to read Code Aster binary mesh and result files. Code Aster meshes can be done using another open source software SALOME Platform. Reading results from .rmed files is also partially supported, so it's possible to verify calculations of JuliaFEM.jl against Code Aster solutions."
+stargazers_count = "3"
+url = "https://github.com/JuliaFEM/AsterReader.jl.git"
+installs = true
+tags = ["code-aster", "mesh", "reader", "parser", "fem"]
+license = "MIT License"
+
+[[contributors]]
+name = "ahojukka5"
+contributions = "46"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

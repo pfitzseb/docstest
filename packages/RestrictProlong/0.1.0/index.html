@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · RestrictProlong.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>RestrictProlong.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Usage-examples-1">Usage examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="RestrictProlong-1" href="#RestrictProlong-1">RestrictProlong</a></h1><p><a href="https://travis-ci.org/timholy/RestrictProlong.jl"><img src="https://travis-ci.org/timholy/RestrictProlong.jl.svg?branch=master" alt="Build Status"/></a></p><p><a href="http://codecov.io/github/timholy/RestrictProlong.jl?branch=master"><img src="http://codecov.io/github/timholy/RestrictProlong.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package provides efficient multidimensional implementations of two operators, <code>restrict</code> and <code>prolong</code>, which feature heavily in multigrid methods. In general terms, these operations reduce and increase, respectively, the size of arrays by a factor of 2 along one or more dimensions.  The two operators satisfy the &quot;Galerkin condition,&quot; meaning that as operators they are transposes of one another.</p><p>In addition to being useful for mulitigrid methods, <code>restrict</code> can be used as a fast antialiasing thumbnail generator for images.</p><h2><a class="nav-anchor" id="Usage-examples-1" href="#Usage-examples-1">Usage examples</a></h2><p>Set up the following test array:</p><pre><code class="language-julia">julia&gt; using RestrictProlong
+
+julia&gt; A = zeros(5,5); A[3,3] = 1
+1
+
+julia&gt; A
+5×5 Array{Float64,2}:
+ 0.0  0.0  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0  0.0
+ 0.0  0.0  1.0  0.0  0.0
+ 0.0  0.0  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0  0.0</code></pre><p><code>restrict</code> reduces the size along the chosen dimension(s) (all dimensions are chosen if not specified), approximately preserving the mean value of the input array:</p><pre><code class="language-jl">julia&gt; restrict(A)
+3×3 Array{Float64,2}:
+ 0.0  0.0   0.0
+ 0.0  0.25  0.0
+ 0.0  0.0   0.0</code></pre><p>After restriction, an axis with <code>l = size(A, d)</code> has size <code>(l+1) ÷ 2</code>.</p><p>For prolongation, it&#39;s best to specify the desired target size, which can be either <code>2l</code> or <code>2l-1</code>:</p><pre><code class="language-julia">julia&gt; prolong(A, (10,10))
+10×10 Array{Float64,2}:
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+ 0.0  0.0  0.0  0.015625  0.046875  0.046875  0.015625  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.046875  0.140625  0.140625  0.046875  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.046875  0.140625  0.140625  0.046875  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.015625  0.046875  0.046875  0.015625  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0       0.0       0.0       0.0       0.0  0.0  0.0
+
+julia&gt; prolong(A, (9,10))
+9×10 Array{Float64,2}:
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0
+ 0.0  0.0  0.0  0.03125  0.09375  0.09375  0.03125  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0625   0.1875   0.1875   0.0625   0.0  0.0  0.0
+ 0.0  0.0  0.0  0.03125  0.09375  0.09375  0.03125  0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0
+ 0.0  0.0  0.0  0.0      0.0      0.0      0.0      0.0  0.0  0.0</code></pre><p><code>prolong</code> approximately preserves the sum of the input array.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

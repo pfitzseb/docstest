@@ -1,0 +1,48 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "NamedTuples"
+owner = "JuliaData"
+version = "5.0.0"
+description = "NamedTuples.jl"
+stargazers_count = "28"
+url = "https://github.com/JuliaData/NamedTuples.jl.git"
+installs = true
+tags = []
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "mdcfrancis"
+contributions = "29"
+[[contributors]]
+name = "davidanthoff"
+contributions = "22"
+[[contributors]]
+name = "omus"
+contributions = "20"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "5"
+[[contributors]]
+name = "n-patel"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtotrader"
+contributions = "2"
+[[contributors]]
+name = "morris25"
+contributions = "2"
+[[contributors]]
+name = "quinnj"
+contributions = "2"
+[[contributors]]
+name = "mattharper"
+contributions = "1"
+[[contributors]]
+name = "vglazer"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"

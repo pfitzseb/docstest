@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "TerminalExtensions"
+owner = "Keno"
+version = "0.4.0"
+description = "A package that makes Julia take advantage of cool terminal emulator features."
+stargazers_count = "18"
+url = "https://github.com/Keno/TerminalExtensions.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Keno"
+contributions = "30"
+[[contributors]]
+name = "mbauman"
+contributions = "5"
+[[contributors]]
+name = "rsrock"
+contributions = "3"
+[[contributors]]
+name = "JonathanAnderson"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

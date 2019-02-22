@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "SDWBA"
+owner = "ElOceanografo"
+version = "1.1.1"
+description = "Stochastic distorted-wave Born approximation for acoustic scattering, in Julia"
+stargazers_count = "1"
+url = "https://github.com/ElOceanografo/SDWBA.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ElOceanografo"
+contributions = "71"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

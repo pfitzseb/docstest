@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CUDAatomics"
+owner = "alandion"
+version = "0.1.0"
+description = ""
+stargazers_count = "4"
+url = "https://github.com/alandion/CUDAatomics.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "alandion"
+contributions = "6"

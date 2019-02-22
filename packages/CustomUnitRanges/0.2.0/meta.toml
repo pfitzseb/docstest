@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "CustomUnitRanges"
+owner = "JuliaArrays"
+version = "0.2.0"
+description = "Package-specific AbstractUnitRange types for julia"
+stargazers_count = "2"
+url = "https://github.com/JuliaArrays/CustomUnitRanges.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "29"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Liozou"
+contributions = "1"
+[[contributors]]
+name = "rsrock"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,7 @@
+name = "ORCA"
+stargazers_count = "0"
+doctype = "default"
+installs = true
+url = "https://github.com/sglyon/ORCA.jl.git"
+version = "0.2.1"
+description = "Julia interface to Plotly's ORCA image exporter app"

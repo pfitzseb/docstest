@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BioTools"
+owner = "BioJulia"
+version = "1.0.0"
+description = "Interfaces to common external biological tools from julia scripts and programs"
+stargazers_count = "1"
+url = "https://github.com/BioJulia/BioTools.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "fernandogelin"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

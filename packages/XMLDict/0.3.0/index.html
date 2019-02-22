@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · XMLDict.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>XMLDict.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Examples-1">Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="XMLDict.jl-1" href="#XMLDict.jl-1">XMLDict.jl</a></h1><p>XMLDict implements an Associative interface (<code>get()</code>, <code>getindex()</code>, <code>haskey()</code>) for reading XML elements and attributes. Requires <a href="https://github.com/bicycle1885/EzXML.jl">EzXML.jl</a>.</p><p><a href="https://travis-ci.org/samoconnor/XMLDict.jl"><img src="https://travis-ci.org/samoconnor/XMLDict.jl.svg" alt="Build Status"/></a></p><h2><a class="nav-anchor" id="Examples-1" href="#Examples-1">Examples</a></h2><p>Extract the content of a single tag...</p><pre><code class="language-julia">xml = parse_xml(&quot;&quot;&quot;
+&lt;CreateQueueResponse&gt;
+    &lt;CreateQueueResult&gt;
+        &lt;QueueUrl&gt;http://queue.amazonaws.com/123456789012/testQueue&lt;/QueueUrl&gt;
+    &lt;/CreateQueueResult&gt;
+&lt;/CreateQueueResponse&gt;
+&quot;&quot;&quot;)
+
+@test xml[&quot;CreateQueueResult&quot;][&quot;QueueUrl&quot;] == &quot;http://queue.amazonaws.com/123456789012/testQueue&quot;</code></pre><p>Extract an attribute from a tag by using a <code>:symbol</code> as key...</p><pre><code class="language-julia">xml = parse_xml(&quot;&quot;&quot;
+&lt;bookstore&gt;
+  &lt;book category=&quot;COOKING&quot; tag=&quot;first&quot;/&gt;
+&lt;bookstore&gt;
+&quot;&quot;&quot;)
+
+@test xml[&quot;bookstore&quot;][&quot;book&quot;][:category] == &quot;COOKING&quot;</code></pre><p>Extract a list of tag content...</p><pre><code class="language-julia">xml = parse_xml(&quot;&quot;&quot;
+&lt;ListAllMyBucketsResult&gt;
+  &lt;Buckets&gt;
+    &lt;Bucket&gt;&lt;Name&gt;quotes&lt;/Name&gt;&lt;CreationDate&gt;2006-02-03T16:45:09.000Z&lt;/CreationDate&gt;&lt;/Bucket&gt;
+    &lt;Bucket&gt;&lt;Name&gt;samples&lt;/Name&gt;&lt;CreationDate&gt;2006-02-03T16:41:58.000Z&lt;/CreationDate&gt;&lt;/Bucket&gt;
+  &lt;/Buckets&gt;
+&lt;/ListAllMyBucketsResult&gt;
+&quot;&quot;&quot;)
+
+@test [b[&quot;Name&quot;] for b in xml[&quot;Buckets&quot;][&quot;Bucket&quot;]] == [&quot;quotes&quot;, &quot;samples&quot;]</code></pre><p>Extract a dictionary of <code>&lt;Name&gt;</code>, <code>&lt;Value&gt;</code> tags content...</p><pre><code class="language-julia">
+xml = parse_xml(&quot;&quot;&quot;
+&lt;GetQueueAttributesResponse&gt;
+  &lt;GetQueueAttributesResult&gt;
+    &lt;Attribute&gt;&lt;Name&gt;VisibilityTimeout&lt;/Name&gt;&lt;Value&gt;30&lt;/Value&gt;&lt;/Attribute&gt;
+    &lt;Attribute&gt;&lt;Name&gt;CreatedTimestamp&lt;/Name&gt;&lt;Value&gt;1286771522&lt;/Value&gt;&lt;/Attribute&gt;
+    &lt;Attribute&gt;&lt;Name&gt;MaximumMessageSize&lt;/Name&gt;&lt;Value&gt;8192&lt;/Value&gt;&lt;/Attribute&gt;
+    &lt;Attribute&gt;&lt;Name&gt;MessageRetentionPeriod&lt;/Name&gt;&lt;Value&gt;345600&lt;/Value&gt;&lt;/Attribute&gt;
+  &lt;/GetQueueAttributesResult&gt;
+&lt;/GetQueueAttributesResponse&gt;
+&quot;&quot;&quot;)
+
+d = [a[&quot;Name&quot;] =&gt; a[&quot;Value&quot;] for a in xml[&quot;GetQueueAttributesResult&quot;][&quot;Attribute&quot;]]
+
+Dict with 4 entries:
+  &quot;MessageRetentionPeriod&quot; =&gt; &quot;345600&quot;
+  &quot;MaximumMessageSize&quot;     =&gt; &quot;8192&quot;
+  &quot;VisibilityTimeout&quot;      =&gt; &quot;30&quot;
+  &quot;CreatedTimestamp&quot;       =&gt; &quot;1286771522&quot;</code></pre><p>Convert entire XML document to a Julia Dict...</p><pre><code class="language-xml">xml_string=&quot;&quot;&quot;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;bookstore brand=&quot;amazon&quot;&gt;
+  &lt;book category=&quot;COOKING&quot; tag=&quot;first&quot;&gt;
+    &lt;title lang=&quot;en&quot;&gt;
+        Everyday Italian
+    &lt;/title&gt;
+    &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;30.00&lt;/price&gt;
+    &lt;extract copyright=&quot;NA&quot;&gt;The &lt;b&gt;bold&lt;/b&gt; word is &lt;b&gt;&lt;i&gt;not&lt;/i&gt;&lt;/b&gt; &lt;i&gt;italic&lt;/i&gt;.&lt;/extract&gt;
+  &lt;/book&gt;
+  &lt;book category=&quot;CHILDREN&quot;&gt;
+    &lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;
+    &lt;author&gt;J K. Rowling&lt;/author&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+    &lt;price&gt;29.99&lt;/price&gt;
+    &lt;foo&gt;&lt;![CDATA[&lt;sender&gt;John Smith&lt;/sender&gt;]]&gt;&lt;/foo&gt;
+    &lt;extract&gt;Click &lt;a href=&quot;foobar.com&quot;&gt;right &lt;b&gt;here&lt;/b&gt;&lt;/a&gt; for foobar.&lt;/extract&gt;
+  &lt;/book&gt;
+  &lt;metadata&gt;
+       &lt;foo&gt;hello!&lt;/foo&gt;
+  &lt;/metadata&gt;
+&lt;/bookstore&gt;
+&quot;&quot;&quot;</code></pre><pre><code class="language-julia">d = xml_dict(xml_string)
+
+Dict(
+    :version=&gt;&quot;1.0&quot;,
+    :encoding=&gt;&quot;UTF-8&quot;,
+    &quot;bookstore&quot;=&gt;Dict(
+        :brand=&gt;&quot;amazon&quot;,
+        &quot;book&quot;=&gt;[
+            Dict(
+                :category=&gt;&quot;COOKING&quot;,
+                :tag=&gt;&quot;first&quot;,
+                &quot;title&quot;=&gt;Dict(:lang=&gt;&quot;en&quot;,&quot;&quot;=&gt;&quot;Everyday Italian&quot;),
+                &quot;author&quot;=&gt;&quot;Giada De Laurentiis&quot;,
+                &quot;year&quot;=&gt;&quot;2005&quot;,
+                &quot;price&quot;=&gt;&quot;30.00&quot;,
+                &quot;extract&quot;=&gt;Dict(
+                    :copyright=&gt;&quot;NA&quot;,
+                    &quot;&quot;=&gt;[&quot;The &quot;,Dict(&quot;b&quot;=&gt;&quot;bold&quot;),&quot; word is &quot;, Dict(&quot;b&quot;=&gt;Dict(&quot;i&quot;=&gt;&quot;not&quot;)),&quot; &quot;,Dict(&quot;i&quot;=&gt;&quot;italic&quot;),&quot;.&quot;])
+            ),
+            Dict(
+                :category=&gt;&quot;CHILDREN&quot;,
+                &quot;title&quot;=&gt;Dict(:lang=&gt;&quot;en&quot;,&quot;&quot;=&gt;&quot;Harry Potter&quot;),
+                &quot;author&quot;=&gt;&quot;J K. Rowling&quot;,
+                &quot;year&quot;=&gt;&quot;2005&quot;,
+                &quot;price&quot;=&gt;&quot;29.99&quot;,
+                &quot;foo&quot;=&gt;&quot;&lt;sender&gt;John Smith&lt;/sender&gt;&quot;,
+                &quot;extract&quot;=&gt;[&quot;Click &quot;,Dict(&quot;a&quot;=&gt;Dict(:href=&gt;&quot;foobar.com&quot;,&quot;&quot;=&gt;[&quot;right &quot;,Dict(&quot;b&quot;=&gt;&quot;here&quot;)])),&quot; for foobar.&quot;]
+            )],
+        &quot;metadata&quot;=&gt;Dict(&quot;foo&quot;=&gt;&quot;hello!&quot;)
+    )
+)</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

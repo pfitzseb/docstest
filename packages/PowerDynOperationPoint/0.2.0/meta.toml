@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "real"
+name = "PowerDynOperationPoint"
+owner = "JuliaEnergy"
+version = "0.2.0"
+description = "Subpackage of PowerDynamics.jl implementing the operation point search incl. interfaces to external power flow solvers"
+stargazers_count = "1"
+url = "https://github.com/JuliaEnergy/PowerDynOperationPoint.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "timkittel"
+contributions = "14"

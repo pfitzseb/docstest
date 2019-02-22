@@ -1,0 +1,39 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BioSequences"
+owner = "BioJulia"
+version = "1.1.0"
+description = "Biological sequences for the julia language"
+stargazers_count = "18"
+url = "https://github.com/BioJulia/BioSequences.jl.git"
+installs = true
+tags = ["biojulia", "bioinformatics", "biology", "biological-sequences", "fasta-format", "fastq-format", "2bit"]
+license = "MIT License"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "23"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "dtjohnson"
+contributions = "1"
+[[contributors]]
+name = "ivirshup"
+contributions = "1"
+[[contributors]]
+name = "jakobnissen"
+contributions = "1"
+[[contributors]]
+name = "kescobo"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "kdyrhage"
+contributions = "1"

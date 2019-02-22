@@ -1,0 +1,57 @@
+license_url = ""
+doctype = "default"
+name = "QuantumOptics"
+owner = "qojulia"
+version = "0.6.4"
+description = "Library for the numerical simulation of closed as well as open quantum systems."
+stargazers_count = "178"
+url = "https://github.com/qojulia/QuantumOptics.jl.git"
+installs = true
+tags = ["julia", "quantum", "quantum-mechanics", "quantum-optics", "quantum-toolbox"]
+license = "Other"
+
+[[contributors]]
+name = "bastikr"
+contributions = "475"
+[[contributors]]
+name = "david-pl"
+contributions = "127"
+[[contributors]]
+name = "goropikari"
+contributions = "6"
+[[contributors]]
+name = "wolfgang-n"
+contributions = "3"
+[[contributors]]
+name = "karolpezet"
+contributions = "3"
+[[contributors]]
+name = "dnadlinger"
+contributions = "2"
+[[contributors]]
+name = "vtorggler"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "Datseris"
+contributions = "1"
+[[contributors]]
+name = "PhilippAumann"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "louisponet"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "mattm1"
+contributions = "1"

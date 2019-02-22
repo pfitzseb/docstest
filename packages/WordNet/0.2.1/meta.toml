@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "WordNet"
+owner = "JuliaText"
+version = "0.2.1"
+description = "A Julia package for Princeton's WordNet®."
+stargazers_count = "13"
+url = "https://github.com/JuliaText/WordNet.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbn"
+contributions = "34"
+[[contributors]]
+name = "oxinabox"
+contributions = "18"
+[[contributors]]
+name = "rdeits"
+contributions = "9"
+[[contributors]]
+name = "aviks"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "chengchingwen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

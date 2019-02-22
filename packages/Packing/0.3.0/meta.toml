@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Packing"
+owner = "JuliaGeometry"
+version = "0.3.0"
+description = "Algorithms for packing problems"
+stargazers_count = "3"
+url = "https://github.com/JuliaGeometry/Packing.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "SimonDanisch"
+contributions = "19"
+[[contributors]]
+name = "sjkelly"
+contributions = "4"

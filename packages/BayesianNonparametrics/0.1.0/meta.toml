@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "BayesianNonparametrics"
+owner = "OFAI"
+version = "0.1.0"
+description = "BayesianNonparametrics in julia"
+stargazers_count = "17"
+url = "https://github.com/OFAI/BayesianNonparametrics.jl.git"
+installs = true
+tags = ["bayesian-nonparametric-models", "julia", "dirichlet-process-mixtures", "bayesian-machine-learning", "bayesian-methods"]
+license = "Other"
+
+[[contributors]]
+name = "trappmartin"
+contributions = "35"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jonalm"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

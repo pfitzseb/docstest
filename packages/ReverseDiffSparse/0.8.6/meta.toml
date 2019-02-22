@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "ReverseDiffSparse"
+owner = "mlubin"
+version = "0.8.6"
+description = "Reverse-mode automatic differentiation for sparse Hessians"
+stargazers_count = "20"
+url = "https://github.com/mlubin/ReverseDiffSparse.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "308"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "1"
+[[contributors]]
+name = "jrevels"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

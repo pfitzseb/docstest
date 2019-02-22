@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "FilePaths"
+owner = "rofinn"
+version = "0.7.0"
+description = "A type based approach to working with filesystem paths in julia"
+stargazers_count = "27"
+url = "https://github.com/rofinn/FilePaths.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "34"
+[[contributors]]
+name = "rofinn"
+contributions = "33"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"

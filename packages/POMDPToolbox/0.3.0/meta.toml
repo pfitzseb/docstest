@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "POMDPToolbox"
+owner = "JuliaPOMDP"
+version = "0.3.0"
+description = "Support tools for solving POMDPs"
+stargazers_count = "10"
+url = "https://github.com/JuliaPOMDP/POMDPToolbox.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "zsunberg"
+contributions = "198"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "66"
+[[contributors]]
+name = "dressel"
+contributions = "23"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "23"
+[[contributors]]
+name = "tawheeler"
+contributions = "6"
+[[contributors]]
+name = "ebalaban"
+contributions = "2"
+[[contributors]]
+name = "cho3"
+contributions = "1"

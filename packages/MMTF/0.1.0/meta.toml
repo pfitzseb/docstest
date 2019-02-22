@@ -1,0 +1,12 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MMTF"
+owner = "BioJulia"
+version = "0.1.0"
+description = "A julia package to parse and write MMTF file"
+stargazers_count = "2"
+contributors = []
+url = "https://github.com/BioJulia/MMTF.jl.git"
+installs = true
+tags = ["julia-package", "mmtf", "rcsb", "pdb", "bioinformatics"]
+license = "MIT License"

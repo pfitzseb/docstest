@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "default"
+name = "PowerModels"
+owner = "lanl-ansi"
+version = "0.8.3"
+description = "A Julia/JuMP Package for Power Network Optimization"
+stargazers_count = "71"
+url = "https://github.com/lanl-ansi/PowerModels.jl.git"
+installs = true
+tags = ["optimization", "network", "power-network", "optimal-power-flow"]
+license = "Other"
+
+[[contributors]]
+name = "ccoffrin"
+contributions = "475"
+[[contributors]]
+name = "jd-lara"
+contributions = "34"
+[[contributors]]
+name = "pseudocubic"
+contributions = "33"
+[[contributors]]
+name = "rb004f"
+contributions = "13"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "8"
+[[contributors]]
+name = "yeesian"
+contributions = "7"
+[[contributors]]
+name = "kersulis"
+contributions = "6"
+[[contributors]]
+name = "frederikgeth"
+contributions = "6"
+[[contributors]]
+name = "byronbest"
+contributions = "2"
+[[contributors]]
+name = "lthurner"
+contributions = "1"
+[[contributors]]
+name = "lsindoni"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "hakanergun"
+contributions = "1"

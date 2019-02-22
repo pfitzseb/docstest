@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "TensorKit"
+owner = "Jutho"
+version = "0.0.2"
+description = "A Julia package for large-scale tensor computations, with a hint of category theory"
+stargazers_count = "5"
+url = "https://github.com/Jutho/TensorKit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "188"
+[[contributors]]
+name = "Gertian"
+contributions = "2"
+[[contributors]]
+name = "maartenvd"
+contributions = "1"
+[[contributors]]
+name = "texify[bot]"
+contributions = "1"

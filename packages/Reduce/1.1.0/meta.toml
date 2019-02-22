@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "real"
+name = "Reduce"
+owner = "chakravala"
+version = "1.1.0"
+description = "Symbolic parser generator for Julia language expressions using REDUCE algebra term rewriter"
+stargazers_count = "66"
+url = "https://github.com/chakravala/Reduce.jl.git"
+installs = true
+tags = ["mathematics", "julia", "reduce", "symbolic-computation", "term-rewriting", "repl", "parser-generator", "syntax-tree", "metaprogramming", "computer-algebra"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "160"
+[[contributors]]
+name = "dan-robertson"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "gitter-badger"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

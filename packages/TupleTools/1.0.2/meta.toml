@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "TupleTools"
+owner = "Jutho"
+version = "1.0.2"
+description = "Type stable methods for small tuples"
+stargazers_count = "5"
+url = "https://github.com/Jutho/TupleTools.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "24"
+[[contributors]]
+name = "jebej"
+contributions = "1"
+[[contributors]]
+name = "Roger-luo"
+contributions = "1"

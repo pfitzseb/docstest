@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Gnuplot.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Gnuplot.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.@gp" href="#Gnuplot.@gp"><code>Gnuplot.@gp</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><p><code>@gp args...</code></p><p>The <code>@gp</code> macro, and its companion <code>@gsp</code> (for <code>splot</code> operations) allows to exploit all of the <strong>Gnuplot</strong> package functionalities using an extremely efficient and concise syntax.  Both macros accept the same syntax, as described below.</p><p>The macros accepts any number of arguments, with the following meaning:</p><ul><li>a symbol: the name of the session to use;</li><li>a string: a command (e.g. &quot;set key left&quot;) or plot specification (e.g. &quot;with lines&quot;);</li><li>a string starting with a <code>$</code> sign: a data set name;</li><li>an <code>Int</code> &gt; 0: the plot destination in a multiplot session;</li><li>a keyword/value pair: a keyword value (see below);</li><li>any other type: a dataset to be passed to Gnuplot.  Each dataset must be terminated by either: <ul><li>a string starting with a <code>$</code> sign (i.e. the data set name);</li><li>or a string with the plot specifications (e.g. &quot;with lines&quot;);</li></ul></li><li>the <code>:-</code> symbol, used as first argument, avoids resetting the Gnuplot session.  Used as last argument avoids immediate execution  of the plot/splot command.  This symbol can be used to split a  single call into multiple ones.</li></ul><p>All entries are optional, and there is no mandatory order.  The plot specification can either be:</p><ul><li>a complete plot/splot command (e.g., &quot;plot sin(x)&quot;, both &quot;plot&quot; and &quot;splot&quot; can be abbreviated to &quot;p&quot; and &quot;s&quot; respectively);</li><li>or a partial specification starting with the &quot;with&quot; clause (if it follows a data set).</li></ul><p>The list of accepted keyword is as follows:</p><ul><li><code>title::String</code>: plot title;</li><li><code>xlabel::String</code>: X axis label;</li><li><code>ylabel::String</code>: Y axis label;</li><li><code>zlabel::String</code>: Z axis label;</li><li><code>xlog::Bool</code>: logarithmic scale for X axis;</li><li><code>ylog::Bool</code>: logarithmic scale for Y axis;</li><li><code>zlog::Bool</code>: logarithmic scale for Z axis;</li><li><code>xrange::NTuple{2, Number}</code>: X axis range;</li><li><code>yrange::NTuple{2, Number}</code>: Y axis range;</li><li><code>zrange::NTuple{2, Number}</code>: Z axis range;</li><li><code>cbrange::NTuple{2, Number}</code>: Color box axis range;</li></ul><p>The symbol for the above-mentioned keywords may also be used in a shortened form, as long as there is no ambiguity with other keywords.  E.g. you can use: <code>xr=(1,10)</code> in place of <code>xrange=(1,10)</code>.</p><p><strong>Examples:</strong></p><p><strong>Simple examples with no data:</strong></p><pre><code class="language-none">@gp &quot;plot sin(x)&quot;
+@gp &quot;plot sin(x)&quot; &quot;pl cos(x)&quot;
+@gp &quot;plo sin(x)&quot; &quot;s cos(x)&quot;
+
+# Split a `@gp` call in two
+@gp &quot;plot sin(x)&quot; :-
+@gp :- &quot;plot cos(x)&quot;
+
+# Insert a 3 second pause between one plot and the next
+@gp &quot;plot sin(x)&quot; 2 xr=(-2pi,2pi) &quot;pause 3&quot; &quot;plot cos(4*x)&quot;</code></pre><p><strong>Simple examples with data:</strong></p><pre><code class="language-none">@gp &quot;set key left&quot; tit=&quot;My title&quot; xr=(1,12) 1:10 &quot;with lines tit &#39;Data&#39;&quot;
+
+x = collect(1.:10)
+@gp x
+@gp x x
+@gp x -x
+@gp x x.^2
+@gp x x.^2 &quot;w l&quot;
+
+lw = 3
+@gp x x.^2 &quot;w l lw $lw&quot;</code></pre><p><strong>A more complex example</strong></p><pre><code class="language-none">@gp(&quot;set grid&quot;, &quot;set key left&quot;, xlog=true, ylog=true,
+    title=&quot;My title&quot;, xlab=&quot;X label&quot;, ylab=&quot;Y label&quot;,
+    x, x.^0.5, &quot;w l tit &#39;Pow 0.5&#39; dt 2 lw 2 lc rgb &#39;red&#39;&quot;,
+    x, x     , &quot;w l tit &#39;Pow 1&#39;   dt 1 lw 3 lc rgb &#39;blue&#39;&quot;,
+    x, x.^2  , &quot;w l tit &#39;Pow 2&#39;   dt 3 lw 2 lc rgb &#39;purple&#39;&quot;)</code></pre><p><strong>Multiplot example:</strong></p><pre><code class="language-none">@gp(xr=(-2pi,2pi), &quot;unset key&quot;,
+    &quot;set multi layout 2,2 title &#39;Multiplot title&#39;&quot;,
+    1, &quot;p sin(x)&quot;  ,
+    2, &quot;p sin(2*x)&quot;,
+    3, &quot;p sin(3*x)&quot;,
+    4, &quot;p sin(4*x)&quot;)</code></pre><p>or equivalently</p><pre><code class="language-none">@gp xr=(-2pi,2pi) &quot;unset key&quot; &quot;set multi layout 2,2 title &#39;Multiplot title&#39;&quot; :-
+for i in 1:4
+  @gp :- i &quot;p sin($i*x)&quot; :-
+end
+@gp</code></pre><p><strong>Multiple gnuplot sessions</strong></p><pre><code class="language-none">@gp :GP1 &quot;plot sin(x)&quot;
+@gp :GP2 &quot;plot sin(x)&quot;
+
+quitall()</code></pre><p><strong>Further examples</strong></p><pre><code class="language-none">x = range(-2pi, stop=2pi, length=100);
+y = 1.5 * sin.(0.3 .+ 0.7x) ;
+noise = randn(length(x))./2;
+e = 0.5 * fill(1, size(x));
+
+name = &quot;\$MyDataSet1&quot;
+@gp x y name &quot;plot $name w l&quot; &quot;pl $name u 1:(2*\$2) w l&quot;
+
+@gsp randn(Float64, 30, 50)
+@gp randn(Float64, 30, 50) &quot;w image&quot;
+@gsp x y y
+
+@gp(&quot;set key horizontal&quot;, &quot;set grid&quot;,
+    xrange=(-7,7), ylabel=&quot;Y label&quot;,
+    x, y, &quot;w l t &#39;Real model&#39; dt 2 lw 2 lc rgb &#39;red&#39;&quot;,
+    x, y+noise, e, &quot;w errorbars t &#39;Data&#39;&quot;)
+
+@gp &quot;f(x) = a * sin(b + c*x); a = 1; b = 1; c = 1;&quot;   :-
+@gp :- x y+noise e name                               :-
+@gp :- &quot;fit f(x) $name u 1:2:3 via a, b, c;&quot;         :-
+@gp :- &quot;set multiplot layout 2,1&quot;                     :-
+@gp :- &quot;plot $name w points&quot; ylab=&quot;Data and model&quot;   :-
+@gp :- &quot;plot $name u 1:(f(\$1)) w lines&quot;           :-
+@gp :- 2 xlab=&quot;X label&quot; ylab=&quot;Residuals&quot;              :-
+@gp :- &quot;plot $name u 1:((f(\$1)-\$2) / \$3):(1) w errorbars notit&quot;
+
+# Retrieve values for a, b and c
+a = parse(Float64, exec(&quot;print a&quot;))
+b = parse(Float64, exec(&quot;print b&quot;))
+c = parse(Float64, exec(&quot;print c&quot;))
+
+# Save to a PDF file
+save(term=&quot;pdf&quot;, output=&quot;gnuplot.pdf&quot;)</code></pre><p><strong>Display an image</strong></p><pre><code class="language-none">using TestImages
+img = testimage(&quot;lena&quot;);
+@gp img &quot;w image&quot;
+@gp &quot;set size square&quot; img &quot;w rgbimage&quot; # Color image with correct proportions
+@gp &quot;set size square&quot; img &quot;u 2:(-\$1):3:4:5 with rgbimage&quot; # Correct orientation</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.@gsp" href="#Gnuplot.@gsp"><code>Gnuplot.@gsp</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><p><strong>@gsp</strong></p><p>See documentation for <code>@gp</code>.</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.CheckGnuplotVersion" href="#Gnuplot.CheckGnuplotVersion"><code>Gnuplot.CheckGnuplotVersion</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><strong>CheckGnuplotVersion</strong></p><p>Check whether gnuplot is runnable with the command given in <code>cmd</code>.   Also check that gnuplot version is &gt;= 4.7 (required to use data   blocks).</p></div></div></section><pre><code class="language-none">Gnuplot.Concrete_DrySession</code></pre><pre><code class="language-none">Gnuplot.Concrete_Session</code></pre><pre><code class="language-none">Gnuplot.DataSource</code></pre><pre><code class="language-none">Gnuplot.DrySession</code></pre><pre><code class="language-none">Gnuplot.Gnuplot</code></pre><pre><code class="language-none">Gnuplot.PackedDataAndCmds</code></pre><pre><code class="language-none">Gnuplot.Session</code></pre><pre><code class="language-none">Gnuplot.SinglePlot</code></pre><pre><code class="language-none">Gnuplot.State</code></pre><pre><code class="language-none">Gnuplot.__init__</code></pre><pre><code class="language-none">Gnuplot.driver</code></pre><pre><code class="language-none">Gnuplot.eval</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.exec" href="#Gnuplot.exec"><code>Gnuplot.exec</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>exec(sid::Symbol, s::Vector{String})</code></p><p>Directly execute commands on the underlying Gnuplot process, and return the result(s).</p><p><strong>Examples:</strong></p><pre><code class="language-julia">exec(&quot;print GPVAL_TERM&quot;)
+exec(&quot;plot sin(x)&quot;)</code></pre></div></div></section><pre><code class="language-none">Gnuplot.getsession</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.gnuplot" href="#Gnuplot.gnuplot"><code>Gnuplot.gnuplot</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>gnuplot(sid::Symbol)</code></p><p><code>gnuplot(sid::Symbol, cmd::AbstractString)</code></p><p>Initialize a new session and (optionally) the associated Gnuplot process</p><p><strong>Arguments:</strong></p><ul><li><code>sid</code>: the session name (a Julia symbol);</li><li><code>cmd</code>: a string specifying the complete file path to a gnuplot executable.  If not given a <em>dry</em> session will be created, i.e. a session without underlying gnuplot process.</li></ul></div></div></section><pre><code class="language-none">Gnuplot.hist</code></pre><pre><code class="language-none">Gnuplot.include</code></pre><pre><code class="language-none">Gnuplot.internal_save</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.newcmd" href="#Gnuplot.newcmd"><code>Gnuplot.newcmd</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><strong>newcmd</strong></p><p>Send a command to gnuplot process and store it in the current session.</p></div></div></section><pre><code class="language-none">Gnuplot.newdatasource</code></pre><pre><code class="language-none">Gnuplot.newplotelem</code></pre><pre><code class="language-none">Gnuplot.parseKeywords</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.quit" href="#Gnuplot.quit"><code>Gnuplot.quit</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>quit()</code></p><p>Quit the session and the associated gnuplot process (if any).</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.quitall" href="#Gnuplot.quitall"><code>Gnuplot.quitall</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>quitall()</code></p><p>Quit all the sessions and the associated gnuplot processes.</p></div></div></section><pre><code class="language-none">Gnuplot.quitsession</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.save" href="#Gnuplot.save"><code>Gnuplot.save</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>save(...)</code></p><p>Save the data and commands in the current session to either:</p><ul><li>the gnuplot process (i.e. produce a plot): <code>save(term=&quot;&quot;, output=&quot;&quot;)</code>;</li><li>an IO stream: <code>save(stream::IO; term=&quot;&quot;, output=&quot;&quot;)</code>;</li><li>a file: <code>save(file::AbstractStrings; term=&quot;&quot;, output=&quot;&quot;)</code>.</li></ul><p>To save the data and command from a specific session pass the ID as first argument, i.e.:</p><ul><li><code>save(sid::Symbol, term=&quot;&quot;, output=&quot;&quot;)</code>;</li><li><code>save(sid::Symbol, stream::IO; term=&quot;&quot;, output=&quot;&quot;)</code>;</li><li><code>save(sid::Symbol, file::AbstractStrings; term=&quot;&quot;, output=&quot;&quot;)</code>.</li></ul><p>In all cases the <code>term</code> keyword allows to specify a gnuplot terminal, and the <code>output</code> keyword allows to specify an output file.</p></div></div></section><pre><code class="language-none">Gnuplot.setWindowTitle</code></pre><pre><code class="language-none">Gnuplot.setmulti</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Gnuplot.setverbose" href="#Gnuplot.setverbose"><code>Gnuplot.setverbose</code></a> — <span class="docstring-category">Function</span>.</div><div><div><p><code>setverbose(b::Bool)</code></p><p>Set verbose flag to <code>true</code> or <code>false</code> (default: <code>false</code>).</p></div></div></section><pre><code class="language-none">Gnuplot.state</code></pre><pre><code class="language-none">Gnuplot.writeread</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

@@ -1,0 +1,69 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "CUDAnative"
+owner = "JuliaGPU"
+version = "1.0.1"
+description = "Julia support for native CUDA programming"
+stargazers_count = "242"
+url = "https://github.com/JuliaGPU/CUDAnative.jl.git"
+installs = true
+tags = ["julia", "julia-library", "cuda", "cuda-toolkit"]
+license = "MIT License"
+
+[[contributors]]
+name = "maleadt"
+contributions = "1396"
+[[contributors]]
+name = "lindahua"
+contributions = "18"
+[[contributors]]
+name = "bors[bot]"
+contributions = "17"
+[[contributors]]
+name = "vchuravy"
+contributions = "14"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "9"
+[[contributors]]
+name = "MikeInnes"
+contributions = "3"
+[[contributors]]
+name = "xu3kev"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "cfoket"
+contributions = "1"
+[[contributors]]
+name = "colbec"
+contributions = "1"
+[[contributors]]
+name = "dpsanders"
+contributions = "1"
+[[contributors]]
+name = "jekbradbury"
+contributions = "1"
+[[contributors]]
+name = "una-dinosauria"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "floswald"
+contributions = "1"
+[[contributors]]
+name = "steven-delbeke"
+contributions = "1"
+[[contributors]]
+name = "xiaodaigh"
+contributions = "1"

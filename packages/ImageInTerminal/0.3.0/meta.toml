@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "ImageInTerminal"
+owner = "JuliaImages"
+version = "0.3.0"
+description = "Julia package for displaying images in the terminal using ANSI colors and Unicode characters"
+stargazers_count = "21"
+url = "https://github.com/JuliaImages/ImageInTerminal.jl.git"
+installs = true
+tags = ["julia", "repl", "terminal", "unicode", "ansi-colors", "image-viewer"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "60"
+[[contributors]]
+name = "timholy"
+contributions = "4"
+[[contributors]]
+name = "RalphAS"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

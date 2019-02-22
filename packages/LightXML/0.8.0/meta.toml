@@ -1,0 +1,93 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "LightXML"
+owner = "JuliaIO"
+version = "0.8.0"
+description = "A light-weight Julia package for XML based on libxml2."
+stargazers_count = "35"
+url = "https://github.com/JuliaIO/LightXML.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "lindahua"
+contributions = "46"
+[[contributors]]
+name = "tkelman"
+contributions = "42"
+[[contributors]]
+name = "musm"
+contributions = "9"
+[[contributors]]
+name = "ScottPJones"
+contributions = "8"
+[[contributors]]
+name = "olofsen"
+contributions = "6"
+[[contributors]]
+name = "garborg"
+contributions = "5"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "jlegare"
+contributions = "2"
+[[contributors]]
+name = "paulogeyer"
+contributions = "2"
+[[contributors]]
+name = "robertfeldt"
+contributions = "2"
+[[contributors]]
+name = "stevengj"
+contributions = "2"
+[[contributors]]
+name = "freeboson"
+contributions = "2"
+[[contributors]]
+name = "jw3126"
+contributions = "2"
+[[contributors]]
+name = "bicycle1885"
+contributions = "2"
+[[contributors]]
+name = "dmbates"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "felipenoris"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"
+[[contributors]]
+name = "kmsquire"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "hofmannmartin"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "tkoolen"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PrePostCall"
+owner = "sebastianpech"
+version = "0.0.2"
+description = "Intuitive syntax for adding preceding and subsequent function calls to other functions"
+stargazers_count = "1"
+url = "https://github.com/sebastianpech/PrePostCall.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "sebastianpech"
+contributions = "14"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "HackerNews"
+owner = "rahulkp220"
+version = "0.1.0"
+description = "The unofficial Julia API wrapper for HackerNews :fire:"
+stargazers_count = "26"
+url = "https://github.com/rahulkp220/HackerNews.jl.git"
+installs = true
+tags = ["hackernews", "julia-language", "julia-package", "hackernews-api"]
+license = "Other"
+
+[[contributors]]
+name = "rahulkp220"
+contributions = "33"
+[[contributors]]
+name = "polytomous"
+contributions = "1"

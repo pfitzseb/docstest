@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ZOOclient"
+owner = "eyounx"
+version = "0.1.3"
+description = "Client of distributed ZOOpt in Julia"
+stargazers_count = "6"
+url = "https://github.com/eyounx/ZOOclient.jl.git"
+installs = true
+tags = ["derivative-free", "optimization", "machine-learning"]
+license = "Other"
+
+[[contributors]]
+name = "AlexLiuyuren"
+contributions = "119"
+[[contributors]]
+name = "eyounx"
+contributions = "2"

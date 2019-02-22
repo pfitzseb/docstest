@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "SaferIntegers"
+owner = "JeffreySarnoff"
+version = "1.0.1"
+description = "These integer types use checked arithmetic, in other respects they behave as ordinary Ints."
+stargazers_count = "24"
+url = "https://github.com/JeffreySarnoff/SaferIntegers.jl.git"
+installs = true
+tags = ["overflow", "signed", "unsigned", "underflow", "checked-arithmetic", "integer"]
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "565"

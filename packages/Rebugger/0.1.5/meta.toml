@@ -1,0 +1,51 @@
+license_url = ""
+doctype = "real"
+name = "Rebugger"
+owner = "timholy"
+version = "0.1.5"
+description = "An expression-level debugger for Julia with a provocative command-line (REPL) user interface"
+stargazers_count = "126"
+url = "https://github.com/timholy/Rebugger.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "135"
+[[contributors]]
+name = "tkf"
+contributions = "2"
+[[contributors]]
+name = "stillyslalom"
+contributions = "1"
+[[contributors]]
+name = "ikselven"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "oschulz"
+contributions = "1"
+[[contributors]]
+name = "roberthoenig"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "adamryczkowski"
+contributions = "1"

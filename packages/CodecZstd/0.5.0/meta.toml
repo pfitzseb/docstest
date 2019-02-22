@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CodecZstd"
+owner = "bicycle1885"
+version = "0.5.0"
+description = "A zstd codec for TranscodingStreams.jl."
+stargazers_count = "3"
+url = "https://github.com/bicycle1885/CodecZstd.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "36"

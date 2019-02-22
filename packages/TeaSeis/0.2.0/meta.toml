@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/epl-1.0"
+doctype = "default"
+name = "TeaSeis"
+owner = "ChevronETC"
+version = "0.2.0"
+description = "JavaSeis IO implementation for the Julia language"
+stargazers_count = "6"
+url = "https://github.com/ChevronETC/TeaSeis.jl.git"
+installs = true
+tags = ["javaseis", "seismic", "io", "file-format", "julialang"]
+license = "Eclipse Public License 1.0"
+
+[[contributors]]
+name = "samtkaplan"
+contributions = "68"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

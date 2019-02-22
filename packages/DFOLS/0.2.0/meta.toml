@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "DFOLS"
+owner = "QuantEcon"
+version = "0.2.0"
+description = ""
+stargazers_count = "2"
+url = "https://github.com/QuantEcon/DFOLS.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "arnavs"
+contributions = "31"
+[[contributors]]
+name = "jlperla"
+contributions = "1"

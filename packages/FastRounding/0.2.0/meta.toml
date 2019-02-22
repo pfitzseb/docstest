@@ -1,0 +1,30 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "FastRounding"
+owner = "JeffreySarnoff"
+version = "0.2.0"
+description = "Faster directed rounding for inline arithmetic"
+stargazers_count = "5"
+url = "https://github.com/JeffreySarnoff/FastRounding.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "205"
+[[contributors]]
+name = "jeffreysarnoff-dev"
+contributions = "28"
+[[contributors]]
+name = "miguelraz"
+contributions = "5"
+[[contributors]]
+name = "dpsanders"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"

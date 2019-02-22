@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ViZDoom"
+owner = "JuliaReinforcementLearning"
+version = "0.1.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaReinforcementLearning/ViZDoom.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jbrea"
+contributions = "13"
+[[contributors]]
+name = "findmyway"
+contributions = "1"

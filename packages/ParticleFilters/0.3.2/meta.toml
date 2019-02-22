@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "real"
+name = "ParticleFilters"
+owner = "JuliaPOMDP"
+version = "0.3.2"
+description = "Simple particle filter implementation in Julia - works with POMDPs.jl models or others."
+stargazers_count = "10"
+url = "https://github.com/JuliaPOMDP/ParticleFilters.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "zsunberg"
+contributions = "76"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "1"
+[[contributors]]
+name = "lassepe"
+contributions = "1"
+[[contributors]]
+name = "dressel"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

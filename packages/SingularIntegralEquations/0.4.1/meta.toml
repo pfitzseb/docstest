@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SingularIntegralEquations"
+owner = "JuliaApproximation"
+version = "0.4.1"
+description = "Julia package for solving singular integral equations and Riemann–Hilbert problems"
+stargazers_count = "20"
+url = "https://github.com/JuliaApproximation/SingularIntegralEquations.jl.git"
+installs = true
+tags = ["julia", "helmholtz-equation", "singular-integral-equations", "laplace-equation", "riemann-hilbert-problems"]
+license = "Other"
+
+[[contributors]]
+name = "dlfivefifty"
+contributions = "448"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "315"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"

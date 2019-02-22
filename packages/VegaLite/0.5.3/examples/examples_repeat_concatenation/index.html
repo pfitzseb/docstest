@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Repeat &amp; Concatenation · VegaLite.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>VegaLite.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Getting Started</span><ul><li><a class="toctext" href="../../gettingstarted/installation/">Installation</a></li><li><a class="toctext" href="../../gettingstarted/tutorial/">Tutorial</a></li></ul></li><li><span class="toctext">User Guide</span><ul><li><a class="toctext" href="../../userguide/vlspec/">Vega-lite specifications</a></li><li><a class="toctext" href="../../userguide/vlplotmacro/">The @vlplot command</a></li><li><a class="toctext" href="../../userguide/data/">Data sources</a></li></ul></li><li><span class="toctext">Examples</span><ul><li><a class="toctext" href="../examples_simplecharts/">Simple Charts</a></li><li><span class="toctext">Single-View Plots</span><ul><li><a class="toctext" href="../examples_barchartshistograms/">Bar Charts &amp; Histograms</a></li><li><a class="toctext" href="../examples_scatter_strip_plots/">Scatter &amp; Strip Plots</a></li><li><a class="toctext" href="../examples_line_charts/">Line Charts</a></li><li><a class="toctext" href="../examples_area_Charts_streamgraphs/">Area Charts &amp; Streamgraphs</a></li><li><a class="toctext" href="../examples_table_based_plots/">Table-based Plots</a></li></ul></li><li><span class="toctext">Layered Plots</span><ul><li><a class="toctext" href="../examples_error_bars_bands/">Error Bars &amp; Error Bands</a></li><li><a class="toctext" href="../examples_box_plots/">Box Plots</a></li></ul></li><li><span class="toctext">Multi-View Displays</span><ul><li><a class="toctext" href="../examples_faceting/">Faceting (Trellis Plot / Small Multiples)</a></li><li class="current"><a class="toctext" href>Repeat &amp; Concatenation</a><ul class="internal"><li><a class="toctext" href="#Repeat-and-layer-to-show-different-weather-measures-1">Repeat and layer to show different weather measures</a></li><li><a class="toctext" href="#Vertically-concatenated-charts-that-show-precipitation-in-Seattle-1">Vertically concatenated charts that show precipitation in Seattle</a></li><li><a class="toctext" href="#Horizontally-repeated-charts-1">Horizontally repeated charts</a></li><li><a class="toctext" href="#Interactive-Scatterplot-Matrix-1">Interactive Scatterplot Matrix</a></li></ul></li></ul></li><li><a class="toctext" href="../examples_maps/">Maps (Geographic Displays)</a></li></ul></li><li><span class="toctext">Reference Manual</span><ul><li><a class="toctext" href="../../referencemanual/global/">Global settings</a></li><li><a class="toctext" href="../../referencemanual/output/">Outputs</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Examples</li><li>Multi-View Displays</li><li><a href>Repeat &amp; Concatenation</a></li></ul></nav><hr/><div id="topbar"><span>Repeat &amp; Concatenation</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Repeat-and-Concatenation-1" href="#Repeat-and-Concatenation-1">Repeat &amp; Concatenation</a></h1><h2><a class="nav-anchor" id="Repeat-and-layer-to-show-different-weather-measures-1" href="#Repeat-and-layer-to-show-different-weather-measures-1">Repeat and layer to show different weather measures</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;weather.csv&quot;) |&gt;
+@vlplot(repeat={column=[:temp_max,:precipitation,:wind]}) +
+(
+    @vlplot() +
+    @vlplot(
+        :line,
+        y={field={repeat=:column},aggregate=:mean,typ=:quantitative},
+        x=&quot;month(date):o&quot;,
+        detail=&quot;year(date):t&quot;,
+        color=:location,
+        opacity={value=0.2}
+    ) +
+    @vlplot(
+        :line,
+        y={field={repeat=:column},aggregate=:mean,typ=:quantitative},
+        x=&quot;month(date):o&quot;,
+        color=:location
+    )
+)</code></pre><h2><a class="nav-anchor" id="Vertically-concatenated-charts-that-show-precipitation-in-Seattle-1" href="#Vertically-concatenated-charts-that-show-precipitation-in-Seattle-1">Vertically concatenated charts that show precipitation in Seattle</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;weather.csv&quot;) |&gt;
+@vlplot(transform=[{filter=&quot;datum.location === &#39;Seattle&#39;&quot;}]) +
+[
+    @vlplot(:bar,x=&quot;month(date):o&quot;,y=&quot;mean(precipitation)&quot;);
+    @vlplot(:point,x={:temp_min, bin=true}, y={:temp_max, bin=true}, size=&quot;count()&quot;)
+]</code></pre><h2><a class="nav-anchor" id="Horizontally-repeated-charts-1" href="#Horizontally-repeated-charts-1">Horizontally repeated charts</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt;
+@vlplot(repeat={column=[:Horsepower, :Miles_per_Gallon, :Acceleration]}) +
+@vlplot(
+    :bar,
+    x={field={repeat=:column},bin=true,typ=:quantitative},
+    y=&quot;count()&quot;,
+    color=:Origin
+)</code></pre><h2><a class="nav-anchor" id="Interactive-Scatterplot-Matrix-1" href="#Interactive-Scatterplot-Matrix-1">Interactive Scatterplot Matrix</a></h2><pre><code class="language-">using VegaLite, VegaDatasets
+
+dataset(&quot;cars&quot;) |&gt; 
+@vlplot(
+    repeat={
+        row=[:Horsepower, :Acceleration, :Miles_per_Gallon],
+        column=[:Miles_per_Gallon, :Acceleration, :Horsepower]
+    }
+) +
+@vlplot(
+    :point,
+    selection={
+        brush={
+            typ=:interval,
+            resolve=:union,
+            on=&quot;[mousedown[event.shiftKey], window:mouseup] &gt; window:mousemove!&quot;,
+            translate=&quot;[mousedown[event.shiftKey], window:mouseup] &gt; window:mousemove!&quot;,
+            zoom=&quot;wheel![event.shiftKey]&quot;
+        },
+        grid={
+            typ=:interval,
+            resolve=:global,
+            bind=:scales,
+            translate=&quot;[mousedown[!event.shiftKey], window:mouseup] &gt; window:mousemove!&quot;,
+            zoom=&quot;wheel![!event.shiftKey]&quot;
+        }
+    },
+    x={field={repeat=:column}, typ=:quantitative},
+    y={field={repeat=:row}, typ=:quantitative},
+    color={
+        condition={
+            selection=:brush,
+            field=:Origin,
+            typ=:nominal
+        },
+        value=:grey
+    }
+)</code></pre><footer><hr/><a class="previous" href="../examples_faceting/"><span class="direction">Previous</span><span class="title">Faceting (Trellis Plot / Small Multiples)</span></a><a class="next" href="../examples_maps/"><span class="direction">Next</span><span class="title">Maps (Geographic Displays)</span></a></footer></article></body></html>

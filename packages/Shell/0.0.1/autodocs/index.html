@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Shell.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Shell.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.@esc_cmd" href="#Shell.@esc_cmd"><code>Shell.@esc_cmd</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@esc_str -&gt; String</code></pre><p>Help you escape special characters for the shell.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; files = [&quot;temp file 1&quot;, &quot;temp file 2&quot;]
+2-element Array{String,1}:
+ &quot;temp file 1&quot;
+ &quot;temp file 2&quot;
+
+julia&gt; filelist = esc`$files.txt`
+&quot;&#39;temp file 1.txt&#39; &#39;temp file 2.txt&#39;&quot;
+
+julia&gt; Shell.run(&quot;touch $filelist&quot;)
+
+julia&gt; Shell.run(&quot;rm $filelist&quot;)</code></pre><p>Be careful, the escape treat space separated terms individually. Put them into a varible to get properly escaped.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; esc`temp file 0.txt`
+&quot;temp file 0.txt&quot;
+
+julia&gt; file = &quot;temp file 0.txt&quot;
+&quot;temp file 0.txt&quot;
+
+julia&gt; esc`$file`
+&quot;&#39;temp file 0.txt&#39;&quot;</code></pre><ul><li>Not working for <code>cmd</code> in Windows because it treats single quotes differently.</li></ul></div></div></section><pre><code class="language-none">Shell.CAPTURE</code></pre><pre><code class="language-none">Shell.CHOMP</code></pre><pre><code class="language-none">Shell.DRYRUN</code></pre><pre><code class="language-none">Shell.SHELL</code></pre><pre><code class="language-none">Shell.SOURCE</code></pre><pre><code class="language-none">Shell.Shell</code></pre><pre><code class="language-none">Shell.eval</code></pre><pre><code class="language-none">Shell.include</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.run" href="#Shell.run"><code>Shell.run</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">run(cmd::AbstractString; shell=SHELL, capture=CAPTURE, chomp=CHOMP,
+    dryrun=DRYRUN, source=SOURCE)</code></pre><p>Run your command string in shell.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; using Shell
+
+julia&gt; Shell.run(raw&quot;echo $SHELL&quot;, capture=true)
+&quot;/bin/zsh&quot;
+
+julia&gt; Shell.run(raw&quot;for i in bu fan; do echo $i; done&quot;)
+bu
+fan
+
+julia&gt; files = [&quot;temp file 1&quot;, &quot;temp file 2&quot;]
+2-element Array{String,1}:
+ &quot;temp file 1&quot;
+ &quot;temp file 2&quot;
+
+julia&gt; filelist = esc`$files.txt`
+&quot;&#39;temp file 1.txt&#39; &#39;temp file 2.txt&#39;&quot;
+
+julia&gt; Shell.run(&quot;touch $filelist&quot;)
+
+julia&gt; Shell.run(&quot;ls &gt; &#39;temp file 0.txt&#39;&quot;)
+
+julia&gt; Shell.run(&quot;cat &#39;temp file 0.txt&#39; | grep temp&quot;)
+temp file 0.txt
+temp file 1.txt
+temp file 2.txt
+
+julia&gt; Shell.run(&quot;rm &#39;temp file&#39;*&quot;)</code></pre><ul><li>You should properly escape all special characters manually.</li><li>use <code>dryrun=true</code> to check the command to be run without actually running.</li><li>To capture output, set <code>capture=true</code>.</li><li>To avoid escaping <code>$</code> everytime, you can use raw string, like <code>raw&quot;echo $PATH&quot;</code></li><li>You can change the default shell (<code>zsh</code> in linux and <code>cmd</code> in windows) using <code>setshell(&quot;other_shell&quot;)</code>.</li><li>In Windows, shell should be <code>cmd</code> or <code>powershell</code>.</li></ul></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.setchomp" href="#Shell.setchomp"><code>Shell.setchomp</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setchomp(chomp::Bool)</code></pre><p>Set whether chomp the output (default is true).</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.setiscapture" href="#Shell.setiscapture"><code>Shell.setiscapture</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setiscapture(capture::Bool)</code></pre><p>Whether capture the rc file (e.g. <code>.zshrc</code>) before run script (default is true).</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.setisdryrun" href="#Shell.setisdryrun"><code>Shell.setisdryrun</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setisdryrun(dryrun::Bool)</code></pre><p>Whether dryrun the rc file (e.g. <code>.zshrc</code>) before run script (default is true).</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.setissource" href="#Shell.setissource"><code>Shell.setissource</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setissource(source::Bool)</code></pre><p>Whether source the rc file (e.g. <code>.zshrc</code>) before run script (default is true).</p></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Shell.setshell" href="#Shell.setshell"><code>Shell.setshell</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">setshell(shell::AbstractString)</code></pre><p>Specify which shell to use (Windows defaults to <code>cmd</code>, and <code>zsh</code> otherwise).</p></div></div></section><pre><code class="language-none">Shell.shell_source</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

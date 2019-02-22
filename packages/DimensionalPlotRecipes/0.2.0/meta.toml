@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "DimensionalPlotRecipes"
+owner = "JuliaDiffEq"
+version = "0.2.0"
+description = "High dimensional numbers and reductions recipes for Plots.jl"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiffEq/DimensionalPlotRecipes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "21"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "jagot"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

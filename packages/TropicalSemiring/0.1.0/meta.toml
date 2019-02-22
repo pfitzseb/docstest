@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "TropicalSemiring"
+owner = "saschatimme"
+version = "0.1.0"
+description = "Computations in the tropical semi-ring (either max or min convention)"
+stargazers_count = "0"
+url = "https://github.com/saschatimme/TropicalSemiring.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "saschatimme"
+contributions = "13"

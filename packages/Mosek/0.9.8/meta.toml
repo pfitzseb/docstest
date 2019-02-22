@@ -1,0 +1,69 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "Mosek"
+owner = "JuliaOpt"
+version = "0.9.8"
+description = "Interface to the Mosek solver in Julia"
+stargazers_count = "20"
+url = "https://github.com/JuliaOpt/Mosek.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "ulfworsoe"
+contributions = "414"
+[[contributors]]
+name = "mlubin"
+contributions = "40"
+[[contributors]]
+name = "joehuchette"
+contributions = "37"
+[[contributors]]
+name = "wflu"
+contributions = "36"
+[[contributors]]
+name = "blegat"
+contributions = "8"
+[[contributors]]
+name = "IainNZ"
+contributions = "7"
+[[contributors]]
+name = "chriscoey"
+contributions = "7"
+[[contributors]]
+name = "iamed2"
+contributions = "3"
+[[contributors]]
+name = "omus"
+contributions = "2"
+[[contributors]]
+name = "mtanneau"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "rofinn"
+contributions = "2"
+[[contributors]]
+name = "JonathanAnderson"
+contributions = "1"
+[[contributors]]
+name = "MFairley"
+contributions = "1"
+[[contributors]]
+name = "krislock"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"
+[[contributors]]
+name = "stephentu"
+contributions = "1"
+[[contributors]]
+name = "kaarthiksundar"
+contributions = "1"

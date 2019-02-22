@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "Dagger"
+owner = "JuliaParallel"
+version = "0.6.2"
+description = "A framework for out-of-core and parallel execution"
+stargazers_count = "129"
+url = "https://github.com/JuliaParallel/Dagger.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shashi"
+contributions = "243"
+[[contributors]]
+name = "tanmaykm"
+contributions = "21"
+[[contributors]]
+name = "bicycle1885"
+contributions = "7"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "6"
+[[contributors]]
+name = "pranavtbhat"
+contributions = "6"
+[[contributors]]
+name = "ViralBShah"
+contributions = "4"
+[[contributors]]
+name = "andreasnoack"
+contributions = "4"
+[[contributors]]
+name = "rohitvarkey"
+contributions = "3"
+[[contributors]]
+name = "ScottPJones"
+contributions = "2"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "donm"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "ivirshup"
+contributions = "1"
+[[contributors]]
+name = "MikeInnes"
+contributions = "1"
+[[contributors]]
+name = "tk3369"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "scls19fr"
+contributions = "1"
+[[contributors]]
+name = "teresy"
+contributions = "1"

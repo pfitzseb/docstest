@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "FeatherLib"
+owner = "queryverse"
+version = "0.1.3"
+description = "Low level Julia library for reading feather files"
+stargazers_count = "2"
+url = "https://github.com/queryverse/FeatherLib.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "quinnj"
+contributions = "119"
+[[contributors]]
+name = "davidanthoff"
+contributions = "52"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "33"
+[[contributors]]
+name = "dmbates"
+contributions = "20"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "ararslan"
+contributions = "1"
+[[contributors]]
+name = "barche"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "FFTViews"
+owner = "JuliaArrays"
+version = "0.2.0"
+description = "Julia package for fast fourier transforms and periodic views"
+stargazers_count = "5"
+url = "https://github.com/JuliaArrays/FFTViews.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "30"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

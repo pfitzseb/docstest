@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MeshCat"
+owner = "rdeits"
+version = "0.6.0"
+description = "WebGL-based 3D visualizer in Julia"
+stargazers_count = "52"
+url = "https://github.com/rdeits/MeshCat.jl.git"
+installs = true
+tags = ["julia-language", "3d-graphics"]
+license = "MIT License"
+
+[[contributors]]
+name = "rdeits"
+contributions = "263"
+[[contributors]]
+name = "tkoolen"
+contributions = "14"
+[[contributors]]
+name = "ryanelandt"
+contributions = "4"
+[[contributors]]
+name = "blegat"
+contributions = "2"
+[[contributors]]
+name = "Affie"
+contributions = "2"
+[[contributors]]
+name = "traversaro"
+contributions = "1"
+[[contributors]]
+name = "cserteGT3"
+contributions = "1"
+[[contributors]]
+name = "dehann"
+contributions = "1"

@@ -1,0 +1,54 @@
+license_url = ""
+doctype = "default"
+name = "POMDPModels"
+owner = "JuliaPOMDP"
+version = "0.3.5"
+description = "Problem models for testing POMDPs.jl"
+stargazers_count = "10"
+url = "https://github.com/JuliaPOMDP/POMDPModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "zsunberg"
+contributions = "157"
+[[contributors]]
+name = "etotheipluspi"
+contributions = "87"
+[[contributors]]
+name = "MaximeBouton"
+contributions = "33"
+[[contributors]]
+name = "rejuvyesh"
+contributions = "12"
+[[contributors]]
+name = "cho3"
+contributions = "3"
+[[contributors]]
+name = "ptoman"
+contributions = "3"
+[[contributors]]
+name = "tawheeler"
+contributions = "2"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "dressel"
+contributions = "2"
+[[contributors]]
+name = "jbrea"
+contributions = "2"
+[[contributors]]
+name = "Divide-By-0"
+contributions = "1"
+[[contributors]]
+name = "Shushman"
+contributions = "1"
+[[contributors]]
+name = "chsin"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

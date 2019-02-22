@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "TSne"
+owner = "lejon"
+version = "1.2.0"
+description = "Julia port of L.J.P. van der Maaten and G.E. Hintons T-SNE visualisation technique."
+stargazers_count = "87"
+url = "https://github.com/lejon/TSne.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "alyst"
+contributions = "82"
+[[contributors]]
+name = "lejon"
+contributions = "55"
+[[contributors]]
+name = "juliohm"
+contributions = "2"
+[[contributors]]
+name = "zhmz90"
+contributions = "1"
+[[contributors]]
+name = "anj1"
+contributions = "1"

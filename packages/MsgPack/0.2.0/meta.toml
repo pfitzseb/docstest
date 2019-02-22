@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "MsgPack"
+owner = "JuliaIO"
+version = "0.2.0"
+description = "MessagePack serializer implementation for Julia / msgpack.org[Julia]"
+stargazers_count = "28"
+url = "https://github.com/JuliaIO/MsgPack.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "24"
+[[contributors]]
+name = "Sean1708"
+contributions = "10"
+[[contributors]]
+name = "sbillig"
+contributions = "8"
+[[contributors]]
+name = "binarybana"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "nhynes"
+contributions = "1"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

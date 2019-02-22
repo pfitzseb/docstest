@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "WorldBankData"
+owner = "4gh"
+version = "0.2.0"
+description = "Access to World Bank data for Julia"
+stargazers_count = "9"
+url = "https://github.com/4gh/WorldBankData.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "4gh"
+contributions = "39"
+[[contributors]]
+name = "davidanthoff"
+contributions = "3"
+[[contributors]]
+name = "abcsds"
+contributions = "1"
+[[contributors]]
+name = "pkofod"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "OnlinePackage"
+owner = "bramtayl"
+version = "0.1.3"
+description = "Create packages quickly"
+stargazers_count = "2"
+url = "https://github.com/bramtayl/OnlinePackage.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bramtayl"
+contributions = "48"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "OAuth"
+owner = "randyzwitch"
+version = "0.7.1"
+description = "Pure Julia implementation of OAuth v1.0a"
+stargazers_count = "12"
+url = "https://github.com/randyzwitch/OAuth.jl.git"
+installs = true
+tags = ["julia", "liboauth", "twitter"]
+license = "Other"
+
+[[contributors]]
+name = "randyzwitch"
+contributions = "62"
+[[contributors]]
+name = "jbn"
+contributions = "12"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "BioCore"
+owner = "BioJulia"
+version = "2.0.5"
+description = "Core types and interfaces for BioJulia packages"
+stargazers_count = "4"
+url = "https://github.com/BioJulia/BioCore.jl.git"
+installs = true
+tags = ["bioinformatics", "biology", "io"]
+license = "MIT License"
+
+[[contributors]]
+name = "bicycle1885"
+contributions = "4"
+[[contributors]]
+name = "BenJWard"
+contributions = "1"
+[[contributors]]
+name = "dcjones"
+contributions = "1"
+[[contributors]]
+name = "kescobo"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

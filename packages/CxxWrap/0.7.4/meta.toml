@@ -1,0 +1,48 @@
+license_url = ""
+doctype = "default"
+name = "CxxWrap"
+owner = "JuliaInterop"
+version = "0.7.4"
+description = "Package to make C++ libraries available in Julia"
+stargazers_count = "123"
+url = "https://github.com/JuliaInterop/CxxWrap.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "barche"
+contributions = "316"
+[[contributors]]
+name = "SylvainCorlay"
+contributions = "16"
+[[contributors]]
+name = "jstrube"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mdashti"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "ysimillides"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "zhopan77"
+contributions = "1"

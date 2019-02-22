@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "LinearMaps"
+owner = "Jutho"
+version = "2.3.0"
+description = "A Julia package for defining and working with linear maps, also known as linear transformations or linear operators acting on vectors. The only requirement for a LinearMap is that it can act on a vector (by multiplication) efficiently."
+stargazers_count = "58"
+url = "https://github.com/Jutho/LinearMaps.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "50"
+[[contributors]]
+name = "dkarrasch"
+contributions = "15"
+[[contributors]]
+name = "cako"
+contributions = "2"
+[[contributors]]
+name = "hayatoikoma"
+contributions = "2"
+[[contributors]]
+name = "lopezm94"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"

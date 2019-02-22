@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "TightBinding"
+owner = "cometscome"
+version = "0.1.2"
+description = "This can construct the tight-binding model and calculate energies"
+stargazers_count = "2"
+url = "https://github.com/cometscome/TightBinding.jl.git"
+installs = true
+tags = ["band-structure", "graphene", "julia-language", "julialang", "condensed-matter-physics"]
+license = "MIT License"
+
+[[contributors]]
+name = "cometscome"
+contributions = "56"

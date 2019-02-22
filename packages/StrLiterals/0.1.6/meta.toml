@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrLiterals"
+owner = "JuliaString"
+version = "0.1.6"
+description = "Add StringLiterals literals utilizing Strs.jl string types"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/StrLiterals.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "51"

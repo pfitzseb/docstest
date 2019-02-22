@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "QDates"
+owner = "antimon2"
+version = "0.1.0"
+description = "Japanese `Kyūreki` (旧暦) Calendrical Calculations in Julia."
+stargazers_count = "1"
+url = "https://github.com/antimon2/QDates.jl.git"
+installs = true
+tags = ["julia", "julia-package", "calendrical-calculations"]
+license = "Other"
+
+[[contributors]]
+name = "antimon2"
+contributions = "69"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

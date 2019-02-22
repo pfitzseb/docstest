@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "Munkres"
+owner = "FugroRoames"
+version = "0.2.0"
+description = "Munkres algorithm for the optimal assignment problem"
+stargazers_count = "12"
+url = "https://github.com/FugroRoames/Munkres.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "PaulBellette"
+contributions = "12"
+[[contributors]]
+name = "c42f"
+contributions = "7"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "JoshChristie"
+contributions = "2"

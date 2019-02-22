@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "OptimBase"
+owner = "JuliaNLSolvers"
+version = "2.0.0"
+description = "Base functionality for Optim.jl and related packages"
+stargazers_count = "0"
+url = "https://github.com/JuliaNLSolvers/OptimBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "pkofod"
+contributions = "15"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"

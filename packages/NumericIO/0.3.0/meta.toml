@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "NumericIO"
+owner = "ma-laforge"
+version = "0.3.0"
+description = "Fine control over numeric output: Scientific/Engineering/SI-notation +UTF8"
+stargazers_count = "6"
+url = "https://github.com/ma-laforge/NumericIO.jl.git"
+installs = true
+tags = ["si-prefixes", "si-units", "si-notation", "engineering-notation", "scientific-notation"]
+license = "MIT License"
+
+[[contributors]]
+name = "ma-laforge"
+contributions = "21"
+[[contributors]]
+name = "tkelman"
+contributions = "2"

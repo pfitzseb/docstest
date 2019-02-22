@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqUncertainty"
+owner = "JuliaDiffEq"
+version = "1.0.0"
+description = "A component of the DiffEq ecosystem for uncertainty quantification"
+stargazers_count = "1"
+url = "https://github.com/JuliaDiffEq/DiffEqUncertainty.jl.git"
+installs = true
+tags = ["differentialequations", "uncertainty-quantification", "uq"]
+license = "Other"
+
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "27"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

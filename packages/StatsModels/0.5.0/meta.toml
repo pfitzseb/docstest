@@ -1,0 +1,105 @@
+license_url = ""
+doctype = "real"
+name = "StatsModels"
+owner = "JuliaStats"
+version = "0.5.0"
+description = "Specifying, fitting, and evaluating statistical models in Julia"
+stargazers_count = "53"
+url = "https://github.com/JuliaStats/StatsModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kleinschmidt"
+contributions = "53"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "48"
+[[contributors]]
+name = "nalimilan"
+contributions = "31"
+[[contributors]]
+name = "dmbates"
+contributions = "27"
+[[contributors]]
+name = "garborg"
+contributions = "22"
+[[contributors]]
+name = "powerdistribution"
+contributions = "18"
+[[contributors]]
+name = "doobwa"
+contributions = "14"
+[[contributors]]
+name = "andreasnoack"
+contributions = "12"
+[[contributors]]
+name = "simonster"
+contributions = "11"
+[[contributors]]
+name = "ararslan"
+contributions = "10"
+[[contributors]]
+name = "tshort"
+contributions = "8"
+[[contributors]]
+name = "HarlanH"
+contributions = "7"
+[[contributors]]
+name = "timema"
+contributions = "4"
+[[contributors]]
+name = "GordStephen"
+contributions = "3"
+[[contributors]]
+name = "matthieugomez"
+contributions = "3"
+[[contributors]]
+name = "AsafManela"
+contributions = "2"
+[[contributors]]
+name = "Nosferican"
+contributions = "2"
+[[contributors]]
+name = "mkborregaard"
+contributions = "2"
+[[contributors]]
+name = "quinnj"
+contributions = "2"
+[[contributors]]
+name = "adamlabadorf"
+contributions = "1"
+[[contributors]]
+name = "hayd"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "gustafsson"
+contributions = "1"
+[[contributors]]
+name = "lbittarello"
+contributions = "1"
+[[contributors]]
+name = "piever"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

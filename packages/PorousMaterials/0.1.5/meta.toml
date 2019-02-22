@@ -1,0 +1,36 @@
+license_url = "https://api.github.com/licenses/gpl-3.0"
+doctype = "default"
+name = "PorousMaterials"
+owner = "SimonEnsemble"
+version = "0.1.5"
+description = "Julia package towards classical molecular modeling of nanoporous materials"
+stargazers_count = "10"
+url = "https://github.com/SimonEnsemble/PorousMaterials.jl.git"
+installs = true
+tags = []
+license = "GNU General Public License v3.0"
+
+[[contributors]]
+name = "CorySimon"
+contributions = "491"
+[[contributors]]
+name = "ahyork"
+contributions = "182"
+[[contributors]]
+name = "Surluson"
+contributions = "176"
+[[contributors]]
+name = "SimonEnsemble"
+contributions = "53"
+[[contributors]]
+name = "huynmela"
+contributions = "20"
+[[contributors]]
+name = "arosen93"
+contributions = "8"
+[[contributors]]
+name = "CalebLaird"
+contributions = "4"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

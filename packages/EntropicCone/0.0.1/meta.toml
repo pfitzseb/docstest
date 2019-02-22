@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "EntropicCone"
+owner = "blegat"
+version = "0.0.1"
+description = "Entropic Cone approximation and optimization"
+stargazers_count = "5"
+url = "https://github.com/blegat/EntropicCone.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "87"

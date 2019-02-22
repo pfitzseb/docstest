@@ -1,0 +1,54 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ProfileView"
+owner = "timholy"
+version = "0.4.0"
+description = "Visualization of Julia profiling data"
+stargazers_count = "93"
+url = "https://github.com/timholy/ProfileView.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "timholy"
+contributions = "95"
+[[contributors]]
+name = "darwindarak"
+contributions = "9"
+[[contributors]]
+name = "lendle"
+contributions = "4"
+[[contributors]]
+name = "cstjean"
+contributions = "2"
+[[contributors]]
+name = "antoine-levitt"
+contributions = "1"
+[[contributors]]
+name = "ffevotte"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "kersulis"
+contributions = "1"
+[[contributors]]
+name = "oschulz"
+contributions = "1"
+[[contributors]]
+name = "swt30"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "zsunberg"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"

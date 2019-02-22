@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Zeros"
+owner = "perrutquist"
+version = "0.1.0"
+description = "A julia type that represents the number zero."
+stargazers_count = "2"
+url = "https://github.com/perrutquist/Zeros.jl.git"
+installs = true
+tags = ["julia", "value-types"]
+license = "Other"
+
+[[contributors]]
+name = "perrutquist"
+contributions = "39"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

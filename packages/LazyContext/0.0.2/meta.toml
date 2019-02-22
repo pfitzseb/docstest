@@ -1,0 +1,4 @@
+name = "LazyContext"
+installs = false
+url = "https://github.com/bramtayl/LazyContext.jl.git"
+version = "0.0.2"

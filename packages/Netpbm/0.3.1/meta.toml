@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Netpbm"
+owner = "JuliaIO"
+version = "0.3.1"
+description = "Load and save Netpbm images in Julia"
+stargazers_count = "2"
+url = "https://github.com/JuliaIO/Netpbm.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "26"
+[[contributors]]
+name = "ikirill"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

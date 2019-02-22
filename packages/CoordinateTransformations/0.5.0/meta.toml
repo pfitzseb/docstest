@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "CoordinateTransformations"
+owner = "FugroRoames"
+version = "0.5.0"
+description = "A fresh approach to coordinate transformations..."
+stargazers_count = "50"
+url = "https://github.com/FugroRoames/CoordinateTransformations.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "andyferris"
+contributions = "53"
+[[contributors]]
+name = "c42f"
+contributions = "26"
+[[contributors]]
+name = "jw3126"
+contributions = "6"
+[[contributors]]
+name = "rdeits"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "2"
+[[contributors]]
+name = "jrevels"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

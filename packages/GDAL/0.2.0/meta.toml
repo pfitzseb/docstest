@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "GDAL"
+owner = "JuliaGeo"
+version = "0.2.0"
+description = "Thin Julia wrapper for GDAL - Geospatial Data Abstraction Library"
+stargazers_count = "19"
+url = "https://github.com/JuliaGeo/GDAL.jl.git"
+installs = true
+tags = ["julia", "gdal", "ogr", "geo", "geospatial", "raster", "vector", "satellite", "io"]
+license = "Other"
+
+[[contributors]]
+name = "visr"
+contributions = "125"
+[[contributors]]
+name = "yeesian"
+contributions = "6"
+[[contributors]]
+name = "evetion"
+contributions = "3"
+[[contributors]]
+name = "meggart"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Exercism"
+owner = "exercism"
+version = "0.1.1"
+description = "Exercism.jl provides tooling and utility functions to solve exercises on exercism.io in interactive environments such as IJulia notebooks."
+stargazers_count = "0"
+url = "https://github.com/exercism/Exercism.jl.git"
+installs = true
+tags = ["julia", "julia-package", "jupyter-notebook", "exercism"]
+license = "MIT License"
+
+[[contributors]]
+name = "SaschaMann"
+contributions = "13"

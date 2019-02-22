@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "MetaImageFormat"
+owner = "JuliaIO"
+version = "0.2.0"
+description = "Support for reading MetaImage files in Julia"
+stargazers_count = "0"
+url = "https://github.com/JuliaIO/MetaImageFormat.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "9"
+[[contributors]]
+name = "urlicht"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

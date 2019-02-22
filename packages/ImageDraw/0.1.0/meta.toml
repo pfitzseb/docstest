@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "ImageDraw"
+owner = "JuliaImages"
+version = "0.1.0"
+description = "Drawing Package for JuliaImages"
+stargazers_count = "5"
+url = "https://github.com/JuliaImages/ImageDraw.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mronian"
+contributions = "20"
+[[contributors]]
+name = "timholy"
+contributions = "8"
+[[contributors]]
+name = "annimesh2809"
+contributions = "3"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "dskkato"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "tejus-gupta"
+contributions = "1"

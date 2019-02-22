@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · TypedPolynomials.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>TypedPolynomials.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li class="toplevel"><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#More-Examples-1">More Examples</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="TypedPolynomials-1" href="#TypedPolynomials-1">TypedPolynomials</a></h1><p><a href="https://travis-ci.org/JuliaAlgebra/TypedPolynomials.jl"><img src="https://travis-ci.org/JuliaAlgebra/TypedPolynomials.jl.svg?branch=master" alt="Build Status"/></a> <a href="http://codecov.io/github/JuliaAlgebra/TypedPolynomials.jl?branch=master"><img src="http://codecov.io/github/JuliaAlgebra/TypedPolynomials.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>TypedPolynomials.jl provides an implementation of the multivariate polynomial interface from <a href="https://github.com/JuliaAlgebra/MultivariatePolynomials.jl">MultivariatePolynomials.jl</a> using <em>strongly typed</em> variables. That is, in this package, the identity of a variable is encoded by its type, so variables <code>x</code> and <code>y</code> are of different types. This allows us to use the type system to handle certain operations, like computing the intersection of two monomials&#39; variables, at compile-time.</p><h3><a class="nav-anchor" id="Features-1" href="#Features-1">Features</a></h3><ul><li>Handling variables at the type level makes constructing variables, monomials, and terms more efficient than with <a href="https://github.com/JuliaAlgebra/DynamicPolynomials.jl">DynamicPolynomials.jl</a>.</li><li>Despite the heavy use of the type system, this package has no <code>@generated</code> functions and should be compatible with static compilation (though this has not yet been tested).</li></ul><h3><a class="nav-anchor" id="Caveats-1" href="#Caveats-1">Caveats</a></h3><ul><li>There is no distinction in this package between a variable&#39;s <em>name</em> and its identity. That is, two variables named <code>x</code> are exactly the same object, regardless of how they were created.</li><li>For problems with large numbers of variables, or for which the set of variables is not known at compile-time, you may see better performance overall with DynamicPolynomials.jl, e.g. <a href="https://github.com/JuliaAlgebra/TypedPolynomials.jl/issues/32">#32</a>. This may change in the future.</li></ul><h1><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h1><p>The easiest way to create variables is the <code>@polyvar</code> macro:</p><pre><code class="language-julia">julia&gt; @polyvar x y z  # Declare three `Variable`s named x, y, and z and assign local variables with the same names
+(x, y, z)
+
+julia&gt; typeof(x)
+TypedPolynomials.Variable{:x}
+
+julia&gt; typeof(y)
+TypedPolynomials.Variable{:y}</code></pre><p>Multiplying variables creates a <code>Monomial{V}</code> where <code>V</code> is the vector of variables contained in the monomial:</p><pre><code class="language-julia">julia&gt; x * y
+xy
+
+julia&gt; typeof(x * y)
+TypedPolynomials.Monomial{(x, y),2}
+
+julia&gt; typeof(x^2)
+TypedPolynomials.Monomial{(x,),1}</code></pre><p>Multiplying a monomial (or variable) by anything other than another <code>Variable</code> or <code>Monomial</code> creates a <code>Term</code>:</p><pre><code class="language-julia">julia&gt; 3 * x
+3x
+
+julia&gt; typeof(3 * x)
+TypedPolynomials.Term{Int64,TypedPolynomials.Monomial{(x,),1}}
+
+julia&gt; typeof(3.0 * x^2 * y)
+TypedPolynomials.Term{Float64,TypedPolynomials.Monomial{(x, y),2}}</code></pre><p>Addition or subtraction of terms, monomials, and/or variables creates a <code>Polynomial</code>:</p><pre><code class="language-julia">julia&gt; x + y
+x + y
+
+julia&gt; typeof(x + y) &lt;: Polynomial
+true
+
+julia&gt; x + 3y^2 + z/2 + x^3
+x^3 + 3.0y^2 + x + 0.5z</code></pre><h2><a class="nav-anchor" id="More-Examples-1" href="#More-Examples-1">More Examples</a></h2><h3><a class="nav-anchor" id="Differentiation-and-Substitution-1" href="#Differentiation-and-Substitution-1">Differentiation and Substitution</a></h3><pre><code class="language-julia">using TypedPolynomials
+using Test
+@polyvar x y # assigns x (resp. y) to a variable of name x (resp. y)
+p = 2x + 3.0x*y^2 + y
+@test differentiate(p, x) == 3y^2 + 2 # compute the derivative of p with respect to x
+@test differentiate.(p, (x, y)) == (3y^2 + 2, 6*x*y + 1) # compute the gradient of p
+@test p((x, y)=&gt;(y, x)) == 2y + 3y*x^2 + x  # replace any x by y and y by x
+@test p(y=&gt;x^2) == 2x + 3x*(x^4) + x^2 # replace any occurence of y by x^2
+@test p(x=&gt;1, y=&gt;2) == 2 * 1 + 3 * 1 * 2^2 + 2 # evaluate p at [1, 2]</code></pre><h3><a class="nav-anchor" id="Vectors-of-Variables-1" href="#Vectors-of-Variables-1">Vectors of Variables</a></h3><p>The <code>@polyvar</code> macro can also create a tuple of variables automatically:</p><pre><code class="language-julia">using TypedPolynomials
+A = rand(3, 3)
+@polyvar x[1:3] # assign x to a tuple of variables x1, x2, x3
+p = sum(x .* x) # x_1^2 + x_2^2 + x_3^2
+p(x[1]=&gt;2, x[3]=&gt;3) # x_2^2 + 13
+p(x=&gt;A*vec(x)) # corresponds to dot(A*x, A*x), need vec to convert the tuple to a vector</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

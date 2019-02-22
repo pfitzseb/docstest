@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "NetworkLayout"
+owner = "JuliaGraphs"
+version = "0.2.0"
+description = "Layout algorithms for graphs and trees in pure Julia."
+stargazers_count = "20"
+url = "https://github.com/JuliaGraphs/NetworkLayout.jl.git"
+installs = true
+tags = ["graph-visualization"]
+license = "Other"
+
+[[contributors]]
+name = "abhijithanilkumar"
+contributions = "64"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "17"
+[[contributors]]
+name = "tbreloff"
+contributions = "5"
+[[contributors]]
+name = "simonschoelly"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "IainNZ"
+contributions = "1"
+[[contributors]]
+name = "sbromberger"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "afternone"
+contributions = "1"

@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "RangeArrays"
+owner = "JuliaArrays"
+version = "0.3.1"
+description = "Efficient and convenient array data structures where the columns of the arrays are generated (on the fly) by Ranges."
+stargazers_count = "1"
+url = "https://github.com/JuliaArrays/RangeArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mbauman"
+contributions = "35"
+[[contributors]]
+name = "ajkeller34"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

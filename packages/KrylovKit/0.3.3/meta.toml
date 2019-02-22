@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "KrylovKit"
+owner = "Jutho"
+version = "0.3.3"
+description = "Krylov methods for linear problems, eigenvalues, singular values and matrix functions"
+stargazers_count = "26"
+url = "https://github.com/Jutho/KrylovKit.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "118"
+[[contributors]]
+name = "maartenvd"
+contributions = "1"

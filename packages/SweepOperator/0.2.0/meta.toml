@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SweepOperator"
+owner = "joshday"
+version = "0.2.0"
+description = "Symmetric Sweep Operator"
+stargazers_count = "5"
+url = "https://github.com/joshday/SweepOperator.jl.git"
+installs = true
+tags = ["sweep-operator", "julia", "statistics", "linear-models"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "37"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"

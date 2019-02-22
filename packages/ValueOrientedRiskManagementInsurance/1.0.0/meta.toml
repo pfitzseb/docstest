@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "ValueOrientedRiskManagementInsurance"
+owner = "mkriele"
+version = "1.0.0"
+description = "Examples calculations for the book \"Value-Oriented Risk Management of Insurance Companies\""
+stargazers_count = "0"
+url = "https://github.com/mkriele/ValueOrientedRiskManagementInsurance.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mkriele"
+contributions = "62"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

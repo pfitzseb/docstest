@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "UnitlessFlatten"
+owner = "rafaqz"
+version = "0.0.1"
+description = "Deprecated in Favour of Flatten.jl: Struct flattening that strips Unitful units"
+stargazers_count = "0"
+url = "https://github.com/rafaqz/UnitlessFlatten.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rafaqz"
+contributions = "6"

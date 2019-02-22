@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "RiemannComplexNumbers"
+owner = "scheinerman"
+version = "0.1.2"
+description = "Reimplemented complex arithmetic in Julia with a single infinity and NaN."
+stargazers_count = "7"
+url = "https://github.com/scheinerman/RiemannComplexNumbers.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "47"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"

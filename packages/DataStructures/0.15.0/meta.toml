@@ -1,0 +1,285 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "DataStructures"
+owner = "JuliaCollections"
+version = "0.15.0"
+description = "Julia implementation of Data structures"
+stargazers_count = "222"
+url = "https://github.com/JuliaCollections/DataStructures.jl.git"
+installs = true
+tags = ["julia", "data-structures"]
+license = "MIT License"
+
+[[contributors]]
+name = "kmsquire"
+contributions = "166"
+[[contributors]]
+name = "lindahua"
+contributions = "59"
+[[contributors]]
+name = "oxinabox"
+contributions = "44"
+[[contributors]]
+name = "scls19fr"
+contributions = "35"
+[[contributors]]
+name = "yuyichao"
+contributions = "30"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "29"
+[[contributors]]
+name = "rawls238"
+contributions = "21"
+[[contributors]]
+name = "timholy"
+contributions = "18"
+[[contributors]]
+name = "ararslan"
+contributions = "14"
+[[contributors]]
+name = "tkelman"
+contributions = "14"
+[[contributors]]
+name = "DanielArndt"
+contributions = "14"
+[[contributors]]
+name = "dillondaudert"
+contributions = "13"
+[[contributors]]
+name = "kshyatt"
+contributions = "13"
+[[contributors]]
+name = "StephenVavasis"
+contributions = "13"
+[[contributors]]
+name = "quinnj"
+contributions = "12"
+[[contributors]]
+name = "wsliang"
+contributions = "10"
+[[contributors]]
+name = "dpsanders"
+contributions = "9"
+[[contributors]]
+name = "garborg"
+contributions = "7"
+[[contributors]]
+name = "BenLauwens"
+contributions = "6"
+[[contributors]]
+name = "fredrikekre"
+contributions = "6"
+[[contributors]]
+name = "sbromberger"
+contributions = "6"
+[[contributors]]
+name = "martinholters"
+contributions = "5"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "5"
+[[contributors]]
+name = "hayd"
+contributions = "4"
+[[contributors]]
+name = "aviks"
+contributions = "4"
+[[contributors]]
+name = "IainNZ"
+contributions = "4"
+[[contributors]]
+name = "jiahao"
+contributions = "4"
+[[contributors]]
+name = "msainz"
+contributions = "4"
+[[contributors]]
+name = "mlubin"
+contributions = "4"
+[[contributors]]
+name = "srp"
+contributions = "4"
+[[contributors]]
+name = "cstjean"
+contributions = "3"
+[[contributors]]
+name = "jakebolewski"
+contributions = "3"
+[[contributors]]
+name = "vtjnash"
+contributions = "3"
+[[contributors]]
+name = "maxmouchet"
+contributions = "3"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "3"
+[[contributors]]
+name = "nickrobinson251"
+contributions = "3"
+[[contributors]]
+name = "ScottPJones"
+contributions = "3"
+[[contributors]]
+name = "ViralBShah"
+contributions = "3"
+[[contributors]]
+name = "cth"
+contributions = "3"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "omus"
+contributions = "2"
+[[contributors]]
+name = "iamed2"
+contributions = "2"
+[[contributors]]
+name = "kdmurray91"
+contributions = "2"
+[[contributors]]
+name = "pkofod"
+contributions = "2"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "2"
+[[contributors]]
+name = "lendle"
+contributions = "2"
+[[contributors]]
+name = "simonster"
+contributions = "2"
+[[contributors]]
+name = "tjgreen"
+contributions = "2"
+[[contributors]]
+name = "catawbasam"
+contributions = "2"
+[[contributors]]
+name = "smldis"
+contributions = "2"
+[[contributors]]
+name = "sunoru"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"
+[[contributors]]
+name = "abhijithch"
+contributions = "1"
+[[contributors]]
+name = "ahwillia"
+contributions = "1"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "dfdx"
+contributions = "1"
+[[contributors]]
+name = "andrewcooke"
+contributions = "1"
+[[contributors]]
+name = "Aerlinger"
+contributions = "1"
+[[contributors]]
+name = "wildart"
+contributions = "1"
+[[contributors]]
+name = "carlobaldassi"
+contributions = "1"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "1"
+[[contributors]]
+name = "cpitclaudel"
+contributions = "1"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "computo-fc"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "grayclhn"
+contributions = "1"
+[[contributors]]
+name = "goretkin"
+contributions = "1"
+[[contributors]]
+name = "ivarne"
+contributions = "1"
+[[contributors]]
+name = "garrison"
+contributions = "1"
+[[contributors]]
+name = "malmaud"
+contributions = "1"
+[[contributors]]
+name = "joshday"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "bicycle1885"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "ludvigk"
+contributions = "1"
+[[contributors]]
+name = "mcognetta"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "nolta"
+contributions = "1"
+[[contributors]]
+name = "neveritt"
+contributions = "1"
+[[contributors]]
+name = "pwl"
+contributions = "1"
+[[contributors]]
+name = "ranjanan"
+contributions = "1"
+[[contributors]]
+name = "RaviMohan"
+contributions = "1"
+[[contributors]]
+name = "Roger-luo"
+contributions = "1"
+[[contributors]]
+name = "samuelpowell"
+contributions = "1"
+[[contributors]]
+name = "tbreloff"
+contributions = "1"
+[[contributors]]
+name = "toblux"
+contributions = "1"
+[[contributors]]
+name = "tawheeler"
+contributions = "1"
+[[contributors]]
+name = "tynsh"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "femtotrader"
+contributions = "1"
+[[contributors]]
+name = "getzdan"
+contributions = "1"

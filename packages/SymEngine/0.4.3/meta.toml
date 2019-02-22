@@ -1,0 +1,57 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SymEngine"
+owner = "symengine"
+version = "0.4.3"
+description = "Julia wrappers of SymEngine"
+stargazers_count = "78"
+url = "https://github.com/symengine/SymEngine.jl.git"
+installs = true
+tags = ["math", "julia", "computer-algebra"]
+license = "MIT License"
+
+[[contributors]]
+name = "isuruf"
+contributions = "202"
+[[contributors]]
+name = "jverzani"
+contributions = "40"
+[[contributors]]
+name = "torque"
+contributions = "10"
+[[contributors]]
+name = "sglyon"
+contributions = "6"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "4"
+[[contributors]]
+name = "oxinabox"
+contributions = "4"
+[[contributors]]
+name = "certik"
+contributions = "3"
+[[contributors]]
+name = "ShikharJ"
+contributions = "2"
+[[contributors]]
+name = "kunal-iitkgp"
+contributions = "2"
+[[contributors]]
+name = "abelsiqueira"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "pfitzseb"
+contributions = "1"
+[[contributors]]
+name = "tkf"
+contributions = "1"
+[[contributors]]
+name = "YingboMa"
+contributions = "1"
+[[contributors]]
+name = "djsegal"
+contributions = "1"

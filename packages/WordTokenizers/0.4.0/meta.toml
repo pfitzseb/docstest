@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "WordTokenizers"
+owner = "JuliaText"
+version = "0.4.0"
+description = "Tokenizers for NLP"
+stargazers_count = "15"
+url = "https://github.com/JuliaText/WordTokenizers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oxinabox"
+contributions = "39"
+[[contributors]]
+name = "MikeInnes"
+contributions = "14"
+[[contributors]]
+name = "aquatiko"
+contributions = "9"
+[[contributors]]
+name = "waldyrious"
+contributions = "2"
+[[contributors]]
+name = "rsdel2007"
+contributions = "1"
+[[contributors]]
+name = "Paethon"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

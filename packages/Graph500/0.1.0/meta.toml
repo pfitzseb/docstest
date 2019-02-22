@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Graph500"
+owner = "JuliaGraphs"
+version = "0.1.0"
+description = "Graph500 benchmarks written in Julia using LightGraphs"
+stargazers_count = "1"
+url = "https://github.com/JuliaGraphs/Graph500.jl.git"
+installs = true
+tags = ["graph500", "lightgraphs", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "somil55"
+contributions = "37"
+[[contributors]]
+name = "sbromberger"
+contributions = "4"

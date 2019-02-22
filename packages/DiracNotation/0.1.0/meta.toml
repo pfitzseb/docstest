@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "DiracNotation"
+owner = "goropikari"
+version = "0.1.0"
+description = " Dirac notation rendering for Matrix."
+stargazers_count = "0"
+url = "https://github.com/goropikari/DiracNotation.jl.git"
+installs = true
+tags = ["julialang", "quantum-mechanics", "pretty-print"]
+license = "Other"
+
+[[contributors]]
+name = "goropikari"
+contributions = "33"

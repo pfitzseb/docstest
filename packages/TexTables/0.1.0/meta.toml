@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "TexTables"
+owner = "jacobadenbaum"
+version = "0.1.0"
+description = "Publication quality regression and statistical tables"
+stargazers_count = "14"
+url = "https://github.com/jacobadenbaum/TexTables.jl.git"
+installs = true
+tags = ["latex", "regression-tables", "regression", "tables"]
+license = "Other"
+
+[[contributors]]
+name = "jacobadenbaum"
+contributions = "90"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

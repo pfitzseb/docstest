@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "YaoBase"
+owner = "QuantumBFS"
+version = "0.4.0"
+description = "Abstract type and interface definition for quantum circuit blocks. "
+stargazers_count = "2"
+url = "https://github.com/QuantumBFS/YaoBase.jl.git"
+installs = true
+tags = []
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "Roger-luo"
+contributions = "80"

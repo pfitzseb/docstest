@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "ImageMetadata"
+owner = "JuliaImages"
+version = "0.4.2"
+description = "Julia package for images having metadata"
+stargazers_count = "4"
+url = "https://github.com/JuliaImages/ImageMetadata.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "89"
+[[contributors]]
+name = "RalphAS"
+contributions = "7"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "bhalonen"
+contributions = "1"
+[[contributors]]
+name = "daschw"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "Tokazama"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

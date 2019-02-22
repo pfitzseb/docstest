@@ -1,0 +1,102 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Winston"
+owner = "JuliaGraphics"
+version = "0.14.1"
+description = "2D plotting for Julia"
+stargazers_count = "139"
+url = "https://github.com/JuliaGraphics/Winston.jl.git"
+installs = true
+tags = ["julia", "plotting", "2d-graphics"]
+license = "MIT License"
+
+[[contributors]]
+name = "nolta"
+contributions = "231"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "52"
+[[contributors]]
+name = "timholy"
+contributions = "40"
+[[contributors]]
+name = "slangangular"
+contributions = "34"
+[[contributors]]
+name = "heliosdrm"
+contributions = "17"
+[[contributors]]
+name = "ViralBShah"
+contributions = "10"
+[[contributors]]
+name = "natj"
+contributions = "10"
+[[contributors]]
+name = "vtjnash"
+contributions = "8"
+[[contributors]]
+name = "tknopp"
+contributions = "8"
+[[contributors]]
+name = "jverzani"
+contributions = "7"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "kmsquire"
+contributions = "4"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "garborg"
+contributions = "2"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "2"
+[[contributors]]
+name = "hustf"
+contributions = "2"
+[[contributors]]
+name = "blakejohnson"
+contributions = "1"
+[[contributors]]
+name = "diegozea"
+contributions = "1"
+[[contributors]]
+name = "emaadmanzoor"
+contributions = "1"
+[[contributors]]
+name = "ihnorton"
+contributions = "1"
+[[contributors]]
+name = "ivanslapnicar"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "pwl"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "WestleyArgentum"
+contributions = "1"
+[[contributors]]
+name = "magistere"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "flo12345678"
+contributions = "1"
+[[contributors]]
+name = "jakebolewski"
+contributions = "1"

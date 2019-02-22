@@ -1,0 +1,36 @@
+license_url = ""
+doctype = "default"
+name = "LearningStrategies"
+owner = "JuliaML"
+version = "0.4.0"
+description = "A generic and modular framework for building custom iterative algorithms in Julia"
+stargazers_count = "20"
+url = "https://github.com/JuliaML/LearningStrategies.jl.git"
+installs = true
+tags = ["julialang", "machine-learning", "optimization-framework", "algorithms"]
+license = "Other"
+
+[[contributors]]
+name = "joshday"
+contributions = "36"
+[[contributors]]
+name = "iblis17"
+contributions = "7"
+[[contributors]]
+name = "tbreloff"
+contributions = "5"
+[[contributors]]
+name = "Evizero"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "dominusmi"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "SimpleGraphs"
+owner = "scheinerman"
+version = "0.2.9"
+description = "Convenient way to handle simple graphs and digraphs"
+stargazers_count = "4"
+url = "https://github.com/scheinerman/SimpleGraphs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "scheinerman"
+contributions = "98"
+[[contributors]]
+name = "rbao2"
+contributions = "37"
+[[contributors]]
+name = "Gorzoid"
+contributions = "3"

@@ -1,0 +1,66 @@
+license_url = ""
+doctype = "default"
+name = "TimeZones"
+owner = "JuliaTime"
+version = "0.8.5"
+description = "IANA time zone database access for the Julia programming language"
+stargazers_count = "28"
+url = "https://github.com/JuliaTime/TimeZones.jl.git"
+installs = true
+tags = ["julia", "timezone"]
+license = "Other"
+
+[[contributors]]
+name = "omus"
+contributions = "518"
+[[contributors]]
+name = "iamed2"
+contributions = "21"
+[[contributors]]
+name = "Michael-Klassen"
+contributions = "14"
+[[contributors]]
+name = "quinnj"
+contributions = "10"
+[[contributors]]
+name = "bcj"
+contributions = "8"
+[[contributors]]
+name = "spurll"
+contributions = "8"
+[[contributors]]
+name = "ararslan"
+contributions = "5"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "5"
+[[contributors]]
+name = "scls19fr"
+contributions = "3"
+[[contributors]]
+name = "giordano"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "TotalVerb"
+contributions = "1"
+[[contributors]]
+name = "joshbode"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "nicoleepp"
+contributions = "1"
+[[contributors]]
+name = "rbvermaa"
+contributions = "1"
+[[contributors]]
+name = "rofinn"
+contributions = "1"
+[[contributors]]
+name = "dm3"
+contributions = "1"

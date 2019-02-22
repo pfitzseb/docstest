@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "MLDataUtils"
+owner = "JuliaML"
+version = "0.4.0"
+description = " Utility package for generating, loading, splitting, and processing Machine Learning datasets"
+stargazers_count = "39"
+url = "https://github.com/JuliaML/MLDataUtils.jl.git"
+installs = true
+tags = ["machine-learning", "dataset", "data-iteration", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "Evizero"
+contributions = "144"
+[[contributors]]
+name = "kumarkrishna"
+contributions = "6"
+[[contributors]]
+name = "oxinabox"
+contributions = "5"
+[[contributors]]
+name = "tbreloff"
+contributions = "4"
+[[contributors]]
+name = "abieler"
+contributions = "2"
+[[contributors]]
+name = "andreasnoack"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "catawbasam"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Hyperscript"
+owner = "yurivish"
+version = "0.0.2"
+description = "Hyperscript: A lightweight DOM representation for Julia"
+stargazers_count = "24"
+url = "https://github.com/yurivish/Hyperscript.jl.git"
+installs = true
+tags = ["hyperscript", "html", "svg", "css", "dsl"]
+license = "Other"
+
+[[contributors]]
+name = "yurivish"
+contributions = "392"
+[[contributors]]
+name = "tshort"
+contributions = "6"
+[[contributors]]
+name = "ninjin"
+contributions = "3"

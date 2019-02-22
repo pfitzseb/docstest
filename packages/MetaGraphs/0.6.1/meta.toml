@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "MetaGraphs"
+owner = "JuliaGraphs"
+version = "0.6.1"
+description = "I never metagraph I didn't like."
+stargazers_count = "36"
+url = "https://github.com/JuliaGraphs/MetaGraphs.jl.git"
+installs = true
+tags = ["lightgraphs", "graph-datastructures"]
+license = "Other"
+
+[[contributors]]
+name = "sbromberger"
+contributions = "50"
+[[contributors]]
+name = "kescobo"
+contributions = "15"
+[[contributors]]
+name = "jpfairbanks"
+contributions = "5"
+[[contributors]]
+name = "skleinbo"
+contributions = "4"
+[[contributors]]
+name = "leclere"
+contributions = "4"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "bovine3dom"
+contributions = "1"
+[[contributors]]
+name = "simonschoelly"
+contributions = "1"
+[[contributors]]
+name = "karajan9"
+contributions = "1"

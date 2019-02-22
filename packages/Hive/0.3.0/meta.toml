@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "Hive"
+owner = "JuliaDatabases"
+version = "0.3.0"
+description = "Hive, Spark SQL, Impala client. Based on Thrift and HiveServer2 protocol."
+stargazers_count = "7"
+url = "https://github.com/JuliaDatabases/Hive.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "74"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"

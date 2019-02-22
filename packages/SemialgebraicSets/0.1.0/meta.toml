@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SemialgebraicSets"
+owner = "JuliaAlgebra"
+version = "0.1.0"
+description = "Extension of MultivariatePolynomials to semialgebraic sets"
+stargazers_count = "8"
+url = "https://github.com/JuliaAlgebra/SemialgebraicSets.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "blegat"
+contributions = "51"

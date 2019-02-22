@@ -1,0 +1,14 @@
+license_url = ""
+name = "OpenIDConnect"
+owner = "tanmaykm"
+version = "0.1.0"
+description = "OpenID Connect for Julia"
+stargazers_count = "0"
+url = "https://github.com/tanmaykm/OpenIDConnect.jl.git"
+installs = false
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tanmaykm"
+contributions = "9"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Serd"
+owner = "epatters"
+version = "0.1.0"
+description = "Julia bindings to Serd RDF library"
+stargazers_count = "0"
+url = "https://github.com/epatters/Serd.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "epatters"
+contributions = "29"

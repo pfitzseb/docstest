@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "real"
+name = "Microbiome"
+owner = "BioJulia"
+version = "0.4.0"
+description = "For analysis of microbiome and microbial community data"
+stargazers_count = "8"
+url = "https://github.com/BioJulia/Microbiome.jl.git"
+installs = true
+tags = ["microbiome", "julia-language", "ecology", "biology"]
+license = "Other"
+
+[[contributors]]
+name = "kescobo"
+contributions = "148"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

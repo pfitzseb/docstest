@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "real"
+name = "Impute"
+owner = "invenia"
+version = "0.1.1"
+description = "Imputation methods for missing data in julia"
+stargazers_count = "8"
+url = "https://github.com/invenia/Impute.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rofinn"
+contributions = "15"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "MLKernels"
+owner = "trthatcher"
+version = "0.4.0"
+description = "Machine learning kernels in Julia."
+stargazers_count = "58"
+url = "https://github.com/trthatcher/MLKernels.jl.git"
+installs = true
+tags = ["julia", "machine-learning", "kernel-functions", "mercer-kernels"]
+license = "MIT License"
+
+[[contributors]]
+name = "st--"
+contributions = "128"
+[[contributors]]
+name = "trthatcher"
+contributions = "66"
+[[contributors]]
+name = "gdkrmr"
+contributions = "23"
+[[contributors]]
+name = "englhardt"
+contributions = "2"
+[[contributors]]
+name = "Evizero"
+contributions = "2"

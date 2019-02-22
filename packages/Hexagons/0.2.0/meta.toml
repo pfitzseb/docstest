@@ -1,0 +1,33 @@
+license_url = ""
+doctype = "default"
+name = "Hexagons"
+owner = "GiovineItalia"
+version = "0.2.0"
+description = "Useful tools for working with hexagonal grids"
+stargazers_count = "11"
+url = "https://github.com/GiovineItalia/Hexagons.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "bjarthur"
+contributions = "8"
+[[contributors]]
+name = "dcjones"
+contributions = "8"
+[[contributors]]
+name = "tlnagy"
+contributions = "3"
+[[contributors]]
+name = "anthonyclays"
+contributions = "2"
+[[contributors]]
+name = "rodonn"
+contributions = "1"
+[[contributors]]
+name = "rsrock"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"

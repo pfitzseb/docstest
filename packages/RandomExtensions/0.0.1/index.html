@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · RandomExtensions.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>RandomExtensions.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="RandomExtensions-1" href="#RandomExtensions-1">RandomExtensions</a></h1><p><a href="https://travis-ci.org/rfourquet/RandomExtensions.jl"><img src="https://travis-ci.org/rfourquet/RandomExtensions.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://coveralls.io/github/rfourquet/RandomExtensions.jl?branch=master"><img src="https://coveralls.io/repos/rfourquet/RandomExtensions.jl/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a> <a href="http://codecov.io/github/rfourquet/RandomExtensions.jl?branch=master"><img src="http://codecov.io/github/rfourquet/RandomExtensions.jl/coverage.svg?branch=master" alt="codecov.io"/></a></p><p>This package explores a possible extension of <code>rand</code>-related functionalities (from the <code>Random</code> module); the code is initially taken from https://github.com/JuliaLang/julia/pull/24912. Note that type piracy is commited! While hopefully useful, this package is still experimental, and hence unstable. Design or implementation contributions are welcome.</p><p>This does mainly 3 things:</p><ol><li>define distribution objects, to give first-class status to features provided by <code>Random</code>; for example <code>rand(Normal(), 3)</code> is equivalent to <code>randn(3)</code>; other available distributions: <code>Exponential</code>, <code>CloseOpen</code> (for generation of floats in a close-open range), <code>Uniform</code> (which can wrap an implicit uniform distribution), <code>Combine</code> (to &quot;combine&quot; distribution for objects made of multiple scalars, like <code>Pair</code> or <code>Complex</code>);</li></ol><ol><li><p>define generation of some containers filled with random values (like <code>Set</code>, <code>Dict</code>, <code>SparseArray</code>, <code>String</code>, <code>BitArray</code>);</p></li><li><p>define a <code>Rand</code> iterator, which produces lazily random values.</p></li></ol><p>Point 1) defines a <code>Distribution</code> type which is incompatible with the &quot;Distributions.jl&quot; package. Input on how to unify the two approaches is welcome. Point 2) goes somewhat against the trend in <code>Base</code> to create containers using their constructors – which by the way may be achieved with the <code>Rand</code> iterator from point 3). Still, I like the terser approach here, as it simply generalizes to other containers the <strong>current</strong> <code>rand</code> API creating arrays. See the issue linked above for a discussion on those topics.</p><p>There is not much documentation for now: <code>rand</code>&#39;s docstring is updated, and here are some examples:</p><pre><code class="language-julia">julia&gt; rand(CloseOpen()) # like rand(Float64)
+0.7678877639669386
+
+julia&gt; rand(CloseOpen(1.0, 10.0)) # generation in [1.0, 10.0)
+4.309057677479184
+
+julia&gt; rand(Normal(0.0, 10.0)) # explicit μ and σ parameters
+-8.473790458128912
+
+julia&gt; rand(Uniform(1:3)) # equivalent to rand(1:3)
+2
+
+julia&gt; rand(Combine(Pair, 1:10, Normal())) # random Pair, where both members have distinct distributions
+5 =&gt; 0.674375
+
+julia&gt; rand(Combine(Pair{Number, Any}, 1:10, Normal())) # specify the Pair type
+Pair{Number,Any}(1, -0.131617)
+
+julia&gt; rand(Combine(Complex, Normal())) # each coordinate is drawn from the normal distribution
+1.5112317924121632 + 0.723463453534426im
+
+julia&gt; rand(Combine(Complex, Normal(), 1:10)) # distinct distributions
+1.096731587266045 + 8.0im
+
+julia&gt; rand(Set, 3)
+Set([0.717172, 0.78481, 0.86901])
+
+julia&gt; rand(1:9, Set, 3)
+Set([3, 5, 8])
+
+julia&gt; rand(Combine(Pair, 1:9, Normal()), Dict, 3)
+Dict{Int64,Float64} with 3 entries:
+  9 =&gt; 0.916406
+  3 =&gt; -2.44958
+  8 =&gt; -0.703348
+
+julia&gt; rand(0.3, 9) # equivalent to sprand(9, 0.3)
+9-element SparseVector{Float64,Int64} with 3 stored entries:
+  [1]  =  0.173858
+  [6]  =  0.568631
+  [8]  =  0.297207
+
+julia&gt; rand(Normal(), 0.3, 2, 3) # equivalent to sprandn(2, 3, 0.3)
+2×3 SparseMatrixCSC{Float64,Int64} with 2 stored entries:
+  [2, 1]  =  0.448981
+  [1, 2]  =  0.730103
+
+julia&gt; rand(String, 4) # equivalent to randstring(4)
+&quot;5o75&quot;
+
+julia&gt; rand(BitArray, 3) # equivalent to bitrand(3)
+3-element BitArray{1}:
+  true
+  true
+ false
+
+julia&gt; Set(Iterators.take(Rand(RandomDevice(), 1:10), 3)) # RNG defaults to Random.GLOBAL_RNG
+Set([9, 2, 6])
+
+julia&gt; collect(Iterators.take(Uniform(1:10), 3)) # distributions can be iterated over, using Random.GLOBAL_RNG implicitly
+3-element Array{Int64,1}:
+  7
+ 10
+  5</code></pre><p>In some cases, the <code>Rand</code> iterator can provide some efficiency gains compared to repeated calls to <code>rand</code>, as it uses the same mechanism as non-scalar generation. For example, given <code>a = zeros(10000)</code>, <code>a .+ Rand(1:1000).()</code> will be faster than <code>a .+ rand.(Ref(1:1000))</code>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

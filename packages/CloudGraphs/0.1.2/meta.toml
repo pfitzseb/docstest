@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "CloudGraphs"
+owner = "GearsAD"
+version = "0.1.2"
+description = "Repo for the CloudGraphs project."
+stargazers_count = "5"
+url = "https://github.com/GearsAD/CloudGraphs.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "GearsAD"
+contributions = "90"
+[[contributors]]
+name = "dehann"
+contributions = "64"

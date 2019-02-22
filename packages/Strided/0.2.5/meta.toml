@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Strided"
+owner = "Jutho"
+version = "0.2.5"
+description = "A Julia package for strided array views and efficient manipulations thereof"
+stargazers_count = "30"
+url = "https://github.com/Jutho/Strided.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Jutho"
+contributions = "70"

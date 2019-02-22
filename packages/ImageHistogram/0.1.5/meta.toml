@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ImageHistogram"
+owner = "t37w"
+version = "0.1.5"
+description = "Implement gray and colored 2d and 3d histograms of images."
+stargazers_count = "0"
+url = "https://github.com/t37w/ImageHistogram.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "t37w"
+contributions = "22"

@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "ThreePhasePowerModels"
+owner = "lanl-ansi"
+version = "0.1.4"
+description = "A Julia/JuMP Package for Three Phase Power Network Optimization"
+stargazers_count = "10"
+url = "https://github.com/lanl-ansi/ThreePhasePowerModels.jl.git"
+installs = true
+tags = ["optimization", "network", "power-network", "optimal-power-flow", "three-phase"]
+license = "Other"
+
+[[contributors]]
+name = "ccoffrin"
+contributions = "47"
+[[contributors]]
+name = "pseudocubic"
+contributions = "25"
+[[contributors]]
+name = "frederikgeth"
+contributions = "6"
+[[contributors]]
+name = "sanderclaeys"
+contributions = "1"

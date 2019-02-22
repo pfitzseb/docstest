@@ -1,0 +1,60 @@
+license_url = ""
+doctype = "default"
+name = "YAML"
+owner = "BioJulia"
+version = "0.3.2"
+description = "Parse yer YAMLs"
+stargazers_count = "29"
+url = "https://github.com/BioJulia/YAML.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "dcjones"
+contributions = "41"
+[[contributors]]
+name = "sglyon"
+contributions = "28"
+[[contributors]]
+name = "randyzwitch"
+contributions = "8"
+[[contributors]]
+name = "IainNZ"
+contributions = "2"
+[[contributors]]
+name = "jdlangs"
+contributions = "2"
+[[contributors]]
+name = "mlhetland"
+contributions = "2"
+[[contributors]]
+name = "nico202"
+contributions = "2"
+[[contributors]]
+name = "yuyichao"
+contributions = "2"
+[[contributors]]
+name = "jmkuhn"
+contributions = "2"
+[[contributors]]
+name = "omus"
+contributions = "1"
+[[contributors]]
+name = "dbeach24"
+contributions = "1"
+[[contributors]]
+name = "GunnarFarneback"
+contributions = "1"
+[[contributors]]
+name = "quinnj"
+contributions = "1"
+[[contributors]]
+name = "kescobo"
+contributions = "1"
+[[contributors]]
+name = "rawlik"
+contributions = "1"
+[[contributors]]
+name = "sawcordwell"
+contributions = "1"

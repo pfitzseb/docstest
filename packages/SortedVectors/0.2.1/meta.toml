@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "SortedVectors"
+owner = "tpapp"
+version = "0.2.1"
+description = "Lightweight wrapper to declare that a vector is sorted."
+stargazers_count = "1"
+url = "https://github.com/tpapp/SortedVectors.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "14"
+[[contributors]]
+name = "Roger-luo"
+contributions = "1"

@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/bsd-3-clause"
+doctype = "default"
+name = "Xtensor"
+owner = "QuantStack"
+version = "0.6.0"
+description = "Julia package for xtensor-julia"
+stargazers_count = "25"
+url = "https://github.com/QuantStack/Xtensor.jl.git"
+installs = true
+tags = ["julia-bindings", "numpy-arrays", "tensor", "c-plus-plus"]
+license = "BSD 3-Clause \"New\" or \"Revised\" License"
+
+[[contributors]]
+name = "SylvainCorlay"
+contributions = "170"
+[[contributors]]
+name = "JohanMabille"
+contributions = "11"
+[[contributors]]
+name = "wolfv"
+contributions = "3"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

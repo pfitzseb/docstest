@@ -1,0 +1,45 @@
+license_url = ""
+doctype = "default"
+name = "TestImages"
+owner = "JuliaImages"
+version = "0.4.1"
+description = "Standard test images for Julia"
+stargazers_count = "11"
+url = "https://github.com/JuliaImages/TestImages.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "39"
+[[contributors]]
+name = "mronian"
+contributions = "8"
+[[contributors]]
+name = "rsrock"
+contributions = "3"
+[[contributors]]
+name = "Evizero"
+contributions = "2"
+[[contributors]]
+name = "rdeits"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "johnnychen94"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

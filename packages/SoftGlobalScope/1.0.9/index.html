@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · SoftGlobalScope.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>SoftGlobalScope.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Hard-and-soft-global-scopes-1">Hard and soft global scopes</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Contact-1">Contact</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="SoftGlobalScope-1" href="#SoftGlobalScope-1">SoftGlobalScope</a></h1><p><a href="https://travis-ci.org/stevengj/SoftGlobalScope.jl"><img src="https://travis-ci.org/stevengj/SoftGlobalScope.jl.svg?branch=master" alt="Build Status"/></a></p><p>SoftGlobalScope is a package for the <a href="http://julialang.org/">Julia language</a> that simplifies the <a href="https://docs.julialang.org/en/stable/manual/variables-and-scoping/">variable scoping rules</a> for code in <em>global</em> scope.   It is intended for interactive shells (the REPL, <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a>, etcetera) to make it easier to work interactively with Julia, especially for beginners.</p><p>In particular, SoftGlobalScope provides a function <code>softscope</code> that can transform Julia code from using the default &quot;hard&quot; scoping rules to simpler &quot;soft&quot; scoping rules in global scope only.</p><h2><a class="nav-anchor" id="Hard-and-soft-global-scopes-1" href="#Hard-and-soft-global-scopes-1">Hard and soft global scopes</a></h2><p><a href="https://github.com/JuliaLang/julia/pull/19324">Starting in Julia 0.7</a>, when you <em>assign to</em> global variables in the context of an inner scope (a <code>for</code> loop or a <code>let</code> statement) you need to explicitly declare the variable as <code>global</code> in order to distinguish it from declaring a new variable.  We refer to this as &quot;hard&quot; scoping rules.  For example, the following code gives an warning in 0.7:</p><pre><code class="language-jl">julia&gt; s = 0
+0
+
+julia&gt; for i = 1:10
+           s = s + i
+       end
+┌ Warning: Deprecated syntax `implicit assignment to global variable `s``.
+└ Use `global s` instead.</code></pre><p>and an error in Julia 1.0:</p><pre><code class="language-jl">julia&gt; s = 0
+0
+
+julia&gt; for i = 1:10
+           s = s + i   # wrong: defines a new local variable s
+       end
+ERROR: UndefVarError: s not defined</code></pre><p>To make it work in 1.0, you need a <code>global</code> declaration:</p><pre><code class="language-jl">julia&gt; for i = 1:10
+           global s = s + i
+       end
+
+julia&gt; s      # should be 1 + 2 + ⋯ + 10 = 55
+55</code></pre><p>This only applies to <em>global</em> variables; similar code <em>inside a function</em> (or whenever <code>s</code> is a <em>local</em> variable) works fine without any added keyword:</p><pre><code class="language-jl">julia&gt; function f(n)
+           s = 0
+           for i = 1:n
+               s = s + i
+           end
+           return s
+       end
+f (generic function with 1 method)
+
+julia&gt; f(10)
+55</code></pre><p>There were <a href="https://github.com/JuliaLang/julia/pull/19324">various reasons</a> for this scoping rule, e.g. to facilitate <a href="https://en.wikipedia.org/wiki/Static_program_analysis">static analysis</a> by the compiler, and it isn&#39;t too onerous in &quot;serious&quot; Julia code where <a href="https://docs.julialang.org/en/stable/manual/performance-tips/#Avoid-global-variables-1">little code executes in global scope</a>.</p><p>However, for <em>interactive</em> use, especially for new users, the necessity of the <code>global</code> keyword, and the difference between code in local and global scopes, <a href="https://github.com/JuliaLang/julia/issues/28789">can be confusing</a>.   The SoftGlobalScope package exists to make it easier for <em>interactive shells</em> to automatically insert the <code>global</code> keyword in common cases, what we term &quot;soft&quot; global scope.</p><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>The <code>SoftGlobalScope</code> module exports two functions <code>softscope</code> and <code>softscope_include_string</code>, and a macro <code>@softscope</code>:</p><p>You can transform the expression using <code>softscope(module, expression)</code> to automatically insert the necessary <code>global</code> keyword.  For example, assuming that the module <code>Main</code> has a global variable <code>s</code> (as above), you can do:</p><pre><code class="language-jl">julia&gt; softscope(Main, :(for i = 1:10
+           s += i
+       end))
+:(for i = 1:10
+      #= REPL[3]:2 =#
+      global s += i
+  end)</code></pre><p>You can then execute the statement with <code>eval</code>. Alternatively, you can decorate the expression with the <code>@softscope</code> macro:</p><pre><code class="language-jl">julia&gt; s = 0;
+
+julia&gt; @softscope for i = 1:10
+           s += i
+       end
+
+julia&gt; s
+55</code></pre><p>This macro should only be used in the global scope (e.g., via the REPL); using this macro within a function is likely to lead to unintended consequences.</p><p>You can execute an entire sequence of statements using &quot;soft&quot; global scoping rules via <code>softscope_include_string(module, string, filename=&quot;string&quot;)</code>:</p><pre><code class="language-jl">julia&gt; softscope_include_string(Main, &quot;&quot;&quot;
+       s = 0
+       for i = 1:10
+           s += i
+       end
+       s
+       &quot;&quot;&quot;)
+55</code></pre><p>(This function works like <code>include_string</code>, returning the value of the last evaluated expression.)</p><p>In Julia 0.6, no code transformations are required, so <code>softscope</code> returns the original expression and <code>softscope_include_string</code> is equivalent to <code>include_string</code>.</p><h2><a class="nav-anchor" id="Contact-1" href="#Contact-1">Contact</a></h2><p>SoftGlobalScope was written by <a href="http://math.mit.edu/~stevenj/">Steven G. Johnson</a> and is free/open-source software under the <a href="LICENSE.md">MIT/Expat license</a>.  Please file bug reports and feature requests at the <a href="https://github.com/stevengj/SoftGlobalScope.jl">SoftGlobalScope github page</a>.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "MolecularGraph"
+owner = "mojaie"
+version = "0.2.0"
+description = "Graph-based molecule modeling toolkit for cheminformatics"
+stargazers_count = "7"
+url = "https://github.com/mojaie/MolecularGraph.jl.git"
+installs = true
+tags = ["cheminformatics", "graph-algorithms", "molecular-modeling"]
+license = "MIT License"
+
+[[contributors]]
+name = "mojaie"
+contributions = "94"

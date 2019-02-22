@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "SteamTables"
+owner = "braamvandyk"
+version = "0.2.2"
+description = "Julia implementation of steam tables according to IAPWS Industrial Formulation (1997)"
+stargazers_count = "3"
+url = "https://github.com/braamvandyk/SteamTables.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "braamvandyk"
+contributions = "12"

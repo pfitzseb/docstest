@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Plasmo.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Plasmo.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Documentation-1">Documentation</a></li><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Simple-Example-1">Simple Example</a></li><li><a class="toctext" href="#Acknowledgments-1">Acknowledgments</a></li><li><a class="toctext" href="#Citing-Plasmo-1">Citing Plasmo</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><p><img src="./docs/plasmo.svg" alt="Logo"/></p><p><a href="https://travis-ci.org/jalving/Plasmo.jl"><img src="https://travis-ci.org/jalving/Plasmo.jl.svg?branch=master" alt="Build Status"/></a> <a href="https://codecov.io/gh/jalving/Plasmo.jl"><img src="https://codecov.io/gh/jalving/Plasmo.jl/branch/master/graph/badge.svg" alt="codecov"/></a> <a href="https://jalving.github.io/Plasmo.jl/dev/"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt/></a></p><h1><a class="nav-anchor" id="Plasmo.jl-1" href="#Plasmo.jl-1">Plasmo.jl</a></h1><p>Plasmo.jl (Platform for Scalable Modeling and Optimization) is modeling interface that facilitates solving optimization problems using a graph-based approach.  The package enables component style modeling by means of modularizing optimization models that can be constructed independently and connected using linking constraints.     The graph-based modeling approach facilitates decomposition techniques such as graph partitioning and community detection which enable the use of parallel solvers such as <a href="https://github.com/Argonne-National-Laboratory/PIPS/tree/master/PIPS-NLP">PIPS-NLP</a>,<a href="https://github.com/Argonne-National-Laboratory/DSP">DSP</a>, or built-in Julia solvers for Benders and Lagrangean Decomposition. Plasmo.jl has been developed by the <a href="http://zavalab.engr.wisc.edu/">Scalable Systems Laboratory</a> at the University of Wisconsin-Madison.</p><h2><a class="nav-anchor" id="Documentation-1" href="#Documentation-1">Documentation</a></h2><p>Documentation is available through <a href="https://jalving.github.io/Plasmo.jl/dev">GitHub Pages</a>. Additional examples can be found in the <a href="https://github.com/jalving/Plasmo.jl/tree/master/examples/ModelGraph">examples</a> folder.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><pre><code class="language-julia">Pkg.clone(&quot;https://github.com/jalving/Plasmo.jl&quot;)</code></pre><h2><a class="nav-anchor" id="Simple-Example-1" href="#Simple-Example-1">Simple Example</a></h2><p>Plasmo.jl uses optimization models written with <a href="https://github.com/JuliaOpt/JuMP.jl">JuMP</a>.</p><pre><code class="language-julia">using JuMP
+using Plasmo
+using Ipopt
+
+graph = ModelGraph()
+setsolver(graph,IpoptSolver())
+
+#Add nodes to a ModelGraph
+n1 = add_node!(graph)
+n2 = add_node!(graph)
+
+#Create JuMP models
+m1 = Model()
+@variable(m1,0 &lt;= x &lt;= 2)
+@variable(m1,0 &lt;= y &lt;= 3)
+@constraint(m1,x+y &lt;= 4)
+@objective(m1,Min,x)
+
+m2 = Model()
+@variable(m2,x)
+@NLconstraint(m2,exp(x) &gt;= 2)
+
+#Set JuMP models on nodes
+setmodel(n1,m1)     #set m1 to node 1.  Updates reference on m1
+setmodel(n2,m2)
+
+#Link constraints take the same expressions as the JuMP @constraint macro
+@linkconstraint(graph,n1[:x] == n2[:x])
+
+#Get all of the link constraints in a graph
+links = getlinkconstraints(graph)
+
+solve(graph)
+
+println(&quot;n1[:x]= &quot;,JuMP.getvalue(n1[:x]))
+println(&quot;n2[:x]= &quot;,JuMP.getvalue(n2[:x]))</code></pre><h2><a class="nav-anchor" id="Acknowledgments-1" href="#Acknowledgments-1">Acknowledgments</a></h2><p>This code is based on work supported by the U.S. Department of Energy (DOE), Office of Science, under Contract No. DE-AC02-06CH11357 as well as the DOE Office of Electricity Delivery and Energy Reliability’s Advanced Grid Research and Development program at Argonne National Laboratory.</p><h2><a class="nav-anchor" id="Citing-Plasmo-1" href="#Citing-Plasmo-1">Citing Plasmo</a></h2><p>If you find Plasmo useful for your work, you might cite the current <a href="https://arxiv.org/pdf/1812.04983.pdf">pre-print</a> of the manuscript:</p><pre><code class="language-none">@article{JalvingZavala2018,
+archivePrefix = {arXiv},
+arxivId = {arXiv:1812.04983v1},
+author = {Jalving, Jordan and Cao, Yankai and Zavala, Victor M},
+eprint = {arXiv:1812.04983v1},
+title = {{Graph-Based Modeling and Simulation of Complex Systems}}
+}</code></pre><footer><hr/></footer></article></body></html>

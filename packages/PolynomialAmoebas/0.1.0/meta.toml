@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "PolynomialAmoebas"
+owner = "saschatimme"
+version = "0.1.0"
+description = "Package to compute Amoebas in 2 and 3 variables."
+stargazers_count = "0"
+url = "https://github.com/saschatimme/PolynomialAmoebas.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "saschatimme"
+contributions = "32"

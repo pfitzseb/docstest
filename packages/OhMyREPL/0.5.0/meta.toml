@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "real"
+name = "OhMyREPL"
+owner = "KristofferC"
+version = "0.5.0"
+description = "Syntax highlighting and other enhancements for the Julia REPL"
+stargazers_count = "228"
+url = "https://github.com/KristofferC/OhMyREPL.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "171"
+[[contributors]]
+name = "tkelman"
+contributions = "5"
+[[contributors]]
+name = "mkborregaard"
+contributions = "4"
+[[contributors]]
+name = "oxinabox"
+contributions = "3"
+[[contributors]]
+name = "Keno"
+contributions = "3"
+[[contributors]]
+name = "omus"
+contributions = "2"
+[[contributors]]
+name = "pfitzseb"
+contributions = "2"
+[[contributors]]
+name = "Evizero"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "ffevotte"
+contributions = "1"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "iblis17"
+contributions = "1"
+[[contributors]]
+name = "mauro3"
+contributions = "1"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "musm"
+contributions = "1"
+[[contributors]]
+name = "r3tex"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "innerlee"
+contributions = "1"

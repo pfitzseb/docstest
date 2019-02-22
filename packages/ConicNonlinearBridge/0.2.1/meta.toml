@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ConicNonlinearBridge"
+owner = "mlubin"
+version = "0.2.1"
+description = "MathProgBase wrapper to solve conic optimization problems with derivative-based nonlinear solvers"
+stargazers_count = "5"
+url = "https://github.com/mlubin/ConicNonlinearBridge.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "mlubin"
+contributions = "40"
+[[contributors]]
+name = "chriscoey"
+contributions = "5"
+[[contributors]]
+name = "emreyamangil"
+contributions = "4"
+[[contributors]]
+name = "ccoffrin"
+contributions = "2"

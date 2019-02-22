@@ -1,0 +1,7 @@
+name = "PolyChaos"
+stargazers_count = "2"
+doctype = "real"
+installs = true
+url = "https://github.com/timueh/PolyChaos.jl.git"
+version = "0.1.0"
+description = "A Julia package to construct orthogonal polynomials, their quadrature rules, and use it with polynomial chaos expansions."

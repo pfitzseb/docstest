@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "real"
+name = "StateSpaceReconstruction"
+owner = "kahaaga"
+version = "0.2.3"
+description = "State space reconstruction (SSR) for the study of dynamical system from time series."
+stargazers_count = "0"
+url = "https://github.com/kahaaga/StateSpaceReconstruction.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "kahaaga"
+contributions = "195"

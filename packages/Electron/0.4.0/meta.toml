@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Electron"
+owner = "davidanthoff"
+version = "0.4.0"
+description = "Julia wrapper for Electron"
+stargazers_count = "13"
+url = "https://github.com/davidanthoff/Electron.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "83"
+[[contributors]]
+name = "vtjnash"
+contributions = "5"
+[[contributors]]
+name = "tkf"
+contributions = "5"

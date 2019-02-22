@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "REDCap"
+owner = "bcbi"
+version = "1.0.1"
+description = ""
+stargazers_count = "2"
+url = "https://github.com/bcbi/REDCap.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "FLCN17"
+contributions = "253"

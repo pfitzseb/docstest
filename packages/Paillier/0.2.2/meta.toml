@@ -1,0 +1,7 @@
+name = "Paillier"
+stargazers_count = "8"
+doctype = "default"
+installs = true
+url = "https://github.com/hardbyte/Paillier.jl.git"
+version = "0.2.2"
+description = "A Julia implementation of the Paillier partially homomorphic encryption system"

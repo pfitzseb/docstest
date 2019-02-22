@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · Displaz.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Displaz.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Quickstart-1">Quickstart</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Displaz-1" href="#Displaz-1">Displaz</a></h1><p>Bindings for the <a href="https://github.com/c42f/displaz">displaz lidar viewer</a> for flexible three dimensional plotting of large point clouds, lines and meshes.</p><h2><a class="nav-anchor" id="Quickstart-1" href="#Quickstart-1">Quickstart</a></h2><p>To plot a point cloud of 10⁵ points, where every point position is a column in a matrix:</p><pre><code class="language-julia">using Displaz
+
+plot3d!(10*randn(3,100000))</code></pre><p>To plot a point cloud of 10⁶ points with random orange and red HSV colors:</p><pre><code class="language-julia">using Displaz
+using Colors
+
+N = 1000_000
+position = 10*randn(3,N)
+color = [HSV(80*rand(), 0.8, 1) for i=1:N]
+plot3d!(position, color=color, label=&quot;Example2&quot;)</code></pre><p>To plot a set of 5 vertices, and line series between a subset of these vertices:</p><pre><code class="language-julia">using Displaz
+using Colors
+using StaticArrays
+
+# Clear plots
+clearplot()
+
+N = 5
+# Random points
+position = rand(SVector{3,Float64}, N)
+# Plot points
+plot3d!(position, color=[Gray{Float64}(i/N) for i=1:N], label=&quot;Example3 Points&quot;)
+# Plot a pair of line series between vertices 1:2 and 3:5
+plot3d!(position, color=&quot;r&quot;, linebreak=[1,3], markershape=&quot;-&quot;, label=&quot;Example3 Lines&quot;)
+# mutate the color of the first two points (efficient for modifying a subset of points)
+Displaz.mutate!(&quot;Example3 Points&quot;, 1:2; color = [Gray{Float64}(1.0)])</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

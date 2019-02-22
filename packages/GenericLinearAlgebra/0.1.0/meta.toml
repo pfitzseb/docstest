@@ -1,0 +1,24 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "GenericLinearAlgebra"
+owner = "JuliaLinearAlgebra"
+version = "0.1.0"
+description = "Generic numerical linear algebra in Julia"
+stargazers_count = "40"
+url = "https://github.com/JuliaLinearAlgebra/GenericLinearAlgebra.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "103"
+[[contributors]]
+name = "jiahao"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "JeffreySarnoff"
+contributions = "1"

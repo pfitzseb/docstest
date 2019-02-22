@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "default"
+name = "Metalhead"
+owner = "FluxML"
+version = "0.3.0"
+description = "Computer vision models for Flux"
+stargazers_count = "67"
+url = "https://github.com/FluxML/Metalhead.jl.git"
+installs = true
+tags = ["machine-learning", "computer-vision", "deep-learning", "flux", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "28"
+[[contributors]]
+name = "avik-pal"
+contributions = "27"
+[[contributors]]
+name = "ayush1999"
+contributions = "8"
+[[contributors]]
+name = "Keno"
+contributions = "6"
+[[contributors]]
+name = "staticfloat"
+contributions = "5"
+[[contributors]]
+name = "Sklan"
+contributions = "2"
+[[contributors]]
+name = "EMCP"
+contributions = "1"
+[[contributors]]
+name = "shashikdm"
+contributions = "1"
+[[contributors]]
+name = "wookay"
+contributions = "1"

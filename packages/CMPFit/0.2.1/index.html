@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · CMPFit.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>CMPFit.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#A-Julia-wrapper-for-the-mpfit-library-(MINPACK-minimization).-1">A Julia wrapper for the <code>mpfit</code> library (MINPACK minimization).</a></li><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="CMPFit-1" href="#CMPFit-1">CMPFit</a></h1><h2><a class="nav-anchor" id="A-Julia-wrapper-for-the-mpfit-library-(MINPACK-minimization).-1" href="#A-Julia-wrapper-for-the-mpfit-library-(MINPACK-minimization).-1">A Julia wrapper for the <code>mpfit</code> library (MINPACK minimization).</a></h2><p><a href="https://travis-ci.org/gcalderone/CMPFit.jl"><img src="https://travis-ci.org/gcalderone/CMPFit.jl.svg?branch=master" alt="Build Status"/></a></p><p>The <code>CMPFit.jl</code> package is a wrapper for the <a href="https://www.physics.wisc.edu/~craigm/idl/cmpfit.html"><code>mpfit</code> C-library</a> by Craig Markwardt, providing access to the the <a href="http://www.netlib.org/minpack/">MINPACK</a> implementation of the <a href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt algorithm</a>, and allowing simple and quick solutions to Least Squares minimization problems in Julia.</p><p><strong>This is a wrapper for a C library, hence it require to download the C code and compile it.</strong> Check the <a href="https://github.com/JuliaNLSolvers/LsqFit.jl">LsqFit</a> package for a pure Julia solution.</p><hr/><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>To install <code>CMPFit</code> your machine should be equipped with <code>CMake</code> and a C compiler.  In the Julia REPL type:</p><pre><code class="language-julia">] add CMPFit</code></pre><p>This will automaticaly download the <code>cmpfit</code> library (v1.3) from <a href="https://www.physics.wisc.edu/~craigm/idl/cmpfit.html">Craig&#39;s webpage</a> and compile it.</p><hr/><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>Usage is very simple: given a set of observed data and uncertainties, define a (whatever complex) Julia function to evaluate a model to be compared with the data, and ask <code>cmpfit</code> to find the model parameter values which best fit the data.</p><p>Example:</p><pre><code class="language-julia">using CMPFit
+
+# Independent variable
+x = [-1.7237128E+00,1.8712276E+00,-9.6608055E-01,
+    -2.8394297E-01,1.3416969E+00,1.3757038E+00,
+    -1.3703436E+00,4.2581975E-02,-1.4970151E-01,
+    8.2065094E-01]
+
+# Observed data
+y = [-4.4494256E-02,8.7324673E-01,7.4443483E-01,
+     4.7631559E+00,1.7187297E-01,1.1639182E-01,
+     1.5646480E+00,5.2322268E+00,4.2543168E+00,
+     6.2792623E-01]
+
+# Data uncertainties
+e = fill(0., size(y)) .+ 0.5
+
+# Define a model (actually a Gaussian curve)
+function GaussModel(x::Vector{Float64}, p::Vector{Float64})
+  sig2 = p[4] * p[4]
+  xc = @. x - p[3]
+  model = @. p[2] * exp(-0.5 * xc * xc / sig2) + p[1]
+  return model
+end
+
+# Guess model parameters
+param = [0.0, 1.0, 1.0, 1.0]
+
+# Call `cmpfit` and print the results:
+res = cmpfit(x, y, e, GaussModel, param);
+println(res)</code></pre><p>The value returned by <code>cmpfit</code> is a Julia structure.  You may look at its content with:</p><pre><code class="language-julia">dump(res)</code></pre><p>Specifically, the best fit parameter values and their 1-sigma uncertainties are:</p><pre><code class="language-Julia">println(res.param)
+println(res.perror)</code></pre><p><code>CMPFit</code> mirrors all the facilities provided by the underlying C-library, e.g. a parameter can be fixed during the fit, or its value limited to a specific range. Moreover, the whole fitting process may be customized for, e.g., limiting the maximum number of model evaluation, or change the relative chi-squared convergence criterium. E.g.:</p><pre><code class="language-Julia"># Set guess parameters
+param = [0.5, 4.5, 1.0, 1.0]
+
+# Create the `parinfo` structures for the 4 parameters used in the 
+# example above:
+pinfo = CMPFit.Parinfo(4)
+
+# Fix the value of the 1st parameter:
+pinfo[1].fixed = 1
+
+# Set a lower (4) and upper limit (5) for the 2nd parameter
+pinfo[2].limited = (1,1)
+pinfo[2].limits = (4, 5)
+
+# Create a `config` structure
+config = CMPFit.Config()
+
+# Limit the maximum function evaluation to 200
+config.maxfev = 200
+
+# Change the chi-squared convergence criterium:
+config.ftol = 1.e-5
+
+# Re-run the minimization process
+res = cmpfit(x, y, e, GaussModel, param, parinfo=pinfo, config=config);
+println(res)</code></pre><p>See <a href="https://www.physics.wisc.edu/~craigm/idl/cmpfit.html">Craig&#39;s webpage</a> for further documentation on the <code>config</code> and <code>parinfo</code> structures.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

@@ -1,0 +1,27 @@
+license_url = ""
+doctype = "default"
+name = "LCMCore"
+owner = "JuliaRobotics"
+version = "0.5.4"
+description = "Low-level Julia bindings for the LCM communications library"
+stargazers_count = "9"
+url = "https://github.com/JuliaRobotics/LCMCore.jl.git"
+installs = true
+tags = ["lcm", "julia", "communication-protocol"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "111"
+[[contributors]]
+name = "tkoolen"
+contributions = "49"
+[[contributors]]
+name = "dehann"
+contributions = "21"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"
+[[contributors]]
+name = "GearsAD"
+contributions = "1"

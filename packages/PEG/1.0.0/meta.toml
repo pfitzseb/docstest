@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "PEG"
+owner = "wdebeaum"
+version = "1.0.0"
+description = "Define a Parsing Expression Grammar via a macro and abuse of Julia syntax."
+stargazers_count = "8"
+url = "https://github.com/wdebeaum/PEG.jl.git"
+installs = true
+tags = ["peg", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "wdebeaum"
+contributions = "31"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

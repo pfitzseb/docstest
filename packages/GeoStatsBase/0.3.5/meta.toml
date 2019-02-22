@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "GeoStatsBase"
+owner = "juliohm"
+version = "0.3.5"
+description = "Problem and solution specifications for the GeoStats.jl framework"
+stargazers_count = "0"
+url = "https://github.com/juliohm/GeoStatsBase.jl.git"
+installs = true
+tags = ["geostatistics", "developer-tools"]
+license = "ISC License"
+
+[[contributors]]
+name = "juliohm"
+contributions = "109"

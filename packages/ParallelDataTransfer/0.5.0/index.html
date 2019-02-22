@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · ParallelDataTransfer.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>ParallelDataTransfer.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li><li><a class="toctext" href="#Performance-Note-1">Performance Note</a></li><li><a class="toctext" href="#Credit-1">Credit</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ParallelDataTransfer.jl-1" href="#ParallelDataTransfer.jl-1">ParallelDataTransfer.jl</a></h1><p><a href="https://travis-ci.org/ChrisRackauckas/ParallelDataTransfer.jl"><img src="https://travis-ci.org/ChrisRackauckas/ParallelDataTransfer.jl.svg?branch=master" alt="Travis"/></a> <a href="https://ci.appveyor.com/project/ChrisRackauckas/paralleldatatransfer-jl"><img src="https://ci.appveyor.com/api/projects/status/c8tqjhxx9679gl6u?svg=true" alt="AppVeyor"/></a> <a href="https://codecov.io/gh/ChrisRackauckas/ParallelDataTransfer.jl"><img src="https://codecov.io/gh/ChrisRackauckas/ParallelDataTransfer.jl/branch/master/graph/badge.svg" alt="codecov"/></a> <a href="https://coveralls.io/github/ChrisRackauckas/ParallelDataTransfer.jl"><img src="https://coveralls.io/repos/github/ChrisRackauckas/ParallelDataTransfer.jl/badge.svg" alt="coveralls"/></a></p><p>A bunch of helper functions for transferring data between worker processes. The functions are robust with safety measures built into the commands, and the package is thoroughly tested to ensure correctness (with an unsafe API coming soon). As such, this commands thus allow for rapid development and prototyping of parallel algorithms. The underlying infrustructure is Julia&#39;s native multiprocess parallelism, meaning that no dependencies are required for use other than Base Julia.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p>To install the package, simply use:</p><pre><code class="language-julia">Pkg.add(&quot;ParallelDataTransfer&quot;)
+addprocs(n) # Adds n processes
+@everywhere using ParallelDataTransfer</code></pre><p>For the most up to date version, checkout master by using:</p><pre><code class="language-julia">Pkg.checkout(&quot;ParallelDataTransfer&quot;)</code></pre><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><p>For examples of usage, please see the tests.</p><pre><code class="language-julia"># Creates an integer x and Matrix y on processes 1 and 2
+sendto([1, 2], x=100, y=rand(2, 3))
+
+# Create a variable here, then send it everywhere else
+z = randn(10, 10); sendto(workers(), z=z)
+
+# Create the variable x with a value 3 directly on process 4
+@defineat 4 x=3
+
+# Broadcast a value 3 to x on all workers (not working on Julia 0.7)
+@broadcast x=3
+
+# Note that @broadcast will broadcast the expression, so
+@broadcast name=val
+# Requires val to be defined on the remote process
+# To pass an object to all worker processes, use
+@passobj 1 workers() name
+
+# Get an object from named x from Main module on process 2. Name it y
+y = @getfrom 2 x
+# Or
+y = getfrom(2,:x)
+
+# Get an object from named x from Foo module on process 2. Name it y
+y = @getfrom 2 x Foo
+# Or
+y = getfrom(2,:x,Foo)
+
+# Get an object from named foo.x from Foo module on process 2. Name it y
+y = @getfrom 2 foo.x Foo
+# Using the function will not work!
+
+# pass variable named x from process 2 to all other processes
+@passobj 2  filter(x-&gt;x!=2, procs())  x
+# Or
+passobj(2, filter(x-&gt;x!=2, procs()), :x)
+
+# pass variables t, u, v from process 3 to process 1
+passobj(3, 1, [:t, :u, :v])
+
+# Pass a variable from the `Foo` module on process 1 to Main on workers
+@passobj 1 workers() Foo.foo
+#Or
+passobj(1, workers(), [:foo]; from_mod=Foo)
+
+# Include a file on a path not available on a remote worker
+include_remote(path, 2)</code></pre><h2><a class="nav-anchor" id="Performance-Note-1" href="#Performance-Note-1">Performance Note</a></h2><p>Note that this form of passing variables will define the variables in the global namespace of the process. Thus, for performance reasons, it&#39;s recommended that these variables are acted on inside of a function (just like in the REPL). An example for doing this is:</p><pre><code class="language-julia"># Send things to process 2
+@defineat 2 a=5
+@defineat 2 function usea(a)
+  # Do your stuff here
+  ans=a
+end
+# Use the function a on process 2
+@defineat 2 ans=usea(a) # this safely uses the usea and a from process 2
+# Get the answer from process 2
+@getfrom 2 ans</code></pre><p>In the &quot;master&quot; process this will define <code>ans</code> as a global. Once again, you should not work directly with the global since that will degrade the performance. So, since you are working in a function, you should assert the type of the variable so that way it&#39;s strictly typed. For example:</p><pre><code class="language-julia">function test()
+  @defineat 2 a=5
+  a = (@getfrom 2 a)::Int64 # This will make a stictly typed if test is type-stable
+
+  # Continue in your code using b
+  a
+end</code></pre><p>Declaring the type of <code>a</code> will work as well. If you put these two design principles together (use the passed variables in a function, and type the returns), then your code will be parallel and type-stable.</p><p>I am interested in suggestions for making this usage more &quot;automatic&quot;. If you have design ideas / implementations to recommend, feel free to open issues and submit PRs.</p><h2><a class="nav-anchor" id="Credit-1" href="#Credit-1">Credit</a></h2><p>This library is developed and maintained by Chris Rackauckas. However, kudos go to @spencerlyon2 and @conjectures for developing some <a href="http://stackoverflow.com/questions/27677399/julia-how-to-copy-data-to-another-processor-in-julia">of the original solutions</a> which were modified and expanded upon for this library. Special thanks to @TotalVerb and @oxinabox for help via Gitter.</p><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

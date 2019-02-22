@@ -1,0 +1,42 @@
+license_url = ""
+doctype = "default"
+name = "DiffEqOperators"
+owner = "JuliaDiffEq"
+version = "3.2.1"
+description = "Linear operators for discretizations of differential equations"
+stargazers_count = "24"
+url = "https://github.com/JuliaDiffEq/DiffEqOperators.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "shivin9"
+contributions = "85"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "79"
+[[contributors]]
+name = "MSeeker1340"
+contributions = "32"
+[[contributors]]
+name = "anriseth"
+contributions = "11"
+[[contributors]]
+name = "YingboMa"
+contributions = "8"
+[[contributors]]
+name = "fgerick"
+contributions = "6"
+[[contributors]]
+name = "jagot"
+contributions = "6"
+[[contributors]]
+name = "clason"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "3"
+[[contributors]]
+name = "npbarnes"
+contributions = "1"

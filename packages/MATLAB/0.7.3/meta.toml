@@ -1,0 +1,75 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "MATLAB"
+owner = "JuliaInterop"
+version = "0.7.3"
+description = "Calling MATLAB in Julia through MATLAB Engine"
+stargazers_count = "101"
+url = "https://github.com/JuliaInterop/MATLAB.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "musm"
+contributions = "73"
+[[contributors]]
+name = "lindahua"
+contributions = "64"
+[[contributors]]
+name = "simonster"
+contributions = "44"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "24"
+[[contributors]]
+name = "yuyichao"
+contributions = "4"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "thomas-nilsson-irfu"
+contributions = "3"
+[[contributors]]
+name = "dawbarton"
+contributions = "2"
+[[contributors]]
+name = "Kevin-Mattheus-Moerman"
+contributions = "2"
+[[contributors]]
+name = "mbauman"
+contributions = "2"
+[[contributors]]
+name = "blegat"
+contributions = "1"
+[[contributors]]
+name = "jdlangs"
+contributions = "1"
+[[contributors]]
+name = "jfsantos"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "1"
+[[contributors]]
+name = "sjkelly"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "twadleigh"
+contributions = "1"
+[[contributors]]
+name = "waldyrious"
+contributions = "1"
+[[contributors]]
+name = "alexanderulanowski"
+contributions = "1"
+[[contributors]]
+name = "dhr"
+contributions = "1"

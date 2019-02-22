@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "real"
+name = "AprilTags"
+owner = "JuliaRobotics"
+version = "0.7.1"
+description = "Using Apriltags in Julia"
+stargazers_count = "6"
+url = "https://github.com/JuliaRobotics/AprilTags.jl.git"
+installs = true
+tags = ["apriltags", "julia", "fiducial", "robotics", "augmented-reality"]
+license = "Other"
+
+[[contributors]]
+name = "Affie"
+contributions = "32"
+[[contributors]]
+name = "dehann"
+contributions = "4"
+[[contributors]]
+name = "GearsAD"
+contributions = "2"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"

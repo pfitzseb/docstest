@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "Diana"
+owner = "codeneomatrix"
+version = "0.1.0"
+description = "GraphQL  for Julia"
+stargazers_count = "20"
+url = "https://github.com/codeneomatrix/Diana.jl.git"
+installs = true
+tags = ["graphql", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "codeneomatrix"
+contributions = "89"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

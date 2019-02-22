@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Hose"
+owner = "FNj"
+version = "0.1.1"
+description = "Hose.jl - when pipe is just not flexible enough"
+stargazers_count = "3"
+url = "https://github.com/FNj/Hose.jl.git"
+installs = true
+tags = ["julia", "piping"]
+license = "MIT License"
+
+[[contributors]]
+name = "FNj"
+contributions = "7"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "StaticLint"
+owner = "ZacLN"
+version = "0.0.2"
+description = "Static Code Analysis for Julia"
+stargazers_count = "11"
+url = "https://github.com/ZacLN/StaticLint.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "ZacLN"
+contributions = "84"
+[[contributors]]
+name = "davidanthoff"
+contributions = "4"

@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "MeshCatMechanisms"
+owner = "JuliaRobotics"
+version = "0.3.0"
+description = "3D Visualization of mechanisms and URDFs using MeshCat.jl and RigidBodyDynamics.jl"
+stargazers_count = "11"
+url = "https://github.com/JuliaRobotics/MeshCatMechanisms.jl.git"
+installs = true
+tags = ["robotics", "julia", "3d", "visualization", "urdf"]
+license = "Other"
+
+[[contributors]]
+name = "rdeits"
+contributions = "96"
+[[contributors]]
+name = "tkoolen"
+contributions = "3"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

@@ -1,0 +1,18 @@
+license_url = ""
+doctype = "default"
+name = "HeaderREPLs"
+owner = "timholy"
+version = "0.2.2"
+description = "Custom interactive REPL prompts that convey status"
+stargazers_count = "3"
+url = "https://github.com/timholy/HeaderREPLs.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "timholy"
+contributions = "25"
+[[contributors]]
+name = "macd"
+contributions = "1"

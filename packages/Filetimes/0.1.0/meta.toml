@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "Filetimes"
+owner = "EchoJulia"
+version = "0.1.0"
+description = "A trivial implementation of FILETIME style timestamps"
+stargazers_count = "0"
+url = "https://github.com/EchoJulia/Filetimes.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "RobBlackwell"
+contributions = "11"

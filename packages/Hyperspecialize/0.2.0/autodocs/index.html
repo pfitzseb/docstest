@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Docstrings · Hyperspecialize.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Hyperspecialize.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Readme</a></li><li class="current"><a class="toctext" href>Docstrings</a><ul class="internal"></ul></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Docstrings</a></li></ul></nav><hr/><div id="topbar"><span>Docstrings</span><a class="fa fa-bars" href="#"></a></div></header><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.@concretization" href="#Hyperspecialize.@concretization"><code>Hyperspecialize.@concretization</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@concretization(typetag)</code></pre><p>Return the set of types corresponding to a type tag.  A type tag is a module-qualified symbol <code>mod.:Key</code> where mod specifies a module and <code>:Key</code> is a symbol.  If just the <code>:Key</code> is given, then the module is assumed to be the module in which the macro was expanded.  If no concretization exists, return nothing.</p><p>A concretization can be set and modified with <code>@concretize</code> and <code>@widen</code></p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @concretization(BestInts)
+nothing
+
+julia&gt; @concretize BestInts [Int32, Int64]
+Set(Type[Int32, Int64])
+
+julia&gt; @concretization BestInts
+Set(Type[Int32, Int64])</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.@concretize" href="#Hyperspecialize.@concretize"><code>Hyperspecialize.@concretize</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@concretize(typetag, types)</code></pre><p>Define the set of types corresponding to a type tag as <code>types</code>, where <code>types</code> is either a single type or any collection that may be passed to a set constructor.  A type tag is a module-qualified symbol <code>mod.:Key</code> where mod specifies a module and <code>:Key</code> is a symbol.  If just the <code>:Key</code> is given, then the module is assumed to be the module in which the macro was expanded.</p><p>Note that you may not concretize a type in another module.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @concretize Main.BestInts [Int32, Int64]
+Set(Type[Int32, Int64])
+
+julia&gt; @concretize BestFloats Float64
+Set(Type[Float64])
+
+julia&gt; @concretize BestStrings (String,)
+Set(Type[String])
+
+julia&gt; @concretization BestInts
+Set(Type[Int32, Int64])</code></pre></div></div><div><div><pre><code class="language-none">@concretize(typetag)</code></pre><p>If no concretization exists, define the set of types corresponding to <code>typetag</code> as the concrete subtypes of whatever type shares the name of <code>Key</code> at load time.  <code>typetag</code> is a type tag, or a module-qualified symbol <code>mod.:Key</code> where mod specifies a module and <code>:Key</code> is a symbol.  If just the <code>:Key</code> is given, then the module is assumed to be the module in which the macro was expanded.</p><p>Note that you may not concretize a type tag in another module.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @concretization(Main.Real)
+nothing
+
+julia&gt; @concretize(Main.Real)
+Set(Type[BigInt, Bool, UInt32, Float64, Float32, Int64, Int128, Float16, UInt128, UInt8, UInt16, BigFloat, Int8, UInt64, Int16, Int32])
+
+julia&gt; @concretize BestInts [Int32, Int64]
+Set(Type[Int32, Int64])
+
+julia&gt; @concretization BestInts
+Set(Type[Int32, Int64])
+
+julia&gt; @concretize NotDefinedHere
+ERROR: cannot create default concretization from type tag Main.NotDefinedHere: not defined.</code></pre></div></div></section><pre><code class="language-none">Hyperspecialize.@isdefined</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.@replicable" href="#Hyperspecialize.@replicable"><code>Hyperspecialize.@replicable</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@replicable block</code></pre><p>Replicate the code in <code>block</code> where each type tag referred to by <code>@hyperspecialize(typetag)</code> is replaced by an element in the concretization of <code>typetag</code>.  <code>block</code> is replicated at global scope in the module where <code>@replicable</code> was expanded once for each combination of types in the concretization of each <code>typetag</code>.  A type tag is a module-qualified symbol <code>mod.:Key</code> where mod specifies a module and <code>:Key</code> is a symbol.  If just the <code>:Key</code> is given, then the module is assumed to be the module in which the macro was expanded.  If no concretization exists for a type tag, create a default concretization consisting of the conrete subtypes of whatever type shares the name of <code>Key</code> at load time.</p><p>If <code>@widen</code> is called for a type tag which has been referenced by a <code>@replicable</code> code block, then that code block will be replicated even more to reflect the new concretization.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @concretize BestInts [Int32, Int64]
+Set(Type[Int32, Int64])
+
+julia&gt; @replicable println(@hyperspecialize(BestInts), @hyperspecialize(BestInts))
+Int32Int32
+Int32Int64
+Int64Int32
+Int64Int64
+
+julia&gt; @widen BestInts (Bool,)
+BoolBool
+BoolInt32
+BoolInt64
+Int32Bool
+Int64Bool
+Set(Type[Bool, Int32, Int64])</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.@widen" href="#Hyperspecialize.@widen"><code>Hyperspecialize.@widen</code></a> — <span class="docstring-category">Macro</span>.</div><div><div><pre><code class="language-none">@widen(typetag, types)</code></pre><p>Expand the set of types corresponding to a type tag to include <code>types</code>, where <code>types</code> is either a single type or any collection that may be passed to a set constructor.  A type tag is a module-qualified symbol <code>mod.:Key</code> where mod specifies a module and <code>:Key</code> is a symbol.  If just the <code>:Key</code> is given, then the module is assumed to be the module in which the macro was expanded.  If no concretization exists, create a default concretization consisting of the conrete subtypes of whatever type shares the name of <code>Key</code> at load time.</p><p>If <code>@widen</code> is called for a type tag which has been referenced by a <code>@replicable</code> code block, then that code block will be replicated even more to reflect the new concretization.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; @concretize BestInts [Int32, Int64]
+Set(Type[Int32, Int64])
+
+julia&gt; @replicable println(@hyperspecialize(BestInts))
+Int32
+Int64
+
+julia&gt; @widen BestInts (Bool, Int32, UInt128)
+Bool
+UInt128
+Set(Type[Bool, UInt128, Int32, Int64])
+
+julia&gt; @concretization BestInts
+Set(Type[Bool, Int8, Int32, Int64, UInt128])</code></pre></div></div></section><pre><code class="language-none">Hyperspecialize.Concretization</code></pre><pre><code class="language-none">Hyperspecialize.Hyperspecialize</code></pre><pre><code class="language-none">Hyperspecialize.Replicable</code></pre><pre><code class="language-none">Hyperspecialize.State</code></pre><pre><code class="language-none">Hyperspecialize._concretization</code></pre><pre><code class="language-none">Hyperspecialize._concretize</code></pre><pre><code class="language-none">Hyperspecialize._define</code></pre><pre><code class="language-none">Hyperspecialize._get_hyperspecialize</code></pre><pre><code class="language-none">Hyperspecialize._is_hyperspecialize</code></pre><pre><code class="language-none">Hyperspecialize._replicable</code></pre><pre><code class="language-none">Hyperspecialize._widen</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.allsubtypes" href="#Hyperspecialize.allsubtypes"><code>Hyperspecialize.allsubtypes</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">allsubtypes(t)</code></pre><p>Return an <code>Array</code> containing all subtypes of <code>t</code> at load time.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; Hyperspecialize.allsubtypes(Real)
+24-element Array{Type,1}:
+ Real
+ AbstractFloat
+ BigFloat
+ Float16
+ Float32
+ Float64
+ AbstractIrrational
+ Irrational
+ Integer
+ Bool
+ Signed
+ BigInt
+ Int128
+ Int16
+ Int32
+ Int64
+ Int8
+ Unsigned
+ UInt128
+ UInt16
+ UInt32
+ UInt64
+ UInt8
+ Rational</code></pre></div></div></section><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Hyperspecialize.concretesubtypes" href="#Hyperspecialize.concretesubtypes"><code>Hyperspecialize.concretesubtypes</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">concretesubtypes(t)</code></pre><p>Return an <code>Array</code> containing all concrete subtypes of <code>t</code> at load time.</p><p><strong>Examples</strong></p><pre><code class="language-julia-repl">julia&gt; Hyperspecialize.concretesubtypes(Real)
+16-element Array{Any,1}:
+ BigFloat
+ Float16
+ Float32
+ Float64
+ Bool
+ BigInt
+ Int128
+ Int16
+ Int32
+ Int64
+ Int8
+ UInt128
+ UInt16
+ UInt32
+ UInt64
+ UInt8</code></pre></div></div></section><pre><code class="language-none">Hyperspecialize.eval</code></pre><pre><code class="language-none">Hyperspecialize.include</code></pre><pre><code class="language-none">Hyperspecialize.parse_element</code></pre><pre><code class="language-none">Hyperspecialize.postwalk</code></pre><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Readme</span></a></footer></article></body></html>

@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "GoogleSheetsCSVExporter"
+owner = "eiel"
+version = "0.1.1"
+description = "Export Google Sheets via CSV"
+stargazers_count = "0"
+url = "https://github.com/eiel/GoogleSheetsCSVExporter.jl.git"
+installs = true
+tags = ["csv", "julia"]
+license = "MIT License"
+
+[[contributors]]
+name = "eiel"
+contributions = "17"

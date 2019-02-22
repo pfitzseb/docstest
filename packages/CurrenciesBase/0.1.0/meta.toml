@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "CurrenciesBase"
+owner = "JuliaFinance"
+version = "0.1.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/JuliaFinance/CurrenciesBase.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "EricForgy"
+contributions = "2"

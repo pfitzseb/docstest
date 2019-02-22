@@ -1,0 +1,123 @@
+license_url = ""
+doctype = "real"
+name = "SpecialFunctions"
+owner = "JuliaMath"
+version = "0.7.2"
+description = "Special mathematical functions in Julia"
+stargazers_count = "50"
+url = "https://github.com/JuliaMath/SpecialFunctions.jl.git"
+installs = true
+tags = ["julia", "math", "special-functions"]
+license = "Other"
+
+[[contributors]]
+name = "JeffBezanson"
+contributions = "40"
+[[contributors]]
+name = "ararslan"
+contributions = "38"
+[[contributors]]
+name = "stevengj"
+contributions = "36"
+[[contributors]]
+name = "tkelman"
+contributions = "26"
+[[contributors]]
+name = "simonbyrne"
+contributions = "15"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "13"
+[[contributors]]
+name = "vtjnash"
+contributions = "8"
+[[contributors]]
+name = "kshyatt"
+contributions = "8"
+[[contributors]]
+name = "musm"
+contributions = "8"
+[[contributors]]
+name = "andreasnoack"
+contributions = "7"
+[[contributors]]
+name = "jakebolewski"
+contributions = "6"
+[[contributors]]
+name = "ViralBShah"
+contributions = "6"
+[[contributors]]
+name = "fredrikekre"
+contributions = "5"
+[[contributors]]
+name = "MichaelHatherly"
+contributions = "4"
+[[contributors]]
+name = "Sumegh-git"
+contributions = "3"
+[[contributors]]
+name = "timholy"
+contributions = "3"
+[[contributors]]
+name = "KristofferC"
+contributions = "3"
+[[contributors]]
+name = "quinnj"
+contributions = "3"
+[[contributors]]
+name = "staticfloat"
+contributions = "2"
+[[contributors]]
+name = "jiahao"
+contributions = "2"
+[[contributors]]
+name = "johnmyleswhite"
+contributions = "2"
+[[contributors]]
+name = "giordano"
+contributions = "2"
+[[contributors]]
+name = "pkofod"
+contributions = "2"
+[[contributors]]
+name = "szcf-weiya"
+contributions = "2"
+[[contributors]]
+name = "ajkeller34"
+contributions = "1"
+[[contributors]]
+name = "hayd"
+contributions = "1"
+[[contributors]]
+name = "xorJane"
+contributions = "1"
+[[contributors]]
+name = "oxinabox"
+contributions = "1"
+[[contributors]]
+name = "martinholters"
+contributions = "1"
+[[contributors]]
+name = "matthew-wingate"
+contributions = "1"
+[[contributors]]
+name = "nalimilan"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "MikaelSlevinsky"
+contributions = "1"
+[[contributors]]
+name = "simonster"
+contributions = "1"
+[[contributors]]
+name = "freeboson"
+contributions = "1"
+[[contributors]]
+name = "yuyichao"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

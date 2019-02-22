@@ -1,0 +1,21 @@
+license_url = ""
+doctype = "default"
+name = "LLLplus"
+owner = "christianpeel"
+version = "1.0.0"
+description = "LLL lattice reduction, sphere decoder, and related lattice tools"
+stargazers_count = "11"
+url = "https://github.com/christianpeel/LLLplus.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "christianpeel"
+contributions = "71"
+[[contributors]]
+name = "rdeits"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

@@ -1,0 +1,27 @@
+license_url = "https://api.github.com/licenses/mpl-2.0"
+doctype = "real"
+name = "StochOptInterface"
+owner = "JuliaStochOpt"
+version = "0.0.1"
+description = "A generic package to write stochastic programs easily"
+stargazers_count = "2"
+url = "https://github.com/JuliaStochOpt/StochOptInterface.jl.git"
+installs = true
+tags = []
+license = "Mozilla Public License 2.0"
+
+[[contributors]]
+name = "blegat"
+contributions = "34"
+[[contributors]]
+name = "frapac"
+contributions = "18"
+[[contributors]]
+name = "Thomartin1"
+contributions = "8"
+[[contributors]]
+name = "leclere"
+contributions = "3"
+[[contributors]]
+name = "gerardcel"
+contributions = "2"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "UnsafeArrays"
+owner = "oschulz"
+version = "0.2.0"
+description = "Stack-allocated pointer-based array views"
+stargazers_count = "10"
+url = "https://github.com/oschulz/UnsafeArrays.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "oschulz"
+contributions = "57"

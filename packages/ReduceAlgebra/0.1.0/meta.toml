@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ReduceAlgebra"
+owner = "JuliaReducePkg"
+version = "0.1.0"
+description = "Meta-package for Reduce.jl and External Packages"
+stargazers_count = "3"
+url = "https://github.com/JuliaReducePkg/ReduceAlgebra.jl.git"
+installs = true
+tags = ["julia", "reduce", "julia-language", "meta-package"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "7"

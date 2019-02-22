@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "EquationsOfState"
+owner = "singularitti"
+version = "1.1.1"
+description = "Julia package for fitting the equation of state of solids under pressure"
+stargazers_count = "0"
+url = "https://github.com/singularitti/EquationsOfState.jl.git"
+installs = true
+tags = ["julia", "scientific-computing", "solid-state-physics", "equation-of-state", "fitting"]
+license = "MIT License"
+
+[[contributors]]
+name = "singularitti"
+contributions = "155"

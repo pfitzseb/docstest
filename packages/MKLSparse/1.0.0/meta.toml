@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "MKLSparse"
+owner = "JuliaSparse"
+version = "1.0.0"
+description = "Make available to Julia the sparse functionality in MKL"
+stargazers_count = "15"
+url = "https://github.com/JuliaSparse/MKLSparse.jl.git"
+installs = true
+tags = ["mkl", "sparse", "high-performance", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "KristofferC"
+contributions = "15"
+[[contributors]]
+name = "dmbates"
+contributions = "6"
+[[contributors]]
+name = "andreasnoack"
+contributions = "6"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

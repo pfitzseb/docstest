@@ -1,0 +1,72 @@
+license_url = ""
+doctype = "default"
+name = "NNlib"
+owner = "FluxML"
+version = "0.4.3"
+description = "No description, website, or topics provided."
+stargazers_count = "26"
+url = "https://github.com/FluxML/NNlib.jl.git"
+installs = true
+tags = ["machine-learning", "deep-learning", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "MikeInnes"
+contributions = "117"
+[[contributors]]
+name = "tejank10"
+contributions = "37"
+[[contributors]]
+name = "avik-pal"
+contributions = "14"
+[[contributors]]
+name = "staticfloat"
+contributions = "11"
+[[contributors]]
+name = "ayush1999"
+contributions = "8"
+[[contributors]]
+name = "maleadt"
+contributions = "4"
+[[contributors]]
+name = "boathit"
+contributions = "4"
+[[contributors]]
+name = "gustafsson"
+contributions = "3"
+[[contributors]]
+name = "KristofferC"
+contributions = "3"
+[[contributors]]
+name = "pevnak"
+contributions = "3"
+[[contributors]]
+name = "Drvi"
+contributions = "3"
+[[contributors]]
+name = "honzabim"
+contributions = "2"
+[[contributors]]
+name = "iblis17"
+contributions = "2"
+[[contributors]]
+name = "jbrea"
+contributions = "2"
+[[contributors]]
+name = "dfdx"
+contributions = "2"
+[[contributors]]
+name = "skariel"
+contributions = "1"
+[[contributors]]
+name = "Keno"
+contributions = "1"
+[[contributors]]
+name = "SimonDanisch"
+contributions = "1"
+[[contributors]]
+name = "chengchingwen"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

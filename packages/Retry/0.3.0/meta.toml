@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "Retry"
+owner = "samoconnor"
+version = "0.3.0"
+description = "Macros for simplified exception handling: @repeat try, @retry, @delay_retry, @protected try, @ignore."
+stargazers_count = "15"
+url = "https://github.com/samoconnor/Retry.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "samoconnor"
+contributions = "30"
+[[contributors]]
+name = "ararslan"
+contributions = "3"
+[[contributors]]
+name = "jingpengw"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"

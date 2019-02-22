@@ -1,0 +1,21 @@
+license_url = "https://api.github.com/licenses/isc"
+doctype = "default"
+name = "NCEI"
+owner = "Nosferican"
+version = "1.0.2"
+description = "Interface for the National Centers for Environmental Information (NCEI) API"
+stargazers_count = "4"
+url = "https://github.com/Nosferican/NCEI.jl.git"
+installs = true
+tags = ["julia", "climate", "weather", "noaa", "api"]
+license = "ISC License"
+
+[[contributors]]
+name = "Nosferican"
+contributions = "91"
+[[contributors]]
+name = "fredrikekre"
+contributions = "1"
+[[contributors]]
+name = "fossabot"
+contributions = "1"

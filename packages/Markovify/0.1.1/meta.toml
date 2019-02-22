@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "Markovify"
+owner = "Eugleo"
+version = "0.1.1"
+description = "Generate random text with help of Markov chains in Julia"
+stargazers_count = "0"
+url = "https://github.com/Eugleo/Markovify.jl.git"
+installs = true
+tags = ["julia", "markov-chain", "text-generation"]
+license = "MIT License"
+
+[[contributors]]
+name = "Eugleo"
+contributions = "82"

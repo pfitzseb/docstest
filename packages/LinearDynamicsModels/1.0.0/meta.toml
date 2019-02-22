@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "LinearDynamicsModels"
+owner = "schmrlng"
+version = "1.0.0"
+description = ""
+stargazers_count = "0"
+url = "https://github.com/schmrlng/LinearDynamicsModels.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "schmrlng"
+contributions = "24"

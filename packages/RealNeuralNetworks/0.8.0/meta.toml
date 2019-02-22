@@ -1,0 +1,18 @@
+license_url = "https://api.github.com/licenses/apache-2.0"
+doctype = "default"
+name = "RealNeuralNetworks"
+owner = "seung-lab"
+version = "0.8.0"
+description = "3D neuron models extracted from labeled image"
+stargazers_count = "1"
+url = "https://github.com/seung-lab/RealNeuralNetworks.jl.git"
+installs = true
+tags = ["neurons", "neuron-morphology", "julia", "nblast", "skeletonization", "connectome"]
+license = "Apache License 2.0"
+
+[[contributors]]
+name = "jingpengw"
+contributions = "219"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "2"

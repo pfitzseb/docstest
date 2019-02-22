@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "PolynomialZeros"
+owner = "jverzani"
+version = "0.2.0"
+description = "Methods to find zeros (roots) of polynomials over given domains"
+stargazers_count = "2"
+url = "https://github.com/jverzani/PolynomialZeros.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "jverzani"
+contributions = "48"

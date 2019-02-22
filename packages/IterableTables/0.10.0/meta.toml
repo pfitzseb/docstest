@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "real"
+name = "IterableTables"
+owner = "queryverse"
+version = "0.10.0"
+description = "Implementations of the TableTraits.jl interface for various packages"
+stargazers_count = "48"
+url = "https://github.com/queryverse/IterableTables.jl.git"
+installs = true
+tags = ["julia", "data"]
+license = "Other"
+
+[[contributors]]
+name = "davidanthoff"
+contributions = "236"
+[[contributors]]
+name = "mkborregaard"
+contributions = "2"
+[[contributors]]
+name = "piever"
+contributions = "2"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"

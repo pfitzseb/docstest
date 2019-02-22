@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "MurmurHash3"
+owner = "JuliaString"
+version = "0.2.0"
+description = "Port of MurmurHash3 to pure Julia, adding support for hashing any AbstractString without converting first"
+stargazers_count = "0"
+url = "https://github.com/JuliaString/MurmurHash3.jl.git"
+installs = true
+tags = ["murmurhash3", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "ScottPJones"
+contributions = "17"

@@ -1,0 +1,69 @@
+license_url = ""
+doctype = "default"
+name = "JavaCall"
+owner = "JuliaInterop"
+version = "0.7.1"
+description = "Call Java from Julia"
+stargazers_count = "64"
+url = "https://github.com/JuliaInterop/JavaCall.jl.git"
+installs = true
+tags = ["java", "julialang", "julia"]
+license = "Other"
+
+[[contributors]]
+name = "aviks"
+contributions = "146"
+[[contributors]]
+name = "dfdx"
+contributions = "16"
+[[contributors]]
+name = "ExpandingMan"
+contributions = "10"
+[[contributors]]
+name = "AndyGreenwell"
+contributions = "3"
+[[contributors]]
+name = "abhijithch"
+contributions = "2"
+[[contributors]]
+name = "waTeim"
+contributions = "2"
+[[contributors]]
+name = "non-Jedi"
+contributions = "1"
+[[contributors]]
+name = "adambrewster"
+contributions = "1"
+[[contributors]]
+name = "zot"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "mdpradeep"
+contributions = "1"
+[[contributors]]
+name = "PallHaraldsson"
+contributions = "1"
+[[contributors]]
+name = "ScottPJones"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "jlep"
+contributions = "1"
+[[contributors]]
+name = "mbeltagy"
+contributions = "1"
+[[contributors]]
+name = "tanmaykm"
+contributions = "1"

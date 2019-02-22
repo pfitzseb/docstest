@@ -1,0 +1,39 @@
+license_url = ""
+doctype = "real"
+name = "FlatBuffers"
+owner = "JuliaData"
+version = "0.4.0"
+description = "A pure Julia implementation of google flatbuffers"
+stargazers_count = "16"
+url = "https://github.com/JuliaData/FlatBuffers.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "rjkat"
+contributions = "59"
+[[contributors]]
+name = "quinnj"
+contributions = "39"
+[[contributors]]
+name = "dmbates"
+contributions = "10"
+[[contributors]]
+name = "visr"
+contributions = "2"
+[[contributors]]
+name = "davidanthoff"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "femtocleaner[bot]"
+contributions = "1"
+[[contributors]]
+name = "samtkaplan"
+contributions = "1"

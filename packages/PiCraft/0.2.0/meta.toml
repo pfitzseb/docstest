@@ -1,0 +1,30 @@
+license_url = ""
+doctype = "default"
+name = "PiCraft"
+owner = "JuliaBerry"
+version = "0.2.0"
+description = "Manipulate Minecraft on the Raspberry Pi from Julia"
+stargazers_count = "14"
+url = "https://github.com/JuliaBerry/PiCraft.jl.git"
+installs = true
+tags = []
+license = "Other"
+
+[[contributors]]
+name = "Ellipse0934"
+contributions = "26"
+[[contributors]]
+name = "aviks"
+contributions = "19"
+[[contributors]]
+name = "barche"
+contributions = "1"
+[[contributors]]
+name = "staticfloat"
+contributions = "1"
+[[contributors]]
+name = "tkelman"
+contributions = "1"
+[[contributors]]
+name = "inkydragon"
+contributions = "1"

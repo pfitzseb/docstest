@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Readme · MATLAB.jl</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>MATLAB.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li class="current"><a class="toctext" href>Readme</a><ul class="internal"><li><a class="toctext" href="#MATLAB-1">MATLAB</a></li><li><a class="toctext" href="#Overview-1">Overview</a></li><li><a class="toctext" href="#Installation-1">Installation</a></li><li><a class="toctext" href="#Usage-1">Usage</a></li></ul></li><li><a class="toctext" href="autodocs/">Docstrings</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Readme</a></li></ul></nav><hr/><div id="topbar"><span>Readme</span><a class="fa fa-bars" href="#"></a></div></header><h2><a class="nav-anchor" id="MATLAB-1" href="#MATLAB-1">MATLAB</a></h2><p>The <code>MATLAB.jl</code> package provides an interface for using <a href="http://www.mathworks.com/products/matlab/">MATLAB™</a> from <a href="http://julialang.org">Julia</a> using the MATLAB C api.  In other words, this package allows users to call MATLAB functions within Julia, thus making it easy to interoperate with MATLAB from the Julia language.</p><p>You cannot use <code>MATLAB.jl</code> without having purchased and installed a copy of MATLAB™ from <a href="http://www.mathworks.com/">MathWorks</a>. This package is available free of charge and in no way replaces or alters any functionality of MathWorks&#39;s MATLAB product.</p><h2><a class="nav-anchor" id="Overview-1" href="#Overview-1">Overview</a></h2><p>Generally, this package is comprised of two aspects:</p><ul><li><p>Creating and manipulating mxArrays (the data structure that MATLAB used to represent arrays and other kinds of data)</p></li><li><p>Communicating with MATLAB engine sessions</p></li></ul><p><strong>Warning</strong>: MATLAB string arrays are not supported, and will throw an error exception. This also applies if they are nested within a MATLAB struct. This is a limitation of the MATLAB C api. The MATLAB function <code>convertContainedStringsToChars</code> may be used to facilitate conversion to a compatible format for use with <code>MATLAB.jl</code>.</p><h2><a class="nav-anchor" id="Installation-1" href="#Installation-1">Installation</a></h2><p><strong>Important</strong>: The procedure to setup this package consists of the following steps.</p><p>By default, <code>MATLAB.jl</code> uses the MATLAB installation with the greatest version number. To specify that a specific MATLAB installation should be used, set the environment variable <code>MATLAB_HOME</code>.</p><h3><a class="nav-anchor" id="Windows-1" href="#Windows-1">Windows</a></h3><ol><li><p>Start a Command Prompt as an Administrator and enter <code>matlab /regserver</code>.</p></li><li><p>From Julia run: <code>Pkg.add(&quot;MATLAB&quot;)</code></p></li></ol><h3><a class="nav-anchor" id="Linux-1" href="#Linux-1">Linux</a></h3><ol><li><p>Make sure <span>$matlab$</span> is in executable path. </p></li><li><p>Make sure <span>$csh$</span> is installed. (Note: MATLAB for Linux relies on <span>$csh$</span> to open an engine session.) </p></li></ol><pre><code class="language-none">To install ``csh`` in Debian/Ubuntu/Linux Mint, you may type in the following command in terminal:
+
+```bash
+sudo apt-get install csh
+```</code></pre><ol><li>From Julia run: <code>Pkg.add(&quot;MATLAB&quot;)</code></li></ol><h3><a class="nav-anchor" id="Mac-OS-X-1" href="#Mac-OS-X-1">Mac OS X</a></h3><ol><li><p>Ensure that MATLAB is installed in <code>/Applications</code> (for example, if you are using MATLAB R2012b, you may add the following command to <code>.profile</code>:  <code>export MATLAB_HOME=/Applications/MATLAB_R2012b.app</code>).</p></li><li><p>From Julia run: <code>Pkg.add(&quot;MATLAB&quot;)</code></p></li></ol><h2><a class="nav-anchor" id="Usage-1" href="#Usage-1">Usage</a></h2><h3><a class="nav-anchor" id="MxArray-class-1" href="#MxArray-class-1">MxArray class</a></h3><p>An instance of <span>$MxArray$</span> encapsulates a MATLAB variable. This package provides a series of functions to manipulate such instances.</p><h4><a class="nav-anchor" id="Create-MATLAB-variables-in-Julia-1" href="#Create-MATLAB-variables-in-Julia-1">Create MATLAB variables in Julia</a></h4><p>One can use the function <span>$mxarray$</span> to create MATLAB variables (of type <span>$MxArray$</span>), as follows</p><pre><code class="language-julia">mxarray(Float64, n)   # creates an n-by-1 MATLAB zero array of double valued type
+mxarray(Int32, m, n)  # creates an m-by-n MATLAB zero array of int32 valued type 
+mxarray(Bool, m, n)   # creates a MATLAB logical array of size m-by-n
+
+mxarray(Float64, (n1, n2, n3))  # creates a MATLAB array of size n1-by-n2-by-n3
+
+mxcellarray(m, n)        # creates a MATLAB cell array
+mxstruct(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)  # creates a MATLAB struct with given fields</code></pre><p>You may also convert a Julia variable to MATLAB variable</p><pre><code class="language-julia">a = rand(m, n)
+
+x = mxarray(a)     # converts a to a MATLAB array
+x = mxarray(1.2)   # converts a scalar 1.2 to a MATLAB variable
+
+a = sprand(m, n, 0.1)
+x = mxarray(a)     # converts a sparse matrix to a MATLAB sparse matrix
+
+x = mxarray(&quot;abc&quot;) # converts a string to a MATLAB char array
+
+x = mxarray([&quot;a&quot;, 1, 2.3])  # converts a Julia array to a MATLAB cell array
+
+x = mxarray(Dict(&quot;a&quot;=&gt;1, &quot;b&quot;=&gt;&quot;string&quot;, &quot;c&quot;=&gt;[1,2,3])) # converts a Julia dictionary to a MATLAB struct</code></pre><p>The function <span>$mxarray$</span> can also convert a compound type to a Julia struct:</p><pre><code class="language-julia">struct S
+    x::Float64
+    y::Vector{Int32}
+    z::Bool
+end
+
+s = S(1.2, Int32[1, 2], false)
+
+x = mxarray(s)   # creates a MATLAB struct with three fields: x, y, z
+xc = mxarray([s, s])  # creates a MATLAB cell array, each cell is a struct.
+xs = mxstructarray([s, s])  # creates a MATLAB array of structs</code></pre><p><strong>Note:</strong> For safety, the conversation between MATLAB and Julia variables uses deep copy.</p><p>When you finish using a MATLAB variable, you may call <span>$delete$</span> to free the memory. But this is optional, it will be deleted when reclaimed by the garbage collector.</p><pre><code class="language-julia">delete(x)</code></pre><p><em>Note:</em> if you put a MATLAB variable <span>$x$</span> to MATLAB engine session, then the MATLAB engine will take over the management of its life cylce, and you don&#39;t have to delete it explicitly.</p><h4><a class="nav-anchor" id="Access-MATLAB-variables-1" href="#Access-MATLAB-variables-1">Access MATLAB variables</a></h4><p>You may access attributes and data of a MATLAB variable through the functions provided by this package.</p><pre><code class="language-julia"># suppose x is of type MxArray
+nrows(x)    # returns number of rows in x
+ncols(x)    # returns number of columns in x 
+nelems(x)   # returns number of elements in x
+ndims(x)    # returns number of dimensions in x
+size(x)     # returns the size of x as a tuple
+size(x, d)  # returns the size of x along a specific dimension
+
+eltype(x)   # returns element type of x (in Julia Type)
+elsize(x)   # return number of bytes per element
+
+data_ptr(x)   # returns pointer to data (in Ptr{T}), where T is eltype(x)
+
+# suppose s is a MATLAB struct
+mxnfields(s)	# returns the number of fields in struct s
+</code></pre><p>You may also make tests on a MATLAB variable.</p><pre><code class="language-julia">is_double(x)   # returns whether x is a double array
+is_sparse(x)   # returns whether x is sparse
+is_complex(x)  # returns whether x is complex
+is_cell(x)     # returns whether x is a cell array
+is_struct(x)   # returns whether x is a struct
+is_empty(x)    # returns whether x is empty
+
+...            # there are many more there</code></pre><h4><a class="nav-anchor" id="Convert-MATLAB-variables-to-Julia-1" href="#Convert-MATLAB-variables-to-Julia-1">Convert MATLAB variables to Julia</a></h4><pre><code class="language-julia">a = jarray(x)   # converts x to a Julia array
+a = jvector(x)  # converts x to a Julia vector (1D array) when x is a vector
+a = jscalar(x)  # converts x to a Julia scalar
+a = jmatrix(x)  # converts x to a Julia matrix
+a = jstring(x)  # converts x to a Julia string
+a = jdict(x)    # converts a MATLAB struct to a Julia dictionary (using fieldnames as keys)
+
+a = jvalue(x)  # converts x to a Julia value in default manner</code></pre><h3><a class="nav-anchor" id="Read/Write-MAT-Files-1" href="#Read/Write-MAT-Files-1">Read/Write MAT Files</a></h3><p>This package provides functions to manipulate MATLAB&#39;s mat files:</p><pre><code class="language-julia">mf = MatFile(filename, mode)    # opens a MAT file using a specific mode, and returns a handle
+mf = MatFile(filename)          # opens a MAT file for reading, equivalent to MatFile(filename, &quot;r&quot;)
+close(mf)                       # closes a MAT file.
+
+get_mvariable(mf, name)   # gets a variable and returns an mxArray
+get_variable(mf, name)    # gets a variable, but converts it to a Julia value using `jvalue`
+
+put_variable(mf, name, v)   # puts a variable v to the MAT file
+                            # v can be either an MxArray instance or normal variable
+                            # If v is not an MxArray, it will be converted using `mxarray`
+
+put_variables(mf; name1=v1, name2=v2, ...)  # put multiple variables using keyword arguments
+
+variable_names(mf)   # get a vector of all variable names in a MAT file</code></pre><p>There are also convenient functions that can get/put all variables in one call:</p><pre><code class="language-julia">read_matfile(filename)    # returns a dictionary that maps each variable name
+                          # to an MxArray instance
+
+write_matfile(filename; name1=v1, name2=v2, ...)  # writes all variables given in the
+                                                  # keyword argument list to a MAT file</code></pre><p>Both <span>$read_matfile$</span> and <span>$write_matfile$</span> will close the MAT file handle before returning. </p><p><strong>Examples:</strong></p><pre><code class="language-julia">struct S
+    x::Float64
+    y::Bool
+    z::Vector{Float64}
+end
+
+write_matfile(&quot;test.mat&quot;; 
+    a = Int32[1 2 3; 4 5 6], 
+    b = [1.2, 3.4, 5.6, 7.8], 
+    c = [[0.0, 1.0], [1.0, 2.0], [1.0, 2.0, 3.0]], 
+    d = Dict(&quot;name&quot;=&gt;&quot;MATLAB&quot;, &quot;score&quot;=&gt;100.0), 
+    s = &quot;abcde&quot;,
+    ss = [S(1.0, true, [1., 2.]), S(2.0, false, [3., 4.])] )</code></pre><p>This example will create a MAT file called <span>$test.mat$</span>, which contains six MATLAB variables:</p><ul><li><span>$a$</span>: a 2-by-3 int32 array</li><li><span>$b$</span>: a 4-by-1 double array</li><li><span>$c$</span>: a 3-by-1 cell array, each cell contains a double vector</li><li><span>$d$</span>: a struct with two fields: name and score</li><li><span>$s$</span>: a string (i.e. char array)</li><li><span>$ss$</span>: an array of structs with two elements, and three fields: x, y, and z.</li></ul><h3><a class="nav-anchor" id="Use-MATLAB-Engine-1" href="#Use-MATLAB-Engine-1">Use MATLAB Engine</a></h3><h4><a class="nav-anchor" id="Basic-Use-1" href="#Basic-Use-1">Basic Use</a></h4><p>To evaluate expressions in MATLAB, one may open a MATLAB engine session and communicate with it. There are three ways to call MATLAB from Julia:</p><ul><li>The <code>mat&quot;&quot;</code> custom string literal allows you to write MATLAB syntax inside Julia and use Julia variables directly from MATLAB via interpolation</li><li>The <code>eval_string</code> evaluate a string containing MATLAB expressions (typically used with the helper macros <code>@mget</code> and <code>@mput</code></li><li>The <code>mxcall</code> function calls a given MATLAB function and returns the result</li></ul><p>In general, the <code>mat&quot;&quot;</code> custom string literal is the preferred method to interact with the MATLAB engine.</p><p><em>Note:</em> There can be multiple (reasonable) ways to convert a MATLAB variable to Julia array. For example, MATLAB represents a scalar using a 1-by-1 matrix. Here we have two choices in terms of converting such a matrix back to Julia: (1) convert to a scalar number, or (2) convert to a matrix of size 1-by-1.</p><h5><a class="nav-anchor" id="The-mat&quot;&quot;-custom-string-literal-1" href="#The-mat&quot;&quot;-custom-string-literal-1">The <code>mat&quot;&quot;</code> custom string literal</a></h5><p>Text inside the <code>mat&quot;&quot;</code> custom string literal is in MATLAB syntax. Variables from Julia can be &quot;interpolated&quot; into MATLAB code by prefixing them with a dollar sign as you would interpolate them into an ordinary string.</p><pre><code class="language-julia">using MATLAB
+
+x = range(-10.0, stop=10.0, length=500)
+mat&quot;plot($x, sin($x))&quot;  # evaluate a MATLAB function
+
+y = range(2.0, stop=3.0, length=500)
+mat&quot;&quot;&quot;
+    $u = $x + $y
+	$v = $x - $y
+&quot;&quot;&quot;
+@show u v               # u and v are accessible from Julia</code></pre><p>As with ordinary string literals, you can also interpolate whole Julia expressions, e.g. <code>mat&quot;$(x[1]) = $(x[2]) + $(binomial(5, 2))&quot;</code>.</p><h5><a class="nav-anchor" id="eval_string-1" href="#eval_string-1"><code>eval_string</code></a></h5><p>You may also use the <code>eval_string</code> function to evaluate MATLAB code as follows		</p><pre><code class="language-julia">eval_string(&quot;a = sum([1,2,3])&quot;)</code></pre><p>The <code>eval_string</code> function also takes an optional argument that specifies which MATLAB session to evaluate the code in, e.g.</p><pre><code class="language-julia">julia&gt; s = MSession();
+julia&gt; eval_string(s, &quot;a = sum([1,2,3])&quot;)
+a =
+     6</code></pre><h5><a class="nav-anchor" id="mxcall-1" href="#mxcall-1"><code>mxcall</code></a></h5><p>You may also directly call a MATLAB function on Julia variables using <code>mxcall</code>:</p><pre><code class="language-julia">x = -10.0:0.1:10.0
+y = -10.0:0.1:10.0
+xx, yy = mxcall(:meshgrid, 2, x, y)</code></pre><p><em>Note:</em> Since MATLAB functions behavior depends on the number of outputs, you have to specify the number of output arguments in <span>$mxcall$</span> as the second argument.</p><p><span>$mxcall$</span> puts the input arguments to the MATLAB workspace (using mangled names), evaluates the function call in MATLAB, and retrieves the variable from the MATLAB session. This function is mainly provided for convenience. However, you should keep in mind that it may incur considerable overhead due to the communication between MATLAB and Julia domain.</p><h5><a class="nav-anchor" id="@mget-and-@mput-1" href="#@mget-and-@mput-1"><code>@mget</code> and <code>@mput</code></a></h5><p>The macro <code>@mget</code> can be used to extract the value of a MATLAB variable into Julia </p><pre><code class="language-julia">julia&gt; mat&quot;a = 6&quot;
+julia&gt; @mget a
+6.0</code></pre><p>The macro <code>@mput</code> can be used to translate a Julia variable into MATLAB</p><pre><code class="language-julia">julia&gt; x = [1,2,3]
+julia&gt; @mput x
+julia&gt; eval_string(&quot;y = sum(x)&quot;)
+julia&gt; @mget y
+6.0
+julia&gt; @show y
+a = 63.0</code></pre><h4><a class="nav-anchor" id="Viewing-the-MATLAB-Session-(Windows-only)-1" href="#Viewing-the-MATLAB-Session-(Windows-only)-1">Viewing the MATLAB Session (Windows only)</a></h4><p>To open an interactive window for the MATLAB session, use the command <code>show_msession()</code> and to hide the window, use <code>hide_msession()</code>. <em>Warning: manually closing this window will result in an error or result in a segfault; it is advised that you only use the <code>hide_msession()</code> command to hide the interactive window.</em></p><p>Note that this feature only works on Windows.</p><pre><code class="language-julia"># default
+show_msession() # open the default MATLAB session interactive window
+get_msession_visiblity() # get the session&#39;s visibility state
+hide_msession() # hide the default MATLAB session interactive window
+
+# similarily
+s = MSession()
+show_msession(s)
+get_msession_visiblity(a)
+hide_msession(s)</code></pre><h4><a class="nav-anchor" id="Advanced-use-of-MATLAB-Engines-1" href="#Advanced-use-of-MATLAB-Engines-1">Advanced use of MATLAB Engines</a></h4><p>This package provides a series of functions for users to control the communication with MATLAB sessions.</p><p>Here is an example:</p><pre><code class="language-julia">s1 = MSession()    # creates a MATLAB session
+s2 = MSession(0)   # creates a MATLAB session without recording output
+
+x = rand(3, 4)
+put_variable(s1, :x, x)  # put x to session s1
+
+y = rand(2, 3)
+put_variable(s2, :y, y)  # put y to session s2
+
+eval_string(s1, &quot;r = sin(x)&quot;)  # evaluate sin(x) in session s1
+eval_string(s2, &quot;r = sin(y)&quot;)  # evaluate sin(y) in session s2
+
+r1_mx = get_mvariable(s1, :r)  # get r from s1
+r2_mx = get_mvariable(s2, :r)  # get r from s2
+
+r1 = jarray(r1_mx)
+r2 = jarray(r2_mx)
+
+# ... do other stuff on r1 and r2
+
+close(s1)  # close session s1
+close(s2)  # close session s2</code></pre><footer><hr/><a class="next" href="autodocs/"><span class="direction">Next</span><span class="title">Docstrings</span></a></footer></article></body></html>

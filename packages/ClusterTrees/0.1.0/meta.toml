@@ -1,0 +1,15 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "ClusterTrees"
+owner = "krcools"
+version = "0.1.0"
+description = "Tree data structures for Fast Multipole Methods and H-Matrices"
+stargazers_count = "0"
+url = "https://github.com/krcools/ClusterTrees.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "krcools"
+contributions = "5"

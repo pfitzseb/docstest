@@ -1,0 +1,33 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "real"
+name = "MLDatasets"
+owner = "JuliaML"
+version = "0.3.0"
+description = "Utility package for accessing common Machine Learning datasets in Julia"
+stargazers_count = "65"
+url = "https://github.com/JuliaML/MLDatasets.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "Evizero"
+contributions = "54"
+[[contributors]]
+name = "hshindo"
+contributions = "36"
+[[contributors]]
+name = "alyst"
+contributions = "8"
+[[contributors]]
+name = "CarloLucibello"
+contributions = "6"
+[[contributors]]
+name = "jgoldfar"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "goto-keisuke"
+contributions = "1"

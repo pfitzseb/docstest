@@ -1,0 +1,24 @@
+license_url = ""
+doctype = "default"
+name = "ExponentialUtilities"
+owner = "JuliaDiffEq"
+version = "1.3.0"
+description = "Utility functions for exponential integrators"
+stargazers_count = "3"
+url = "https://github.com/JuliaDiffEq/ExponentialUtilities.jl.git"
+installs = true
+tags = ["julia", "high-performance", "exponential", "krylov", "krylov-methods", "krylov-subspace-methods"]
+license = "Other"
+
+[[contributors]]
+name = "MSeeker1340"
+contributions = "30"
+[[contributors]]
+name = "jagot"
+contributions = "17"
+[[contributors]]
+name = "chiyahn"
+contributions = "2"
+[[contributors]]
+name = "ChrisRackauckas"
+contributions = "2"

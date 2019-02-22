@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "StrFs"
+owner = "tpapp"
+version = "0.3.0"
+description = "Julia packages for strings with fixed maximum number of bytes."
+stargazers_count = "0"
+url = "https://github.com/tpapp/StrFs.jl.git"
+installs = true
+tags = ["julia", "string", "fixed-width", "stata"]
+license = "Other"
+
+[[contributors]]
+name = "tpapp"
+contributions = "23"

@@ -1,0 +1,15 @@
+license_url = ""
+doctype = "default"
+name = "ReduceLinAlg"
+owner = "JuliaReducePkg"
+version = "0.1.0"
+description = "A selection of functions that are useful in the world of linear algebra"
+stargazers_count = "3"
+url = "https://github.com/JuliaReducePkg/ReduceLinAlg.jl.git"
+installs = true
+tags = ["julia", "reduce", "linear-algebra", "symbolic-computation", "linear-algebra-library", "linear-algebra-subprograms", "linalg"]
+license = "Other"
+
+[[contributors]]
+name = "chakravala"
+contributions = "11"

@@ -1,0 +1,66 @@
+license_url = "https://api.github.com/licenses/mit"
+doctype = "default"
+name = "SuiteSparse"
+owner = "JuliaLinearAlgebra"
+version = "0.1.0"
+description = "SuiteSparse wrappers in Julia"
+stargazers_count = "1"
+url = "https://github.com/JuliaLinearAlgebra/SuiteSparse.jl.git"
+installs = true
+tags = []
+license = "MIT License"
+
+[[contributors]]
+name = "andreasnoack"
+contributions = "17"
+[[contributors]]
+name = "Sacha0"
+contributions = "17"
+[[contributors]]
+name = "fredrikekre"
+contributions = "7"
+[[contributors]]
+name = "JeffBezanson"
+contributions = "7"
+[[contributors]]
+name = "StefanKarpinski"
+contributions = "6"
+[[contributors]]
+name = "nalimilan"
+contributions = "5"
+[[contributors]]
+name = "rfourquet"
+contributions = "4"
+[[contributors]]
+name = "c42f"
+contributions = "3"
+[[contributors]]
+name = "ararslan"
+contributions = "2"
+[[contributors]]
+name = "twadleigh"
+contributions = "2"
+[[contributors]]
+name = "vchuravy"
+contributions = "2"
+[[contributors]]
+name = "KlausC"
+contributions = "1"
+[[contributors]]
+name = "KristofferC"
+contributions = "1"
+[[contributors]]
+name = "mbauman"
+contributions = "1"
+[[contributors]]
+name = "mortenpi"
+contributions = "1"
+[[contributors]]
+name = "simonbyrne"
+contributions = "1"
+[[contributors]]
+name = "timholy"
+contributions = "1"
+[[contributors]]
+name = "ViralBShah"
+contributions = "1"
